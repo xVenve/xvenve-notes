@@ -4,10 +4,10 @@
 
 [Notas](https://www.notion.so/Notas-d4dc05f7110a4805bd82047088f79223)
 
-Teorías: Antonio Berlanga de Jesús y Jesus García Herrero
+Teorías: Antonio Berlanga de Jesús y Jesu<img src="Procesadores del Lenguaje/2021-03-05 17_56_06-Procesadores del Lenguaje.png" style="zoom:200%;" />s García Herrero
 Prácticas: Juan Manuel Alonso Weber jmaw@ia.uc3m.es
 
-![image-20210305175910893](Procesadores del Lenguaje/image-20210305175910893.png)
+![image-20210305175910893](Procesadores%20del%20Lenguaje/image-20210305175910893.png)
 
 ![2021-03-05 17_56_06-Procesadores del Lenguaje](D:\Documents\Gits\notes\3.2 PL\Procesadores del Lenguaje\2021-03-05 17_56_06-Procesadores del Lenguaje.png)
 
