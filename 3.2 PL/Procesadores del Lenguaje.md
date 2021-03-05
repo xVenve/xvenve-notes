@@ -563,7 +563,7 @@ Criterio: Se utilizan heurística para dar prioridad al token que concuerda con 
 
 En el caso se puede concordar a varios tokens se asocia al que esté en primer lugar.
 
-<img src="Procesadores del Lenguaje/image-20210305191616426.png" alt="image-20210305191616426" style="zoom: 50%;" />![image-20210305191651759](Procesadores del Lenguaje/image-20210305191651759.png)<img src="Procesadores del Lenguaje/image-20210305191616426.png" alt="image-20210305191616426" style="zoom: 50%;" />![image-20210305191651759](Procesadores del Lenguaje/image-20210305191651759.png)
+<img src="Procesadores del Lenguaje/image-20210305191616426.png" alt="image-20210305191616426" style="zoom: 50%;" /><img src="Procesadores del Lenguaje/image-20210305191651759.png" alt="image-20210305191651759" style="zoom:50%;" /><img src="Procesadores del Lenguaje/image-20210305191616426.png" alt="image-20210305191616426" style="zoom: 50%;" /><img src="Procesadores del Lenguaje/image-20210305191651759.png" alt="image-20210305191651759" style="zoom:50%;" />
 
 ### AL y Lenguajes de Programación
 
