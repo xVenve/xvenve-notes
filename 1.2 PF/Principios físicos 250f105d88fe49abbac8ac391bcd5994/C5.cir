@@ -1,0 +1,23 @@
+* W:\Universidad\Primero\2º. Cuatrimestre\PRINCIPIOS FISICOS DE LA INGENIERÍA INFORMATICA\PSPICE\Sesion0\C5.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Fri Mar 29 16:22:54 2019
+
+
+
+** Analysis setup **
+.tran 0 8
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "C5.net"
+.INC "C5.als"
+
+
+.probe
+
+
+.END

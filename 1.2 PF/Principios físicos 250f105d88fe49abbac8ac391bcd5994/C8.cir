@@ -1,0 +1,23 @@
+* W:\Universidad\Primero\2º. Cuatrimestre\PRINCIPIOS FISICOS DE LA INGENIERÍA INFORMATICA\PSPICE\Sesion0\C8.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Fri Apr 12 16:20:56 2019
+
+
+
+** Analysis setup **
+.ac LIN 101 10 1.00meg
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "C8.net"
+.INC "C8.als"
+
+
+.probe
+
+
+.END
