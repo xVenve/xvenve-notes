@@ -7,7 +7,7 @@
 Teorías: Antonio Berlanga de Jesús y Jesu<img src="Procesadores del Lenguaje/2021-03-05 17_56_06-Procesadores del Lenguaje.png" style="zoom:200%;" />s García Herrero
 Prácticas: Juan Manuel Alonso Weber jmaw@ia.uc3m.es
 
-![image-20210305175910893](Procesadores%20del%20Lenguaje/image-20210305175910893.png)
+![image-20210305175910893](PL/image-20210305175910893.png)
 
 ![2021-03-05 17_56_06-Procesadores del Lenguaje](D:\Documents\Gits\notes\3.2 PL\Procesadores del Lenguaje\2021-03-05 17_56_06-Procesadores del Lenguaje.png)
 
@@ -19,7 +19,7 @@ Prácticas: Juan Manuel Alonso Weber jmaw@ia.uc3m.es
 
 
 
-![image-20210305180219675](Procesadores%20del%20Lenguaje/image-20210305180219675.png)
+![image-20210305180219675](PL/image-20210305180219675.png)
 
 Practicas semanales de 2 en 2.
 
@@ -31,7 +31,7 @@ Vamos a usar bison y flex, programaremos en C. El editor de texto que queramos.
 
 # Repaso de TALF
 
-[RepasoTALF.pdf](Procesadores%20del%20Lenguaje/G1ab.pdf)
+[RepasoTALF.pdf](PL/G1ab.pdf)
 
 ## Definiciones
 
@@ -103,7 +103,7 @@ Cualquier sentencia para dar cualquier secuencia de símbolos, incluso reglas re
 
 **Precedencia**: Hay operadores con mayor prioridad. Se debe hacer desde lo ultimo derivado hacia arriba.  Esto provoca ambigüedad, que es nuestro enemigo.
 
-![Procesadores%20del%20Lenguaje/Untitled.png](Procesadores%20del%20Lenguaje/Untitled.png)
+![PL/Untitled.png](PL/Untitled.png)
 
 **Dangling Else**: Sobre a quien pertenece el else, en C el else pertenece al ultimo else.
 
@@ -155,7 +155,7 @@ Cuando hay una estructura común en las reglas de producción.
 
 Se crea un nuevo No terminal para dar los símbolos que acompañan a esa parte común, en el original se pone la parte común seguida del nuevo símbolo.
 
-![Procesadores%20del%20Lenguaje/Untitled%201.png](Procesadores%20del%20Lenguaje/Untitled%201.png)
+![PL/Untitled%201.png](PL/Untitled%201.png)
 
 **Eliminar recursividad por la izquierda**
 
@@ -165,7 +165,7 @@ A la reglas no recursivas a izquierda se le concatena un nuevo No Terminal (quit
 
 Ese nuevo símbolo produce $\lambda$ y lo que producía originalmente que era recursivo a izquierda pero en recursividad a la derecha.
 
-![Procesadores%20del%20Lenguaje/Untitled%202.png](Procesadores%20del%20Lenguaje/Untitled%202.png)
+![PL/Untitled%202.png](PL/Untitled%202.png)
 
 **Autómata Finito Determinista**
 
@@ -183,7 +183,7 @@ $F \subseteq Q$ Estados finales.
 
 $f(q,a \cdot x)$ Función de transición. Con un estado y un símbolo, voy a un estado.
 
-![Procesadores%20del%20Lenguaje/Untitled%203.png](Procesadores%20del%20Lenguaje/Untitled%203.png)
+![PL/Untitled%203.png](PL/Untitled%203.png)
 
 Extension a palabras: Recibe una palabra y va cogiendo los símbolos de entrada, y aplicando reglas sucesivas. Palabras que partiendo del inicial nos permite llegar a uno final.
 
@@ -203,7 +203,7 @@ $AFND=( \sum, Q, f, q_o, F)$ Los símbolos representan lo mismo que en AFD.
 
 En este caso se permite transicionar sin recibir símbolo, lambda, además varias transiciones para un mismo símbolo en un mismo estado.
 
-![Procesadores%20del%20Lenguaje/Untitled%204.png](Procesadores%20del%20Lenguaje/Untitled%204.png)
+![PL/Untitled%204.png](PL/Untitled%204.png)
 
 Para cualquier AFD existe uno no determinista equivalente.
 
@@ -259,11 +259,11 @@ $[a-z] = a|b|...|z$
 
 Dos EERR son equivalentes si describen el mismo lenguaje.
 
-![Procesadores%20del%20Lenguaje/Untitled%205.png](Procesadores%20del%20Lenguaje/Untitled%205.png)
+![PL/Untitled%205.png](PL/Untitled%205.png)
 
-![Procesadores%20del%20Lenguaje/Untitled%206.png](Procesadores%20del%20Lenguaje/Untitled%206.png)
+![PL/Untitled%206.png](PL/Untitled%206.png)
 
-![Procesadores%20del%20Lenguaje/Untitled%207.png](Procesadores%20del%20Lenguaje/Untitled%207.png)
+![PL/Untitled%207.png](PL/Untitled%207.png)
 
 Inferencia: Si X=AX+B entonces X=A*B
 
@@ -271,7 +271,7 @@ Inferencia: Si X=AX+B entonces X=A*B
 
 **Compilador**: Proceso de traducción que convierte un programa fuente escrito en un lenguaje de alto nivel a un programa objeto en código maquina y listo por tanto para ejecutarse en el ordenador. Solo se genera el programa objeto cuando no hay errores.
 
-![Procesadores%20del%20Lenguaje/Untitled%208.png](Procesadores%20del%20Lenguaje/Untitled%208.png)
+![PL/Untitled%208.png](PL/Untitled%208.png)
 
 **Programa fuente  → Compilador → Programa objeto/Mensajes de error.**
 
@@ -333,13 +333,13 @@ Una pasada es un recorrido total de todo el código fuente con una misión espec
 
 ## Compilación
 
-![Procesadores%20del%20Lenguaje/Untitled%209.png](Procesadores%20del%20Lenguaje/Untitled%209.png)
+![PL/Untitled%209.png](PL/Untitled%209.png)
 
-![Procesadores%20del%20Lenguaje/Untitled%2010.png](Procesadores%20del%20Lenguaje/Untitled%2010.png)
+![PL/Untitled%2010.png](PL/Untitled%2010.png)
 
 Antes del pasar al compilador se pasa al **preprocesador que hace muchas funciones**, entre ellas, sustituir las variables constantes por su valor y quita los comentarios. Cuando termina pasa el programa fuente al compilador.
 
-![Procesadores%20del%20Lenguaje/Untitled%2011.png](Procesadores%20del%20Lenguaje/Untitled%2011.png)
+![PL/Untitled%2011.png](PL/Untitled%2011.png)
 
 **Análisis**: Parte que solo depende de la estructura del lenguaje. No depende de la arquitectura.
 
@@ -353,7 +353,7 @@ Antes del pasar al compilador se pasa al **preprocesador que hace muchas funcion
 
 Análisis lineal: La cadena de entrada se lee de izquierda a derecha y se agrupa en componentes léxicos (tokens)
 
-![Procesadores%20del%20Lenguaje/Untitled%2012.png](Procesadores%20del%20Lenguaje/Untitled%2012.png)
+![PL/Untitled%2012.png](PL/Untitled%2012.png)
 
 **Analizador sintáctico:** Agrupa los componentes léxico en frases gramaticales que el compilador utiliza. A partir de los tokens produce un árbol sintáctico.
 
@@ -361,7 +361,7 @@ Recibe tokens → crea un árbol.
 
 En las hojas tiene los terminales en la manera en la que identifica el token.
 
-![Procesadores%20del%20Lenguaje/Untitled%2013.png](Procesadores%20del%20Lenguaje/Untitled%2013.png)
+![PL/Untitled%2013.png](PL/Untitled%2013.png)
 
 **Analizador semántico:** Busca errores semánticos, reúne información de tipos; identifica operadores y operandos.
 
@@ -369,11 +369,11 @@ Recibe el árbol sintáctico explícita o implícitamente, y trata de determinar
 
 **Generador de código**: A veces se encuentra en análisis y otras en generación. Convierte el árbol en instrucciones, código intermedio(ensamblador). El recorrido es importante ya que al generar código no se ve la jerarquía. Por ejemplo: Primero se tienen que hacer las operaciones antes de asignar el valor.
 
-![Procesadores%20del%20Lenguaje/Untitled%2014.png](Procesadores%20del%20Lenguaje/Untitled%2014.png)
+![PL/Untitled%2014.png](PL/Untitled%2014.png)
 
 **Optimizador:** Trata de darse cuenta de subárboles comunes para no repetir operaciones en las que no cambian variables. En vez de volver a poner esa estructura apunta a ella.
 
-![Procesadores%20del%20Lenguaje/Untitled%2015.png](Procesadores%20del%20Lenguaje/Untitled%2015.png)
+![PL/Untitled%2015.png](PL/Untitled%2015.png)
 
 **Generador de código:** El uso de código intermedio reduce la complejidad del desarrollo de compiladores. m front ends y n back-ends comparten un código intermedio común.
 
@@ -389,33 +389,33 @@ Está formado por piezas que deben encajar, encajan según unas reglas de formac
 
 La máquina y el lenguaje deben coincidir.
 
-![Procesadores%20del%20Lenguaje/Untitled%2016.png](Procesadores%20del%20Lenguaje/Untitled%2016.png)
+![PL/Untitled%2016.png](PL/Untitled%2016.png)
 
-![Procesadores%20del%20Lenguaje/Untitled%2017.png](Procesadores%20del%20Lenguaje/Untitled%2017.png)
+![PL/Untitled%2017.png](PL/Untitled%2017.png)
 
-![Procesadores%20del%20Lenguaje/Untitled%2018.png](Procesadores%20del%20Lenguaje/Untitled%2018.png)
+![PL/Untitled%2018.png](PL/Untitled%2018.png)
 
-![Procesadores%20del%20Lenguaje/Untitled%2019.png](Procesadores%20del%20Lenguaje/Untitled%2019.png)
+![PL/Untitled%2019.png](PL/Untitled%2019.png)
 
-![Procesadores%20del%20Lenguaje/Untitled%2020.png](Procesadores%20del%20Lenguaje/Untitled%2020.png)
+![PL/Untitled%2020.png](PL/Untitled%2020.png)
 
-![Procesadores%20del%20Lenguaje/Untitled%2021.png](Procesadores%20del%20Lenguaje/Untitled%2021.png)
+![PL/Untitled%2021.png](PL/Untitled%2021.png)
 
-![Procesadores%20del%20Lenguaje/Untitled%2022.png](Procesadores%20del%20Lenguaje/Untitled%2022.png)
+![PL/Untitled%2022.png](PL/Untitled%2022.png)
 
-![Procesadores%20del%20Lenguaje/Untitled%2023.png](Procesadores%20del%20Lenguaje/Untitled%2023.png)
+![PL/Untitled%2023.png](PL/Untitled%2023.png)
 
-![Procesadores%20del%20Lenguaje/Untitled%2024.png](Procesadores%20del%20Lenguaje/Untitled%2024.png)
+![PL/Untitled%2024.png](PL/Untitled%2024.png)
 
 - Ejemplos:
 
-    ![Procesadores%20del%20Lenguaje/Untitled%2025.png](Procesadores%20del%20Lenguaje/Untitled%2025.png)
+    ![PL/Untitled%2025.png](PL/Untitled%2025.png)
 
-    ![Procesadores%20del%20Lenguaje/Untitled%2026.png](Procesadores%20del%20Lenguaje/Untitled%2026.png)
+    ![PL/Untitled%2026.png](PL/Untitled%2026.png)
 
 # Tema 2: Análisis Léxico
 
-![Procesadores%20del%20Lenguaje/Untitled%2027.png](Procesadores%20del%20Lenguaje/Untitled%2027.png)
+![PL/Untitled%2027.png](PL/Untitled%2027.png)
 
 ## **Funciones del Análisis Léxico**
 
@@ -471,9 +471,9 @@ Se pueden usar Expresiones regulares o Autómatas Finitos.
 
 Los atributos de los identificadores se pueden guardar en la tablas de símbolos. Los otros en otra tabla.
 
-![Procesadores%20del%20Lenguaje/Untitled%2028.png](Procesadores%20del%20Lenguaje/Untitled%2028.png)
+![PL/Untitled%2028.png](PL/Untitled%2028.png)
 
-![Procesadores%20del%20Lenguaje/Untitled%2029.png](Procesadores%20del%20Lenguaje/Untitled%2029.png)
+![PL/Untitled%2029.png](PL/Untitled%2029.png)
 
 Un AF no devuelve el token, se usa otra cosa para que nos de el token cuando reconoce símbolos.
 
@@ -495,7 +495,7 @@ De los estados de aceptación no salen transiciones, necesita una transición ma
 
 Esto quiere decir que aquello estados que son terminales y pueden transitar a otro estado tengan una transición para otro tipo de carácter que hace que salga como final.
 
-![Procesadores%20del%20Lenguaje/Untitled%2030.png](Procesadores%20del%20Lenguaje/Untitled%2030.png)
+![PL/Untitled%2030.png](PL/Untitled%2030.png)
 
 ## **Construcción de un AFD para AL**
 
@@ -507,7 +507,7 @@ Normalmente se parte de representación de las reglas de tokens con expresiones 
 
 ### Tabla de Transiciones de DT
 
-![Procesadores%20del%20Lenguaje/Untitled%2031.png](Procesadores%20del%20Lenguaje/Untitled%2031.png)
+![PL/Untitled%2031.png](PL/Untitled%2031.png)
 
 ## Autómata programado
 
@@ -515,7 +515,7 @@ Es la manera de programar un Analizador Léxico.
 
 Representa directamente con un programa al DT en cuestión.
 
-![Procesadores%20del%20Lenguaje/Untitled%2032.png](Procesadores%20del%20Lenguaje/Untitled%2032.png)
+![PL/Untitled%2032.png](PL/Untitled%2032.png)
 
 ## Implementación de un AL
 
@@ -553,7 +553,7 @@ Dos punteros de lectura:
 
 **Puntero de búsqueda**: El ultimo carácter leído.
 
-![Procesadores%20del%20Lenguaje/Untitled%2033.png](Procesadores%20del%20Lenguaje/Untitled%2033.png)
+![PL/Untitled%2033.png](PL/Untitled%2033.png)
 
 **Funciones de lectura**: GetChar(avanza uno del avanzado y da el valor), Fail(Mueve el puntero avanzado de vuelta al aceptado), Retract (mueve el puntero avanzado uno atrás) y Accept(mueve el puntero actual hasta el avanzado).
 
@@ -586,4 +586,4 @@ En caso de error:
 
 # Recursos
 
-[LibroCompiladores.pdf](Procesadores%20del%20Lenguaje/82b023f9736138ad1bfdba842c04b6ce.pdf)
+[LibroCompiladores.pdf](PL/82b023f9736138ad1bfdba842c04b6ce.pdf)
