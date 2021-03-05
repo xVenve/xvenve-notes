@@ -1,5 +1,0 @@
-* Schematics Aliases *
-
-.ALIASES
-.ENDALIASES
-
