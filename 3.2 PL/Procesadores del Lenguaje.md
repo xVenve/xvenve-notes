@@ -7,6 +7,10 @@
 Teorías: Antonio Berlanga de Jesús y Jesus García Herrero
 Prácticas: Juan Manuel Alonso Weber jmaw@ia.uc3m.es
 
+![2021-03-05 17_56_06-Procesadores del Lenguaje](D:\Documents\Gits\notes\3.2 PL\Procesadores del Lenguaje\2021-03-05 17_56_06-Procesadores del Lenguaje.png)
+
+![image-20210305175518922](D:\Documents\Gits\notes\3.2 PL\Procesadores del Lenguaje\image-20210305175518922.png)
+
 # Presentación
 
 Practicas semanales de 2 en 2.
@@ -15,7 +19,7 @@ Hay clases en el cronograma de mas, algunas se usaran para recuperar.
 
 Las practicas las hacemos en Linux, vale, maquina virtual, guernika y se puede hacer en WSL2. Lo importante es tener un terminal.
 
-Vamos a usar bison y flex, programaremos en c. El editor de texto que queramos.
+Vamos a usar bison y flex, programaremos en C. El editor de texto que queramos.
 
 # Repaso de TALF
 
