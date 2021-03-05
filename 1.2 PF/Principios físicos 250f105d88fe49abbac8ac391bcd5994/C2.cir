@@ -1,0 +1,22 @@
+* F:\PSPICE\Sesion0\C2.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Sun Mar 17 13:06:49 2019
+
+
+
+** Analysis setup **
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "C2.net"
+.INC "C2.als"
+
+
+.probe
+
+
+.END
