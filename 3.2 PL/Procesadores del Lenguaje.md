@@ -15,6 +15,12 @@ Prácticas: Juan Manuel Alonso Weber jmaw@ia.uc3m.es
 
 # Presentación
 
+![image-20210305180214698](Procesadores del Lenguaje/image-20210305180214698.png)
+
+
+
+![image-20210305180219675](Procesadores%20del%20Lenguaje/image-20210305180219675.png)
+
 Practicas semanales de 2 en 2.
 
 Hay clases en el cronograma de mas, algunas se usaran para recuperar.
