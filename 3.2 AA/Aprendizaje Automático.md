@@ -316,7 +316,7 @@ Es un proceso iterativo, tras la última etapa se vuelve al principio.
 
     - **Tratamiento de datos imperfectos:**
 
-    	- *Reducción del ruido:** Mediante filtros que eliminan instancias clasificadas mal.
+    	- **Reducción del ruido:** Mediante filtros que eliminan instancias clasificadas mal.
     	- **Valores desconocidos:** Eliminar instancias/atributos o asignar el valor más probable.
 
     - **Reducción de datos:** Reducir la variedad.
@@ -333,9 +333,9 @@ Es un proceso iterativo, tras la última etapa se vuelve al principio.
 
     		- **Búsqueda**: Cualquier técnica.
 
-    		- *Evaluación**: Correlación, entropía, etc.**
+    		- **Evaluación**: Correlación, entropía, etc.
 
-    		- Criterio de parada:** Porcentaje, umbral, iteraciones, etc.
+    		- **Criterio de parada:** Porcentaje, umbral, iteraciones, etc.
 
     		- **Técnicas de wrapper**: Se genera el modelo con todos los atributos, se evalúa el modelo y se ve el subconjunto de atributos mejores.
 
@@ -498,7 +498,7 @@ Sobre la función de errores  por variable **vamos calculando la tangente y desp
 - $o_e$: Valor de **salida del modelo** para la instancia e.
 - $x_{i,e}$: Valor del **atributo** a para la instancia e.
 
-**Procedimiento: Descenso de Gradiente(C,n)****
+**Procedimiento: Descenso de Gradiente(C,n)**
 
 - C conjunto de ejemplo de entrenamiento. n tasa de aprendizaje cuando salta.<img src="Aprendizaje Automático/image-20210305224415026.png" alt="image-20210305224415026" style="zoom:50%;" />
 
