@@ -21,7 +21,7 @@ Vamos a usar bison y flex, programaremos en C. El editor de texto que queramos.
 
 ## Repaso de TALF
 
-[RepasoTALF.pdf](PL/G1ab.pdf)
+[RepasoTALF.pdf](Procesadores del Lenguaje/G1ab.pdf)
 
 ### Definiciones
 
@@ -99,7 +99,7 @@ $G=\{ \sum_T, \sum_N, S, P\}$
 
 **Precedencia**: Hay operadores con mayor prioridad. Se debe hacer desde lo último derivado hacia arriba.  Esto provoca ambigüedad, que es nuestro enemigo.
 
-<img src="PL/Untitled.png" alt="PL/Untitled.png" style="zoom: 67%;" />
+<img src="Procesadores del Lenguaje/Untitled.png" alt="Procesadores del Lenguaje/Untitled.png" style="zoom: 67%;" />
 
 **Dangling Else**: Sobre a quién pertenece el else, en C el else pertenece al último else.
 
@@ -151,7 +151,7 @@ Estas transformaciones facilitan a los analizadores predictivos. Estos analizado
 
 - Se crea un nuevo No terminal para dar los símbolos que acompañan a esa parte común, en el original se pone la parte común seguida del nuevo símbolo.
 
-<img src="PL/Untitled%201.png" alt="PL/Untitled%201.png" style="zoom: 50%;" />
+<img src="Procesadores del Lenguaje/Untitled%201.png" alt="Procesadores del Lenguaje/Untitled%201.png" style="zoom: 50%;" />
 
 **Eliminar recursividad por la izquierda**
 
@@ -161,7 +161,7 @@ Estas transformaciones facilitan a los analizadores predictivos. Estos analizado
 
 - Ese nuevo símbolo produce $\lambda$ y lo que producía originalmente que era recursivo a izquierda, pero en recursividad a la derecha.
 
-<img src="PL/Untitled%202.png" alt="PL/Untitled%202.png" style="zoom: 50%;" />
+<img src="Procesadores del Lenguaje/Untitled%202.png" alt="Procesadores del Lenguaje/Untitled%202.png" style="zoom: 50%;" />
 
 ### **Autómata Finito Determinista**
 
@@ -179,7 +179,7 @@ $AFD=( \sum, Q, f, q_o, F)$
 
 - $f(q,a \cdot x)$ Función de transición. Con un estado y un símbolo, voy a un estado.
 
-<img src="PL/Untitled%203.png" alt="PL/Untitled%203.png" style="zoom: 33%;" />
+<img src="Procesadores del Lenguaje/Untitled%203.png" alt="Procesadores del Lenguaje/Untitled%203.png" style="zoom: 33%;" />
 
 Extensión a palabras: Recibe una palabra y va cogiendo los símbolos de entrada, y aplicando reglas sucesivas. Palabras que partiendo del inicial nos permite llegar a uno final.
 
@@ -199,7 +199,7 @@ Siempre se puede pasar de G3 a AFD, aunque puede que no directo, por medio de AF
 
 - En este caso se permite transicionar sin recibir símbolo, lambda, además varias transiciones para un mismo símbolo en un mismo estado.
 
-<img src="PL/Untitled%204.png" alt="PL/Untitled%204.png" style="zoom:33%;" />
+<img src="Procesadores del Lenguaje/Untitled%204.png" alt="Procesadores del Lenguaje/Untitled%204.png" style="zoom:33%;" />
 
 Para cualquier AFD existe uno no determinista equivalente.
 
@@ -257,7 +257,7 @@ $AP=(\sum, \Gamma, Q, A_0, q_0, f, F)$
 
 Dos EERR son equivalentes si describen el mismo lenguaje.
 
-<img src="PL/Untitled%205.png" alt="PL/Untitled%205.png" style="zoom:33%;" /><img src="PL/Untitled%206.png" alt="PL/Untitled%206.png" style="zoom:33%;" /><img src="PL/Untitled%207.png" alt="PL/Untitled%207.png" style="zoom:33%;" />
+<img src="Procesadores del Lenguaje/Untitled%205.png" alt="Procesadores del Lenguaje/Untitled%205.png" style="zoom:33%;" /><img src="Procesadores del Lenguaje/Untitled%206.png" alt="Procesadores del Lenguaje/Untitled%206.png" style="zoom:33%;" /><img src="Procesadores del Lenguaje/Untitled%207.png" alt="Procesadores del Lenguaje/Untitled%207.png" style="zoom:33%;" />
 
 Inferencia: Si X=AX+B entonces X=A*B
 
@@ -265,7 +265,7 @@ Inferencia: Si X=AX+B entonces X=A*B
 
 **Compilador**: Proceso de traducción que convierte un programa fuente escrito en un lenguaje de alto nivel a un programa objeto en código maquina y listo por tanto para ejecutarse en el ordenador. Solo se genera el programa objeto cuando no hay errores.
 
-<img src="PL/Untitled%208.png" alt="PL/Untitled%208.png" style="zoom: 33%;" />
+<img src="Procesadores del Lenguaje/Untitled%208.png" alt="Procesadores del Lenguaje/Untitled%208.png" style="zoom: 33%;" />
 
 **Programa fuente  → Compilador → Programa objeto/Mensajes de error.**
 
@@ -327,11 +327,11 @@ Una pasada es un recorrido total de todo el código fuente con una misión espec
 
 ### Compilación
 
-<img src="PL/Untitled%209.png" alt="PL/Untitled%209.png" style="zoom:33%;" /><img src="PL/Untitled%2010.png" alt="PL/Untitled%2010.png" style="zoom:25%;" />
+<img src="Procesadores del Lenguaje/Untitled%209.png" alt="Procesadores del Lenguaje/Untitled%209.png" style="zoom:33%;" /><img src="Procesadores del Lenguaje/Untitled%2010.png" alt="Procesadores del Lenguaje/Untitled%2010.png" style="zoom:25%;" />
 
 Antes del pasar al compilador se pasa al **preprocesador que hace muchas funciones**, entre ellas, sustituir las variables constantes por su valor y quita los comentarios. Cuando termina pasa el programa fuente al compilador.
 
-<img src="PL/Untitled%2011.png" alt="PL/Untitled%2011.png" style="zoom: 33%;" />
+<img src="Procesadores del Lenguaje/Untitled%2011.png" alt="Procesadores del Lenguaje/Untitled%2011.png" style="zoom: 33%;" />
 
 **Análisis**: Parte que solo depende de la estructura del lenguaje. No depende de la arquitectura.
 
@@ -345,7 +345,7 @@ Antes del pasar al compilador se pasa al **preprocesador que hace muchas funcion
 
 Análisis lineal: La cadena de entrada se lee de izquierda a derecha y se agrupa en componentes léxicos (tokens)
 
-<img src="PL/Untitled%2012.png" alt="PL/Untitled%2012.png" style="zoom:33%;" />
+<img src="Procesadores del Lenguaje/Untitled%2012.png" alt="Procesadores del Lenguaje/Untitled%2012.png" style="zoom:33%;" />
 
 **Analizador sintáctico:** Agrupa los componentes léxico en frases gramaticales que el compilador utiliza. A partir de los tokens produce un árbol sintáctico.
 
@@ -353,7 +353,7 @@ Análisis lineal: La cadena de entrada se lee de izquierda a derecha y se agrupa
 
 - En las hojas tiene los terminales en la manera en la que identifica el token.
 
-<img src="PL/Untitled%2013.png" alt="PL/Untitled%2013.png" style="zoom:33%;" />
+<img src="Procesadores del Lenguaje/Untitled%2013.png" alt="Procesadores del Lenguaje/Untitled%2013.png" style="zoom:33%;" />
 
 **Analizador semántico:** Busca errores semánticos, reúne información de tipos; identifica operadores y operandos.
 
@@ -362,11 +362,11 @@ Análisis lineal: La cadena de entrada se lee de izquierda a derecha y se agrupa
 
 **Generador de código**: A veces se encuentra en análisis y otras en generación. Convierte el árbol en instrucciones, código intermedio(ensamblador). El recorrido es importante ya que al generar código no se ve la jerarquía. Por ejemplo: Primero se tienen que hacer las operaciones antes de asignar el valor.
 
-<img src="PL/Untitled%2014.png" alt="PL/Untitled%2014.png" style="zoom:33%;" />
+<img src="Procesadores del Lenguaje/Untitled%2014.png" alt="Procesadores del Lenguaje/Untitled%2014.png" style="zoom:33%;" />
 
 **Optimizador:** Trata de darse cuenta de subárboles comunes para no repetir operaciones en las que no cambian variables. En vez de volver a poner esa estructura apunta a ella.
 
-<img src="PL/Untitled%2015.png" alt="PL/Untitled%2015.png" style="zoom:33%;" />
+<img src="Procesadores del Lenguaje/Untitled%2015.png" alt="Procesadores del Lenguaje/Untitled%2015.png" style="zoom:33%;" />
 
 **Generador de código:** El uso de código intermedio reduce la complejidad del desarrollo de compiladores. m front ends y n back-ends comparten un código intermedio común.
 
@@ -382,15 +382,15 @@ Está formado por piezas que deben encajar, encajan según unas reglas de formac
 
 La máquina y el lenguaje deben coincidir.
 
-<img src="PL/Untitled%2016.png" alt="PL/Untitled%2016.png" style="zoom: 50%;" /><img src="PL/Untitled%2017.png" alt="PL/Untitled%2017.png" style="zoom: 50%;" /><img src="PL/Untitled%2018.png" alt="PL/Untitled%2018.png" style="zoom: 50%;" /><img src="PL/Untitled%2019.png" alt="PL/Untitled%2019.png" style="zoom: 50%;" /><img src="PL/Untitled%2020.png" alt="PL/Untitled%2020.png" style="zoom: 50%;" /><img src="PL/Untitled%2021.png" alt="PL/Untitled%2021.png" style="zoom:25%;" /><img src="PL/Untitled%2022.png" alt="PL/Untitled%2022.png" style="zoom: 33%;" /><img src="PL/Untitled%2023.png" alt="PL/Untitled%2023.png" style="zoom: 33%;" /><img src="PL/Untitled%2024.png" alt="PL/Untitled%2024.png" style="zoom: 33%;" />
+<img src="Procesadores del Lenguaje/Untitled%2016.png" alt="Procesadores del Lenguaje/Untitled%2016.png" style="zoom: 50%;" /><img src="Procesadores del Lenguaje/Untitled%2017.png" alt="Procesadores del Lenguaje/Untitled%2017.png" style="zoom: 50%;" /><img src="Procesadores del Lenguaje/Untitled%2018.png" alt="Procesadores del Lenguaje/Untitled%2018.png" style="zoom: 50%;" /><img src="Procesadores del Lenguaje/Untitled%2019.png" alt="Procesadores del Lenguaje/Untitled%2019.png" style="zoom: 50%;" /><img src="Procesadores del Lenguaje/Untitled%2020.png" alt="Procesadores del Lenguaje/Untitled%2020.png" style="zoom: 50%;" /><img src="Procesadores del Lenguaje/Untitled%2021.png" alt="Procesadores del Lenguaje/Untitled%2021.png" style="zoom:25%;" /><img src="Procesadores del Lenguaje/Untitled%2022.png" alt="Procesadores del Lenguaje/Untitled%2022.png" style="zoom: 33%;" /><img src="Procesadores del Lenguaje/Untitled%2023.png" alt="Procesadores del Lenguaje/Untitled%2023.png" style="zoom: 33%;" /><img src="Procesadores del Lenguaje/Untitled%2024.png" alt="Procesadores del Lenguaje/Untitled%2024.png" style="zoom: 33%;" />
 
 - Ejemplos:
 
-    <img src="PL/Untitled%2025.png" alt="PL/Untitled%2025.png" style="zoom:50%;" /><img src="PL/Untitled%2026.png" alt="PL/Untitled%2026.png" style="zoom: 33%;" />
+    <img src="Procesadores del Lenguaje/Untitled%2025.png" alt="Procesadores del Lenguaje/Untitled%2025.png" style="zoom:50%;" /><img src="Procesadores del Lenguaje/Untitled%2026.png" alt="Procesadores del Lenguaje/Untitled%2026.png" style="zoom: 33%;" />
 
 ## Tema 2: Análisis Léxico
 
-<img src="PL/Untitled%2027.png" alt="PL/Untitled%2027.png" style="zoom: 33%;" />
+<img src="Procesadores del Lenguaje/Untitled%2027.png" alt="Procesadores del Lenguaje/Untitled%2027.png" style="zoom: 33%;" />
 
 ### **Funciones del Análisis Léxico**
 
@@ -450,7 +450,7 @@ La máquina y el lenguaje deben coincidir.
 
 - Los atributos de los identificadores se pueden guardar en la tablas de símbolos. Los otros en otra tabla.
 
-<img src="PL/Untitled%2028.png" alt="PL/Untitled%2028.png" style="zoom:33%;" /><img src="PL/Untitled%2029.png" alt="PL/Untitled%2029.png" style="zoom:33%;" />
+<img src="Procesadores del Lenguaje/Untitled%2028.png" alt="Procesadores del Lenguaje/Untitled%2028.png" style="zoom:33%;" /><img src="Procesadores del Lenguaje/Untitled%2029.png" alt="Procesadores del Lenguaje/Untitled%2029.png" style="zoom:33%;" />
 
 Un AF no devuelve el token, se usa otra cosa para que nos dé el token cuando reconoce símbolos.
 
@@ -472,7 +472,7 @@ De los estados de aceptación no salen transiciones, necesita una transición ma
 
 Esto quiere decir que aquello estados que son terminales y pueden transitar a otro estado tengan una transición para otro tipo de carácter que hace que salga como final.
 
-<img src="PL/Untitled%2030.png" alt="PL/Untitled%2030.png" style="zoom:33%;" />
+<img src="Procesadores del Lenguaje/Untitled%2030.png" alt="Procesadores del Lenguaje/Untitled%2030.png" style="zoom:33%;" />
 
 ### **Construcción de un AFD para AL**
 
@@ -483,7 +483,7 @@ Normalmente se parte de representación de las reglas de tokens con expresiones 
 
 ### Tabla de Transiciones de DT
 
-<img src="PL/Untitled%2031.png" alt="PL/Untitled%2031.png" style="zoom:33%;" />
+<img src="Procesadores del Lenguaje/Untitled%2031.png" alt="Procesadores del Lenguaje/Untitled%2031.png" style="zoom:33%;" />
 
 ### Autómata programado
 
@@ -491,7 +491,7 @@ Es la manera de programar un Analizador Léxico.
 
 Representa directamente con un programa al DT en cuestión.
 
-<img src="PL/Untitled%2032.png" alt="PL/Untitled%2032.png" style="zoom: 50%;" />
+<img src="Procesadores del Lenguaje/Untitled%2032.png" alt="Procesadores del Lenguaje/Untitled%2032.png" style="zoom: 50%;" />
 
 ### Implementación de un AL
 
@@ -529,7 +529,7 @@ Dos punteros de lectura:
 
 **Puntero de búsqueda**: El ultimo carácter leído.
 
-<img src="PL/Untitled%2033.png" alt="PL/Untitled%2033.png" style="zoom: 50%;" />
+<img src="Procesadores del Lenguaje/Untitled%2033.png" alt="Procesadores del Lenguaje/Untitled%2033.png" style="zoom: 50%;" />
 
 **Funciones de lectura**: GetChar(avanza uno del avanzado y da el valor), Fail(Mueve el puntero avanzado de vuelta al aceptado), Retract(mueve el puntero avanzado uno atrás) y Accept(mueve el puntero actual hasta el avanzado).
 
@@ -580,7 +580,7 @@ Otro concepto importante es el de “**palabra reservada**”
 - **Delimitadores blancos; con palabras reservadas**
     - Caso más sencillo de lenguaje (PASCAL, COBOL)
 - **Delimitadores blancos; sin palabras reservadas**
-    - PL/I
+    - Procesadores del Lenguaje/I
 - **Blancos se ignoran; sin palabras reservadas**
     - El tipo más difícil de lenguaje, aparecen ambigüedades (FORTRAN)
     - El espacio en blanco se elimina con un preprocesado.
@@ -598,4 +598,4 @@ Otro concepto importante es el de “**palabra reservada**”
 
 
 
-[LibroCompiladores.pdf](PL/82b023f9736138ad1bfdba842c04b6ce.pdf)
+[LibroCompiladores.pdf](Procesadores del Lenguaje/82b023f9736138ad1bfdba842c04b6ce.pdf)
