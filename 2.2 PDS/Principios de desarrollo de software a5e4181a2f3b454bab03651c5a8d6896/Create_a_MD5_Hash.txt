@@ -1,0 +1,16 @@
+		MessageDigest md;
+		try {
+			md = MessageDigest.getInstance("MD5");
+		} catch (NoSuchAlgorithmException e) {
+			throw new TokenManagementException("Error: no such hashing algorithm.");
+		}
+		
+		String input =  "Stardust" + "-" + req.toString();
+		
+		md.update(input.getBytes(StandardCharsets.UTF_8));
+		byte[] digest = md.digest();
+
+		// Beware the hex length. If MD5 -> 32:"%032x", but for instance, in SHA-256 it should be "%064x" 
+		String hex = String.format("%32x", new BigInteger(1, digest));
+
+		return hex;
