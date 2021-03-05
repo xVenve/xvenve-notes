@@ -7,6 +7,8 @@
 Teorías: Antonio Berlanga de Jesús y Jesus García Herrero
 Prácticas: Juan Manuel Alonso Weber jmaw@ia.uc3m.es
 
+![image-20210305175910893](Procesadores del Lenguaje/image-20210305175910893.png)
+
 ![2021-03-05 17_56_06-Procesadores del Lenguaje](D:\Documents\Gits\notes\3.2 PL\Procesadores del Lenguaje\2021-03-05 17_56_06-Procesadores del Lenguaje.png)
 
 ![image-20210305175518922](D:\Documents\Gits\notes\3.2 PL\Procesadores del Lenguaje\image-20210305175518922.png)
