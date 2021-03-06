@@ -74,10 +74,10 @@
             - Interfaces de usuario y prototipos: No confundir con diseño.
     - Técnicas de elicitación:
         - Historias de usuario: Manera cómoda de obtener especificaciones de los usuarios. Lo escriben ellos mismos.
-            
+          
             - Como ___ quiero ____ para ____
         - Prototipos: Permite extraer requisitos, ensayar soluciones y eliminar partes arriesgadas. Se realizan en fases tempranas, para que el usuario lo vea y exprese lo que desea y saber si se va por buen camino. No tiene que ser funcional más visual, y no tarda demasiado.
-            
+        
     - Mock-ups (maquetas): Modelo o prototipo.
         - Diagramas de Casos de uso: Muestran las funciones y la relación entre los actores y dichas funciones de un sistema.
 
@@ -96,8 +96,9 @@
         - **M**edible: Se puede cuantificar y evaluar.
         - **A**lineado: Con la estrategia o con el fin del sistema.
     - **R**ealista: Puede conseguirse con un numero de recursos lógico.
-        - limitado en **T**iempo: Establece un periodo de tiempo.
-
+        
+    - limitado en **T**iempo: Establece un periodo de tiempo.
+    
     ## Como escribir buenos requisitos. Propiedades de los requisitos.
     
     - Una buena especificación es completa, consistente entre requisitos y correcta definición de requisitos.
@@ -180,18 +181,19 @@
         - Pseudocódigo: Evitar el uso de pseudocódigo y los requisitos extensos.
         - Numero de términos: Exceso de términos diferentes en el mismo requisito puede indicar mezcla de necesidades o demasiado detalle.
     - Subjetividad, exceso de negaciones.
-        - Falta de precisión: Evite expresiones vagas.
-
+    - Falta de precisión: Evite expresiones vagas.
+    
     ## Tipos de requisitos. Organización de requisitos. Matrices de trazabilidad.
     
     - Tipos de requisitos del software:
         - Niveles:
+            
             - Requisitos del usuario: Son aquellos que nos los dicen los usuarios.
-        - Requisitos del Software: Son las descripciones formales de los requisitos de usuario, documentadas. Agregan detalles a la especificación.
-            - Diferencias:
-
-                <img src="IS/Untitled%203.png" alt="IS/Untitled%203.png" style="zoom:67%;" />
-    
+    - Requisitos del Software: Son las descripciones formales de los requisitos de usuario, documentadas. Agregan detalles a la especificación.
+        - Diferencias:
+        
+            <img src="IS/Untitled%203.png" alt="IS/Untitled%203.png" style="zoom:67%;" />
+        
         - Clasificación de requisitos:
             - Requisitos funcionales: Que tiene que hacer.
             - Requisito son funcionales: Como lo hace, características técnicas y restricciones del cómo.
@@ -200,11 +202,11 @@
                 - Fiabilidad y disponibilidad.
                 - Manejo de errores: Del entorno e internos.
                 - Requisitos de interfaz.
-            - Restricciones.
-                - Seguridad del sistema o de las personas.
-
-            <img src="IS/Untitled%204.png" alt="IS/Untitled%204.png" style="zoom:50%;" />
-    
+        - Restricciones.
+            - Seguridad del sistema o de las personas.
+        
+        <img src="IS/Untitled%204.png" alt="IS/Untitled%204.png" style="zoom:50%;" />
+        
     - Métodos para organizar los requisitos del software:
         - Según el modelo del sistema:
             - Según el modelo de casos de uso.
@@ -214,11 +216,11 @@
 - Matrices de trazabilidad: Para ir siguiendo que no se nos pase ningún requisito de usuario o documentar para que sea de software.
         - Relaciona un requisito de usuario con aquellos de software que lo contienen, y también controlamos lo contrario, no poner algo que no nos piden.
 
-            <img src="IS/Untitled%205.png" alt="IS/Untitled%205.png" style="zoom:50%;" />
+    ​    <img src="IS/Untitled%205.png" alt="IS/Untitled%205.png" style="zoom: 67%;" />
 
-        - También puede ser de requisitos y clases, marcando en donde se encuadra cada uno. Así se ve si todos tienen clase y no haya clases vacías, o requisitos sin asignar.
+    - También puede ser de requisitos y clases, marcando en donde se encuadra cada uno. Así se ve si todos tienen clase y no haya clases vacías, o requisitos sin asignar.
 
-            <img src="IS/Untitled%206.png" alt="IS/Untitled%206.png" style="zoom:50%;" />
+        <img src="IS/Untitled%206.png" alt="IS/Untitled%206.png" style="zoom: 67%;" />
     
     - Matriz de referencias cruzadas:
         - Controla:
@@ -317,7 +319,7 @@
                 visibilidad nombre (param: Tipo = valDef,…) : TipoRet {propiedades}
 
         - Clase: Conjunto de entidades abstractas con estructura y comportamientos comunes.
-            
+          
             - La clase se usa como plantilla para construir objetos.
         - Análisis: Especificación, vista externa, caja negra.
             - Clases, atributos y operaciones corresponden a conceptos del dominio.
@@ -462,7 +464,7 @@
     ## Arquitectura
 
     - La definición que mejor lo transmite:
-        
+      
         - La arquitectura del software es la organización fundamental de un sistema encarnada en sus componentes, las relaciones entre ellos y con el entorno, y los principios que orientan su diseño y evolución.
     - Es como vamos a organizar los componentes/bloques del sistema, la relación entre ellos y también su relación con el entorno.
     - Modelo 4+1: Las vistas son como dimensiones, nos dan una aproximación distinta.
@@ -547,15 +549,15 @@
         - Facilitan la gestión del desarrollo de programas.
         - Reutilización: Permiten visualizar de forma clara que bloques modulares se pueden utilizar varias veces en varios puntos de una arquitectura.
 - Los componentes se representan con <<component>> y la cajita con dos rayas.
-    
+  
     <img src="IS/Untitled%2032.png" alt="IS/Untitled%2032.png" style="zoom: 67%;" />
     
 - Las relaciones son de dependencia, apunta del que depende. De tal manera que los cambios del destino afectan al origen de la relación.
-    
+  
     <img src="IS/Untitled%2033.png" alt="IS/Untitled%2033.png" style="zoom:67%;" />
     
 - Representación de elementos de diagramas de componentes.
-    
+  
     <img src="IS/Untitled%2034.png" alt="IS/Untitled%2034.png" style="zoom:67%;" />
     
     LO DE REQUERIDA Y OFRECER ES AL REVES.
@@ -567,38 +569,38 @@
     <img src="IS/Untitled%2036.png" alt="IS/Untitled%2036.png" style="zoom:67%;" />
     
 - Patrones
-    
+  
     <img src="IS/Untitled%2037.png" alt="IS/Untitled%2037.png" style="zoom:67%;" />
     
-        - Monolito
-            - Los monolitos son otro tipo de arquitectura asociado con los sistemas heredados.
-            - Antes las aplicaciones se escribían como una sola unidad de código, en la que todos los elementos compartían los mismos recursos y espacio de memoria.
-            - Son pilas de aplicaciones únicas que contienen todas las funciones dentro de cada aplicación. Tienen conexión directa, tanto en la interacción entre los servicios como en la manera en que se desarrollan y distribuyen.
-            - Esto implica que al actualizar o ampliar un solo aspecto de una aplicación monolítica, habrá una repercusión en toda esa aplicación y en la infraestructura subyacente.
-        - Cliente-servidor
-            
-            - Donde el software reparte su carga de cómputo en dos partes independientes, pero sin reparto claro de funciones.
-        - Modelo Vista Controlador
-            - Es el conocido MVC, que divide una aplicación interactiva en tres partes (modelo, vista, controlador) encargadas de contener la funcionalidad, mostrar la información al usuario y manejar su entrada. Este patrón de arquitectura de software separa los datos y la lógica de negocio de una aplicación de su representación.
-                - El Modelo: Es la representación de la información con la cual el sistema opera, por lo tanto, gestiona todos los accesos a dicha información, tanto consultas como actualizaciones, implementando también los privilegios de acceso que se hayan descrito en las especificaciones de la aplicación (lógica de negocio). En los frameworks actuales normalmente representa una entidad del diagrama entidad-relación.
-                - La Vista: presenta el modelo (información y lógica de negocio) en un formato adecuado para que un usuario pueda interactuar (usualmente la interfaz de usuario).
-                - El controlador: es el intermediario entre la vista y el modelo, su función consiste en controlar el flujo de datos, responder a eventos (usualmente provocados por los usuarios) e invocar peticiones al modelo.
-            - Maestro esclavo
-                - Suele utilizarse para replicaciones en la base de datos (la maestra es la fuente autorizada y las esclavas se sincronizan con ella). Estas dos partes distribuyen el trabajo y calculan el resultado final de toda la actividad que realizan dichos esclavos. Este patrón es una arquitectura fundamental que los desarrolladores utilizan cuando tienen dos o más procesos que necesitan ejecutarse de forma simultánea.
-            - Igual a igual (pares)
-                - Todos los elementos individuales se les denomina ‘pares’, que pueden funcionar tanto como ‘cliente’, como ‘servidor’. Además, pueden ir cambiando su rol con el paso del tiempo.
-            - En tuberías
-                - Arquitecturas de flujo de datos. Esta arquitectura se aplica cuando los datos de entrada son transformados a través de una serie de componentes computacionales o manipulativos en los datos de salida. Típicamente usada en procesamiento de señales y transformación de flujos de datos. Los componentes reciben el nombre de ‘filtros’ conectados entre sí por ‘tuberías’ que transmiten los datos.
-        - En pizarra
-            - Es una arquitecturas centradas de datos. Algunas veces llamado Blackboard. En el centro de esta arquitectura se encuentra un almacén de datos (por ejemplo, un documento o una base de datos) al que otros componentes acceden con frecuencia para actualizar, añadir, borrar o bien modificar los datos del almacén. Muy utilizada en sistemas expertos, visión artificial, interpretación sensorial.
+    - Monolito
+        - Los monolitos son otro tipo de arquitectura asociado con los sistemas heredados.
+        - Antes las aplicaciones se escribían como una sola unidad de código, en la que todos los elementos compartían los mismos recursos y espacio de memoria.
+        - Son pilas de aplicaciones únicas que contienen todas las funciones dentro de cada aplicación. Tienen conexión directa, tanto en la interacción entre los servicios como en la manera en que se desarrollan y distribuyen.
+        - Esto implica que al actualizar o ampliar un solo aspecto de una aplicación monolítica, habrá una repercusión en toda esa aplicación y en la infraestructura subyacente.
+    - Cliente-servidor
+      
+        - Donde el software reparte su carga de cómputo en dos partes independientes, pero sin reparto claro de funciones.
+    - Modelo Vista Controlador
+        - Es el conocido MVC, que divide una aplicación interactiva en tres partes (modelo, vista, controlador) encargadas de contener la funcionalidad, mostrar la información al usuario y manejar su entrada. Este patrón de arquitectura de software separa los datos y la lógica de negocio de una aplicación de su representación.
+            - El Modelo: Es la representación de la información con la cual el sistema opera, por lo tanto, gestiona todos los accesos a dicha información, tanto consultas como actualizaciones, implementando también los privilegios de acceso que se hayan descrito en las especificaciones de la aplicación (lógica de negocio). En los frameworks actuales normalmente representa una entidad del diagrama entidad-relación.
+            - La Vista: presenta el modelo (información y lógica de negocio) en un formato adecuado para que un usuario pueda interactuar (usualmente la interfaz de usuario).
+            - El controlador: es el intermediario entre la vista y el modelo, su función consiste en controlar el flujo de datos, responder a eventos (usualmente provocados por los usuarios) e invocar peticiones al modelo.
+        - Maestro esclavo
+            - Suele utilizarse para replicaciones en la base de datos (la maestra es la fuente autorizada y las esclavas se sincronizan con ella). Estas dos partes distribuyen el trabajo y calculan el resultado final de toda la actividad que realizan dichos esclavos. Este patrón es una arquitectura fundamental que los desarrolladores utilizan cuando tienen dos o más procesos que necesitan ejecutarse de forma simultánea.
+        - Igual a igual (pares)
+            - Todos los elementos individuales se les denomina ‘pares’, que pueden funcionar tanto como ‘cliente’, como ‘servidor’. Además, pueden ir cambiando su rol con el paso del tiempo.
+        - En tuberías
+            - Arquitecturas de flujo de datos. Esta arquitectura se aplica cuando los datos de entrada son transformados a través de una serie de componentes computacionales o manipulativos en los datos de salida. Típicamente usada en procesamiento de señales y transformación de flujos de datos. Los componentes reciben el nombre de ‘filtros’ conectados entre sí por ‘tuberías’ que transmiten los datos.
+    - En pizarra
+        - Es una arquitecturas centradas de datos. Algunas veces llamado Blackboard. En el centro de esta arquitectura se encuentra un almacén de datos (por ejemplo, un documento o una base de datos) al que otros componentes acceden con frecuencia para actualizar, añadir, borrar o bien modificar los datos del almacén. Muy utilizada en sistemas expertos, visión artificial, interpretación sensorial.
 
-            <img src="IS/Untitled%2038.png" alt="IS/Untitled%2038.png" style="zoom:67%;" />
+        <img src="IS/Untitled%2038.png" alt="IS/Untitled%2038.png" style="zoom:67%;" />
 
-            <img src="IS/Untitled%2039.png" alt="IS/Untitled%2039.png" style="zoom:67%;" />
+        <img src="IS/Untitled%2039.png" alt="IS/Untitled%2039.png" style="zoom:67%;" />
 
-            <img src="IS/Untitled%2040.png" alt="IS/Untitled%2040.png" style="zoom:67%;" />
+        <img src="IS/Untitled%2040.png" alt="IS/Untitled%2040.png" style="zoom:67%;" />
 
-            <img src="IS/Untitled%2041.png" alt="IS/Untitled%2041.png" style="zoom:67%;" />
+        <img src="IS/Untitled%2041.png" alt="IS/Untitled%2041.png" style="zoom:67%;" />
     
     - Interfaz: Manera de comunicarse entre los componentes.
         - Conjunto de operaciones que requiere u ofrece un componente.
