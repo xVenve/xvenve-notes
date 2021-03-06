@@ -4,9 +4,9 @@
 
 [Notas](https://www.notion.so/Notas-55aa17409e1243dbb20a0d0791e04c04)
 
-[Cronograma.xls](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Cronograma.xls)
+[Cronograma.xls](RO/Cronograma.xls)
 
-[Relación temario libro - toc_kurose.xlsx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Relacion_tmario_libro_-_toc_kurose.xlsx)
+[Relación temario libro - toc_kurose.xlsx](RO/Relacion_tmario_libro_-_toc_kurose.xlsx)
 
 Magistral: MARCELO GABRIEL BAGNULO BRAUN
 Practicas: JUAN MAURICIO BARROSO FRESNEDA y MARCELO GABRIEL BAGNULO BRAUN:
@@ -15,7 +15,7 @@ Practicas: JUAN MAURICIO BARROSO FRESNEDA y MARCELO GABRIEL BAGNULO BRAUN:
 
 - TEMA 1
 
-    [s1.1.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s1.1.pptx)
+    [s1.1.pptx](RO/s1.1.pptx)
 
     ## 1.1 y 1.3 Internet o Red de ordenadores
 
@@ -34,93 +34,96 @@ Practicas: JUAN MAURICIO BARROSO FRESNEDA y MARCELO GABRIEL BAGNULO BRAUN:
             - La multiplexación por división de tiempo – TDM tiene un tiempo de enlace asignado, por lo que se tarda igual independientemente de que haya más personas queriendo enviar información. Desaprovecha la capacidad del enlace, ya que dedica todo el ancho de banda del canal al transmisor en cada ranura de tiempo.
         - Network = Red, conjunto de dispositivos, routers y enlaces de una organización.
     - El host rompe los mensajes en paquetes de datos de aprox. 1500 bytes para ser transmitidos con un encabezado que permite indicar el destinatario y a la red llevarlos. Una vez dividido se transmite por un enlace al router, así con la cabecera sabe dónde reenviar otro router, ahí hasta llegar al destino.
-        
+      
         - Store and forward: Debe llegar el paquete completo al router antes de transmitirlo por el siguiente enlace.
     - Funciones clave de los nodos de la red:
         - Forwarding – Reenvío: Es una acción local, que se encarga de mover los paquetes que llegan por el enlace de entrada al enlace de salida correspondiente.
     - Routing – Enrutamiento: Es una acción global, consiste en determinar la ruta desde el origen hasta destino que seguirán lo paquetes mediante algoritmo de enrutado.
     
-    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled.png)
-    
+    <img src="RO/Untitled.png" alt="RO/Untitled.png" style="zoom:50%;" />
 ## 1.2 Las fronteras de la red
-    
-    - Redes de acceso
+
+- Redes de acceso
+
 - Medios físicos
-    
+  
 ### Arquitectura de la red
-    
+
 Hoy en día usamos principalmente dos redes de comunicación, la red telefónica e internet.
     
-    - Conmutación de circuitos: Conceptualmente hablando en la red telefónica se crea un cable que te conecta la llamada y cuando finaliza se despliega para dejar disponible los recursos para formar otra conexión. Se usa multiplexación de división en el tiempo y frecuencia. Usa toda la capacidad del enlace para el intercambio.
+- Conmutación de circuitos: Conceptualmente hablando en la red telefónica se crea un cable que te conecta la llamada y cuando finaliza se despliega para dejar disponible los recursos para formar otra conexión. Se usa multiplexación de división en el tiempo y frecuencia. Usa toda la capacidad del enlace para el intercambio.
+
 - Conmutación de paquetes: Los datos se trocean y se les agrega un encabezado con la dirección de destino y se envía, los routers y conmutadores miran la dirección y lo envía por su camino hasta llegar al destino. Utiliza multiplexación estadística. Se comparten todos los recursos en tiempo real.
-    
+  
 ## 1.5 Protocolos
-    
+
 Definen el formato, orden de enviado y recepción de mensajes entre las entidades de la red y acciones tomadas en la transmisión de mensajes. Hay tantos dispositivos y apps interconectados, cada uno distinto, para que pueda funcionar todos deben hablar un lenguaje común, los protocolos permiten acordarlo. Están en todas las conexiones, control de envíos y recepción de datos.
     
 ### Modelo de capas:
-    
-    - Cada capa siente que la comunicación es horizontal, sin embargo, la implementación es vertical. Cada capa implementa un servicio y el inverso
-    - El origen y destino implementan todas las capas. En el origen va de arriba hacia abajo, en los intermedios sube y baja, y en el destino sube las capas.
-    - Los enrutador - routers implementan la capa red, enlace y física.
-    - Los conmutador - switch implementan enlace y física.
-    - Capas:
-        - Aplicación: Los propios programas que quieren enviar y recibir datos. Soporta aplicaciones distribuidas. Pone el mensaje.
-        - Transporte: Multiplexación y demultiplexación de datos para poder utilizar distintas aplicación. Transferencia de datos entre procesos. Pone un encabezado para identificar la aplicación, pasa a llamarse segmento.
-        - Red: Enrutamiento de datagramas de origen a destino: IP, protocolos de enrutamiento. Concatena saltos para llevar los paquetes desde el origen hasta el destino. Pone otro encabezamiento que indica la localización del origen y destino, pasa a llamarse datagrama.
-        - Enlace: Corrige y detecta errores de la transmisión, transfiere los datos a la entidad de la red vecina, en conexiones a 1 salto. Pone otro encabezamiento que indican el siguiente salto en la red, pasa a llamarse trama.
-    - Física: Traduce bits a ondas que se envían por el cable y viceversa.
-    
-[s1.2.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s1.2.pptx)
+
+- Cada capa siente que la comunicación es horizontal, sin embargo, la implementación es vertical. Cada capa implementa un servicio y el inverso
+- El origen y destino implementan todas las capas. En el origen va de arriba hacia abajo, en los intermedios sube y baja, y en el destino sube las capas.
+- Los enrutador - routers implementan la capa red, enlace y física.
+- Los conmutador - switch implementan enlace y física.
+- Capas:
+    - Aplicación: Los propios programas que quieren enviar y recibir datos. Soporta aplicaciones distribuidas. Pone el mensaje.
+    - Transporte: Multiplexación y demultiplexación de datos para poder utilizar distintas aplicación. Transferencia de datos entre procesos. Pone un encabezado para identificar la aplicación, pasa a llamarse segmento.
+    - Red: Enrutamiento de datagramas de origen a destino: IP, protocolos de enrutamiento. Concatena saltos para llevar los paquetes desde el origen hasta el destino. Pone otro encabezamiento que indica la localización del origen y destino, pasa a llamarse datagrama.
+    - Enlace: Corrige y detecta errores de la transmisión, transfiere los datos a la entidad de la red vecina, en conexiones a 1 salto. Pone otro encabezamiento que indican el siguiente salto en la red, pasa a llamarse trama.
+- Física: Traduce bits a ondas que se envían por el cable y viceversa.
+
+[s1.2.pptx](RO/s1.2.pptx)
     
 ## 1.4 Retraso
-    
+
 El tiempo que pasa desde que el paquete es recibido por el router hasta que llega al destino.
     
-    - $d_{nodal}= d_{procesado}+d_{cola}+d_{transmisión}+d_{propagación}$
-    - Tipos:
-        - Procesamiento, comprobar error de bit y determinar el enlace de salida.
-        - Cola, espera a ser transmitido por un enlace de salida.
-            - Intensidad de tráfico = $\frac{L\cdot a}{R}$
-                - L: tamaño paquete
-                - a: ratio de llegada del paquete
-                - R: ancho de banda
-        - Trasmisión: En transmitir los datos, volcarlo en el enlace. $\frac{L}{R}$
-            - L: bits del paquete o mensaje.
-            - R: ancho de banda del enlace. Bits/seg
-        - Propagación: Tiempo que tarda en transmitirse por el enlace. $\frac{d}{s}$
-            - d: distancia del enlace. metros
-        - s: velocidad de propagación. Metros/seg
-    
+- $d_{nodal}= d_{procesado}+d_{cola}+d_{transmisión}+d_{propagación}$
+- Tipos:
+    - Procesamiento, comprobar error de bit y determinar el enlace de salida.
+    - Cola, espera a ser transmitido por un enlace de salida.
+        - Intensidad de tráfico = $\frac{L\cdot a}{R}$
+            - L: tamaño paquete
+            - a: ratio de llegada del paquete
+            - R: ancho de banda
+    - Trasmisión: En transmitir los datos, volcarlo en el enlace. $\frac{L}{R}$
+        - L: bits del paquete o mensaje.
+        - R: ancho de banda del enlace. Bits/seg
+    - Propagación: Tiempo que tarda en transmitirse por el enlace. $\frac{d}{s}$
+        - d: distancia del enlace. metros
+    - s: velocidad de propagación. Metros/seg
+
 ## 1.4 Traceroute:
-    
-    - Método para conocer el retraso o perdida de datos.
-    - Consiste en enviar 3 paquetes a destino, con tiempos de vida, de menos a más. Cuando su tiempo termina vuelve y sabe cuánto tarda en cada salto, al aumentar va llegando más lejos. Cuando hay un gran salto de ms (milisegundos) podemos analizar la fuente.
-    
-    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%201.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%201.png)
-    
+
+- Método para conocer el retraso o perdida de datos.
+- Consiste en enviar 3 paquetes a destino, con tiempos de vida, de menos a más. Cuando su tiempo termina vuelve y sabe cuánto tarda en cada salto, al aumentar va llegando más lejos. Cuando hay un gran salto de ms (milisegundos) podemos analizar la fuente.
+
+<img src="RO/Untitled%201.png" alt="RO/Untitled%201.png" style="zoom:80%;" />
+
 ## 1.4 Perdida
-    
+
 Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo del protocolo:
     
-    - Se pierde, se descarta lo que no entra.
+- Se pierde, se descarta lo que no entra.
+
 - Pide al emisor que lo reenvíe.
-    
+  
 ## 1.4 Throughput
-    
-    - Tasa de procesamiento, la capacidad de un sistema para volcar datos para transmitir. $\frac{Bits}{tiempo}$.
-        - Se caracteriza por el peor caso:
-            - Instantáneo: En un momento determinado
-            - Medio: De media.
-    - Cuello de botella / bottleneck: Cuando un enlace de una ruta restringe el Throughput de la ruta, dado que en esa ruta habrá un enlace de menor capacidad o que esté saturado.
+
+- Tasa de procesamiento, la capacidad de un sistema para volcar datos para transmitir. $\frac{Bits}{tiempo}$.
+    - Se caracteriza por el peor caso:
+        - Instantáneo: En un momento determinado
+        - Medio: De media.
+- Cuello de botella / bottleneck: Cuando un enlace de una ruta restringe el Throughput de la ruta, dado que en esa ruta habrá un enlace de menor capacidad o que esté saturado.
+
 - Se toma para los cálculo el mínimo entre el $\frac{R}{10}$, $R_{emisor}$ o $R_{receptor}$.
-    
-    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%202.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%202.png)
+  
+    <img src="RO/Untitled%202.png" alt="RO/Untitled%202.png" style="zoom:67%;" />
     
     - Como R recibe muchas conexiones puede haber cuello de botella en $R_e$  y $R_r$.
 - TEMA 2: Application Layer
 
-    [s2.1.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s2.1.pptx)
+    [s2.1.pptx](RO/s2.1.pptx)
 
     ## 2.1 Principios de las aplicaciones de red
 
@@ -179,7 +182,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
     - Es un protocolo de la capa de aplicación.
     - Diagrama paquete
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled.jpeg](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled.jpeg)
+        <img src="RO/Untitled.jpeg" alt="RO/Untitled.jpeg" style="zoom:80%;" />
 
     - Jerarquía:
         - Servidor raíz: Capaces de resolver el mapeo de cualquier nombre del sistema de nombres de dominio.
@@ -210,7 +213,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
     - En TCP
 - TEMA 3: Transport Layer
 
-    [s3.1.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s3.1.pptx)
+    [s3.1.pptx](RO/s3.1.pptx)
 
     ## 3.1 Capa de transporte y sus servicios
 
@@ -233,10 +236,10 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
     ## 3.5 TCP - Transmission Control Protocol:
 
     - Orientado a conexiones: Hace que el cliente y el servidor intercambien la información de control de capa de transporte entre si antes de que empiecen a fluir los mensajes del nivel de aplicación. Este procedimiento denominado de negociación, de reconocimiento o de establecimiento de la conexión alerta al cliente y al servidor, permitiéndoles prepararse para el intercambio de paquetes, se conectan los sockets del emisor y del receptor, de esta manera lo que entra por un lado sale por el otro.
-        
+      
         - Solo soporta comunicaciones 1 a 1, un emisor y un receptor. Crea un canal bidireccional entre ambos en la misma conexión.
     - Ofrece servicio confiable, los segmentos llegan íntegros y en orden. Se envía redundancia cíclica del mensaje en la cabecera para ver al llegar si ha fallado o ha habido interferencias, pero no ataques (habrían pensado en cambiarlo).
-        
+      
         - Lo malo es que parte del ancho de banda se usar para redundancia, si falla se reenvía y el resto de segmentos debe esperar a que llegue.
     - Control de flujo, el emisor no satura al receptor, y congestión.
     - No proporciona: temporización, ancho de banda garantizado, seguridad.
@@ -245,7 +248,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
         - Segmentar y enviar.
         - Esperar para hacer un paquete más grande y envía, pero crea retardo si espera.
     - Si el paquete es demasiado pequeño, la cabecera ocupa más que los propios datos.
-        
+      
         - Los paquetes son costosos en overhead, pero para algunas aplicaciones son necesarios, ya que no pueden esperar hasta que lleguen a crear un paquete más grande.
     - Cuanta más carga en la red es más importante la eficiencia, cuesta más introducir paquetes al haber retraso de cola.
     - TCP siempre envía MSS:
@@ -253,10 +256,10 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
         - El receptor tiene pipeline que permite una ventana deslizante de tantos paquetes como quepan en el buffer, por si se corrompe alguno.
         - Usa un método parecido al Go-back N, recibe asentimiento del último número de secuencia que se recibió en orden en el receptor y si se pasa el temporizador envía sólo el más viejo. El receptor almacena en el buffer los paquetes que recibe fuera de orden, pero sigue mandando la confirmación del que le falta en medio, y cuando lo recibe los pasa en orden a la aplicación.
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%203.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%203.png)
+            <img src="RO/Untitled%203.png" alt="RO/Untitled%203.png" style="zoom:80%;" />
 
         - La unidad fundamental de transmisión es el byte, por ello a cada byte que transmita le asocia un numero de secuencia. Cuando se recibe un asentimiento, se ha tenido en cuenta la suma de los bytes de los datos.
-            
+          
             - Si envió el paquete nº 92 de 8 bytes, el asentimiento que reciba será el nº100, confirmando que ha recibido esos 8 bytes.
     - Para tener n paquetes en vuelo necesitamos 2n números de secuencia.
     - Segmentado: el control de flujo y congestión de TCP fijan el tamaño de la ventana. Hay buffers de emisión y recepción.
@@ -265,21 +268,21 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
         - nº secuencia: identifica el orden y evita duplicados. El número va aumentando según los bytes enviados, van asociado.
         - nº ack: Es el número de secuencia que espera recibir el receptor, para cuando intercambiamos datos.
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%204.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%204.png)
+        <img src="RO/Untitled%204.png" alt="RO/Untitled%204.png" style="zoom:80%;" />
 
     - En la cabecera se pone el número de secuencia del propio paquete y además el número de secuencia que yo espero recibir si se quiere comunicar conmigo de vuelta.
         - Cuando se envían datos bidireccionalmente, cada lado tiene su propio número de secuencia de tal manera que cada uno controla la llegada de sus propios datos y el otro confirma ese paquetes recibidos.
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%205.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%205.png)
+            <img src="RO/Untitled%205.png" alt="RO/Untitled%205.png" style="zoom:80%;" />
 
     - Calcular el tiempo para el temporizador (timeout):
         - Debe ser más que round trip time, ida y vuelta, pero este varia.
         - Demasiado corto: Antes de recibir la confirmación ya he reenviado el paquete.
         - Demasiado grande: Cuando no llega la confirmación espero demasiado tiempo. Aunque es mejor pasarse que quedarse corto
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%206.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%206.png)
+            <img src="RO/Untitled%206.png" alt="RO/Untitled%206.png" style="zoom:80%;" />
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%207.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%207.png)
+            <img src="RO/Untitled%207.png" alt="RO/Untitled%207.png" style="zoom:80%;" />
 
         - Cada vez que recibo un paquete, voy calculando la media ponderada móvil exponencial (las más recientes influyen más) de los RTT más un margen de seguridad según la variabilidad de los tiempos como tiempo límite para recibir un paquete.
     - Emisor:
@@ -316,7 +319,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
         - Length: Longitud en bytes del segmento UDP con el header.
         - Checksum: Detectar errores, pero no los solventa.
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%208.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%208.png)
+        <img src="RO/Untitled%208.png" alt="RO/Untitled%208.png" style="zoom:80%;" />
 
     - Es utilizado para las DNS, para no sobrecargar los servidores raíz (no hay que enviar mensaje de solicitud para abrir conexión), como la integridad es importante la integridad a nivel de aplicación si falla o esta corrupta se vuelve a hacer una consulta.
     - Cambia: Integridad -> Retardo.
@@ -330,7 +333,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
     - El receptor demultiplexa, deshace la cabecera del segmento para entregarlo al socket correcto.
         - Cada datagrama de la capa de red tiene la IP origen y destino con el correspondiente puerto de cada lado que identifica el socket.
 
-    [s3.2.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s3.2.pptx)
+    [s3.2.pptx](RO/s3.2.pptx)
 
     ## 3.4 Principios de transferencia de datos confiable:
 
@@ -339,7 +342,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
     - Las características del canal no fiable determinaran la complejidad de transferencia de datos fiable.
     - Diagrama
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%209.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%209.png)
+        <img src="RO/Untitled%209.png" alt="RO/Untitled%209.png" style="zoom:80%;" />
 
     - Terminología:
         - rdt_sent(): Pasa los datos la aplicación a la capa de transporte.
@@ -352,7 +355,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
     - rdt1.0: transferencia fiable en canal fiable.
         - Sin errores de bit, ni perdida de paquetes.
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2010.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2010.png)
+        <img src="RO/Untitled%2010.png" alt="RO/Untitled%2010.png" style="zoom:80%;" />
 
         - Emisor:
             - Espera los datos de la aplicación, cuando los recibe crea un paquete y envía el paquete por el canal no confiable.
@@ -365,13 +368,13 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
             - Asentimiento negativo o reconocimiento negativo (NAKs): El receptor indica que el paquete tenía errores. En este caso el emisor reenvía el paquete.
         - Protocolo de parada y espera (stop and wait): Si se corrompe se envía una señal de respuesta negativa y el emisor envía de nuevo, si llega bien una respuesta positiva.
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2011.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2011.png)
+            <img src="RO/Untitled%2011.png" alt="RO/Untitled%2011.png" style="zoom:80%;" />
 
         - Emisor:
             - Espera recibir datos de la aplicación, cuando los recibe calcula el checksum y crea un paquete que incluye el checksum, entonces lo envía
             - Espera un paquete del receptor ACK o NAK, si recibe ACK pasa a esperar datos de la aplicación, si recibe NAK envía de nuevo el paquete y espera otra vez ACK o NAK.
         - Receptor:
-            
+          
             - Espera un paquete del emisor, cuando lo recibe comprueba los datos con el checksum, si coincide envía ACK y pasa los datos a la aplicación, y si no coincide envía NAK.
         - Pero qué pasa si se corrompe un asentimiento, no podemos asumir ACK (se pierden paquetes), ni NAK (se duplican paquetes). Para solucionarlo rdt2.1
     - rdt2.1: canal con errores de bit y manejo de ACK/NAK erróneos.
@@ -383,7 +386,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
             - Espera datos de la aplicación para poner 1, cuando los recibe crea un paquete con el checksum, datos y el 1
             - Espera recibir asentimiento con 1, si recibe ACK y no esta corrupto pasa a espera datos para poner 0, si recibe NAK o esta corrupto reenvía el paquete con 1.
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2012.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2012.png)
+        <img src="RO/Untitled%2012.png" alt="RO/Untitled%2012.png" style="zoom:80%;" />
 
         - Receptor:
             - Espera paquete con numero de secuencia 0:
@@ -395,14 +398,14 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
                 - Cuando recibe un paquete si no coincide el checksum con los datos, se envía NAK con su checksum, y sigue esperando un 1.
                 - Cuando recibe un paquete no corrupto (checksum correcto) y el número de secuencia es 0, se crea un paquete con ACK y su checksum (estaba duplicado)
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2013.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2013.png)
+        <img src="RO/Untitled%2013.png" alt="RO/Untitled%2013.png" style="zoom:67%;" />
 
     - rdt2.2: Un protocolo sin NAK.
         - La misma funcionalidad que rdt2.1, usando solo ACKs
         - En lugar de NAK, el receptor envía ACK para el último paquete recibido bien indicando el número de secuencia del mismo.
         - Por lo tanto, el emisor si recibe un ACK de numero de secuencia incorrecto es NAK y retransmite.
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2014.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2014.png)
+            <img src="RO/Untitled%2014.png" alt="RO/Untitled%2014.png" style="zoom:80%;" />
 
     - rdt3.0: Canales con errores y perdidas.
         - El emisor espera un tiempo razonable para recibir el asentimiento, si no se ha perdido.
@@ -425,7 +428,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
                 - Si se pasa el temporizador se reenvía el paquete.
                 - Si no está corrupto y el número de serie es 1, se para el temporizador y pasamos a esperar datos de la aplicación para poner un 0.
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2015.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2015.png)
+        <img src="RO/Untitled%2015.png" alt="RO/Untitled%2015.png" style="zoom:67%;" />
 
         - Receptor: Es igual que en rdt2.2, se envía asentimiento positivo con checksum y numero de secuencia.
             - Espero paquete con 0, recibo paquete del emisor:
@@ -452,7 +455,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
                 - En un buffer voy almacenando los paquetes que llegan en desorden y cuando tengo todos se pasan a la app.
             - Dilema: Como no necesariamente los acepta en orden, puede ocurrir que, al perderse todos los paquetes aceptados, aceptemos como nuevo los paquetes reenviados por el emisor al tener números de serie que correspondan a la ventana del receptor.
 
-    [s3.3.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s3.3.pptx)
+    [s3.3.pptx](RO/s3.3.pptx)
 
     - Cada socket tiene asociado un buffer.
     - El control de flujo y congestión reducen la velocidad de transmisión, para no saturar la red.
@@ -462,7 +465,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
         - La velocidad de recepción de paquetes viene dada por el emisor, si el receptor capta los datos más lento o tiene poco buffer, empieza a perder paquetes al no caber.
         - Recibe más de lo que puede procesar.
 
-    [s3.4.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s3.4.pptx)
+    [s3.4.pptx](RO/s3.4.pptx)
 
     ## 3.6 Principios del control de congestión
 
@@ -480,20 +483,20 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
         - Control asistido por la red: Los routers proporcionan realimentación a los terminales. Indican a que tasa deben enviar los emisores.
     - Escenarios
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2016.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2016.png)
+        <img src="RO/Untitled%2016.png" alt="RO/Untitled%2016.png" style="zoom:50%;" />
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2017.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2017.png)
+        <img src="RO/Untitled%2017.png" alt="RO/Untitled%2017.png" style="zoom:50%;" />
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2018.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2018.png)
+        ![RO/Untitled%2018.png](RO/Untitled%2018.png)
 
     ## 3.7 Mecanismos de control de congestión de TCP
 
     - No se conoce como de congestionada esta la red, por lo que se va incrementando la tasa de transmisión poco a poco y cuando hay perdidas vuelvo a reducir.
-        
+      
         - Es autocongestionante, lo sube hasta que se congestiona.
     - Incremento aditivo: Incrementamos el tamaño de ventana en 1 MSS cada RTT hasta que haya perdidas. +1 tamaño ventana
     - Decremento multiplicativo: Dividimos el tamaño de ventana por 2 cuando haya perdidas. Ventana/2
-        
+      
         - En AIMD, corta por la mitad cuando recibe 3 ACKs del mismo paquete y quita 1 cuando expira un temporizador.
     - AIDM: Algoritmo asíncrono distribuido para optimizar los ratios de congestión de la red y tienen propiedades de estabilidad.
     - $Tasa TCP \approx \frac {cwnd} {RTT} \frac {bytes}{sec}$
@@ -508,11 +511,11 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
         En evitación de congestión aumenta 1/ tamaño de la ventana, lo que hace que cuando se haya confirmado toda la ventana habrá aumentado uno completo.
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2019.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2019.png)
+        <img src="RO/Untitled%2019.png" alt="RO/Untitled%2019.png" style="zoom: 50%;" />
 
 - TEMA 4: Network Layer Data Plane
 
-    [s4.1.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s4.1.pptx)
+    [s4.1.pptx](RO/s4.1.pptx)
 
     ## 4.1 Overview of Network layer
 
@@ -529,11 +532,11 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
             - Plano de control: Información de control que se transmite entre routers para controlar la red, configurar las tablas de forwarding y las del propio router. Dos aproximaciones:
                 - Algoritmo distribuido de routing tradicional: Todos los router se comunican entre ellos para configurarse.
 
-                    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2020.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2020.png)
+                    <img src="RO/Untitled%2020.png" alt="RO/Untitled%2020.png" style="zoom:50%;" />
 
                 - Red definida por software: Centralizado. Hay un proceso central, que conoce el estado toda la red, para configurar el estado de cada router.
 
-                    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2021.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2021.png)
+                    <img src="RO/Untitled%2021.png" alt="RO/Untitled%2021.png" style="zoom:50%;" />
 
     - Funciones clave: Que deben ser consistentes para no crear bucles.
         - Reenvío: Mover los paquetes de la entrada a la salida apropiada.
@@ -559,11 +562,11 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
     ### Arquitectura del router:
 
-    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2022.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2022.png)
+    <img src="RO/Untitled%2022.png" alt="RO/Untitled%2022.png" style="zoom:50%;" />
 
     - Funciones del Puerto de entrada: 3 capas.
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2023.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2023.png)
+        <img src="RO/Untitled%2023.png" alt="RO/Untitled%2023.png" style="zoom:50%;" />
 
         - Física: Transforma los impulsos de luz a bits.
         - Enlace: Procesa la capa de enlace.
@@ -574,7 +577,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
         - Tipos:
             - De memoria: Bajo el control de la CPU, los paquetes se copian en memoria y la velocidad está limitada por el ancho de banda de memoria.
 
-                ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2024.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2024.png)
+                <img src="RO/Untitled%2024.png" alt="RO/Untitled%2024.png" style="zoom:50%;" />
 
                 - Llega un paquete a la entrada.
                 - Se pasa a memoria.
@@ -582,7 +585,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
                 - Se saca el paquete de memoria y se lleva a la salida correcta.
             - De bus: Cada puerto tiene capacidad de memoria y procesamiento, y usa el bus para pasar de entrada a salida.
 
-                ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2025.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2025.png)
+                <img src="RO/Untitled%2025.png" alt="RO/Untitled%2025.png" style="zoom:50%;" />
 
                 - Hay limitación por el ancho de banda del bus.
                 - Para no saturar el bus: el ancho de banda del bus >= número de puertos de entrada*ancho de banda del puerto de entrada.
@@ -590,9 +593,9 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
             - Red de interconexión: Caminos paralelos, todos conectados con todos, pero es caro tener una conexión entre cada uno.
                 - Para evitar que se haga tan caro, se usan múltiples planos para tener más caminos.
 
-                ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2026.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2026.png)
+                <img src="RO/Untitled%2026.png" alt="RO/Untitled%2026.png" style="zoom:67%;" />
 
-                ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2027.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2027.png)
+                ![RO/Untitled%2027.png](RO/Untitled%2027.png)
 
     - Procesador de routing: Calcula la ruta, enruta.
     - Puerto de salida: 3 etapas.
@@ -615,7 +618,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
     - Es un protocolo no confiable.
     - Formato:
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2028.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2028.png)
+        <img src="RO/Untitled%2028.png" alt="RO/Untitled%2028.png" style="zoom:50%;" />
 
         - Cabecera: 20 bytes IP.
             - Versión del protocolo: 4 32 bits y 6 128 bits.
@@ -638,17 +641,17 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
         - Cada fragmento tiene en la cabecera un identificador que indica a que paquete corresponde y cual es de todos.
         - EJEMPLO:
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2029.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2029.png)
+            <img src="RO/Untitled%2029.png" alt="RO/Untitled%2029.png" style="zoom:67%;" />
 
     ### Direccionamiento
 
-    [s4.2.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s4.2.pptx)
+    [s4.2.pptx](RO/s4.2.pptx)
 
     - EJEMPLO:
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2030.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2030.png)
+        <img src="RO/Untitled%2030.png" alt="RO/Untitled%2030.png" style="zoom:50%;" />
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2031.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2031.png)
+        ![RO/Untitled%2031.png](RO/Untitled%2031.png)
 
     - Pasos para asignar direcciones a una topología con subredes dadas:
         1. Calcular el número de IPs que necesita cada red, #hosts+#routers+1 de red+1 de broadcast
@@ -675,12 +678,12 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
         - Los DEST se ordenan de mayor a menor longitud de prefijo, y en caso de que haya varios con el mismo se ordenan entre ellos de menor a mayor distancia.
         - La tabla de los dispositivos de una red es: Se pone la de la red y no se configura (vacía), y en la global de la red se pone la de salida.
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2032.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2032.png)
+            <img src="RO/Untitled%2032.png" alt="RO/Untitled%2032.png" style="zoom:67%;" />
 
     - Dos interfaces que no están en la misma red tendrán que usar al menos un router.
         - Para ver el número de redes eliminamos los router y cada medio físico aislado es una red.
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2033.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2033.png)
+            <img src="RO/Untitled%2033.png" alt="RO/Untitled%2033.png" style="zoom:67%;" />
 
         - En cada red necesitamos 1 para cada host, 1 para cada router, 1 para la propia red todo 0’s (la propia red) y 1 de broadcasts más  todo 1’s (referirnos a todos los dispositivos).
             - #dirs=#hosts+#routers+2
@@ -692,79 +695,83 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
         - Todas la IPs del conjunto tomaran la misma entrada y esos dispositivos deben tener una propiedad topológica para envíe quien lo envié llegue.
     - CIDR - Classless InterDomain Routing: Porciones de la subred de longitud arbitraria
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2034.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2034.png)
+        <img src="RO/Untitled%2034.png" alt="RO/Untitled%2034.png" style="zoom:67%;" />
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2035.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2035.png)
+        ![RO/Untitled%2035.png](RO/Untitled%2035.png)
 
     - La IP se asigna a la interfaz del dispositivo, no al propio dispositivo.
-        
+      
         - Un mismo dispositivo puede tener varias interfaces.
     - Red: Conjunto de interfaces conectadas por un medio físico.
 - Hay que repartir las direcciones entre las distintas redes, cada red tiene su propio conjunto para las interfaces que lo forman.
-    
-[s4.3.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s4.3.pptx)
+  
+
+[s4.3.pptx](RO/s4.3.pptx)
     
 ### DHCP – Dynamic Host Configuration Protocol:
-    
-    - El host obtiene la dirección IP del servidor cuando entra en la red.
-    - Proceso:
-        - El host envía un mensaje a toda la red, para descubrir los DHCP server.
-        - Un DHCP recibe el mensaje, entonces ofrece al host un dirección IP.
-        - Recibimos esa dirección IP y se la confirmamos a DHCP.
-        - DHCP envía un asentimiento de que ha recibido la confirmación y nos la ha asignado.
-    - No solo envía la dirección IP, también:
-        - La dirección del primer salto a router del cliente.
-        - Nombre y dirección del servidor DNS.
-        - La máscara de red.
-    - La IP asignada es única en el sentido que no puede haber 2 usándola simultáneamente, pero en otro momento puede haber dispositivos que hayan usado la misma.
-    - Hay una jerarquía en la red, lo que permite que los cambios de IP se hagan de una forma más eficiente. Una parte importante figura son los ISP – Internet Service Provider.
-    - ICANN – Internet Corporation for Assigned Names and Numbers: Asigna los bloques de direcciones a los ISP, gestiona las DNS y dominios.
-        - Hay 5 registros regionales, distribuidos por el mundo.
-        - En 2011 asignaron el ultimo bloque de direcciones IPv4.
-    - Gracias a NAT y IPv6 se solucionan la limitaciones de las IPs.
-    
+
+- El host obtiene la dirección IP del servidor cuando entra en la red.
+- Proceso:
+    - El host envía un mensaje a toda la red, para descubrir los DHCP server.
+    - Un DHCP recibe el mensaje, entonces ofrece al host un dirección IP.
+    - Recibimos esa dirección IP y se la confirmamos a DHCP.
+    - DHCP envía un asentimiento de que ha recibido la confirmación y nos la ha asignado.
+- No solo envía la dirección IP, también:
+    - La dirección del primer salto a router del cliente.
+    - Nombre y dirección del servidor DNS.
+    - La máscara de red.
+- La IP asignada es única en el sentido que no puede haber 2 usándola simultáneamente, pero en otro momento puede haber dispositivos que hayan usado la misma.
+- Hay una jerarquía en la red, lo que permite que los cambios de IP se hagan de una forma más eficiente. Una parte importante figura son los ISP – Internet Service Provider.
+- ICANN – Internet Corporation for Assigned Names and Numbers: Asigna los bloques de direcciones a los ISP, gestiona las DNS y dominios.
+    - Hay 5 registros regionales, distribuidos por el mundo.
+    - En 2011 asignaron el ultimo bloque de direcciones IPv4.
+- Gracias a NAT y IPv6 se solucionan la limitaciones de las IPs.
+
 ### NAT – Network Address Translation:
-    
-    - Para una misma red todos los dispositivos comparten la misma IPv4 a ojos del resto de internet.
-    - Cada dispositivo de la red se diferencia con un puerto, ya que tienen la misma IP entre ellos.
-    - Todos los dispositivos en la red local tienen una dirección de 32 bits en un espacio de direcciones privado (10/8, 172.16/12, 192.168/16 prefijos) que solo puede ser usada en esa red.
-    - Ventajas:
-        - Con una sola IP, da servicio a todos los dispositivos del ISP.
-        - Cambiar la IP local no afecta fuera de la propia red.
-        - Cuando cambia la IP del ISP, no afecta a los dispositivos y su dirección privada.
-        - Es más seguro, no se puede direccionar un dispositivo directamente desde fuera de la red.
-    - Implementación:
-        - Hace falta cambiar la dirección IP en los datagramas de salida y entrada a la IP de NAT, al igual que puertos.
-        - Hay una tabla de correspondencia de IP y puerto local – IP y puerto NAT.
-        - Traduce IP y puerto local al de NAT y viceversa, mediante la Tabla de NAT.
-    - Controversia:
-        - Los routers deben solo procesar hasta el nivel 3, pero si alteran el puerto deben llegar a la 4.
-        - Cuando faltan direcciones se deben usar las direcciones IPv6, en vez de NAT.
-        - Los extremos son los únicos que deben poder alterar los puertos.
+
+- Para una misma red todos los dispositivos comparten la misma IPv4 a ojos del resto de internet.
+- Cada dispositivo de la red se diferencia con un puerto, ya que tienen la misma IP entre ellos.
+- Todos los dispositivos en la red local tienen una dirección de 32 bits en un espacio de direcciones privado (10/8, 172.16/12, 192.168/16 prefijos) que solo puede ser usada en esa red.
+- Ventajas:
+    - Con una sola IP, da servicio a todos los dispositivos del ISP.
+    - Cambiar la IP local no afecta fuera de la propia red.
+    - Cuando cambia la IP del ISP, no afecta a los dispositivos y su dirección privada.
+    - Es más seguro, no se puede direccionar un dispositivo directamente desde fuera de la red.
+- Implementación:
+    - Hace falta cambiar la dirección IP en los datagramas de salida y entrada a la IP de NAT, al igual que puertos.
+    - Hay una tabla de correspondencia de IP y puerto local – IP y puerto NAT.
+    - Traduce IP y puerto local al de NAT y viceversa, mediante la Tabla de NAT.
+- Controversia:
+    - Los routers deben solo procesar hasta el nivel 3, pero si alteran el puerto deben llegar a la 4.
+    - Cuando faltan direcciones se deben usar las direcciones IPv6, en vez de NAT.
+    - Los extremos son los únicos que deben poder alterar los puertos.
+
 - A pesar de los inconvenientes se usa NAT en muchos ámbitos.
-    
+  
 ### IPv6:
-    
-    - Surge de la limitación de 32 bits de IPv4, ya que actualmente hay mucha variedad de dispositivos con su propia IP.
-    - Se pasa de 32 a 128 bits.
-    - Además:
-        - Mejora la velocidad de enviado y procesado. Protocolo más eficiente. Para ello opta por una cabecera fija de 40 bytes.
-        - Permite tratar los flows en distintas capas. Esto mejora el tratamiento de la comunicación de las aplicaciones de tiempo real.
+
+- Surge de la limitación de 32 bits de IPv4, ya que actualmente hay mucha variedad de dispositivos con su propia IP.
+- Se pasa de 32 a 128 bits.
+- Además:
+    - Mejora la velocidad de enviado y procesado. Protocolo más eficiente. Para ello opta por una cabecera fija de 40 bytes.
+    - Permite tratar los flows en distintas capas. Esto mejora el tratamiento de la comunicación de las aplicaciones de tiempo real.
+
 - Formato del datagrama:
+  
+    <img src="RO/Untitled%2036.png" alt="RO/Untitled%2036.png" style="zoom:67%;" />
     
-    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2036.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2036.png)
+    - Cabecera
+        - Versión del protocolo.
+        - Prioridad, dar mejor servicio según la prioridad.
+        - Etiqueta de Flow, identifica los datagramas dentro del Flow.
+        - Longitud del datagrama completo.
+        - Next hdr.
+        - Límite de saltos del datagrama, si se sobrepasa se descarta.
+        - Dirección IPv6 origen.
+        - Dirección IPv6 destino.
+    - Datos – payload
+    - No tiene: Checksum, fragmentación y reensamblado y tampoco opciones extra.
     
-        - Cabecera
-            - Versión del protocolo.
-            - Prioridad, dar mejor servicio según la prioridad.
-            - Etiqueta de Flow, identifica los datagramas dentro del Flow.
-            - Longitud del datagrama completo.
-            - Next hdr.
-            - Límite de saltos del datagrama, si se sobrepasa se descarta.
-            - Dirección IPv6 origen.
-            - Dirección IPv6 destino.
-        - Datos – payload
-        - No tiene: Checksum, fragmentación y reensamblado y tampoco opciones extra.
     - Transición
         - Conviven ambos protocolos gracias al tunneling.
         - No todos los dispositivos pueden hacer esta mejora.
@@ -773,22 +780,22 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
         - Se han tardado 25 años hasta este punto, pero todavía queda.
     - Tunneling:
     
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2037.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2037.png)
+        <img src="RO/Untitled%2037.png" alt="RO/Untitled%2037.png" style="zoom:80%;" />
     
-            - Los datagramas de IPv6 se encapsulan en datagramas de tipo IPv4 como datos, para ser gestionado por los dispositivos que admiten solo IPv4.
-            - Se crea un túnel por los routers de versión 4 indicando hasta donde mantenerlo, y cuando se pasa se deshace el encapsulad y se sigue pasando IPv6.
+        - Los datagramas de IPv6 se encapsulan en datagramas de tipo IPv4 como datos, para ser gestionado por los dispositivos que admiten solo IPv4.
+        - Se crea un túnel por los routers de versión 4 indicando hasta donde mantenerlo, y cuando se pasa se deshace el encapsulad y se sigue pasando IPv6.
     - El protocolo IP es la única de su capa, a diferencia del resto de capas que tienen muchas alternativas. IP debe estar implementada en todos los dispositivos.
     
-        - A veces se necesitan otros elementos para resolver ciertos problemas de IP, como NAT o Firewalls. Ya sea por limitación de direcciones o la mejora de las eficiencia.
-
+    - A veces se necesitan otros elementos para resolver ciertos problemas de IP, como NAT o Firewalls. Ya sea por limitación de direcciones o la mejora de las eficiencia.
+    
     ### Principio arquitectónico de Internet:
     
     - El objetivo de internet, era la conectividad, mediante el Internet Protocol y la gestión/inteligencia se hará en los extremos y no oculta en la red.
     - El end-end argument: Dice que la complejidad o lógica de la conectividad se puede implementar en los extremos en vez de soportarla la red.
     - Se puede ver en la capa de protocolos, los extremos hacen la comunicación y la red se queda en las 3 primeras.
-        - Aunque algunas funcionalidades pueden implementarse en la red, como congestión o transferencia fiable.
-
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2038.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2038.png)
+    - Aunque algunas funcionalidades pueden implementarse en la red, como congestión o transferencia fiable.
+    
+            <img src="RO/Untitled%2038.png" alt="RO/Untitled%2038.png" style="zoom:67%;" />
     
     - ICMP – Internet Control Message Protocol: Protocolo que utilizan los dispositivos con los routers y viceversa para comunicar información a nivel de red, ya sean errores o llegadas de datos (ping).
         - Contenido del mensaje: Tipo, código y los 8 primeros bytes del datagrama IP que causa el error.
@@ -798,7 +805,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
             - Cuando llega al destino, port unreachable, conocemos la ruta tomada.
 - TEMA 5: Network Layer Control Plane
 
-    [s4.5.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s4.5.pptx)
+    [s4.5.pptx](RO/s4.5.pptx)
 
     ## 5.1 Introduction
 
@@ -807,12 +814,12 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
     - Dos aproximaciones:
         - Per-router: Configurar cada router/dispositivo manualmente.
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2020.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2020.png)
+            <img src="RO/Untitled%2020.png" alt="RO/Untitled%2020.png" style="zoom:67%;" />
 
             - Todo y cada uno de los router tiene un algoritmo de enrutado, que le configura las tablas de ruta.
         - SDN – Software Defined Networking: Todo el enrutado se hace mediante software desde un punto centralizado.
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2021.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2021.png)
+            <img src="RO/Untitled%2021.png" alt="RO/Untitled%2021.png" style="zoom:67%;" />
 
             - Hay un controlador remoto que configura las tablas de los routers, un proceso centralizado que se comunica con todos los routers.
 
@@ -843,32 +850,33 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
             - $N’$: Conjunto de nodos de los que se conoce el camino de menor coste, van entrando los menos del algoritmo.
         - Algoritmo:
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2039.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2039.png)
+            <img src="RO/Untitled%2039.png" alt="RO/Untitled%2039.png" style="zoom:80%;" />
 
         - La complejidad del algoritmo es $O(n^2)$, una mejor implementación tendrá $O(n \log (n))$
         - La complejidad de mensaje, cada router debe transmitir la información de estado a los n routers
         - Posibles oscilación/fluctuaciones de ruta, según la cantidad de tráfico en los enlaces, lo que hace que tenga que recomputar todas las rutas.
         - Ejemplo:
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2040.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2040.png)
+            <img src="RO/Untitled%2040.png" alt="RO/Untitled%2040.png"  />
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2041.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2041.png)
+            <img src="RO/Untitled%2041.png" alt="RO/Untitled%2041.png" style="zoom:67%;" />
 
     - Algoritmo vector de distancias – distance vector: Basado en la ecuación de Bellman-Ford.
         - $D_x(y)$: Coste del camino más barato desde x a y
         - $D_c(y)=min_v \{ c_{c,v}+D_v(y)\}$ El mínimo se toma sobre todos los vecinos v de x.
-            
+          
             - Calcula la ruta de menor cote de un nodo x a un nodo y, será el mínimo para todo vecino de ir al vértice más el menor coste desde ese vértice hasta y.
     - Algoritmo
-        
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2042.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2042.png)
+      
+        <img src="RO/Untitled%2042.png" alt="RO/Untitled%2042.png" style="zoom:67%;" />
         
         - La clave es que cada nodo envía su vector de distancia solo a sus vecinos, cuando recibe el de los vecinos actualizas tu vector de distancia y lo vuelves a mandar.
         - Iterativo, asíncrono: Una iteración local viene causada por
+            
             - El cambio de coste en el enlace local
         - Mensaje de actualización de DV desde un vecino.
         
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2043.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2043.png)
+            <img src="RO/Untitled%2043.png" alt="RO/Untitled%2043.png" style="zoom:67%;" />
         
         - Distribuido: cada nodo notifica a los vecinos solo si su propio DV cambia, y los vecinos a sus vecinos, si es necesario.
         - Cada iteración va llegando a datos de más lejos, se propaga, y teniendo en cuanto más caminos.
@@ -876,8 +884,8 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
             - Bad news travel slow, cuesta superar los costes al escoger los mínimos.
             - Good news travel fast, se superan antes al ser menores.
     - Ejemplo
-        
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2044.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2044.png)
+      
+        <img src="RO/Untitled%2044.png" alt="RO/Untitled%2044.png" style="zoom:50%;" />
         
     - Comparación de estado de enlaces y vector de distancias:
         - Complejidad del mensaje:
@@ -960,13 +968,13 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
                 - iBGP: Propaga la información de alcance entre routers del dominio. Dentro del dominio.
             - Los router Gateway -pasarela ejecutan eBGP y iBGP.
             - Sesión BGP: Conexión TCP semipermanente de intercambio de mensaje entre dos routers BGP, pares.
-                
+              
                 - Llevan la información sobre las rutas hasta las diferentes redes destinos en forma de prefijos.
     - Diagrama
             
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2045.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2045.png)
+        <img src="RO/Untitled%2045.png" alt="RO/Untitled%2045.png" style="zoom: 50%;" />
             
-            - Si hay varias rutas se escogerá la de menor número de saltos.
+        - Si hay varias rutas se escogerá la de menor número de saltos.
     - ¿Por qué diferentes enrutados, intra e inter dominio?
         - Políticas:
             - Interdominio: el administrador quiere control sobre como enrutar su tráfico, y quien enruta a través de su red.
@@ -997,11 +1005,11 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
     ## 5.6 ICMP: The Internet Control Message Protocol
 
-    [s4.6.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s4.6.pptx)
+    [s4.6.pptx](RO/s4.6.pptx)
 
 - TEMA 6: Link Layer
 
-    [s5.1.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s5.1.pptx)
+    [s5.1.pptx](RO/s5.1.pptx)
 
     ## 6.1 Link Layer: Introduction and Services
 
@@ -1043,11 +1051,11 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
         - Conectado a los buses del hosts.
         - Combinación de Software, Hardware, Firmware.
 
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2046.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2046.png)
+            <img src="RO/Untitled%2046.png" alt="RO/Untitled%2046.png" style="zoom:50%;" />
 
     - Comunicación:
 
-        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2047.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2047.png)
+        <img src="RO/Untitled%2047.png" alt="RO/Untitled%2047.png" style="zoom:50%;" />
 
         - Emisor: Desde la NIC
             - Encapsula el datagrama en una trama.
@@ -1085,7 +1093,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
                 - Cada estación tiene espacios de tiempo fijo en cada ronda.
                 - Los slots no usados se desaprovechan.
 
-                    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2048.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2048.png)
+                    <img src="RO/Untitled%2048.png" alt="RO/Untitled%2048.png" style="zoom:67%;" />
 
             - FDMA: Acceso múltiple por división en frecuencia.
                 - Se divide la frecuencia entre los accesos.
@@ -1093,7 +1101,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
                 - El espectro del canal de divide en bandas.
                 - Cuando no transmite la banda queda desocupada.
 
-                    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2049.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2049.png)
+                    <img src="RO/Untitled%2049.png" alt="RO/Untitled%2049.png" style="zoom:80%;" />
 
         - Acceso aleatorio – De contienda: No se particiona, permite las colisiones y se necesita recuperación de colisiones.
             - Cuando un nodo tiene un paquete que enviar:
@@ -1110,7 +1118,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
                 - Si se produce colisión espera un tiempo aleatorio antes de volver intentar transmitir.
                 - Eficiencia: 18%, peor que ALOHA ranurado.
 
-                    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2050.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2050.png)
+                    <img src="RO/Untitled%2050.png" alt="RO/Untitled%2050.png" style="zoom:80%;" />
 
             - ALOHA ranurado – Slotted ALOHA:
                 - Divide el tiempo de uso del canal en “cuantos”. Cuando hay colisión espera un tiempo aleatorio, y cuando pasa el tiempo debe esperar que empiece un cuanto/franja.
@@ -1136,11 +1144,11 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
                     - Reloj de sincronización
                 - Eficiencia: Fracción más larga de slots exitosos.
 
-                    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2051.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2051.png)
+                    <img src="RO/Untitled%2051.png" alt="RO/Untitled%2051.png" style="zoom:67%;" />
 
                 - Como mucho el canal se puede usar para transmisiones con éxito el 37% del tiempo.
 
-                    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2052.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2052.png)
+                    <img src="RO/Untitled%2052.png" alt="RO/Untitled%2052.png" style="zoom:67%;" />
 
             - CSMA – Carrier Sense Multiple Access – Acceso múltiple con sondeo de portadora:
                 - Escucha el canal, para saber si está libre u ocupada.
@@ -1173,7 +1181,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
                         - El receptor envía CTS – clear to send, los envía la estación base en respuesta a RTS, diciendo que emisor puede transmitir.
                         - Entonces el emisor al que se lo envía transmite y el resto los aplaza.
 
-                        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2053.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2053.png)
+                        <img src="RO/Untitled%2053.png" alt="RO/Untitled%2053.png" style="zoom:67%;" />
 
                 - Los anteriores son por cables. Ahora por Wireless:
                     - IEEE 802.11: Multiple acceso.
@@ -1196,7 +1204,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
                         - 802.11 receptor:
                             - Si llega bien: Espera SIFS y envía ACK.
 
-                        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2054.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2054.png)
+                        <img src="RO/Untitled%2054.png" alt="RO/Untitled%2054.png" style="zoom:50%;" />
 
         - Por turnos – Paso del testigo: Los nodos cogen un turno para su uso, y luego ira el del siguiente turno. Sin embargo, si un nodo tiene mucho que enviar su turno será más largo.
             - Por división: Comparte el canal eficientemente con alta carga. Ineficiente a baja carga.
@@ -1205,17 +1213,17 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
             - Sondeo: El nodo maestro invita a transmitir a los nodos esclavos. Se emplea típicamente con nodos tontos.
                 - Hay que tener en cuenta el tiempo que se tarda en sondear, la latencia y un único punto de fallo, el nodo maestro.
 
-                    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2055.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2055.png)
+                    <img src="RO/Untitled%2055.png" alt="RO/Untitled%2055.png" style="zoom:50%;" />
 
             - Paso de testigo: Una trama especial token es intercambiado de un nodo al siguiente.
                 - El token es un mensaje, que cuando un nodo lo tiene pueden transmitir y cuando termina se lo pasa a otro.
                 - Hay que tener en cuenta el tiempo de pasar el token, la latencia y un único punto de fallo, el token.
 
-                    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2056.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2056.png)
+                    <img src="RO/Untitled%2056.png" alt="RO/Untitled%2056.png" style="zoom:50%;" />
 
     ## 6.4 Switched Local Area Networks
 
-    [s5.2.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s5.2.pptx)
+    [s5.2.pptx](RO/s5.2.pptx)
 
     - Direccionamiento a nivel de enlace.
         - Direccionamiento ARP - Address Resolution Protocol
@@ -1230,188 +1238,190 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
                 - La dirección MAC es portátil, puede cambiar de LAN, pero la jerarquía de dirección IP no es portátil.
             - ARP: Protocolo de Resolución de Direcciones.
                 - Cada nodo IP tiene una tabla de las direcciones MAC correspondiente a la IP y un TTL.
-                    
+                  
                     - < IP address; MAC address; TTL >
 - TTL: Tiempo en el que olvidar esa asociación, normalmente 20 minutos. Tiempo de vida de una entrada en la tabla.
                 
-    ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2057.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2057.png)
+    <img src="RO/Untitled%2057.png" alt="RO/Untitled%2057.png" style="zoom:50%;" />
                 
-                - Es plug-and-play: Los nodos crean su tabla ARP sin intervención del administrador de red.
-                - Proceso: A quiere enviar un datagrama a B, y la dirección MAC de B no está en la tabla ARP de A.
-                    - A quiere el MAC de B, entonces manda una solicitud de ARP en abierto a todos los nodos.
-                    - B recibe la solicitud ARP y responde con su dirección MAC a A.
-                    - A recibe la respuesta de B la añade a su ARP table hasta que no sea necesaria, TTL.
-                - Enviar un datagrama de A a B a través de R:
-                    - Suponemos:
-                        - A conoce la dirección IP y MAC de B.
-                        - A conoce la dirección IP y MAC del primer router del primer salto, R
-                    - A crea un datagrama IP con la dirección IP origen de A, destino B.
-                    - A crea una trama con la dirección MAC de R como destino, la trama contiene el datagrama IP de A a B.
-                    - Trama enviada de A a R.
-                    - Trama recibida en R, se extrae el datagrama y se pasa a IP. El router lee la trama y datagrama para saber dónde debe ser el siguiente salto.
-                    - R reenvía el datagrama con dirección IP origen de A y destino B. No lo cambia
-                    - R crea una trama con la dirección MAC de B como destino, la trama contiene el datagrama IP de A a B. Origen R y destino B.
-                    - B recibe la trama, extrae el datagrama IP y lo pasa a la capa superior.
-        - Ethernet
-            - Tecnología LAN cableada dominante.
-                - Ampliamente usada.
-                - Simple y barato.
-                - Velocidad entre 10 Mbps y 400Gbps.
-            - Topología física:
-                - La topología en bus fue popular en los 90, todos en el mismo dominio de colisión.
-                - Hoy en ida se usan switches - conmutadores, que están en el centro y tienen hasta capa de enlace 2. Los nodos no colisionan con ningún otro.
-                    - Cada switch ejecuta el protocolo Ethernet.
-            - Switch: Donde se conectan los host e implementa la lógica de red.
-            - Router: Separa dominios de difusión.
-            - Estructura de trama Ethernet:
-        - El adaptador emisor encapsula IP en una trama Ethernet.
-        
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2058.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2058.png)
-        
-                - Partes:
-                    - Preámbulo: Para sincronizar relojes del dispositivo y separación de tramas.
-                        - 7 bytes con el patrón 10101010 seguido de un byte con el patrón 10101011
-                        - se emplea para sincronizar los relojes del emisor y del receptor
-                    - Direcciones: 6 bytes.
-                    - Tipo: Indica el protocolo de nivel de red.
-                    - Datos.
-                    - CRC: Detección de errores. Se comprueba en la recepción, si se detecta que hay error la trama se descarta.
-            - Servicio sin conexión, no fiable.
-                - Servicio sin conexión: No existe un protocolo de handshaking - negociación entre los NICs emisor y receptor.
-                - No fiable: Detecta errores, pero no sabe resolverlos, no envía asentimientos. Puede resolver el fallo si se implementa en una capa superior transmisión fiable.
-                - Protocolo MAC de Ethernet: CSMA/CD no ranurado.
-            - 802.3 Estándar Ethernet: Capa enlace y física
-                - Hay diferentes Ethernet según la velocidad y medio de la capa física.
-                    - El formato de trama y el protocolo MAC son comunes.
-                    - Velocidad: 2 Mbps, 10 Mbps, 100Mbps, 1Gbps, 10G bps.
-                    - Capa física: fibra óptica, cable.
-            - Redes inalámbricas y móviles:
-                - Hay más dispositivos Wireless que wired (10 a 1 en 2019)
-                - Dos importantes retos:
-                    - Inalámbrico: Comunicar por enlace Wireless.
-                    - Movilidad: Manejo del usuario móvil que cambia el punto de conexión a la red.
-                - Elementos:
-                    - Hosts inalámbricos: Laptop, smartphone, IoT. Ejecutan aplicaciones.
-                    - Estación base: Típicamente conecta móviles en una red cableada.
-                        
-                - Relay: Responsable de enviar paquetes entre redes cableadas y host cableados.
-        - Enlace inalámbricos: Típicamente conecta móviles y la estación base. Varios ratios, distintas y frecuencias de transmisión.
-            
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2059.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2059.png)
-            
-        - Characteristics of selected wireless links
-            
-            ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2060.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2060.png)
-                    
-                - Modo infraestructura:
-                    - Handoff: Un móvil puede cambiar de estación base a la que está conectado.
-                    - Estación base conecta móviles en una red cableada.
-                - Modo ad hoc:
-                    - No hay estaciones base.
-                    - Los nodos se transmiten la información directamente.
-                    - Los nodos se organizan ellos mismos, enrutados a través de los mimos.
-                - 802.11 Arquitectura LAN
-                    - Los host inalámbricos se comunican con la estación base = Access point.
-                    - BSS - La infraestructura célula contiene:
-                        - Hosts inalámbricos.
-                        - Estación base.
-                        - Entre los hosts se usa modo ad hoc.
-                    - Canales y asociación:
-                        - El espectro se divide en canales con distintas frecuencias.
-                        - Los dispositivos que entran se deben asociar con el punto de acceso (Meter la pass del wifi)
-                - Cuando se asocia con un punto de acceso, se puede hacer autenticación, típicamente se hace DHCP para conseguir una IP.
-            - Escaneo pasivo:
-        
-                ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2061.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2061.png)
-                
-                        - Los beacons frames envían solicitudes para asociarse con los hosts.
-                - Beacon frame: Pequeña trama donde va información sobre el punto de acceso y la MAC.
-            - Escaneo activo:
-        
-                ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2062.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2062.png)
-                
-                - Los dispositivos son los que van mandando solicitudes.
-            - Trama: Direccionamiento.
-        
-                ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2063.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2063.png)
-                
-                        - Partes:
-                            - Dentro de control de trama:
-                                - Tipo: Tipo de trama, RTS, CTS, ACK y data.
-                            - Duración: Duración de reserva del tiempo de transmisión. RTS petición y CTS envía.
-                            - Dirección 1: Dirección MAC de destino.
-                            - Dirección 2: Dirección MAC del que transmite la trama.
-                            - Dirección 3: Dirección MAC del router asociado al Access point.
-                    - Seq control – secuencia de control: Detección de tramas. Para saber cuál es.
-                    - Dirección 4: Dirección MAC cuando se usa modo ad hoc.
-        
-                ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2064.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2064.png)
-            
-        - Switches
-            - Un switch es un dispositivo en la capa de enlace con una función importante.
-                - Almacena y reenvía tramas ethernet.
-                - Cuando recibe una trama mira la dirección MAC y con la tabla sabe porque enlace lo debe pasar, usando CSMA/CD.
-                - Es transparente para los hosts.
-                - plug-and-play, self-learning: Autoaprenden, no hace falta configurarlo según se reciben tramas se van rellenando las tablas de manera dinámica. Cada nodo tiene una tabla de reenvió donde guarda la dirección MAC, la interfaz un TTL.
-            - Los hosts se conectan a los switches con conexiones dedicadas directamente.
-            - El protocolo ethernet se usa en cada enlace de entrada:
-                - Sin colisiones y puedo full duplex.
-                - Cada enlace es un dominio de colisión.
-                - Un switch puede recibir y reenviar datos simultáneamente, pero por un mismo enlace solo se puede transmitir uno a la vez.
-            - Autoaprende: El switch aprende cuales son los hosts alcanzables según la MAC origen e interfaces de entrada de las tramas que recibe.
-                - Se va rellenando la tabla con el uso del switch.
-                - Si recibe por la interfaz una trama que procede de A, sabe que si algo es para A se enviara por esa interfaz.
-                - Si no lo conoce inunda las interfaces.
-                - Proceso:
-                    1. Registra enlace y MAC del emisor.
-                    2. Indexa la tabla usando la dirección de destino.
-                    3. Si tiene la entrada para ese destino.
-                        1. Si la interfaz es la misma de la que viene la descarta.
-                        2. Si no lo envía por la interfaz correspondiente.
-                    4. Si no la conoce, inunda las interfaces, excepto por la que viene.
-            - Los switches que autoaprenden pueden conectarse, cuando se ha reenviado por los que pasa se conectan al almacenar las entradas.
-            - Switch vs router:
-                - Ambas almacenan y reenvían los datos que reciben, unos tramas otros datagramas.
-                    - router: De la capa de red.
-                    - switch: De la capa de enlace.
-                - Ambos usan tablas:
-                    - router: Se basa en IP.
-                    - switch: Se basa en MAC.
-        - VLAN - Redes de Area Local Virtual
-            - Un solo dominio de broadcast, todo el tráfico debe cruzar la LAN entera.
-            - Permite que dispositivos conectados a un switch pertenezcan a otra red de área local.
-            - Permite a un usuario que no está conectado físicamente, pertenecer lógicamente a la red mediante un switch.
-            - VLAN basado en el puerto:
-                - Según el puerto configurado está en una red u otra.
-                - 1 switch muchos VLAN.
-                - Aislamiento de tráfico: Hace que las tramas no se expandan, ni colisionen, entre VLAN distintas solo se popula en el VLAN.
-                - Pertenencia dinámica: La pertenencia a la VLAN es dinámica al cambiar puerto.
-                - Reenvió entre VLANs: Mediante enrutamiento. En la práctica se vende la combinación de router y switch.
-                - En 802.1Q hay 12 bits para el ID de la VLAN
-                - Puerto trunk: Para intercambiar tramas entre dispositivos de una VLAN, pero que físicamente están en varios switches.
-            - Las tramas en VLAN en varios switches no pueden ser el standard 802.1
-                    - Se usan 802.1q para añadir en la cabecera o quitar la cabecera entre los puertos trunk.
-
-                        ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2065.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2065.png)
-        
-            - MPLS:
-                - Solución tecnológica para multiplexar el tráfico, entre la capa 2 y 3.
-                - Su objetivo es conseguir reenvío IP de alta velocidad entre redes de router capaces de MPLS, de esta tecnología.
-                - Se consulta más rápido usando el identificador.
-                - Coge ideas de redes de circuitos, pero con datagramas IP. Con respecto a que se pone un identificador dependiendo del origen y fin.
-                - Añade una cabecera entre la cabecera ethernet y el datagrama.
-                - Reenvía solo consultando la cabecera MPLS, no mira el resto, usa sus propias tablas.
-                - Prioriza las rutas de baja latencia.
-                - Flexible: El reenvío puede ser distinto que el de IP, ya que prioriza baja latencia.
-                - Permite detectar rápidamente fallos.
-                - A diferencia de IP, la ruta se puede basar tanto en la dirección de origen como la de destino, no solo en la de destino.
-                - Como lo hace:
-            - Va modificando las tablas de enrutamiento de otras capas.
-                    - Los routers MPLS usan RSVP-TE para configurar el reenvío, que es una modificación de OSPF, un protocolo de estado de enlace por inundación.
     
-                ![Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2066.png](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Untitled%2066.png)
+            - Es plug-and-play: Los nodos crean su tabla ARP sin intervención del administrador de red.
+                    - Proceso: A quiere enviar un datagrama a B, y la dirección MAC de B no está en la tabla ARP de A.
+                - A quiere el MAC de B, entonces manda una solicitud de ARP en abierto a todos los nodos.
+                - B recibe la solicitud ARP y responde con su dirección MAC a A.
+                - A recibe la respuesta de B la añade a su ARP table hasta que no sea necesaria, TTL.
+                    - Enviar un datagrama de A a B a través de R:
+                - Suponemos:
+                    - A conoce la dirección IP y MAC de B.
+                    - A conoce la dirección IP y MAC del primer router del primer salto, R
+                - A crea un datagrama IP con la dirección IP origen de A, destino B.
+                - A crea una trama con la dirección MAC de R como destino, la trama contiene el datagrama IP de A a B.
+                - Trama enviada de A a R.
+                - Trama recibida en R, se extrae el datagrama y se pasa a IP. El router lee la trama y datagrama para saber dónde debe ser el siguiente salto.
+                - R reenvía el datagrama con dirección IP origen de A y destino B. No lo cambia
+                - R crea una trama con la dirección MAC de B como destino, la trama contiene el datagrama IP de A a B. Origen R y destino B.
+                - B recibe la trama, extrae el datagrama IP y lo pasa a la capa superior.
+    - Ethernet
+        - Tecnología LAN cableada dominante.
+            - Ampliamente usada.
+            - Simple y barato.
+            - Velocidad entre 10 Mbps y 400Gbps.
+        - Topología física:
+            - La topología en bus fue popular en los 90, todos en el mismo dominio de colisión.
+            - Hoy en ida se usan switches - conmutadores, que están en el centro y tienen hasta capa de enlace 2. Los nodos no colisionan con ningún otro.
+                - Cada switch ejecuta el protocolo Ethernet.
+        - Switch: Donde se conectan los host e implementa la lógica de red.
+        - Router: Separa dominios de difusión.
+        - Estructura de trama Ethernet:
+    - El adaptador emisor encapsula IP en una trama Ethernet.
+    
+        <img src="RO/Untitled%2058.png" alt="RO/Untitled%2058.png" style="zoom:67%;" />
+    
+            - Partes:
+                - Preámbulo: Para sincronizar relojes del dispositivo y separación de tramas.
+                    - 7 bytes con el patrón 10101010 seguido de un byte con el patrón 10101011
+                    - se emplea para sincronizar los relojes del emisor y del receptor
+                - Direcciones: 6 bytes.
+                - Tipo: Indica el protocolo de nivel de red.
+                - Datos.
+                - CRC: Detección de errores. Se comprueba en la recepción, si se detecta que hay error la trama se descarta.
+        - Servicio sin conexión, no fiable.
+            - Servicio sin conexión: No existe un protocolo de handshaking - negociación entre los NICs emisor y receptor.
+            - No fiable: Detecta errores, pero no sabe resolverlos, no envía asentimientos. Puede resolver el fallo si se implementa en una capa superior transmisión fiable.
+            - Protocolo MAC de Ethernet: CSMA/CD no ranurado.
+        - 802.3 Estándar Ethernet: Capa enlace y física
+            - Hay diferentes Ethernet según la velocidad y medio de la capa física.
+                - El formato de trama y el protocolo MAC son comunes.
+                - Velocidad: 2 Mbps, 10 Mbps, 100Mbps, 1Gbps, 10G bps.
+                - Capa física: fibra óptica, cable.
+        - Redes inalámbricas y móviles:
+            - Hay más dispositivos Wireless que wired (10 a 1 en 2019)
+            - Dos importantes retos:
+                - Inalámbrico: Comunicar por enlace Wireless.
+                - Movilidad: Manejo del usuario móvil que cambia el punto de conexión a la red.
+            - Elementos:
+                - Hosts inalámbricos: Laptop, smartphone, IoT. Ejecutan aplicaciones.
+                - Estación base: Típicamente conecta móviles en una red cableada.
+                
+            - Relay: Responsable de enviar paquetes entre redes cableadas y host cableados.
+    - Enlace inalámbricos: Típicamente conecta móviles y la estación base. Varios ratios, distintas y frecuencias de transmisión.
+      
+        <img src="RO/Untitled%2059.png" alt="RO/Untitled%2059.png" style="zoom:67%;" />
+        
+    - Characteristics of selected wireless links
+      
+        <img src="RO/Untitled%2060.png" alt="RO/Untitled%2060.png" style="zoom:67%;" />
+                
+        
+            - Modo infraestructura:
+                - Handoff: Un móvil puede cambiar de estación base a la que está conectado.
+                - Estación base conecta móviles en una red cableada.
+                - Modo ad hoc:
+                - No hay estaciones base.
+                - Los nodos se transmiten la información directamente.
+                - Los nodos se organizan ellos mismos, enrutados a través de los mimos.
+                - 802.11 Arquitectura LAN
+                - Los host inalámbricos se comunican con la estación base = Access point.
+                - BSS - La infraestructura célula contiene:
+                    - Hosts inalámbricos.
+                    - Estación base.
+                    - Entre los hosts se usa modo ad hoc.
+                - Canales y asociación:
+                    - El espectro se divide en canales con distintas frecuencias.
+                    - Los dispositivos que entran se deben asociar con el punto de acceso (Meter la pass del wifi)
+                - Cuando se asocia con un punto de acceso, se puede hacer autenticación, típicamente se hace DHCP para conseguir una IP.
+    - Escaneo pasivo:
+        
+            <img src="RO/Untitled%2061.png" alt="RO/Untitled%2061.png" style="zoom:67%;" />
+            
+                    - Los beacons frames envían solicitudes para asociarse con los hosts.
+            - Beacon frame: Pequeña trama donde va información sobre el punto de acceso y la MAC.
+    - Escaneo activo:
+        
+            <img src="RO/Untitled%2062.png" alt="RO/Untitled%2062.png" style="zoom:67%;" />
+            
+            - Los dispositivos son los que van mandando solicitudes.
+    - Trama: Direccionamiento.
+        
+            <img src="RO/Untitled%2063.png" alt="RO/Untitled%2063.png" style="zoom:67%;" />
+            
+                    - Partes:
+                        - Dentro de control de trama:
+                            - Tipo: Tipo de trama, RTS, CTS, ACK y data.
+                        - Duración: Duración de reserva del tiempo de transmisión. RTS petición y CTS envía.
+                        - Dirección 1: Dirección MAC de destino.
+                        - Dirección 2: Dirección MAC del que transmite la trama.
+                        - Dirección 3: Dirección MAC del router asociado al Access point.
+                    - Seq control – secuencia de control: Detección de tramas. Para saber cuál es.
+                - Dirección 4: Dirección MAC cuando se usa modo ad hoc.
+        
+            <img src="RO/Untitled%2064.png" alt="RO/Untitled%2064.png" style="zoom:67%;" />
+        
+    - Switches
+        - Un switch es un dispositivo en la capa de enlace con una función importante.
+            - Almacena y reenvía tramas ethernet.
+            - Cuando recibe una trama mira la dirección MAC y con la tabla sabe porque enlace lo debe pasar, usando CSMA/CD.
+            - Es transparente para los hosts.
+            - plug-and-play, self-learning: Autoaprenden, no hace falta configurarlo según se reciben tramas se van rellenando las tablas de manera dinámica. Cada nodo tiene una tabla de reenvió donde guarda la dirección MAC, la interfaz un TTL.
+        - Los hosts se conectan a los switches con conexiones dedicadas directamente.
+        - El protocolo ethernet se usa en cada enlace de entrada:
+            - Sin colisiones y puedo full duplex.
+            - Cada enlace es un dominio de colisión.
+            - Un switch puede recibir y reenviar datos simultáneamente, pero por un mismo enlace solo se puede transmitir uno a la vez.
+        - Autoaprende: El switch aprende cuales son los hosts alcanzables según la MAC origen e interfaces de entrada de las tramas que recibe.
+            - Se va rellenando la tabla con el uso del switch.
+            - Si recibe por la interfaz una trama que procede de A, sabe que si algo es para A se enviara por esa interfaz.
+            - Si no lo conoce inunda las interfaces.
+            - Proceso:
+                1. Registra enlace y MAC del emisor.
+                2. Indexa la tabla usando la dirección de destino.
+                3. Si tiene la entrada para ese destino.
+                    1. Si la interfaz es la misma de la que viene la descarta.
+                    2. Si no lo envía por la interfaz correspondiente.
+                4. Si no la conoce, inunda las interfaces, excepto por la que viene.
+        - Los switches que autoaprenden pueden conectarse, cuando se ha reenviado por los que pasa se conectan al almacenar las entradas.
+        - Switch vs router:
+            - Ambas almacenan y reenvían los datos que reciben, unos tramas otros datagramas.
+                - router: De la capa de red.
+                - switch: De la capa de enlace.
+            - Ambos usan tablas:
+                - router: Se basa en IP.
+                - switch: Se basa en MAC.
+    - VLAN - Redes de Area Local Virtual
+        - Un solo dominio de broadcast, todo el tráfico debe cruzar la LAN entera.
+        - Permite que dispositivos conectados a un switch pertenezcan a otra red de área local.
+        - Permite a un usuario que no está conectado físicamente, pertenecer lógicamente a la red mediante un switch.
+        - VLAN basado en el puerto:
+            - Según el puerto configurado está en una red u otra.
+            - 1 switch muchos VLAN.
+            - Aislamiento de tráfico: Hace que las tramas no se expandan, ni colisionen, entre VLAN distintas solo se popula en el VLAN.
+            - Pertenencia dinámica: La pertenencia a la VLAN es dinámica al cambiar puerto.
+            - Reenvió entre VLANs: Mediante enrutamiento. En la práctica se vende la combinación de router y switch.
+            - En 802.1Q hay 12 bits para el ID de la VLAN
+            - Puerto trunk: Para intercambiar tramas entre dispositivos de una VLAN, pero que físicamente están en varios switches.
+    - Las tramas en VLAN en varios switches no pueden ser el standard 802.1
+                - Se usan 802.1q para añadir en la cabecera o quitar la cabecera entre los puertos trunk.
+    
+                    <img src="RO/Untitled%2065.png" alt="RO/Untitled%2065.png" style="zoom:67%;" />
+    
+        - MPLS:
+            - Solución tecnológica para multiplexar el tráfico, entre la capa 2 y 3.
+            - Su objetivo es conseguir reenvío IP de alta velocidad entre redes de router capaces de MPLS, de esta tecnología.
+            - Se consulta más rápido usando el identificador.
+            - Coge ideas de redes de circuitos, pero con datagramas IP. Con respecto a que se pone un identificador dependiendo del origen y fin.
+            - Añade una cabecera entre la cabecera ethernet y el datagrama.
+            - Reenvía solo consultando la cabecera MPLS, no mira el resto, usa sus propias tablas.
+            - Prioriza las rutas de baja latencia.
+            - Flexible: El reenvío puede ser distinto que el de IP, ya que prioriza baja latencia.
+            - Permite detectar rápidamente fallos.
+            - A diferencia de IP, la ruta se puede basar tanto en la dirección de origen como la de destino, no solo en la de destino.
+            - Como lo hace:
+        - Va modificando las tablas de enrutamiento de otras capas.
+                - Los routers MPLS usan RSVP-TE para configurar el reenvío, que es una modificación de OSPF, un protocolo de estado de enlace por inundación.
 
-    [s5.3.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s5.3.pptx)
+            <img src="RO/Untitled%2066.png" alt="RO/Untitled%2066.png" style="zoom:67%;" />
+
+    [s5.3.pptx](RO/s5.3.pptx)
 
     ## 6.7 A Day in the Life of a Web Page Request
 
@@ -1419,11 +1429,11 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
     ## 7.3 WiFi: 802.11 Wireless LANs
 
-    [s5.1.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s5.1.pptx)
-
-    [s5.2.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s5.2.pptx)
+    [s5.1.pptx](RO/s5.1.pptx)
     
-    [s5.3.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/s5.3.pptx)
+    [s5.2.pptx](RO/s5.2.pptx)
+    
+    [s5.3.pptx](RO/s5.3.pptx)
 
 # Práctica
 
@@ -1476,7 +1486,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
         **22**. Considere la Figura 1.19 (b). Suponga que cada enlace entre el servidor y el cliente tiene una probabilidad de pérdida de paquetes p y que las probabilidades de pérdida de paquetes de estos enlaces son independientes. ¿Cuál es la probabilidad de que un paquete (enviado por el servidor) sea recibido correctamente por el receptor? Si un paquete se pierde en el camino que va desde el servidor hasta el cliente, entonces el servidor volverá a transmitir el paquete. Como media, ¿cuántas veces tendrá que retransmitir el paquete el servidor para que el cliente lo reciba correctamente?
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/0.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/0.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/0.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/0.JPG" style="zoom:50%;" />
 
         **23**. Considere la Figura 1.19 (a). Suponga que sabemos que el enlace cuello de botella a lo largo de la ruta entre el servidor y el cliente es el primer enlace, cuya velocidad es R_s bits/segundo. Suponga que envíamos un par de paquetes uno tras otro desde el servidor al cliente y que no hay más tráfico que ese en la ruta. Suponga que cada paquete tiene un tamaño de Lbits y que ambos enlaces presentan el mismo retardo de propagación d_prop.
 
@@ -1496,9 +1506,9 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
         d. Comente los inconvenientes de la segmentación de mensajes.
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/1.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/1.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/1.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/1.JPG" style="zoom:50%;" />
 
-    [p1 RO.pdf](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/p1_RO.pdf)
+    [p1 RO.pdf](RO/p1_RO.pdf)
 
 - TEMA 2: Application Layer
     - Review Questions
@@ -1541,7 +1551,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
         a. Identifique los intervalos de tiempo cuando TCP está operando en el modo de arranque lento.b. Identifique los intervalos de tiempo cuando TCP está operando en el modo de evitación de la congestiónc. Después del ciclo de transmisión16. ¿se detecta la pérdida de segmento mediante tres ACK duplicados o mediante un fin de temporización?d. Después del ciclo de transmisión 22. ¿se detecta la pérdida de segmento mediante tres ACK duplicados o mediante un fin de temporización?e. ¿Cuál es el valor inicial de umbral en el primer ciclo de transmisión?f. ¿Cuál es el valor de umbral transcuridos 18 ciclos de transmisión?g. ¿Cuál es el valor de umbral transcurridos 24 ciclos de transmisión?h. ¿Durante cuál ciclo de transmisión se envía el segmento 70?i. Suponiendo que se detecta una pérdida de paquete después del ciclo de transmisión 26 a causa de la recepción de un tiple ACK duplicado, ¿cuáles serán los valores del tamaño de la ventana de congestión y de umbral?j. Suponga que se utiliza TCP Tahoe (en lugar de TCP Reno) y que se han recibido triples ACK duplicados en el ciclo de transmisión 16. ¿Cuáles serán los valores del tamaño de la ventana de congestión y de umbral en el ciclo de transmisión 19?k. Suponga otra vez que se utiliza TCP Tahoe y que se produce un suceso de fin de temporización en el ciclo de transmisión 22. ¿Cuántos paquetes han sido enviados entre los ciclos de transmisión 17 a 22, ambos inclusive?
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/2.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/2.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/2.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/2.JPG" style="zoom:50%;" />
 
         **40**. El host A está enviando un archivo de gran tamaño al host B a través de una conexión TCP. En esta conexión nunca se pierden paquetes y los temporizadores nunca caducan. La velocidad de transmisión del enlace que conecta el host A con Internet es R bps. Suponga que el proceso del host A es capaz de enviar datos a su socket TCP a una velocidad de S bps, donde S=10·R. Suponga también que el buffer de recepción de TCP es lo suficientemente grande como para almacenar el archivo completo y que el buffer emisor sólo puede almacenar un porcentaje del archivo. ¿Qué impide al proceso del host A pasar datos de forma continua a su socket TCP a una velocidad de S bps? ¿El mecanismo de control de flujo de TCP, el mecanismo de control de congestión de TCP o alguna otra cosa? Razone su respuesta
 
@@ -1557,11 +1567,11 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
         a. 4S/R > S/R + RTT > 2S/Rb. S/R + RTT > 4S/Rc. S/R > RTT
 
-    [p2 RO.pdf](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/p2_RO.pdf)
+    [p2 RO.pdf](RO/p2_RO.pdf)
 
 - TEMA 3: Transport Layer
 
-    [p3.pptx](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/p3.pptx)
+    [p3.pptx](RO/p3.pptx)
 
     - Review Questions
 
@@ -1619,13 +1629,13 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
         **4**. Utilice la red mostrada más abajo.
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/7.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/7.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/7.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/7.JPG" style="zoom:33%;" />
 
         a. Suponga que se trata de una red de datagramas. Especifique la tabla de reenvío del router A, de modo que todo el tráfico destinado al host H3 sea reenviado a través de la interfaz 3.b. Suponga que se traía de una red de datagramas. ¿Puede escribir una tabla de reenvío para el router A, de manera que todo el tráfico de H1 destinado al host H3 sea reenviado a través de la interfaz 3, mientras todo el tráfico de H2 destinado al host H3 sea reenviado a través de la interfaz 4? (Sugerencia: esta pregunta tiene truco)c. Ahora suponga que se trata de una red de circuitos virtuales y que hay una llamada activa entre H1 y H3, y otra llamada activa entre H2 y H3. Escriba la tabla de reenvío del router A. de modo que todo el tráfico de H1 destinado al host H3 sea reenviado a través de la interfaz 3, mientras todo el tráfico de H2 destinado al host H3 sea reenviado a través de la interfaz 4.d. Suponga el mismo escenario que en el apatado (c) y escribalas tablas de reenvío de los nodos B, C y D.
 
         **5**. Considere una red de circuitos virtuales con un campo de 2 bits para el número de VC. Suponga que la red desea configurar un circuito vitual a través de cuatro enlaces: el enlace A, el enlace B. el enlace C y el enlace D. Suponga también que cada uno de estos enlaces actualmente está dando soporte a otros dos circuitos virtuales y que los números de VC de los mismos son los siguientes:
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/8.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/8.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/8.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/8.JPG" style="zoom:50%;" />
 
         Al responder a las siguientes preguntas, tenga en cuenta que cada uno de los circuitos virtuales existentes sólo puede estar atravesando uno de los cuatro enlaces:
 
@@ -1633,7 +1643,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
         **16**. Considere la topologíade la Figura 4.17. Denomine a las tres subredes con hosts (comenzando en el sentido horario a partir de las 12:00) como redes A, B y C. Denomine a las subredes que no tienen hosts como redes D, E y F.
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/10.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/10.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/10.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/10.JPG" style="zoom:50%;" />
 
         a. Asigne direcciones de red a cada una de estas seis subredes, teniendo en cuenta las siguientes restricciones: todas las direcciones tienen que ser asignadas a partir de 214.97.254/23; la subred A tendrá que disponer de las direcciones suficientes como para dar soporte a 126 hosts; la subred B tendrá que disponer de las direcciones suficientes como para dar soporte a 62 interfaces y lasubred C tendrá que disponer de las direcciones suficientes como para dar soporte a 15 sistemas finales. Por supuesto, las subredes D, E y F deberían poder dar soporte a dos intefaces. Para cada subred, la asignación debería hacerse empleando el formato a.b.c.d/x.b. Utilizando su respuesta al apartado (a), proporcione las tablas de reenvío (utilizando la regla de coincidencia con el prefijo más largo) para cada uno de los tres routers). Utilice el formato IP destino/prefijo/siguiente salto y escriba las direcciones IP usando notación decimal y el prefijo usando /[0..32].
 
@@ -1641,7 +1651,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
         **19**. Considere la red de la Figura 4.22. Suponga que el ISP asigna al router la dirección 24.34.112.235 y que la dirección de la red doméstica es 192.168.1/24.
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/9.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/9.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/9.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/9.JPG" style="zoom:50%;" />
 
         a. Asigne direcciones a todas las interfaces de la red doméstica.b. Suponga que cada host tiene dos conexiones TCP activas, todas ellas en el puerto 80 del host 128.119.40.86. Proporcione las seis entradas correspondientes de la tabla de traducciones NAT.
 
@@ -1680,11 +1690,11 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
         **24**. Considere la Figura 4.37.
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/12.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/12.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/12.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/12.JPG" style="zoom:50%;" />
 
         Comenzando con la tabla original en D, suponga que D recibe de A el siguiente anuncio
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/11.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/11.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/11.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/11.JPG" style="zoom:50%;" />
 
         ¿Cambiará la tabla en el router D? En caso afirmativo, ¿cómo?
 
@@ -1704,29 +1714,29 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
         **25**. Considere la red del Problema P24.
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/14.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/14.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/14.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/14.JPG" style="zoom:50%;" />
 
         Utilizando el algoritmo de Dijkstra y utilizando una tabla similar a la Tabla 4.3, haga lo siguiente:
 
         a. Calcule la ruta más corta desde x a todos losdemás nodos de la red,b. Calcule la ruta más corta desde u a todos los demás nodos de la red.
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/15.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/15.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/15.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/15.JPG" style="zoom:67%;" />
 
         **28**. Considere el fragmento de red mostrado a continuación, x sólo tiene dos vecinos conectados, w e y. w tiene una ruta de coste mínimo al destino u (no mostrado) de 5 e y tiene una ruta de coste mínimo a u de 6. Las rutas completas desde w e y a u (y entre w e y) no se muestran. Todos los costes de enlace de la red tienen valores enteros estrictamente positivos.
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/16.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/16.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/16.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/16.JPG" style="zoom:67%;" />
 
         a. Indique el vector dedistancias de x para los destinos w, u e y.b. Indique un cambio en el coste del enlace para c(x,w) o c(x,y) tal que x informe a sus vecinos de una nueva ruta de coste mínimo a u, como resultado de ejecutar el algoritmo de vector de distancias.c. Indique un cambio en el coste del enlace para c(x,w) o c(x,y) tal que x no informe a sus vecinos de una ruta de coste mínimo a u, como resultado de ejecutar el algoritmo de vector de distancias.
 
         **32**. Considere la Figura 4.31. Suponga que existe otro router w, conectado a los routers y y z. Los costes de todos los enlaces son los siguientes: c(x,y) =4, c(x,z) =50, c(y,w)=1, c(z.w)=1, c(y,z)=3. Suponga que se utiliza inversa envenenada en el algoritmo de enrutamiento por vector de distancias.
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/17.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/17.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/17.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/17.JPG" style="zoom:67%;" />
 
         a. Cuando el enrutamiento por vector de distancias se estabiliza, los routers w, y y z se informan de sus respectivas distancias a x. ¿Cuáles son los valores de esas distancias?b. Ahora suponga que el coste del enlace entre x e y aumenta a 60. ¿Se producirá un problema de cuenta hasta infinito aunque se utilice inversa envenenada? ¿Por qué? Si existe el problema de cuenta hasta infinito, entonces ¿cuántas iteraciones serán necesarias para que el enrutamiento por vector de distancias alcance de nuevo un estado estable? Justifique su respuesta.c. ¿Cómo modificaría c(y,z) para que no existiera el problema de cuenta hasta infinito si c(y,x) cambia de 4 a 60?
 
         **43**. Considere la operación del algoritmo de reenvío de camino inverso (RPF) utilizado en la Figura 4.44. Utilizando la misma topología, determine un conjunto de rutas desde todos los nodos al nodo de origen A (e indique estas rutas en un grafo utilizando líneas sombreadas más gruesas como en la Figura 4.44), tal que si esas rutas fueran las rutas de coste mínimo, entonces el nodo B recibiría una copia del mensaje de difusión de A procedente de los nodos A, C y D bajo RPF.
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/13.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/13.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/13.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/13.JPG" style="zoom:67%;" />
 
         **49**. Considere una red en la que todos los nodos están conectados a otros tres nodos. En un único intervalo de tiempo, un nodo puede recibir todos los paquetes de difusión transmitidos desde sus vecinos, duplicar los paquetes y enviarlos a cada uno de sus vecinos (excepto al nodo que envío un paquete concreto). En el siguiente intervalo de tiempo, los nodos vecinos puede recibir, duplicar y reenvía restos paquetes, y así sucesivamente. Suponga que se utiliza la técnica de inundación no controlada para proporcionar comunicación por difusión en una red así. En el intervalo de tiempo t, ¿cuantas copias del paquete de difusión se transmitirán, suponiendo que durante el intervalo de tiempo 1 el nodo de origen transmitió un único paquete de difusión a sus tres vecinos?
 
@@ -1759,11 +1769,11 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
         **12**. En la red de la Figura 6.19 el router tiene dos módulos ARP, cada uno con su propia tabla ARP. ¿Es posible que la misma dirección MAC aparezca en ambas tablas?
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/5.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/5.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/5.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/5.JPG" style="zoom:50%;" />
 
         **14**. Considere la Figura 6.15. ¿Cuántas subredes hay, en el sentido de direccionamiento explicado en la Sección 4.3?
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/6.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/6.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/6.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/6.JPG" style="zoom:50%;" />
 
         **15**. ¿Cuál es el número máximo de redes VLAN que pueden configurarse en un conmutador que soporta el protocolo 802. IQ? ¿Por qué?
 
@@ -1799,7 +1809,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
         a. Considere el envío de un datagrama IP desde el host E al host F. ¿Pedirá el host E al router R1 que le ayude a reenviar el datagrama? ¿Por qué? En la trama Ethernet que contiene el datagrama IP, ¿cuáles son las direcciones IP y MAC de origen y de destino?b. Suponga que E quiere enviar un datagrama IP a B y suponga que la caché ARP de E no contiene la dirección MAC de B. ¿Realizará E una consulta ARP para averiguar la dirección MAC de B? ¿Por qué? En la trama Ethernet (que contiene el datagrama IP destinado a B) que se le entrega al routerR1, ¿cuáles son las direcciones IP y MAC de origen y de destino?c. Suponga que el host A quiere enviar un datagrama IP al host B, y que ni la caché ARP de A contiene la dirección MAC de B ni la caché ARP de B contiene la dirección MAC de A. Suponga además que la tabla de reenvío del conmutador S1 contiene entradas únicamente para el host B y el router R1. Por tanto, A difundirá un mensaje de solicitud ARP. ¿Qué acciones realizará el conmutador S1 una vez que reciba el mensaje de solicitud ARP? ¿Recibirá también el router R1 esta solicitud ARP? En caso afirmativo, ¿reenviará R1 el mensaje hacia la Subred3? Una vez que el host B reciba este mensaje de solicitud ARP. devolverá al host A un mensaje de respuesta ARP. Pero ¿enviará un mensaje de consulta ARP para preguntar por la dirección MAC de A? ¿Por qué? ¿Que hará el conmutador S1 una vez que reciba el mensaje de respuesta ARP del host B?
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/3.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/3.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/3.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/3.JPG" style="zoom:50%;" />
 
         **22**. Considere una red Ethemet 100BASE-T a 100Mbps con todos los nodos directamente conectados aunconcentrador. Para tener una eficiencia de 0.50, ¿cuál debería ser la distancia máxima entre un nodo y el concentrador? Suponga una longitud de trama de 1.000 bytes y que no existe ningún repetidor. ¿Garantiza también esta distancia máxima que un nodo A que está transmitiendo será capaz de detectar si cualquier otro nodo ha transmitido mientras A estaba transmitiendo? ¿Por qué? ¿Cómo es esa distancia máxima, comparada con el estándar real a 100Mbps? Suponga que la velocidad de propagación de la señal en Ethemet I00BASE-T es 1,8X10^8m/s.
 
@@ -1809,7 +1819,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
         **35**. Considere la red MPLS mostrada en la Figura 5.36 y suponga que ahora los routers R5 y R6 son compatibles con MPLS. Suponga que deseamos realizar la ingeniería de tráfico de modo que los paquetes procedentes de R6 y destinados a A se conmuten hacia A a través de R6-R4-R3-R1, y que los paquetes procedentes de R5 destinados a A se conmuten a través de R5-R4-R2-R1. Detalle las tablas MPLS de R5 y R6, así como la tabla modificada de R4, que harían esto posible.
 
-        ![http://www.it.uc3m.es/fvalera/ro/problemas/4.JPG](http://www.it.uc3m.es/fvalera/ro/problemas/4.JPG)
+        <img src="http://www.it.uc3m.es/fvalera/ro/problemas/4.JPG" alt="http://www.it.uc3m.es/fvalera/ro/problemas/4.JPG" style="zoom:67%;" />
 
         **36**. Considere de nuevo el mismo escenario que el problema anterior, pero suponga que los paquetes de R6 destinados a D se conmutan a través de R6-R4-R3, mientras que los paquetes procedentes de R5 destinados a D se conmutan a través de R4-R2-R1-R3. Determine las tablas MPLS en todos los routers que harían esto posible.
 
@@ -1818,29 +1828,29 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 - LABORATORIOS
     - Práctica DNS
 
-        [PRACTICA - DNS.pdf](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/PRACTICA_-_DNS.pdf)
+        [PRACTICA - DNS.pdf](RO/PRACTICA_-_DNS.pdf)
 
     - Práctica de Direccionamiento
 
-        [understandIP.pdf](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/understandIP.pdf)
+        [understandIP.pdf](RO/understandIP.pdf)
 
-        [3-EdD.zip](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/3-EdD.zip)
+        [3-EdD.zip](RO/3-EdD.zip)
 
     - Práctica de routers
 
-        [manual_linksys_uc3m.pdf](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/manual_linksys_uc3m.pdf)
+        [manual_linksys_uc3m.pdf](RO/manual_linksys_uc3m.pdf)
 
-        [4_routers_eng_VM_con_instrucciones.pdf](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/4_routers_eng_VM_con_instrucciones.pdf)
+        [4_routers_eng_VM_con_instrucciones.pdf](RO/4_routers_eng_VM_con_instrucciones.pdf)
 
-        [4-routers.zip](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/4-routers.zip)
+        [4-routers.zip](RO/4-routers.zip)
 
     - Recursos
 
-        [CORE INSTALLATION TROUBLESHOOTING.pdf](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/CORE_INSTALLATION_TROUBLESHOOTING.pdf)
+        [CORE INSTALLATION TROUBLESHOOTING.pdf](RO/CORE_INSTALLATION_TROUBLESHOOTING.pdf)
 
-        [0. core installation instructions.pdf](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/0._core_installation_instructions.pdf)
+        [0. core installation instructions.pdf](RO/0._core_installation_instructions.pdf)
 
-        [install_core.pdf](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/install_core.pdf)
+        [install_core.pdf](RO/install_core.pdf)
 
         [Oracle VM VirtualBox](https://www.virtualbox.org/)
 
@@ -1852,7 +1862,7 @@ Cuando la capacidad del buffer se termina o se han enviado mal, y dependiendo de
 
 # Recursos
 
-[Redes_de_computadoras_Un_enfoque_descend.pdf](Redes%20de%20ordenadores%2090a66a29224a43549763be039fa44474/Redes_de_computadoras_Un_enfoque_descend.pdf)
+[Redes_de_computadoras_Un_enfoque_descend.pdf](RO/Redes_de_computadoras_Un_enfoque_descend.pdf)
 
 [](http://www.ingebook.com/ib/NPcd/IB_Escritorio_Visualizar?cod_primaria=1000193&libro=6752)
 
