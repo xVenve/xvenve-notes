@@ -36,11 +36,11 @@ Un programa se dice que aprende de una experiencia con respecto a una tarea y al
 
 Se encuentra en las fronteras de la programación.
 
-<img src="Aprendizaje Automático/Untitled.png" alt="Aprendizaje Automático/Untitled.png" style="zoom: 33%;" />
+<img src="AA/Untitled.png" alt="AA/Untitled.png" style="zoom: 33%;" />
 
 **Programación tradicional**: Lo normal, es que el usuario construya el programa que resuelve el problema.
 
-<img src="Aprendizaje Automático/Untitled%201.png" alt="Aprendizaje Automático/Untitled%201.png" style="zoom:33%;" />
+<img src="AA/Untitled%201.png" alt="AA/Untitled%201.png" style="zoom:33%;" />
 
 **Programación automática**: Se crea un programa capaz de generar el programa que es capaz de resolver nuestra problema.
 
@@ -61,7 +61,7 @@ Se encuentra en las fronteras de la programación.
 
 Tarea, Medida y Experiencia.
 
-<img src="Aprendizaje Automático/Untitled%202.png" alt="Aprendizaje Automático/Untitled%202.png" style="zoom: 33%;" />
+<img src="AA/Untitled%202.png" alt="AA/Untitled%202.png" style="zoom: 33%;" />
 
 **Tipos de tareas de Aprendizaje Automático:**
 
@@ -157,7 +157,7 @@ Usa búsqueda avara, para encontrar el árbol más sencillo que separa mejor los
 
 - Ejemplo:
 
-    <img src="Aprendizaje Automático/Untitled%203.png" alt="Aprendizaje Automático/Untitled%203.png" style="zoom:33%;" /><img src="Aprendizaje Automático/Untitled%204.png" alt="Aprendizaje Automático/Untitled%204.png" style="zoom:33%;" /><img src="Aprendizaje Automático/Untitled%205.png" alt="Aprendizaje Automático/Untitled%205.png" style="zoom:33%;" /><img src="Aprendizaje Automático/Untitled%206.png" alt="Aprendizaje Automático/Untitled%206.png" style="zoom:33%;" /><img src="Aprendizaje Automático/Untitled%207.png" alt="Aprendizaje Automático/Untitled%207.png" style="zoom: 33%;" /><img src="Aprendizaje Automático/Untitled%208.png" alt="Aprendizaje Automático/Untitled%208.png" style="zoom:33%;" /><img src="Aprendizaje Automático/Untitled%209.png" alt="Aprendizaje Automático/Untitled%209.png" style="zoom:33%;" />
+    <img src="AA/Untitled%203.png" alt="AA/Untitled%203.png" style="zoom:33%;" /><img src="AA/Untitled%204.png" alt="AA/Untitled%204.png" style="zoom:33%;" /><img src="AA/Untitled%205.png" alt="AA/Untitled%205.png" style="zoom:33%;" /><img src="AA/Untitled%206.png" alt="AA/Untitled%206.png" style="zoom:33%;" /><img src="AA/Untitled%207.png" alt="AA/Untitled%207.png" style="zoom: 33%;" /><img src="AA/Untitled%208.png" alt="AA/Untitled%208.png" style="zoom:33%;" /><img src="AA/Untitled%209.png" alt="AA/Untitled%209.png" style="zoom:33%;" />
 
 ### Heurística de ID3 (Heurística de la ganancia de información)
 
@@ -201,7 +201,7 @@ $A= \arg\max_{A \in \mathcal{A}}  G(S,A) = \arg\min_{A \in \mathcal{A}} Entropia
 
 - Ejemplo:
 
-    <img src="Aprendizaje Automático/Untitled%2010.png" alt="Aprendizaje Automático/Untitled%2010.png" style="zoom:33%;" />
+    <img src="AA/Untitled%2010.png" alt="AA/Untitled%2010.png" style="zoom:33%;" />
 
 ### Aprendizaje de reglas de decisión
 
@@ -278,7 +278,7 @@ Tener una precisión alta, no quiere decir que sea bueno, la clase puede estar d
 
 **Basadas en la Matriz de confusión:**
 
-<img src="Aprendizaje Automático/Untitled%2011.png" alt="Aprendizaje Automático/Untitled%2011.png" style="zoom:33%;" />
+<img src="AA/Untitled%2011.png" alt="AA/Untitled%2011.png" style="zoom:33%;" />
 
 $Accuracy= \frac {TP+TN}{TP+TP+FP+FN}$
 
@@ -300,13 +300,13 @@ Cuando se busca un buen balance entre recall y precisión de clase, y las clases
 
 **Espacio ROC:** Mide como de útil es un clasificador para distinguir entre clases. Cuanto más cerca de la esquina superior izquierda mejor, recoge más área y está más cerca del punto óptimo.
 
-<img src="Aprendizaje Automático/Untitled%2012.png" alt="Aprendizaje Automático/Untitled%2012.png" style="zoom:33%;" />
+<img src="AA/Untitled%2012.png" alt="AA/Untitled%2012.png" style="zoom:33%;" />
 
 **Curva ROC**: Es una curva en el espacio ROC, en la que cada punto de la recta representa un clasificador, el más cercano al punto óptimo será el mejor, pero teniendo cuidado de los falsos positivos. Se define un umbral a partir del cual se considera de clase positiva o negativa. Los puntos son del tipo +0.8 +0.6.
 
 Cuanto más Area por debajo de la curva mejor.
 
-<img src="Aprendizaje Automático/Untitled%2013.png" alt="Aprendizaje Automático/Untitled%2013.png" style="zoom:33%;" />
+<img src="AA/Untitled%2013.png" alt="AA/Untitled%2013.png" style="zoom:33%;" />
 
 ### Proceso de análisis de datos
 
@@ -339,11 +339,11 @@ Es un proceso iterativo, tras la última etapa se vuelve al principio.
 
     		- **Técnicas de wrapper**: Se genera el modelo con todos los atributos, se evalúa el modelo y se ve el subconjunto de atributos mejores.
 
-    			<img src="Aprendizaje Automático/Untitled%2014.png" alt="Aprendizaje Automático/Untitled%2014.png" style="zoom: 33%;" />
+    			<img src="AA/Untitled%2014.png" alt="AA/Untitled%2014.png" style="zoom: 33%;" />
 
     		- **Búsqueda en el espacio de estado de los conjuntos de atributos.**
 
-    			<img src="Aprendizaje Automático/Untitled%2015.png" alt="Aprendizaje Automático/Untitled%2015.png" style="zoom:33%;" />
+    			<img src="AA/Untitled%2015.png" alt="AA/Untitled%2015.png" style="zoom:33%;" />
 
     			- Se puede comenzar por el conjunto completo (por arriba) o por el conjunto vacío (por abajo).
     			- La búsqueda puede ser de cualquier tipo.
@@ -367,7 +367,7 @@ Es un proceso iterativo, tras la última etapa se vuelve al principio.
 
 #### Sobreajuste (overfitting)
 
-<img src="Aprendizaje Automático/image-20210305195646416.png" alt="image-20210305195646416" style="zoom:33%;" />
+<img src="AA/image-20210305195646416.png" alt="image-20210305195646416" style="zoom:33%;" />
 
 Fenómeno que se produce al hacer aprendizaje, porque **el modelo se ajusta demasiado a los ejemplos, y eso hace que no generalice bien.**
 
@@ -382,15 +382,15 @@ Para evitar sobreajuste se debe generalizar, hay **2 métodos**:
 
 - **Post-poda**: Después de generar poda.
 
-	- **Eliminando subárboles**: Eliminando nodos del árbol empezando por las hojas, se evalúa el error tras eliminarlo, si no mejora probamos otro. <img src="Aprendizaje Automático/image-20210305200826542.png" alt="image-20210305200826542" style="zoom: 33%;" />
+	- **Eliminando subárboles**: Eliminando nodos del árbol empezando por las hojas, se evalúa el error tras eliminarlo, si no mejora probamos otro. <img src="AA/image-20210305200826542.png" alt="image-20210305200826542" style="zoom: 33%;" />
 
 	- **Eliminando precondiciones o reglas**: Tras haberlo pasado a reglas, eliminamos condiciones o reglas completas. Tras la eliminación se calcula el error, si mejora, el modelo principal pasa a ser el que lo eliminó y se sigue probado. Si no se prueba otra condición o regla.
 
-		<img src="Aprendizaje Automático/image-20210305201114245.png" alt="image-20210305201114245" style="zoom: 33%;" /><img src="Aprendizaje Automático/image-20210305201127523.png" alt="image-20210305201127523" style="zoom: 33%;" />
+		<img src="AA/image-20210305201114245.png" alt="image-20210305201114245" style="zoom: 33%;" /><img src="AA/image-20210305201127523.png" alt="image-20210305201127523" style="zoom: 33%;" />
 
 #### Atributos con valores continuos
 
-<img src="Aprendizaje Automático/image-20210305201824512.png" alt="image-20210305201824512" style="zoom:33%;" />
+<img src="AA/image-20210305201824512.png" alt="image-20210305201824512" style="zoom:33%;" />
 
 1. Se **ordenan los valores del atributo**, y se especifica la clase a la que pertenecen.
 2. Se **observan los puntos en los que pasa de una clase a otra** y se hace media con los puntos de corte.
@@ -435,7 +435,7 @@ Clasificadores débiles:
 
 ## TEMA 3. Regresión
 
-<img src="Aprendizaje Automático/image-20210305210244509.png" alt="image-20210305210244509" style="zoom:33%;" />
+<img src="AA/image-20210305210244509.png" alt="image-20210305210244509" style="zoom:33%;" />
 
 La clase en regresión es numérica.
 
@@ -451,7 +451,7 @@ Discretizando la clase, pero se pierde información y hay que elegir un método 
 
 ### Función de regresión
 
-<img src="Aprendizaje Automático/image-20210305211354068.png" alt="image-20210305211354068" style="zoom: 33%;" /><img src="Aprendizaje Automático/image-20210305211454026.png" alt="image-20210305211454026" style="zoom:33%;" />
+<img src="AA/image-20210305211354068.png" alt="image-20210305211354068" style="zoom: 33%;" /><img src="AA/image-20210305211454026.png" alt="image-20210305211454026" style="zoom:33%;" />
 
 #### Regresión lineal
 
@@ -470,7 +470,7 @@ Equivalente a **minimizar el error cuadrático sobre el conjunto de entrenamient
 
 La **suma de todas las diferencias de los valores de la función y su aproximación**. Buscamos aquella aproximación que minimice E.
 
-<img src="Aprendizaje Automático/image-20210305212854142.png" alt="image-20210305212854142" style="zoom:33%;" />
+<img src="AA/image-20210305212854142.png" alt="image-20210305212854142" style="zoom:33%;" />
 
 ##### Minimizando el error
 
@@ -480,7 +480,7 @@ La **suma de todas las diferencias de los valores de la función y su aproximaci
 
 #### Descenso de gradiente
 
-<img src="Aprendizaje Automático/image-20210305214445428.png" alt="image-20210305214445428" style="zoom:50%;" />
+<img src="AA/image-20210305214445428.png" alt="image-20210305214445428" style="zoom:50%;" />
 
 Sobre la función de errores  por variable **vamos calculando la tangente y desplazando los valores de los pesos**.
 
@@ -500,7 +500,7 @@ Sobre la función de errores  por variable **vamos calculando la tangente y desp
 
 **Procedimiento: Descenso de Gradiente(C,n)**
 
-- C conjunto de ejemplo de entrenamiento. n tasa de aprendizaje cuando salta.<img src="Aprendizaje Automático/image-20210305224415026.png" alt="image-20210305224415026" style="zoom:50%;" />
+- C conjunto de ejemplo de entrenamiento. n tasa de aprendizaje cuando salta.<img src="AA/image-20210305224415026.png" alt="image-20210305224415026" style="zoom:50%;" />
 
 
 
@@ -543,6 +543,6 @@ Hojas: Se calcula un modelo lineal y se utiliza regresión estándar.
 
 **Salida**: En las hojas tiene funciones de regresión, en los nodos no hoja se tienen atributos acotados <. Cada nodo tiene un conjunto de entrenamiento y se hace su regresión lineal.
 
-<img src="Aprendizaje Automático/image-20210305230339091.png" alt="image-20210305230339091" style="zoom: 33%;" /><img src="Aprendizaje Automático/image-20210305230601935.png" alt="image-20210305230601935" style="zoom: 33%;" />
+<img src="AA/image-20210305230339091.png" alt="image-20210305230339091" style="zoom: 33%;" /><img src="AA/image-20210305230601935.png" alt="image-20210305230601935" style="zoom: 33%;" />
 
 ## Recursos
