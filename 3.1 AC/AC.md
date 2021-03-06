@@ -4,7 +4,7 @@
 
 [Notas](https://www.notion.so/Notas-796a528ac8f34899856cab69c136bf31)
 
-[Presentación AC.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-00-intro-hout.pdf)
+[Presentación AC.pdf](AC/es-00-intro-hout.pdf)
 
 Teorías: José Daniel García jdgarcia@inf.uc3m.es josedaniel.garcia@uc3m.es
 Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SINGH
@@ -13,7 +13,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
 
 - Módulo 1: Introducción al Diseño de Computadores
 
-    [es-m1-01-fund-hout.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m1-01-fund-hout.pdf)
+    [es-m1-01-fund-hout.pdf](AC/es-m1-01-fund-hout.pdf)
 
     - Lecturas
 
@@ -34,7 +34,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
 
     - Diagrama
 
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled.png)
+        <img src="AC/Untitled.png" alt="AC/Untitled.png" style="zoom: 33%;" />
 
     - El número de transistores por chip se duplica cada N meses, donde N varía entre 12 y 24. Aumenta exponencialmente.
     - En 2015 se dejó de cumplir. No somos capaces de aumentar la frecuencia.
@@ -42,7 +42,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
     - Evolución del del rendimiento:
         - Diagrama
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%201.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%201.png)
+            <img src="AC/Untitled%201.png" alt="AC/Untitled%201.png" style="zoom: 80%;" />
 
     ## RISC:
 
@@ -58,7 +58,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
     - Primera revolución (70's): El microprocesador.
         - Primer microprocesador.
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%202.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%202.png)
+            <img src="AC/Untitled%202.png" alt="AC/Untitled%202.png" style="zoom: 50%;" />
 
         - Fue posible al poder poner suficientes transistores, 25000, en un único chip para un procesador de 16 bits.
         - Era más barato, todo en un chip, y más rápido, no hacía falta tantas salidas del chip al estar todo junto.
@@ -76,7 +76,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
             - Planificación dinámica: Ejecución fuera del orden programado, con el objetivo de que sea más rápido y funcione igual.
         - Culminación de procesadores de un núcleo.
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%203.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%203.png)
+            <img src="AC/Untitled%203.png" alt="AC/Untitled%203.png" style="zoom:50%;" />
 
     - Tercera revolución: Paralelismo de datos y de hilos
         - Soporte a paralelismo explícito de datos y de hilos.
@@ -89,7 +89,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
             - Soporte general para aplicaciones.
         - Procesadores multi-core.
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%204.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%204.png)
+            <img src="AC/Untitled%204.png" alt="AC/Untitled%204.png" style="zoom:50%;" />
 
     ## Tendencias arquitectónicas.
 
@@ -190,7 +190,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
         - Requiere que las tareas a ejecutar sean suficientemente complicadas.
 - Módulo 2: Evaluación del rendimiento de sistemas informáticos
 
-    [es-m2-01-trend-hout.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m2-01-trend-hout.pdf)
+    [es-m2-01-trend-hout.pdf](AC/es-m2-01-trend-hout.pdf)
 
     ## Tendencias tecnológicas
 
@@ -217,7 +217,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
     - El ancho de banda ha aumentado mucho con respecto a la latencia.
         - Diagrama
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%205.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%205.png)
+            <img src="AC/Untitled%205.png" alt="AC/Untitled%205.png" style="zoom:50%;" />
 
     ## Tendencias en potencia y energía
 
@@ -253,9 +253,9 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
     - Oblea: Material semiconductor donde se imprimen los circuitos.
         - Coste
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%206.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%206.png)
+            <img src="AC/Untitled%206.png" alt="AC/Untitled%206.png" style="zoom:50%;" />
 
-    [es-m2-02-almfiab-hout.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m2-02-almfiab-hout.pdf)
+    [es-m2-02-almfiab-hout.pdf](AC/es-m2-02-almfiab-hout.pdf)
 
     ## Evaluación del rendimiento
 
@@ -292,7 +292,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
         - El speedup depende exclusivamente de la fracción de mejora y el speedup de la mejora.
         - Diagrama
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%207.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%207.png)
+            <img src="AC/Untitled%207.png" alt="AC/Untitled%207.png" style="zoom:50%;" />
 
     - Se debe optimizar:
         - Dentro del procesador: la ruta de datos.
@@ -311,7 +311,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
 
 - Módulo 3 Paralelismo a nivel de instrucción
 
-    [es-m3-01-expilp-hout.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m3-01-expilp-hout.pdf)
+    [es-m3-01-expilp-hout.pdf](AC/es-m3-01-expilp-hout.pdf)
 
     # Segmentación (Pipeline):
 
@@ -331,7 +331,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
     - Etapas:
         - Diagrama
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%208.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%208.png)
+            <img src="AC/Untitled%208.png" alt="AC/Untitled%208.png" style="zoom:50%;" />
 
         - Captación (Fetch): Leer la instrucción de la memoria de instrucciones y lo cargar en el IR.
             - Leer el PC en memoria y se guarda en el IR.
@@ -348,12 +348,13 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
                 - Leer: Se pasa la dirección y sale el dato.
                 - Escritura: Se pasa la dirección y el dato a escribir.
         - Post-escritura (Write-back): Actualización de banco de registros, guarda los resultados.
-            - Se escribe la salida de la ALU o de la memoria de datos en el banco de registros.
-
-    ## Riesgos:
-
-    Situación que impide que la siguiente instrucción pueda comenzar en el ciclo de reloj previsto.
-
+            
+        - Se escribe la salida de la ALU o de la memoria de datos en el banco de registros.
+    
+## Riesgos:
+    
+Situación que impide que la siguiente instrucción pueda comenzar en el ciclo de reloj previsto.
+    
     - Provocan una reducción del rendimiento.
     - Tipos de riesgos:
         - Riesgo estructural: Cuando el hardware no puede soportar todas las posibles secuencias de instrucciones.
@@ -433,10 +434,10 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
             - $ciclo_{noseg} = N* ciclo_{seg}$
             - N: Profundidad del pipeline.
             - $S= \frac {N} { 1+ DetencionesPorInstrucción}$
-            - Si no hay detenciones: $S=N$
-
-    ## Predicción de saltos
-
+        - Si no hay detenciones: $S=N$
+    
+## Predicción de saltos
+    
     - Cada bifurcación condicional suele estar fuertemente sesgada, que se toma o no la mayoría de veces, como un bucle que se repite una cierta cantidad de veces fija. Nunca es 50%
     - Predicción basada en perfil de ejecución:
         - Se ejecuta una vez para recoger estadísticas, como cuantas veces se ha tomado la bifurcación, esa información se usa para modificar el código y aprovechar la información.
@@ -451,29 +452,30 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
             - Cuando falla cambia el bit, por lo que un bucle falla dos veces, la primera y la última (cuando sale).
         - Mejorarlo: Uso de más bits como valor, para que hagan falta dos fallos para cambiar entre tomada o no tomada.
             - 00 01 No tomado. 10 11 Tomado
-            - Cuando acierta gana confianza, cuando falla pierde confianza y si falla dos veces seguidas cambia.
-
-                ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%209.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%209.png)
-
+        - Cuando acierta gana confianza, cuando falla pierde confianza y si falla dos veces seguidas cambia.
+    
+            <img src="AC/Untitled%209.png" alt="AC/Untitled%209.png" style="zoom: 67%;" />
+    
             - Funciona esta predicción gracias a la regularidad de los bucles y estructuras de datos.
-            - Fallan menos que la predicción estática.
-
-    ## Operaciones multiciclo
-
+        - Fallan menos que la predicción estática.
+    
+## Operaciones multiciclo
+    
     - Las operaciones de coma flotante toman más de un ciclo.
         - Para que tomaran un solo ciclo, habría que hacerlos más largos, pero eso tendría un impacto negativo global.
         - Para solventarlo: Segmentación de coma flotante.
             - Repetir EX varias veces hasta completarla.
-            - Con su propio pipeline, varias unidades funcionales en EX: Entera, multiplicación FP y Entero, sumador FP, divisor FP y entero.
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2010.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2010.png)
-
+        - Con su propio pipeline, varias unidades funcionales en EX: Entera, multiplicación FP y Entero, sumador FP, divisor FP y entero.
+    
+        <img src="AC/Untitled%2010.png" alt="AC/Untitled%2010.png" style="zoom:67%;" />
+    
         - Latencia: Número de ciclos entre la instrucción que produce un resultado y la instrucción que usa el resultado. Según la dependencia de datos.
-        - Intervalo de iniciación: Número de ciclos entre la emisión de dos instrucciones que usan la misma unidad funcional. Depende del uso de unidades funcionales.
-
-    ## Técnicas de compilación e ILP – Paralelismo a Nivel de Instrucción
-
+    - Intervalo de iniciación: Número de ciclos entre la emisión de dos instrucciones que usan la misma unidad funcional. Depende del uso de unidades funcionales.
+    
+## Técnicas de compilación e ILP – Paralelismo a Nivel de Instrucción
+    
     - En ILP se aplica a bloques básicos.
+        
         - Bloque básico: Secuencia de instrucción sin saltos. En un programa típico MIPS el tamaño de bloque es de 3-6 instrucciones.
     - Aprovechamiento de paralelismo: Entrelazar ejecuciones de instrucciones no relacionadas. Rellenando las detenciones con instrucciones, pero sin alterar resultados.
         - El compilador es capaz de optimizarlo, lo pasa ensamblador y lo planifica.
@@ -497,19 +499,19 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
                 - Puede afectar a que falle la cache.
             - Presión sobre banco de registros.
                 - Pueden llegar a faltar registros
-    - Límites del ILP
+- Límites del ILP
         - Procesador ideal
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2011.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2011.png)
-
+            <img src="AC/Untitled%2011.png" alt="AC/Untitled%2011.png" style="zoom: 50%;" />
+    
         - Mas ILP implica más lógica de control, más silicio.
             - Caches de menor tamaño.
             - Ciclos de reloj más largos.
-            - Mayor consumo de energía.
+        - Mayor consumo de energía.
         - Emisión de 3 a 6 instrucciones por ciclo, a partir de ahí ya no merece invertir más en mejorar el diseño. Se llego sobre el 2003 a este punto.
 
     ## Técnicas avanzadas de predicción de salto
-
+    
     - Resumen
         - Las bifurcaciones tienen un alto impacto sobre el rendimiento de los programas. Hay incertidumbre si el salto se hará o no.
         - Para reducir el impacto:
@@ -556,11 +558,11 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
             - Predictor de historia global. BHT.
             - Predictor de salida de bucle. Se fija en los bucles cuantas veces se va a ejecutar y la próxima vez asume que se ejecuta esas veces.
         - Además:
-            - Predicción de saltos indirecto. En programas que usan Orientados a Objetos.
+        - Predicción de saltos indirecto. En programas que usan Orientados a Objetos.
             - Predicción de direcciones de retorno. Predice la dirección del que llama/retorno.
 
     ## Introducción a la planificación dinámica
-
+    
     - El hardware reordena la ejecución de instrucciones para reducir detenciones, ejecutando otras mientras no haya dependencias.
     - Ventajas:
         - Código compilado optimizado para un pipeline ejecuta eficientemente en otro pipeline.
@@ -577,11 +579,11 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
     - Etapa de captación IF: Capta 1 instrucción de memoria y la va poniendo en un buffer de instrucciones a la cola.
         - Cambia RI por buffer de instrucciones.
     - Técnicas:
-        - Scoreboard o Marcador: Detiene instrucciones emitidas hasta que hay recursos suficientes y no hay riesgos de datos.
+    - Scoreboard o Marcador: Detiene instrucciones emitidas hasta que hay recursos suficientes y no hay riesgos de datos.
         - Algoritmo de Tomasulo: Elimina dependencias WAR y WAW con renombrado de registros.
 
     ## Especulación o Ejecución especulativa
-
+    
     - Al aumentar el paralelismo conseguido, las dependencias se convierten en un problema, cada vez hay más bifurcaciones.
     - Ahora no solo me vale con captar la instrucción, sino que asumo el resultado y voy ejecutando instrucciones asumiendo que lo especulado es correcto.
         - Se capta, emite y ejecuta instrucciones.
@@ -597,11 +599,11 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
                 - Destino: Id de registro o dirección de memoria.
                 - Valor del resultado.
                 - Ready: Si se ha completado la instrucción.
-            - Cuando se finaliza una instrucción se escribe en el ROB, y cuando se confirma se escribe en el destino real y si no se descartan.
+        - Cuando se finaliza una instrucción se escribe en el ROB, y cuando se confirma se escribe en el destino real y si no se descartan.
             - Las siguientes instrucciones leen del ROB.
 
     ## Técnicas de emisión múltiple
-
+    
     - Consiste en conseguir un CPI menor de 1, se puede iniciar más de una instrucción por ciclo.
     - Procesador superescalar, son lo que pueden hacer emisión múltiple.
         - Procesadores superescalares planificados estáticamente:
@@ -639,11 +641,11 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
         - EPIC: Mejora el VLIW
             - Emisión: Principalmente estática.
             - Detección de riesgos: Principalmente software.
-            - Planificación: Sobre todo estática.
+        - Planificación: Sobre todo estática.
             - Lo que le diferencia: Riesgos determinado e indicado por le compilador (software)
 
     ## Paralelismo a nivel de hilo – TLP.
-
+    
     - Algunas aplicaciones presentan más paralelismo natural, que claramente su función lo necesita o se beneficia mucho de este.
     - Dos modelos:
         - Paralelismo a nivel de Hilos – TLP
@@ -655,11 +657,11 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
                 - Mejor tiempo de ejecución de programas multihilo.
             - Ejecución multihilo: Múltiples hilos comparten las unidades funcionales de un procesador.
                 - Necesita replicar n veces el estado, según el número de hilos.
-                - Tipos: Según cada cuantos ciclos cambia de hilo.
+            - Tipos: Según cada cuantos ciclos cambia de hilo.
                     - Resumen
 
-                        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2012.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2012.png)
-
+                        <img src="AC/Untitled%2012.png" alt="AC/Untitled%2012.png" style="zoom:50%;" />
+    
                     - Grano fino: Alterna cada ciclo de hilo, saltado las detenciones.
                         - Entrelaza la ejecución de los hilos.
                         - Normalmente round-robin, menos las detenciones.
@@ -683,12 +685,13 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
                             - Registros PC separados.
                             - ROB separados.
         - Paralelismo a nivel de Datos – DLP
+            
             - Operaciones idénticas sobre distintos datos.
 - Módulo 4 Jerarquía de memoria
 
     # Jerarquía de memoria
 
-    [es-m4-01-cache-hout.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m4-01-cache-hout.pdf)
+    [es-m4-01-cache-hout.pdf](AC/es-m4-01-cache-hout.pdf)
 
     - Evolución de la latencia:
         - Múltiples visiones del rendimiento, $Rendimiento =\frac 1 {latencia}= \frac 1 {tiempo\space desde\space que\space se\space inicia\space hasta\space que\space termina}$. Para evaluar procesadores y memoria.
@@ -701,7 +704,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
     - Se ha mejorado mucho más el rendimiento del procesador que el de memoria, lo que provoca el Muro de Memoria, lo que hace lento la ejecución es el tiempo en acceder a memoria.
     - Efecto multi-core:
 
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2013.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2013.png)
+        <img src="AC/Untitled%2013.png" alt="AC/Untitled%2013.png" style="zoom:50%;" />
 
     - Principio de localidad: Es una propiedad de los algoritmos, no del hardware, pero lo aprovecha. Los programas acceden una porción relativamente pequeña del espacio de direcciones.
         - Se trata de tener los datos cercanos para acceder rápido, ya que sabemos que es posible que lo accedamos.
@@ -710,7 +713,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
             - Localidad espacial: Los elementos próximos a los accedidos recientemente tienden a ser accedidos.
     - Situación (2018)
 
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2014.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2014.png)
+        <img src="AC/Untitled%2014.png" alt="AC/Untitled%2014.png" style="zoom:50%;" />
 
     - Jerarquía de memoria:
         - De menor a mayor capacidad, de más rápida a más lenta. Si está el dato, acierto, lo pasa al procesador y si no, fallo, lo pedimos a la cache superior.
@@ -763,7 +766,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
                 - Post-escritura – write-back: Solo escribe cuando van a ser expulsado de cache. Problema de propagación y serialización. Mas complejo.
                 - Diagrama:
 
-                    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2015.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2015.png)
+                    <img src="AC/Untitled%2015.png" alt="AC/Untitled%2015.png" style="zoom:50%;" />
 
         - Penalización de fallo: Latencia total del fallo y Latencia expuesta, cuanto tiene que parar la CPU. $\frac {ciclos\_detencion_{memoria}} {IC}= \frac {fallos} {IC}*(latencia_{total}-latencia_{solapada})$
     - Buffer/Cola de escritura:
@@ -774,9 +777,9 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
         - Buffer al lado de la cache donde se almacenan valores para la memoria principal, mientras otra instrucción la está usando, de esta manera podemos seguir ejecutando y otro mecanismos llevaron más tarde lo del buffer a la memoria principal.
     - Tasa de fallos global y local.
 
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2016.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2016.png)
+        <img src="AC/Untitled%2016.png" alt="AC/Untitled%2016.png" style="zoom:50%;" />
 
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2017.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2017.png)
+        <img src="AC/Untitled%2017.png" alt="AC/Untitled%2017.png" style="zoom:50%;" />
 
     ## Optimizaciones básica de cache:
 
@@ -824,7 +827,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
 
     ## Optimizaciones avanzadas
 
-    [es-m4-02-cache-hout.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m4-02-cache-hout.pdf)
+    [es-m4-02-cache-hout.pdf](AC/es-m4-02-cache-hout.pdf)
 
     - Trata de reducir: Tiempo de búsqueda, tasa de fallos y penalización de fallos.
     - Trata de aumentar: Ancho de banda de cache.
@@ -833,7 +836,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
         - Por lo tanto, una más pequeña, hace el hardware de búsqueda más simple y cabe en el chip del procesador.
         - Mejora el tiempo de búsqueda.
 
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2018.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2018.png)
+        <img src="AC/Untitled%2018.png" alt="AC/Untitled%2018.png" style="zoom:50%;" />
 
     - Caches simples:
         - Mecanismo de correspondencia lo más sencillo posible.
@@ -896,19 +899,19 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
         - Datos:
             - Fusión de arrays.
 
-                ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2019.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2019.png)
+                <img src="AC/Untitled%2019.png" alt="AC/Untitled%2019.png" style="zoom:50%;" />
 
                 - Reduce los conflictos.
                 - Mejora de localidad espacial, cuando se fusiona están contiguos los valores con mismo índice, así no hay conflicto por que estén lejos.
             - Intercambio de bucles.
 
-                ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2020.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2020.png)
+                <img src="AC/Untitled%2020.png" alt="AC/Untitled%2020.png" style="zoom:50%;" />
 
                 - Trata de mejorar la localidad espacial, cambiando el interno a externo o al revés.
                 - Depende del modelo de almacenamiento vinculado al lenguaje de programación.
             - Fusión de bucles.
 
-                ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2021.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2021.png)
+                <img src="AC/Untitled%2021.png" alt="AC/Untitled%2021.png" style="zoom:50%;" />
 
                 - Objetivo: Mejorar localidad temporal.
                 - El fusionado será mejor o igual, pero no peor. ¿?
@@ -916,7 +919,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
                 - Cuidado: Puede reducir localidad espacial
             - Acceso por bloques
 
-                ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2022.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2022.png)
+                <img src="AC/Untitled%2022.png" alt="AC/Untitled%2022.png" style="zoom:50%;" />
 
                 - Aumenta la tasa de aciertos
                 - Consiste en dividir productos matriciales en bloques más pequeños.
@@ -930,27 +933,23 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
             - Se invoca si: 2 fallos en L2 debidos a una misma página. Distancia entre fallos menor de 256 bytes.
     - Resumen:
 
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2023.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2023.png)
-
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2024.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2024.png)
-
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2025.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2025.png)
+        <img src="AC/Untitled%2023.png" alt="AC/Untitled%2023.png" style="zoom:50%;" /><img src="AC/Untitled%2024.png" alt="AC/Untitled%2024.png" style="zoom:50%;" /><img src="AC/Untitled%2025.png" alt="AC/Untitled%2025.png" style="zoom:50%;" />
 
     ## Memoria virtual
 
-    [es-m4-03-virt-hout.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m4-03-virt-hout.pdf)
+    [es-m4-03-virt-hout.pdf](AC/es-m4-03-virt-hout.pdf)
 
-    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2026.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2026.png)
+    <img src="AC/Untitled%2026.png" alt="AC/Untitled%2026.png" style="zoom:50%;" />
 
     - Surge al encontrar limites en la memoria que podemos tener.
-    - Direccionamiento físico:
-
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2027.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2027.png)
-
+- Direccionamiento físico:
+    
+    <img src="AC/Untitled%2027.png" alt="AC/Untitled%2027.png" style="zoom:50%;" />
+    
         - Todos los datos están en el mismo lugar, cualquier programa que ejecuta en la CPU puede acceder a cualquier dirección de memoria.
-        - No hay una manera de evitar que acceda a datos de otro programa.
+    - No hay una manera de evitar que acceda a datos de otro programa.
     - La CPU realiza accesos a direcciones del espacio de direcciones virtuales normalizadas, detrás hay un mecanismo que las transforma en direcciones físicas mediante una tabla.
-        - Normalizadas: Porque se puede asumir que empiezan en 0, el mecanismo los colocará en su sitio en la memoria física.
+    - Normalizadas: Porque se puede asumir que empiezan en 0, el mecanismo los colocará en su sitio en la memoria física.
         - La traducción la realiza el hardware, el software sería demasiado lento.
         - Lo gestiona el SO.
     - Página: Cada uno de los bloques de memoria en lo que se divide un proceso/programa, todos del mismo tamaño.
@@ -978,27 +977,28 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
             - El tamaño de memoria virtual es dependiente de la longitud de dirección.
         - Parámetros:
             - La ventaja es una mucho mayor tasa de aciertos, pero cuando falla es mucho más lento que cache.
-
-                ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2028.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2028.png)
-
+    
+                <img src="AC/Untitled%2028.png" alt="AC/Untitled%2028.png" style="zoom:50%;" />
+    
     ## Políticas de memoria virtual:
 
     - Ubicación de página:
-        - Correspondencia totalmente asociativa: Las paginas se pueden ubicar en cualquier marco de página de memoria principal.
+    - Correspondencia totalmente asociativa: Las paginas se pueden ubicar en cualquier marco de página de memoria principal.
         - Se divide el programa en páginas, y dividimos la memoria principal en marco de página.
-        - Gestionado por el sistema operativo.
+    - Gestionado por el sistema operativo.
         - Objetivo: Minimizar la tasa de fallos.
             - Penalización muy alta debida a lentitud de discos.
             - En cuanto la penalización por fallo no se puede hacer mucho.
     - Identificación de página:
         - Se almacena una tabla de paginas por proceso en la memoria principal.
         - La tabla tiene la correspondencia entre Identificador de pagina e Identificador de marco de página.
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2029.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2029.png)
-
+    
+            ![AC/Untitled%2029.png](AC/Untitled%2029.png)
+    
         - Reducción de tiempo de traducción.
-        - TLB – Translation Lookaside Buffer – Tabla de Traducción Adelantada: Para almacenar más rápido a las traducción frecuentes y no leer memoria.
-            - Evita accesos a la tabla de páginas de memoria principal.
+    - TLB – Translation Lookaside Buffer – Tabla de Traducción Adelantada: Para almacenar más rápido a las traducción frecuentes y no leer memoria.
+            
+        - Evita accesos a la tabla de páginas de memoria principal.
     - Remplazo de página:
         - Típicamente LRU – Menos Reciente Usado.
         - Definida por el Sistema Operativo.
@@ -1008,36 +1008,37 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
         - Hace uso de dirty bit, indicando si se ha modificado una página.
         - El write-through es demasiado lento.
         - El coste de escritura en disco es tremendamente alto.
-
+    
     ## Tabla de páginas:
-
-    - Las páginas de cada proceso apuntan al marco donde están los datos, en virtual parecen ordenados, pero se van asignando según se liberan.
+    
+- Las páginas de cada proceso apuntan al marco donde están los datos, en virtual parecen ordenados, pero se van asignando según se liberan.
     - Proceso de traducción:
-        - Se tiene una dirección virtual, que contiene: Identificador de página virtual y desplazamiento dentro de la página.
+    - Se tiene una dirección virtual, que contiene: Identificador de página virtual y desplazamiento dentro de la página.
+            
             - Para páginas de 4KB necesito 12 bits para el desplazamiento.
         - Se coge el identificador de página virtual, y se consulta esa dirección de la tabla de páginas.
         - La entrada de tabla de páginas contiene: V bit de validez, Protección (permisos rwx, …) y dirección de marco de página.
-        - Se saca la dirección de marco de página y se junta con el desplazamiento de página, de esta manera tenemos la dirección física para memoria principal.
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2030.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2030.png)
-
+    - Se saca la dirección de marco de página y se junta con el desplazamiento de página, de esta manera tenemos la dirección física para memoria principal.
+        
+        <img src="AC/Untitled%2030.png" alt="AC/Untitled%2030.png" style="zoom: 80%;" />
+    
     - Se tiene un PTBR – Registro Base a la Tabla de Pagina, donde se almacena la dirección de memoria principal donde se empieza la tabla de página.
-    - El tamaño de tabla de páginas es, el número de página (número de direcciones/tamaño de página) por el tamaño de la entrada.
-
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2031.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2031.png)
+- El tamaño de tabla de páginas es, el número de página (número de direcciones/tamaño de página) por el tamaño de la entrada.
+    
+        <img src="AC/Untitled%2031.png" alt="AC/Untitled%2031.png" style="zoom:50%;" />
 
         - Alternativas:
-            - Tablas de páginas multinivel: Organización en forma de árbol.
+        - Tablas de páginas multinivel: Organización en forma de árbol.
             - Tablas de páginas invertidas: Va en sentido contrario. Marco —> página.
     - Cada acceso a memoria requiere dos accesos: Acceso a tabla de páginas y acceso a memoria.
     - TLB – Translation Lookaside Buffer: Es una cache de traducciones frecuentes para evitar accesos a la tabla de páginas.
         - Etiquetas: Porción de dirección virtual.
         - Datos: Número de marco, bits de protección, bit de validez y dirty-bit.
-
+    
     ## Máquinas virtuales:
 
     - Desarrollo a finales de los 60, desde entonces se usa en entornos mainframe.
-    - Ignoradas en máquinas monousuario hasta finales de los 90.
+- Ignoradas en máquinas monousuario hasta finales de los 90.
     - Se popularizo debido a:
         - Importancia del creciente de aislamiento y seguridad en sistemas modernos.
         - Fallos en seguridad y fiabilidad en sistemas operativos.
@@ -1059,13 +1060,13 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
         - Permite la ejecución de varias máquinas virtuales sobre hardware único.
         - Capa máquina virtual tiene su propio sistema operativo y aplicación.
         - Permite ejecutar aplicaciones sin modificarlas.
-
+    
     ## MMV – Monitores de máquinas virtuales o Hipervisor.
 
-    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2032.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2032.png)
+    <img src="AC/Untitled%2032.png" alt="AC/Untitled%2032.png" style="zoom:67%;" />
 
     - Es el software que soporta las máquinas virtuales.
-    - Determina la correspondencia entre recursos virtual y recursos físicos.
+- Determina la correspondencia entre recursos virtual y recursos físicos.
     - Alternativas en compartición de recursos físicos:
         - Compartición de tiempo. Asignar rodajas de tiempo.
         - Repartir espacio de disco con las máquinas virtuales.
@@ -1086,19 +1087,19 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
             - Baja sobrecarga de virtualización.
     - Usos:
         - Aislamiento: Si falla una puede comprometer la otra, para ello los aislamos y de esta manera son independientes.
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2033.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2033.png)
+    
+            <img src="AC/Untitled%2033.png" alt="AC/Untitled%2033.png" style="zoom:67%;" />
 
         - Consolidación: Dos máquinas físicas separadas con su propia máquina virtual, sistema operativo, apps. Se puede en una misma maquina tener ambas maquinas virtual de esta manera se aprovecha más esta máquina.
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2034.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2034.png)
+            <img src="AC/Untitled%2034.png" alt="AC/Untitled%2034.png" style="zoom:67%;" />
 
         - Migración: Mover de una maquina a otra.
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2035.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2035.png)
+            <img src="AC/Untitled%2035.png" alt="AC/Untitled%2035.png" style="zoom:67%;" />
 
     - Otros usos:
-        - Gestión de software:
+    - Gestión de software:
             - MV ofrece una abstracción que permite ejecutar pila software completa.
             - Despliegues combinados SO estable, SO heredado y siguiente versión de SO.
         - Gestión de hardware:
@@ -1127,48 +1128,40 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
         - Requisitos de MMV:
             - Como mínimo dos modos de procesador.
             - Subconjunto de instrucciones privilegiadas solo en modo privilegiado.
-
+    
     ## Soporte hardware para virtualización:
 
     - Soporte de ISA:
-        - Si MV se tienen en cuenta en el diseño de ISA, es fácil reducir instrucciones que debe ejecutar VMM y cuando tarda la emulación.
+    - Si MV se tienen en cuenta en el diseño de ISA, es fácil reducir instrucciones que debe ejecutar VMM y cuando tarda la emulación.
         - MMV debe asegurar que huésped solo interacciona con recursos virtuales. SO huésped en modo usuario. Los intentos de acceder a hardware dan lugar a trap.
         - Si ISA no es consciente de MV, el MMV deben interceptar instrucciones problemáticas.
     - Impacto sobre memoria virtual
-
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2036.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2036.png)
+    
+        <img src="AC/Untitled%2036.png" alt="AC/Untitled%2036.png" style="zoom:67%;" />
 
     - Soporte ISA para virtualización de memoria virtual
 
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2037.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2037.png)
+        <img src="AC/Untitled%2037.png" alt="AC/Untitled%2037.png" style="zoom:67%;" />
 
     - Impacto de entrada/salida
 
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2038.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2038.png)
+        <img src="AC/Untitled%2038.png" alt="AC/Untitled%2038.png" style="zoom:67%;" />
 
     ## Tecnologías de virtualización
 
     - Virtualización impura
 
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2039.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2039.png)
+        <img src="AC/Untitled%2039.png" alt="AC/Untitled%2039.png" style="zoom:67%;" />
 
     - Tecnologías ISA
 
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2040.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2040.png)
-
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2041.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2041.png)
-
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2042.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2042.png)
-
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2043.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2043.png)
-
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2044.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2044.png)
+        <img src="AC/Untitled%2040.png" alt="AC/Untitled%2040.png" style="zoom:67%;" /><img src="AC/Untitled%2041.png" alt="AC/Untitled%2041.png" style="zoom:67%;" /><img src="AC/Untitled%2042.png" alt="AC/Untitled%2042.png" style="zoom:67%;" /><img src="AC/Untitled%2043.png" alt="AC/Untitled%2043.png" style="zoom:67%;" /><img src="AC/Untitled%2044.png" alt="AC/Untitled%2044.png" style="zoom:67%;" />
 
 - Módulo 5 Introducción a los multiprocesadores
 
     # Memoria compartida simétrica
 
-    [es-m5-01-shmem-hout.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m5-01-shmem-hout.pdf)
+    [es-m5-01-shmem-hout.pdf](AC/es-m5-01-shmem-hout.pdf)
 
     - Introducción a las arquitecturas multiprocesador
         - Creciente importante de multiprocesadores
@@ -1199,6 +1192,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
                 - CMP (Chip MultiProcessors) o multi-core: Múltiples chips, que pueden ser o no multi-core.
                 - Multicomputador o Cluster de computación: Procesadores débilmente acoplados que no comparten memoria.  Usados en computación científica a gran escala.
             - Aprovechamiento de un multiprocesador:
+                
                 - Para n procesadores se necesitan n hilos o procesos.
             - Identificación de hilos:
                 - Identificados explícitamente por programador.
@@ -1211,19 +1205,19 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
                     - Una memoria centralizada única a la que todos pueden acceder por igual.
                     - Todos los multi-core son SMP.
                     - UMA - Uniform Memory Access.
-                        - Latencia de memoria uniforme.
-
-                    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2045.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2045.png)
-
+                - Latencia de memoria uniforme.
+            
+            <img src="AC/Untitled%2045.png" alt="AC/Untitled%2045.png" style="zoom:50%;" />
+            
                 - DSM - Distributed Shared Memory:
                     - Memoria compartida distribuida.
                     - La memoria se distribuye entre los procesadores.
                     - Cuando hay muchos procesadores.
                     - NUMA - Non Uniform Memory Access.
-                        - Latencia dependiente de la ubicación del dato.
-
-                    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2046.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2046.png)
-
+                - Latencia dependiente de la ubicación del dato.
+            
+                <img src="AC/Untitled%2046.png" alt="AC/Untitled%2046.png" style="zoom:50%;" />
+        
     - Arquitecturas de memoria compartida centralizada
         - SMP y jerarquía de memoria
             - Se usa memoria centralizada, porque las caches grandes multi-nivel reducen la demanda de ancho de banda sobre memoria principal.
@@ -1282,9 +1276,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
                 - Todas las caches monitorizan el medio de multidifusión para determinar si tienen una copia del bloque.
     - Protocolo basado en directorio
 
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2047.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2047.png)
-
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2048.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2048.png)
+        <img src="AC/Untitled%2047.png" alt="AC/Untitled%2047.png" style="zoom:50%;" /><img src="AC/Untitled%2048.png" alt="AC/Untitled%2048.png" style="zoom:50%;" />
 
     - Protocolos de espionaje
         - Mantenimiento de la cache: La más común es invalidación.
@@ -1323,20 +1315,16 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
                 - I: El bloque ha sido invalidado.
             - Acciones generadas por el procesador
 
-                ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2049.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2049.png)
-
-                ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2050.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2050.png)
+                <img src="AC/Untitled%2049.png" alt="AC/Untitled%2049.png" style="zoom:50%;" /><img src="AC/Untitled%2050.png" alt="AC/Untitled%2050.png" style="zoom:50%;" />
 
             - Acciones generadas por el bus
 
-                ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2051.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2051.png)
-
-                ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2052.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2052.png)
+                <img src="AC/Untitled%2051.png" alt="AC/Untitled%2051.png" style="zoom:50%;" /><img src="AC/Untitled%2052.png" alt="AC/Untitled%2052.png" style="zoom:50%;" />
 
             - Complejidad del protocolo MSI
-                - Asume que las operaciones son atómicas.
+        - Asume que las operaciones son atómicas.
                 - Si las operaciones no son atómicas, hay posibilidad de interbloqueo (deadblock) y/o carreras.
-                - La solución el procesador que envía invalidación mantiene propiedad del bus hasta que la invalidación llega al resto.
+        - La solución el procesador que envía invalidación mantiene propiedad del bus hasta que la invalidación llega al resto.
         - Extensiones a MSI:
             - MESI: 4 estados.
                 - Añade estado exclusivo (E), que indica que reside en una única cache pero no esta modificado.
@@ -1358,17 +1346,11 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
                 - Uno lo ha modificado y otro tiene una copia local, ambos del mismo bloque.
         - Graficas:
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2053.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2053.png)
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2054.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2054.png)
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2055.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2055.png)
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2056.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2056.png)
+            <img src="AC/Untitled%2053.png" alt="AC/Untitled%2053.png" style="zoom:33%;" /><img src="AC/Untitled%2054.png" alt="AC/Untitled%2054.png" style="zoom:33%;" /><img src="AC/Untitled%2055.png" alt="AC/Untitled%2055.png" style="zoom:33%;" /><img src="AC/Untitled%2056.png" alt="AC/Untitled%2056.png" style="zoom:33%;" />
 
     # Modelos de consistencia de memoria
 
-    [es-m5-02-consist-hout.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m5-02-consist-hout.pdf)
+    [es-m5-02-consist-hout.pdf](AC/es-m5-02-consist-hout.pdf)
 
     - Modelo de memoria
         - Modelo de consistencia de memoria
@@ -1379,7 +1361,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
             - Interfaz entre el programa y sus transformadores.
             - El modelo de memoria del lenguaje tiene implicaciones para el hardware.
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2057.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2057.png)
+            <img src="AC/Untitled%2057.png" alt="AC/Untitled%2057.png"  />
 
         - Modelo de memoria monoprocesadores
             - Las operaciones que nos importan son lecturas y escrituras.
@@ -1393,17 +1375,18 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
                     - Las optimizaciones preservan la semántica.
     - Consistencia secuencial
 
-        ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2058.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2058.png)
+        <img src="AC/Untitled%2058.png" alt="AC/Untitled%2058.png" style="zoom:80%;" />
 
         - Un sistema con varios procesadores es secuencialmente consistente si para cada posible ejecución las operaciones de memoria que genera son equivalentes a las de un programa secuencial en el que ponemos esas operaciones en algún orden.
         - Restricciones de la consistencia secuencial
             - Orden de programa: Si uno de los hilos hace una operación de memoria y luego otra, el resto de hilos las deben ver en ese mismo orden.
+                
                 - Deben hacerse visibles a todos los procesos en el orden de programa.
             - Atomicidad: El orden total de ejecución entre procesos debe ser consistente requiriendo que todas las operaciones sean atómicas.
-                - Básicamente no podemos hacer visibles valores que hayan tenido encuentra escrituras que todavía no son visibles para el resto.
-
-                ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2059.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2059.png)
-
+        - Básicamente no podemos hacer visibles valores que hayan tenido encuentra escrituras que todavía no son visibles para el resto.
+            
+        <img src="AC/Untitled%2059.png" alt="AC/Untitled%2059.png" style="zoom:80%;" />
+            
         - La consistencia secuencial restringe todas las operaciones/peticiones de memoria:
             - Write→Read.
             - Write→Write.
@@ -1433,7 +1416,7 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
             - R→W, W→W.
         - Ejemplo de modelo comerciales, con la restricción que relajan.
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2060.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2060.png)
+            <img src="AC/Untitled%2060.png" alt="AC/Untitled%2060.png" style="zoom:80%;" />
 
         - Lectura adelantadas a escritura (W→R)
             - Una lectura puede ejecutarse antes que una escritura anterior.
@@ -1530,42 +1513,22 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
                 - Las instrucciones de cerrojo tienen un orden total.
         - Ejemplo:
 
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2061.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2061.png)
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2062.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2062.png)
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2063.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2063.png)
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2064.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2064.png)
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2065.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2065.png)
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2066.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2066.png)
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2067.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2067.png)
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2068.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2068.png)
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2069.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2069.png)
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2070.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2070.png)
-
-            ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2071.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Untitled%2071.png)
+            <img src="AC/Untitled%2061.png" alt="AC/Untitled%2061.png" style="zoom:80%;" /><img src="AC/Untitled%2062.png" alt="AC/Untitled%2062.png" style="zoom:80%;" /><img src="AC/Untitled%2063.png" alt="AC/Untitled%2063.png" style="zoom:80%;" /><img src="AC/Untitled%2064.png" alt="AC/Untitled%2064.png" style="zoom:80%;" /><img src="AC/Untitled%2065.png" alt="AC/Untitled%2065.png" style="zoom:80%;" /><img src="AC/Untitled%2066.png" alt="AC/Untitled%2066.png" style="zoom:80%;" /><img src="AC/Untitled%2067.png" alt="AC/Untitled%2067.png" style="zoom:80%;" /><img src="AC/Untitled%2068.png" alt="AC/Untitled%2068.png" style="zoom:80%;" /><img src="AC/Untitled%2069.png" alt="AC/Untitled%2069.png" style="zoom:80%;" /><img src="AC/Untitled%2070.png" alt="AC/Untitled%2070.png" style="zoom:80%;" /><img src="AC/Untitled%2071.png" alt="AC/Untitled%2071.png" style="zoom:80%;" />
 
         - Efectos del modelo
-            - Consistencia secuencial
+        - Consistencia secuencial
                 - Load: mov reg, [mem]
-                - Store: xchg [mem], reg
+            - Store: xchg [mem], reg
             - Consistencia relajada
-                - Load: mov reg, [mem]
+            - Load: mov reg, [mem]
                 - Store: mov [mem], reg
-            - Consistencia de liberación adquisición
+        - Consistencia de liberación adquisición
                 - Load: mov reg, [mem]
-                - Store: mov [mem], reg
+            - Store: mov [mem], reg
 
     # Sincronización
 
-    [es-m5-03-sincr-hout.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m5-03-sincr-hout.pdf)
+    [es-m5-03-sincr-hout.pdf](AC/es-m5-03-sincr-hout.pdf)
 
     - La comunicación ser realiza a través de memoria compartida, para ello es necesario sincronizar accesos a variables compartidas.
         - Para evitar condiciones de carrera y por tanto comportamiento no definido.
@@ -1673,101 +1636,101 @@ Prácticas: ELIAS DEL POZO PUÑAL, JOSE MANUEL PEREZ LOBATO y DAVID EXPOSITO SIN
 
     # Memoria compartida distribuida
 
-    [es-m5-04-shdist-hout.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m5-04-shdist-hout.pdf)
+    [es-m5-04-shdist-hout.pdf](AC/es-m5-04-shdist-hout.pdf)
 
 - Módulo 6 Modelos de programación paralela y concurrente
 
     # Introducción a C++
 
-    [es-m6-00-Introduction to C++ - Computer Architecture.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m6-00-Introduction_to_C_-_Computer_Architecture.pdf)
+    [es-m6-00-Introduction to C++ - Computer Architecture.pdf](AC/es-m6-00-Introduction_to_C_-_Computer_Architecture.pdf)
 
     # Programación concurrente en C++11
 
-    [es-m6-01-openmp-hout.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m6-01-openmp-hout.pdf)
+    [es-m6-01-openmp-hout.pdf](AC/es-m6-01-openmp-hout.pdf)
 
     # Programación paralela con OpenMP
 
-    [es-m6-02-cppconc-ocw.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m6-02-cppconc-ocw.pdf)
+    [es-m6-02-cppconc-ocw.pdf](AC/es-m6-02-cppconc-ocw.pdf)
 
     # Consistencia de memoria en C++
 
-    [es-m6-03-atomics-hout.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m6-03-atomics-hout.pdf)
+    [es-m6-03-atomics-hout.pdf](AC/es-m6-03-atomics-hout.pdf)
 
 # Práctica
 
 - Laboratorio 1
 
-    [es-m3-lab-2020.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m3-lab-2020.pdf)
+    [es-m3-lab-2020.pdf](AC/es-m3-lab-2020.pdf)
 
-    [Listing 2.txt](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Listing_2.txt)
+    [Listing 2.txt](AC/Listing_2.txt)
 
-    [Listing 2.txt.xdin](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Listing_2.txt.xdin)
+    [Listing 2.txt.xdin](AC/Listing_2.txt.xdin)
 
-    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unroll-loop1x2.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unroll-loop1x2.png)
+    <img src="AC/unroll-loop1x2.png" alt="AC/unroll-loop1x2.png" style="zoom: 50%;" />
 
-    [unroll-loop1x2.s](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unroll-loop1x2.s)
+    [unroll-loop1x2.s](AC/unroll-loop1x2.s)
 
-    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unroll-loop1x4.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unroll-loop1x4.png)
+    <img src="AC/unroll-loop1x4.png" alt="AC/unroll-loop1x4.png" style="zoom:50%;" />
 
-    [unroll-loop1x4.s](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unroll-loop1x4.s)
+    [unroll-loop1x4.s](AC/unroll-loop1x4.s)
 
-    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unroll-loop2x2.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unroll-loop2x2.png)
+    <img src="AC/unroll-loop2x2.png" alt="AC/unroll-loop2x2.png" style="zoom:50%;" />
 
-    [unroll-loop2x2.s](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unroll-loop2x2.s)
+    [unroll-loop2x2.s](AC/unroll-loop2x2.s)
 
-    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unroll-loop2x4.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unroll-loop2x4.png)
+    <img src="AC/unroll-loop2x4.png" alt="AC/unroll-loop2x4.png" style="zoom:50%;" />
 
-    [unroll-loop2x4.s](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unroll-loop2x4.s)
+    [unroll-loop2x4.s](AC/unroll-loop2x4.s)
 
-    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unrollx2.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unrollx2.png)
+    <img src="AC/unrollx2.png" alt="AC/unrollx2.png" style="zoom:50%;" />
 
-    [unrollx2.s](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unrollx2.s)
+    [unrollx2.s](AC/unrollx2.s)
 
-    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unrollx4.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unrollx4.png)
+    <img src="AC/unrollx4.png" alt="AC/unrollx4.png" style="zoom:50%;" />
 
-    [unrollx4.s](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/unrollx4.s)
+    [unrollx4.s](AC/unrollx4.s)
 
-    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Listing_1_CON.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Listing_1_CON.png)
+    <img src="AC/Listing_1_CON.png" alt="AC/Listing_1_CON.png" style="zoom:50%;" />
 
-    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Listing_1_SIN.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Listing_1_SIN.png)
+    <img src="AC/Listing_1_SIN.png" alt="AC/Listing_1_SIN.png" style="zoom:50%;" />
 
-    [Listing 1.s](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Listing_1.s)
+    [Listing 1.s](AC/Listing_1.s)
 
-    [Listing 1.txt](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Listing_1.txt)
+    [Listing 1.txt](AC/Listing_1.txt)
 
-    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Listing_2_CON.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Listing_2_CON.png)
+    <img src="AC/Listing_2_CON.png" alt="AC/Listing_2_CON.png" style="zoom:50%;" />
 
-    ![Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Listing_2_SIN.png](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Listing_2_SIN.png)
+    <img src="AC/Listing_2_SIN.png" alt="AC/Listing_2_SIN.png" style="zoom:50%;" />
 
-    [Listing 2.s](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Listing_2.s)
+    [Listing 2.s](AC/Listing_2.s)
 
 - Laboratorio 2
 
-    [es-m4-lab-2020.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m4-lab-2020.pdf)
+    [es-m4-lab-2020.pdf](AC/es-m4-lab-2020.pdf)
 
-    [Memoria Lab2.docx](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Memoria_Lab2.docx)
+    [Memoria Lab2.docx](AC/Memoria_Lab2.docx)
 
 - Laboratorio 3
 
-    [es-m5-lab-atomics-2020.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m5-lab-atomics-2020.pdf)
+    [es-m5-lab-atomics-2020.pdf](AC/es-m5-lab-atomics-2020.pdf)
 
-    [Memoria Lab3.docx](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Memoria_Lab3.docx)
+    [Memoria Lab3.docx](AC/Memoria_Lab3.docx)
 
 - POpenMP
 
-    [image-seq.cpp](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/image-seq.cpp)
+    [image-seq.cpp](AC/image-seq.cpp)
 
-    [MemoriaOpenMP.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/MemoriaOpenMP.pdf)
+    [MemoriaOpenMP.pdf](AC/MemoriaOpenMP.pdf)
 
-    [es-m6-lab-omp-img-2020.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/es-m6-lab-omp-img-2020.pdf)
+    [es-m6-lab-omp-img-2020.pdf](AC/es-m6-lab-omp-img-2020.pdf)
 
-    [image-par.cpp](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/image-par.cpp)
+    [image-par.cpp](AC/image-par.cpp)
 
 # Recurso
 
-[Computer Architecture, Sixth Edition_ A Quantitative Approach ( PDFDrive.com ).pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Computer_Architecture_Sixth_Edition__A_Quantitative_Approach_(_PDFDrive.com_).pdf)
+[Computer Architecture, Sixth Edition_ A Quantitative Approach ( PDFDrive.com ).pdf](AC/Computer_Architecture_Sixth_Edition__A_Quantitative_Approach_(_PDFDrive.com_).pdf)
 
-[Introduction to C++ - Computer Architecture.pdf](Arquitectura%20de%20computadores%20318e4032ec6f4dd28941cb2cd24fd37c/Introduction_to_C_-_Computer_Architecture.pdf)
+[Introduction to C++ - Computer Architecture.pdf](AC/Introduction_to_C_-_Computer_Architecture.pdf)
 
 [Install Ubuntu desktop | Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
 
