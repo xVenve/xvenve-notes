@@ -1,0 +1,878 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>DSI</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+
+
+:root {
+    --side-bar-bg-color: #efefef;
+    --control-text-color: #777;
+    --primary-color: #393894;
+    --primary-btn-border-color: #393894;
+    --active-file-bg-color: #eaeaea;
+    --active-file-text-color: inherit;
+    --active-file-border-color: #393894;
+    --item-hover-text-color: #393894;
+}
+
+html {
+    font-size: .925rem;
+}
+
+body {
+    background: none;
+    font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #2e2e2e;
+    line-height: 1.6;
+    height: 100%;
+}
+
+#write {
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 30px;
+    padding-bottom: 100px;
+    position: static;
+    width: 100%;
+}
+
+#write>ul:first-child,
+#write>ol:first-child {
+    margin-top: 30px;
+}
+
+a {
+    color: #1b69b6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+
+h2 {
+    padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: 1em;
+    color: #777;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+ul li,
+ol li {
+    line-height: 1.2;
+}
+
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+
+ul,
+ol {
+    padding-left: 30px;
+}
+
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    font-family: 'Hack';
+    font-size: 13px;
+    padding: 0 15px;
+    color: #707070;
+}
+
+blockquote blockquote {
+    font-family: 'Hack';
+    padding-right: 0;
+}
+
+table {
+    font-size: .875rem;
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    border-top: 1px solid #dfdfdf;
+    margin: 0;
+    padding: 0;
+}
+
+thead {
+    background-color: #f8f8f8;
+}
+
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfdfdf;
+    border-bottom: 0;
+    border-bottom: solid 2px #ccc;
+    margin: 0;
+    padding: 10px 16px;
+}
+
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 10px 16px;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding: 4px 0;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+/* code, */
+tt {
+    border-radius: 3px;
+    color: #b9bcba;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+code {
+    padding: 2px 4px;
+    color: #c0341d;
+    background-color: #fbe5e1;
+    border-radius: 4px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+    background-color: #f8f8f8;
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+    bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before {
+    left: -1.5625rem;
+    top: .375rem;
+}
+
+#write>h4.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h5.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h6.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+.md-image>.md-meta {
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+    font-weight: normal;
+}
+
+#typora-sidebar .sidebar-tabs {
+    font-family: 'Open Sans' !important;
+    border-bottom: 1px solid #dfdfdf;
+    font-weight: bold;
+}
+
+#typora-sidebar .file-list-item-file-name {
+    font-family: 'Open Sans';
+    font-weight: bold;
+}
+
+#typora-source .CodeMirror-lines {
+  max-width: auto; /*or 1000px*/
+}
+
+#typora-sidebar .file-list-item-summary,
+#typora-sidebar .ty-search-item-line {
+    font-family: 'Open Sans';
+}
+
+#typora-sidebar #outline-content .outline-h1>.outline-item {
+    font-family: 'Open Sans';
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node.active .file-node-background,
+#typora-sidebar .file-list-item.file-library-file-node.active {
+    border-left: 4px solid #393894;
+}
+
+.file-library-node:not(.file-node-root):focus>.file-node-content {
+    outline: none;
+}
+
+#typora-sidebar .file-list-item.file-library-file-node:hover {
+    background: #f1f1f1;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node {
+    padding: 0;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node.active .file-node-title {
+    color: #2a2971;
+}
+
+#typora-sidebar .file-tree-node {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    padding-left: 15px;
+}
+
+.file-node-icon {
+    color: #707070;
+    margin-right: 8px;
+}
+
+.active .file-node-icon {
+    color: #2a2971;
+}
+
+.file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#707070' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M438.944,352c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H133.056c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h245.888c44.113,0,80-35.888,80.001-80c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20 c0,22.056-17.944,40-40,40H133.056c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v252 C418.944,343.046,427.899,352,438.944,352z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,120,358.944,120z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,200h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,200,358.944,200z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M278.054,280H152.944c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h125.112c11.046,0,19.999-8.954,19.999-20 C298.054,288.954,289.1,280,278.054,280z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node:hover .file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#2a2971' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M438.944,352c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H133.056c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h245.888c44.113,0,80-35.888,80.001-80c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20 c0,22.056-17.944,40-40,40H133.056c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v252 C418.944,343.046,427.899,352,438.944,352z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,120,358.944,120z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,200h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,200,358.944,200z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M278.054,280H152.944c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h125.112c11.046,0,19.999-8.954,19.999-20 C298.054,288.954,289.1,280,278.054,280z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node.active:hover .file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#2a2971' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath d='M352.459,220c0-11.046-8.954-20-20-20h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206 C343.505,240,352.459,231.046,352.459,220z'/%3E%3Cpath d='M126.459,280c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20H251.57c11.046,0,20-8.954,20-20c0-11.046-8.954-20-20-20 H126.459z'/%3E%3Cpath d='M173.459,472H106.57c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v123 c0,11.046,8.954,20,20,20c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H106.57c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h66.889c11.046,0,20-8.954,20-20C193.459,480.954,184.505,472,173.459,472z'/%3E%3Cpath d='M467.884,289.572c-23.394-23.394-61.458-23.395-84.837-0.016l-109.803,109.56c-2.332,2.327-4.052,5.193-5.01,8.345 l-23.913,78.725c-2.12,6.98-0.273,14.559,4.821,19.78c3.816,3.911,9,6.034,14.317,6.034c1.779,0,3.575-0.238,5.338-0.727 l80.725-22.361c3.322-0.92,6.35-2.683,8.79-5.119l109.573-109.367C491.279,351.032,491.279,312.968,467.884,289.572z M333.776,451.768l-40.612,11.25l11.885-39.129l74.089-73.925l28.29,28.29L333.776,451.768z M439.615,346.13l-3.875,3.867 l-28.285-28.285l3.862-3.854c7.798-7.798,20.486-7.798,28.284,0C447.399,325.656,447.399,338.344,439.615,346.13z'/%3E%3Cpath d='M332.459,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S343.505,120,332.459,120z'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+.active .file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#2a2971' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath d='M352.459,220c0-11.046-8.954-20-20-20h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206 C343.505,240,352.459,231.046,352.459,220z'/%3E%3Cpath d='M126.459,280c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20H251.57c11.046,0,20-8.954,20-20c0-11.046-8.954-20-20-20 H126.459z'/%3E%3Cpath d='M173.459,472H106.57c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v123 c0,11.046,8.954,20,20,20c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H106.57c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h66.889c11.046,0,20-8.954,20-20C193.459,480.954,184.505,472,173.459,472z'/%3E%3Cpath d='M467.884,289.572c-23.394-23.394-61.458-23.395-84.837-0.016l-109.803,109.56c-2.332,2.327-4.052,5.193-5.01,8.345 l-23.913,78.725c-2.12,6.98-0.273,14.559,4.821,19.78c3.816,3.911,9,6.034,14.317,6.034c1.779,0,3.575-0.238,5.338-0.727 l80.725-22.361c3.322-0.92,6.35-2.683,8.79-5.119l109.573-109.367C491.279,351.032,491.279,312.968,467.884,289.572z M333.776,451.768l-40.612,11.25l11.885-39.129l74.089-73.925l28.29,28.29L333.776,451.768z M439.615,346.13l-3.875,3.867 l-28.285-28.285l3.862-3.854c7.798-7.798,20.486-7.798,28.284,0C447.399,325.656,447.399,338.344,439.615,346.13z'/%3E%3Cpath d='M332.459,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S343.505,120,332.459,120z'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+.file-library-node.file-tree-node {
+    padding: 0;
+    margin: 0;
+}
+
+.file-node-background {
+    padding: 25px 10px;
+    padding: 18px 10px 18px 0;
+}
+
+.file-node-content {
+    padding: 15px 5px;
+    padding: 8px 8px 8px 0;
+}
+
+.file-node-content:hover {
+    cursor: pointer;
+}
+
+.active .file-node-content {
+    font-weight: bold;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+    font-family: "Open Sans", "Arial", sans-serif;
+}
+
+.megamenu-opened header {
+    background-image: none;
+}
+
+#typora-sidebar #ty-sidebar-footer {
+    background-color: #f9f9f9 !important;
+    border-top: 1px solid #dfdfdf;
+}
+
+.megamenu-menu-header {
+    border-bottom: 1px solid #16161a;
+}
+
+.megamenu-menu-list li:not(.saved) a:not(.active):hover,
+.megamenu-menu-list li a.active {
+    background: #101010 !important;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #f9f9f9;
+    font-weight: 100;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+/* CodeMirror Dracula theme */
+.cm-s-inner {
+    border: 1px solid var(--accent-color) !important;
+    border-radius: .25rem;
+    font-family: 'Hack';
+}
+
+.cm-s-inner.CodeMirror,
+.cm-s-inner .CodeMirror-gutters {
+    background-color: #212425 !important;
+    color: #f8f8f2 !important;
+    border: none;
+}
+
+.CodeMirror {
+    height: 300px;
+    height: auto;
+}
+
+.CodeMirror-lines {
+    padding: 4px 0;
+    /* Vertical padding around content */
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid green;
+    z-index: 3;
+}
+
+.cm-s-inner .CodeMirror-gutters {
+    background-color: #0d0e0f !important;
+    border-right: 1px solid #444;
+    border-radius: 4px;
+    width: 5ch;
+    color: #5c5d5c !important;
+    height: 100%;
+    white-space: nowrap;
+}
+
+.cm-s-inner .CodeMirror-cursor {
+    border-left: solid rgb(96, 255, 96) !important;
+}
+
+.cm-s-inner .CodeMirror-linenumber {
+    color: #5c5d5c;
+    font-weight: bold;
+    width: 4ch !important;
+}
+
+.cm-s-inner .CodeMirror-line::selection,
+.cm-s-inner .CodeMirror-line::-moz-selection,
+.cm-s-inner .CodeMirror-line>span::selection,
+.cm-s-inner .CodeMirror-line>span::-moz-selection,
+.cm-s-inner .CodeMirror-line>span>span::selection,
+.cm-s-inner .CodeMirror-line>span>span::-moz-selection {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-inner span.cm-comment {
+    color: #969896;
+}
+
+.cm-s-inner span.cm-string,
+.cm-s-inner span.cm-string-2 {
+    color: #e4eb9b;
+}
+
+.cm-s-inner span.cm-number {
+    color: #c7b2e4;
+}
+
+.cm-s-inner span.cm-variable,
+.cm-s-inner span.cm-variable-2 {
+    /* color: #50fa7b; */
+    /* color: #a8b151; */
+    color: #81a2be;
+}
+
+.cm-s-inner span.cm-def {
+    color: white;
+}
+
+.cm-s-inner span.cm-operator {
+    color: #ff79c6;
+}
+
+.cm-s-inner span.cm-keyword {
+    color: #e79ac6;
+    color: #b294bb;
+}
+
+.cm-s-inner span.cm-atom {
+    color: #bd93f9;
+}
+
+.cm-s-inner span.cm-meta {
+    color: #f8f8f2;
+}
+
+.cm-s-inner span.cm-tag {
+    color: #8abeb7;
+}
+
+.cm-s-inner span.cm-attribute {
+    color: #91eba7;
+}
+
+.cm-s-inner span.cm-qualifier {
+    color: #82ee9d;
+}
+
+.cm-s-inner span.cm-property {
+    /* color: #66d9ef; */
+    color: #7091b1;
+    color: #81a2be;
+}
+
+.cm-s-inner span.cm-builtin {
+    color: #8ffaaa;
+}
+
+.cm-s-inner span.cm-variable-3,
+.cm-s-inner span.cm-type {
+    color: #f1c290;
+}
+
+.md-fences.md-focus .cm-s-inner .CodeMirror-activeline-background {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-inner .CodeMirror-matchingbracket {
+    text-decoration: underline;
+    color: white !important;
+}
+
+.cm-s-inner .CodeMirror-selected,
+.cm-s-inner .CodeMirror-selectedtext {
+    background: #3b4254 !important;
+    color: inherit;
+    text-shadow: none;
+}
+
+#write>p:first-child:empty {
+    position: static;
+}
+
+#write>p:first-child:not(:only-child)::before,
+#write>p:only-child::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("file:///C://Users//Jorge//AppData//Roaming//Typora/themes/gitlab/logo.png") no-repeat 45% 90% transparent;
+    background-size: cover;
+    opacity: 0;
+    height: 100%;
+    max-width: 100%;
+    width: 100%;
+}
+
+#write>p:only-child:empty::before {
+    opacity: 1;
+}
+
+ :root {--mermaid-font-zoom:1em ;} 
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=' first-line-indent'><h1><a name="diseño-de-sistemas-interactivos" class="md-header-anchor"></a><span>Diseño de sistemas interactivos</span></h1><h1><a name="información" class="md-header-anchor"></a><span>Información</span></h1><p><a href='https://www.notion.so/Notas-fb736b1e411645c38c86aa930bfca7a4'><span>Notas</span></a></p><p><span>Teorías: Elena Márquez Segura (Coordinadora) elena.marquez@uc3m.es</span>
+<span>Prácticas: Pablo Acuña pacua@inf.uc3m.es</span></p><ul><li><p><span>Test 1</span></p><p><a href='https://aulaglobal.uc3m.es/mod/wooclap/view.php?id=3117738&amp;redirect=1'><span>https://aulaglobal.uc3m.es/mod/wooclap/view.php?id=3117738&amp;redirect=1</span></a></p><p><strong><span>El contexto de seño caracteriza...</span></strong><span> </span></p><ul><li><strong><span>... la situación/práctica/fenómeno/actividad para la que se va a diseñar</span></strong></li></ul><p><strong><span>Verdadero o Falso: El contexto de diseño considera, entre otras cosas, quiénes son los/as usuarios/as, sus características, necesidades, deseos...</span></strong></p><ul><li><strong><span>Verdadero</span></strong></li></ul><p><strong><span>Obtener consentimiento por parte de los/as participantes (usuarios/as)...</span></strong></p><ul><li><strong><span>Todas las anteriores</span></strong></li></ul><p><strong><span>En entrevistas y cuestionarios, las preguntas cerradas tienen sentido cuando...</span></strong></p><ul><li><strong><span>...tenemos claro el foco y objetivo de la investigación</span></strong></li></ul><p><strong><span>En general, esta es una pregunta correcta en una entrevista: &quot;¿Qué problemas tienes con este producto?&quot;</span></strong></p><ul><li><strong><span>Falso</span></strong></li></ul><p><strong><span>En general, esta es una pregunta correcta en una entrevista: &quot;¿crees que el producto debería ser más pequeño y barato?&quot;</span></strong></p><ul><li><strong><span>Falso</span></strong></li></ul><p><strong><span>Marca todas las correctas. Un &quot;Contextual Inquiry&quot;...</span></strong></p><ul><li><strong><span>...se puede considerar una técnica etnográfica</span></strong></li><li><strong><span>... es una técnica de observación directa en la que el/la investigador/a mantienen un rol activo, preguntando a medida que van observando</span></strong></li></ul><p><strong><span>Un Experience Sampling Method (ESM) es...</span></strong></p><ul><li><strong><span>... es una técnica cualitativa de observación indirecta parecida al diario, en la que se mandan prompts o recordatorios a los/as participantes</span></strong></li></ul><p><strong><span>Marca todas las respuestas verdaderas acerca de Embodied Interaction</span></strong></p><ul><li><strong><span>… se puede referir a cualquier sistema interactivo, desde móviles y ordenadores, hasta videojuegos de movimiento</span></strong></li><li><strong><span>… es un enfoque de diseño y estudio de sistemas interactivos que se centra en, y saca partido de cómo las personas entienden y actúan en el terreno físico y social</span></strong></li></ul><p><strong><span>Señala todas las respuestas correctas acerca del análisis de datos</span></strong></p><ul><li><strong><span>Se pueden tener datos cualitativos y hacer análisis cuantitativos y viceversa</span></strong></li><li><strong><span>En análisis cuantitativo, podemos encontrarnos variables cualitativas y variables numéricas</span></strong></li></ul></li></ul><h1><a name="web-components" class="md-header-anchor"></a><span>Web Components</span></h1><p><strong><span>Evolución de los paradigmas de programación:</span></strong></p><p><span>Programación monolítica.</span></p><p><span>Programación procedimental – Encapsula datos locales.</span></p><p><span>Programación POO – Encapsula datos y funciones.</span></p><p><span>Programación conducida por eventos – Facilita GUI a partir de componentes.</span></p><p><strong><span>Paradigmas programación web</span></strong><span>: Ha seguido una evolución parecida.</span></p><p><span>HTML Monolítico (la web es estática)</span></p><p><span>HTML (datos + estructura) + CSS (estilo gráfico) + JS (comportamiento)</span></p><p><span>Antes se mandaba el HTML completo, pero hoy en día se envía JSON que son mas ligeros y transmiten solo datos.</span></p><p><strong><span>WEB COMPONENTS (W3C + Google -&gt; web components)</span></strong><span>: Para personalizar y facilitar el desarrollo web, se crean:</span></p><p><strong><span>Custom HTML Components</span></strong><span>: Definir nuevas etiquetas.</span></p><p><strong><span>HTML Template</span></strong><span>: Preparados para enmaquetar.</span></p><p><strong><span>Shadow DOM</span></strong><span>: Encapsula elementos DOM.</span></p><p><strong><span>HTML imports</span></strong><span>: Librerías, que permiten modularizar aplicaciones.</span></p><p><span>Su uso facilita la programación web y la compatibilidad con cualquier navegador.</span></p><p><strong><span>Problemas del estándar</span></strong><span>: Incompatibilidades entre navegadores y HMLT imports obsoletos.</span></p><p><strong><span>Frameworks (React/Vue.js/Angular)</span></strong></p><p><strong><span>Angular</span></strong><span>: Tiene una curva de aprendizaje compleja. Es bueno para aplicaciones complejas como intranet, extranet, app corporativas. Además, es un Framework completo dirigido a desarrolladores corporativos.</span></p><h1><a name="introducción" class="md-header-anchor"></a><span>Introducción</span></h1><p><strong><span>HCI - Human-Computer Interaction</span></strong><span>: Interacción Persona-Ordenador.</span></p><p><strong><span>IxD - Interaction Design</span></strong><span>: Diseño de Interacción.</span></p><p><strong><span>Usability</span></strong><span>: Usabilidad.</span></p><p><strong><span>UX - User Experience</span></strong><span>: Experiencia de Usuario.</span></p><p><strong><span>UCD - User-centered Design</span></strong><span>: Diseño Centrado en el Usuario.</span></p><p><span>Es muy importante para el uso de los sistemas, incluso puede ser cuestión de vida o muerte. En los que un mal diseño tiene consecuencias graves, en estos se usa redundancia y cosas claras. Aunque la mayoría de las veces son problemas cotidianos.</span></p><p><strong><span>Affordance</span></strong><span>: Que te dice como hacer, que te permite, que se ofrece. Gibson(70s) en el entorno medible relacionales, Norman(80s) son fáciles de percibir y Gaver(90s) perceptibles falsas ocultas.</span></p><p><strong><span>Secuenciales</span></strong><span>: Al realizar una nos lleva a otra. Girar un pomo y empujar para abrir.</span></p><p><strong><span>Anidadas</span></strong><span>: Una puerta en un marco, con un pomo. Una dentro de otra.</span></p><p><span>Ejemplo: Un asa pide tirar y una placa empujar.</span></p><p><img src="DSI/Untitled.png" alt="DSI/Untitled.png" style="zoom:80%;" /></p><p><strong><span>Mapping</span></strong><span>: Coincidencia entre los controles y la representación física.</span></p><h1><a name="tema-1" class="md-header-anchor"></a><span>Tema 1</span></h1><p><strong><span>HCI - Human-Computer Interaction</span></strong><span>: Interacción Persona-Ordenador.</span></p><p><strong><span>IxD - Interaction Design</span></strong><span>: Diseño de Interacción.</span></p><p><strong><span>Usability</span></strong><span>: Usabilidad.</span></p><p><strong><span>UX - User Experience</span></strong><span>: Experiencia de Usuario.</span></p><p><strong><span>UCD - User-Centered Design</span></strong><span>: Diseño Centrado en el Usuario.</span></p><p><strong><span>IS - Information Systems</span></strong><span>: Sistemas de Información.</span></p><p><strong><span>Sistema Interactivo</span></strong><span>: Aquello que reciben datos y realizan una acción o proceso.</span></p><h2><a name="la-interfaz" class="md-header-anchor"></a><span>La interfaz</span></h2><p><span>Medio de interacción y comunicación con los usuarios, que permite enviar y recibir información.</span></p><p><strong><span>Sistema</span></strong><span>: Objeto complejo formado por múltiples partes relacionadas e interconectadas.</span></p><p><strong><span>Interactivo</span></strong><span>: Que permite la interacción.</span></p><p><strong><span>Interacción</span></strong><span>: Acción o relación recíproca entre varios objetos.</span></p><h2><a name="diseño-de-sistemas-interactivos-n1766" class="md-header-anchor"></a><span>Diseño de Sistemas Interactivos</span></h2><p><span>Campo multidisciplinar que se centra en diseñar el comportamiento de sistemas con los que interactúan los usuario y forman parte. Para apoyarlo en su día a día.</span></p><p><span>Trata de crear experiencias que aumentan, extienden, mejoran, aporta, construyen, facilitan la manera en la que la gente trabaja o actúa.</span></p><p><span>Desarrollar tecnología que sea fácil y agradable de usar para los usuarios.</span></p><p><span>Equipos multidisciplinares, hay que tener en cuenta muchos factores para el diseño centrado en usuario.</span></p><h2><a name="usabilidad-vs-experiencia-de-usuario" class="md-header-anchor"></a><span>Usabilidad vs. Experiencia de Usuario</span></h2><p><strong><span>Usabilidad</span></strong><span>: La eficacia, la eficiencia y la satisfacción de usuarios determinados alcanzando objetivos concretos en un contexto determinado.</span></p><p><strong><span>UX</span></strong><span>: Percepciones y respuestas resultado del uso (y anticipación de uso) de un producto, sistema o servicio. En definitiva, todos los aspectos de la experiencia del usuario al interactuar con un producto, servicio, entorno o establecimiento.</span></p><h2><a name="hci" class="md-header-anchor"></a><span>HCI</span></h2><p><span>HCI en el inicio, una pequeña muy pequeña del diseño.</span></p><p><span>Hoy en día, es un campo muy amplio.</span></p><p><span>Evolución de HCI en olas.</span></p><h2><a name="etapas-en-hci----olas" class="md-header-anchor"></a><span>Etapas en HCI – Olas</span></h2><p><span>Distintos paradigmas (modelo/superteoria), programa, y de investigación y diseño. Etapas.</span></p><p><span>Coexisten, a veces en conflicto, lo que afecta lo que entendemos por verdad. No está bien definida la frontera o distinción.</span></p><h2><a name="primera-ola" class="md-header-anchor"></a><span>Primera Ola</span></h2><p><span>Es el primer paradigma(Harrison): </span><strong><span>Ergonomía y Factores Humanos</span></strong><span>, psicología + inteligencia.</span></p><p><span>Muy pragmático, ateórico.</span></p><p><strong><span>Metáfora</span></strong><span>: Interacción vista como el encaje entre la persona y la máquina. El objetivo, es que encajen bien para que funcione.</span></p><p><strong><span>Foco</span></strong><span>: Identificar problema concretos en la interacción que crean mal funcionamiento y desarrollar una solución para que encajen.</span></p><h3><a name="background" class="md-header-anchor"></a><span>Background</span></h3><p><span>HCI emerge en </span><strong><span>80s</span></strong><span>, </span><strong><span>encaje de persona-maquina</span></strong><span>.</span></p><p><span>Se habla de factores humanos, dimensiones, capacidades, y limitaciones de usuarios.</span></p><p><strong><span>Influencia</span></strong><span>: Ingeniería y psicología trabajando mano a mano.</span></p><p><strong><span>Metáfora</span></strong><span>: Mente y computadora como un procesador de información acoplada.</span></p><p><span>Investigación en universidades y laboratorios industriales.</span></p><p><strong><span>Tecnología</span></strong><span>: WIMP.</span></p><h3><a name="foco" class="md-header-anchor"></a><span>Foco</span></h3><p><strong><span>Trabajo</span></strong><span>: Centrado en la oficina, ordenadores de sobremesa.</span></p><p><span>Trabajo, tareas, productividad. Muy centrada en la máquina.</span></p><p><strong><span>Estudios</span></strong><span>: Evaluaciones de sistemas existentes. Análisis de características de uso en situaciones específicas.</span></p><h3><a name="teoría" class="md-header-anchor"></a><span>Teoría</span></h3><p><span>User friendly – </span><strong><span>Amigable para el usuario.</span></strong></p><p><strong><span>De usabilidad</span></strong><span>: Útil, eficiente, eficaz, fácil de aprender y satisfacción.</span></p><p><span>El </span><strong><span>objetivo es decrementar la carga mental</span></strong><span>, reducir el abismo.</span></p><p><strong><span>Abismo(golfo) de ejecución</span></strong><span>: Diferencia entre el objetivo de usuario y las acciones permitidas por el sistema.</span></p><p><strong><span>Abismo de evaluación</span></strong><span>: Diferencia entre lo que esperaba el usuario observar y lo que el usuario ve, le requiere más esfuerzo.</span></p><p><span>Cuanto más tamaño de abismo, más dificultad de entender.</span></p><p><strong><span>Affordances</span></strong><span> (Gibson, Norman, Gaver)</span></p><p><strong><span>Gibson</span></strong><span>: Relativas a las capacidades de los actores, no todos los perciben, pero son independiente de su percepción, aunque no lo veas no quiere decir que no esté.</span></p><p><strong><span>Norman</span></strong><span> las introduce en HCI en relación al diseño e introduciendo el factor de la percepción.</span></p><p><span>Cuando esta bien hecho, el usuario solo mirando es capaz de reconocerlo, sin dibujos, ni etiquetas.</span></p><p><strong><span>Gaver</span></strong><span>: Perceptibles, falsas, ocultas.</span></p><p><strong><span>Secuenciales</span></strong><span>: Una te da información para hacer otra.</span></p><p><strong><span>Anidadas</span></strong><span>: Una affordance sirve como contexto de otra.</span></p><p><strong><span>Modelo conceptual vs. Modelo mental</span></strong><span> (Craik)</span></p><p><span>Ideal vs. Realidad</span></p><p><strong><span>Modelo conceptual</span></strong><span>: Como el diseñador lo concibe e implementa.</span></p><p><strong><span>Modelo mental</span></strong><span>: Como piensa el usuario que funciona el sistema.</span></p><p><span>El diseñador debe basar su modelo conceptual en como piensan los usuarios, hay que preguntar y usar experiencias en productos previos.</span></p><h3><a name="métodos" class="md-header-anchor"></a><span>Métodos</span></h3><p><span>En el laboratorio, experimentos controlados.</span></p><p><span>Modelos de como la persona realiza una tarea, como GOMS y KLM.</span></p><p><span>Asume usuarios que saben, ayuda a tomar decisiones de la interfaz y enfoque reduccionista.</span></p><p><span>Modelado de factores humanos, especificaciones, guiar y requisitos rígidos.</span></p><p><strong><span>Testeo sistemático de usabilidad</span></strong><span> (Rubin and Chisnell)</span></p><p><strong><span>Utilidad</span></strong><span>: Conseguir objetivos.</span></p><p><strong><span>Eficiencia</span></strong><span>: Completar tarea en el menor tiempo. Se mide en tiempo.</span></p><p><strong><span>Eficacia y efectividad</span></strong><span>: Completar tarea de manera correcta. Se mide en ratio de errores.</span></p><p><strong><span>Fácil de aprender</span></strong><span>: Se mide en tiempo de aprendizaje.</span></p><p><strong><span>Satisfacción</span></strong><span>: Percepción de usuarios, opinión, sentimiento. Se mide con valores y rangos.</span></p><p><span>Evaluación de expertos. Heurísticas.</span></p><h3><a name="contribución-y-valores" class="md-header-anchor"></a><span>Contribución y Valores</span></h3><p><span>Evaluación de sistemas.</span></p><p><span>Análisis de tareas.</span></p><p><span>Especificaciones de dieno, importante para fases posteriores ciclo de diseño.</span></p><p><span>El diseño, no están importante, es un vehículo.</span></p><p><span>Investigación en HCI.</span></p><h2><a name="segunda-ola" class="md-header-anchor"></a><span>Segunda Ola</span></h2><h3><a name="background-n1835" class="md-header-anchor"></a><span>Background</span></h3><p><span>1990s</span></p><p><span>Se pasa de usuarios a personas, productos a sistemas, usuarios novatos a usuarios más experimentados, de individuos a grupos y de laboratorios a entorno de trabajo.</span></p><p><span>Se mira a la interacción más que al computador.</span></p><p><strong><span>Contexto</span></strong><span>: Mira al espacio de trabajo y la gente alrededor.</span></p><p><strong><span>De análisis a Diseño</span></strong><span>: De trazar requisitos de usuarios a prototipado iterativo, de usuarios al final a diseño centrado en usuario (UCD)</span></p><h3><a name="teoría-n1841" class="md-header-anchor"></a><span>Teoría</span></h3><p><span>Situaciones reales y complejas en el entorno de trabajo.</span></p><p><strong><span>Importancia del contexto.</span></strong></p><p><strong><span>Coordinación de acción conjunto</span></strong><span>: Coincidencia, colaboración y cooperación.</span></p><p><strong><span>Situated Action o Acción situada (Rogers)</span></strong></p><p><span>La interacción se entiende situada como atada al ahora y aquí en ese contexto.</span></p><p><span>La gente no son maquinas, no siguen procedimientos a rajatabla.</span></p><p><span>Los planes cambian en interacción con el entorno, cambia según vamos avanzando por que vamos viendo el progreso.</span></p><p><strong><span>Perspectiva interaccionista y ecológica</span></strong><span>: Relación entre estructuras de acción y los recursos ofrecidos por el contexto físico y social.</span></p><p><strong><span>Objetivo</span></strong><span>: El diseño de interacción debe apoyar la acción situación (la acción que suele pasar en un lugar determinado) y la creación de significado (según la circunstancia).</span></p><p><strong><span>Estudio:</span></strong></p><p><span>Escenarios de trabajo.</span></p><p><span>Contraste entre lo que la gente hace vs. Lo que se supone que tienen que hacer.</span></p><p><span>Métodos etnográficos.</span></p><p><strong><span>Nos quedamos con:</span></strong></p><p><span>Para diseñar tecnología para el trabajo, hay que considerar los detalles de las prácticas de trabajo.</span></p><p><span>Importancia de trabajo de campo (in the wild) para entender el contexto y la situación.</span></p><p><strong><span>Critica</span></strong><span>: Muy centrado en lo particular, difícil generalizar.</span></p><p><strong><span>Distributed Cognition o Cognición Distribuida</span></strong></p><p><span>De ciencias cognitivas.</span></p><p><span>Cognición y conocimiento no están confinados en el individuo, si no en su entorno.</span></p><p><span>“La mente esta en el mundo” distribuido a través de un “sistema cognitivo”</span></p><p><strong><span>Usos</span></strong><span>: Estudio de trabajos que cuentan con espacio como lugar de cognición.</span></p><p><strong><span>Análisis</span></strong><span>: interacción entre individuos, el medio representacional, el espacio donde la actividad tiene lugar.</span></p><p><strong><span>Útil para</span></strong><span>: Cambiar diseños para mejorar rendimiento.</span></p><p><strong><span>Examinar (a nivel de evento, muy al detalla):</span></strong></p><p><span>La resolución distribuida de problemas.</span></p><p><span>Medios/canales de comunicación.</span></p><p><span>Rol de comunicación verbal y no verbal.</span></p><p><span>Mecanismo de coordinación.</span></p><p><span>Como la información y el conocimiento se comparte, acceder, propaga…</span></p><p><span>Como se coordinan las unidades distribuidas.</span></p><p><strong><span>Anotar</span></strong><span>: Incidente, problemas, caminos de información/comunicación.</span></p><p><strong><span>Resultados</span></strong><span>: Explicación de interdependencias complejas entre los elementos del sistema cognitivo.</span></p><p><strong><span>Critica</span></strong><span>: No rápido y sucio (“quick and dirty”), receta…</span></p><h3><a name="métodos-n1876" class="md-header-anchor"></a><span>Métodos</span></h3><p><span>Proactivos.</span></p><p><span>User-Centered Design Processes (Norman and Draper)</span></p><p><strong><span>Participatory Design o Diseño Participativo</span></strong><span>: Democratizar el proceso de diseño, el usuario participa en el diseño.</span></p><p><span>Investigación y diseño contextual.</span></p><p><strong><span>Análisis</span></strong><span>: Sociología, antropología, etnometodología. Trabajos de campo, Técnicas observacionales y Micro análisis.</span></p><h3><a name="contribución-y-valores-n1882" class="md-header-anchor"></a><span>Contribución y Valores</span></h3><p><strong><span>Emergencia CSCW (Computer Supported Cooperative Work)</span></strong><span>: Extiende el foco de la diada persona-computador a grupos de trabajo. Centrado en tareas colaborativas/cooperativo.</span></p><p><span>Perspectiva Situada.</span></p><p><span>Diseño como disciplina, Design Science.</span></p><p><span>Importancia de los usuarios en el proceso de diseño, UCD.</span></p><h2><a name="tercera-ola" class="md-header-anchor"></a><span>Tercera Ola</span></h2><h3><a name="background-n1888" class="md-header-anchor"></a><span>Background</span></h3><p><span>2000s</span></p><p><span>Los Usuarios pasan a llamarse Actores o Participantes.</span></p><p><span>El contexto y el campo de aplicación se amplía, del lugar de trabajo al hogar o calle, del trabajo al día a día.</span></p><p><span>Mas allá del rendimiento, y la información sobre la vida humana.</span></p><p><strong><span>Elementos en la vida humana</span></strong><span>: Cultura, Emociones, Experiencia.</span></p><p><span>La tecnología también amplia alcance, tecnología móvil, ubica, ambiental, tangible… y espacio híbridos.</span></p><h3><a name="teoría-n1895" class="md-header-anchor"></a><span>Teoría</span></h3><p><span>De lo cognitivo a lo emocional. Experiencia estética, desde una perspectiva pragmática/cultural/fenomenológica.</span></p><p><strong><span>Embodied Interaction</span></strong><span>: Es la creación, manipulación y compartición de significado mediante la interacción con artefactos físicos. Enfoque de diseño que tienen muy en cuenta aspectos y contextos físico y sociales. Inspirado en Social Computing y Tangible Computing. Aunque se usa para hablar de sistemas gestuales y de movimiento NO existe una interacción que no sea embodied, pero hay que ver como los usamos.</span></p><p><strong><span>Embodied phenomena</span></strong><span>: Que nos lo encontramos en el mundo físico más que abstracto.</span></p><p><strong><span>Embodiment (encarnación, la corporalidad):</span></strong><span> La manera en la que nos encontramos la realidad física y social en el mundo de todos los días. Significa poseer y actuar mediante una manifestación física en el mundo.</span></p><p><span>Cambio de perspectiva.</span></p><p><span>Revisión de compromisos hechos hace 70 anos. Primaba minimizar tiempo de computación, primaba la computación sobre los usuarios.</span></p><p><strong><span>Nuevas tecnologías:</span></strong><span> Móviles, relojes, gafas, coches…</span></p><p><strong><span>El problema:</span></strong><span> Esto empeora los efectos de esos compromisos.</span></p><p><span>Necesitamos nuevas maneras de interactuar con computadores, que se ajusta mejor a nuestras necesidades, habilidades, valores…</span></p><p><span>Para una nueva interacción y experiencia, se explota nuestra habilidades y familiaridad con objetos del día a día, para que la computación se manifieste como si fuera un objeto del día a día..</span></p><h3><a name="métodos-n1906" class="md-header-anchor"></a><span>Métodos</span></h3><p><span>Mas allá de los usuarios. Es un enfoque más explicativo.</span></p><p><strong><span>Diseño en el centro:</span></strong></p><p><strong><span>Design Thinking:</span></strong><span> Inspirado en prácticas, en artes, en diseño. Pensamiento “no racional” en el sentido de “no científicos”. Pensar fuere de la caja, out of the box. Innovación, se centra en lo que aún no existe.</span></p><p><strong><span>Embodied design Methods:</span></strong><span> Métodos que usan corporalidad de los diseñadores y usuarios.</span></p><p><strong><span>Research through Design (RtD):</span></strong><span> Conocimiento a través del diseño.</span></p><h3><a name="contribución-y-valores-n1912" class="md-header-anchor"></a><span>Contribución y Valores</span></h3><p><span>De centrarse en la información, a centrarse en la acción, en las sensaciones, emociones.</span></p><p><strong><span>Conceptos:</span></strong><span> Sentir y significado, embodied.</span></p><p><strong><span>Artefactos:</span></strong><span> Propósitos sociales, y personales + profundos.</span></p><p><strong><span>Énfasis estético:</span></strong><span> Emoción, sensación, disfrute, placer, social, playful, embodied, divertido…</span></p><p><span>Embodied Interaction, “engagement” físico y social.</span></p><p><span>Métodos que tienen el diseño en el centro.</span></p><p><span>De interpretación objetivo a subjetiva, de individuo a colectivo.</span></p><h2><a name="user-centered-design-ucd" class="md-header-anchor"></a><span>User Centered Design (UCD)</span></h2><p><span>Proceso iterativo de diseño, centrado en los usuarios.</span></p><p><span>Involucrados a través de todo el proceso de diseño.</span></p><p><span>Múltiples técnicas para entender sus necesidades, deseos, valores… Investigativas y Generativas.</span></p><p><strong><span>Objetivo</span></strong><span>: Crear experiencias y productos usables, accesibles, etc.</span></p><h3><a name="fases" class="md-header-anchor"></a><span>Fases:</span></h3><p><strong><span>Entender el contexto de diseño</span></strong><span>: Necesidades, deseos, etc. llevan a requisitos y valores de diseño.</span></p><p><span>Documentación, Entrevistas, Cuestionarios, Observación y Focus Group.</span></p><p><span>Generan Personas, Escenarios y Requisitos</span></p><p><strong><span>Diseño</span></strong><span>.</span></p><p><span>Sketch, Paper Prototype, Wireframes, Mockup y Software Prototype.</span></p><p><strong><span>Evaluación vs. Contexto de diseño: usuarios y requisitos.</span></strong></p><p><span>Formativa//Sumativa, En el lab//In the wild, Usabilidad, Métodos de inspección, Experimentos, Entrevistas y observaciones.</span></p><p><span>El diseño centrado en usuarios es un proceso caro, requiere mucho tiempo hablar con personas, producir prototipos y demás fases del proceso. Pero merece la pena este coste para diseñar sistemas bien.</span></p><h3><a name="ventajas" class="md-header-anchor"></a><span>Ventajas:</span></h3><p><span>Diseñador no es lo mismo que Usuarios.</span></p><p><span>Problemas, necesidades y deseos que vemos no son lo mismo que los que tiene el usuario.</span></p><p><span>Contacto con usuarios, aumenta la empatía y que se lleve a cabo un diseño ético, que respete las necesidades y prácticas de los usuarios.</span></p><p><span>Involucrar a usuarios, hace que sea más probable que se cumplan sus necesidades y requisitos, lo que hace que tengamos más ventas y menos problemas de atención al cliente.</span></p><p><span>Pensar en el contexto y tareas especificas del usuario, hace que haya menor error humano y mas seguridad, se tienen en cuenta más factores que hay cuando se usa el sistema.</span></p><h1><a name="tema-2-primera-fase-ucd" class="md-header-anchor"></a><span>Tema 2: Primera fase UCD</span></h1><h2><a name="contexto-de-diseño" class="md-header-anchor"></a><span>Contexto de Diseño</span></h2><p><span>Conocer al usuario, sus objetivos, características y contexto.</span></p><p><span>Caracterización de la situación, fenómeno, práctica o actividad para la que se va a diseñar.</span></p><p><span>Quienes son los usuarios, sus objetivos, necesidades, actividades que realizan, espacio donde tiene lugar y que recursos tiene.</span></p><h2><a name="técnicas-básicas-de-recogida-de-datos" class="md-header-anchor"></a><span>Técnicas básicas de recogida de datos</span></h2><p><span>Sirven para describir y acotar el contexto.</span></p><h3><a name="investigación-previa" class="md-header-anchor"></a><span>Investigación Previa</span></h3><p><strong><span>Estudio de documentación</span></strong></p><p><span>Manuales, legislación, datos estadísticos del gobierno, etc.</span></p><p><span>Feedback directo, mediante logs, muestras de email, investigación de mercado (da información actual), user testing o libro blanco.</span></p><p><span>Redes sociales o Reviews.</span></p><p><strong><span>State of the art (“lo último”)</span></strong><span> Ver lo que hay</span></p><p><span>Producto que la gente usa en nuestro contexto de diseño.</span></p><p><span>Para la innovación es descubrir la oportunidad.</span></p><h3><a name="claves-para-recogida-de-datos" class="md-header-anchor"></a><span>Claves para Recogida de Datos</span></h3><p><strong><span>El objetivo</span></strong><span> es entender mejor el espacio de diseño.</span></p><p><span>Se </span><strong><span>condiciona</span></strong><span> por la técnica, los datos, el análisis, etc.</span></p><p><span>Es importante </span><strong><span>formularla mas o menos formalmente</span></strong><span>, se parte de una manera mas general y se va concretamente.</span></p><p><strong><span>Identificar a los participantes</span></strong><span>, para los usuarios que vamos a diseñar.</span></p><p><span>Hay que coger muestras del conjunto de participantes, no se puede acceder a todos. Tipos de muestras:</span></p><p><strong><span>Muestreo probabilístico:</span></strong><span> </span></p><p><span>Aleatorio: Un número aleatorio de participantes.</span></p><p><span>Estratificado: Grupo representativo.</span></p><p><strong><span>Muestreo no probabilístico:</span></strong><span> </span></p><p><span>Conveniencia: Los que haya o se ofrezcan.</span></p><p><span>Voluntarios.</span></p><p><strong><span>Relación con participantes</span></strong></p><p><span>Debe ser clara y profesional, informar de quien somos, que estamos estudiando, que haremos con la información y como se va a tratar sus datos.</span></p><p><strong><span>Consentimiento</span></strong><span>: Proteger participantes e investigador.</span></p><p><span>Incentivos, por conveniencia para que haya mas participantes, ya que puro voluntario es mas dificil.</span></p><p><strong><span>Triangulación</span></strong><span>: Investigación de un fenómeno desde al menos dos perspectivas:</span></p><p><span>De datos, usando distintas fuentes.</span></p><p><span>De investigadores.</span></p><p><strong><span>Metodológica</span></strong><span>: uso de distintas técnicas de recogida de datos.</span></p><p><span>Que sea metodologica.</span></p><p><strong><span>Estudio piloto.</span></strong></p><p><strong><span>Version reducida</span></strong><span> del estudio.</span></p><p><strong><span>Se prueba esa version antes del estudio principal</span></strong><span>, se realizan preguntas mas dirigidas a saber si esta bien el cuestionario qua a las propias respuestas, se realiza de forma iterativa. Identifica problemas y se aprende de errores. Sobre el protocolo a seguir, equipo, instrucciones, preguntas, cuestionarios.</span></p><h3><a name="captura-de-datos" class="md-header-anchor"></a><span>Captura de Datos</span></h3><p><span>Importante para análisis posterior.</span></p><p><span>Algunas formas de recogida de datos se </span><strong><span>auto-documentan</span></strong><span>, es decir que los datos indican todo, no hay que interpretarlos.</span></p><p><span>Muchas otras no, como la observación directa, entrevistas...</span></p><p><strong><span>Técnicas</span></strong><span>:</span></p><p><strong><span>Anotaciones de campo:</span></strong></p><p><span>Es una técnica mas resumida con menor número de detalles.</span></p><p><strong><span>Ventajas</span></strong><span>: Mas flexible, menos logistica y menos intrusivo.</span></p><p><strong><span>Desventajas</span></strong><span>: Mas difícil de escribir y preguntar, observar, ...</span></p><p><strong><span>Grabación de audio:</span></strong></p><p><span>Alternativa a las anotaciones, que se pueden transcribir posteriormente.</span></p><p><span>Facilita la documentación.</span></p><p><strong><span>Grabación de video:</span></strong></p><p><span>Proporciona captura visual y auditiva.</span></p><p><span>El problema es que requiere mas planificación y logística, como cámaras, localización o baterías, y es mas intrusivo.</span></p><p><strong><span>Audio y video: Sin tratar (raw data)</span></strong></p><p><span>Se puede consultar en cualquier momento y revisar.</span></p><h3><a name="entrevistas" class="md-header-anchor"></a><span>Entrevistas</span></h3><p><span>Consiste en un entrevistador preguntando a usuarios con un objetivo. Normalmente de forma síncrona.</span></p><p><strong><span>Tipos</span></strong><span>, dependiendo del control de entrevistador y libertad de los participantes: </span></p><p><strong><span>No estructuradas:</span></strong><span> Sin protocolo o preparación. </span></p><p><span>Preguntas abiertas, que son explicativas que nos permite extraer conocimiento.</span></p><p><span>La ventaja es que permite respuestas mas profundas y  mas datos, lo que permite entender mejor el contexto de diseño.</span></p><p><span>Datos complejos, aunque interrelacionados.</span></p><p><strong><span>Estructuradas:</span></strong><span> Mas control.</span></p><p><span>Preguntas cerradas (lista de opciones) y predeterminadas, como un cuestionario.</span></p><p><span>Las mismas para todos los participantes.</span></p><p><span>Preguntas cortas, claras y sencillas.</span></p><p><span>Se realizan cuando se tiene un objetivo claro, una serie de preguntas especificas y repuestas esperadas.</span></p><p><span>Requieren menor tiempo.</span></p><p><strong><span>Semi-estructuradas</span></strong></p><p><span>Combina de los otros dos tipos.</span></p><p><span>Guion con: </span></p><p><span>Serie de temas a cubrir, y preguntas planificadas.</span></p><p><span>Preguntas especificas de seguimiento o para sonsacar mas información.</span></p><p><strong><span>Probing o prompts</span></strong><span>, preguntas neutras como: Algo que añadir?</span></p><p><strong><span>Herramientas de apoyo:</span></strong><span> Graficos, imagenes de la experiencia.</span></p><p><strong><span>Planificación</span></strong><span>: </span></p><p><strong><span>Donde</span></strong></p><p><strong><span>Online</span></strong><span>: Es mas cómodo, pero necesita logistica extra.</span></p><p><strong><span>En el sitio:</span></strong><span> Se realiza en el entorno de uso por lo que se observa el entorno, suscita preguntas.</span></p><p><strong><span>Sitio neutro o contexto artificial:</span></strong><span> Como un laboratorio. La logística está mas a mano, pero es mas difícil poner en situación y contexto artificial.</span></p><p><strong><span>Protocolo (no intimidar):</span></strong></p><p><strong><span>Introducción</span></strong><span>: Quién eres, objetivo, temas éticos, consentimiento.</span></p><p><strong><span>Preguntas demográficas. Preguntas de warm-up.</span></strong><span> </span></p><p><strong><span>Sesión principal:</span></strong><span> Temas y preguntas clave.</span></p><p><strong><span>Preguntas de cool-off:</span></strong><span> Preguntas finales.</span></p><p><strong><span>Cierre</span></strong><span>: Espacio para que pregunten, agradecimientos y indicar que ha terminado.</span></p><p><strong><span>Desarrollar las preguntas:</span></strong></p><p><span>Depende del tipo de entrevista.</span></p><p><strong><span>Evitar</span></strong><span>: Preguntas largas, confusas, jerga especifica, preguntas peligrosas que condicionan respuestas(asumir algo, coacción o se les pueda dar la vuelta), cerradas y binarias sin seguimiento, y preguntas de doble-cañón (no queda claro a cual responde, por que hay varias posibles).</span></p><p><span>La </span><strong><span>documentación</span></strong><span>, </span><strong><span>equipo</span></strong><span> y material para recoger datos, </span><strong><span>gestión</span></strong><span> de la cita y espacio, y </span><strong><span>realizar la entrevista</span></strong><span>.</span></p><h3><a name="cuestionarios" class="md-header-anchor"></a><span>Cuestionarios</span></h3><p><span>Consiste en una serie de preguntas. Normalmente de forma asíncrona.</span></p><p><span>Para obtener respuestas a preguntas especificas de muchos participantes.</span></p><p><strong><span>Las preguntas pueden ser:</span></strong><span> Preguntas abiertas o cerradas.</span></p><p><strong><span>Ventajas</span></strong><span>: Mayor alcance y distribución, mas conveniente para los participantes.</span></p><p><strong><span>Desventajas</span></strong><span>: Menor riqueza que una entrevista, aunque similar a una entrevista estructurada.</span></p><p><strong><span>Diseño</span></strong></p><p><strong><span>Estructura:</span></strong><span> Información acerca del estudio y consentimiento, tiempo estimado de realización, instrucciones claras de cómo completarlo, preguntas demográficas (identificar el tipo de persona) y por ultimo preguntas especificar agrupadas por temática.</span></p><p><strong><span>Orden:</span></strong><span> Lógico para facilitar la realización, las preguntas mas generales primero.</span></p><p><span>Distintas versiones para poblaciones distintas.</span></p><p><strong><span>Estilo</span></strong><span>: Compacto pero no cargado y mostrar el progreso en el cuestionario.</span></p><p><strong><span>Evitar</span></strong><span>: Preguntas mal formuladas, preguntas negativas para evitar que pueda equivocarse y falta de claridad, ya que no estamos aclararlo.</span></p><p><strong><span>Formatos</span></strong></p><p><strong><span>Check boxes y rangos</span></strong><span>. Ejm: O 18 to 21</span></p><p><strong><span>Rating Scale:</span></strong></p><p><strong><span>Escala semántica diferencial</span></strong><span>: Good _ _ _ _ _ _ _ Bad</span></p><p><strong><span>Likert</span></strong><span>: Normalmente de 5 a 7 puntos, según como preciso queremos que sean. Orden consistente. Número par para forzar la no neutralidad.</span></p><h3><a name="focus-groups" class="md-header-anchor"></a><span>Focus Groups</span></h3><p><span>Investigacion cualitativa. Consiste en una </span><strong><span>entrevista en grupos</span></strong><span> de 3-12 personas.</span></p><p><strong><span>Muestra de población representativa</span></strong><span>: Distintas clases de usuarios.</span></p><p><span>Se les pregunta </span><strong><span>opinión</span></strong><span>, percepción, creencias, actitudes, prácticas respecto a una situación, producto, servicio, concepto.</span></p><p><strong><span>Liderado por un facilitador</span></strong><span>, que lanza los temas preparados, modera e invita a participar a todos.</span></p><p><strong><span>Ventajas</span></strong><span>: Salen temas importantes y sensibles, se descubren diferencias de opiniones y posturas, y puntos en común.</span></p><h3><a name="observación" class="md-header-anchor"></a><span>Observación</span></h3><p><span>Ver como se usa el sistema, ya sea de forma directa o indirecta.</span></p><p><span>Util en muchas </span><strong><span>fases del proceso</span></strong><span> de diseño:</span></p><p><strong><span>Pronto</span></strong><span>: Entender el espacio de diseño, los usuarios, contexto y las tareas.</span></p><p><strong><span>Más adelante</span></strong><span>: Ver el diseño en uso, como mejora/aporta a esas tareas.</span></p><p><span>Se pueden llevar a cabo en el campo o en un espacio controlado.</span></p><p><strong><span>Pueden ser directas( en el momento) o indirecto (grabaciones de actividad).</span></strong></p><p><strong><span>Directas en el campo</span></strong></p><p><span>Muy difícil explicar lo que hacen exactamente, hay que verlo.</span></p><p><span>Difícil tener el panorama completo, estar en el sitio ayuda.</span></p><p><span>Proporciona detalles de cómo comportan los usuarios, que hacen, cómo lo hacen.</span></p><p><span>Importante equilibrar entre lo que surja y el objetivo claro de la observación.</span></p><p><strong><span>Ventaja</span></strong><span>: Riqueza de datos.</span></p><p><strong><span>Desventajas</span></strong><span>: Necesita logistica, acceso a los espacios y análisis.</span></p><p><strong><span>Planificacion y realizacion:</span></strong></p><p><span>Marco de observación.</span></p><p><span>Grado de participacion.</span></p><p><span>Documentación y registro de datos.</span></p><p><span>Acceso y aceptación.</span></p><p><span>Inclusion de distintas perspectivas.</span></p><p><span>Temas sensibles (cultura, acceso a espacios privados)</span></p><p><strong><span>Marco o Estructura de Observación</span></strong><span> para manejar la complejidad:</span></p><p><strong><span>Sencillo</span></strong><span>: Mas posible añadir puntos nuevo.</span></p><p><img src="DSI/Untitled%201.png" alt="DSI/Untitled%201.png" style="zoom:80%;" /></p><p><strong><span>Detallado</span></strong><span>: Mas especifico.</span></p><p><img src="DSI/Untitled%202.png" alt="DSI/Untitled%202.png" style="zoom:80%;" /></p><p><strong><span>Grado de participación:</span></strong><span> Infiltrado(Activo, participa el observador en primera persona, difícil disociar participante y observador) o Ajeno(Pasivo, normalmente en el lab).</span></p><p><strong><span>Planificacion y realizacion:</span></strong><span> </span></p><p><span>Atención equilibrada a participantes. </span></p><p><strong><span>Re-focus</span></strong><span>: a medida que se surgen aspectos relevantes. </span></p><p><span>Actividad intensa, puesto que se anota durante observaciones y al final del día.</span></p><p><strong><span>Etnográficas</span></strong><span>:</span></p><p><span>Entendimiento detallada, con matices.</span></p><p><strong><span>Rol</span></strong><span>: participant observer, activo.</span></p><p><span>Observaciones directas+entrevistas, cuestionarios, estudios de artefactos.</span></p><p><span>Importante, llevar mente abierta, naïve.</span></p><p><strong><span>Datos</span></strong><span>: Que hace y dice la gente.</span></p><p><strong><span>Recogida datos</span></strong><span>: Notas de campo, documentos, fotos,...</span></p><p><strong><span>Técnicas etnográfica:</span></strong></p><p><strong><span>Investigación contextual</span></strong><span>: Mezcla entrevista y observación. Van haciendo cosas y comentando que hacen.</span></p><p><strong><span>Rol</span></strong><span>: activo, modelo de aprendiz.</span></p><p><strong><span>Entrevista contextual</span></strong><span>: Observación, discusión y reconstruction de eventos pasados.</span></p><p><strong><span>4 principios:</span></strong><span> contexto, relación, interpretación y foco.</span></p><p><strong><span>Recogida datos:</span></strong><span> Anotación, grabaciones de audio y video. Anotaciones al final de las sesiones.</span></p><p><strong><span>Directivas en espacio controlado</span></strong></p><p><span>En el laboratorio, mas formal y mas control, se sigue un protocolo.</span></p><p><span>Mas intrusivo, van a un espacio controlado.</span></p><p><strong><span>Ventajas</span></strong><span>: Control de variables.</span></p><p><strong><span>Desventajas</span></strong><span>: Pretension y situación artificial.</span></p><p><strong><span>Foco</span></strong><span>: Acciones y comportamientos concretos.</span></p><p><strong><span>Datos</span></strong><span>: Video, fotografías, anotaciones.</span></p><p><span>Hay que tener en cuenta como gestionar el equipo.</span></p><p><strong><span>Técnicas</span></strong><span>:</span></p><p><strong><span>Think Aloud:</span></strong><span> Usuario piensa en voz a la vez que actúa, lo que nos permite entender lo que piensan y sus modelos mentales y expectativas.</span></p><p><strong><span>Diarios:</span></strong><span> Los participantes documentan su experiencia. </span></p><p><span>Auto-documentación de participantes, de forma regular.</span></p><p><strong><span>Ventajas</span></strong><span>: Lo hacen ellos, no requiere mucho tiempo de investigadores. Menos logística, es un diario.</span></p><p><strong><span>Desventajas</span></strong><span>: Depende plenamente de los participantes, es difícil para los usuarios seguirlo haciendo.</span></p><p><strong><span>Experience Sampling Method (ESM):</span></strong><span> Muy parecido al diario. Con prompts en momentos concretos determinados por tiempo o eventos.</span></p><p><span>Invitan a la acción inmediata.</span></p><p><strong><span>Logs de Interacción:</span></strong><span> Software en un dispositivo que captura lo que hace el usuarios para posterior análisis.</span></p><p><strong><span>Captura</span></strong><span>: clicks, key press, tiempo empleado.</span></p><p><span>Se combina con otras fuentes de datos.</span></p><p><strong><span>Ventajas</span></strong><span>: No intrusivo.</span></p><p><strong><span>Desventajas</span></strong><span>: Aspecto ético.</span></p><p><strong><span>Logística</span></strong><span>: Herramientas de visualización.</span></p><p><strong><span>Elegir una técnica:</span></strong><span> No hay una adecuada para todos los casos. Depende de muchos factores: proyecto, objetivo, usuarios.</span></p><p><span>Lo mejor es utilizar triangulación, combinar técnicas.</span></p><h1><a name="tema-3-análisis-de-estudios-de-campo" class="md-header-anchor"></a><span>Tema 3: Análisis de Estudios de Campo</span></h1><p><span>Es importante </span><strong><span>tener evidencias de cómo es realmente el contexto, no solo suposiciones (assumptions) y verdades no fundadas (claims)</span></strong><span>, para esto debemos hacer una buena elección de técnicas de investigación. Caer en este problema es frecuente, lo importante es saber que no son verdad.</span></p><p><span>En esta fase buscamos definir unas técnicas para concretar el contexto de diseño y saber más, todavía no buscamos la solución.</span></p><p><strong><span>El análisis depende:</span></strong></p><p><span>Del </span><strong><span>objetivo</span></strong><span> de tu trabajo de campo.</span></p><p><span>De las </span><strong><span>técnicas</span></strong><span> de investigación y recogida de datos.</span></p><p><span>De tus </span><strong><span>datos</span></strong><span> obtenidos con esas técnicas elegidas.</span></p><p><strong><span>Posibles objetivos:</span></strong></p><p><span>Entender a los usuarios, es importante diferenciar entre usuario y otros stakeholder (parte interesada).</span></p><p><span>Entender actividades, objetos involucrados, espacio de la interacción y posibles problemas y fricción.</span></p><p><strong><span>Tipos de análisis:</span></strong><span> no tiene por qué coincidir con el tipo de datos.</span></p><p><strong><span>Cuantitativos</span></strong><span>: Proporción, porcentaje, medias...</span></p><p><strong><span>Cualitativos</span></strong><span>: Temas emergentes y patrones, impresiones y reacciones prominentes...</span></p><p><span>Los datos debens ser rigurosos y precisos, expresado numéricamente, evitando interpretaciones, para poder medir.</span></p><p><strong><span>Tipos de Datos y Análisis:</span></strong></p><ul><li><p><strong><span>Entrevistas</span></strong><span>:</span></p><p><strong><span>Datos</span></strong><span>: Notas y grabaciones.</span></p><p><strong><span>Tratamiento</span></strong><span>: Transcripciones y anotacione extendidas.</span></p><p><strong><span>Preguntas cerradas:</span></strong><span> normalmente cuantitativos.</span></p><p><strong><span>Preguntas abiertas:</span></strong><span> principalmente cualitativo, pero también cuantitativo.</span></p></li><li><p><strong><span>Cuestionarios</span></strong><span>:</span></p><p><strong><span>Datos</span></strong><span>: Respuestas.</span></p><p><strong><span>Tratamientos</span></strong><span>: Filtrado de datos.</span></p><p><strong><span>Preguntas cerradas:</span></strong><span> normalmente cuantitativos.</span></p><p><strong><span>Preguntas abiertas:</span></strong><span> principalmente cualitativo, pero también cuantitativo.</span></p></li><li><p><strong><span>Observaciones</span></strong><span>:</span></p><p><strong><span>Datos</span></strong><span>: Muy ricos; notas, logs y grabaciones.</span></p><p><span>No es un análisis sencillo, hay muchos datos y debemos equilibrar.</span></p><p><strong><span>Tratamiento</span></strong><span>: Sincronizar fuentes, anotaciones extendidas, transcripciones, citas, fragmentos de acciones o interacciones.</span></p><p><strong><span>Análisis</span></strong><span>: según el tipo de datos.</span></p><p><strong><span>Cualitativo</span></strong><span>: Anotaciones, grabaciones...</span></p><p><strong><span>Cuantitativo</span></strong><span>: logs, grabaciones...</span></p></li></ul><h2><a name="análisis-cualitativo" class="md-header-anchor"></a><span>Análisis Cualitativo</span></h2><p><span>Se identifican en el proceso de recogida de datos.</span></p><h3><a name="categorización-de-datos" class="md-header-anchor"></a><span>Categorización de datos</span></h3><p><span>Anotaciones, entrevistas, transcripciones, se pueden analizar con distinta granularidad</span></p><ul><li><strong><span>Gruesa</span></strong><span>: Identification temas, a nivel general.</span></li><li><strong><span>Fina</span></strong><span>: a nivel de palabra, mas detallado.</span></li></ul><p><strong><span>Esquema de categorización:</span></strong></p><ul><li><strong><span>Bottom-up</span></strong><span>: De los datos hacia lo general.</span></li><li><strong><span>Top-down (deductivo)</span></strong><span>: esquema establecido con anterioridad (teoría, métodos), de lo general hacia los datos.</span></li><li><span>Mezcla</span></li></ul><p><span>Importante el rigor, el esquema de categorización tiene que ser fiable y debe haber concordancia de los distintos evaluadores.</span></p><p><span>Comprobación de nivel de discrepancia: Coeficiente kappa de Cohen, el nivel de acuerdo que hay. Si es bajo, mal entrenamiento y problemas en el esquema de categorización.</span></p><p><span>Técnica: </span><strong><span>Content Analysis o Análisis de contenido</span></strong></p><p><span>Se utiliza para cualquier tipo de documentos y &quot;textos&quot; (video, periodista, citas...)</span></p><p><span>Es una técnica de conteo de ocurrencias, ya sea temas y categorías como de palabras clave.</span></p><p><span>Descripción cuantitativa, objetiva, y sistemática del contenido.</span></p><p><span>Cuantifica el contenido en términos de categorías.</span></p><h3><a name="identificación-de-patrones-y-temas" class="md-header-anchor"></a><span>Identificación de patrones y temas</span></h3><p><span>Emergen a medida que te familiarizas con los datos.</span></p><p><span>Los objetivos del estudio orientan el foco de temas y patrones.</span></p><p><strong><span>Affinity diagram o Diagrama de afinidad</span></strong></p><p><span>Organización de notas/ideas/información según una jerarquía por similitud.</span></p><p><span>Es un proceso inductivo, que surge de un flujo de información y se agrupa, bottom-up.</span></p><p><strong><span>Proceso</span></strong><span>:</span></p><ol start='' ><li><span>Codificación abierta o Open coding: Desgranar los datos en partes discretas, etiquetas.</span></li><li><span>Codificación axial o Axial coding: Agrupación de las notas por similitud.</span></li><li><span>Conexión: De las categorías y etiquetas.</span></li><li><span>Creacion de categorias globales.</span></li><li><span>Revision de datos con base en estas categorías globales.</span></li></ol><p><span>Generación de conocimiento y síntesis, para extraer conclusiones.</span></p><p><span>Se sacan requisitos y necesidades, y se concreta el contexto de diseño.</span></p><h3><a name="conversation-analysis-o-análisis-de-la-conversación" class="md-header-anchor"></a><span>Conversation Analysis o Análisis de la Conversación</span></h3><p><span>De etnometodología, cómo interactúa la gente y dinámicas de interacción.</span></p><p><strong><span>Microanálisis</span></strong><span>: Como se desarrolla la conversación, secuencia y estructura de la conversación.</span></p><p><span>Sin suposiciones, ni conjeturas.</span></p><p><span>Búsqueda de patrones</span></p><p><span>Como la gente se coordina, se entiende, actúa conjuntamente.</span></p><h3><a name="video-analysis--interaction-analysis" class="md-header-anchor"></a><span>Video Analysis &amp; Interaction Analysis</span></h3><p><span>Micro o macro.</span></p><p><strong><span>Macro</span></strong><span>: Idea general, una primera pasada.</span></p><p><span>Decision de elementos clave: momentos o incidencias críticas.</span></p><p><strong><span>Análisis en profundidad</span></strong><span>: Descripción de lo ocurrido, con palabras claves y pantallazos.</span></p><p><strong><span>Herramientas</span></strong><span>: Manual, hoja de cálculo o software específico.</span></p><h2><a name="análisis-cuantitativo" class="md-header-anchor"></a><span>Análisis Cuantitativo</span></h2><p><span>Expresado en forma numérica.</span></p><p><span>Magnitud, cantidad, tamaño, grado, orden... de atributos de participantes.</span></p><p><span>Compila, ordena, resume, y presenta datos para permitir interpretaciones posteriores.</span></p><p><span>Organizar los datos, en una estructura estándar. Filas, sujetos, y columnas, las variables.</span></p><p><strong><span>Tipo de variables:</span></strong></p><p><strong><span>Cualitativas</span></strong><span>: No operaciones aritméticas.</span></p><p><strong><span>Ordinales</span></strong><span>: Siguen un orden o secuencia. Ej: Meses de año.</span></p><p><strong><span>Categóricos</span></strong><span>: No siguen un orden. Ej: Estado civil.</span></p><p><strong><span>Numéricas</span></strong><span>: Operaciones aritméticas.</span></p><p><strong><span>Discretos</span></strong><span>: Valores enteros. Ej: Edad.</span></p><p><strong><span>Continuos</span></strong><span>: Valores en un intervalo. Ej: Sueldo.</span></p><p><strong><span>Análisis de Datos numéricos:</span></strong></p><p><strong><span>Medidas de tendencia central:</span></strong></p><p><strong><span>Media</span></strong><span>: Promedio.</span></p><p><strong><span>Mediana</span></strong><span>: El punto central.</span></p><p><strong><span>Moda</span></strong><span>: Valor más frecuente.</span></p><p><strong><span>Medidas de dispersion</span></strong><span>: Variabilidad de una distribución respecto a una medida.</span></p><p><strong><span>Desviación típica</span></strong><span>: Desviación con la media.</span></p><p><strong><span>Rango R</span></strong><span>= Max-Min.</span></p><p><strong><span>Desviación con la mediana</span></strong><span>: Cuartiles.</span></p><p><strong><span>Rango intercuartílicos</span></strong><span>, IQR: Q3-Q1</span></p><h2><a name="tabla-de-frecuencia" class="md-header-anchor"></a><span>Tabla de frecuencia</span></h2><p><img src="DSI/Untitled%203.png" alt="DSI/Untitled%203.png" style="zoom:80%;" /></p><p><strong><span>Datos categóricos.</span></strong></p><p><span>Los datos numéricos con variables continuas, y discretas con muchos valores pueden ser inmanejables, para solventarlo:</span></p><p><span>Dividir el rango en clases del mismo tamaño y sin solapamientos.</span></p><p><span>Nueva tabla de frecuencias.</span></p><p><span>Facilita representación gráfica posterior.</span></p><h2><a name="gráficos-estadísticos" class="md-header-anchor"></a><span>Gráficos Estadísticos</span></h2><p><span>Representación visual de datos estadísticos.</span></p><p><strong><span>Util</span></strong><span> para captar la atención, presentacion de informacion sencilla, clara y precisa, facilita comparación de datos, destaca tendencias y diferencias, e ilustrativos.</span></p><h3><a name="boxplot-o-diagrama-de-cajas-y-bigotes" class="md-header-anchor"></a><span>Boxplot o Diagrama de cajas y bigotes</span></h3><p><span>Para medidas de tendencia central y dispersion.</span></p><p><img src="DSI/Untitled%204.png" alt="DSI/Untitled%204.png" style="zoom:80%;" /></p><p><span>Visualiza medidas de desviación con la mediana:</span></p><p><strong><span>Tres cuartiles</span></strong><span>: Q1, Q2, Q3.</span></p><p><strong><span>Caja</span></strong><span>: Q1 y Q3.</span></p><p><strong><span>Mediana</span></strong><span>.</span></p><p><strong><span>Bigotes</span></strong><span>: mínimo y máximo.</span></p><h2><a name="gráficos-para-distribuciones" class="md-header-anchor"></a><span>Gráficos para Distribuciones</span></h2><h3><a name="gráfico-de-barras" class="md-header-anchor"></a><span>Gráfico de barras</span></h3><p><img src="DSI/Untitled%205.png" alt="DSI/Untitled%205.png" style="zoom:80%;" /></p><p><span>Frecuencias de una </span><strong><span>variable cualitativa o discreta</span></strong><span>. Sencillo, agrupado y apilado.</span></p><p><span>La altura indica la frecuencia o porcentaje y la barras son </span><strong><span>categóricas</span></strong><span>, no valores numéricos.</span></p><p><strong><span>Util</span></strong><span>: Comparar magnitudes.</span></p><p><strong><span>Tipos</span></strong><span>: Verticales u horizontales.</span></p><h3><a name="polígono-de-frecuencias" class="md-header-anchor"></a><span>Polígono de Frecuencias</span></h3><p><span>Visualización de frecuencias de cada una de las categorías.</span></p><p><img src="DSI/Untitled%206.png" alt="DSI/Untitled%206.png" style="zoom:80%;" /></p><h3><a name="histograma" class="md-header-anchor"></a><span>Histograma</span></h3><p><img src="DSI/Untitled%207.png" alt="DSI/Untitled%207.png" style="zoom:80%;" /></p><p><span>Representa las frecuencias de una </span><strong><span>variable cuantitativa continua.</span></strong></p><p><span>Area de la barra es la frecuencia y el eje son intervalos de variable continua.</span></p><h3><a name="gráfico-de-sectores" class="md-header-anchor"></a><span>Gráfico de sectores</span></h3><p><img src="DSI/Untitled%208.png" alt="DSI/Untitled%208.png" style="zoom:80%;" /></p><p><span>Representación circular de las frecuencias relativas.</span></p><p><span>Variable cualitativa o discreta, se muestran en porcentajes.</span></p><p><span>Util: Cuando hay pocos categorías.</span></p><h3><a name="gráfico-de-líneas" class="md-header-anchor"></a><span>Gráfico de líneas</span></h3><p><img src="DSI/Untitled%209.png" alt="DSI/Untitled%209.png" style="zoom:80%;" /></p><p><span>Representa relaciones entre dos variables.</span></p><p><span>Una o varias variables.</span></p><p><span>Util para ver tendencias.</span></p><h3><a name="-grafico-de-dispersión" class="md-header-anchor"></a><span>Grafico de Dispersión</span></h3><p><img src="DSI/Untitled%2010.png" alt="DSI/Untitled%2010.png" style="zoom:80%;" /></p><p><span>Relación entre dos variables ene ejes cartesianos e informa del grado de correlación.</span></p><h2><a name="resultados" class="md-header-anchor"></a><span>Resultados</span></h2><p><span>Requiere habilidad, esfuerzo y trabajo.</span></p><p><span>Distintas maneras de presentar el material</span></p><p><strong><span>Depende</span></strong><span>:</span></p><p><span>Del objetivo de tu trabajo de campo</span></p><p><span>De tus técnicas de investigación y recogida de datos</span></p><p><span>De tus datos obtenidos</span></p><p><span>Del análisis realizado</span></p><p><span>De la audiencia.</span></p><p><strong><span>Propósitos finales:</span></strong></p><p><span>Derivar requisitos, necesidades, design drives.</span></p><p><span>Evaluar un producto o en desarrollo.</span></p><p><strong><span>Multiples representaciones</span></strong><span>: graficas, tablas, descripciones textuales, temas, categorias...</span></p><p><span>Presentar los resultados.</span></p><p><span>Como background o evidencia de conclusiones.</span></p><p><span>Para dar rigor, poner el materia raw a mode de anexo.</span></p><p><strong><span>Tipos</span></strong><span>: Resúmenes, Anotaciones rigurosas o Stories.</span></p><h1><a name="recursos" class="md-header-anchor"></a><span>Recursos</span></h1><p><a href='https://www.acontracorrientech.com/claves-para-entender-angular-que-es-y-como-se-utiliza/'><span>▶ Claves para entender Angular - Qué es y cómo se utiliza este framework</span></a></p><p><a href='https://www.acontracorrientech.com/guia-practica-del-databinding-en-angular/'><span>▶ Guía de iniciación al data binding en Angular | Qué es y cómo se utiliza</span></a></p></div>
+</body>
+</html>

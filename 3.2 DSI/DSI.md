@@ -114,7 +114,7 @@ Es muy importante para el uso de los sistemas, incluso puede ser cuestión de vi
 
 Ejemplo: Un asa pide tirar y una placa empujar.
 
-![Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled.png](Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled.png)
+<img src="DSI/Untitled.png" alt="DSI/Untitled.png" style="zoom:80%;" />
 
 **Mapping**: Coincidencia entre los controles y la representación física.
 
@@ -766,11 +766,11 @@ Temas sensibles (cultura, acceso a espacios privados)
 
 **Sencillo**: Mas posible añadir puntos nuevo.
 
-![Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%201.png](Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%201.png)
+<img src="DSI/Untitled%201.png" alt="DSI/Untitled%201.png" style="zoom:80%;" />
 
 **Detallado**: Mas especifico.
 
-![Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%202.png](Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%202.png)
+<img src="DSI/Untitled%202.png" alt="DSI/Untitled%202.png" style="zoom:80%;" />
 
 **Grado de participación:** Infiltrado(Activo, participa el observador en primera persona, difícil disociar participante y observador) o Ajeno(Pasivo, normalmente en el lab).
 
@@ -1045,7 +1045,7 @@ Organizar los datos, en una estructura estándar. Filas, sujetos, y columnas, la
 
 ## Tabla de frecuencia
 
-![Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%203.png](Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%203.png)
+<img src="DSI/Untitled%203.png" alt="DSI/Untitled%203.png" style="zoom:80%;" />
 
 **Datos categóricos.**
 
@@ -1067,7 +1067,7 @@ Representación visual de datos estadísticos.
 
 Para medidas de tendencia central y dispersion.
 
-![Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%204.png](Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%204.png)
+<img src="DSI/Untitled%204.png" alt="DSI/Untitled%204.png" style="zoom:80%;" />
 
 Visualiza medidas de desviación con la mediana:
 
@@ -1083,7 +1083,7 @@ Visualiza medidas de desviación con la mediana:
 
 ### Gráfico de barras
 
-![Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%205.png](Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%205.png)
+<img src="DSI/Untitled%205.png" alt="DSI/Untitled%205.png" style="zoom:80%;" />
 
 Frecuencias de una **variable cualitativa o discreta**. Sencillo, agrupado y apilado.
 
@@ -1097,11 +1097,11 @@ La altura indica la frecuencia o porcentaje y la barras son **categóricas**, no
 
 Visualización de frecuencias de cada una de las categorías.
 
-![Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%206.png](Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%206.png)
+<img src="DSI/Untitled%206.png" alt="DSI/Untitled%206.png" style="zoom:80%;" />
 
 ### Histograma
 
-![Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%207.png](Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%207.png)
+<img src="DSI/Untitled%207.png" alt="DSI/Untitled%207.png" style="zoom:80%;" />
 
 Representa las frecuencias de una **variable cuantitativa continua.**
 
@@ -1109,7 +1109,7 @@ Area de la barra es la frecuencia y el eje son intervalos de variable continua.
 
 ### Gráfico de sectores
 
-![Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%208.png](Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%208.png)
+<img src="DSI/Untitled%208.png" alt="DSI/Untitled%208.png" style="zoom:80%;" />
 
 Representación circular de las frecuencias relativas.
 
@@ -1119,7 +1119,7 @@ Util: Cuando hay pocos categorías.
 
 ### Gráfico de líneas
 
-![Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%209.png](Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%209.png)
+<img src="DSI/Untitled%209.png" alt="DSI/Untitled%209.png" style="zoom:80%;" />
 
 Representa relaciones entre dos variables.
 
@@ -1127,9 +1127,9 @@ Una o varias variables.
 
 Util para ver tendencias.
 
-### Grafico de Dispersion
+### Grafico de Dispersión
 
-![Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%2010.png](Disen%CC%83o%20de%20sistemas%20interactivos%203c75e0e49bc3425d898d50b301944c31/Untitled%2010.png)
+<img src="DSI/Untitled%2010.png" alt="DSI/Untitled%2010.png" style="zoom:80%;" />
 
 Relación entre dos variables ene ejes cartesianos e informa del grado de correlación.
 
