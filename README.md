@@ -1,4 +1,4 @@
-# Notes by Jorge Rodríguez
+# Notes
 
 ## First course
 
