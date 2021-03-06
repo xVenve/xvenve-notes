@@ -57,7 +57,7 @@ Se encuentra en las fronteras de la programación.
 
 **Actualmente**: Existen muchos algoritmos de aprendizaje automático efectivo y eficientes, recursos computacionales y datos disponibles.
 
-**Definición de tarea de Aprendizaje Automático**: Mejorar en una tarea T, respecto a una medida de rendimiento P, basándose en la experiencia E (los ejemplos).
+**Definición de tarea de Aprendizaje Automático**: Mejorar en una **tarea** T, respecto a una **medida de rendimiento** P, basándose en la **experiencia** E (los ejemplos).
 
 Tarea, Medida y Experiencia.
 
@@ -161,7 +161,7 @@ Usa búsqueda avara, para encontrar el árbol más sencillo que separa mejor los
 
 ### Heurística de ID3 (Heurística de la ganancia de información)
 
-Seleccionar el **atributo que mejor separe los ejemplo de acuerdo a las clases**, que deje subconjuntos más puros (orientados más a un valor)
+Seleccionar el **atributo que mejor separe los ejemplo de acuerdo con las clases**, que deje subconjuntos más puros (orientados más a un valor)
 
 Para calcular la ganancia se utiliza el concepto de Entropía, como medida de la pureza o impureza de un conjunto ejemplos.
 
@@ -171,7 +171,7 @@ Para calcular la ganancia se utiliza el concepto de Entropía, como medida de la
 
 - $p_\oplus$: **Proporción** de ejemplos **positivos** sobre el total.
 
-- $p_\ominus$: Proporción de ejemplos **negativos** sobre el total.
+- $p_\ominus$: **Proporción** de ejemplos **negativos** sobre el total.
 
 
 $*p\ominus+p\ominus=1*$
@@ -215,7 +215,7 @@ $A= \arg\max_{A \in \mathcal{A}}  G(S,A) = \arg\min_{A \in \mathcal{A}} Entropia
 
 **Sesgo inductivo en ID3**
 
-- Preferir arboles con atributos con mayor información más cerca de la raíz, y arboles cortos.
+- Preferir arboles con atributos con más información cerca de la raíz, y arboles cortos.
 
 - **La navaja de Ockham/Occam:** Preferir siempre la hipótesis más sencilla que describa los datos.
 - Favorece atributos con muchos valores.
@@ -304,7 +304,7 @@ Cuando se busca un buen balance entre recall y precisión de clase, y las clases
 
 **Curva ROC**: Es una curva en el espacio ROC, en la que cada punto de la recta representa un clasificador, el más cercano al punto óptimo será el mejor, pero teniendo cuidado de los falsos positivos. Se define un umbral a partir del cual se considera de clase positiva o negativa. Los puntos son del tipo +0.8 +0.6.
 
-Cuanto más Area por debajo de la curva mejor.
+Cuanto más Área por debajo de la curva mejor.
 
 <img src="AA/Untitled%2013.png" alt="AA/Untitled%2013.png" style="zoom:33%;" />
 
@@ -349,7 +349,7 @@ Es un proceso iterativo, tras la última etapa se vuelve al principio.
     			- La búsqueda puede ser de cualquier tipo.
     			- La evaluación de cada nodo, que son subconjuntos de atributos, se realiza llamando al algoritmo inductivo seleccionado, una función de evaluación. Tras evaluar se opera.
 
-    		- **PCA(No lo usaremos):** Análisis de componentes principales. Es una solución algebraica, describe los datos en términos de nuevos atributos que no están correlados entre sí.
+    		- **PCA (No lo usaremos):** Análisis de componentes principales. Es una solución algebraica, describe los datos en términos de nuevos atributos que no están correlados entre sí.
 
     	- **Datos no balanceados:** Crear ejemplos sintéticos de la clase desbalanceada.
 
@@ -378,7 +378,7 @@ Para evitar sobreajuste se debe generalizar, hay **2 métodos**:
 - **Pre-poda**: Mientras se construye se poda.
 
 	- **Método de $\chi^2$ (chi-cuadrado)**: Si en un nodo la diferencia entre clases no es significativa, no se divide, para con la mayoría. Muy conservador.
-	- **Mediante curvas de error**: Cross-validation. De esta manera podemos detectar el punto de inflexión, donde se empieza a producir overfitting. En el punto que se separan las curvas.
+	- **Mediante curvas de error**: Cross-validation. De esta manera podemos detectar el punto de inflexión, donde se empieza a producir overfitting (en el punto que se separan las curvas).
 
 - **Post-poda**: Después de generar poda.
 
@@ -407,7 +407,7 @@ Para evitar sobreajuste se debe generalizar, hay **2 métodos**:
 **Alternativas**:
 
 - Por cada valor v del atributo A, se puede crear un atributo binario, de si es atributo toma ese valor o no.
-- Razón de ganancia (GainRatio, GR): Ganancia calculada como la ganancia partido por una penalización por el número de valores del atributos. $GR(S,A)= \frac {G(S,A)=max Entropia(S)-EntropiaAtrib(S,A)}{Split\_Information(S,A)=-\sum_{c\in valores(A)} \frac {|S_v|}{S} \cdot log_2(\frac {S_x}{S})}$
+- **Razón de ganancia (GainRatio, GR)**: Ganancia calculada como la ganancia partido por una penalización por el número de valores del atributos. $GR(S,A)= \frac {G(S,A)=max Entropia(S)-EntropiaAtrib(S,A)}{Split\_Information(S,A)=-\sum_{c\in valores(A)} \frac {|S_v|}{S} \cdot log_2(\frac {S_x}{S})}$
 - **Split_Information(S,A)**: Entropía de S con respecto de A. $Split\_Information(S,A)=-\sum_{c\in valores(A)} \frac {|S_v|}{S} \cdot log_2(\frac {S_x}{S})$
 
 #### Atributos con costes variables
@@ -418,10 +418,10 @@ $\frac {G(S,A)}{unidad \space de \space coste(A)} o \frac {G(S,A)}{unidad \space
 
 ### Otras alternativas a ID3
 
-Clasificadores débiles:
+**Clasificadores débiles:**
 
-- **ZeroR**: En clasificación, dará siempre la clase más frecuente, la moda de la clase. En regresión, devuelve la media.
-- **OneR**: Construye un conjunto de reglas de decisión con un solo atributo. Se elige aquel atributo con menor error, para cada valor del atributo se crea una reglas, donde el valor que toma es el más frecuente.
+- **ZeroR**: En clasificación, dará siempre la **clase más frecuente**, la moda de la clase. En regresión, devuelve la media.
+- **OneR**: Construye un conjunto de r**eglas de decisión con un solo atributo**. Se elige aquel atributo con menor error, para cada valor del atributo se crea una reglas, donde el valor que toma es el más frecuente.
 
 ### Implementaciones
 
@@ -462,7 +462,7 @@ Aproximar una función $f(x)$ que no tiene por qué ser lineal en regresión, co
 - $a_i$ denota el **atributo** i-esimo del ejemplo x. 
 - $w_i$ **peso** del atributo
 
-**Objetivo**: Encontrar aquellos w_i que minimicen el error entre la función clase y el valor de la aproximación.
+**Objetivo**: Encontrar aquellos $w_i$ que minimicen el error entre la función clase y el valor de la aproximación.
 
 Equivalente a **minimizar el error cuadrático sobre el conjunto de entrenamiento total,** C: $E= \sum _{c \in C} (f(x)-\hat{f}(x))^2$ Lo que queremos es minimizar.
 
@@ -474,7 +474,7 @@ La **suma de todas las diferencias de los valores de la función y su aproximaci
 
 ##### Minimizando el error
 
-**El problema de definir la función se traslada a un problema de definir el vector de pesos w.** Se debe encontrar el vector w que minimice la función de error, problema de búsqueda en el espacio de pesos.
+**El problema de definir la función se traslada a un problema de definir el vector de pesos w.** Se debe encontrar el vector $\vec{w}$ que minimice la función de error, problema de búsqueda en el espacio de pesos.
 
 **Aproximación**: Descenso de gradiente.
 
@@ -482,7 +482,7 @@ La **suma de todas las diferencias de los valores de la función y su aproximaci
 
 <img src="AA/image-20210305214445428.png" alt="image-20210305214445428" style="zoom:50%;" />
 
-Sobre la función de errores  por variable **vamos calculando la tangente y desplazando los valores de los pesos**.
+Sobre la función de errores por variable **vamos calculando la tangente y desplazando los valores de los pesos**.
 
 - Consisten en movernos poco a poco en los pesos, para no pasarnos, y se parte de pesos aleatorios.
 - Si la **tangente** tiene pendiente **positiva**, nos desplazamos a la **izquierda**.
@@ -501,8 +501,6 @@ Sobre la función de errores  por variable **vamos calculando la tangente y desp
 **Procedimiento: Descenso de Gradiente(C,n)**
 
 - C conjunto de ejemplo de entrenamiento. n tasa de aprendizaje cuando salta.<img src="AA/image-20210305224415026.png" alt="image-20210305224415026" style="zoom:50%;" />
-
-
 
 #### Regresión no lineal
 
@@ -539,7 +537,7 @@ Regresión no lineal y no paramétrica.
 
 **Criterio de parada**: Pocos ejemplos o poca variación de los valores(desviación típica pequeña)
 
-Hojas: Se calcula un modelo lineal y se utiliza regresión estándar.
+**Hojas**: Se calcula un modelo lineal y se utiliza regresión estándar.
 
 **Salida**: En las hojas tiene funciones de regresión, en los nodos no hoja se tienen atributos acotados <. Cada nodo tiene un conjunto de entrenamiento y se hace su regresión lineal.
 
