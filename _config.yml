@@ -1,1 +1,8 @@
 theme: jekyll-theme-minimal
+
+title: Notes by Jorge Rodríguez
+description: Collection of notes from Computer Engineering at the Carlos III University of Madrid.
+
+logo: /logo.png
+show_downloads: true
+google_analytics: ${{ secrets.GOOGLE_ANALYTICS }}
