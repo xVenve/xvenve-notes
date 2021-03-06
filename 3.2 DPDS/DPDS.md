@@ -51,7 +51,7 @@ Cada proyecto es único, pero siguen un conjunto de  procesos.
 
 Crea algo nuevo, una entrega tangible o intangible que es unica.
 
-![Direccio%CC%81n%20de%20proyectos%20de%20desarrollo%20de%20software%20ae13bad3fa7d4daabfce9a83c8796ccf/Untitled.png](Direccio%CC%81n%20de%20proyectos%20de%20desarrollo%20de%20software%20ae13bad3fa7d4daabfce9a83c8796ccf/Untitled.png)
+<img src="DPDS/Untitled.png" alt="DPDS/Untitled.png" style="zoom:80%;" />
 
 ## Metodología de Desarrollo Software
 
@@ -90,7 +90,7 @@ La metodología debe ser adaptada al contexto del proyecto, los recursos técnic
 
 ## Métrica V3
 
-![Direccio%CC%81n%20de%20proyectos%20de%20desarrollo%20de%20software%20ae13bad3fa7d4daabfce9a83c8796ccf/Untitled%201.png](Direccio%CC%81n%20de%20proyectos%20de%20desarrollo%20de%20software%20ae13bad3fa7d4daabfce9a83c8796ccf/Untitled%201.png)
+<img src="DPDS/Untitled%201.png" alt="DPDS/Untitled%201.png" style="zoom:80%;" />
 
 **Perfiles**: Permite definir que rol deben tomar los participantes.
 
@@ -159,8 +159,8 @@ La oferta tiene un **periodo de validez**, de 1, 2 o 6 meses, para que en un fut
 
 Hay que establecer la **forma de pago**, cuando se van a realizar los pagos. Cuanto es el adelanto, como se pagara durante el proceso y el pego final a la entrega.
 
-[DPDS_Plantilla_Oferta_v3.0.pdf](Direccio%CC%81n%20de%20proyectos%20de%20desarrollo%20de%20software%20ae13bad3fa7d4daabfce9a83c8796ccf/DPDS_Plantilla_Oferta_v3.0.pdf)
+[DPDS_Plantilla_Oferta_v3.0.pdf](DPDS/DPDS_Plantilla_Oferta_v3.0.pdf)
 
 # Recursos
 
-[DPDS_Revision_Metrica_V3.pdf](Direccio%CC%81n%20de%20proyectos%20de%20desarrollo%20de%20software%20ae13bad3fa7d4daabfce9a83c8796ccf/DPDS_Revision_Metrica_V3.pdf)
+[DPDS_Revision_Metrica_V3.pdf](DPDS/DPDS_Revision_Metrica_V3.pdf)
