@@ -4,22 +4,22 @@
 
 [Notas](https://www.notion.so/Notas-f3dd142b55254f65ac29fba6719de001)
 
-[intro.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/intro.pdf)
+[intro.pdf](HO/intro.pdf)
 
-[presentacion-es.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/presentacion-es.pdf)
+[presentacion-es.pdf](HO/presentacion-es.pdf)
 
-[HyOG81.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/HyOG81.pdf)
+[HyOG81.pdf](HO/HyOG81.pdf)
 
 Magistral: Carlos Linares López
 Reducido: Francisco Javier García Polo
 
 # Teoría
 
-[introduccion.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/introduccion.pdf)
+[introduccion.pdf](HO/introduccion.pdf)
 
 - Tema 1 Programación Lineal
 
-    [lp.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/lp.pdf)
+    [lp.pdf](HO/lp.pdf)
 
     # Programación Lineal
 
@@ -61,35 +61,36 @@ Reducido: Francisco Javier García Polo
     - b: recursos. mx1
     - Desarrollo:
         - Representar todas las restricciones en un plano como rectas, también x, y>0.
-            
+          
             - Después de trazar las rectas dar valor a las variables de decisión y ver que hiperplano es el que cumple cada restricción y el área que encierren todas es la Región Factible.
         - Por el teorema de Dantzig:
-            
+          
             - La Región Factible es siempre un poliedro convexo. Por lo tanto, uno de los vértices es la solución óptima.
         - Solo evaluamos los puntos extremos, por lo que hay que hallar las intersecciones de las rectas si todavía no las conocemos.
         - Para hallar una intersección:
                 - Se hace un sistema con ambas ecuaciones de recta. Los valores obtenidos son las intersección.
     
-                    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled.png)
+             <img src="HO/Untitled.png" alt="HO/Untitled.png" style="zoom: 33%;" />
         
             - $x= A^{-1}b$; A es la matriz de coeficientes de las dos rectas y b los recursos de cada una.
         - Sustituimos los distintos puntos extremos (x, y, …) en la función objetivo.
 - Observamos todos los resultados y el máximo, será aquel de mayor valor.
             - La solución óptima es la última vez que la curva de isobeneficio toca la región factible.
-    
-                ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%201.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%201.png)
+        
+        
+    <img src="HO/Untitled%201.png" alt="HO/Untitled%201.png" style="zoom:33%;" />
     
     - Ejemplo
     
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/C96D1F11-207B-43BF-A121-0E3028966D13.jpeg](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/C96D1F11-207B-43BF-A121-0E3028966D13.jpeg)
-        
+        <img src="HO/C96D1F11-207B-43BF-A121-0E3028966D13.jpeg" alt="HO/C96D1F11-207B-43BF-A121-0E3028966D13.jpeg" style="zoom:33%;" />
+    
 - Región factible: Es la intersección de las restricciones en forma de semiplanos. Son los infinitos puntos que cumplen las restricciones, cada uno es Solución factible.
     - Soluciones:
     - Compatible Determinado:
             - Solución única.
                 - Diagrama
     
-                    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%202.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%202.png)
+        <img src="HO/Untitled%202.png" alt="HO/Untitled%202.png" style="zoom:67%;" />
     
     - Compatible Indeterminado:
             - Soluciones infinitas, están superpuestas.
@@ -97,30 +98,26 @@ Reducido: Francisco Javier García Polo
                 - Se detecta con el método de resolución grafica si la curva de isobeneficio/isocoste es paralela o idéntica a una de las restricciones cuyos puntos extremos son soluciones optimas.
                 - Diagrama
     
-                    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%203.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%203.png)
-    
-                ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%204.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%204.png)
+        <img src="HO/Untitled%203.png" alt="HO/Untitled%203.png" style="zoom:67%;" /><img src="HO/Untitled%204.png" alt="HO/Untitled%204.png" style="zoom:50%;" />
     
         - No acotado, faltan restricciones y hay soluciones infinitas
-                - Diagrama
+            - Diagrama
+        
+            <img src="HO/Untitled%205.png" alt="HO/Untitled%205.png" style="zoom:67%;" />
 
-                    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%205.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%205.png)
-    
     - Incompatible:
             - Infactible
             - Si y solo si la región de soluciones factibles es vacía: $F=\emptyset$, ya sea porque no cortan o porque cortan en zonas negativas.
                 - Diagrama
     
-                    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%206.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%206.png)
-    
-                ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%207.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%207.png)
+        <img src="HO/Untitled%206.png" alt="HO/Untitled%206.png" style="zoom:67%;" /><img src="HO/Untitled%207.png" alt="HO/Untitled%207.png" style="zoom:67%;" />
     
 - El método de resolución grafica solo es posible para como mucho 3 variables de decisión.
-    
+  
 ## Transformaciones
-    
+
 - Pasar inecuaciones de un tipo a otro (para Forma Canónica)
-    
+  
     $\begin{aligned}
         &\sum_{j=1}^{n} a_{i j} x_{j} \geqslant b_{i} \triangleq -\sum_{j=1}^{n} a_{i j} x_{j}\leq -b_{i}
     \end{aligned}$
@@ -130,24 +127,24 @@ Reducido: Francisco Javier García Polo
     $\min z = C^{T}x \triangleq \max z =- C^{T}x$
     
 - Quitar inecuación (para Forma Estándar)
-    
+  
     $\begin{aligned}
         &\sum_{j=1}^{n} a_{i j} x_{j} \leqslant b_{i} \triangleq \sum_{j=1}^{n} a_{i j} x_{j}+s_{i}=b_{i}\\
     &\sum_{j=1}^{n} a_{i j} x_{j} \geqslant b_{i} \triangleq \sum_{j=1}^{n} a_{i j} x_{j}-s_{i}=b_{i}
         \end{aligned}$ $s_i$: variables de holgura. Son variables de decisión cuando operamos.
     
-        - Representación de la variable holgura
-    
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%208.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%208.png)
-    
+- Representación de la variable holgura
+
+- <img src="HO/Untitled%208.png" alt="HO/Untitled%208.png" style="zoom: 67%;" />
+
 - Poner inecuación a partir de igualdad:
-    
+  
     $\sum_{j=1}^{n} a_{i j} x_{j} = b_{i}$ es $\sum_{j=1}^{n} a_{i j} x_{j} \leqslant b_{i}$ y $\sum_{j=1}^{n} a_{i j} x_{j} \geq b_{i}= -\sum_{j=1}^{n} a_{i j} x_{j} \leqslant b_{i}$
     
 - Si una variable de decisión $x_i$ no está restringida se pone entonces como la diferencia de dos variables no negativas restringidas: $x_i=x_i'-x_i''; x_i',x_i'' \geq 0$
-    
+  
 ## Método Simplex
-    
+
 - Simplex: Poliedro convexo de n dimensiones.
     - Una tarea de Programación Lineal está en Forma Estándar ( de maximización / minimización) si y solo si:
     1. La función objetivo es de maximización (minimización, si se dice forma estándar se supone siempre maximización a menos que lo digan explícitamente).
@@ -160,7 +157,7 @@ Reducido: Francisco Javier García Polo
         &\max z = C^{T}x \\
     &Ax = b \\ &x, y\geqslant 0 \end{aligned}$
     
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%209.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%209.png)
+    <img src="HO/Untitled%209.png" alt="HO/Untitled%209.png" style="zoom:67%;" />
     
 - Teorema George Dantzig: Dado una tarea de Programación lineal en forma estándar, el valor óptimo si lo hubiera, se alcanza en un punto extremo de la región factible.
     - Términos:
@@ -173,9 +170,10 @@ Reducido: Francisco Javier García Polo
     - Tipos de soluciones:
         - Definición 4
     
-            ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2010.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2010.png)
+            <img src="HO/Untitled%2010.png" alt="HO/Untitled%2010.png" style="zoom:67%;" />
     
     - Un vector $x$  que satisface $Ax=b$ se llama Solución.
+        
         - Un vector $x_B$  que satisface $Bx_B=b$ se llama Solución Básica.
     - Un vector $x_B \geq 0$  que satisface $Bx_B=b$ se llama Solución Básica Factible.
     - Cálculo de la función objetivo: $z=C_B^Tx_B$, solo se consideran las variables básicas.
@@ -206,7 +204,7 @@ Reducido: Francisco Javier García Polo
             , con $y_{i'} \geq 0$.
     - Proceso tabular:
     
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2011.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2011.png)
+        <img src="HO/Untitled%2011.png" alt="HO/Untitled%2011.png" style="zoom:50%;" />
     
     [11.HOW TO SOLVE LINEAR PROGRAMMING PROBLEM USING SIMPLEX METHOD HAVING 4 VARIABLES & 4 CONSTRAINTS](https://youtu.be/eADoee8SXx0)
     
@@ -236,13 +234,13 @@ Reducido: Francisco Javier García Polo
     
      $\min w = b^{T}x' \\  A^Tx' \geq c \\  x' \geq 0$
     
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2012.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2012.png)
+    <img src="HO/Untitled%2012.png" alt="HO/Untitled%2012.png" style="zoom:67%;" />
     
 - Si la tarea de Programación Lineal en Forma Simétrica tiene una solución óptima correspondiente a una base B, entonces: $x'^*= c_B^TB^{-1}$
+  
+    <img src="HO/Untitled%2013.png" alt="HO/Untitled%2013.png" style="zoom:67%;" />
     
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2013.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2013.png)
-    
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2014.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2014.png)
+    ![HO/Untitled%2014.png](HO/Untitled%2014.png)
     
     - c y B, son las del problema resuelto, los que ya conocíamos. No las del problema simétrico.
         - Teorema: la variable dual $x_i'^*$ indica la contribución al crecimiento de la función objetivo por unidad del recurso i-esimo (de la primal, no la dual).
@@ -264,18 +262,18 @@ Reducido: Francisco Javier García Polo
     ## Modelización
     
 - Problema de Transporte
-    
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2015.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2015.png)
+  
+    <img src="HO/Untitled%2015.png" alt="HO/Untitled%2015.png" style="zoom:67%;" />
     
 - Problema de Asignación
-    
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2016.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2016.png)
+  
+    <img src="HO/Untitled%2016.png" alt="HO/Untitled%2016.png" style="zoom:67%;" />
     
 - Condicionales
+  
+    <img src="HO/Untitled%2017.png" alt="HO/Untitled%2017.png" style="zoom:67%;" />
     
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2017.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2017.png)
-    
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Screenshot_2020-11-02_at_14.40.37.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Screenshot_2020-11-02_at_14.40.37.png)
+    <img src="HO/Screenshot_2020-11-02_at_14.40.37.png" alt="HO/Screenshot_2020-11-02_at_14.40.37.png" style="zoom:67%;" />
     
     Lo primero es acotar la variable, ≤ y ≥.
     
@@ -284,15 +282,16 @@ Reducido: Francisco Javier García Polo
     Partiendo de la condición, miramos en que parte de la misma podemos meter la variable binaria y que obligue a que tome 1 o 0, idealmente ambos. Después con el valor arbitrariamente grande en la misma condición buscamos obligar a tomar el que nos falte por obligar.
     
 # Programación Lineal Entera
-    
+
 - Una tarea de Programación Lineal es de Programación Lineal Entera si una o más variables de decisión tienen restricciones de integridad ($x_j \in N^+_0)$, es NP-hard (Karp, 1972):
     - 3 tipos:
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2018.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2018.png)
+        <img src="HO/Untitled%2018.png" alt="HO/Untitled%2018.png" style="zoom:50%;" />
     
     - Programación Entera Pura: $x_i \in N^+_0; \forall i$ Todas las variables están afectadas por una restricción de integridad.
             - Pueden no tener solución, si no hay puntos enteros en las subregiones factibles.
     - Programación 0-1: $x_i \in \{ 0, 1\}$
+        
         - Programación Entera Mixta: Solo algunas variables de decisión tienen restricción de integridad.
     
     ## Ramificación y Acotación en profundidad
@@ -300,11 +299,12 @@ Reducido: Francisco Javier García Polo
 - Relajamos el problema, ignorando las restricciones de integridad, y vamos añadiendo las restricciones.
     - Ramificamos una de las variables de decisión, creando dos subregiones factibles.
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2019.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2019.png)
+        <img src="HO/Untitled%2019.png" alt="HO/Untitled%2019.png" style="zoom:50%;" />
     
 - La solución óptima de las subregiones será peor o igual que la óptima relajada, $z_S \leq z_F$.
     - Dado el problema de Programación Lineal Entera:
     - $max \space z= z(x)$
+        
         - $s.a  \space x \in F; x_i \in N^+_0 \space \forall i$
     - Método:
         1. $B ← -\infin$ o Valor negativo muy alto
@@ -320,11 +320,11 @@ Reducido: Francisco Javier García Polo
         6. Si todos los nodos son terminales, HALT, en otro caso, ir a 2.
     - Ejemplo:
     
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2020.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2020.png)
+        <img src="HO/Untitled%2020.png" alt="HO/Untitled%2020.png" style="zoom: 67%;" />
     
 - Tema 2 Programación Dinámica
 
-    [dynamic_programming.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/dynamic_programming.pdf)
+    [dynamic_programming.pdf](HO/dynamic_programming.pdf)
 
     # Programación Dinámica
 
@@ -332,14 +332,14 @@ Reducido: Francisco Javier García Polo
         - Ejemplo que lo cumple: La ecuación de Bellman. $V(x)= max_{a \in A} \{ f(x,a)+V(T(x,a))\}$
             - El coste de x, será el máximo evaluando todas las transiciones de: el coste de la acción a sobre más el coste del estado al que transiciona con la acción a sobre x.
 
-            ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2021.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2021.png)
+            <img src="HO/Untitled%2021.png" alt="HO/Untitled%2021.png" style="zoom:67%;" />
 
         - Ejemplo que no lo cumple: Longest Path Problem - LPP.
 
-            ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2022.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2022.png)
+            <img src="HO/Untitled%2022.png" alt="HO/Untitled%2022.png" style="zoom:67%;" />
 
     - Los problemas que verifican el principio de optimalidad también verifican la propiedad de Subestructura Óptima (Coman, 2009).
-        
+      
         - Si es el camino optimo entre s y t, no habrá otro con menor coste. Además, para los nodos que se recorren continuar ese camino también será el camino optimo hasta t.
     - La programación dinámica sugiere:
         1. Descomponer el problema en subproblemas y caracterizar su estructura.
@@ -347,26 +347,28 @@ Reducido: Francisco Javier García Polo
         3. Derivar la solución óptima de cada problema. Calcular los valores de las soluciones óptimas de los subproblemas.
         4. Calcular la solución óptima del problema global.
 - Ejemplo programación dinámica en Coeficientes Binomiales:
+  
+    <img src="HO/Untitled%2023.png" alt="HO/Untitled%2023.png" style="zoom:67%;" />
     
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2023.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2023.png)
-    
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2024.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2024.png)
-    
+    <img src="HO/Untitled%2024.png" alt="HO/Untitled%2024.png" style="zoom:67%;" />
 ## Single-Source Shortest-Path
-    
+
 Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, calcular el coste del camino optimo desde $s \in V$ hasta todos los demás vértices.
     
 ### Bellman-Ford-Moore (1958, 56, 57)
-    
+
 - El camino optimo entre dos puntos será: $\min (d[e.v], d[e.u]+ e.c)$
+  
+    <img src="HO/Untitled%2025.png" alt="HO/Untitled%2025.png" style="zoom:67%;" />
     
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2025.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2025.png)
-    
-        - e.u = origen
-        - e.v = destino
-        - e.c = coste del arco entre u y v
+- e.u = origen
+
+- e.v = destino
+
+- e.c = coste del arco entre u y v
+
     - Lo que quiere decir, que escogemos el menor entre, el coste de ir al destino ya calculado o el coste de ir a otro punto y coger desde este un arco al destino.
-    
+
     ```python
     def bellmanFordMoore (V,E,s):
     	for v in V:
@@ -378,37 +380,37 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, calcula
     	for e in E:
     		if d[e.u]+e.c<d[e.v]
     			raise(...) #Ciclos negativos
-```
-    
+    ```
+
 - Ejemplo
-    
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2026.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2026.png)
+  
+    <img src="HO/Untitled%2026.png" alt="HO/Untitled%2026.png" style="zoom:67%;" />
     
     - Complejidad:
         - Spurse: $O(|V|^2)$
     - Dense: $O(|V|^3)$
     
 ## All Pairs Shortest-Path
-    
+
 Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el coste del camino más corto entre cada par de vértices.
     
 - Aplicando Bellman-Ford-Moore, la complejidad es $O(|V|^3)-O(|V|^4)$
-    
+  
 ### Floyd-Warshall:
-    
+
     - En cada iteración vamos añadiendo un vértice más que podemos visitar.
         - $D_{ij}^{(k} = \min \{ D_{ij}^{(k-1}, D_{ik}^{(k-1}+D_{kj}^{(k-1} \}$ k son los vértices auxiliares que vamos añadiendo.
         - $D_{ii}^{(0} =0$
-    - $D_{ij}^{(0}= c(e(i,j))$ si hay arco entre i y j, si no es $D_{ij}^{(0}= + \infin$
-    
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2027.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2027.png)
-    
+        - $D_{ij}^{(0}= c(e(i,j))$ si hay arco entre i y j, si no es $D_{ij}^{(0}= + \infin$
+
+​    <img src="HO/Untitled%2027.png" alt="HO/Untitled%2027.png" style="zoom:67%;" />
+​    
     - Algoritmo:
         - Partimos de una matriz con los costes a los vértices adyacentes y así mismo, el resto serán infinito.
         - Ahora en cada iteración vamos añadiendo un vértice, k, que podemos usar como intermediario.
             - En cada una de esas iteraciones evaluamos todos los vértices con todos los vértices, ir de i a j.
             - Para cada par evaluado nos quedamos con el menor entre, el coste de ir de uno al otro previo, dij, o el coste de ir del origen al vértice que hemos añadido más el cose de ir desde el vértice añadido al destino, dik+dkj.
-    
+
     ```python
     def floydwarshall:
     	for v in V:
@@ -419,18 +421,18 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
     		for i in V: #Esto dos bucles recorrerán todos los vértices para cada vértice
     			for j in V:
     				d[i][j]= min(d[i][j],d[i][k]+d[k][j])
-```
-    
+    ```
+
 - Diagrama:
-    
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/2A6EA3F5-5BA5-4FDB-9D83-EB572452B3AB.jpeg](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/2A6EA3F5-5BA5-4FDB-9D83-EB572452B3AB.jpeg)
+  
+    <img src="HO/2A6EA3F5-5BA5-4FDB-9D83-EB572452B3AB.jpeg" alt="HO/2A6EA3F5-5BA5-4FDB-9D83-EB572452B3AB.jpeg" style="zoom:67%;" />
     
     - Complejidad: $O(|V|^3)$
 - Tema 3 Satisfabilidad
 
-    [csp_es.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/csp_es.pdf)
+    [csp_es.pdf](HO/csp_es.pdf)
 
-    [sat.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/sat.pdf)
+    [sat.pdf](HO/sat.pdf)
 
     1. Una formula está en Forma Normal Conjuntiva si y solo si: $F \equiv \bigwedge_{i=1}^{n} \zeta_i= \bigwedge_{i=1}^{n} (\bigvee_{j=1}^{\left | \zeta_i \right |} \ell_i)$
         - Ejemplo: $(x_1 \vee \overline{x_2})\wedge (\overline{x_1} \vee \overline{x_2} \vee x_3)$
@@ -454,32 +456,32 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
     \end{matrix}
     \end{matrix}\right.$
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2028.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2028.png)
+        <img src="HO/Untitled%2028.png" alt="HO/Untitled%2028.png" style="zoom:67%;" />
 
-    - Tautologia: Toma el valor cierto siempre.
-        
+    - Tautología: Toma el valor cierto siempre.
+      
         - $F \equiv  (x_1 \vee \overline{x_2})\wedge (\overline{x_1} \vee x_2)$, $Res(F,x_1)= \empty \space SAT$
     - Contradicción: Nunca será cierta.
-        
+      
         - $F \equiv  (x_1)\wedge (\overline{x_1})$, $Res(F,x_1)= \empty \vee \empty = \{ \empty \} \space UNSAT$
     - Si resulta la cláusula vacía, $\{ \empty \}$, UNSAT
 - Si resulta la conjunto vacía, $\empty$, SAT
     - Ejemplos:
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2029.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2029.png)
+        <img src="HO/Untitled%2029.png" alt="HO/Untitled%2029.png" style="zoom:67%;" />
 
     - El modelo de resolución reduce el número de variables, pero no necesariamente el número de cláusulas será $\frac {n^2} {4}$
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2030.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2030.png)
+        <img src="HO/Untitled%2030.png" alt="HO/Untitled%2030.png" style="zoom:67%;" />
     
 - El método de resolución no genera modelos, aunque preserva la identidad lógica.
     - Ejemplo UNSAT
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2031.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2031.png)
+        <img src="HO/Untitled%2031.png" alt="HO/Untitled%2031.png" style="zoom:67%;" />
 
     - Ejemplo SAT
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2032.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2032.png)
+        <img src="HO/Untitled%2032.png" alt="HO/Untitled%2032.png" style="zoom:67%;" />
 
     ## Algoritmos
 
@@ -499,7 +501,7 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
 - La 6 es la Fase II, de regresión.
     - Ejemplo
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2033.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2033.png)
+        <img src="HO/Untitled%2033.png" alt="HO/Untitled%2033.png" style="zoom:67%;" />
 
     ### Davis-Putnam-Logemann-Loveland (DPLL)
     
@@ -509,8 +511,8 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
     
         - Si el modelo es completo y resulta el conjunto vacío, entonces la formula F es satisfacible y el modelo v lo valida
 - Ejemplo
-    
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2034.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2034.png)
+  
+    <img src="HO/Untitled%2034.png" alt="HO/Untitled%2034.png" style="zoom: 67%;" />
     
     ### CSP - Procedimiento de Satisfacción de Restricciones
     
@@ -520,59 +522,61 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
 2. Una restricciones $C_i$ consiste en una relación (bidireccional típicamente) definida sobre un subconjunto de variables $S \subseteq X$, que denota todas las asignaciones simultáneamente legales.
     3. Problema de las n reinas.
     
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2035.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2035.png)
+        <img src="HO/Untitled%2035.png" alt="HO/Untitled%2035.png" style="zoom:67%;" />
     
     4. Una instanciación de un subconjunto de variables $S \subseteq X$ consiste en una asignación de valores de los dominios de las variables en S que sea consistente con las restricciones.
+        
         1. $S \subset X$: instanciación parcial.
     2. $S = X$: instanciación total.
+        
         - No siempre es posible extender una instanciación parcial a otra total.
-    - Objetivo: Dada una red de restricciones $R(X, D, C)$ encontrar una instanciación total que sea compatible con todas las restricciones en $C$, si existe alguna, en otro caso, salir con una instanciación vacía.
+- Objetivo: Dada una red de restricciones $R(X, D, C)$ encontrar una instanciación total que sea compatible con todas las restricciones en $C$, si existe alguna, en otro caso, salir con una instanciación vacía.
     5. Una red de restricciones $R(C, D, C)$ puede representarse como un grafo donde los vértices representan X, y hay un arco entre los vértices $x_i$ y $x_j$ si $R_{ij} \neq \empty$
-
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2036.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2036.png)
+    
+        <img src="HO/Untitled%2036.png" alt="HO/Untitled%2036.png" style="zoom:67%;" />
     
 ### Arco-Consistencia
-    
+
 - Una variable $x_i$ es arco-consistente con otra variable $x_j$ si y solo si para cada $a_i \in D_i$, existe otro valor $a_j \in D_j$,, $(a_i,a_j) \in R_{ij}$
     - Arco-consistencia es Direccional.
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2037.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2037.png)
+        <img src="HO/Untitled%2037.png" alt="HO/Untitled%2037.png" style="zoom:80%;" />
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2038.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2038.png)
+        <img src="HO/Untitled%2038.png" alt="HO/Untitled%2038.png" style="zoom:67%;" />
 
     - La arco-consistencia NO sirve para verificar la consistencia global. Ya que los arcos lo verifican para ese par solamente.
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2039.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2039.png)
+        <img src="HO/Untitled%2039.png" alt="HO/Untitled%2039.png" style="zoom:67%;" />
 
     ### Camino-Consistencia
 
     - La variable $x_i$ es camino-consistente con $x_j$ con respecto de $x_k$ si y solo si para cada $(a_i,a_j) \in R_{ij}$ y $a_k \in D_k$,, $(a_i,a_k) \in R_{ik}$ y $(a_j,a_k) \in R_{jk}$.
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2040.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2040.png)
+        <img src="HO/Untitled%2040.png" alt="HO/Untitled%2040.png" style="zoom:67%;" />
 
         - La camino-consistencia NO es direccional.
 
-            ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2041.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2041.png)
+            <img src="HO/Untitled%2041.png" alt="HO/Untitled%2041.png" style="zoom:80%;" />
 
         - La camino-consistencia tampoco sirve para verificar la consistencia global. (por ejemplo, si aumenta a 4)
 
-            ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2042.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2042.png)
+            <img src="HO/Untitled%2042.png" alt="HO/Untitled%2042.png" style="zoom:67%;" />
     
 ### Como lo calculamos realmente.
-    
+
 - Se hace mediante un árbol de búsqueda, como todos los métodos que hemos visto hasta ahora.
     - Se escoge una variable y se crean tantas ramas como valores tenga el dominio de la misma, pero cuando vamos avanzamos por una rama calculamos la arco-consistencia con todas las variables anteriores y así reducimos el número de ramas que hay que considerar. Además, hay que calcular la camino consistencia de todas las variables que llevamos y la que estamos contemplando en conjunto.
     
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2043.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2043.png)
+        <img src="HO/Untitled%2043.png" alt="HO/Untitled%2043.png" style="zoom:67%;" />
     
     - Si llegamos a vacío en algún nodo, tenemos un fallo, y hacemos backtracking, si aun así todos salen vacíos no tenemos solución o por el contrario si encontramos una no vacía tenemos una instanciación global, que cumpla todas las restricciones.
 - Tema 4 Búsqueda
 
-    [search.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/search.pdf)
+    [search.pdf](HO/search.pdf)
 
     ## Espacio De Búsqueda
 
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2044.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2044.png)
+    <img src="HO/Untitled%2044.png" alt="HO/Untitled%2044.png" style="zoom:67%;" />
 
     1. Estados: (estructuras de datos) Contienen la información de tipo estático.
     2. Operadores: (funciones) Dado un estado nos devuelve los que son inmediatamente accesibles.
@@ -584,7 +588,7 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
         - En optimización se da explícitamente la meta. Lo que buscamos es saber cómo llegar a él.
         - Los grafos de búsqueda se recorren con Arboles De Búsqueda.
 
-            ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2045.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2045.png)
+            <img src="HO/Untitled%2045.png" alt="HO/Untitled%2045.png" style="zoom:67%;" />
 
         - Si sabemos mucho de algoritmos de búsqueda, podríamos resolver cualquier tarea de optimización y decibilidad, incluso si es exponencialmente difícil.
     5. Factor de ramificación (b): número medio de sucesores de cada nodo.
@@ -613,7 +617,7 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
 
     "Nunca expande un nodo a profundidad d si no ha expandido todos los nodos a profundidad (d-1)"
 
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2046.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2046.png)
+    <img src="HO/Untitled%2046.png" alt="HO/Untitled%2046.png" style="zoom:67%;" />
 
     - Al ser un problema de satisfabilidad solo nos interesa saber cuál es el nodo final, no como llegamos a el. En optimización devuelve el camino.
     - La lista abierta se implementa con una COLA.
@@ -628,9 +632,9 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
 
     - Se usa una profundidad máxima para evitar caer en una rama infinita que nos aleja de la solución.
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2047.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2047.png)
+        <img src="HO/Untitled%2047.png" alt="HO/Untitled%2047.png" style="zoom:67%;" />
 
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2048.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2048.png)
+    <img src="HO/Untitled%2048.png" alt="HO/Untitled%2048.png" style="zoom:80%;" />
 
     - Implementa Backtracking con una  PILA.
     - Completo: No, puede entrar en un bucle.
@@ -643,7 +647,7 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
 
     "Consiste en una serie de exploraciones en profundidad donde $d_{max}$ se incrementa en k en cada iteración"
 
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2049.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2049.png)
+    <img src="HO/Untitled%2049.png" alt="HO/Untitled%2049.png" style="zoom:80%;" />
 
     - En cada iteración anterior a la solución ha expandido todos los nodos.
     - Has visto todos los nodos previos a la solución, por lo que habrá solución en la otra parte del árbol que todavía no se ha recorrido en una iteración.
@@ -653,7 +657,7 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
     - Tiempo: $\frac {Tiempo (ID)} {Tiempo(BFS)} =\frac {b} {b-1}$
     - Es como hacer primero en amplitud, pero con memoria lineal, que compensa que tarde más (aunque no mucho más).
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2050.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2050.png)
+        <img src="HO/Untitled%2050.png" alt="HO/Untitled%2050.png" style="zoom:67%;" />
 
         - $b^d >> \sum _{i=0}^{d-1} b^i$       (>> Mucho más grande)
     - Expandir TODOS los nodos de TODOS los niveles precedentes no es nada comparado con lo que se tarda en expandir todos los nodos de una nueva profundidad d.
@@ -665,7 +669,7 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
     - Definimos el coste de un camino $\pi<s,n>$  como la suma de los costes de los arcos en $\pi$.
         - $g(\pi)= \sum_{i=0}^{k-1} c(n_i,n_{i+1})$ donde $c(n_i,n_{i+1})$ es el coste del arco $<n_i,n_{i+1}>$ (modelo aditivo nosotros lo consideramos siempre, pero en la realidad no tiene por qué). Con frecuencia $g(\pi)$ se representa como $g(n)$.
 
-            ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2051.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2051.png)
+            <img src="HO/Untitled%2051.png" alt="HO/Untitled%2051.png" style="zoom:80%;" />
 
     - Seudocódigo
         - B, valor arbitrariamente grande.
@@ -703,11 +707,11 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
         - Distancia Euclídea: Hallar la hipotenusa que crea el estado actual, el final y un punto a la misma de ambos.
     - Ejemplo 1:
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2052.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2052.png)
+        <img src="HO/Untitled%2052.png" alt="HO/Untitled%2052.png" style="zoom:80%;" />
 
     - Ejemplo 2:
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2053.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2053.png)
+        <img src="HO/Untitled%2053.png" alt="HO/Untitled%2053.png" style="zoom:67%;" />
 
     ## Algoritmos de Búsqueda Heurística
 
@@ -728,7 +732,7 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
 
     "Se expanden SIMULTANEAMENTE los k sucesores más prometedores heurísticamente"
 
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2054.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2054.png)
+    <img src="HO/Untitled%2054.png" alt="HO/Untitled%2054.png" style="zoom:67%;" />
 
     - k: ventana o amplitud del haz
     - Desechamos el resto que no son k. Si coinciden se elige arbitrariamente.
@@ -749,7 +753,7 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
         3. Terminación: Procedemos al expandir t, no al generarlo.
     2. Miembros:
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2055.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2055.png)
+        <img src="HO/Untitled%2055.png" alt="HO/Untitled%2055.png" style="zoom:80%;" />
 
         - $f(n)=h(n)$ Algoritmo de búsqueda heurística pura.
         - $f(n)=g(n)$ Dijkstra (Realmente es fuerza bruta)
@@ -761,88 +765,88 @@ Dado un grafo $G=(V,E)$ y una función de costes  $c: e → \mathbb{Z}$, el cost
 
         Especialmente útil por la detección de nodos duplicados.
 
-        ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2056.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2056.png)
+        <img src="HO/Untitled%2056.png" alt="HO/Untitled%2056.png" style="zoom:67%;" />
 
     ### Iterative-deepening A* - IDA* (Korf, 1985)
 
     "Consiste en una serie de recorridos del **primero en profundidad hasta que $f(n) > \eta$ o hemos encontrado la solución**, incrementando f(n) en cada iteración al menor exceso cometido"
 
-    ![Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2057.png](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Untitled%2057.png)
+    <img src="HO/Untitled%2057.png" alt="HO/Untitled%2057.png" style="zoom:67%;" />
 
 # Práctica
 
 - Programación Lineal
 
-    [Presentación Problemas LP.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Presentacin_Problemas_LP.pdf)
+    [Presentación Problemas LP.pdf](HO/Presentacin_Problemas_LP.pdf)
 
-    [Solución Problemas de resolución gráfica.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/Solucin_Problemas_de_resolucin_grfica.pdf)
+    [Solución Problemas de resolución gráfica.pdf](HO/Solucin_Problemas_de_resolucin_grfica.pdf)
 
-    [enunciados_representacion_lp.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/enunciados_representacion_lp.pdf)
+    [enunciados_representacion_lp.pdf](HO/enunciados_representacion_lp.pdf)
 
-    [enunciados_simplex.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/enunciados_simplex.pdf)
+    [enunciados_simplex.pdf](HO/enunciados_simplex.pdf)
 
-    [calculo_inversas.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/calculo_inversas.pdf)
+    [calculo_inversas.pdf](HO/calculo_inversas.pdf)
 
 - SAT & CSP
 
-    [enunciados_sat_csp.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/enunciados_sat_csp.pdf)
+    [enunciados_sat_csp.pdf](HO/enunciados_sat_csp.pdf)
 
-    [soluciones_sat_csp.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/soluciones_sat_csp.pdf)
+    [soluciones_sat_csp.pdf](HO/soluciones_sat_csp.pdf)
 
 - Búsqueda heurística
 
-    [enunciados-espacio-problemas.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/enunciados-espacio-problemas.pdf)
+    [enunciados-espacio-problemas.pdf](HO/enunciados-espacio-problemas.pdf)
 
-    [enunciados-h.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/enunciados-h.pdf)
+    [enunciados-h.pdf](HO/enunciados-h.pdf)
 
-    [enunciados-heuristica.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/enunciados-heuristica.pdf)
+    [enunciados-heuristica.pdf](HO/enunciados-heuristica.pdf)
 
-    [enunciados-no-informada.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/enunciados-no-informada.pdf)
+    [enunciados-no-informada.pdf](HO/enunciados-no-informada.pdf)
 
-    [soluciones-h.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/soluciones-h.pdf)
+    [soluciones-h.pdf](HO/soluciones-h.pdf)
 
-    [soluciones-heuristica.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/soluciones-heuristica.pdf)
+    [soluciones-heuristica.pdf](HO/soluciones-heuristica.pdf)
 
-    [soluciones-no-informada.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/soluciones-no-informada.pdf)
+    [soluciones-no-informada.pdf](HO/soluciones-no-informada.pdf)
 
-    [search.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/search%201.pdf)
+    [search.pdf](HO/search%201.pdf)
 
-    [soluciones-espacio-problemas.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/soluciones-espacio-problemas.pdf)
+    [soluciones-espacio-problemas.pdf](HO/soluciones-espacio-problemas.pdf)
 
 - Exámenes
 
-    [hyoene13.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyoene13.pdf)
+    [hyoene13.pdf](HO/hyoene13.pdf)
 
-    [hyoene14.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyoene14.pdf)
+    [hyoene14.pdf](HO/hyoene14.pdf)
 
-    [hyoene15.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyoene15.pdf)
+    [hyoene15.pdf](HO/hyoene15.pdf)
 
-    [hyoene16.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyoene16.pdf)
+    [hyoene16.pdf](HO/hyoene16.pdf)
 
-    [hyoene17.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyoene17.pdf)
+    [hyoene17.pdf](HO/hyoene17.pdf)
 
-    [hyoene18.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyoene18.pdf)
+    [hyoene18.pdf](HO/hyoene18.pdf)
 
-    [hyoene19.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyoene19.pdf)
+    [hyoene19.pdf](HO/hyoene19.pdf)
 
-    [hyoene20.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyoene20.pdf)
+    [hyoene20.pdf](HO/hyoene20.pdf)
 
-    [hyojul12.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyojul12.pdf)
+    [hyojul12.pdf](HO/hyojul12.pdf)
 
-    [hyojun13.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyojun13.pdf)
+    [hyojun13.pdf](HO/hyojun13.pdf)
 
-    [hyojun14-es.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyojun14-es.pdf)
+    [hyojun14-es.pdf](HO/hyojun14-es.pdf)
 
-    [hyojun15.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyojun15.pdf)
+    [hyojun15.pdf](HO/hyojun15.pdf)
 
-    [hyojun16.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyojun16.pdf)
+    [hyojun16.pdf](HO/hyojun16.pdf)
 
-    [hyojun17.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyojun17.pdf)
+    [hyojun17.pdf](HO/hyojun17.pdf)
 
-    [hyojun18.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyojun18.pdf)
+    [hyojun18.pdf](HO/hyojun18.pdf)
 
-    [hyojun19.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyojun19.pdf)
+    [hyojun19.pdf](HO/hyojun19.pdf)
 
-    [hyomay12.pdf](Heuri%CC%81stica%20y%20Optimizacio%CC%81n%20d0b85a65e8ed4d5bb1058659ee4341d9/hyomay12.pdf)
+    [hyomay12.pdf](HO/hyomay12.pdf)
 
 # Recursos
