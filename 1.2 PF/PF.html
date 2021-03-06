@@ -1,0 +1,877 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>PF</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+
+
+:root {
+    --side-bar-bg-color: #efefef;
+    --control-text-color: #777;
+    --primary-color: #393894;
+    --primary-btn-border-color: #393894;
+    --active-file-bg-color: #eaeaea;
+    --active-file-text-color: inherit;
+    --active-file-border-color: #393894;
+    --item-hover-text-color: #393894;
+}
+
+html {
+    font-size: .925rem;
+}
+
+body {
+    background: none;
+    font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #2e2e2e;
+    line-height: 1.6;
+    height: 100%;
+}
+
+#write {
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 30px;
+    padding-bottom: 100px;
+    position: static;
+    width: 100%;
+}
+
+#write>ul:first-child,
+#write>ol:first-child {
+    margin-top: 30px;
+}
+
+a {
+    color: #1b69b6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+
+h2 {
+    padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: 1em;
+    color: #777;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+ul li,
+ol li {
+    line-height: 1.2;
+}
+
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+
+ul,
+ol {
+    padding-left: 30px;
+}
+
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    font-family: 'Hack';
+    font-size: 13px;
+    padding: 0 15px;
+    color: #707070;
+}
+
+blockquote blockquote {
+    font-family: 'Hack';
+    padding-right: 0;
+}
+
+table {
+    font-size: .875rem;
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    border-top: 1px solid #dfdfdf;
+    margin: 0;
+    padding: 0;
+}
+
+thead {
+    background-color: #f8f8f8;
+}
+
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfdfdf;
+    border-bottom: 0;
+    border-bottom: solid 2px #ccc;
+    margin: 0;
+    padding: 10px 16px;
+}
+
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 10px 16px;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding: 4px 0;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+/* code, */
+tt {
+    border-radius: 3px;
+    color: #b9bcba;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+code {
+    padding: 2px 4px;
+    color: #c0341d;
+    background-color: #fbe5e1;
+    border-radius: 4px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+    background-color: #f8f8f8;
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+    bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before {
+    left: -1.5625rem;
+    top: .375rem;
+}
+
+#write>h4.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h5.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h6.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+.md-image>.md-meta {
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+    font-weight: normal;
+}
+
+#typora-sidebar .sidebar-tabs {
+    font-family: 'Open Sans' !important;
+    border-bottom: 1px solid #dfdfdf;
+    font-weight: bold;
+}
+
+#typora-sidebar .file-list-item-file-name {
+    font-family: 'Open Sans';
+    font-weight: bold;
+}
+
+#typora-source .CodeMirror-lines {
+  max-width: auto; /*or 1000px*/
+}
+
+#typora-sidebar .file-list-item-summary,
+#typora-sidebar .ty-search-item-line {
+    font-family: 'Open Sans';
+}
+
+#typora-sidebar #outline-content .outline-h1>.outline-item {
+    font-family: 'Open Sans';
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node.active .file-node-background,
+#typora-sidebar .file-list-item.file-library-file-node.active {
+    border-left: 4px solid #393894;
+}
+
+.file-library-node:not(.file-node-root):focus>.file-node-content {
+    outline: none;
+}
+
+#typora-sidebar .file-list-item.file-library-file-node:hover {
+    background: #f1f1f1;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node {
+    padding: 0;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node.active .file-node-title {
+    color: #2a2971;
+}
+
+#typora-sidebar .file-tree-node {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    padding-left: 15px;
+}
+
+.file-node-icon {
+    color: #707070;
+    margin-right: 8px;
+}
+
+.active .file-node-icon {
+    color: #2a2971;
+}
+
+.file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#707070' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M438.944,352c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H133.056c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h245.888c44.113,0,80-35.888,80.001-80c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20 c0,22.056-17.944,40-40,40H133.056c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v252 C418.944,343.046,427.899,352,438.944,352z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,120,358.944,120z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,200h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,200,358.944,200z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M278.054,280H152.944c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h125.112c11.046,0,19.999-8.954,19.999-20 C298.054,288.954,289.1,280,278.054,280z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node:hover .file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#2a2971' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M438.944,352c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H133.056c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h245.888c44.113,0,80-35.888,80.001-80c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20 c0,22.056-17.944,40-40,40H133.056c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v252 C418.944,343.046,427.899,352,438.944,352z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,120,358.944,120z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,200h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,200,358.944,200z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M278.054,280H152.944c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h125.112c11.046,0,19.999-8.954,19.999-20 C298.054,288.954,289.1,280,278.054,280z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node.active:hover .file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#2a2971' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath d='M352.459,220c0-11.046-8.954-20-20-20h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206 C343.505,240,352.459,231.046,352.459,220z'/%3E%3Cpath d='M126.459,280c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20H251.57c11.046,0,20-8.954,20-20c0-11.046-8.954-20-20-20 H126.459z'/%3E%3Cpath d='M173.459,472H106.57c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v123 c0,11.046,8.954,20,20,20c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H106.57c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h66.889c11.046,0,20-8.954,20-20C193.459,480.954,184.505,472,173.459,472z'/%3E%3Cpath d='M467.884,289.572c-23.394-23.394-61.458-23.395-84.837-0.016l-109.803,109.56c-2.332,2.327-4.052,5.193-5.01,8.345 l-23.913,78.725c-2.12,6.98-0.273,14.559,4.821,19.78c3.816,3.911,9,6.034,14.317,6.034c1.779,0,3.575-0.238,5.338-0.727 l80.725-22.361c3.322-0.92,6.35-2.683,8.79-5.119l109.573-109.367C491.279,351.032,491.279,312.968,467.884,289.572z M333.776,451.768l-40.612,11.25l11.885-39.129l74.089-73.925l28.29,28.29L333.776,451.768z M439.615,346.13l-3.875,3.867 l-28.285-28.285l3.862-3.854c7.798-7.798,20.486-7.798,28.284,0C447.399,325.656,447.399,338.344,439.615,346.13z'/%3E%3Cpath d='M332.459,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S343.505,120,332.459,120z'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+.active .file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#2a2971' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath d='M352.459,220c0-11.046-8.954-20-20-20h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206 C343.505,240,352.459,231.046,352.459,220z'/%3E%3Cpath d='M126.459,280c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20H251.57c11.046,0,20-8.954,20-20c0-11.046-8.954-20-20-20 H126.459z'/%3E%3Cpath d='M173.459,472H106.57c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v123 c0,11.046,8.954,20,20,20c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H106.57c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h66.889c11.046,0,20-8.954,20-20C193.459,480.954,184.505,472,173.459,472z'/%3E%3Cpath d='M467.884,289.572c-23.394-23.394-61.458-23.395-84.837-0.016l-109.803,109.56c-2.332,2.327-4.052,5.193-5.01,8.345 l-23.913,78.725c-2.12,6.98-0.273,14.559,4.821,19.78c3.816,3.911,9,6.034,14.317,6.034c1.779,0,3.575-0.238,5.338-0.727 l80.725-22.361c3.322-0.92,6.35-2.683,8.79-5.119l109.573-109.367C491.279,351.032,491.279,312.968,467.884,289.572z M333.776,451.768l-40.612,11.25l11.885-39.129l74.089-73.925l28.29,28.29L333.776,451.768z M439.615,346.13l-3.875,3.867 l-28.285-28.285l3.862-3.854c7.798-7.798,20.486-7.798,28.284,0C447.399,325.656,447.399,338.344,439.615,346.13z'/%3E%3Cpath d='M332.459,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S343.505,120,332.459,120z'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+.file-library-node.file-tree-node {
+    padding: 0;
+    margin: 0;
+}
+
+.file-node-background {
+    padding: 25px 10px;
+    padding: 18px 10px 18px 0;
+}
+
+.file-node-content {
+    padding: 15px 5px;
+    padding: 8px 8px 8px 0;
+}
+
+.file-node-content:hover {
+    cursor: pointer;
+}
+
+.active .file-node-content {
+    font-weight: bold;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+    font-family: "Open Sans", "Arial", sans-serif;
+}
+
+.megamenu-opened header {
+    background-image: none;
+}
+
+#typora-sidebar #ty-sidebar-footer {
+    background-color: #f9f9f9 !important;
+    border-top: 1px solid #dfdfdf;
+}
+
+.megamenu-menu-header {
+    border-bottom: 1px solid #16161a;
+}
+
+.megamenu-menu-list li:not(.saved) a:not(.active):hover,
+.megamenu-menu-list li a.active {
+    background: #101010 !important;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #f9f9f9;
+    font-weight: 100;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+/* CodeMirror Dracula theme */
+.cm-s-inner {
+    border: 1px solid var(--accent-color) !important;
+    border-radius: .25rem;
+    font-family: 'Hack';
+}
+
+.cm-s-inner.CodeMirror,
+.cm-s-inner .CodeMirror-gutters {
+    background-color: #212425 !important;
+    color: #f8f8f2 !important;
+    border: none;
+}
+
+.CodeMirror {
+    height: 300px;
+    height: auto;
+}
+
+.CodeMirror-lines {
+    padding: 4px 0;
+    /* Vertical padding around content */
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid green;
+    z-index: 3;
+}
+
+.cm-s-inner .CodeMirror-gutters {
+    background-color: #0d0e0f !important;
+    border-right: 1px solid #444;
+    border-radius: 4px;
+    width: 5ch;
+    color: #5c5d5c !important;
+    height: 100%;
+    white-space: nowrap;
+}
+
+.cm-s-inner .CodeMirror-cursor {
+    border-left: solid rgb(96, 255, 96) !important;
+}
+
+.cm-s-inner .CodeMirror-linenumber {
+    color: #5c5d5c;
+    font-weight: bold;
+    width: 4ch !important;
+}
+
+.cm-s-inner .CodeMirror-line::selection,
+.cm-s-inner .CodeMirror-line::-moz-selection,
+.cm-s-inner .CodeMirror-line>span::selection,
+.cm-s-inner .CodeMirror-line>span::-moz-selection,
+.cm-s-inner .CodeMirror-line>span>span::selection,
+.cm-s-inner .CodeMirror-line>span>span::-moz-selection {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-inner span.cm-comment {
+    color: #969896;
+}
+
+.cm-s-inner span.cm-string,
+.cm-s-inner span.cm-string-2 {
+    color: #e4eb9b;
+}
+
+.cm-s-inner span.cm-number {
+    color: #c7b2e4;
+}
+
+.cm-s-inner span.cm-variable,
+.cm-s-inner span.cm-variable-2 {
+    /* color: #50fa7b; */
+    /* color: #a8b151; */
+    color: #81a2be;
+}
+
+.cm-s-inner span.cm-def {
+    color: white;
+}
+
+.cm-s-inner span.cm-operator {
+    color: #ff79c6;
+}
+
+.cm-s-inner span.cm-keyword {
+    color: #e79ac6;
+    color: #b294bb;
+}
+
+.cm-s-inner span.cm-atom {
+    color: #bd93f9;
+}
+
+.cm-s-inner span.cm-meta {
+    color: #f8f8f2;
+}
+
+.cm-s-inner span.cm-tag {
+    color: #8abeb7;
+}
+
+.cm-s-inner span.cm-attribute {
+    color: #91eba7;
+}
+
+.cm-s-inner span.cm-qualifier {
+    color: #82ee9d;
+}
+
+.cm-s-inner span.cm-property {
+    /* color: #66d9ef; */
+    color: #7091b1;
+    color: #81a2be;
+}
+
+.cm-s-inner span.cm-builtin {
+    color: #8ffaaa;
+}
+
+.cm-s-inner span.cm-variable-3,
+.cm-s-inner span.cm-type {
+    color: #f1c290;
+}
+
+.md-fences.md-focus .cm-s-inner .CodeMirror-activeline-background {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-inner .CodeMirror-matchingbracket {
+    text-decoration: underline;
+    color: white !important;
+}
+
+.cm-s-inner .CodeMirror-selected,
+.cm-s-inner .CodeMirror-selectedtext {
+    background: #3b4254 !important;
+    color: inherit;
+    text-shadow: none;
+}
+
+#write>p:first-child:empty {
+    position: static;
+}
+
+#write>p:first-child:not(:only-child)::before,
+#write>p:only-child::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("file:///C://Users//Jorge//AppData//Roaming//Typora/themes/gitlab/logo.png") no-repeat 45% 90% transparent;
+    background-size: cover;
+    opacity: 0;
+    height: 100%;
+    max-width: 100%;
+    width: 100%;
+}
+
+#write>p:only-child:empty::before {
+    opacity: 1;
+}
+
+ :root {--mermaid-font-zoom:1em ;} 
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=' first-line-indent'><h1><a name="principios-físicos" class="md-header-anchor"></a><span>Principios físicos</span></h1><h1><a name="información" class="md-header-anchor"></a><span>Información</span></h1><p><a href='https://www.notion.so/Notas-954cef0edcce424bb9183c69c9bced57'><span>Notas</span></a></p><p><a href='PF/Cronograma_PFI_2018_2019.pdf'><span>Cronograma_PFI_2018_2019.pdf</span></a></p><p><a href='PF/PFI_presentacion_2018_2019.pdf'><span>PFI_presentacion_2018_2019.pdf</span></a></p><h1><a name="teoría" class="md-header-anchor"></a><span>Teoría</span></h1><ul><li><p><span>Tema 1. Numeros complejos</span></p><p><a href='PF/Tema_1_Numeros_complejos_(teoria).pdf'><span>Tema 1 Números complejos (teoría).pdf</span></a></p></li><li><p><span>Tema 2. Corriente continua</span></p><p><a href='PF/Tema__2_corriente_continua_PFI.pdf'><span>Tema _2_corriente_continua_PFI.pdf</span></a></p></li><li><p><span>Tema 3. Resolucion de circuitos de corriente continua</span></p><p><a href='PF/PFI_Tema_3_2017.pdf'><span>PFI Tema 3 2017.pdf</span></a></p></li><li><p><span>Tema 4. Simplificacion de circuitos</span></p><p><a href='PF/PFI_Tema__4__2017.pdf'><span>PFI_Tema_ 4_ 2017.pdf</span></a></p></li><li><p><span>Tema 5. Induccion electromagnetica</span></p><p><a href='PF/Tema_5__induccion_electromagnetica_teoria.pdf'><span>Tema_5_ induccion_electromagnetica_teoria.pdf</span></a></p></li><li><p><span>Tema 6. Corriente variable en el tiempo</span></p><p><a href='PF/PFI_Tema__6_corrientes_variables_teoria.pdf'><span>PFI_Tema_ 6_corrientes_variables_teoria.pdf</span></a></p></li><li><p><span>Tema 7.- Resolución de circuitos de corriente alterna</span></p><p><a href='PF/PFI_Tema__7_Corriente_alterna_teoria__2017.pdf'><span>PFI_Tema_ 7_Corriente_alterna_teoria_ 2017.pdf</span></a></p></li></ul><p><a href='PF/Manual_Pspice_Student_v9.pdf'><span>Manual Pspice Student v9.pdf</span></a></p><h1><a name="práctica" class="md-header-anchor"></a><span>Práctica</span></h1><ul><li><p><span>Tema 1. Numeros complejos</span></p><p><a href='PF/Tema_1_Numeros_complejos_(problemas).pdf'><span>Tema 1 Números complejos (problemas).pdf</span></a></p></li><li><p><span>Tema 2. Corriente continua</span></p><p><a href='PF/Tema_2._Corriente_continua_(problemas).pdf'><span>Tema 2. Corriente contínua (problemas).pdf</span></a></p></li><li><p><span>Tema 3. Resolucion de circuitos de corriente continua</span></p><p><a href='PF/Tema_3._Resolucion_de_circuitos_en_corriente_continua_(problemas).pdf'><span>Tema 3. Resolución de circuitos en corriente continua (problemas).pdf</span></a></p><p><a href='PF/Tema_3_Corriente_Continua__con__fuentes__de__corriente.pdf'><span>Tema_3_Corriente_Continua_ con_ fuentes_ de_ corriente.pdf</span></a></p></li><li><p><span>Tema 4. Simplificacion de circuitos</span></p><p><a href='PF/Tema_4__simplificacion_de_circuitos_problemas.pdf'><span>Tema_4_ simplificacion_de_circuitos_problemas.pdf</span></a></p></li><li><p><span>Tema 5. Induccion electromagnetica</span></p><p><a href='PF/Tema_5_induccion_electromagnetica_problemas.pdf'><span>Tema_5_induccion_electromagnetica_problemas.pdf</span></a></p></li><li><p><span>Tema 6. Corriente variable en el tiempo</span></p><p><a href='PF/Tema__6__Corrientes_Variables_problemas.pdf'><span>Tema_ 6_ Corrientes Variables_problemas.pdf</span></a></p></li><li><p><span>Tema 7.- Resolución de circuitos de corriente alterna</span></p><p><a href='PF/PFI_Tema__7_Corriente_alterna_problemas_2017.pdf'><span>PFI_Tema_ 7_Corriente_alterna_problemas_2017.pdf</span></a></p></li><li><p><span>Examenes</span></p><p><a href='PF/Primer_parcial_PFI_84_2018_2019.pdf'><span>Primer_parcial_PFI_84_2018_2019.pdf</span></a></p><p><a href='PF/Examen_ordinaria_PFI_2019.pdf'><span>Examen_ordinaria_PFI_2019.pdf</span></a></p><p><a href='PF/Examen_ordinaria_PFI_2019%201.pdf'><span>Examen_ordinaria_PFI_2019.pdf</span></a></p><p><a href='PF/Examen_1er_parcial_2013_BR_-_Soluciones_copia.pdf'><span>Examen_1er_parcial_2013_BR</span><em><span>-</span></em><span>Soluciones copia.pdf</span></a></p><p><a href='PF/Examen_1er_parcial_2013_IH_-_Soluciones.pdf'><span>Examen_1er_parcial_2013_IH</span><em><span>-</span></em><span>Soluciones.pdf</span></a></p><p><a href='PF/Examen_1er_parcial_2013_RD_-_Soluciones.pdf'><span>Examen_1er_parcial_2013_RD</span><em><span>-</span></em><span>Soluciones.pdf</span></a></p><p><a href='PF/Primer_examen_parcial_2012_13_T_2_4.pdf'><span>Primer_examen_parcial_2012_13_T_2_4.pdf</span></a></p><p><a href='PF/primer_parcial_2015_2016_resuelto_.pdf'><span>primer_parcial_2015_2016_resuelto .pdf</span></a></p><p><a href='PF/primer_parcial_2016_2017_resuelto.pdf'><span>primer_parcial_2016_2017_resuelto.pdf</span></a></p><p><a href='PF/primer_parcial_resuelto2014_2015_.pdf'><span>primer_parcial_resuelto2014_2015 .pdf</span></a></p><p><a href='PF/RESOLUCION_primer_parcial_2011_12.pdf'><span>RESOLUCION_primer_parcial_2011_12.pdf</span></a></p><p><a href='PF/SOLUCIONES_PRIMER_PARCIAL_DE_EVALUACION_CONTINUA__2013-14_.pdf'><span>SOLUCIONES PRIMER PARCIAL DE EVALUACIÓN CONTINUA  2013-14 .pdf</span></a></p><p><a href='PF/Resolucion_del_2o_parcial_gr_2011_12_(1).pdf'><span>Resolucion_del_2o_parcial_gr_2011_12 (1).pdf</span></a></p><p><a href='PF/Resolucion_del_2o_parcial_gr_2011_12.pdf'><span>Resolucion_del_2o_parcial_gr_2011_12.pdf</span></a></p><p><a href='PF/SEGUNDA_PRUEBA_DE__EVALUACION_CONTINUA_(soluciones_final).pdf'><span>SEGUNDA PRUEBA DE  EVALUACIÓN CONTINUA (soluciones final).pdf</span></a></p><p><a href='PF/segundo_parcial_2014_2015_resuelto_.pdf'><span>segundo_parcial_2014_2015_resuelto .pdf</span></a></p><p><a href='PF/segundo_parcial_2016_2017_resuelto.pdf'><span>segundo_parcial_2016_2017_resuelto.pdf</span></a></p><p><a href='PF/Segundo_parcial_resolucion_Angel_2012_13_t_5_6.pdf'><span>Segundo_parcial_resolucion_Angel_2012_13_t_5_6.pdf</span></a></p><p><a href='PF/Examen_extraordinaria_PFI_2016_2017.pdf'><span>Examen_extraordinaria_PFI_2016_2017.pdf</span></a></p><p><a href='PF/Examen_extraordinaria_Resuelto_2012_13.pdf'><span>Examen_extraordinaria_Resuelto_2012_13.pdf</span></a></p><p><a href='PF/Examen_ordinaria_14_15_solucion.pdf'><span>Examen_ordinaria_14_15_solucion.pdf</span></a></p><p><a href='PF/Examen_ordinaria_resuelto_PFI_2017_2018.pdf'><span>Examen_ordinaria_resuelto_PFI_2017_2018.pdf</span></a></p><p><a href='PF/Examen_resuelto_conv_ordinaria.pdf'><span>Examen_resuelto_conv_ordinaria.pdf</span></a></p><p><a href='PF/PFI_2018_EXTRA.pdf'><span>PFI 2018 EXTRA.pdf</span></a></p><p><a href='PF/PROPUESTA_DE_PROBLEMAS_EXAMEN_extraordinaria_FINAL_solucion.pdf'><span>PROPUESTA DE PROBLEMAS EXAMEN extraordinaria FINAL_solucion.pdf</span></a></p><p><a href='PF/Resolucion_convocatoria_ordinaria_examen_12_13.pdf'><span>Resolucion_convocatoria_ordinaria_examen_12_13.pdf</span></a></p><p><a href='PF/Resolucion_examen_extraordinaria_2011_12.pdf'><span>Resolucion_examen_extraordinaria_2011_12.pdf</span></a></p><p><a href='PF/RESOLUCION_EXAMEN_FINAL_DE_MAYO_2011_12.pdf'><span>RESOLUCION_EXAMEN_FINAL_DE_MAYO_2011_12.pdf</span></a></p><p><a href='PF/Resolucion_extraordinaria_junio_2014.pdf'><span>Resolucion_extraordinaria_junio_2014.pdf</span></a></p><p><a href='PF/solucion_examen_conv_ordinaria_2016_2.pdf'><span>solucion_examen_conv_ordinaria_2016_2.pdf</span></a></p><p><a href='PF/Solucion_examen_convocatoria_ordinaria_2016_2017.pdf'><span>Solucion_examen_convocatoria_ordinaria_2016_2017.pdf</span></a></p><p><a href='PF/solucion_examen_PFI_extraordinaria_2015_16.pdf'><span>solucion_examen_PFI_extraordinaria_2015_16.pdf</span></a></p></li><li><p><span>PSPICE</span></p><ul><li><p><span>Entregar</span></p><p><a href='PF/Practica_PSPICE_RODRIGUEZ_FRAILE__ARIAS_ESPINOSA.pdf'><span>Practica_PSPICE_RODRIGUEZ_FRAILE_ ARIAS_ESPINOSA.pdf</span></a></p><p><a href='PF/Practica_PSPICE_Parte1_Seccion3.sch'><span>Practica_PSPICE_Parte1_Seccion3.sch</span></a></p><p><a href='PF/Practica_PSPICE_Parte1_Seccion5.sch'><span>Practica_PSPICE_Parte1_Seccion5.sch</span></a></p><p><a href='PF/Practica_PSPICE_Parte2_Seccion2.sch'><span>Practica_PSPICE_Parte2_Seccion2.sch</span></a></p><p><a href='PF/Practica_PSPICE_Parte2_Seccion5.sch'><span>Practica_PSPICE_Parte2_Seccion5.sch</span></a></p><p><a href='PF/Practica_PSPICE_Parte3_Seccion2.sch'><span>Practica_PSPICE_Parte3_Seccion2.sch</span></a></p><p><a href='PF/Practica_PSPICE_Parte4_Seccion1.sch'><span>Practica_PSPICE_Parte4_Seccion1.sch</span></a></p><p><a href='PF/Practica_PSPICE_Parte5_Seccion4_2.sch'><span>Practica_PSPICE_Parte5_Seccion4_2.sch</span></a></p><p><a href='PF/Practica_PSPICE_Parte5_Seccion4_1.sch'><span>Practica_PSPICE_Parte5_Seccion4_1.sch</span></a></p><p><a href='PF/Practica_PSPICE_Parte5_Seccion3.sch'><span>Practica_PSPICE_Parte5_Seccion3.sch</span></a></p><p><a href='PF/Practica_PSPICE_Parte5_Seccion4_3.sch'><span>Practica_PSPICE_Parte5_Seccion4_3.sch</span></a></p><p><a href='PF/Practica_PSPICE_RODRIGUEZ_FRAILE__ARIAS_ESPINOSA.zip'><span>Practica_PSPICE_RODRIGUEZ_FRAILE_ ARIAS_ESPINOSA.zip</span></a></p></li><li><p><span>Esquematicos</span></p><p><a href='PF/Ej3.2.dat'><span>Ej3.2.dat</span></a></p><p><a href='PF/Ej4.2.dat'><span>Ej4.2.dat</span></a></p><p><a href='PF/Ej5.dat'><span>Ej5.dat</span></a></p><p><a href='PF/Ej6.dat'><span>Ej6.dat</span></a></p><p><a href='PF/Ej7.dat'><span>Ej7.dat</span></a></p><p><a href='PF/Ej9.dat'><span>Ej9.dat</span></a></p><p><a href='PF/Ej1.2.1op'><span>Ej1.2.1OP</span></a></p><p><a href='PF/Ej1.2.als'><span>Ej1.2.als</span></a></p><p><a href='PF/Ej1.2.cir'><span>Ej1.2.cir</span></a></p><p><a href='PF/Ej1.2.net'><span>Ej1.2.net</span></a></p><p><a href='PF/Ej2.2.1op'><span>Ej2.2.1OP</span></a></p><p><a href='PF/Ej2.2.als'><span>Ej2.2.als</span></a></p><p><a href='PF/Ej2.2.cir'><span>Ej2.2.cir</span></a></p><p><a href='PF/Ej2.2.net'><span>Ej2.2.net</span></a></p><p><a href='PF/Ej3.2.1op'><span>Ej3.2.1OP</span></a></p><p><a href='PF/Ej3.2.als'><span>Ej3.2.als</span></a></p><p><a href='PF/Ej3.2.cir'><span>Ej3.2.cir</span></a></p><p><a href='PF/Ej3.2.net'><span>Ej3.2.net</span></a></p><p><a href='PF/Ej3.2.prb'><span>Ej3.2.prb</span></a></p><p><a href='PF/Ej4.2.1op'><span>Ej4.2.1OP</span></a></p><p><a href='PF/Ej4.2.als'><span>Ej4.2.als</span></a></p><p><a href='PF/Ej4.2.cir'><span>Ej4.2.cir</span></a></p><p><a href='PF/Ej4.2.net'><span>Ej4.2.net</span></a></p><p><a href='PF/Ej4.2.prb'><span>Ej4.2.prb</span></a></p><p><a href='PF/Ej5.1op'><span>Ej5.1OP</span></a></p><p><a href='PF/Ej5.als'><span>Ej5.als</span></a></p><p><a href='PF/Ej5.cir'><span>Ej5.cir</span></a></p><p><a href='PF/Ej5.net'><span>Ej5.net</span></a></p><p><a href='PF/Ej5.prb'><span>Ej5.prb</span></a></p><p><a href='PF/Ej6.1op'><span>Ej6.1OP</span></a></p><p><a href='PF/Ej6.als'><span>Ej6.als</span></a></p><p><a href='PF/Ej6.cir'><span>Ej6.cir</span></a></p><p><a href='PF/Ej6.net'><span>Ej6.net</span></a></p><p><a href='PF/Ej6.prb'><span>Ej6.prb</span></a></p><p><a href='PF/Ej7.1op'><span>Ej7.1OP</span></a></p><p><a href='PF/Ej7.als'><span>Ej7.als</span></a></p><p><a href='PF/Ej7.cir'><span>Ej7.cir</span></a></p><p><a href='PF/Ej7.net'><span>Ej7.net</span></a></p><p><a href='PF/Ej7.prb'><span>Ej7.prb</span></a></p><p><a href='PF/Ej8.1op'><span>Ej8.1OP</span></a></p><p><a href='PF/Ej8.als'><span>Ej8.als</span></a></p><p><a href='PF/Ej8.cir'><span>Ej8.cir</span></a></p><p><a href='PF/Ej8.net'><span>Ej8.net</span></a></p><p><a href='PF/Ej9.1op'><span>Ej9.1OP</span></a></p><p><a href='PF/Ej9.als'><span>Ej9.als</span></a></p><p><a href='PF/Ej9.cir'><span>Ej9.cir</span></a></p><p><a href='PF/Ej9.net'><span>Ej9.net</span></a></p><p><a href='PF/Ej9.prb'><span>Ej9.prb</span></a></p><p><a href='PF/Ej10.1op'><span>Ej10.1OP</span></a></p><p><a href='PF/Ej10.als'><span>Ej10.als</span></a></p><p><a href='PF/Ej10.cir'><span>Ej10.cir</span></a></p><p><a href='PF/Ej10.net'><span>Ej10.net</span></a></p><p><a href='PF/Ej1.mvl'><span>Ej1.MVL</span></a></p><p><a href='PF/Ej2.mvl'><span>Ej2.MVL</span></a></p><p><a href='PF/Ej3.mvl'><span>Ej3.MVL</span></a></p><p><a href='PF/Ej5.mvl'><span>Ej5.MVL</span></a></p><p><a href='PF/Ej8.mvl'><span>Ej8.MVL</span></a></p><p><a href='PF/Ej9.mvl'><span>Ej9.MVL</span></a></p><p><a href='PF/Ej1.2.sch'><span>Ej1.2.sch</span></a></p><p><a href='PF/Ej2.2.sch'><span>Ej2.2.sch</span></a></p><p><a href='PF/Ej3.2.sch'><span>Ej3.2.sch</span></a></p><p><a href='PF/Ej4.2.sch'><span>Ej4.2.sch</span></a></p><p><a href='PF/Ej5.sch'><span>Ej5.sch</span></a></p><p><a href='PF/Ej6.sch'><span>Ej6.sch</span></a></p><p><a href='PF/Ej7.sch'><span>Ej7.sch</span></a></p><p><a href='PF/Ej8.sch'><span>Ej8.sch</span></a></p><p><a href='PF/Ej9.sch'><span>Ej9.sch</span></a></p><p><a href='PF/Ej10.sch'><span>Ej10.sch</span></a></p></li><li><p><span>Sesion0</span></p><p><a href='PF/C1.dat'><span>C1.dat</span></a></p><p><a href='PF/C3.dat'><span>C3.dat</span></a></p><p><a href='PF/C4.dat'><span>C4.dat</span></a></p><p><a href='PF/C5.dat'><span>C5.dat</span></a></p><p><a href='PF/C6.dat'><span>C6.dat</span></a></p><p><a href='PF/C7.dat'><span>C7.dat</span></a></p><p><a href='PF/C8.dat'><span>C8.dat</span></a></p><p><a href='PF/C1.1op'><span>C1.1OP</span></a></p><p><a href='PF/C1.als'><span>C1.als</span></a></p><p><a href='PF/C1.cir'><span>C1.cir</span></a></p><p><a href='PF/C1.net'><span>C1.net</span></a></p><p><a href='PF/C1.prb'><span>C1.prb</span></a></p><p><a href='PF/C2.1op'><span>C2.1OP</span></a></p><p><a href='PF/C2.als'><span>C2.als</span></a></p><p><a href='PF/C2.cir'><span>C2.cir</span></a></p><p><a href='PF/C2.net'><span>C2.net</span></a></p><p><a href='PF/C3.1op'><span>C3.1OP</span></a></p><p><a href='PF/C3.als'><span>C3.als</span></a></p><p><a href='PF/C3.cir'><span>C3.cir</span></a></p><p><a href='PF/C3.net'><span>C3.net</span></a></p><p><a href='PF/C3.prb'><span>C3.prb</span></a></p><p><a href='PF/C4.1op'><span>C4.1OP</span></a></p><p><a href='PF/C4.als'><span>C4.als</span></a></p><p><a href='PF/C4.cir'><span>C4.cir</span></a></p><p><a href='PF/C4.net'><span>C4.net</span></a></p><p><a href='PF/C4.prb'><span>C4.prb</span></a></p><p><a href='PF/C5.1op'><span>C5.1OP</span></a></p><p><a href='PF/C5.als'><span>C5.als</span></a></p><p><a href='PF/C5.cir'><span>C5.cir</span></a></p><p><a href='PF/C5.mif'><span>C5.mif</span></a></p><p><a href='PF/C5.net'><span>C5.net</span></a></p><p><a href='PF/C5.prb'><span>C5.prb</span></a></p><p><a href='PF/C6.1op'><span>C6.1OP</span></a></p><p><a href='PF/C6.als'><span>C6.als</span></a></p><p><a href='PF/C6.cir'><span>C6.cir</span></a></p><p><a href='PF/C6.net'><span>C6.net</span></a></p><p><a href='PF/C6.prb'><span>C6.prb</span></a></p><p><a href='PF/C7.1op'><span>C7.1OP</span></a></p><p><a href='PF/C7.als'><span>C7.als</span></a></p><p><a href='PF/C7.cir'><span>C7.cir</span></a></p><p><a href='PF/C7.net'><span>C7.net</span></a></p><p><a href='PF/C7.prb'><span>C7.prb</span></a></p><p><a href='PF/C8.1op'><span>C8.1OP</span></a></p><p><a href='PF/C8.als'><span>C8.als</span></a></p><p><a href='PF/C8.cir'><span>C8.cir</span></a></p><p><a href='PF/C8.net'><span>C8.net</span></a></p><p><a href='PF/C8.prb'><span>C8.prb</span></a></p><p><a href='PF/Schematic2.als'><span>Schematic2.als</span></a></p><p><a href='PF/Schematic2.cir'><span>Schematic2.cir</span></a></p><p><a href='PF/Schematic2.net'><span>Schematic2.net</span></a></p><p><a href='PF/C2.mvl'><span>C2.MVL</span></a></p><p><a href='PF/C3.mvl'><span>C3.MVL</span></a></p><p><a href='PF/C4.mvl'><span>C4.MVL</span></a></p><p><a href='PF/C6.mvl'><span>C6.MVL</span></a></p><p><a href='PF/C7.mvl'><span>C7.MVL</span></a></p><p><a href='PF/C8.mvl'><span>C8.MVL</span></a></p><p><a href='PF/Schematic2.mvl'><span>Schematic2.MVL</span></a></p><p><a href='PF/C1.sch'><span>C1.sch</span></a></p><p><a href='PF/C2.sch'><span>C2.sch</span></a></p><p><a href='PF/C3.sch'><span>C3.sch</span></a></p><p><a href='PF/C4.sch'><span>C4.sch</span></a></p><p><a href='PF/C5.sch'><span>C5.sch</span></a></p><p><a href='PF/C6.sch'><span>C6.sch</span></a></p><p><a href='PF/C7.sch'><span>C7.sch</span></a></p><p><a href='PF/C8.sch'><span>C8.sch</span></a></p><p><a href='PF/Schematic2.sch'><span>Schematic2.sch</span></a></p></li><li><p><span>Tutoriales</span></p><p><a href='PF/circuit_RL_1.swf'><span>circuit_RL_1.swf</span></a></p><p><a href='PF/DC_SWEEP.swf'><span>DC_SWEEP.swf</span></a></p><p><a href='PF/VPULSE.swf'><span>VPULSE.swf</span></a></p></li></ul><p><a href='PF/PDFPracticaObligatoria_2019.docx'><span>PDFPracticaObligatoria_2019.docx</span></a></p><p><a href='PF/Plantilla.pdf'><span>Plantilla.pdf</span></a></p></li><li><p><span>Laboratorio Faraday</span></p><p><a href='PF/ajuste.xls'><span>ajuste.xls</span></a></p><p><a href='PF/Al_introducir_el_iman_rapidamente_en_el_centro_de_la_espira.docx'><span>Al_introducir_el_iman_rapidamente_en_el_centro_de_la_espira.docx</span></a></p><p><a href='PF/Mnimos_cuadrados.xlsx'><span>Mínimos cuadrados.xlsx</span></a></p><p><a href='PF/Practica_faraday_guion.pdf'><span>Practica_faraday_guion.pdf</span></a></p><p><a href='PF/practica_faraday_plantilla.pdf'><span>practica_faraday_plantilla.pdf</span></a></p></li></ul></div>
+</body>
+</html>
