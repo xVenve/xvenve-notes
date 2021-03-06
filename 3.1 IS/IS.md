@@ -4,20 +4,21 @@
 
 [Notas](https://www.notion.so/Notas-199b54bb146145f997ca7f59dc6bd93a)
 
-[IS 2021 Presentacion MAGISTRAL.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/IS_2021_Presentacion_MAGISTRAL.pdf)
+[IS 2021 Presentacion MAGISTRAL.pdf](IS/IS_2021_Presentacion_MAGISTRAL.pdf)
 
-[IS 2021 Transparencias 2 MODELOS.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/IS_2021_Transparencias_2_MODELOS.pdf)
+[IS 2021 Transparencias 2 MODELOS.pdf](IS/IS_2021_Transparencias_2_MODELOS.pdf)
 
-[IS 2021 Transparencias 3 ARQUITECTURA.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/IS_2021_Transparencias_3_ARQUITECTURA.pdf)
+[IS 2021 Transparencias 3 ARQUITECTURA.pdf](IS/IS_2021_Transparencias_3_ARQUITECTURA.pdf)
 
-[IS 2021 Horario R 184.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/IS_2021_Horario_R_184.pdf)
+[IS 2021 Horario R 184.pdf](IS/IS_2021_Horario_R_184.pdf)
 
-Magistrales: JESÚS MANUEL POZA CARRASCO (jepozac@inf.uc3m.es)
-Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
+> Magistrales: JESÚS MANUEL POZA CARRASCO (jepozac@inf.uc3m.es)
+>
+> Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
 
 # Teoría
 
-[IS 2021 Guiones-Teoría.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/IS_2021_Guiones-Teora.pdf)
+[IS 2021 Guiones-Teoría.pdf](IS/IS_2021_Guiones-Teora.pdf)
 
 - TEMA 1
 
@@ -27,7 +28,7 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
 
     [https://www.youtube.com/watch?v=8WVoJ6JNLO8&feature=youtu.be&ab_channel=RankingTheWorld](https://www.youtube.com/watch?v=8WVoJ6JNLO8&feature=youtu.be&ab_channel=RankingTheWorld)
 
-    [IS 2021 Transparencias 1 REQUISITOS.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/IS_2021_Transparencias_1_REQUISITOS.pdf)
+    [IS 2021 Transparencias 1 REQUISITOS.pdf](IS/IS_2021_Transparencias_1_REQUISITOS.pdf)
 
     # Introducción
 
@@ -54,7 +55,7 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
         - Requisitos de restricción (no funcionales): Son los relativos a las características técnicas, que hacen que el sistema funcione aceptablemente. Restricciones impuestas sobre la manera en que el problema es resuelto o el objetivo alcanzado.
     - V
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled.png)
+        <img src="IS/Untitled.png" alt="IS/Untitled.png" style="zoom:67%;" />
 
     - Plan para obtener requisitos:
         - Identificar: Conocer a los stakeholders.
@@ -73,17 +74,19 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
             - Interfaces de usuario y prototipos: No confundir con diseño.
     - Técnicas de elicitación:
         - Historias de usuario: Manera cómoda de obtener especificaciones de los usuarios. Lo escriben ellos mismos.
+            
             - Como ___ quiero ____ para ____
         - Prototipos: Permite extraer requisitos, ensayar soluciones y eliminar partes arriesgadas. Se realizan en fases tempranas, para que el usuario lo vea y exprese lo que desea y saber si se va por buen camino. No tiene que ser funcional más visual, y no tarda demasiado.
-            - Mock-ups (maquetas): Modelo o prototipo.
+            
+    - Mock-ups (maquetas): Modelo o prototipo.
         - Diagramas de Casos de uso: Muestran las funciones y la relación entre los actores y dichas funciones de un sistema.
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%201.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%201.png)
-
+            <img src="IS/Untitled%201.png" alt="IS/Untitled%201.png" style="zoom:67%;" />
+    
     - Ciclo de vida:
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%202.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%202.png)
-
+        <img src="IS/Untitled%202.png" alt="IS/Untitled%202.png" style="zoom: 67%;" />
+    
         - Verificación: Comprobar que funciona tal y como se espera.
             - Do the thing right, hacer las cosas
         - Validación: El usuario/stakeholder está de acuerdo/acepta.
@@ -92,11 +95,11 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
         - e**S**pecifico: Claro y simple.
         - **M**edible: Se puede cuantificar y evaluar.
         - **A**lineado: Con la estrategia o con el fin del sistema.
-        - **R**ealista: Puede conseguirse con un numero de recursos lógico.
+    - **R**ealista: Puede conseguirse con un numero de recursos lógico.
         - limitado en **T**iempo: Establece un periodo de tiempo.
 
     ## Como escribir buenos requisitos. Propiedades de los requisitos.
-
+    
     - Una buena especificación es completa, consistente entre requisitos y correcta definición de requisitos.
         - Completa: Que no falte ningún requisito, cubra todas las necesidades y requisitos del usuario.
         - Consistente: No haya conflicto entre requisitos, ya que hay tantos que surgen sin querer.
@@ -176,19 +179,19 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
         - Pronombres: El exceso de pronombres puede hacer un requisito difícil de entender.
         - Pseudocódigo: Evitar el uso de pseudocódigo y los requisitos extensos.
         - Numero de términos: Exceso de términos diferentes en el mismo requisito puede indicar mezcla de necesidades o demasiado detalle.
-        - Subjetividad, exceso de negaciones.
+    - Subjetividad, exceso de negaciones.
         - Falta de precisión: Evite expresiones vagas.
 
     ## Tipos de requisitos. Organización de requisitos. Matrices de trazabilidad.
-
+    
     - Tipos de requisitos del software:
         - Niveles:
             - Requisitos del usuario: Son aquellos que nos los dicen los usuarios.
-            - Requisitos del Software: Son las descripciones formales de los requisitos de usuario, documentadas. Agregan detalles a la especificación.
+        - Requisitos del Software: Son las descripciones formales de los requisitos de usuario, documentadas. Agregan detalles a la especificación.
             - Diferencias:
 
-                ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%203.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%203.png)
-
+                <img src="IS/Untitled%203.png" alt="IS/Untitled%203.png" style="zoom:67%;" />
+    
         - Clasificación de requisitos:
             - Requisitos funcionales: Que tiene que hacer.
             - Requisito son funcionales: Como lo hace, características técnicas y restricciones del cómo.
@@ -197,38 +200,38 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
                 - Fiabilidad y disponibilidad.
                 - Manejo de errores: Del entorno e internos.
                 - Requisitos de interfaz.
-                - Restricciones.
+            - Restricciones.
                 - Seguridad del sistema o de las personas.
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%204.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%204.png)
-
+            <img src="IS/Untitled%204.png" alt="IS/Untitled%204.png" style="zoom:50%;" />
+    
     - Métodos para organizar los requisitos del software:
         - Según el modelo del sistema:
             - Según el modelo de casos de uso.
             - Según el modelo conceptual.
         - Ciclo de vida de los requisitos.
         - Uso de herramientas para analizar y organizar requisitos.
-    - Matrices de trazabilidad: Para ir siguiendo que no se nos pase ningún requisito de usuario o documentar para que sea de software.
+- Matrices de trazabilidad: Para ir siguiendo que no se nos pase ningún requisito de usuario o documentar para que sea de software.
         - Relaciona un requisito de usuario con aquellos de software que lo contienen, y también controlamos lo contrario, no poner algo que no nos piden.
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%205.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%205.png)
+            <img src="IS/Untitled%205.png" alt="IS/Untitled%205.png" style="zoom:50%;" />
 
         - También puede ser de requisitos y clases, marcando en donde se encuadra cada uno. Así se ve si todos tienen clase y no haya clases vacías, o requisitos sin asignar.
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%206.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%206.png)
-
+            <img src="IS/Untitled%206.png" alt="IS/Untitled%206.png" style="zoom:50%;" />
+    
     - Matriz de referencias cruzadas:
         - Controla:
             - Conflictos: fallos entre requisitos.
-            - Acoplamiento: dependencias de las que tenemos que tener cuidado, pero no son fallos.
+        - Acoplamiento: dependencias de las que tenemos que tener cuidado, pero no son fallos.
             - Redundancia: Decir lo mismo dos veces, se puede reformular, pero no es fallo.
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%207.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%207.png)
+        <img src="IS/Untitled%207.png" alt="IS/Untitled%207.png" style="zoom:67%;" />
 
     - Ejemplo plantilla de requisito
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%208.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%208.png)
-
+        <img src="IS/Untitled%208.png" alt="IS/Untitled%208.png" style="zoom:67%;" />
+    
     - Propiedades y atributos deseables de los requisitos del software.
         - Completitud, organización por tipos de requisitos. Matriz de trazabilidad.
         - Consistencia, matriz de referencias cruzadas.
@@ -263,24 +266,24 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
         - Los más importantes:
             - Casos de Uso: Muestra la relación de los actores con el sistema y lo que este le ofrece al user. Sirve para especificar la comunicación.
 
-                ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%209.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%209.png)
+                <img src="IS/Untitled%209.png" alt="IS/Untitled%209.png" style="zoom:67%;" />
 
             - De clases: Muestra las clases de nuestro sistema como sustantivos, con sus atributos y operaciones, y conectan con los relacionados.
 
-                ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2010.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2010.png)
+                <img src="IS/Untitled%2010.png" alt="IS/Untitled%2010.png" style="zoom:67%;" />
 
             - De componentes: Representa como un sistema de software es dividido en componentes y muestra las dependencias entre los componentes.
 
-                ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2011.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2011.png)
+                <img src="IS/Untitled%2011.png" alt="IS/Untitled%2011.png" style="zoom:67%;" />
 
         - Mas tipos:
             - De despliegue: Muestra la distribución de componentes del sistema de información con respecto a la partición física. Dirigido a diseñadores.
 
-                ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2012.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2012.png)
+                <img src="IS/Untitled%2012.png" alt="IS/Untitled%2012.png" style="zoom:67%;" />
 
             - De actividades: Diagrama de flujo que muestra actividades ejecutadas por un sistema.
 
-                ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2013.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2013.png)
+                <img src="IS/Untitled%2013.png" alt="IS/Untitled%2013.png" style="zoom:67%;" />
 
             - De objetos.
             - De secuencia.
@@ -314,6 +317,7 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
                 visibilidad nombre (param: Tipo = valDef,…) : TipoRet {propiedades}
 
         - Clase: Conjunto de entidades abstractas con estructura y comportamientos comunes.
+            
             - La clase se usa como plantilla para construir objetos.
         - Análisis: Especificación, vista externa, caja negra.
             - Clases, atributos y operaciones corresponden a conceptos del dominio.
@@ -325,25 +329,25 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
     - Asociación: Especificación de un conjunto de enlaces, representan la estructura y el comportamiento del sistema.
         - Diagrama
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2014.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2014.png)
+            <img src="IS/Untitled%2014.png" alt="IS/Untitled%2014.png" style="zoom:67%;" />
 
         - Nombre de asociación y Dirección del nombre.
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2015.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2015.png)
+            <img src="IS/Untitled%2015.png" alt="IS/Untitled%2015.png" style="zoom:67%;" />
 
         - Nombres de rol
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2016.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2016.png)
+            <img src="IS/Untitled%2016.png" alt="IS/Untitled%2016.png" style="zoom:67%;" />
 
         - Restricciones y notas
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2017.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2017.png)
+            <img src="IS/Untitled%2017.png" alt="IS/Untitled%2017.png" style="zoom:67%;" />
 
         - Multiplicidad de la asociación
 
             Asociación binaria, la multiplicidad de un extremo de asociación especifica el número de instancias destino que pueden estar enlazadas con una única instancia origen a través de la asociación.
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2018.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2018.png)
+            <img src="IS/Untitled%2018.png" alt="IS/Untitled%2018.png" style="zoom:67%;" />
 
         - Navegabilidad de la asociación.
 
@@ -353,7 +357,7 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
 
             No confundir dirección del nombre con navegabilidad.
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2019.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2019.png)
+            <img src="IS/Untitled%2019.png" alt="IS/Untitled%2019.png" style="zoom:67%;" />
 
         - Un atributo es equivalente a una asociación unidireccional.
         - Toda asociación tiene doble significado: Aspecto estático y aspecto dinámico.
@@ -361,7 +365,7 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
             - Una misma asociación permite la invocación de muchas operaciones.
         - Restricciones en asociaciones
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2020.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2020.png)
+            <img src="IS/Untitled%2020.png" alt="IS/Untitled%2020.png" style="zoom:67%;" />
 
         - Asociaciones actor-sistema y clase-clase
             - Un mismo concepto puede ser modelado a la vez como actor y como clase:
@@ -372,7 +376,7 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
         - Los nombres de rol son obligatorios.
         - No es simétrica.
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2021.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2021.png)
+        <img src="IS/Untitled%2021.png" alt="IS/Untitled%2021.png" style="zoom:67%;" />
 
     - Asociación n-aria
         - Asociación entre N clases, los enlaces conectan N instancias.
@@ -380,7 +384,7 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
             - Si permite: navegabilidad, clase asociación.
         - Multiplicidad engañosa.
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2022.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2022.png)
+            <img src="IS/Untitled%2022.png" alt="IS/Untitled%2022.png" style="zoom:67%;" />
 
         - Se puede sustituir la asociación n-aria por una clase simple, cuyas instancias representan enlaces.
         - Se pierden las multiplicidades originales.
@@ -391,12 +395,12 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
                 - Multiplicidad, navegabilidad, agregación...
             - Tiene nombre único.
 
-                ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2023.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2023.png)
+                <img src="IS/Untitled%2023.png" alt="IS/Untitled%2023.png" style="zoom:67%;" />
 
             - Se puede transformar en clase intermedia, cuyas instancias representan enlaces.
             - Las multiplicidades originales se cruzan.
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2024.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2024.png)
+            <img src="IS/Untitled%2024.png" alt="IS/Untitled%2024.png" style="zoom:67%;" />
 
     - Generalización y clasificación
         - Principio de sustitución:
@@ -414,7 +418,7 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
             - Toda generalización induce una dependencia subclase Æ superclase
     - Generalización múltiple vs. Clasificación múltiple
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2025.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2025.png)
+        <img src="IS/Untitled%2025.png" alt="IS/Untitled%2025.png" style="zoom:67%;" />
 
     - Subclase vs. Atributo
         - Atributo: Para propiedades cambiantes o rangos de valores muy alto.
@@ -422,13 +426,13 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
         - Permite modelar un cambio de propiedad como una reclasificación del objeto.
     - Agregación
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2026.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2026.png)
+        <img src="IS/Untitled%2026.png" alt="IS/Untitled%2026.png" style="zoom:67%;" />
 
         - Es un tipo especial de asociación que representa una relación todo-parte, transitiva y asimétrica.
             - impone ninguna restricción especial sobre la multiplicidad
     - Composición
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2027.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2027.png)
+        <img src="IS/Untitled%2027.png" alt="IS/Untitled%2027.png" style="zoom:67%;" />
 
         - Es un tipo especial de agregación no compartida
             - la multiplicidad sólo puede ser 0..1 ó 1..1
@@ -439,7 +443,7 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
         - relaciones: asociaciones, generalizaciones, composición, agregación...
         - estructura del sistema, fundamento de sus comportamiento.
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2028.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2028.png)
+        <img src="IS/Untitled%2028.png" alt="IS/Untitled%2028.png" style="zoom:67%;" />
 
         Sugerencias para mejorar la comunicación:
 
@@ -451,13 +455,14 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
         - ilustra la estructura del sistema mediante situaciones particulares.
         - Muestra objetos, valores de atributos y enlaces.
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2029.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2029.png)
+        <img src="IS/Untitled%2029.png" alt="IS/Untitled%2029.png" style="zoom:67%;" />
 
 - TEMA 3 - Arquitectura
 
     ## Arquitectura
 
     - La definición que mejor lo transmite:
+        
         - La arquitectura del software es la organización fundamental de un sistema encarnada en sus componentes, las relaciones entre ellos y con el entorno, y los principios que orientan su diseño y evolución.
     - Es como vamos a organizar los componentes/bloques del sistema, la relación entre ellos y también su relación con el entorno.
     - Modelo 4+1: Las vistas son como dimensiones, nos dan una aproximación distinta.
@@ -482,10 +487,10 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
             - Componentes e interfaces
                 - Definen su comportamiento en base a interfaces requeridas y ofertadas.
                 - Unos componentes implementan las interfaces y otros acceden a los servicios proporcionados por esas interfaces.
-                - Estas relaciones se pueden mostrar con dos tipos de notación: icónica o expandida.
-
-                ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2030.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2030.png)
-
+            - Estas relaciones se pueden mostrar con dos tipos de notación: icónica o expandida.
+    
+            <img src="IS/Untitled%2030.png" alt="IS/Untitled%2030.png" style="zoom:80%;" />
+    
         - Vista de proceso (ejecución). No lo veremos.
         - Vista física (despliegue). No lo veremos.
         - Vista de casos de uso. La hemos visto, es del modelado conceptual.
@@ -512,10 +517,10 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
         - Buen diseño: Bajo acoplamiento y Alta cohesión.
         - Acoplamiento: El número de líneas que hay entre dos subsistemas distintos.
         - Cohesión: La relación entre los componentes  de un subsistema. Si hay relaciones, está muy cohesionado.
-        - Ejemplo
-
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2031.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2031.png)
-
+    - Ejemplo
+    
+        <img src="IS/Untitled%2031.png" alt="IS/Untitled%2031.png" style="zoom:50%;" />
+    
     - Criterios para la selección de una arquitectura:
         - Criterios clásicos:
             - Extensibilidad: Que puede evolucionar, se facilita la adición de nuevas características.
@@ -541,36 +546,37 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
         - Especificación de arquitecturas de software y al división de sistemas en subsistemas.
         - Facilitan la gestión del desarrollo de programas.
         - Reutilización: Permiten visualizar de forma clara que bloques modulares se pueden utilizar varias veces en varios puntos de una arquitectura.
-    - Los componentes se representan con <<component>> y la cajita con dos rayas.
-
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2032.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2032.png)
-
-    - Las relaciones son de dependencia, apunta del que depende. De tal manera que los cambios del destino afectan al origen de la relación.
-
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2033.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2033.png)
-
-    - Representación de elementos de diagramas de componentes.
-
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2034.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2034.png)
-
-        LO DE REQUERIDA Y OFRECER ES AL REVES.
-
-        Usaremos: Componente, Paquete (subsistema), Interfaz ofrecida, Interfaz requerida y Relación.
-
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2035.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2035.png)
-
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2036.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2036.png)
-
-    - Patrones
-
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2037.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2037.png)
-
+- Los componentes se representan con <<component>> y la cajita con dos rayas.
+    
+    <img src="IS/Untitled%2032.png" alt="IS/Untitled%2032.png" style="zoom: 67%;" />
+    
+- Las relaciones son de dependencia, apunta del que depende. De tal manera que los cambios del destino afectan al origen de la relación.
+    
+    <img src="IS/Untitled%2033.png" alt="IS/Untitled%2033.png" style="zoom:67%;" />
+    
+- Representación de elementos de diagramas de componentes.
+    
+    <img src="IS/Untitled%2034.png" alt="IS/Untitled%2034.png" style="zoom:67%;" />
+    
+    LO DE REQUERIDA Y OFRECER ES AL REVES.
+    
+    Usaremos: Componente, Paquete (subsistema), Interfaz ofrecida, Interfaz requerida y Relación.
+    
+    <img src="IS/Untitled%2035.png" alt="IS/Untitled%2035.png" style="zoom:67%;" />
+    
+    <img src="IS/Untitled%2036.png" alt="IS/Untitled%2036.png" style="zoom:67%;" />
+    
+- Patrones
+    
+    <img src="IS/Untitled%2037.png" alt="IS/Untitled%2037.png" style="zoom:67%;" />
+    
         - Monolito
             - Los monolitos son otro tipo de arquitectura asociado con los sistemas heredados.
             - Antes las aplicaciones se escribían como una sola unidad de código, en la que todos los elementos compartían los mismos recursos y espacio de memoria.
             - Son pilas de aplicaciones únicas que contienen todas las funciones dentro de cada aplicación. Tienen conexión directa, tanto en la interacción entre los servicios como en la manera en que se desarrollan y distribuyen.
             - Esto implica que al actualizar o ampliar un solo aspecto de una aplicación monolítica, habrá una repercusión en toda esa aplicación y en la infraestructura subyacente.
         - Cliente-servidor
+            
             - Donde el software reparte su carga de cómputo en dos partes independientes, pero sin reparto claro de funciones.
         - Modelo Vista Controlador
             - Es el conocido MVC, que divide una aplicación interactiva en tres partes (modelo, vista, controlador) encargadas de contener la funcionalidad, mostrar la información al usuario y manejar su entrada. Este patrón de arquitectura de software separa los datos y la lógica de negocio de una aplicación de su representación.
@@ -583,30 +589,30 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
                 - Todos los elementos individuales se les denomina ‘pares’, que pueden funcionar tanto como ‘cliente’, como ‘servidor’. Además, pueden ir cambiando su rol con el paso del tiempo.
             - En tuberías
                 - Arquitecturas de flujo de datos. Esta arquitectura se aplica cuando los datos de entrada son transformados a través de una serie de componentes computacionales o manipulativos en los datos de salida. Típicamente usada en procesamiento de señales y transformación de flujos de datos. Los componentes reciben el nombre de ‘filtros’ conectados entre sí por ‘tuberías’ que transmiten los datos.
-            - En pizarra
+        - En pizarra
             - Es una arquitecturas centradas de datos. Algunas veces llamado Blackboard. En el centro de esta arquitectura se encuentra un almacén de datos (por ejemplo, un documento o una base de datos) al que otros componentes acceden con frecuencia para actualizar, añadir, borrar o bien modificar los datos del almacén. Muy utilizada en sistemas expertos, visión artificial, interpretación sensorial.
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2038.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2038.png)
+            <img src="IS/Untitled%2038.png" alt="IS/Untitled%2038.png" style="zoom:67%;" />
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2039.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2039.png)
+            <img src="IS/Untitled%2039.png" alt="IS/Untitled%2039.png" style="zoom:67%;" />
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2040.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2040.png)
+            <img src="IS/Untitled%2040.png" alt="IS/Untitled%2040.png" style="zoom:67%;" />
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2041.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2041.png)
-
+            <img src="IS/Untitled%2041.png" alt="IS/Untitled%2041.png" style="zoom:67%;" />
+    
     - Interfaz: Manera de comunicarse entre los componentes.
         - Conjunto de operaciones que requiere u ofrece un componente.
         - Manera en la que un componente se comunica con el exterior u ofrecer nuestros servicios el sistema.
-        - No necesariamente el flujo de información ofrecida a recorrido.
+    - No necesariamente el flujo de información ofrecida a recorrido.
         - Toda manera de intercambiar información del sistema. Ejem: Botones, pilotitos, enviar datos...
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2042.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2042.png)
-
-            - Un componente puede ofrecer más de una interfaz.
+            <img src="IS/Untitled%2042.png" alt="IS/Untitled%2042.png" style="zoom:67%;" />
+    
+        - Un componente puede ofrecer más de una interfaz.
             - Una interfaz puede ser ofrecida por más de un componentes.
 
-            ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2043.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2043.png)
-
+            <img src="IS/Untitled%2043.png" alt="IS/Untitled%2043.png" style="zoom:67%;" />
+    
         - Encapsulamiento: Separación de la interfaz y la implementación.
             - Una clase/componente puede realizar una o varias interfaces.
             - Una interfaz puede ser realizada por una o varias clases.
@@ -637,118 +643,118 @@ Practicas: Maria Luisa Arjonilla marjonil@inf.uc3m.es
             - Las invariantes pueden ser más restrictivo en la subclase, pero no menos restrictivo.
             - Regla o principio de subcontratación: la operación redefinida en una subclase debe...
                 - debilitar o mantener la precondición.
-                - reforzar o mantener la postcondición.
+            - reforzar o mantener la postcondición.
     - Ejemplo:
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2044.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2044.png)
+        <img src="IS/Untitled%2044.png" alt="IS/Untitled%2044.png" style="zoom:67%;" />
 
     - Preguntas test:
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2045.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2045.png)
+        <img src="IS/Untitled%2045.png" alt="IS/Untitled%2045.png" style="zoom: 50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2046.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2046.png)
+        <img src="IS/Untitled%2046.png" alt="IS/Untitled%2046.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2047.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2047.png)
+        <img src="IS/Untitled%2047.png" alt="IS/Untitled%2047.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2048.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2048.png)
+        <img src="IS/Untitled%2048.png" alt="IS/Untitled%2048.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2049.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2049.png)
+        <img src="IS/Untitled%2049.png" alt="IS/Untitled%2049.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2050.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2050.png)
+        <img src="IS/Untitled%2050.png" alt="IS/Untitled%2050.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2051.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2051.png)
+        <img src="IS/Untitled%2051.png" alt="IS/Untitled%2051.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2052.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2052.png)
+        <img src="IS/Untitled%2052.png" alt="IS/Untitled%2052.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2053.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2053.png)
+        <img src="IS/Untitled%2053.png" alt="IS/Untitled%2053.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2054.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2054.png)
+        <img src="IS/Untitled%2054.png" alt="IS/Untitled%2054.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2055.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2055.png)
+        <img src="IS/Untitled%2055.png" alt="IS/Untitled%2055.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2056.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2056.png)
+        <img src="IS/Untitled%2056.png" alt="IS/Untitled%2056.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2057.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2057.png)
+        <img src="IS/Untitled%2057.png" alt="IS/Untitled%2057.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2058.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2058.png)
+        <img src="IS/Untitled%2058.png" alt="IS/Untitled%2058.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2059.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2059.png)
+        <img src="IS/Untitled%2059.png" alt="IS/Untitled%2059.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2060.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2060.png)
+        <img src="IS/Untitled%2060.png" alt="IS/Untitled%2060.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2061.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2061.png)
+        <img src="IS/Untitled%2061.png" alt="IS/Untitled%2061.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2062.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2062.png)
+        <img src="IS/Untitled%2062.png" alt="IS/Untitled%2062.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2063.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2063.png)
+        <img src="IS/Untitled%2063.png" alt="IS/Untitled%2063.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2064.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2064.png)
+        <img src="IS/Untitled%2064.png" alt="IS/Untitled%2064.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2065.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2065.png)
+        <img src="IS/Untitled%2065.png" alt="IS/Untitled%2065.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2066.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2066.png)
+        <img src="IS/Untitled%2066.png" alt="IS/Untitled%2066.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2067.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2067.png)
+        <img src="IS/Untitled%2067.png" alt="IS/Untitled%2067.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2068.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2068.png)
+        <img src="IS/Untitled%2068.png" alt="IS/Untitled%2068.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2069.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2069.png)
+        <img src="IS/Untitled%2069.png" alt="IS/Untitled%2069.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2070.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2070.png)
+        <img src="IS/Untitled%2070.png" alt="IS/Untitled%2070.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2071.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2071.png)
+        <img src="IS/Untitled%2071.png" alt="IS/Untitled%2071.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2072.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2072.png)
+        <img src="IS/Untitled%2072.png" alt="IS/Untitled%2072.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2073.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2073.png)
+        <img src="IS/Untitled%2073.png" alt="IS/Untitled%2073.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2074.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2074.png)
+        <img src="IS/Untitled%2074.png" alt="IS/Untitled%2074.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2075.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2075.png)
+        <img src="IS/Untitled%2075.png" alt="IS/Untitled%2075.png" style="zoom:50%;" />
 
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2076.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2076.png)
-
-        ![Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2077.png](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Untitled%2077.png)
+        <img src="IS/Untitled%2076.png" alt="IS/Untitled%2076.png" style="zoom:50%;" />
+    
+        <img src="IS/Untitled%2077.png" alt="IS/Untitled%2077.png" style="zoom:50%;" />
 
 # Práctica
 
-[IS 2021 Guiones-Teoría.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/IS_2021_Guiones-Teora%201.pdf)
+[IS 2021 Guiones-Teoría.pdf](IS/IS_2021_Guiones-Teora%201.pdf)
 
 - Practicas
 
     [Why Software Is Eating the World - Andreessen Horowitz](https://a16z.com/2011/08/20/why-software-is-eating-the-world/)
 
-    [Practica 2 - Ingenieria Inversa.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Practica_2_-_Ingenieria_Inversa.pdf)
+    [Practica 2 - Ingenieria Inversa.pdf](IS/Practica_2_-_Ingenieria_Inversa.pdf)
 
-    [Practica 3 - Propuesta Enunciado.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Practica_3_-_Propuesta_Enunciado.pdf)
+    [Practica 3 - Propuesta Enunciado.pdf](IS/Practica_3_-_Propuesta_Enunciado.pdf)
 
-    [Practica 4 - Identificacion de Requisitos.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Practica_4_-_Identificacion_de_Requisitos.pdf)
+    [Practica 4 - Identificacion de Requisitos.pdf](IS/Practica_4_-_Identificacion_de_Requisitos.pdf)
 
-    [Practica 5 - Errores en Requisitos.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Practica_5_-_Errores_en_Requisitos.pdf)
+    [Practica 5 - Errores en Requisitos.pdf](IS/Practica_5_-_Errores_en_Requisitos.pdf)
 
-    [Practica 6 y 7 - Modelado conceptual.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Practica_6_y_7_-_Modelado_conceptual.pdf)
+    [Practica 6 y 7 - Modelado conceptual.pdf](IS/Practica_6_y_7_-_Modelado_conceptual.pdf)
 
-    [Práctica 8 - Preparación ejercicio.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Prctica_8_-_Preparacin_ejercicio.pdf)
+    [Práctica 8 - Preparación ejercicio.pdf](IS/Prctica_8_-_Preparacin_ejercicio.pdf)
 
-    [IS 2021 Plantilla Práctica 1.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/IS_2021_Plantilla_Prctica_1.pdf)
+    [IS 2021 Plantilla Práctica 1.pdf](IS/IS_2021_Plantilla_Prctica_1.pdf)
 
-    [IS 2021 Plantilla Práctica Entrega 2.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/IS_2021_Plantilla_Prctica_Entrega_2.pdf)
+    [IS 2021 Plantilla Práctica Entrega 2.pdf](IS/IS_2021_Plantilla_Prctica_Entrega_2.pdf)
 
-    [Entrega3ProyectoFinalGrupo9.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Entrega3ProyectoFinalGrupo9.pdf)
+    [Entrega3ProyectoFinalGrupo9.pdf](IS/Entrega3ProyectoFinalGrupo9.pdf)
 
-    [PreguntasIS-T09.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/PreguntasIS-T09.pdf)
+    [PreguntasIS-T09.pdf](IS/PreguntasIS-T09.pdf)
 
-    [IS 2021 Revisión por pares.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/IS_2021_Revisin_por_pares.pdf)
+    [IS 2021 Revisión por pares.pdf](IS/IS_2021_Revisin_por_pares.pdf)
 
-    [Anexo III.docx](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Anexo_III.docx)
+    [Anexo III.docx](IS/Anexo_III.docx)
 
-    [Anexo Requisitos .docx](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Anexo_Requisitos_.docx)
+    [Anexo Requisitos .docx](IS/Anexo_Requisitos_.docx)
 
-    [181-09 Entrega final.docx](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/181-09_Entrega_final.docx)
+    [181-09 Entrega final.docx](IS/181-09_Entrega_final.docx)
 
-    [Anexo I.pdf](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Anexo_I.pdf)
+    [Anexo I.pdf](IS/Anexo_I.pdf)
 
-    [Anexo II.docx](Ingenieri%CC%81a%20del%20Software%20de6a0c15f8bd4d278661e4c1e0d675f1/Anexo_II.docx)
+    [Anexo II.docx](IS/Anexo_II.docx)
 
 # Recursos
 
