@@ -1,0 +1,968 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>IU</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #efefef;
+    --control-text-color: #777;
+    --primary-color: #393894;
+    --primary-btn-border-color: #393894;
+    --active-file-bg-color: #eaeaea;
+    --active-file-text-color: inherit;
+    --active-file-border-color: #393894;
+    --item-hover-text-color: #393894;
+}
+
+html {
+    font-size: .925rem;
+}
+
+body {
+    background: none;
+    font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #2e2e2e;
+    line-height: 1.6;
+    height: 100%;
+}
+
+#write {
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 30px;
+    padding-bottom: 100px;
+    position: static;
+    width: 100%;
+}
+
+#write>ul:first-child,
+#write>ol:first-child {
+    margin-top: 30px;
+}
+
+a {
+    color: #1b69b6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+
+h2 {
+    padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: 1em;
+    color: #777;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+ul li,
+ol li {
+    line-height: 1.2;
+}
+
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+
+ul,
+ol {
+    padding-left: 30px;
+}
+
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    font-family: 'Hack';
+    font-size: 13px;
+    padding: 0 15px;
+    color: #707070;
+}
+
+blockquote blockquote {
+    font-family: 'Hack';
+    padding-right: 0;
+}
+
+table {
+    font-size: .875rem;
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    border-top: 1px solid #dfdfdf;
+    margin: 0;
+    padding: 0;
+}
+
+thead {
+    background-color: #f8f8f8;
+}
+
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfdfdf;
+    border-bottom: 0;
+    border-bottom: solid 2px #ccc;
+    margin: 0;
+    padding: 10px 16px;
+}
+
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 10px 16px;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding: 4px 0;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+/* code, */
+tt {
+    border-radius: 3px;
+    color: #b9bcba;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+code {
+    padding: 2px 4px;
+    color: #c0341d;
+    background-color: #fbe5e1;
+    border-radius: 4px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+    background-color: #f8f8f8;
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+    bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before {
+    left: -1.5625rem;
+    top: .375rem;
+}
+
+#write>h4.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h5.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h6.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+.md-image>.md-meta {
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+    font-weight: normal;
+}
+
+#typora-sidebar .sidebar-tabs {
+    font-family: 'Open Sans' !important;
+    border-bottom: 1px solid #dfdfdf;
+    font-weight: bold;
+}
+
+#typora-sidebar .file-list-item-file-name {
+    font-family: 'Open Sans';
+    font-weight: bold;
+}
+
+#typora-source .CodeMirror-lines {
+  max-width: auto; /*or 1000px*/
+}
+
+#typora-sidebar .file-list-item-summary,
+#typora-sidebar .ty-search-item-line {
+    font-family: 'Open Sans';
+}
+
+#typora-sidebar #outline-content .outline-h1>.outline-item {
+    font-family: 'Open Sans';
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node.active .file-node-background,
+#typora-sidebar .file-list-item.file-library-file-node.active {
+    border-left: 4px solid #393894;
+}
+
+.file-library-node:not(.file-node-root):focus>.file-node-content {
+    outline: none;
+}
+
+#typora-sidebar .file-list-item.file-library-file-node:hover {
+    background: #f1f1f1;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node {
+    padding: 0;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node.active .file-node-title {
+    color: #2a2971;
+}
+
+#typora-sidebar .file-tree-node {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    padding-left: 15px;
+}
+
+.file-node-icon {
+    color: #707070;
+    margin-right: 8px;
+}
+
+.active .file-node-icon {
+    color: #2a2971;
+}
+
+.file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#707070' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M438.944,352c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H133.056c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h245.888c44.113,0,80-35.888,80.001-80c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20 c0,22.056-17.944,40-40,40H133.056c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v252 C418.944,343.046,427.899,352,438.944,352z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,120,358.944,120z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,200h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,200,358.944,200z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M278.054,280H152.944c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h125.112c11.046,0,19.999-8.954,19.999-20 C298.054,288.954,289.1,280,278.054,280z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node:hover .file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#2a2971' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M438.944,352c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H133.056c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h245.888c44.113,0,80-35.888,80.001-80c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20 c0,22.056-17.944,40-40,40H133.056c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v252 C418.944,343.046,427.899,352,438.944,352z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,120,358.944,120z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,200h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,200,358.944,200z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M278.054,280H152.944c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h125.112c11.046,0,19.999-8.954,19.999-20 C298.054,288.954,289.1,280,278.054,280z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node.active:hover .file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#2a2971' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath d='M352.459,220c0-11.046-8.954-20-20-20h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206 C343.505,240,352.459,231.046,352.459,220z'/%3E%3Cpath d='M126.459,280c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20H251.57c11.046,0,20-8.954,20-20c0-11.046-8.954-20-20-20 H126.459z'/%3E%3Cpath d='M173.459,472H106.57c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v123 c0,11.046,8.954,20,20,20c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H106.57c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h66.889c11.046,0,20-8.954,20-20C193.459,480.954,184.505,472,173.459,472z'/%3E%3Cpath d='M467.884,289.572c-23.394-23.394-61.458-23.395-84.837-0.016l-109.803,109.56c-2.332,2.327-4.052,5.193-5.01,8.345 l-23.913,78.725c-2.12,6.98-0.273,14.559,4.821,19.78c3.816,3.911,9,6.034,14.317,6.034c1.779,0,3.575-0.238,5.338-0.727 l80.725-22.361c3.322-0.92,6.35-2.683,8.79-5.119l109.573-109.367C491.279,351.032,491.279,312.968,467.884,289.572z M333.776,451.768l-40.612,11.25l11.885-39.129l74.089-73.925l28.29,28.29L333.776,451.768z M439.615,346.13l-3.875,3.867 l-28.285-28.285l3.862-3.854c7.798-7.798,20.486-7.798,28.284,0C447.399,325.656,447.399,338.344,439.615,346.13z'/%3E%3Cpath d='M332.459,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S343.505,120,332.459,120z'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+.active .file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#2a2971' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath d='M352.459,220c0-11.046-8.954-20-20-20h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206 C343.505,240,352.459,231.046,352.459,220z'/%3E%3Cpath d='M126.459,280c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20H251.57c11.046,0,20-8.954,20-20c0-11.046-8.954-20-20-20 H126.459z'/%3E%3Cpath d='M173.459,472H106.57c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v123 c0,11.046,8.954,20,20,20c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H106.57c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h66.889c11.046,0,20-8.954,20-20C193.459,480.954,184.505,472,173.459,472z'/%3E%3Cpath d='M467.884,289.572c-23.394-23.394-61.458-23.395-84.837-0.016l-109.803,109.56c-2.332,2.327-4.052,5.193-5.01,8.345 l-23.913,78.725c-2.12,6.98-0.273,14.559,4.821,19.78c3.816,3.911,9,6.034,14.317,6.034c1.779,0,3.575-0.238,5.338-0.727 l80.725-22.361c3.322-0.92,6.35-2.683,8.79-5.119l109.573-109.367C491.279,351.032,491.279,312.968,467.884,289.572z M333.776,451.768l-40.612,11.25l11.885-39.129l74.089-73.925l28.29,28.29L333.776,451.768z M439.615,346.13l-3.875,3.867 l-28.285-28.285l3.862-3.854c7.798-7.798,20.486-7.798,28.284,0C447.399,325.656,447.399,338.344,439.615,346.13z'/%3E%3Cpath d='M332.459,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S343.505,120,332.459,120z'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+.file-library-node.file-tree-node {
+    padding: 0;
+    margin: 0;
+}
+
+.file-node-background {
+    padding: 25px 10px;
+    padding: 18px 10px 18px 0;
+}
+
+.file-node-content {
+    padding: 15px 5px;
+    padding: 8px 8px 8px 0;
+}
+
+.file-node-content:hover {
+    cursor: pointer;
+}
+
+.active .file-node-content {
+    font-weight: bold;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+    font-family: "Open Sans", "Arial", sans-serif;
+}
+
+.megamenu-opened header {
+    background-image: none;
+}
+
+#typora-sidebar #ty-sidebar-footer {
+    background-color: #f9f9f9 !important;
+    border-top: 1px solid #dfdfdf;
+}
+
+.megamenu-menu-header {
+    border-bottom: 1px solid #16161a;
+}
+
+.megamenu-menu-list li:not(.saved) a:not(.active):hover,
+.megamenu-menu-list li a.active {
+    background: #101010 !important;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #f9f9f9;
+    font-weight: 100;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+/* CodeMirror Dracula theme */
+.cm-s-inner {
+    border: 1px solid var(--accent-color) !important;
+    border-radius: .25rem;
+    font-family: 'Hack';
+}
+
+.cm-s-inner.CodeMirror,
+.cm-s-inner .CodeMirror-gutters {
+    background-color: #212425 !important;
+    color: #f8f8f2 !important;
+    border: none;
+}
+
+.CodeMirror {
+    height: 300px;
+    height: auto;
+}
+
+.CodeMirror-lines {
+    padding: 4px 0;
+    /* Vertical padding around content */
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid green;
+    z-index: 3;
+}
+
+.cm-s-inner .CodeMirror-gutters {
+    background-color: #0d0e0f !important;
+    border-right: 1px solid #444;
+    border-radius: 4px;
+    width: 5ch;
+    color: #5c5d5c !important;
+    height: 100%;
+    white-space: nowrap;
+}
+
+.cm-s-inner .CodeMirror-cursor {
+    border-left: solid rgb(96, 255, 96) !important;
+}
+
+.cm-s-inner .CodeMirror-linenumber {
+    color: #5c5d5c;
+    font-weight: bold;
+    width: 4ch !important;
+}
+
+.cm-s-inner .CodeMirror-line::selection,
+.cm-s-inner .CodeMirror-line::-moz-selection,
+.cm-s-inner .CodeMirror-line>span::selection,
+.cm-s-inner .CodeMirror-line>span::-moz-selection,
+.cm-s-inner .CodeMirror-line>span>span::selection,
+.cm-s-inner .CodeMirror-line>span>span::-moz-selection {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-inner span.cm-comment {
+    color: #969896;
+}
+
+.cm-s-inner span.cm-string,
+.cm-s-inner span.cm-string-2 {
+    color: #e4eb9b;
+}
+
+.cm-s-inner span.cm-number {
+    color: #c7b2e4;
+}
+
+.cm-s-inner span.cm-variable,
+.cm-s-inner span.cm-variable-2 {
+    /* color: #50fa7b; */
+    /* color: #a8b151; */
+    color: #81a2be;
+}
+
+.cm-s-inner span.cm-def {
+    color: white;
+}
+
+.cm-s-inner span.cm-operator {
+    color: #ff79c6;
+}
+
+.cm-s-inner span.cm-keyword {
+    color: #e79ac6;
+    color: #b294bb;
+}
+
+.cm-s-inner span.cm-atom {
+    color: #bd93f9;
+}
+
+.cm-s-inner span.cm-meta {
+    color: #f8f8f2;
+}
+
+.cm-s-inner span.cm-tag {
+    color: #8abeb7;
+}
+
+.cm-s-inner span.cm-attribute {
+    color: #91eba7;
+}
+
+.cm-s-inner span.cm-qualifier {
+    color: #82ee9d;
+}
+
+.cm-s-inner span.cm-property {
+    /* color: #66d9ef; */
+    color: #7091b1;
+    color: #81a2be;
+}
+
+.cm-s-inner span.cm-builtin {
+    color: #8ffaaa;
+}
+
+.cm-s-inner span.cm-variable-3,
+.cm-s-inner span.cm-type {
+    color: #f1c290;
+}
+
+.md-fences.md-focus .cm-s-inner .CodeMirror-activeline-background {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-inner .CodeMirror-matchingbracket {
+    text-decoration: underline;
+    color: white !important;
+}
+
+.cm-s-inner .CodeMirror-selected,
+.cm-s-inner .CodeMirror-selectedtext {
+    background: #3b4254 !important;
+    color: inherit;
+    text-shadow: none;
+}
+
+#write>p:first-child:empty {
+    position: static;
+}
+
+#write>p:first-child:not(:only-child)::before,
+#write>p:only-child::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("file:///C://Users//Jorge//AppData//Roaming//Typora/themes/gitlab/logo.png") no-repeat 45% 90% transparent;
+    background-size: cover;
+    opacity: 0;
+    height: 100%;
+    max-width: 100%;
+    width: 100%;
+}
+
+#write>p:only-child:empty::before {
+    opacity: 1;
+}
+
+ :root {--mermaid-font-zoom:1em ;} 
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=' first-line-indent'><h1><a name="interfaces-de-usuario" class="md-header-anchor"></a><span>Interfaces de Usuario</span></h1><h1><a name="información" class="md-header-anchor"></a><span>Información</span></h1><p><a href='https://www.notion.so/Notas-c5d8e9e57e2446a884c4add67cb65874'><span>Notas</span></a></p><p><span>Magistral: Ana Tajadura Jimenez</span>
+<span>Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero flexible Online</span></p><h1><a name="teoría" class="md-header-anchor"></a><span>Teoría</span></h1><ul><li><p><span>TEMA 1</span></p><p><a href='IU/tema1-hci.pdf'><span>tema1-hci.pdf</span></a></p><h1><a name="interacción-persona-ordenador" class="md-header-anchor"></a><span>Interacción Persona-Ordenador:</span></h1><ul><li><p><span>Estamos desde el punto de vista del usuario, para ver como de accesible y fáciles de usar son los productos interactivos.</span></p><ul><li><span>Primero se llamó Man-Machine Interface, después Human-Computer Interaction - HCI ó IPO.</span></li></ul></li><li><p><span>Los productos interactivos: Aquellos que al recibir datos del usuario realizan acciones o devuelven un resultado. Pueden tener diferente tamaño, uso y características.</span></p><ul><li><span>Un lenguaje de entrada para el usuario, de salida para el sistema y un protocolo de interacción.</span></li></ul></li><li><p><span>Los productos están diseñados para desempeñar una tarea, pero no siempre se tiene en cuentas las personas reales que los utilizan, hay que tener en cuenta quien y como lo van a utilizar.</span></p></li><li><p><span>Lo primero es pensar en el usuario, saber a quién va dirigido y escuchar sus necesidades.</span></p><ul><li><p><span>Factores:</span></p><ul><li><span>Visibilidad.</span></li><li><span>Causalidad.</span></li><li><span>Restricciones visibles.</span></li><li><span>Coincidencia (“Mapping”): Debe reflejar la relación natural entre las cosas (Que se pueda asociar observando)</span></li><li><span>Efectos de transferencia.</span></li><li><span>Estereotipos de los usuarios.</span></li><li><span>Modelos conceptuales.</span></li><li><span>Diferencias individuales, culturales.</span></li></ul></li><li><p><span>Los controles necesitan ser visibles (visibilidad) con una buena representación de sus efectos (causalidad) , y su diseño debería sugerir su funcionalidad (mapping).</span></p></li><li><p><span>La gente tiene modelos mentales de cómo funcionan las cosas por asociación con otras y pueden simular mentalmente la operación, pero pueden ser erróneos y hay que buscar un equilibrio entre utilidad y diseño.</span></p><ul><li><span>Ejem: Buen IPO Volante, deja simple un sistema complejo.  Mal IPO Control video, no se asocia lo que hace con los símbolos.</span></li></ul></li></ul></li><li><p><span>La primera IPO fue con el ratón, que permitía interactuar con el sistema mediante un dispositivo externo con una interfaz.</span></p></li><li><p><span>El objetivo de la IPO es desarrollar o mejorar:</span></p><ul><li><p><span>Seguridad – en el trabajo.</span></p></li><li><p><span>Utilidad – qué puede hacer el sistema.</span></p></li><li><p><span>Efectividad – Lograr su función.</span></p></li><li><p><span>Eficiencia – Emplear menos recursos.</span></p></li><li><p><span>Usabilidad o la capacidad de ser usados – fácil de usar, fácil aprendizaje y libre de errores.</span></p><ul><li><p><span>Para obtener una buena usabilidad, es necesario encontrar los factores que determinen como se usan, desarrollar las herramientas y técnicas que ayuden a los diseñadores a crear sistemas eficientes, efectivos y seguros para el usuario.</span></p><ul><li><p><span>Diagrama</span></p><p><img src="IU/Untitled.png" alt="IU/Untitled.png" style="zoom:67%;" /></p></li></ul></li></ul></li></ul></li><li><p><span>Factores relacionados con HCI</span></p><ul><li><p><span>Diagrama</span></p><p><img src="IU/Untitled%201.png" alt="IU/Untitled%201.png" style="zoom:67%;" /></p></li></ul></li><li><p><span>Es multidisciplinar, implica diseño, evaluación e implementación sistemas interactivos y el estudio de los grandes fenómenos alrededor del dicho sistema.</span></p><ul><li><span>Sociología - Entender como la estructura social y la organización de las personas afectan a la manera de las personas de realizar las tareas.</span></li><li><span>Psicología - El comportamiento humano y sus procesos mentales.</span></li><li><span>Ciencias de la información - Lenguaje e internacionalización.</span></li><li><span>Computer Science - Entender la tecnología y técnicas de diseño, desarrollo y administración de sistemas de ordenadores</span></li><li><span>Ergonomía o factores humanos - Adaptarse a las capacidades de los humanos, vista, peso, altura, etc.</span></li></ul></li><li><p><span>Interacción: Es el proceso de comunicación que se establece entre el usuario y el sistema. Es un diálogo para completar una tarea.</span></p><ul><li><span>El sistema realiza, simplifica o da soporte a alguna tarea.</span></li><li><span>La interfaz funciona como intermediario entre ambos, mediante ella se produce la comunicación y debe diseñarse para que la interacción tenga éxito.</span></li></ul></li><li><p><span>Modelo: Es una representación abstracta de una realidad compleja que se utiliza para facilitar su compresión y el estudio de su comportamiento. Simplifican los factores a tener en cuenta. Los hay de muchos tipos.</span></p></li></ul><h2><a name="modelos-de-interacción" class="md-header-anchor"></a><span>Modelos de interacción:</span></h2><ul><li><p><span>Algunos ayudan a comprender el proceso de interacción, otros a identificar los problema que se pueden producir, pero ambos simplifican la tarea de pensar en todos los posible factores que pueden afectar a la interacción, siguiendo solo unas pautas.</span></p></li><li><p><span>Términos:</span></p><ul><li><span>Dominio: Área de habilidad y conocimiento en alguna actividad del mundo real. Área de personas que engloba.</span></li><li><span>Meta: Qué se quiere conseguir.</span></li><li><span>Tarea: Cómo quieres conseguir tu meta, por medio de qué o haciendo qué.</span></li><li><span>Acciones: Tarea que no implica la resolución de problemas.</span></li><li><span>Plan: Conjunto de tareas para conseguir una meta.</span></li></ul></li></ul><h3><a name="modelo-de-norman" class="md-header-anchor"></a><span>Modelo de Norman:</span></h3><ul><li><p><span>Se basa en: Ejecución y Evaluación.</span></p><ul><li><span>El usuario formula un plan de acciones que ejecuta utilizado la interfaz del sistema.</span></li><li><span>Cuando el plan, o parte del plan, se ha ejecutado, el usuario observa la interfaz para evaluar el resultado y comprobar si hacen falta más acciones.</span></li></ul></li><li><p><span>Hay dos lenguajes:</span></p><ul><li><span>Lenguaje del sistema: El del núcleo, representa el estado del sistema.</span></li><li><span>Lenguaje del usuario: El de la tarea, representa el estado del usuario.</span></li></ul></li><li><p><span>Ciclo:</span></p><ol start='' ><li><span>Establecer meta.</span></li><li><span>Formular intención.</span></li><li><span>Especificar las acciones que nos moverán a través de la interfaz.</span></li><li><span>Ejecutar las acciones.</span></li><li><span>Percibir el estado del mundo.</span></li><li><span>Interpretar el estado del mundo.</span></li><li><span>Evaluar el estado del mundo respecto a la meta.</span></li></ol></li><li><p><span>Problemas para el usuario:</span></p><ul><li><span>Abismo de ejecución (execution gulf): Diferencia entre las acciones que el usuario quiere realizar para alcanzar su objetivo y las que el sistema permite.</span></li><li><span>Abismo de evaluación (evaluation gulf): Diferencia entre la presentación física del estado del sistema y lo que esperaba el usuario.</span></li><li><span>Distancia semántica: La relación entre el significado de los elementos en la interfaz y el objetivo que el usuario quiere. La diferencia entre lo que hace ese elemento y lo esperábamos por su representación</span></li><li><span>Distancia articulada: El número de acciones de más que requiere una acción de las pensadas con respecto al significado de los elementos de la interfaz.</span></li></ul></li></ul><h3><a name="modelo-de-abowd--beale" class="md-header-anchor"></a><span>Modelo de Abowd &amp; Beale:</span></h3><ul><li><p><span>Respecto al modelo de Norman se influye la IU de forma explícita, que realiza la traducción entre lenguaje de usuario y lenguaje del sistema y viceversa.</span></p><ul><li><p><span>Diagrama</span></p><p><img src="IU/Untitled%202.png" alt="IU/Untitled%202.png" style="zoom:67%;" /></p></li></ul></li></ul></li><li><p><span>TEMA 2 - Interfaces de Usuario</span></p><p><a href='IU/tema2-1-InterfazUsuario.pdf'><span>tema2-1-InterfazUsuario.pdf</span></a></p><h1><a name="interfaz-de-usuario" class="md-header-anchor"></a><span>Interfaz de usuario</span></h1><ul><li><p><span>Es el canal a través del cual se produce la comunicación entre el usuario y el ordenador, física (ergonómica) en dispositivos y Lógica (usable y fácil) en dispositivos y sistemas. La interacción es un dialogo para completar una tarea.</span></p></li><li><p><span>Debe ser diseñada para ser eficiente y satisfactoria. El dialogo lo más fluido posible.</span></p></li><li><p><span>Es importante para transformar la complejidad tecnológica en un producto útil, utilizable y atractivo para sus usuarios.</span></p></li><li><p><span>Tipos:</span></p><ul><li><span>Textual.</span></li><li><span>Gráfica</span></li><li><span>Multimedia</span></li><li><span>Multimodal</span></li><li><span>Conversacional</span></li><li><span>...</span></li></ul></li><li><p><span>Tipos de interfaces interactivas:</span></p><ul><li><p><span>Comandos: Cada comando se ejecuta en un terminal y el sistema responde con el resultado correspondiente.</span></p><ul><li><span>Eficiente, precisa y veloz, a pesar de ser difícil de aprender.</span></li><li><span>Utilizada como alternativa para personas con discapacidad visual.</span></li></ul></li><li><p><span>WIMP y GUI – Graphic User Interface</span></p><ul><li><p><span>Ventanas: Se puede minimizar, maximizar, cambiar el tamaño y estilo.</span></p><ul><li><p><span>Se inventaron para superar las limitaciones físicas de la pantalla de un ordenador para visualizar más información y ejecutar más tareas.</span></p></li><li><p><span>Si se abren demasiadas ventanas podrían resultar difícil de gestionar, para ello se pueden reducir a un icono en la barra de tareas, listar todas o moverse fácilmente.</span></p></li><li><p><span>Tipos:</span></p><ul><li><span>Tiled Windows: Ventanas en forma de baldosas, que se pueden coger y arrastrar.</span></li><li><span>Overlapping Windows: Ventanas sobrepuestas, hace uso eficiente de todo el espacio de la pantalla, pero difícil de manejar.</span></li><li><span>Cascading Windows: Ventanas en cascada, hace uso eficiente de todo el espacio de la pantalla y fácilmente organizables.</span></li></ul></li><li><p><span>Posibles interfaces:</span></p><ul><li><p><span>Multiple Document Interface – MDI:</span></p><ul><li><p><span>Centrada en la aplicación.</span></p></li><li><p><span>Una aplicación lanza una ventana principal que funciona como espacio de trabajo para todos los documentos.</span></p></li><li><p><span>Las ventanas hijo pueden minimizarse dentro de las padres.</span></p></li><li><p><span>Ventajas:</span></p><ul><li><span>Recursos del sistema se conservan.</span></li><li><span>No abarrotamiento visual.</span></li><li><span>Ver múltiples documentos a la vez.</span></li></ul></li><li><p><span>Desventajas:</span></p><ul><li><span>Los menús cambian según el documento.</span></li><li><span>Todos los documentos dentro del área de trabajo.</span></li><li><span>Las ventanas hijo están dentro de la padre y puede ser complejo visualmente.</span></li></ul></li></ul></li><li><p><span>Single Document Interface – SDI:</span></p><ul><li><p><span>Centrada en el documento. Una ventana para cada documento.</span></p></li><li><p><span>Ventajas:</span></p><ul><li><span>Todos los menús y barras de herramientas reflejan la visión del usuario.</span></li><li><span>Menos complejo visualmente.</span></li></ul></li><li><p><span>Desventajas:</span></p><ul><li><span>No se pueden agrupar ventanas, las barra de tareas puede aparecer llena.</span></li><li><span>La transición entre ventanas puede ser compleja.</span></li></ul></li></ul></li><li><p><span>Tabbed Document Interface – TDI:</span></p><ul><li><span>Variante de MDI.</span></li><li><span>Incorpora el uso de pestañas para cambiar entre documentos.</span></li><li><span>Algunas fijas el tamaño a máximo y otras permiten cambiar el tamaño y minimizar las ventanas de documento y se convierten en MDI.</span></li></ul></li><li><p><span>Cajas de dialogo:</span></p><ul><li><p><span>Espacio en el que llevar a cabo funcionalidades relacionadas pero secundarias, como:</span></p><ul><li><span>Gestionar las propiedades de un objeto</span></li><li><span>Ejecutar funciones o procesos</span></li><li><span>Confirmar acciones</span></li><li><span>Alertar errores.</span></li></ul></li><li><p><span>Pueden ser:</span></p><ul><li><span>Modales: El usuario no puede hacer otra cosa hasta que haya terminado las acciones por la que se abrió.</span></li><li><span>No modales: El usuario puede acceder a otras funcionalidades del programa mientras el dialogo está abierto.</span></li></ul></li><li><p><span>Se pueden encadenar cajas de dialogo para proporcionar acceso a funcionalidades avanzadas.</span></p></li></ul></li><li><p><span>Otros elementos:</span></p><ul><li><p><span>Paneles:</span></p><ul><li><span>Agrupación visual de funcionalidades relacionadas.</span></li><li><span>Forma eficiente de acceder a las funcionalidades sin usar menús.</span></li></ul></li><li><p><span>Marcos:</span></p><ul><li><span>Pueden minimizarse y cambiarse de tamaño.</span></li><li><span>Suelen usarse para separar áreas de navegación.</span></li></ul></li><li><p><span>Pestañas:</span></p><ul><li><span>Permiten incrementar el tamaño del dialogo apilando niveles y facilitan que se acceda a más elementos.</span></li></ul></li></ul></li></ul></li></ul></li><li><p><span>Iconos: Representan aplicaciones, objetos, comandos y herramientas que se pueden ejecutar al hacer clic.</span></p><ul><li><p><span>Son más fáciles de aprender y recordar que los comandos. Son muy utilizados.</span></p></li><li><p><span>Ocupan poco espacio y permiten moverse en la pantalla.</span></p></li><li><p><span>Tipos:</span></p><ul><li><span>Similar:</span></li><li><span>Analógica: Se asocia mentalmente.</span></li><li><span>Arbitraria: No hay relación.</span></li></ul></li></ul></li><li><p><span>Menús: Lista de opciones que pueden ser exploradas.</span></p><ul><li><p><span>Tipos:</span></p><ul><li><span>Listas: Ideal pocas opciones que se quieren visualizar al mismos tiempo y en una pantalla pequeña.</span></li><li><span>Expansible: Ideal para muchas opciones. Enseñar múltiples opciones en una sola pantalla.</span></li><li><span>Contextual: Las opciones ofrecidas dependen del contexto de la tarea.</span></li></ul></li></ul></li><li><p><span>Puntero: Un ratón lo controla para entrar en una ventana, un menú o unos iconos en pantalla.</span></p></li><li><p><span>El nuevo objetivo es diseñar interfaces óptimas para tablets, smartphones y smartwatches.</span></p></li></ul></li><li><p><span>Multimedia</span></p><ul><li><span>Combinación de diferentes media en la misma interfaz ofreciendo distintos modos de interactuar.</span></li><li><span>Facilita el acceso a diferentes tipos de información.</span></li><li><span>Mejora el aprendizaje y al aceptación por parte de los usuarios.</span></li></ul></li><li><p><span>Realidad Virtual</span></p><ul><li><span>Es una simulación gráfica generada por ordenador que genera la ilusión de participar en un entorno no real.</span></li><li><span>Los usuarios pueden interactuar con los objetos y navegar en un entorno 3D con un alto sentido de presencia.</span></li></ul></li><li><p><span>Tableros gráficos</span></p><ul><li><p><span>Utilizados para visualizar datos complejos.</span></p></li><li><p><span>Mejoran la capacidad de pensamiento y aprendizaje de los usuarios que pueden reconocer patrones o anomalías en los datos.</span></p></li><li><p><span>Técnicas:</span></p><ul><li><span>Mapas interactivos 3D.</span></li><li><span>Arboles</span></li><li><span>Clusters</span></li></ul></li><li><p><span>Hay que tomar decisiones de diseño para ofrecer la información de la mejor manera.</span></p></li></ul></li><li><p><span>Movil</span></p><ul><li><span>Pensados para utilizarse en movimiento a lo largo del día.</span></li><li><span>Hay que tener en cuenta las reducidas dimensiones de las pantallas.</span></li><li><span>Muchas aplicaciones son para la diversión y no contestar una necesidad.</span></li></ul></li><li><p><span>Voz</span></p><ul><li><span>Se utiliza para acceder algún tipo específico de información.</span></li><li><span>También para facilitar la interacción con personas con algún tipo de discapacidad.</span></li></ul></li><li><p><span>Compartida</span></p><ul><li><span>Diseñadas para ser utilizadas por más usuarios y recibir varios inputs al mismo tiempo.</span></li><li><span>Se suelen utilizar pantallas de grandes dimensiones, deben tener en cuenta el tamaño de las pantallas</span></li></ul></li><li><p><span>Cerebro-ordenador</span></p><ul><li><span>Permiten establecer una comunicación bidireccional entre las ondas cerebrales del usuario y un dispositivo exterior.</span></li><li><span>Se utilizan para juegos o para permitir a las personas paralelizadas.</span></li><li><span>Los usuario deben estar concentrados, ya que detecta cambios en las funcione neuronales.</span></li></ul></li></ul></li><li><p><span>La interfaz que debemos utilizar depende del tipo de tarea, usuario, contexto, coste, características que se quieren garantizar.</span></p></li><li><p><span>También hay que tener en cuenta que hoy en día los móviles se utilizan más que los ordenadores, queremos hacer más cosas al mismo tiempo y se usan interfaces basadas en comando vocales.</span></p></li><li><p><span>Las interfaces compartidas y táctiles son bastante comunes en espacios como casas, escuelas, lugares públicos y de trabajo.</span></p></li></ul><h1><a name="usabilidad" class="md-header-anchor"></a><span>Usabilidad</span></h1><p><span>El primer diseño no es el bueno, hay que implicar al usuario e iterar la consulta al usuario y el diseño.</span></p><ul><li><p><span>Usabilidad: Es la cualidad de un sistema respecto a la facilidad de uso, la facilidad de aprendizaje y la satisfacción del usuario. Fácil de usar, fácil de aprender, efectivo, eficiente, útil y seguro.</span></p></li><li><p><span>Es la propiedad que refleja la facilidad de uso de un sistema informático.</span></p><ul><li><span>Un buen diseño hace que sea fácil de entender y utilizar.</span></li><li><span>Un diseño pobre hace que sea difícil de utilizar</span></li></ul></li><li><p><span>Beneficios:</span></p><ul><li><span>Reducción de costes de aprendizaje, de asistencia y ayuda al usuario.</span></li><li><span>Mejora la aceptación, la calidad de vida de los usuarios, el prestigio y la imagen del sistema.</span></li><li><span>Reducción de los coses de producir y aumento de la productividad.</span></li></ul></li><li><p><span>Usabilidad vs User Experience:</span></p><ul><li><span>La experiencia del usuario representa todos los aspectos de la interacción del usuario final con la empresa, servicio y productos.</span></li><li><span>La usabilidad representa lo fácil de aprender, eficiente de usar, agradable de un producto. La experiencia total es más amplia.</span></li></ul></li><li><p><span>Es necesario que el sistema hable el mismo lenguaje del usuario:</span></p><ul><li><span>Demasiadas opciones representan una carga adicional de información, el usuario tendrá que hacer un esfuerzo extra para aprender, entender y buscar.</span></li><li><span>La información, así como las funcionalidades del sistema se deben presentar con un lenguaje natural e iconos fáciles de entender.</span></li><li><span>Hay que garantizar una correspondencia entre lo que visualiza el sistema y el modelo metal del usuario.</span></li><li><span>Hay que analizar las necesidades del usuario y su entorno.</span></li></ul></li><li><p><span>El diseño de la interfaz de usuario se basa en el uso de diferentes metáforas:</span></p><ul><li><span>Las metáforas podrían tener problemas de internacionalización.</span></li><li><span>Hay que tener en cuenta el bagaje cultural de los usuarios.</span></li><li><span>Las evaluaciones con los usuarios son necesarias para valorar el significado de las metáforas definidas.</span></li></ul></li><li><p><span>Hay que tener en cuenta varios factores relacionados con el ser humano para poder diseñar una interfaz usable:</span></p><ul><li><p><span>La percepción visual: Depende del ángulo de visión, nos permite conocer el tamaño y de la profundidad de un objeto.</span></p><ul><li><p><span>Leyes de la Gestalt: Son un conjunto de principios sobre como las personas perciben y organizan los elementos.</span></p><ul><li><span>Ley de cierre: La imaginación tiende a completar las imágenes.</span></li><li><span>Ley de la figura y fondo: El fondo tiende a no ser percibido.</span></li><li><span>Ley de la simplicidad: Los elemento se perciben de la forma más simple.</span></li></ul></li><li><p><span>Brillo: Cantidad de luminancia perceptible que proporciona un objeto.</span></p><ul><li><span>Mayor luminancia más agudeza visual y frecuencia de parpadeo.</span></li></ul></li><li><p><span>Contraste: Relación entre el brillo del texto y el del fondo.</span></p><ul><li><span>El contraste negativo se lee mejor, pero produce más cansancio.</span></li></ul></li><li><p><span>Color: Compuesto por matiz, intensidad y saturación ( cantidad de blanco).</span></p><ul><li><p><span>Se aconseja usar entre 5 y 7 colores, los grises más idóneos.</span></p></li><li><p><span>Debe ser accesible en blanco y negro.</span></p></li><li><p><span>Utilizar para categorizar, diferenciar o evidenciar.</span></p></li><li><p><span>Teoría del color: No existe una receta para hacer buenas combinaciones de colores, pero si propiedades.</span></p><ul><li><span>Colores primarios: Amarillo, rojo y azul.</span></li><li><span>Colores complementarios: Aquellos que están opuestos en el circulo cromático que generan gran contraste.</span></li><li><span>Colores análogos: Colores a ambos lados de cualquier color. Son la base de los esquemas armónicos.</span></li><li><span>Triada: 3 colores equidistantes. Armónico y con contraste.</span></li><li><span>Split complementario: Un color y los adyacentes a su complementario. Mucho contraste.</span></li><li><span>Tetradica: Dos colores y sus complementarios</span></li></ul></li></ul></li></ul></li><li><p><span>La lectura</span></p></li><li><p><span>El oído</span></p></li><li><p><span>El tacto</span></p></li><li><p><span>El movimiento: Hay factores relevantes relacionados con el movimiento de la mano, los brazos, etc. Como la velocidad de reacción y precisión.</span></p><ul><li><span>Ambas mejoran con la práctica y disminuyen con el cansancio.</span></li></ul></li><li><p><span>La memoria:</span></p><ul><li><span>Memoria sensorial: icónica, ambiental, del tacto…</span></li><li><span>Memoria a corto plazo: Información fugaz y capacidad limitada.</span></li><li><span>Memoria a largo plazo: Tiempo indefinido y capacidad ilimitada. Información experimental y comportamientos.</span></li></ul></li><li><p><span>El pensamiento:</span></p><ul><li><p><span>El razonamiento es el proceso por el cual el conocimiento que tenemos infiere algo nuevo sobre el dominio.</span></p></li><li><p><span>Tipos de razonamiento:</span></p><ul><li><span>Deductivo: Derivación lógica.</span></li><li><span>Inductivo: Generalización de casos.</span></li><li><span>Abductivo: Explicación para efectos observados, acumulación de observaciones.</span></li></ul></li><li><p><span>Se gana habilidad con el uso de los sistemas.</span></p></li><li><p><span>La resolución de problemas es el proceso de encontrar solución a una tarea no familiar utilizando el conocimiento previo.</span></p></li></ul></li></ul></li></ul><h1><a name="principios-de-diseño" class="md-header-anchor"></a><span>Principios de diseño</span></h1><p><span>Son abstracciones generalizables que sirven para orientar a los diseñadores. Proceden de la teoría, la experiencia y el sentido común, aunque no existe una regla que siempre funcione.</span></p><ul><li><p><span>Hay que entender al usuario, hacer las interfaces intuitivas y mantener la consistencia. Debemos buscar la claridad y la simplicidad.</span></p></li><li><p><span>Proporcionar pistas visuales y auditivas</span></p><ul><li><span>Organizar los controles y opciones.</span></li><li><span>Esconder lo que no se puede utilizar.</span></li><li><span>Ofrecer diferentes feedback para informar del estado actual.</span></li></ul></li><li><p><span>Ayudar a la legibilidad.</span></p></li><li><p><span>Proporcionar soporte con el teclado.</span></p></li><li><p><span>La pantalla: La información visualizada en pantalla siempre tiene elementos artísticos y que requieren creación.</span></p><ul><li><p><span>Principios básicos:</span></p><ul><li><span>Elegancia y simplicidad.</span></li><li><span>Estilo refinado, unitario y adecuado.</span></li><li><span>Escala, contraste y proporción.</span></li><li><span>Armonía entre los elementos.</span></li><li><span>La información debe estar agrupada, jerarquías y relaciones.</span></li></ul></li></ul></li><li><p><span>Mensajes de error: Deben ser claros, específicos y ayudar a resolver el problema.</span></p><ul><li><span>Se debe incluir el diseño de estos mensajes dentro del proceso de desarrollo.</span></li><li><span>Deben contener consejos constructivos y el tono debe ser positivo.</span></li></ul></li><li><p><span>Tipos de artefactos:</span></p><ul><li><p><span>Heurísticas: Abstracciones generalizables basadas en la experiencia, el sentido común o la teoría.</span></p><ul><li><p><span>Las heurísticas más importantes son las de Nielsen:</span></p><ol start='' ><li><span>Visibilidad del estado del sistema</span></li><li><span>Coincidencia entre el sistema y el mundo real</span></li><li><span>Control del usuario y libertad</span></li><li><span>Consistencia y estandarización</span></li><li><span>Prevención de errores</span></li><li><span>Reconocimiento antes que recuerdo</span></li><li><span>Flexibilidad y eficiencia de uso</span></li><li><span>Estética y diseño minimalista</span></li><li><span>Ayudar a los usuarios a reconocer, diagnosticar y recuperar la situación cuando se produce un error</span></li><li><span>Ayuda y documentación</span></li></ol></li></ul></li><li><p><span>Guías de diseño: Recomendaciones de diseño basadas en la experiencia y orientadas a mejorar la experiencia de uso de la interfaz.</span></p></li><li><p><span>Patrones de diseño: Soluciones que se han demostrado que no satisfactorias a problemas recurrentes y que están recopiladas de forma sistemática.</span></p><ul><li><p><span>Documentan la solución a un problema frecuente, de tal manera que no solo dejan constancia de esa experiencia, sino que posibilitan su reutilización.</span></p></li><li><p><span>Los patrones de diseño son documentos que capturan la práctica(no la teoría), presentando el diseño a diferentes niveles. Asisten en el desarrollo de diseños completos. Son intuitivos y legibles.</span></p></li><li><p><span>Tienen siempre el mismo formato predefinido:</span></p><ul><li><span>Nombre</span></li><li><span>Exposición del problema</span></li><li><span>Solución</span></li><li><span>Ventajas y desventajas de la solución</span></li><li><span>Ejemplos donde el patrón ha sido aplicado.</span></li><li><span>Patrones relacionados.</span></li></ul></li></ul></li><li><p><span>Métodos de inspección: Conjunto de procedimientos que permiten evaluar una interfaz de determinar su grado de usabilidad.</span></p></li></ul></li></ul><h1><a name="metodología-y-prototipado" class="md-header-anchor"></a><span>Metodología y Prototipado</span></h1><h2><a name="el-proceso-de-diseño" class="md-header-anchor"></a><span>El proceso de diseño</span></h2><p><img src="IU/Untitled%203.png" alt="IU/Untitled%203.png" style="zoom:33%;" /></p><ul><li><p><span>What is wanted: Que conocen los usuarios y que necesitan.</span></p><ul><li><p><span>Conocer al usuario:</span></p><ul><li><span>Los usuarios o stakeholders son aquellos que lo van a usar o están afectado por el sistema.</span></li><li><span>Es importante hablar con ellos y observarlos, hay que identificarlos y crear perfiles de usuarios del sistema. Se pueden definir personas.</span></li><li><span>Persona: Representación de un usuario ficticio típico, descripción detallada de un usuario típico del sistema, incluyendo objetivos, capacidades, actitudes, tareas y contexto.</span></li></ul></li><li><p><span>Métodos etnográficos:</span></p><ul><li><span>Cada acción está relacionada con el sitio, el contexto social y el momento en el que se lleva a cabo.</span></li><li><span>Se observa la interacción entre las personas y entre las personas y el contexto en el que se encuentran para tomar nota de la información más relevante y útil para el desarrollo del sistema.</span></li><li><span>El contexto puede estar relacionada a una situación particular.</span></li></ul></li></ul></li><li><p><span>Analysis: Analizamos los requisitos.</span></p><ul><li><p><span>Conocer al usuario:</span></p><ul><li><span>Analizar los resultados obtenidos de la observación de los usuarios y de las entrevistas.</span></li><li><span>Identificar los factores más relevantes de la fase de diseño.</span></li><li><span>Analizar como los usuarios llevan a cabo las tareas con sistemas similares.</span></li><li><span>Utilizar modelos cognitivos para representar la interacción entre los usuarios y los sistemas.</span></li></ul></li></ul></li><li><p><span>Design: Como y el que.</span></p><ul><li><p><span>Diseño centrado en el usuario:</span></p><ol start='' ><li><span>El diseñador se hace una idea de cuáles son las necesidades del usuario y las tareas.</span></li><li><span>El diseñador traslada sus ideas al diseño del sistema.</span></li><li><span>El usuario interpreta la interfaz del sistema y se hace una idea propia de cómo funciona.</span></li></ol><ul><li><p><span>Cuando la idea no corresponde con la del diseñador, se rediseña o se frustrará.</span></p></li><li><p><span>El usuario es el centro del proceso de diseño.</span></p></li><li><p><span>El usuario tiene que entender la imagen del sistema definida por el diseñador.</span></p><ul><li><p><span>User requirements: Entender y especificar el contexto de uso.</span></p><ul><li><span>Identificar a los usuarios a los que se dirige el producto, para que lo usaran y en qué condiciones.</span></li></ul></li><li><p><span>Analysis: Especificar requisitos.</span></p><ul><li><span>Identificar los objetivos del usuario que el producto deberá satisfacer.</span></li><li><span>Se llevarán a cabo actividades que involucran el usuario, como entrevistar, grupos focales, etc.</span></li></ul></li><li><p><span>Design: Producir varias soluciones de diseño a través de prototipos.</span></p><ul><li><span>Los prototipos se podrán diseñar con varios niveles de detalles dependiente de las necesidades del diseñador.</span></li></ul></li><li><p><span>Evaluation: La evolución es la fase más importante del proceso.</span></p><ul><li><span>Se validan los prototipos para comprobar si satisfacen los requisitos o por el contrario se detectan problemas de usabilidad.</span></li></ul></li></ul></li></ul></li></ul></li></ul></li><li><p><span>Diseño iPhone</span>
+<span>            </span><br/><span>      </span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 37px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 29px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&lt;img src="IU/Untitled%204.png" alt="IU/Untitled%204.png" style="zoom: 50%;" /&gt;&lt;img src="IU/Untitled%205.png" alt="IU/Untitled%205.png" style="zoom:50%;" /&gt;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="height: 23px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 38px;"></div></div></div></div></pre><ul><li><p><span>Prototype: Creación de un prototipo para captar nuevos requisitos y cambios.</span></p><ul><li><p><span>¿Qué es?</span></p><ul><li><span>Conjunto de bocetos de las pantallas.</span></li><li><span>Storyboard, escenas en estilo animado.</span></li><li><span>Presentación PowerPoint</span></li><li><span>Video de la simulación.</span></li><li><span>Objeto físico de algún material específico.</span></li><li><span>Mock-up en papel.</span></li><li><span>Sistema con un conjunto limitado de funcionalidades.</span></li></ul></li><li><p><span>¿Por qué?</span></p><ul><li><span>Evaluar la idea del diseñador y recibir feedback.</span></li><li><span>Para que los stakeholder vean, toquen e interactúen.</span></li><li><span>Para tomar decisiones sobre el diseño más fácilmente.</span></li><li><span>Testear ideas.</span></li></ul></li><li><p><span>The Rapid Prototyping Process: Proceso en tres fases para construir y mejorar prototipos rápidamente.</span></p><ol start='' ><li><span>Definir el prototipo especificando cualquier interacción o funcionalidad se quiere añadir.</span></li><li><span>Evaluar el prototipo con o sin usuarios dependiendo del contexto y de la fase de diseño en, aunque nos encontramos.</span></li><li><span>Redefinir el prototipo. Se pueden ir añadiendo más funcionalidades o más detalles.</span></li></ol><ul><li><span>Se itera el proceso hasta llegar a una versión adecuada.</span></li></ul></li><li><p><span>Según cualidades:</span></p><ul><li><p><span>Representación - forma física.</span></p></li><li><p><span>Fidelidad – precisión o el nivel de detalle y de realismo.</span></p><ul><li><span>Fidelidad funcional: Prototipos horizontales, mayor número de funcionalidades, pero bajo nivel de detalle.</span></li><li><span>Fidelidad visual: Prototipos verticales, menor número de funcionalidades, pero alto nivel de detalle.</span></li></ul><ol start='' ><li><span>Low visual + low functionality: Prototipos rápidos fáciles de realizar que se pueden usar durante las primeras fase del proceso de diseño para ir definiendo las funcionalidades y los requisitos del sistema.</span></li><li><span>Low visual + high functionality: Wireframes que se realizan generalmente con algún tipo de herramienta específica para interacciones de bajo nivel. Permiten evaluar la usabilidad del sistema con y sin usuario y hacer pruebas de concepto.</span></li><li><span>High visual + low functionality: Mock-ups a los que se añade alguna interacción mas avanzada. Se pueden usar animaciones para simular el cambio entre funcionalidades o cambio de pantalla. Sirve para evaluar el flujo del sistema.</span></li><li><span>High visual + high functionality: Realizados durante el último paso antes del desarrollo del producto final. Se usan para evaluar la usabilidad de las funciones y de la interfaz tal y como será en el producto final.</span></li></ol></li><li><p><span>Interacción – hasta qué punto el usuario puede interactuar con el prototipo.</span></p></li><li><p><span>Evolución – el ciclo de vida del prototipo.</span></p></li></ul></li></ul></li></ul></li><li><p><span>Implement and deploy: Creamos el producto y lo lanzamos.</span></p></li></ul><h1><a name="accesibilidad" class="md-header-anchor"></a><span>Accesibilidad</span></h1><ul><li><p><span>Que se pueda utilizar por cualquier persona a pesar de limitaciones físicas, psíquicas o del contexto. Se trata de diseñar para todos los usuarios posibles.</span></p></li><li><p><span>Los sistemas usables tienen como objetivo el satisfacer a personas con diferentes características, necesidades y requisitos.</span></p><ul><li><span>Personas con discapacidad</span></li><li><span>Personas de todas las edades</span></li><li><span>Personas con diferentes habilidades y niveles de experiencia</span></li><li><span>Personas de todo el mundo que hablan idiomas distintos</span></li><li><span>Personas de diferentes cultura</span></li></ul></li><li><p><span>Tienen que tener en cuenta también el contexto en los que se utilizan, comunicación, trabajo, salud, cultura, etc.</span></p></li><li><p><span>Tecnología adaptativa: Productos o dispositivos para mejorar o aumentar las capacidades funcionales de las personas con algún tipo de discapacidad.</span></p><ul><li><p><span>Teclado adaptativo: Las teclas son más grandes que las de un teclado normal y tienen colores alegres.</span></p><ul><li><span>Disposición clara y amigable para que los niños se familiaricen con el ordenador.</span></li><li><span>Útil para personas con discapacidad de aprendizaje o motora.</span></li></ul></li><li><p><span>Footmouse – Ratón de pie: Un ratón que se puede utilizar con los pies, para mover el cursor y hacer clic.</span></p></li><li><p><span>Lectores de pantalla, pantallas Braille para ciegos, magnificadores de pantalla, dispositivos de entrada y salida para personas con problemas de movimiento.</span></p></li></ul></li><li><p><span>Diseño universal: Diseño de productos usables para tod@s, sin necesidad de ser adaptados o mejorados, no necesita dispositivos adaptativos.</span></p><ul><li><p><span>Mejora la vida de tod@s, beneficios para todas las edades y habilidades.</span></p></li><li><p><span>Siete principios para el diseño universal:</span></p><ol start='' ><li><span>Uso equitativo: Diseño útil para todas las personas.</span></li><li><span>Uso flexible: El diseño se acomoda a un amplio rango de preferencias.</span></li><li><span>Uso simple e intuitivo: El uso del diseño es fácil de entender , sin importar la experiencia.</span></li><li><span>Información perceptible: El diseño transmite la información necesaria de forma efectiva al usuario.</span></li><li><span>Tolerancia al error: El diseño mínimiza riesgos y consecuencias de acciones involuntarias o accidentales.</span></li><li><span>Mínimo esfuerzo físico: El diseño puede ser usado cómodamente y eficientemente.</span></li><li><span>Tamaño de aproximación y uso: Tamaño y espacio adecuado para el alcance, manipulación y uso, independientemente del tamaño corporal, postura o movilidad del usuario.</span></li></ol></li></ul></li><li><p><span>Design 4 All</span></p><ul><li><p><span>Incluye el diseño accesible, diseño inclusivo, diseño sin barreras, diseño universal.</span></p></li><li><p><span>Aplica principios, métodos y herramientas específicas.</span></p></li><li><p><span>Desarrolla servicios y productos IT accesibles y usables para todos. No se necesitan adaptaciones a posteriori.</span></p></li><li><p><span>La comunicación entre los usuarios, los stakeholders y los equipos de diseños es fundamental.</span></p><ul><li><span>Entrevistas, cuestionarios, prototipos, observación, etc.</span></li></ul></li></ul></li><li><p><span>Calidades del diseño</span></p><ul><li><span>Accesibilidad: Los productos tienen que tener en cuenta habilidades limitadas y específicas.</span></li><li><span>Usabilidad: Los productos tienen que cumplir con los requisitos y las necesidades de los usuarios.</span></li></ul></li><li><p><span>Factores de diversidad:</span></p><ul><li><p><span>Diversidad de Usuarios:</span></p><ul><li><p><span>Discapacidad: Grupos de usuarios con habilidades y necesidades comunes para adaptar el diseño de la interacción.</span></p><ul><li><span>Percepción – discapacidad auditiva y visual.</span></li><li><span>Movimiento – discapacidad física.</span></li><li><span>Cognición – habilidades de la mente humana de procesar información, pensar, recordad, razonar y tomar decisiones.</span></li></ul></li><li><p><span>Edad: Perciben y procesan la información de forma distinta dependiendo de su edad. Puede ayudar al diseñador a tomar decisiones sobre cómo presentar la información.</span></p><ul><li><span>Niños.</span></li><li><span>Mayores y ancianos.</span></li></ul></li><li><p><span>Experiencia: Dependen también de las experiencias y los conocimientos previos que tiene el usuario con la tecnología.</span></p><ul><li><span>Opciones accesibles: Menú de ayuda, documentación más detallada, uso de etiquetas e iconos.</span></li></ul></li><li><p><span>Cultura: Incluir detalles relacionados con la cultura del usuario, para hacer un sistema más inclusivo y tolerante.</span></p><ul><li><span>Barreras del idioma.</span></li><li><span>Diferencias culturales al interpretar símbolos, colores, gestos…</span></li></ul></li><li><p><span>Social: Condición social y las oportunidades educativas pueden crear barreras de acceso a la tecnología.</span></p></li></ul></li><li><p><span>Diversidad Tecnológica: El entorno puede representar un impedimento a la hora de utilizar un sistema. El usuario podría resultar temporalmente discapacitado.</span></p><ul><li><p><span>Web Accessibility: Garantizar que personas con discapacidad u otros grupos de usuarios vulnerables puedan acceder, entender, navegar e interpretar con el contenido disponible en internet. También para que puedan contribuir publicando nuevo contenido.</span></p></li><li><p><span>Guías Web de Accesibilidad:</span></p><ul><li><p><span>WCAG: Hacer todo el contenido web accesible. Basada en una amplia experiencia de expertos en el dominio.</span></p><ul><li><span>Son principios generales de diseño accesible.</span></li><li><span>3 niveles: A, AA y AAA.</span></li></ul></li><li><p><span>WAI-ARIA: Hacer el contenido dinámico y los controles avanzado de la interfaz de usuario accesibles. Los elementos web avanzados podrían afectar la accesibilidad.</span></p></li><li><p><span>Surgen limitaciones en la aplicación de las guías: Necesitan un entrenamiento extensivo y lleva tiempo aplicarlas.</span></p></li><li><p><span>Hay herramientas semiautomáticas para comprobar archivos HTML.</span></p></li></ul></li></ul></li></ul></li><li><p><span>Técnicas de interacción:</span></p><ul><li><p><span>Voz: Manos del usuario están ocupadas o no puede utilizar ni el teclado ni el ratón.</span></p><ul><li><span>Sistema de salida de voz.</span></li><li><span>Sistemas de reconocimiento de voz.</span></li><li><span>Sistemas de dialogo hablado, tanto entrada como salida.</span></li></ul></li><li><p><span>Háptica: Cooperación entre sensores en la piel y sensores en los músculos. Exploración a través de las manos para recopilar información a través del tacto activo.</span></p><ul><li><span>Tacto remoto, experiencia de un objeto distante.</span></li><li><span>Leer textos, equivalencia táctil de letras visuales.</span></li><li><span>Manipulación háptica de objetos.</span></li></ul></li><li><p><span>Interacción basada en escaneo: Interacción a través de interruptores, el marcador de enfoque escanea la interfaz para resaltar objetos interactivos secuencialmente.</span></p><ul><li><p><span>Es lento, pero útil.</span></p></li><li><p><span>Se puede activar mediante diferentes modalidades.</span></p><ul><li><span>Mano, dedo, pie, lengua, cabeza, aliento, ojo, teclado, ratón.</span></li></ul></li><li><p><span>Para usuarios con dificultades para usar dispositivos de entrada clásicos.</span></p></li></ul></li><li><p><span>Eye tracking: Usar la mirada para comunicarse. Cuando la mirada es la única opción de comunicación disponible, se utiliza para seleccionar elementos.</span></p><ul><li><span>Problemas: Movimientos oculares involuntarios o demasiado rápidos.</span></li><li><span>No se puede revisar lo que está escribiendo al mismo tiempo que se está escribiendo.</span></li><li><span>Aproximadamente 10 palabras por minuto.</span></li></ul></li><li><p><span>Monitorización de gesto y cabeza: Los gestos como características importantes de las expresiones humanas.</span></p><ul><li><span>Varios enfoques para el reconocimiento de gestos.</span></li><li><span>Interactuar mediante gestos.</span></li><li><span>No solo gestos con las manos, sino también con la cabeza y el cuerpo.</span></li></ul></li><li><p><span>Interfaces cerebrales: Sistemas de comunicación en tiempo real para enviar mensajes usando bioseñales del cerebro.</span></p><ul><li><p><span>Usuarios con partes de su cerebro activas, pero si ningún otro medio de comunicación.</span></p></li><li><p><span>Dos tipos:</span></p><ul><li><span>Invasivos: Sondas dentro del cerebro.</span></li><li><span>No invasivo: Electrodos colocados externamente.</span></li></ul></li><li><p><span>Los biopotenciales son señales eléctricas obtenidas del cuerpo, cada una tiene sus propias características.</span></p></li></ul></li><li><p><span>Lenguaje de signos: Usuario que por determinadas circunstancias utiliza un lenguaje de señas para comunicarse.</span></p><ul><li><span>Sistemas de traducción automática de texto en ingles a animaciones en lenguaje de signos.</span></li><li><span>Introducir comandos en un sistema informático usando lenguaje de signos y, com resultado obtener como salida, texto, voz o lengua de signos.</span></li></ul></li><li><p><span>Interfaces multimodales: Dos o más modos de entrada.</span></p><ul><li><span>Multisensorial: Múltiples modalidades sensoriales.</span></li><li><span>Multicanal: varios canales para la misma o diferentes modalidades.</span></li><li><span>Multitarea: Varias tareas al mismo tiempo.</span></li><li><span>Multiforma: Las mismas tareas de formas alternativas.</span></li></ul></li></ul></li><li><p><span>TEMA 3 - Diseño Web</span></p><h2><a name="diseño-web" class="md-header-anchor"></a><span>Diseño Web</span></h2><ul><li><p><span>Evolución de la web: Hoy en día es un universo de aplicaciones y páginas web interconectadas llenas de contenido multimedia e interactivo.</span></p></li><li><p><span>Sitio web: Colección de páginas web relacionadas y comunes a un dominio de Internet o subdominio de la World Wide Web.</span></p></li><li><p><span>Principios básicos:</span></p><ul><li><span>Debe satisfacer las necesidades del usuario.</span></li><li><span>Evitar la navegación lineal: Permite navegar sin seguir u orden estricto, moverse de una página a otra sin orden.</span></li><li><span>El usuario debe saber en todo momento donde se encuentra, que puede hacer y como desplazarse a otros contenidos.</span></li><li><span>Facilitar la búsqueda de contenidos.</span></li></ul></li><li><p><span>Aspectos a considerar en el diseño del sitio:</span></p><ul><li><p><span>Estructura de la información.</span></p><p><img src="IU/Untitled%206.png" alt="IU/Untitled%206.png" style="zoom:50%;" /></p><ul><li><p><span>Centrada en las tareas del usuario.</span></p></li><li><p><span>Anteponer anchura frente a profundidad, poder ver las principales tareas primero, y si se quiere más información se profundiza.</span></p><ul><li><span>3 es un buen nivel de profundidad.</span></li></ul></li><li><p><span>Agrupamientos lógicos de contenidos.</span></p></li><li><p><span>Un objetivo/ dos tareas: Que haya dos maneras de llegar a los objetivos por si se ha saltado uno de ellos.</span></p></li><li><p><span>Secciones:</span></p><ul><li><p><span>Página principal – Homepage:</span></p><ul><li><p><span>Función: Indicar al usuario donde esta y funciones del sitio web.</span></p><ul><li><p><span>Información a mostrar:</span></p><ul><li><span>Logo de la organización.</span></li><li><span>Nombre del sitio web.</span></li><li><span>Introducción al sitio.</span></li><li><span>Enlaces a las páginas principales del sitio.</span></li><li><span>Resumen de los contenidos principales del sitio.</span></li><li><span>Información de contacto / Políticas de uso / Condiciones de acceso.</span></li><li><span>Resumen de últimas noticias / promociones / cambios en el sitio.</span></li></ul></li></ul></li></ul></li><li><p><span>Secciones principales</span></p><ul><li><span>Mantener logo y nombre (reducir tamaño)</span></li><li><span>Enlace a la página principal</span></li><li><span>Elementos de ayuda a la navegación</span></li><li><span>Enlaces al resto de secciones principales</span></li></ul></li><li><p><span>Subsecciones</span></p><ul><li><span>Mantener logo y nombre del sitio web</span></li><li><span>Indicar con claridad la sección principal a la que pertenece</span></li><li><span>Indicar la localización con respecto a la estructura del sitio (¿dónde estoy?)</span></li><li><span>Centrarse en el contenido más que en la navegación</span></li><li><span>Facilitar la ejecución de acciones</span></li></ul></li></ul></li></ul></li><li><p><span>Navegación por el sitio.</span></p><ul><li><p><span>Navegación: Capacidad de moverse por el sitio web para conseguir los objetivos del usuario.</span></p></li><li><p><span>Es la forma básica de recogida de información en los sitios web.</span></p><ul><li><span>Se puede hacer mediante: Enlaces u otro tipo de herramienta.</span></li></ul></li><li><p><span>Estoy:</span></p><ul><li><span>En la web como un todo, título de la página, breve introducción...</span></li><li><span>Respecto al propio sitio web, opción de menú destacada, migas de pan...</span></li></ul></li><li><p><span>He estado:</span></p><ul><li><span>Basándose en el navegador, botón atrás, historial…</span></li><li><span>Basándose en el diseño del sitio web, migas de pan, cookies…</span></li></ul></li><li><p><span>Puedo ir:</span></p><ul><li><span>Enlace y ayudas a la navegación</span></li></ul></li><li><p><span>Tipos de enlaces</span></p><ul><li><p><span>Estructurales</span></p><ul><li><span>Enlaces a otras páginas (del mismo sitio)</span></li><li><span>Establecen la estructura del sitio</span></li></ul></li><li><p><span>Asociativos</span></p><ul><li><span>Enlaces a otros contenidos de la propia página</span></li><li><span>Facilita la navegación en textos extensos</span></li></ul></li><li><p><span>Embebidos</span></p><ul><li><span>Enlaces a otras páginas o, incluso, otros sitios web</span></li><li><span>Información adicional</span></li></ul></li></ul></li><li><p><span>Diseño de enlaces</span></p><ul><li><p><span>Enlaces textuales: Lo que los identifica es el color, pero son una palabra o frase en el contenido.</span></p><ul><li><span>Color: Asegura la consistencia y los distingue del resto de contenido.</span></li><li><span>Nombre: texto significativo y explicativo.</span></li><li><span>Incluye ayudas contextuales.</span></li></ul></li><li><p><span>Enlaces no textuales: No se trata de texto en color, sino que es otro elemento como:</span></p><ul><li><span>Botones</span></li><li><span>Gráficos</span></li><li><span>Listas desplegables</span></li><li><span>Imágenes</span></li><li><span>Mapa en el que se puede acceder a secciones del lugar.</span></li><li><span>Migas de pan- bread crumbs.</span></li></ul></li></ul></li></ul></li></ul></li></ul></li><li><p><span>Ayudas a la navegación</span>
+<span>    - Visita guiada</span></p><ul><li><p><span>Problema</span></p></li><li><p><span>No indicar al usuario donde se encuentra</span>
+<span>    - Paginas en blanco</span></p><ul><li><span>Uso del mismo título en varias paginas</span>
+<span>    - Inconsistencia entre nombre del enlace y título de la página asociada.</span></li></ul></li><li><p><span>No indicar al usuario el camino</span>
+<span>    - Enlaces auto-referenciados</span></p><ul><li><span>Exceso de enlaces embebidos.</span>
+<span>    - Profundidad excesiva/ Demasiados niveles de búsqueda.</span></li></ul></li><li><p><span>No facilitar búsqueda adecuada</span>
+<span>    - Pobre navegación entre los resultados.</span></p><ul><li><p><span>Resultados numerosos o poco relacionados.</span></p><ul><li><span>Interacción.</span></li></ul></li></ul></li></ul></li><li><p><span>Diseño detallado del sitio, aspectos a considerar en:</span>
+<span>    - Páginas: Cada uno de los documentos o espacios de interacción que conforman un sitio web.</span></p><ul><li><p><span>Principios básicos:</span>
+<span>    - Dar preponderancia al contenido frente a la estética o la navegación</span></p><ul><li><p><span>Separar contenido de presentación</span>
+<span>    - Independencia de plataforma</span></p></li><li><p><span>Asegurar la consistencia</span>
+<span>    - Layout</span></p></li><li><p><span>Crear agrupaciones intuitivas, de contenidos y de acciones.</span>
+<span>    - Destacar los componentes más importantes.</span></p></li><li><p><span>Hacer los controles visibles.</span>
+<span>    - Equilibrio entre estética y usabilidad.</span>
+<span>    - Usar el espacio en blanco a fin de facilitar la exploración de contenidos.</span></p><ul><li><p><span>Scrolling:</span></p><ul><li><span>Los contenidos más importantes por encima del tamaño de página.</span></li><li><span>Páginas cortas para la pagina principal, navegación o de acceso inmediato.</span></li><li><span>El contenido por encima del tamaño normal debe animar o mostrar la utilidad de hacer scroll.</span></li></ul></li><li><p><span>Reducir el scroll vertical a un par de desplazamientos.</span></p><ul><li><p><span>Evitar siempre el scroll horizontal.</span></p><p><img src="IU/Untitled%2014.png" alt="IU/Untitled%2014.png" style="zoom:67%;" /></p></li></ul></li><li><p><span>Widgets: componente software concebido para proveer información visual y facilitar una interacción determinada.</span></p><ul><li><p><span>Proceso de diseño basado en widgets</span></p><ul><li><span>Estructurar la interacción.</span></li></ul></li><li><p><span>Controlar la interacción.</span></p></li></ul></li><li><p><span>Introducir información.</span></p></li></ul></li></ul></li><li><p><span>Contenidos: Conjunto de textos, imágenes, videos y, en general, elementos multimedia que determinan la información proporcionada por un sitio web.</span></p><ul><li><p><span>Principios básicos:</span></p><ul><li><span>Reducir el tiempo de descarga, inferior a 1s y máximo 10 s.</span></li><li><span>Facilitar la exploración frente a búsqueda exhaustiva.</span></li><li><span>Respetar los principios del diseño universal.</span></li><li><span>Evitar el uso de sonidos y locuciones siempre que no sean imprescindibles para dar feedback.</span></li></ul></li><li><p><span>Texto:</span></p><ul><li><p><span>Minimizar la extensión del texto, el necesario no poner información superflua.</span></p><ul><li><span>Eliminar párrafos introductorios.</span></li><li><span>No incluir información superflua o de autobombo.</span></li><li><span>Utilizar tablas y enumeraciones para organizar la información.</span></li></ul></li><li><p><span>Ayudar al usuario a explorar la información.</span></p><ul><li><span>Incluir títulos en todas las páginas.</span></li><li><span>Utilizar titulares para estructurar la información.</span></li><li><span>Separa bloques de información extensos en secciones.</span></li><li><span>Destacar la información de interés o más relevantes.</span></li></ul></li><li><p><span>No utilizar jerga.</span></p></li></ul></li></ul></li><li><p><span>Utilidad vs Usabilidad</span></p></li><li><p><span>Relacionadas, pero no son lo mismo.</span></p><ul><li><span>Utilidad se refiere únicamente al uso que se hace de un sistema.</span></li><li><span>Usabilidad incluye no solo la usabilidad, sino también la eficiencia, seguridad, memorabilidad, capacidad de aprendizaje y satisfacción.</span></li></ul></li><li><p><span>Recomendaciones para mejorar la utilidad</span></p><ul><li><p><span>El usuario puede realizar la tarea eficientemente</span></p><ul><li><span>Sabe cómo llevarla a cabo.</span></li><li><span>La descomposición de la tarea en acciones y su secuenciación son adecuadas.</span></li><li><span>Reduce la ansiedad, mostrando el estado de la tarea.</span></li><li><span>Se le estimula para completar la tarea.</span></li><li><span>No se producen errores, y si se producen, tienen una solución muy sencilla.</span></li><li><span>No se producen retardos innecesarios.</span></li><li><span>Se eliminan las distracciones.</span></li></ul></li><li><p><span>La utilidad de la herramienta (web o Sistema interactivo) es evidente</span></p><ul><li><span>A primera vista el usuario debe saber que puede hacer.</span></li><li><span>Menús con las opciones principales.</span></li></ul></li><li><p><span>Mantener el sistema accesible</span></p><ul><li><span>Siempre debe dar una respuesta rápida.</span></li><li><span>Evitar sitios/páginas en construcción o que no redirigen al nuevo sitio web.</span></li></ul></li><li><p><span>Eliminar cualquier tipo de reiteración, incertidumbre o sorpresa</span></p></li><li><p><span>Los contenidos multimedia no deben disminuir la utilidad de la aplicación</span></p><ul><li><p><span>Los elementos multimedia ocupan mucho espacio y aumentan el tiempo de carga de la página</span></p></li><li><p><span>Se genera incertidumbre y aburrimiento en el usuario. Soluciones:</span></p><ul><li><span>No embeber el material multimedia, hacerlo descargable</span></li><li><span>Incluir un enlace al material multimedia o un m-icon</span></li></ul></li><li><p><span>Si se requiere alguna aplicación externa para acceder a algún tipo de contenido:</span></p><ul><li><span>Advertirlo en la interfaz</span></li><li><span>Proporcionar un medio de acceder a ese software</span></li></ul></li></ul></li></ul></li><li><p><span>Recomendaciones para mejorar la usabilidad</span></p><ul><li><p><span>Orientar el diseño a los potenciales usuarios (características y necesidades).</span></p><ul><li><p><span>El diseño de nuestra web debe estar orientado al usuario.</span></p></li><li><p><span>Hay que considerar las características y necesidades de los usuarios.</span></p><ul><li><span>Edad, idioma, objetivos, requisitos de eficiencia o familiaridad.</span></li></ul></li></ul></li></ul></li></ul></li><li><p><span>Diseño para todos: La usabilidad ha de garantizase para el máximo número de usuarios posibles, si necesidad de adaptación.</span>
+<span>          </span></p><ul><li><p><span>El fondo no debe dificultad la lectura.</span></p><p><img src="IU/Untitled%2016.png" alt="IU/Untitled%2016.png" style="zoom:67%;" /></p><ul><li><p><span>Mantener la consistencia</span></p><ul><li><span>Debe hacerse un uso semántico del color y de otros recursos audiovisuales.</span></li><li><span>Utilizar los nombres para referirse a las mismas cosas.</span></li><li><span>Mismas funcionalidades deben activarse siempre del mismo modo y producir el mismo tipo de resultados.</span></li><li><span>Iconos deben ser concretos y familiares, visual y conceptualmente distintos.</span></li><li><span>Utilizar pocos iconos y significativos</span></li></ul></li><li><p><span>Las funciones y los datos del sistema tienen que ser tangibles.</span></p><ul><li><p><span>La estructura de la información se puede hacer explicita:</span></p><ul><li><span>Páginas auto contenidas.</span></li><li><span>Buen uso de los enlaces.</span></li><li><span>Usando los elementos multimedia para realzar el contenido de las páginas para que sean más fácilmente identificables.</span></li><li><span>Empleando herramientas de navegación que den una idea de la estructura global/parcial.</span></li></ul></li><li><p><span>Las metáforas son simulaciones de entorno ya conocidos por el usuario</span></p></li><li><p><span>El escritorio, el libro electrónico, el carrito de compra...</span></p><ul><li><span>Siguen patrones de uso reconocibles por los usuarios.</span></li></ul></li><li><p><span>Incrementan la tangibilidad.</span></p></li></ul></li></ul></li></ul><h2><a name="principio-de-diseño-web" class="md-header-anchor"></a><span>Principio de diseño Web:</span></h2><ul><li><p><span>Son abstracciones generalizables que tienen como objetivo orientar a los diseñadores. Procesen de la teoría, la experiencia y el sentido común. No existe una regla de oro.</span></p></li><li><p><span>Tipos de artefactos:</span></p><ul><li><p><span>Heurísticas: abstracciones generalizables basadas en la experiencia, el sentido común o la teoría.</span></p><ul><li><p><span>Heurísticas de Schneiderman: No hace falta sabérselas.</span></p></li><li><p><span>Heurísticas de Nielsen y Molich: No hace falta sabérselas.</span></p></li><li><p><span>Heurísticas de Nielsen: Es en las que nos centraremos.</span></p><ul><li><span>Visibilidad del estado del sistema: Barras de progreso o animaciones de carga.</span></li><li><span>Coincidencia entre el sistema y el mundo real: Relación de los elementos web con lo que conoce el usuario.</span></li><li><span>Control del usuario y libertad: El usuario puede confirmar, cancelar o cambiar el estado del sistema.</span></li><li><span>Consistencia y estandarización: Para que el usuario lo entienda al conocer lo estándar y que la información se muestre siempre de la misma manera.</span></li><li><span>Prevención de errores: Poner las cosas claras y diferenciadas para evitar errores. Sugerencias.</span></li><li><span>Reconocimiento antes que recuerdo: Mostrarlo visualmente en vez de hacer que recuerde su nombre, o parcialmente con auto rellenado.</span></li><li><span>Flexibilidad y eficiencia de uso: Permite hacer variaciones y usar comandos o métodos más rápidos de uso.</span></li><li><span>Estética y diseño minimalista: Que no esté abarrotado y se pueda ver de forma clara.</span></li><li><span>Ayudar a los usuarios a reconocer, diagnosticar y recuperar la situación cuando se produce un error: Avisamos al usuario par que lo resuelva y sepa de que se trata.</span></li><li><span>Ayuda y documentación: Sección de ayuda para que el usuario entienda el contexto de la web, sus elementos.</span></li></ul></li></ul></li><li><p><span>Guías de diseño: recomendaciones de diseño basadas en la experimentación y orientadas a mejorar la experiencia de uso de la interfaz</span></p></li><li><p><span>Patrones de diseño: soluciones que se han demostrado que son satisfactorias a problemas recurrentes y que están recopiladas de forma sistemática.</span></p><ul><li><p><span>El incremento en la demanda de aplicaciones web más complejas implica:</span></p><ul><li><span>conocimiento del dominio</span></li><li><span>sofisticadas estructuras de navegación</span></li><li><span>comportamientos interactivos</span></li><li><span>composiciones multimedia</span></li><li><span>personalización y accesibilidad</span></li><li><span>seguridad</span></li></ul></li><li><p><span>Con los patrones se intenta contestar a las siguientes preguntas:</span></p><ul><li><span>¿Cómo ayudar al usuario a conseguir su objetivo?</span></li><li><span>¿Cómo presentarle la información?</span></li><li><span>¿En qué áreas debería dividir la interfaz?</span></li><li><span>¿Qué cosas incluiría en cada una de ellas?</span></li><li><span>¿Debería utilizar iconos?</span></li><li><span>¿Cuántos y cuándo?</span></li></ul></li><li><p><span>El tiempo de desarrollo e implantación de proyectos web &lt; 3 meses.</span></p></li><li><p><span>Con los patrones se intenta contestar a las siguientes preguntas:</span></p><ul><li><span>¿Cómo ayudar al usuario a conseguir su objetivo?</span></li><li><span>¿Cómo presentarle la información?</span></li><li><span>¿En qué áreas debería dividir la interfaz?</span></li><li><span>¿Qué cosas incluiría en cada una de ellas?</span></li><li><span>¿Debería utilizar iconos?</span></li><li><span>¿Cuántos y cuándo?</span></li></ul></li><li><p><span>Un lenguaje es una colección de patrones interrelacionados y organizados como un todo que proporciona una solución detallada a un problema de diseño de gran escala.</span></p><ul><li><span>Un meta-lenguaje para crear sitios web para el cliente/usuario/destinatario</span></li><li><span>Cada patrón tiene relaciones con otros patrones</span></li><li><span>El diseñador puede navegar por la estructura de patrones para ir diseñando su sitio web</span></li></ul></li><li><p><span>Nosotros usaremos los de Van Duyne.</span></p><ul><li><p><span>Estructura:</span></p><ul><li><span>Nombre y número de patrón</span></li><li><span>Ejemplo</span></li><li><span>Antecedentes</span></li><li><span>Planteamiento del problema.</span></li><li><span>Motivación y solución.</span></li><li><span>Paradas</span></li><li><span>Resumen solución.</span></li><li><span>Diagrama de solución.</span></li></ul></li><li><p><span>Patrones relacionados.</span></p></li><li><p><span>Familias:</span></p></li><li><p><span>A: Especificar el género de nuestro sitio web, para personalizar el contenido y garantizar la mejor experiencia.</span></p><p><img src="IU/Untitled%2017.png" alt="IU/Untitled%2017.png" style="zoom:80%;" /></p></li><li><p><span>B: Crear un marco de navegación, llegar al sitio Web a traces de diferentes caminos. Cumpliendo sus objetivos.</span></p><p><img src="IU/Untitled%2018.png" alt="IU/Untitled%2018.png" style="zoom:80%;" /></p></li><li><p><span>C: Crear una página principal poderosa, que transmita lo que hace esta web, es la más visitada del sitio web.</span></p><p><img src="IU/Untitled%2019.png" alt="IU/Untitled%2019.png" style="zoom:80%;" /></p></li><li><p><span>D: Escribir y administración del contenido, gestionar un volumen elevado de contenidos y hacer accesible el sitio.</span></p><p><img src="IU/Untitled%2020.png" alt="IU/Untitled%2020.png" style="zoom:80%;" /></p></li><li><p><span>E: Establecer una relación de confianza y credibilidad con el usuario, esenciales para establecer una relación.</span></p><p><img src="IU/Untitled%2021.png" alt="IU/Untitled%2021.png" style="zoom:80%;" /></p></li><li><p><span>H: Ayudar el cliente a completar tareas, minimizar problemas e incrementar el ratio de tareas completadas.</span></p><p><img src="IU/Untitled%2022.png" alt="IU/Untitled%2022.png" style="zoom:80%;" /></p></li><li><p><span>I: Conseguir que la estructura de la página sea eficiente, claras , predecibles y fáciles de entender.</span></p><p><img src="IU/Untitled%2023.png" alt="IU/Untitled%2023.png" style="zoom:80%;" /></p></li><li><p><span>J: Ayudar al usuario a encontrar el contenido de forma rápida.</span></p><p><img src="IU/Untitled%2024.png" alt="IU/Untitled%2024.png" style="zoom:80%;" /></p></li><li><p><span>K: Hacer fácil de navegación, técnicas para organizar y mostrar los elementos de navegación de manera fácil de encontrar y entender.</span></p><p><img src="IU/Untitled%2025.png" alt="IU/Untitled%2025.png" style="zoom:80%;" /></p></li><li><p><span>L: Hacer que vaya rápido el sitio web, los sitios lentos son frustrantes.</span></p></li><li><p><span>15 patrones comunes:</span></p><ol start='' ><li><span>.</span></li></ol></li></ul></li><li><p><span>Proporcionan un vocabulario común</span></p></li><li><p><span>Proporcionan una forma efectiva de comunicar principios complejos</span></p></li><li><p><span>Ayudan a documentar las arquitecturas software.</span></p></li><li><p><span>Capturan las partes esenciales de un diseño de manera compacta</span></p></li></ul></li><li><p><span>Muestran más de una solución</span></p><ul><li><span>No proporcionan una solución exacta</span></li></ul></li><li><p><span>No resuelven todos los problemas de diseño</span></p></li></ul></li><li><p><span>Proceso de desarrollo: Los patrones de diseño web se pueden aplicar a lo largo de todo el proceso de desarrollo.</span>
+<span>    </span><br/><img src="IU/Untitled%2027.png" alt="IU/Untitled%2027.png" style="zoom:80%;" />
+<span>    </span></p><ul><li><span>Métodos de inspección: conjunto de procedimientos que permiten evaluar una interfaz a fin de determinar su grado de usabilidad.</span></li></ul></li></ul></li><li><p><span>TEMA 4 - Interacción con las interfaces</span></p><p><a href='IU/tema4-RequisitosyModelosInteraccion.pdf'><span>tema4-RequisitosyModelosInteraccion.pdf</span></a></p><h1><a name="diseño-de-la-interacción" class="md-header-anchor"></a><span>Diseño de la interacción</span></h1><ul><li><p><span>El diseño de la interacción debería tener en cuenta</span></p><ul><li><span>las tareas llevadas a cabo por los usuarios,</span></li><li><span>sus objetivos, y</span></li><li><span>el contexto en el que la interacción ocurre.</span></li></ul></li><li><p><span>El foco central hacia donde se direcciona el diseño de la interacción es comprender cómo los usuarios utilizarán el sistema propuesto.</span></p></li><li><p><span>Para formalizar este proceso, se toman en cuenta varios modelos, como los ciclos de vida ya utilizados en Ingeniería del Software.</span></p></li></ul><h2><a name="ciclos-de-vida" class="md-header-anchor"></a><span>Ciclos de vida</span></h2><ul><li><span>Pasos cortos con muchas iteraciones.</span></li></ul><h3><a name="modelo-en-cascada" class="md-header-anchor"></a><span>Modelo en Cascada</span></h3><ul><li><p><span>Enfoque linear y secuencial al desarrollo software.</span></p></li><li><p><span>Hay que primero tener en cuenta los requisitos del sistema y luego tener diseño básico antes de empezar la implementación y la fase de pruebas.</span></p><p><img src="IU/Untitled%2028.png" alt="IU/Untitled%2028.png" style="zoom:80%;" /></p></li><li><p><span>Los requisitos no se pueden cambiar durante las fases siguientes.</span></p></li><li><p><span>No es un modelo centrado en el usuario porque no toma en cuenta formalmente el usuario.</span></p></li></ul><h3><a name="desarrollo-ágil" class="md-header-anchor"></a><span>Desarrollo ágil</span></h3><ul><li><span>Metodología que se centra en hacer que las cosas funcionen más que en documentarlas.</span></li><li><span>No hay un plan estricto, según se progresa se va cambiando.</span></li><li><span>Se centra en el individuo y la interacción antes que la herramienta a usar.</span></li><li><span>Colaborar con el usuario de forma continua, antes que firmar un contrato y</span></li></ul><h3><a name="diseño-ágil" class="md-header-anchor"></a><span>Diseño ágil</span></h3><ul><li><span>Diseñamos e implementamos continuamente, se itera muchas veces.</span></li><li><span>FeedBack frecuentes de los clientes que se tienen en cuenta al momento para modificar el diseño del sistema.</span></li><li><span>El cliente es un miembro del equipo de desarrollo.</span></li><li><span>Reunión frecuentes entre los miembros del equipo de diseño.</span></li><li><span>Pruebas frecuentes.</span></li><li><span>Enfoque: Resolver los problemas o necesidades del cliente.</span></li></ul><h2><a name="requisitos-definición-y-tipos" class="md-header-anchor"></a><span>Requisitos: Definición y tipos</span></h2><ul><li><p><span>Necesidades o funcionalidades que hay que cubrir.</span></p></li><li><p><span>Términos relacionados los requisitos:</span></p><ul><li><span>Recogida de requisitos, tomar del entorno de los requisitos.</span></li><li><span>Pliego de requisitos.</span></li><li><span>Análisis de requisitos, analiza un conjunto inicial, para sacar los importantes y ver los duplicados.</span></li><li><span>Ingeniería de requisitos.</span></li></ul></li><li><p><span>Es una declaración sobre un producto deseado que especifica qué debería hacer o cómo debería hacerlo.</span></p><ul><li><span>Ejem: Tiempo de descarga de una página debe ser menor de 5.</span></li></ul></li><li><p><span>Tienen muchas formas y muchos niveles de abstracción.</span></p></li><li><p><span>Tipos de requisitos:</span></p><ul><li><span>Funcionales: Que debe hacer el sistema, relativo al usuario.</span></li><li><span>No funcionales: Restricciones del sistema y su desarrollo, relativo a especificación técnica.</span></li></ul></li><li><p><span>Otra lista más exhaustiva de tipos de requisitos:</span></p><ul><li><span>De datos: tipo, volatilidad, tamaño, persistencia, precisión y valor.</span></li><li><span>Del entorno: entorno físico (p.ej. luz y ruido), entorno social (p.ej. colaboración), entorno organizacional y entorno técnico (p.ej. compatibilidad).</span></li><li><span>Del usuario: talento y habilidades; casual o frecuente; experto o novato. (Perfil de usuario).</span></li><li><span>De usabilidad: efectividad, eficiencia, seguridad, utilidad y aprendizaje.</span></li></ul></li></ul><h2><a name="recogida-de-datos" class="md-header-anchor"></a><span>Recogida de datos</span></h2><ul><li><p><span>El objetivo es recoger datos suficientes, relevantes y apropiados para definir un conjunto estable de requisitos. Entender al usuario y el entono para recoger los datos.</span></p></li><li><p><span>Si ya existe un conjunto de requisito, sirve para expandir, clarificar y confirmar ese conjunto.</span></p></li><li><p><span>Se deben conocer cómo se realizan las tareas en la actualidad, así como las metas asociadas, el contexto en el que se realizan y las razones de porqué las cosas son como son.</span></p></li><li><p><span>Técnicas para recoger información:</span></p><ul><li><p><span>Cuestionarios.</span></p><ul><li><p><span>QUIS - Questionnaire for User Interface Satisfaction.</span></p><ul><li><span>Evalúa la satisfacción subjetiva con aspectos específicos de HCI.</span></li><li><span>Propósitos: Guiar el diseño y rediseño de sistemas; evaluar áreas y realizar evaluaciones.</span></li></ul></li><li><p><span>CSUQ - Computer System Usability Questionnaire.</span></p><ul><li><span>Mide con 19 preguntas la satisfacción del usuario con respecto a la usabilidad.</span></li></ul></li><li><p><span>PUEU - Perceived Usefulness and Ease of Use.</span></p><ul><li><span>Desarrollo para respaldar el modelo de aceptación de la tecnología, utilidad percibida y facilidad de uso.</span></li></ul></li><li><p><span>NAU - Nielsen’s Attributes of Usability</span></p><ul><li><span>&quot;Learnability&quot;: los sistemas deberían ser fáciles de aprender.</span></li><li><span>Eficiencia: los sistemas deberían ser eficientes en su uso.</span></li><li><span>Memorabilidad: los sistemas deberían ser fáciles de recordar.</span></li><li><span>Errores: el sistema debe tener una baja tasa de errores.</span></li><li><span>Satisfacción: el sistema debe ser agradable de usar.</span></li></ul></li><li><p><span>ASQ - After Scenario Questionnaire</span></p><ul><li><span>Aborda tres componentes importantes de la satisfacción del usuario con la usabilidad del sistema: facilidad para completar tareas, tiempo para completar una tarea y adecuación de la información de soporte.</span></li></ul></li><li><p><span>PUTQ - Purdue Usability Testing Questionnaire</span></p><ul><li><span>Evalúa 8 factores relevantes en HCI.</span></li></ul></li><li><p><span>SUMI - Software Usability Measurement Inventory</span></p><ul><li><span>Evalúa la calidad del uso de un producto o prototipo de software. Puede ayudar a detectar fallos de usabilidad antes de enviar un producto.</span></li></ul></li><li><p><span>SUS - System Usability Scale</span></p><ul><li><span>Escala Likert de actitud de 10 elementos. Visión global de las evaluaciones subjetivas de usabilidad.</span></li></ul></li><li><p><span>TAM - Technology Acceptance Model</span></p><ul><li><p><span>Con un punto de vista totalmente diferente, más orientado a la tecnología desarrollada, y uno de los más usados hoy en día.</span></p><ul><li><span>Expectativa de rendimiento</span></li><li><span>Expectativa de esfuerzo</span></li><li><span>Actitud hacia el uso de la tecnología</span></li><li><span>Influencia social</span></li><li><span>Condiciones facilitadoras</span></li><li><span>Autoeficacia</span></li><li><span>Ansiedad</span></li><li><span>Intención de usar el sistema.</span></li></ul></li></ul></li><li><p><span>Para diseñar un cuestionario efectivo hay que tener en cuenta el texto y la organización de las preguntas.</span></p><ul><li><span>Si las preguntas son difíciles o ambiguas, no obtendrán datos útiles.</span></li><li><span>Validez: El cuestionario mide lo que se espera que mida. Han sido probado por mucho usuarios.</span></li><li><span>Fiabilidad: Se refiere a la consistencia del cuestionario. Se obtendrá una respuesta similar si lo realizase el usuario en varios momentos.</span></li></ul></li><li><p><span>La parte más difícil de diseñar un cuestionario es diseñar el piloto</span></p><ul><li><span>La primera versión de un cuestionario casi siempre no va a ser la definitiva. Los pilotos son versiones preliminares de los cuestionarios</span></li><li><span>Los pilotos se evalúan con una muestra de usuarios y permiten a los investigadores diseñar el cuestionario final identificando y solucionando posibles problemas.</span></li></ul></li><li><p><span>Preguntas abiertas:</span></p><ul><li><span>No tienen ningún tipo de opción para las respuestas.</span></li><li><span>Los usuarios tienen que escribir su respuesta. De esta forma los usuarios pueden expresar sus puntos de vista y son fáciles de preguntar.</span></li><li><span>Son bastante difíciles de analizar debido a la ambigüedad del lenguaje natural, y exigen más esfuerzo de los usuarios (por ejemplo, para pensar en la respuesta)</span></li></ul></li><li><p><span>Preguntas cerradas:</span></p><ul><li><p><span>vienen con unas opciones alternativas de respuestas</span></p><ul><li><span>Check-boxes e intervalos se usan típicamente para respuestas como Sí o No o edades (por ejemplo, &lt;3 meses, entre 3 y 6 meses,&gt; 6 meses)</span></li><li><span>Las escalas Likert se usan para medir las opiniones de los usuarios (por ejemplo, totalmente de acuerdo, de acuerdo, muy en desacuerdo)</span></li><li><span>Las escalas diferenciales semánticas se usan para medir las actitudes de los usuarios (por ejemplo, fácil 1- 2-3-4-5 difícil)</span></li><li><span>Mas fáciles de analizar</span></li></ul></li></ul></li></ul></li><li><p><span>Entrevistas.</span></p><ul><li><p><span>Entrevistar es un intercambio interactivo de hacer preguntas y obtener respuestas.</span></p></li><li><p><span>Las entrevistas sólo revelan parte de la información.</span></p></li><li><p><span>Las entrevistas requieren mucho tiempo y pueden ser caras.</span></p></li><li><p><span>Las entrevistas requieren preparar el material con mucho cuidado para evitar la ambigüedad del lenguaje natural, teniendo en cuenta también la variabilidad de las personas y el coste de viajar al contexto de los usuarios.</span></p></li><li><p><span>El control que ejerce el entrevistador sobre la entrevista varía según el objetivo de la investigación.</span></p></li><li><p><span>Entrevistas estructuradas</span></p><ul><li><span>Se llevan a cabo en una pequeña habitación.</span></li><li><span>Lista predeterminada de preguntas y respuestas (un cuestionario) que se lee en voz alta y el usuario tiene que responder. El entrevistador juega un papel neutral y toma mucho control sobre la entrevista.</span></li><li><span>El trabajo preparatorio es esencial para recoger datos de manera específica.</span></li><li><span>Las entrevistas se pueden repetir fácilmente y los resultados analizados (estudio estándar).</span></li><li><span>No tienen en cuenta la interacción social entre entrevistadores y entrevistados. También pueden ser entrevistas telefónicas y en centros comerciales y parques.</span></li></ul></li><li><p><span>Entrevistas no estructuradas</span></p><ul><li><span>Conversaciones centradas en un tema.</span></li><li><span>El guión utilizado sólo contiene temas principales a abordar en la entrevista.</span></li><li><span>Los temas se plantean generalmente a través de preguntas abiertas, a diferencia de las entrevistas estructuradas.</span></li><li><span>Otras cuestiones podrían surgir durante la entrevista.</span></li><li><span>Se pueden generar muchos datos contextuales, aún si su análisis requiere mucho tiempo por ser conversaciones libres.</span></li><li><span>Hay interacción social entre entrevistado y entrevistador.</span></li></ul></li><li><p><span>Entrevistas semi-estructuradas</span></p><ul><li><span>Combinan características de entrevistas estructuradas y no estructuradas.</span></li><li><span>El orden de las preguntas no es estricto, a diferencia de las entrevistas estructuradas. Otros temas que podrían plantear los entrevistados, se pueden añadir a la lista y ser abordados en la entrevista.</span></li><li><span>Se pueden incluir también preguntas abiertas, pero estas tienden a ser más específicas que las preguntas en entrevistas no estructuradas.</span></li><li><span>Los entrevistadores tienen una idea más definida acerca de los temas o información que debe recopilarse</span></li></ul></li><li><p><span>Entrevistas en grupo (también conocidas como focus group o grupos focales)</span></p><ul><li><span>Consisten en entrevistar a varios usuarios al mismo tiempo en un ambiente formal o informal.</span></li><li><span>Tomar el control sobre un grupo de personas es más difícil que controlar a una sola persona.</span></li><li><span>El control del entrevistador varía dependiendo del tipo de entrevista en grupo. Los focus groups son las entrevistas de grupo más usadas.</span></li><li><span>Hay otros tipos de entrevistas en grupo, por ejemplo, brainstorming, que requieren menos control que los grupos focales.</span></li></ul></li></ul></li><li><p><span>Grupos de interés y talleres.</span></p></li><li><p><span>Observación.</span></p><ul><li><p><span>Observación de los usuarios</span></p><ul><li><span>Observar las actividades y participar en ellas</span></li><li><span>Observaciones de primera mano: &quot;lo que la gente dice que hace (es decir, en cuestionarios y entrevistas) y lo que realmente hacen tiende a no ser lo mismo”</span></li><li><span>Demasiado tiempo (en antropología, años, en sociología, años y meses)</span></li><li><span>Muchos datos</span></li><li><span>Puede ser manifiesta y encubierta</span></li></ul></li><li><p><span>Revisión de documentos (&quot;Document review&quot;): Revisar los documentos de las distintas versiones, para ver si se encuentran mejores o alternativas.</span></p><ul><li><span>Reglas y procedimientos.</span></li><li><span>Técnica cuantitativa.</span></li><li><span>Los usuarios no están realmente involucrados.</span></li><li><span>Rutina diaria versus procedimientos.</span></li></ul></li><li><p><span>Análisis de registros (&quot;Analysis of logs&quot;): Ver registros de como el usuario ha usado el sistema.</span></p><ul><li><span>Cómo funciona el sistema (métricas).</span></li><li><span>Técnica cuantitativa.</span></li><li><span>&quot;Menos&quot; participación del usuario.</span></li><li><span>Las opiniones no se tienen en cuenta.</span></li></ul></li></ul></li><li><p><span>Estudio de la documentación.</span></p></li><li><p><span>Software de Registro.</span></p></li></ul></li><li><p><span>Hay que tener en cuenta que información queremos obtener y cuánto tiempo tenemos.</span></p></li><li><p><span>Aspectos a tener en cuanta:</span></p><ul><li><span>La naturaleza de los datos: Cantidad de tiempo y nivel de detalle.</span></li><li><span>La tarea a ser estudiada: Es secuencial o se solapan las diferentes subtareas.</span></li></ul></li><li><p><span>Guías para realizar la recogida de datos:</span></p><ul><li><span>Enfocarla a la identificación de las necesidades de los usuarios.</span></li><li><span>Involucrar a todos los tipos de grupos de usuarios.</span></li><li><span>Involucrar a más de un usuario de esos grupos.</span></li><li><span>Combinación de técnicas.</span></li><li><span>Realizar una prueba piloto de recogida de datos.</span></li><li><span>Compromiso entre la situación idílica y las restricciones de la realidad.</span></li><li><span>Recogida de datos práctica.</span></li></ul></li></ul><h2><a name="interpretación-y-análisis-de-los-datos" class="md-header-anchor"></a><span>Interpretación y análisis de los datos.</span></h2><ul><li><p><span>El objetivo de la interpretación es estructurar y registrar descripciones de requisitos.</span></p></li><li><p><span>Es bueno definir modelos de requisitos que incluyan: identificador, tipo, descripción, razón, criterios de adecuación, satisfacción del usuario, dependencias, historia, ...</span></p></li><li><p><span>Esta información se incluye en documentos o diagramas que tienen enlaces al origen de esos requisitos.</span></p></li><li><p><span>El análisis tiene que ver con la investigación de los distintos aspectos del sistema de acuerdo con los requisitos establecidos y las técnicas para comprender las metas y los objetivos de los usuarios, y comprender en profundidad los requisitos.</span></p><ul><li><span>Funcionales, de datos, diagramas de clases y de secuencia, ...</span></li><li><span>Descripción de tareas: Describen las tareas por las que el sistema va a ser aceptado.</span></li><li><span>Análisis de tareas: La información recogida establece la base de las prácticas de análisis para evaluar las tareas definidas, como en HTA y GOMS.</span></li></ul></li></ul><h3><a name="descripción-de-tareas" class="md-header-anchor"></a><span>Descripción de tareas</span></h3><ul><li><p><span>Escenarios:</span></p><ul><li><span>Descripción informal de actividades o tareas humanas que permiten la exploración y discusión de contextos, necesidades y requisitos.</span></li><li><span>Los primeros escenarios los construyen los usuarios habitualmente.</span></li><li><span>Se basa en una narración en la que aparecen: Actores, Actividades y Objetos.</span></li></ul></li><li><p><span>Tipo de representaciones para escenarios:</span></p><ul><li><span>Narrativa: Una historia completa de la interacción con el sistema existente.</span></li><li><span>Diagrama de flujo: Una representación grafica de las series de acciones y decisiones.</span></li><li><span>Textos de los procedimientos: Una descripción paso a paso de las acciones del usuario y las respuestas del sistema.</span></li><li><span>Storyboard: Una narración grafica de una historia en cuadros consecutivos. Suele usar para la realización de escenarios de interacción.</span></li></ul></li><li><p><span>Casos de uso:</span></p><ul><li><span>Enfatiza la tarea del usuario más que la interacción con el sistema.</span></li><li><span>Se enfoca en la interacción entre el usuario y el sistema, desde la perspectiva del usuario.</span></li><li><span>Existen un escenario en los casos de uso que indican el camino a través de un conjunto concreto de condiciones.</span></li><li><span>Un caso de uso se asocia a un actor, y pretende describir el objetivo del actor que usa el sistema.</span></li><li><span>El caso de uso principal se llama rumbo normal.</span></li><li><span>Otras alternativas se llaman rumbos alternativos.</span></li></ul></li></ul><h3><a name="análisis-de-tareas" class="md-header-anchor"></a><span>Análisis de tareas</span></h3><ul><li><p><span>Técnicas para analizar tareas:</span></p><ul><li><p><span>Análisis Jerárquico de Tareas - HTA: Dividir una tarea en subtareas de forma recursiva. Romper las tareas grandes en tareas más pequeñas.</span></p><ul><li><p><span>Se focaliza en las acciones observables y físicas.</span></p></li><li><p><span>Se basa en la división de tareas en subtareas.</span></p></li><li><p><span>Proceso:</span></p><ul><li><p><span>Comenzar con un objetivo de usuario del que identificar las tareas principales que hay que realizar para lograrlo.</span></p><ul><li><span>El objetivo es el punto 0. que sobresale un poco de resto.</span></li></ul></li><li><p><span>Las tareas se subdividen en subtareas, hasta llegar al grado de granularidad requerido, las tareas que hace el usuario.</span></p><ul><li><span>Se ponen como sub puntos dentro las tareas, 1.1.</span></li></ul></li><li><p><span>Las subtareas se agrupan en un plan. Cada plan especifica como se pueden realizar las tareas en una situación real.</span></p><ul><li><span>Cada plan solo tiene tareas de que están dentro de su punto.</span></li><li><span>Siempre hay Plan 0. que puede usar todas las tareas, pero no subtareas.</span></li><li><span>Si hay subtareas, el plan es el número de la tareas y solo contiene sus subtareas.</span></li><li><span>Ejem: Plan 2: hacer 2.1-2.4-2.5. Si no se identifica el libro hacer 2.2-2.3-2.4-2.5</span></li></ul></li></ul></li><li><p><span>Un HTA esta completo si esta en texto y gráfico.</span></p><p><img src="IU/Untitled%2029.png" alt="IU/Untitled%2029.png" style="zoom:80%;" /></p><p><img src="IU/Untitled%2030.png" alt="IU/Untitled%2030.png" style="zoom:80%;" /></p></li><li><p><span>Se ponen las tareas como hijas de las tarea padre, y cuando no tienen subtareas se pone una línea horizontal debajo.</span></p></li><li><p><span>Se ponen los planes próximo a la tarea a la que corresponde.</span></p></li></ul></li><li><p><span>Modelos predictivos: Modelos a priori para definir una aproximación de las acciones que los usuarios ejecutaran antes de involucrar los usuarios mismos en test reales.</span></p><ul><li><p><span>Model Human Processor - MHP: Se usa para hacer predicciones sobre como el usuario ejecuta las tareas.</span></p><ul><li><p><span>Se compone de un conjunto de memoria y procesadores que funcionan siguiendo a unos principios de operación.</span></p></li><li><p><span>Sistema de percepción:</span></p><ul><li><span>Sensores: ojos, oídos.</span></li><li><span>Buffer: Visual memory store, Auditory memory store.</span></li><li><span>Sistema cognitivo: Working memory o short-term memory, Long-term memory.</span></li><li><span>Sistema motor: sistema brazo-mano-dedo, sistema cabeza-ojo.</span></li></ul></li></ul></li><li><p><span>Goals, Operators, Methods and Selection rules - GOMS: Tiene objetivo el modelo del conocimiento y de los procesos cognitivos que se producen cuando el usuario interactúa.</span></p><ul><li><p><span>Goals: Estados concretos que el usuario quiere conseguir.</span></p></li><li><p><span>Operators: Procesos cognitivos y acciones físicas para lograr esas metas.</span></p></li><li><p><span>Methods: Procedimientos aprendidos para conseguir una meta.</span></p></li><li><p><span>Selection rules: Determinan que método elegir cuando hay más de un escenario en una tarea.</span></p></li><li><p><span>Se utiliza mucho para comparar sistemas distintos.</span></p></li><li><p><span>Funciona bien para análisis sencillos, pero no para complejos.</span></p></li><li><p><span>Se necesita una herramienta que automatice el proceso.</span></p></li><li><p><span>Ejemplo:</span></p><p><img src="IU/Untitled%2031.png" alt="IU/Untitled%2031.png" style="zoom:80%;" /></p><p><img src="IU/Untitled%2032.png" alt="IU/Untitled%2032.png" style="zoom:80%;" /></p></li></ul></li><li><p><span>Keystroke-Level Model KLM - KLM: Evalúa el rendimiento de un sistema.</span></p><ul><li><p><span>Asigna un tiempo determinado a cada acción, salvo para el ratón que depende de la distancia entre el punto de partida y de llegada.</span></p></li><li><p><span>Para un sistema típico, hay 7 componentes:</span></p><ul><li><span>K (0.2 s) – press a key or mouse button. Presionar una tecla.</span></li><li><span>P (1.1 s) – point with mouse. Apuntar con el ratón.</span></li><li><span>H (0.4 s) – home on keyboard, mouse or other device. Mover la mano al dispositivo.</span></li><li><span>M (1.35s) - mentally prepare. Tiempo de preparación mental para hacer la acción.</span></li><li><span>R (t) - system response time. Respuesta del sistema.</span></li><li><span>B (0.1s) - press or release mouse button. Pulsar o soltar botón del ratón.</span></li><li><span>BB (0.2s) - click mouse button. Hacer clic.</span></li></ul></li><li><p><span>Reglas:</span></p><ul><li><span>M al comenzar la tarea o cuando se cambia de tarea.</span></li><li><span>H cada vez que se cambia de dispositivo.</span></li></ul></li></ul></li><li><p><span>Ley de Fitt: El tiempo requerido para conseguir un objetivo es proporcional a la distancia y al tamaño del objetivo (tamaño físico, una barra, botón...)</span></p><ul><li><p><span>Las opciones más importantes deben tener mayor tamaño o ser más visibles que las secundarias.</span></p></li><li><p><span>La localización también es importante.</span></p></li><li><p><span>ID - Índice de dificultad: Se define como la dificultad de una tarea en términos de distancia y anchura. </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="18.536ex" height="3.463ex" viewBox="0 -993.5 7980.6 1491.2" role="img" focusable="false" style="vertical-align: -1.156ex;"><defs><path stroke-width="0" id="E1-MJMATHI-49" d="M43 1Q26 1 26 10Q26 12 29 24Q34 43 39 45Q42 46 54 46H60Q120 46 136 53Q137 53 138 54Q143 56 149 77T198 273Q210 318 216 344Q286 624 286 626Q284 630 284 631Q274 637 213 637H193Q184 643 189 662Q193 677 195 680T209 683H213Q285 681 359 681Q481 681 487 683H497Q504 676 504 672T501 655T494 639Q491 637 471 637Q440 637 407 634Q393 631 388 623Q381 609 337 432Q326 385 315 341Q245 65 245 59Q245 52 255 50T307 46H339Q345 38 345 37T342 19Q338 6 332 0H316Q279 2 179 2Q143 2 113 2T65 2T43 1Z"></path><path stroke-width="0" id="E1-MJMATHI-44" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path><path stroke-width="0" id="E1-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="0" id="E1-MJMATHI-6C" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path><path stroke-width="0" id="E1-MJMATHI-6F" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path><path stroke-width="0" id="E1-MJMATHI-67" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"></path><path stroke-width="0" id="E1-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E1-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="0" id="E1-MJMATHI-57" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path><path stroke-width="0" id="E1-MJMAIN-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path stroke-width="0" id="E1-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E1-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E1-MJMATHI-49" x="0" y="0"></use><use xlink:href="#E1-MJMATHI-44" x="504" y="0"></use><use xlink:href="#E1-MJMAIN-3D" x="1609" y="0"></use><use xlink:href="#E1-MJMATHI-6C" x="2665" y="0"></use><use xlink:href="#E1-MJMATHI-6F" x="2963" y="0"></use><g transform="translate(3448,0)"><use xlink:href="#E1-MJMATHI-67" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E1-MJMAIN-32" x="674" y="-213"></use></g><use xlink:href="#E1-MJMAIN-28" x="4379" y="0"></use><g transform="translate(4768,0)"><g transform="translate(120,0)"><rect stroke="none" width="861" height="60" x="0" y="220"></rect><use transform="scale(0.707)" xlink:href="#E1-MJMATHI-44" x="194" y="584"></use><use transform="scale(0.707)" xlink:href="#E1-MJMATHI-57" x="84" y="-561"></use></g></g><use xlink:href="#E1-MJMAIN-2B" x="6091" y="0"></use><use xlink:href="#E1-MJMAIN-31" x="7091" y="0"></use><use xlink:href="#E1-MJMAIN-29" x="7591" y="0"></use></g></svg></span><script type="math/tex">ID = log_2 ( \frac {D} {W} + 1)</script></p><ul><li><span>D: Distancia hasta el centro del objetivo.</span></li><li><span>W: Ancho del objetivo medido sobre el eje del movimiento.</span></li></ul></li><li><p><span>MT - Tiempo medio: Necesario para alcanzar un elemento de la interfaz. </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="17.525ex" height="2.184ex" viewBox="0 -773.1 7545.4 940.4" role="img" focusable="false" style="vertical-align: -0.388ex;"><defs><path stroke-width="0" id="E2-MJMATHI-4D" d="M289 629Q289 635 232 637Q208 637 201 638T194 648Q194 649 196 659Q197 662 198 666T199 671T201 676T203 679T207 681T212 683T220 683T232 684Q238 684 262 684T307 683Q386 683 398 683T414 678Q415 674 451 396L487 117L510 154Q534 190 574 254T662 394Q837 673 839 675Q840 676 842 678T846 681L852 683H948Q965 683 988 683T1017 684Q1051 684 1051 673Q1051 668 1048 656T1045 643Q1041 637 1008 637Q968 636 957 634T939 623Q936 618 867 340T797 59Q797 55 798 54T805 50T822 48T855 46H886Q892 37 892 35Q892 19 885 5Q880 0 869 0Q864 0 828 1T736 2Q675 2 644 2T609 1Q592 1 592 11Q592 13 594 25Q598 41 602 43T625 46Q652 46 685 49Q699 52 704 61Q706 65 742 207T813 490T848 631L654 322Q458 10 453 5Q451 4 449 3Q444 0 433 0Q418 0 415 7Q413 11 374 317L335 624L267 354Q200 88 200 79Q206 46 272 46H282Q288 41 289 37T286 19Q282 3 278 1Q274 0 267 0Q265 0 255 0T221 1T157 2Q127 2 95 1T58 0Q43 0 39 2T35 11Q35 13 38 25T43 40Q45 46 65 46Q135 46 154 86Q158 92 223 354T289 629Z"></path><path stroke-width="0" id="E2-MJMATHI-54" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path><path stroke-width="0" id="E2-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="0" id="E2-MJMATHI-61" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path><path stroke-width="0" id="E2-MJMAIN-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path stroke-width="0" id="E2-MJMATHI-62" d="M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"></path><path stroke-width="0" id="E2-MJMAIN-2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path><path stroke-width="0" id="E2-MJMATHI-49" d="M43 1Q26 1 26 10Q26 12 29 24Q34 43 39 45Q42 46 54 46H60Q120 46 136 53Q137 53 138 54Q143 56 149 77T198 273Q210 318 216 344Q286 624 286 626Q284 630 284 631Q274 637 213 637H193Q184 643 189 662Q193 677 195 680T209 683H213Q285 681 359 681Q481 681 487 683H497Q504 676 504 672T501 655T494 639Q491 637 471 637Q440 637 407 634Q393 631 388 623Q381 609 337 432Q326 385 315 341Q245 65 245 59Q245 52 255 50T307 46H339Q345 38 345 37T342 19Q338 6 332 0H316Q279 2 179 2Q143 2 113 2T65 2T43 1Z"></path><path stroke-width="0" id="E2-MJMATHI-44" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E2-MJMATHI-4D" x="0" y="0"></use><use xlink:href="#E2-MJMATHI-54" x="1051" y="0"></use><use xlink:href="#E2-MJMAIN-3D" x="2032" y="0"></use><use xlink:href="#E2-MJMATHI-61" x="3088" y="0"></use><use xlink:href="#E2-MJMAIN-2B" x="3839" y="0"></use><use xlink:href="#E2-MJMATHI-62" x="4840" y="0"></use><use xlink:href="#E2-MJMAIN-2217" x="5491" y="0"></use><use xlink:href="#E2-MJMATHI-49" x="6213" y="0"></use><use xlink:href="#E2-MJMATHI-44" x="6717" y="0"></use></g></svg></span><script type="math/tex">MT = a+b*ID</script></p><ul><li><span>a: tiempo de inicio o parada en segundos.</span></li><li><span>b: velocidad inherente del dispositivo.</span></li></ul></li></ul></li><li><p><span>Ley de Hick: El tiempo que se tarda en tomar una decisión aumenta a medida que se incrementa el número de alternativas.</span></p><ul><li><p><span>El tiempo para elegir una opción entre n alternativas. </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="23.171ex" height="2.696ex" viewBox="0 -828.2 9976.4 1160.7" role="img" focusable="false" style="vertical-align: -0.772ex;"><defs><path stroke-width="0" id="E3-MJMATHI-54" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path><path stroke-width="0" id="E3-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="0" id="E3-MJMATHI-61" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path><path stroke-width="0" id="E3-MJMAIN-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path stroke-width="0" id="E3-MJMATHI-62" d="M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"></path><path stroke-width="0" id="E3-MJMAIN-2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path><path stroke-width="0" id="E3-MJMATHI-6C" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path><path stroke-width="0" id="E3-MJMATHI-6F" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path><path stroke-width="0" id="E3-MJMATHI-67" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"></path><path stroke-width="0" id="E3-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E3-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="0" id="E3-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="0" id="E3-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E3-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E3-MJMATHI-54" x="0" y="0"></use><use xlink:href="#E3-MJMAIN-3D" x="981" y="0"></use><use xlink:href="#E3-MJMATHI-61" x="2037" y="0"></use><use xlink:href="#E3-MJMAIN-2B" x="2788" y="0"></use><use xlink:href="#E3-MJMATHI-62" x="3789" y="0"></use><use xlink:href="#E3-MJMAIN-2217" x="4440" y="0"></use><use xlink:href="#E3-MJMATHI-6C" x="5162" y="0"></use><use xlink:href="#E3-MJMATHI-6F" x="5460" y="0"></use><g transform="translate(5945,0)"><use xlink:href="#E3-MJMATHI-67" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E3-MJMAIN-32" x="674" y="-213"></use></g><use xlink:href="#E3-MJMAIN-28" x="6875" y="0"></use><use xlink:href="#E3-MJMATHI-6E" x="7264" y="0"></use><use xlink:href="#E3-MJMAIN-2B" x="8087" y="0"></use><use xlink:href="#E3-MJMAIN-31" x="9087" y="0"></use><use xlink:href="#E3-MJMAIN-29" x="9587" y="0"></use></g></svg></span><script type="math/tex">T=a+b*log_2 (n+1)</script></p><ul><li><span>a y b coeficiente que se determina experimentalmente.</span></li></ul></li><li><p><span>Teniendo todas las opciones en el menú la misma probabilidad de ser elegidos.</span></p></li><li><p><span>En web:</span></p><ul><li><span>Se utilizan colores saturados para llamar la atención sobre algo.</span></li><li><span>Utiliza tipografía y tamaños neutros y equilibrados si deseas dar a elegir entre varias opciones del mismo nivel.</span></li><li><span>Utiliza el movimiento y la interacción para destacar poderosamente.</span></li><li><span>Utiliza el equilibrio de espacios, no situar elementos de igual importancia en lugares muy distantes.</span></li><li><span>Utiliza buena semántica a la hora de seleccionar las palabras que representan las opciones.</span></li></ul></li></ul></li></ul></li></ul></li></ul><h2><a name="diseño-conceptual" class="md-header-anchor"></a><span>Diseño conceptual</span></h2><ul><li><p><span>Tiene como objetivo transformar los requisitos y necesidades del usuario en un modelo conceptual.</span></p></li><li><p><span>Un modelo conceptual es una descripción del sistema propuesto como un conjunto integrado de ideas y conceptos sobre qué debería hacer, cómo debería comportarse y cómo debe ser su apariencia.</span></p><ul><li><span>Los usuarios realizan su modelo mental.</span></li><li><span>Los diseñadores realizan un diseño conceptual.</span></li></ul></li><li><p><span>Etapa muy ligada a la recogida de información, hay que diferenciar entre que debería hacer y solución adoptada.</span></p></li><li><p><span>Guías a tener en cuenta:</span></p><ul><li><span>Mantener una mente abierta sin olvidar a los usuarios y su contexto.</span></li><li><span>Discutir las ideas como los usuarios del sistema.</span></li><li><span>Usar prototipos de baja calidad para conseguir información rápidamente.</span></li><li><span>Iterar, iterar e iterar.</span></li></ul></li><li><p><span>Manera de pensar el modelo conceptual:</span></p><ul><li><p><span>Modo de interacción: Forma en que el usuario invoca acciones cuando interactúa con el dispositivo.</span></p><ul><li><p><span>Depende de la actividades que el usuario va a llevar a cabo con el producto.</span></p></li><li><p><span>Modo de interacción vs Estilo de interacción:</span></p><ul><li><span>Estilo de interacción: Tipo de IU y la interacción que implica.</span></li><li><span>Modo de interacción: Como interactúa con el producto, como tipo de acción.</span></li></ul></li><li><p><span>Tipos:</span></p><ul><li><p><span>Basado en actividades:</span></p><ul><li><span>Instrucciones: Dar instrucciones y el sistema responde.</span></li><li><span>Conversación: Un dialogo entre el usuario y el sistema, el usuario consulta y el sistema le responde dando opciones o lugar a continuar.</span></li><li><span>Manipulación y navegación: Manipular, moverse por los elementos.</span></li><li><span>Exploración y hojeado: Moverse por las opciones o el contenido.</span></li></ul></li><li><p><span>Basado en objetos:</span></p><ul><li><span>Analogías: Por asociación de los elementos del sistema con el mundo real. Como un carrito de la compra o escritorio.</span></li></ul></li><li><p><span>Otras alternativas:</span></p><ul><li><span>Modelos orientados a los procesos: No se puede identificar un trabajo fundamental. No realiza una tarea concreta.</span></li><li><span>Modelos orientados a productos: Productos son identificables individualmente. No se parte de 0, se tiene un producto y se trabaja sobre él, se trabaja para mejorarlo o añadir cosas.</span></li></ul></li></ul></li></ul></li><li><p><span>Existencia de una metáfora:</span></p><ul><li><p><span>Tienen como objetivo combinar conocimiento familiar con otro nuevo, de manera que ayudan al usuario a comprender el sistema y balancear la combinación de elementos nuevo con elementos conocidos.</span></p></li><li><p><span>Proceso para seleccionar una buena metáfora:</span></p><ul><li><span>Comprender qué hará el sistema.</span></li><li><span>Identificar que parte del sistema pueden causar problemas.</span></li><li><span>Generar metáforas.</span></li></ul></li><li><p><span>Cuestiones a responder por una posible metáfora:</span></p><ul><li><span>Estructura.</span></li><li><span>Relevancia.</span></li><li><span>Representación.</span></li><li><span>Comprensión, fácil de entender por todos.</span></li><li><span>Extensibilidad, si se puede usar en más lugares.</span></li></ul></li></ul></li><li><p><span>Paradigma de interacción a utilizar:</span></p><ul><li><span>Filosofías de diseño que ayudan a desarrollar el producto.</span></li><li><span>Dejar todo de lado y pensar cómo se haría la interacción de la forma más fácil y cumpliendo los objetivos del usuario.</span></li></ul></li></ul></li><li><p><span>Sirven para tener una visión del producto. Pensar de una manera ideal como lograr el objetivo y más adelante se pondrán las restricciones.</span></p></li><li><p><span>Estas ideas deben ser pensadas antes de realizar un prototipo o de ser evaluadas con los usuarios.</span></p></li><li><p><span>Aspectos a tener en cuenta.</span></p><ul><li><span>Tecnologías a utilizar.</span></li><li><span>Interfaces a usar.</span></li><li><span>Qué conceptos tienen que ser comunicados y cómo se estructuran, relacionan y presentan.</span></li></ul></li></ul></li><li><p><span>TEMA 5 - Paradigma de interacción</span></p><p><a href='IU/tema5.pdf'><span>tema5.pdf</span></a></p></li></ul><h1><a name="práctica" class="md-header-anchor"></a><span>Práctica</span></h1><p><a href='IU/81-IU-cronograma_-_2020.pdf'><span>Calendario Prácticas.pdf</span></a></p><ul><li><p><span>Tema 1</span></p><p><a href='IU/ejemplo-modelo-Norman.pdf'><span>ejemplo-modelo-Norman.pdf</span></a></p><p><a href='IU/Ejercicio1-ModeloNorman.pdf'><span>Ejercicio1-ModeloNorman.pdf</span></a></p></li><li><p><span>TECNOLOGÍAS WEB - HTML5 Y CSS3</span></p><p><a href='IU/ep01-enunciado.pdf'><span>ep01-enunciado.pdf</span></a></p><ul><li><p><span>La web surge nace sobre el año 94 con Tim Berners-Lee en CERN para poder conectar todos los ordenadores para compartir datos sin la necesidad de un dispositivo físico. A partir de ahí la idea fue comprada por empresas y universidades.</span></p></li><li><p><span>Diferencia entre web e internet</span></p><ul><li><span>WEB: Es una colección de páginas web con hipervínculos que establecen conexiones entre ellas.</span></li><li><span>Internet: Red de ordenadores.</span></li></ul></li><li><p><span>WWW: World Wide Web= Red Informática Global.</span></p></li></ul><h3><a name="arquitectura-cliente-servidor" class="md-header-anchor"></a><span>Arquitectura cliente-servidor</span></h3><p><span>El cliente pide información al servido, este se la entrega y la muestra al cliente. Se realiza mediante el protocolo HTTP.</span></p><ul><li><span>Protocolo HTTP: En la arquitectura cliente servidor, el cliente envía datos al servidor a través del protocolo HTTP. El servidor responde con la información solicitada codificada en HTML. El cliente interpreta el código HTML, ya que hay por ejemplo diferente horas según el país.</span></li><li><span>El cliente se conecta mediante una URL - Uniform Resource Locator, secuencia de caracteres que sigue un formato estándar y que se usa para localizar recursos en los servidores.</span></li></ul><h3><a name="html---hypertext-markup-language" class="md-header-anchor"></a><span>HTML - Hypertext Markup Language</span></h3><p><span>Es un lenguaje de marcado estándar para codificar páginas web.</span></p><ul><li><span>Se centra en definir la estructura de una página web.</span></li><li><span>Se compone de una serie de elementos llamados etiquetas que indican al navegador la función del información contenida.</span></li></ul><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="html"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="html"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 37px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>13</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 29px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">&lt;!DOCTYPE html&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">html</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>Page Title<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">head</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">body</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">h1</span><span class="cm-tag cm-bracket">&gt;</span>First Heading<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">h1</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">h1</span> <span class="cm-attribute">style</span>=<span class="cm-string">"color:blue"</span><span class="cm-tag cm-bracket">&gt;</span>First Heading in blue<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">h1</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span>This is a paragraph<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 29px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">href</span>=<span class="cm-string">"https://www.w3schools.com/"</span><span class="cm-tag cm-bracket">&gt;</span>Acceder a w3school<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">"fotoEnLocal.png"</span> <span class="cm-attribute">alt</span>=<span class="cm-string">"InfoFoto"</span> <span class="cm-attribute">width</span>=<span class="cm-string">"500"</span> <span class="cm-attribute">heigh</span>=<span class="cm-string">"333"</span><span class="cm-tag cm-bracket">/&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">body</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 29px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">html</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 215px;"></div><div class="CodeMirror-gutters" style="height: 215px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 38px;"></div></div></div></div></pre><h3><a name="css" class="md-header-anchor"></a><span>CSS</span></h3><p><span>Nos permite realizar plantillas de estilo, para poder modificar y realizar cambios más grandes a la web completa.</span></p><p><span>Clase: class=&quot;nombre&quot;  .nombre{} Definir partes del codigo que varien de las generales.</span></p><p><span>Identificador: id=&quot;nombre&quot;  #nombre{} Se puede usar una sola vez.</span></p><p><span>Padre &gt; hijo: Se aplican reglas de estilo, para los tipo hijo que estan dentro del tipo padre.</span></p><p><span>Partes:</span></p><p><span>Content: El texto</span></p><p><span>Padding: Margen interior.</span></p><p><span>Border: Limite entre margen interior y exterior.</span></p><p><span>Margin: Margen exterior.</span></p><p><span>div: Cajas sin formato.</span></p><p><span>clear:both; Limpiar los float para que no se meta en el espacio en blanco.</span></p><h3><a name="consortium-w3c-httpvalidatorw3orghttpvalidatorw3org" class="md-header-anchor"></a><span>Consortium W3C (</span><a href='http://validator.w3.org/'><span>http://validator.w3.org/</span></a><span>)</span></h3><ul><li><span>Es la organización internacional para la creación de estándares web. Por ejemplo, poner la etiquetas de cerrado siempre.</span></li><li><span>Fue fundada por Tim Berners-Lee en 1994</span></li><li><span>Desarrolla estándares de lenguaje com HTML y CSS.</span></li></ul></li><li><p><span>JavaScript</span></p><p><span>En un archivo .js</span></p><p><span>Mejor usar .addEventListener(evento, accion) que poner en el html atributos.</span></p><p><span>Crear funciones que se llamen, no se que se ejecuten nada mas se cargue.</span></p></li><li><p><span>Prototipado</span></p><p><a href='IU/Ejercicio2-Prototipado-100405951.pdf'><span>Ejercicio2-Prototipado-100405951.pdf</span></a></p></li></ul><p><a href='IU/Ejercicio3-HeuristicasPatrones-100405951.pdf'><span>Ejercicio3-HeuristicasPatrones-100405951.pdf</span></a></p><p><a href='IU/Ejercicio4-HTAGOMS-100405951.pdf'><span>Ejercicio4-HTA&amp;GOMS-100405951.pdf</span></a></p><h1><a name="recursos" class="md-header-anchor"></a><span>Recursos</span></h1><p><span>Tutoriales de HTML en </span><a href='https://www.w3schools.com/'><span>https://www.w3schools.com/</span></a></p><p><a href='https://www.w3schools.com/'><span>W3Schools Online Web Tutorials</span></a></p><p><span>Página para poder trabajar online en HTML en:</span></p><p><a href='https://repl.it/'><span>The collaborative browser based IDE</span></a></p><ul><li><span>El cliente pide información al servido, este se la entrega y la muestra al cliente. Se realiza mediante el protocolo HTTP.</span></li><li><span>Protocolo HTTP: En la arquitectura cliente servidor, el cliente envía datos al servidor a través del protocolo HTTP. El servidor responde con la información solicitada codificada en HTML. El cliente interpreta el código HTML, ya que hay por ejemplo diferente horas según el país.</span></li><li><span>El cliente se conecta mediante una URL - Uniform Resource Locator, secuencia de caracteres que sigue un formato estándar y que se usa para localizar recursos en los servidores.</span></li></ul></div>
+</body>
+</html>
