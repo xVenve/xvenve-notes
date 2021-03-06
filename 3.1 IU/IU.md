@@ -11,13 +11,15 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
 
 - TEMA 1
 
-    [tema1-hci.pdf](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/tema1-hci.pdf)
+    [tema1-hci.pdf](IU/tema1-hci.pdf)
 
     # Interacción Persona-Ordenador:
 
     - Estamos desde el punto de vista del usuario, para ver como de accesible y fáciles de usar son los productos interactivos.
+        
         - Primero se llamó Man-Machine Interface, después Human-Computer Interaction - HCI ó IPO.
     - Los productos interactivos: Aquellos que al recibir datos del usuario realizan acciones o devuelven un resultado. Pueden tener diferente tamaño, uso y características.
+        
         - Un lenguaje de entrada para el usuario, de salida para el sistema y un protocolo de interacción.
     - Los productos están diseñados para desempeñar una tarea, pero no siempre se tiene en cuentas las personas reales que los utilizan, hay que tener en cuenta quien y como lo van a utilizar.
     - Lo primero es pensar en el usuario, saber a quién va dirigido y escuchar sus necesidades.
@@ -43,12 +45,12 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
             - Para obtener una buena usabilidad, es necesario encontrar los factores que determinen como se usan, desarrollar las herramientas y técnicas que ayuden a los diseñadores a crear sistemas eficientes, efectivos y seguros para el usuario.
                 - Diagrama
 
-                    ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled.png)
+                    <img src="IU/Untitled.png" alt="IU/Untitled.png" style="zoom:67%;" />
 
     - Factores relacionados con HCI
         - Diagrama
 
-            ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%201.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%201.png)
+            <img src="IU/Untitled%201.png" alt="IU/Untitled%201.png" style="zoom:67%;" />
 
     - Es multidisciplinar, implica diseño, evaluación e implementación sistemas interactivos y el estudio de los grandes fenómenos alrededor del dicho sistema.
         - Sociología - Entender como la estructura social y la organización de las personas afectan a la manera de las personas de realizar las tareas.
@@ -98,11 +100,11 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
     - Respecto al modelo de Norman se influye la IU de forma explícita, que realiza la traducción entre lenguaje de usuario y lenguaje del sistema y viceversa.
         - Diagrama
 
-            ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%202.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%202.png)
+            <img src="IU/Untitled%202.png" alt="IU/Untitled%202.png" style="zoom:67%;" />
 
 - TEMA 2 - Interfaces de Usuario
 
-    [tema2-1-InterfazUsuario.pdf](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/tema2-1-InterfazUsuario.pdf)
+    [tema2-1-InterfazUsuario.pdf](IU/tema2-1-InterfazUsuario.pdf)
 
     # Interfaz de usuario
 
@@ -333,7 +335,7 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
 
     ## El proceso de diseño
 
-    ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%203.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%203.png)
+    <img src="IU/Untitled%203.png" alt="IU/Untitled%203.png" style="zoom:33%;" />
 
     - What is wanted: Que conocen los usuarios y que necesitan.
         - Conocer al usuario:
@@ -359,20 +361,21 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
             - El usuario es el centro del proceso de diseño.
             - El usuario tiene que entender la imagen del sistema definida por el diseñador.
                 - User requirements: Entender y especificar el contexto de uso.
+                    
                     - Identificar a los usuarios a los que se dirige el producto, para que lo usaran y en qué condiciones.
                 - Analysis: Especificar requisitos.
                     - Identificar los objetivos del usuario que el producto deberá satisfacer.
                     - Se llevarán a cabo actividades que involucran el usuario, como entrevistar, grupos focales, etc.
                 - Design: Producir varias soluciones de diseño a través de prototipos.
+                    
                     - Los prototipos se podrán diseñar con varios niveles de detalles dependiente de las necesidades del diseñador.
                 - Evaluation: La evolución es la fase más importante del proceso.
+    
                     - Se validan los prototipos para comprobar si satisfacen los requisitos o por el contrario se detectan problemas de usabilidad.
-                - Diseño iPhone
-
-                    ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%204.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%204.png)
-
-                    ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%205.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%205.png)
-
+- Diseño iPhone
+                
+            <img src="IU/Untitled%204.png" alt="IU/Untitled%204.png" style="zoom: 50%;" /><img src="IU/Untitled%205.png" alt="IU/Untitled%205.png" style="zoom:50%;" />
+        
     - Prototype: Creación de un prototipo para captar nuevos requisitos y cambios.
         - ¿Qué es?
             - Conjunto de bocetos de las pantallas.
@@ -403,10 +406,10 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
                 4. High visual + high functionality: Realizados durante el último paso antes del desarrollo del producto final. Se usan para evaluar la usabilidad de las funciones y de la interfaz tal y como será en el producto final.
             - Interacción – hasta qué punto el usuario puede interactuar con el prototipo.
             - Evolución – el ciclo de vida del prototipo.
-    - Implement and deploy: Creamos el producto y lo lanzamos.
-
-    # Accesibilidad
-
+- Implement and deploy: Creamos el producto y lo lanzamos.
+    
+# Accesibilidad
+    
     - Que se pueda utilizar por cualquier persona a pesar de limitaciones físicas, psíquicas o del contexto. Se trata de diseñar para todos los usuarios posibles.
     - Los sistemas usables tienen como objetivo el satisfacer a personas con diferentes características, necesidades y requisitos.
         - Personas con discapacidad
@@ -514,7 +517,7 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
     - Aspectos a considerar en el diseño del sitio:
         - Estructura de la información.
 
-            ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%206.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%206.png)
+            <img src="IU/Untitled%206.png" alt="IU/Untitled%206.png" style="zoom:50%;" />
 
             - Centrada en las tareas del usuario.
             - Anteponer anchura frente a profundidad, poder ver las principales tareas primero, y si se quiere más información se profundiza.
@@ -546,6 +549,7 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
         - Navegación por el sitio.
             - Navegación: Capacidad de moverse por el sitio web para conseguir los objetivos del usuario.
             - Es la forma básica de recogida de información en los sitios web.
+                
                 - Se puede hacer mediante: Enlaces u otro tipo de herramienta.
             - Estoy:
                 - En la web como un todo, título de la página, breve introducción...
@@ -554,6 +558,7 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
                 - Basándose en el navegador, botón atrás, historial…
                 - Basándose en el diseño del sitio web, migas de pan, cookies…
             - Puedo ir:
+                
                 - Enlace y ayudas a la navegación
             - Tipos de enlaces
                 - Estructurales
@@ -577,35 +582,35 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
                     - Imágenes
                     - Mapa en el que se puede acceder a secciones del lugar.
                     - Migas de pan- bread crumbs.
-            - Ayudas a la navegación
+- Ayudas a la navegación
                 - Visita guiada
 
-                    ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%207.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%207.png)
+                    <img src="IU/Untitled%207.png" alt="IU/Untitled%207.png" style="zoom:50%;" />
 
                 - Mapas del sitio
 
-                    ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%208.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%208.png)
+                    <img src="IU/Untitled%208.png" alt="IU/Untitled%208.png" style="zoom:50%;" />
 
                 - Directorios
 
-                    ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%209.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%209.png)
+                    <img src="IU/Untitled%209.png" alt="IU/Untitled%209.png" style="zoom:50%;" />
 
                 - Volver atrás (migas de pan): Ir a secciones superiores en la jerarquía.
 
-                    ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2010.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2010.png)
+                    <img src="IU/Untitled%2010.png" alt="IU/Untitled%2010.png" style="zoom:50%;" />
 
                 - Opciones de ayuda: Dar más información de un contenido/termino
 
-                    ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2011.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2011.png)
+                    <img src="IU/Untitled%2011.png" alt="IU/Untitled%2011.png" style="zoom:50%;" />
 
                 - Opciones de búsqueda: Barra de búsqueda
 
-                    ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2012.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2012.png)
+                    <img src="IU/Untitled%2012.png" alt="IU/Untitled%2012.png" style="zoom:50%;" />
 
                 - Uso de metáforas (por ejemplo, un calendario): Por asociación a algo que existe en el mundo real.
 
-                    ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2013.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2013.png)
-
+                    <img src="IU/Untitled%2013.png" alt="IU/Untitled%2013.png" style="zoom:50%;" />
+            
             - Problema
                 - No indicar al usuario donde se encuentra
                     - Paginas en blanco
@@ -636,11 +641,11 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
                 - Los contenidos más importantes por encima del tamaño de página.
                 - Páginas cortas para la pagina principal, navegación o de acceso inmediato.
                 - El contenido por encima del tamaño normal debe animar o mostrar la utilidad de hacer scroll.
-                - Reducir el scroll vertical a un par de desplazamientos.
+            - Reducir el scroll vertical a un par de desplazamientos.
                 - Evitar siempre el scroll horizontal.
 
-                    ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2014.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2014.png)
-
+                    <img src="IU/Untitled%2014.png" alt="IU/Untitled%2014.png" style="zoom:67%;" />
+    
         - Widgets: componente software concebido para proveer información visual y facilitar una interacción determinada.
             - Proceso de diseño basado en widgets
                 - Estructurar la interacción.
@@ -695,11 +700,12 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
         - Orientar el diseño a los potenciales usuarios (características y necesidades).
             - El diseño de nuestra web debe estar orientado al usuario.
             - Hay que considerar las características y necesidades de los usuarios.
+            
                 - Edad, idioma, objetivos, requisitos de eficiencia o familiaridad.
-            - Diseño para todos: La usabilidad ha de garantizase para el máximo número de usuarios posibles, si necesidad de adaptación.
-
-                ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2015.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2015.png)
-
+- Diseño para todos: La usabilidad ha de garantizase para el máximo número de usuarios posibles, si necesidad de adaptación.
+            
+        <img src="IU/Untitled%2015.png" alt="IU/Untitled%2015.png" style="zoom:50%;" />
+            
         - Potenciar la legibilidad frente a la vistosidad
             - Combinación de elementos multimedia
                 - Evitar animaciones innecesarias y gráficos complejos.
@@ -716,12 +722,12 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
                 - Fuente de letra que facilite la lectura (Arial, Times, Sans Serif).
                 - Tamaño de fuente de letra adecuado (11-13 puntos).
                 - Adecuar el espacio entre líneas.
-                - No utilizar mayúsculas.
+            - No utilizar mayúsculas.
             - Justificar el texto a la izquierda.
-            - El fondo no debe dificultad la lectura.
-
-            ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2016.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2016.png)
-
+    - El fondo no debe dificultad la lectura.
+        
+        <img src="IU/Untitled%2016.png" alt="IU/Untitled%2016.png" style="zoom:67%;" />
+        
             - Calidad de la imagen vs cantidad de espacio
                 - Menor calidad de imagen.
                 - Imágenes de mejor calidad bajo demanda.
@@ -740,12 +746,12 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
                 - Usando los elementos multimedia para realzar el contenido de las páginas para que sean más fácilmente identificables.
                 - Empleando herramientas de navegación que den una idea de la estructura global/parcial.
             - Las metáforas son simulaciones de entorno ya conocidos por el usuario
-                - El escritorio, el libro electrónico, el carrito de compra...
+            - El escritorio, el libro electrónico, el carrito de compra...
                 - Siguen patrones de uso reconocibles por los usuarios.
-                - Incrementan la tangibilidad.
-
+            - Incrementan la tangibilidad.
+    
     ## Principio de diseño Web:
-
+    
     - Son abstracciones generalizables que tienen como objetivo orientar a los diseñadores. Procesen de la teoría, la experiencia y el sentido común. No existe una regla de oro.
     - Tipos de artefactos:
         - Heurísticas: abstracciones generalizables basadas en la experiencia, el sentido común o la teoría.
@@ -800,61 +806,62 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
                     - Paradas
                     - Resumen solución.
                     - Diagrama de solución.
-                    - Patrones relacionados.
+                - Patrones relacionados.
                 - Familias:
-                    - A: Especificar el género de nuestro sitio web, para personalizar el contenido y garantizar la mejor experiencia.
-
-                        ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2017.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2017.png)
-
-                    - B: Crear un marco de navegación, llegar al sitio Web a traces de diferentes caminos. Cumpliendo sus objetivos.
-
-                        ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2018.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2018.png)
-
-                    - C: Crear una página principal poderosa, que transmita lo que hace esta web, es la más visitada del sitio web.
-
-                        ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2019.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2019.png)
-
-                    - D: Escribir y administración del contenido, gestionar un volumen elevado de contenidos y hacer accesible el sitio.
-
-                        ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2020.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2020.png)
-
-                    - E: Establecer una relación de confianza y credibilidad con el usuario, esenciales para establecer una relación.
-
-                        ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2021.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2021.png)
-
-                    - H: Ayudar el cliente a completar tareas, minimizar problemas e incrementar el ratio de tareas completadas.
-
-                        ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2022.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2022.png)
-
-                    - I: Conseguir que la estructura de la página sea eficiente, claras , predecibles y fáciles de entender.
-
-                        ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2023.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2023.png)
-
-                    - J: Ayudar al usuario a encontrar el contenido de forma rápida.
-
-                        ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2024.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2024.png)
-
-                    - K: Hacer fácil de navegación, técnicas para organizar y mostrar los elementos de navegación de manera fácil de encontrar y entender.
-
-                        ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2025.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2025.png)
-
-                    - L: Hacer que vaya rápido el sitio web, los sitios lentos son frustrantes.
-
-                        ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2026.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2026.png)
-
+                - A: Especificar el género de nuestro sitio web, para personalizar el contenido y garantizar la mejor experiencia.
+    
+                    <img src="IU/Untitled%2017.png" alt="IU/Untitled%2017.png" style="zoom:80%;" />
+    
+                - B: Crear un marco de navegación, llegar al sitio Web a traces de diferentes caminos. Cumpliendo sus objetivos.
+    
+                    <img src="IU/Untitled%2018.png" alt="IU/Untitled%2018.png" style="zoom:80%;" />
+    
+                - C: Crear una página principal poderosa, que transmita lo que hace esta web, es la más visitada del sitio web.
+    
+                    <img src="IU/Untitled%2019.png" alt="IU/Untitled%2019.png" style="zoom:80%;" />
+    
+                - D: Escribir y administración del contenido, gestionar un volumen elevado de contenidos y hacer accesible el sitio.
+    
+                    <img src="IU/Untitled%2020.png" alt="IU/Untitled%2020.png" style="zoom:80%;" />
+    
+                - E: Establecer una relación de confianza y credibilidad con el usuario, esenciales para establecer una relación.
+    
+                    <img src="IU/Untitled%2021.png" alt="IU/Untitled%2021.png" style="zoom:80%;" />
+    
+                - H: Ayudar el cliente a completar tareas, minimizar problemas e incrementar el ratio de tareas completadas.
+    
+                    <img src="IU/Untitled%2022.png" alt="IU/Untitled%2022.png" style="zoom:80%;" />
+    
+                - I: Conseguir que la estructura de la página sea eficiente, claras , predecibles y fáciles de entender.
+    
+                    <img src="IU/Untitled%2023.png" alt="IU/Untitled%2023.png" style="zoom:80%;" />
+    
+                - J: Ayudar al usuario a encontrar el contenido de forma rápida.
+    
+                    <img src="IU/Untitled%2024.png" alt="IU/Untitled%2024.png" style="zoom:80%;" />
+    
+                - K: Hacer fácil de navegación, técnicas para organizar y mostrar los elementos de navegación de manera fácil de encontrar y entender.
+    
+                    <img src="IU/Untitled%2025.png" alt="IU/Untitled%2025.png" style="zoom:80%;" />
+    
+                - L: Hacer que vaya rápido el sitio web, los sitios lentos son frustrantes.
+    
+                        <img src="IU/Untitled%2026.png" alt="IU/Untitled%2026.png" style="zoom:80%;" />
+    
                 - 15 patrones comunes:
+                    
                     1. .
             - Proporcionan un vocabulario común
             - Proporcionan una forma efectiva de comunicar principios complejos
             - Ayudan a documentar las arquitecturas software.
             - Capturan las partes esenciales de un diseño de manera compacta
-            - Muestran más de una solución
+        - Muestran más de una solución
             - No proporcionan una solución exacta
-            - No resuelven todos los problemas de diseño
-            - Proceso de desarrollo: Los patrones de diseño web se pueden aplicar a lo largo de todo el proceso de desarrollo.
-
-                ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2027.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2027.png)
-
+        - No resuelven todos los problemas de diseño
+    - Proceso de desarrollo: Los patrones de diseño web se pueden aplicar a lo largo de todo el proceso de desarrollo.
+            
+        <img src="IU/Untitled%2027.png" alt="IU/Untitled%2027.png" style="zoom:80%;" />
+            
                 - Fase de descubrimiento: Localizar clientes objetivos y sus necesidades, y los objetivos de negocios.
                     - Proceso: Determinar el objetivo global. Decidir la proporción de valor del sitio. Hacer lo básico primero.
                 - Fase de exploración: Generación y evaluación de varios diseños. Reflejan ideas no implementadas.
@@ -866,7 +873,7 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
         - Métodos de inspección: conjunto de procedimientos que permiten evaluar una interfaz a fin de determinar su grado de usabilidad.
 - TEMA 4 - Interacción con las interfaces
 
-    [tema4-RequisitosyModelosInteraccion.pdf](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/tema4-RequisitosyModelosInteraccion.pdf)
+    [tema4-RequisitosyModelosInteraccion.pdf](IU/tema4-RequisitosyModelosInteraccion.pdf)
 
     # Diseño de la interacción
 
@@ -886,7 +893,7 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
     - Enfoque linear y secuencial al desarrollo software.
     - Hay que primero tener en cuenta los requisitos del sistema y luego tener diseño básico antes de empezar la implementación y la fase de pruebas.
 
-        ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2028.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2028.png)
+        <img src="IU/Untitled%2028.png" alt="IU/Untitled%2028.png" style="zoom:80%;" />
 
     - Los requisitos no se pueden cambiar durante las fases siguientes.
     - No es un modelo centrado en el usuario porque no toma en cuenta formalmente el usuario.
@@ -1091,9 +1098,9 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
                     - Ejem: Plan 2: hacer 2.1-2.4-2.5. Si no se identifica el libro hacer 2.2-2.3-2.4-2.5
             - Un HTA esta completo si esta en texto y gráfico.
 
-                ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2029.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2029.png)
+                <img src="IU/Untitled%2029.png" alt="IU/Untitled%2029.png" style="zoom:80%;" />
 
-                ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2030.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2030.png)
+                <img src="IU/Untitled%2030.png" alt="IU/Untitled%2030.png" style="zoom:80%;" />
 
             - Se ponen las tareas como hijas de las tarea padre, y cuando no tienen subtareas se pone una línea horizontal debajo.
             - Se ponen los planes próximo a la tarea a la que corresponde.
@@ -1115,9 +1122,9 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
                 - Se necesita una herramienta que automatice el proceso.
                 - Ejemplo:
 
-                    ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2031.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2031.png)
+                    <img src="IU/Untitled%2031.png" alt="IU/Untitled%2031.png" style="zoom:80%;" />
 
-                    ![Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2032.png](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Untitled%2032.png)
+                    <img src="IU/Untitled%2032.png" alt="IU/Untitled%2032.png" style="zoom:80%;" />
 
             - Keystroke-Level Model KLM - KLM: Evalúa el rendimiento de un sistema.
                 - Asigna un tiempo determinado a cada acción, salvo para el ratón que depende de la distancia entre el punto de partida y de llegada.
@@ -1204,21 +1211,21 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
         - Qué conceptos tienen que ser comunicados y cómo se estructuran, relacionan y presentan.
 - TEMA 5 - Paradigma de interacción
 
-    [tema5.pdf](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/tema5.pdf)
+    [tema5.pdf](IU/tema5.pdf)
 
 # Práctica
 
-[Calendario Prácticas.pdf](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/81-IU-cronograma_-_2020.pdf)
+[Calendario Prácticas.pdf](IU/81-IU-cronograma_-_2020.pdf)
 
 - Tema 1
 
-    [ejemplo-modelo-Norman.pdf](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/ejemplo-modelo-Norman.pdf)
+    [ejemplo-modelo-Norman.pdf](IU/ejemplo-modelo-Norman.pdf)
 
-    [Ejercicio1-ModeloNorman.pdf](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Ejercicio1-ModeloNorman.pdf)
+    [Ejercicio1-ModeloNorman.pdf](IU/Ejercicio1-ModeloNorman.pdf)
 
 - TECNOLOGÍAS WEB - HTML5 Y CSS3
 
-    [ep01-enunciado.pdf](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/ep01-enunciado.pdf)
+    [ep01-enunciado.pdf](IU/ep01-enunciado.pdf)
 
     - La web surge nace sobre el año 94 con Tim Berners-Lee en CERN para poder conectar todos los ordenadores para compartir datos sin la necesidad de un dispositivo físico. A partir de ahí la idea fue comprada por empresas y universidades.
     - Diferencia entre web e internet
@@ -1295,11 +1302,11 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
 
 - Prototipado
 
-    [Ejercicio2-Prototipado-100405951.pdf](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Ejercicio2-Prototipado-100405951.pdf)
+    [Ejercicio2-Prototipado-100405951.pdf](IU/Ejercicio2-Prototipado-100405951.pdf)
 
-[Ejercicio3-HeuristicasPatrones-100405951.pdf](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Ejercicio3-HeuristicasPatrones-100405951.pdf)
+[Ejercicio3-HeuristicasPatrones-100405951.pdf](IU/Ejercicio3-HeuristicasPatrones-100405951.pdf)
 
-[Ejercicio4-HTA&GOMS-100405951.pdf](Interfaces%20de%20Usuario%20cff1a67c397b423d8ab2c58219ed2de3/Ejercicio4-HTAGOMS-100405951.pdf)
+[Ejercicio4-HTA&GOMS-100405951.pdf](IU/Ejercicio4-HTAGOMS-100405951.pdf)
 
 # Recursos
 
