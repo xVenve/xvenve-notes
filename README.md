@@ -1,37 +1,54 @@
-## Welcome to GitHub Pages
+## First course
 
-You can use the [editor on GitHub](https://github.com/xVenve/notes/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+### First semester
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+* [Linear Algebra](1.1 AL/AL.md)
+* [Calculus](1.1 C/C.html)
+* [Physics](1.1 F/F.html)
+* [Programming](1.1 P/P.html)
+* [TBUI](1.1 TBUI/TBUI.html)
+* [TEOYE](1.1 TEOYE/TEOYE.html)
 
-### Markdown
+### Second semester
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+* [Data Structure And Algorithms](link)
+* [Logic](link)
+* [Discrete Mathematics](link)
+* [Physical Principles for CS](link)
+* [Computer Technology](link)
 
-```markdown
-Syntax highlighted code block
+## Second course
 
-# Header 1
-## Header 2
-### Header 3
+### First semester
 
-- Bulleted
-- List
+* [Name](link)
+* [Name](link)
+* [Name](link)
+* [Name](link)
+* [Name](link)
 
-1. Numbered
-2. List
+### Second semester
 
-**Bold** and _Italic_ and `Code` text
+* [Name](link)
+* [Name](link)
+* [Name](link)
+* [Name](link)
+* [Name](link)
 
-[Link](url) and ![Image](src)
-```
+## Third course
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### First semester
 
-### Jekyll Themes
+* [Name](link)
+* [Name](link)
+* [Name](link)
+* [Name](link)
+* [Name](link)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/xVenve/notes/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Second semester
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+* [Name](link)
+* [Name](link)
+* [Name](link)
+* [Name](link)
+* [Name](link)
