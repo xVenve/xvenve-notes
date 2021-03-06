@@ -16,10 +16,10 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
     # Interacción Persona-Ordenador:
 
     - Estamos desde el punto de vista del usuario, para ver como de accesible y fáciles de usar son los productos interactivos.
-        
+      
         - Primero se llamó Man-Machine Interface, después Human-Computer Interaction - HCI ó IPO.
     - Los productos interactivos: Aquellos que al recibir datos del usuario realizan acciones o devuelven un resultado. Pueden tener diferente tamaño, uso y características.
-        
+      
         - Un lenguaje de entrada para el usuario, de salida para el sistema y un protocolo de interacción.
     - Los productos están diseñados para desempeñar una tarea, pero no siempre se tiene en cuentas las personas reales que los utilizan, hay que tener en cuenta quien y como lo van a utilizar.
     - Lo primero es pensar en el usuario, saber a quién va dirigido y escuchar sus necesidades.
@@ -361,21 +361,22 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
             - El usuario es el centro del proceso de diseño.
             - El usuario tiene que entender la imagen del sistema definida por el diseñador.
                 - User requirements: Entender y especificar el contexto de uso.
-                    
+                  
                     - Identificar a los usuarios a los que se dirige el producto, para que lo usaran y en qué condiciones.
                 - Analysis: Especificar requisitos.
                     - Identificar los objetivos del usuario que el producto deberá satisfacer.
                     - Se llevarán a cabo actividades que involucran el usuario, como entrevistar, grupos focales, etc.
                 - Design: Producir varias soluciones de diseño a través de prototipos.
-                    
+                  
                     - Los prototipos se podrán diseñar con varios niveles de detalles dependiente de las necesidades del diseñador.
                 - Evaluation: La evolución es la fase más importante del proceso.
     
                     - Se validan los prototipos para comprobar si satisfacen los requisitos o por el contrario se detectan problemas de usabilidad.
 - Diseño iPhone
                 
-            <img src="IU/Untitled%204.png" alt="IU/Untitled%204.png" style="zoom: 50%;" /><img src="IU/Untitled%205.png" alt="IU/Untitled%205.png" style="zoom:50%;" />
         
+        <img src="IU/Untitled%204.png" alt="IU/Untitled%204.png" style="zoom: 50%;" /><img src="IU/Untitled%205.png" alt="IU/Untitled%205.png" style="zoom:50%;" />
+    
     - Prototype: Creación de un prototipo para captar nuevos requisitos y cambios.
         - ¿Qué es?
             - Conjunto de bocetos de las pantallas.
@@ -407,102 +408,103 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
             - Interacción – hasta qué punto el usuario puede interactuar con el prototipo.
             - Evolución – el ciclo de vida del prototipo.
 - Implement and deploy: Creamos el producto y lo lanzamos.
-    
+  
 # Accesibilidad
-    
-    - Que se pueda utilizar por cualquier persona a pesar de limitaciones físicas, psíquicas o del contexto. Se trata de diseñar para todos los usuarios posibles.
-    - Los sistemas usables tienen como objetivo el satisfacer a personas con diferentes características, necesidades y requisitos.
-        - Personas con discapacidad
-        - Personas de todas las edades
-        - Personas con diferentes habilidades y niveles de experiencia
-        - Personas de todo el mundo que hablan idiomas distintos
-        - Personas de diferentes cultura
-    - Tienen que tener en cuenta también el contexto en los que se utilizan, comunicación, trabajo, salud, cultura, etc.
-    - Tecnología adaptativa: Productos o dispositivos para mejorar o aumentar las capacidades funcionales de las personas con algún tipo de discapacidad.
-        - Teclado adaptativo: Las teclas son más grandes que las de un teclado normal y tienen colores alegres.
-            - Disposición clara y amigable para que los niños se familiaricen con el ordenador.
-            - Útil para personas con discapacidad de aprendizaje o motora.
-        - Footmouse – Ratón de pie: Un ratón que se puede utilizar con los pies, para mover el cursor y hacer clic.
-        - Lectores de pantalla, pantallas Braille para ciegos, magnificadores de pantalla, dispositivos de entrada y salida para personas con problemas de movimiento.
-    - Diseño universal: Diseño de productos usables para tod@s, sin necesidad de ser adaptados o mejorados, no necesita dispositivos adaptativos.
-        - Mejora la vida de tod@s, beneficios para todas las edades y habilidades.
-        - Siete principios para el diseño universal:
-            1. Uso equitativo: Diseño útil para todas las personas.
-            2. Uso flexible: El diseño se acomoda a un amplio rango de preferencias.
-            3. Uso simple e intuitivo: El uso del diseño es fácil de entender , sin importar la experiencia.
-            4. Información perceptible: El diseño transmite la información necesaria de forma efectiva al usuario.
-            5. Tolerancia al error: El diseño mínimiza riesgos y consecuencias de acciones involuntarias o accidentales.
-            6. Mínimo esfuerzo físico: El diseño puede ser usado cómodamente y eficientemente.
-            7. Tamaño de aproximación y uso: Tamaño y espacio adecuado para el alcance, manipulación y uso, independientemente del tamaño corporal, postura o movilidad del usuario.
-    - Design 4 All
-        - Incluye el diseño accesible, diseño inclusivo, diseño sin barreras, diseño universal.
-        - Aplica principios, métodos y herramientas específicas.
-        - Desarrolla servicios y productos IT accesibles y usables para todos. No se necesitan adaptaciones a posteriori.
-        - La comunicación entre los usuarios, los stakeholders y los equipos de diseños es fundamental.
-            - Entrevistas, cuestionarios, prototipos, observación, etc.
-    - Calidades del diseño
-        - Accesibilidad: Los productos tienen que tener en cuenta habilidades limitadas y específicas.
-        - Usabilidad: Los productos tienen que cumplir con los requisitos y las necesidades de los usuarios.
-    - Factores de diversidad:
-        - Diversidad de Usuarios:
-            - Discapacidad: Grupos de usuarios con habilidades y necesidades comunes para adaptar el diseño de la interacción.
-                - Percepción – discapacidad auditiva y visual.
-                - Movimiento – discapacidad física.
-                - Cognición – habilidades de la mente humana de procesar información, pensar, recordad, razonar y tomar decisiones.
-            - Edad: Perciben y procesan la información de forma distinta dependiendo de su edad. Puede ayudar al diseñador a tomar decisiones sobre cómo presentar la información.
-                - Niños.
-                - Mayores y ancianos.
-            - Experiencia: Dependen también de las experiencias y los conocimientos previos que tiene el usuario con la tecnología.
-                - Opciones accesibles: Menú de ayuda, documentación más detallada, uso de etiquetas e iconos.
-            - Cultura: Incluir detalles relacionados con la cultura del usuario, para hacer un sistema más inclusivo y tolerante.
-                - Barreras del idioma.
-                - Diferencias culturales al interpretar símbolos, colores, gestos…
-            - Social: Condición social y las oportunidades educativas pueden crear barreras de acceso a la tecnología.
-        - Diversidad Tecnológica: El entorno puede representar un impedimento a la hora de utilizar un sistema. El usuario podría resultar temporalmente discapacitado.
-            - Web Accessibility: Garantizar que personas con discapacidad u otros grupos de usuarios vulnerables puedan acceder, entender, navegar e interpretar con el contenido disponible en internet. También para que puedan contribuir publicando nuevo contenido.
-            - Guías Web de Accesibilidad:
-                - WCAG: Hacer todo el contenido web accesible. Basada en una amplia experiencia de expertos en el dominio.
-                    - Son principios generales de diseño accesible.
-                    - 3 niveles: A, AA y AAA.
-                - WAI-ARIA: Hacer el contenido dinámico y los controles avanzado de la interfaz de usuario accesibles. Los elementos web avanzados podrían afectar la accesibilidad.
-                - Surgen limitaciones en la aplicación de las guías: Necesitan un entrenamiento extensivo y lleva tiempo aplicarlas.
-                - Hay herramientas semiautomáticas para comprobar archivos HTML.
-    - Técnicas de interacción:
-        - Voz: Manos del usuario están ocupadas o no puede utilizar ni el teclado ni el ratón.
-            - Sistema de salida de voz.
-            - Sistemas de reconocimiento de voz.
-            - Sistemas de dialogo hablado, tanto entrada como salida.
-        - Háptica: Cooperación entre sensores en la piel y sensores en los músculos. Exploración a través de las manos para recopilar información a través del tacto activo.
-            - Tacto remoto, experiencia de un objeto distante.
-            - Leer textos, equivalencia táctil de letras visuales.
-            - Manipulación háptica de objetos.
-        - Interacción basada en escaneo: Interacción a través de interruptores, el marcador de enfoque escanea la interfaz para resaltar objetos interactivos secuencialmente.
-            - Es lento, pero útil.
-            - Se puede activar mediante diferentes modalidades.
-                - Mano, dedo, pie, lengua, cabeza, aliento, ojo, teclado, ratón.
-            - Para usuarios con dificultades para usar dispositivos de entrada clásicos.
-        - Eye tracking: Usar la mirada para comunicarse. Cuando la mirada es la única opción de comunicación disponible, se utiliza para seleccionar elementos.
-            - Problemas: Movimientos oculares involuntarios o demasiado rápidos.
-            - No se puede revisar lo que está escribiendo al mismo tiempo que se está escribiendo.
-            - Aproximadamente 10 palabras por minuto.
-        - Monitorización de gesto y cabeza: Los gestos como características importantes de las expresiones humanas.
-            - Varios enfoques para el reconocimiento de gestos.
-            - Interactuar mediante gestos.
-            - No solo gestos con las manos, sino también con la cabeza y el cuerpo.
-        - Interfaces cerebrales: Sistemas de comunicación en tiempo real para enviar mensajes usando bioseñales del cerebro.
-            - Usuarios con partes de su cerebro activas, pero si ningún otro medio de comunicación.
-            - Dos tipos:
-                - Invasivos: Sondas dentro del cerebro.
-                - No invasivo: Electrodos colocados externamente.
-            - Los biopotenciales son señales eléctricas obtenidas del cuerpo, cada una tiene sus propias características.
-        - Lenguaje de signos: Usuario que por determinadas circunstancias utiliza un lenguaje de señas para comunicarse.
-            - Sistemas de traducción automática de texto en ingles a animaciones en lenguaje de signos.
-            - Introducir comandos en un sistema informático usando lenguaje de signos y, com resultado obtener como salida, texto, voz o lengua de signos.
-        - Interfaces multimodales: Dos o más modos de entrada.
-            - Multisensorial: Múltiples modalidades sensoriales.
-            - Multicanal: varios canales para la misma o diferentes modalidades.
-            - Multitarea: Varias tareas al mismo tiempo.
-            - Multiforma: Las mismas tareas de formas alternativas.
+
+- Que se pueda utilizar por cualquier persona a pesar de limitaciones físicas, psíquicas o del contexto. Se trata de diseñar para todos los usuarios posibles.
+- Los sistemas usables tienen como objetivo el satisfacer a personas con diferentes características, necesidades y requisitos.
+    - Personas con discapacidad
+    - Personas de todas las edades
+    - Personas con diferentes habilidades y niveles de experiencia
+    - Personas de todo el mundo que hablan idiomas distintos
+    - Personas de diferentes cultura
+- Tienen que tener en cuenta también el contexto en los que se utilizan, comunicación, trabajo, salud, cultura, etc.
+- Tecnología adaptativa: Productos o dispositivos para mejorar o aumentar las capacidades funcionales de las personas con algún tipo de discapacidad.
+    - Teclado adaptativo: Las teclas son más grandes que las de un teclado normal y tienen colores alegres.
+        - Disposición clara y amigable para que los niños se familiaricen con el ordenador.
+        - Útil para personas con discapacidad de aprendizaje o motora.
+    - Footmouse – Ratón de pie: Un ratón que se puede utilizar con los pies, para mover el cursor y hacer clic.
+    - Lectores de pantalla, pantallas Braille para ciegos, magnificadores de pantalla, dispositivos de entrada y salida para personas con problemas de movimiento.
+- Diseño universal: Diseño de productos usables para tod@s, sin necesidad de ser adaptados o mejorados, no necesita dispositivos adaptativos.
+    - Mejora la vida de tod@s, beneficios para todas las edades y habilidades.
+    - Siete principios para el diseño universal:
+        1. Uso equitativo: Diseño útil para todas las personas.
+        2. Uso flexible: El diseño se acomoda a un amplio rango de preferencias.
+        3. Uso simple e intuitivo: El uso del diseño es fácil de entender , sin importar la experiencia.
+        4. Información perceptible: El diseño transmite la información necesaria de forma efectiva al usuario.
+        5. Tolerancia al error: El diseño mínimiza riesgos y consecuencias de acciones involuntarias o accidentales.
+        6. Mínimo esfuerzo físico: El diseño puede ser usado cómodamente y eficientemente.
+        7. Tamaño de aproximación y uso: Tamaño y espacio adecuado para el alcance, manipulación y uso, independientemente del tamaño corporal, postura o movilidad del usuario.
+- Design 4 All
+    - Incluye el diseño accesible, diseño inclusivo, diseño sin barreras, diseño universal.
+    - Aplica principios, métodos y herramientas específicas.
+    - Desarrolla servicios y productos IT accesibles y usables para todos. No se necesitan adaptaciones a posteriori.
+    - La comunicación entre los usuarios, los stakeholders y los equipos de diseños es fundamental.
+        - Entrevistas, cuestionarios, prototipos, observación, etc.
+- Calidades del diseño
+    - Accesibilidad: Los productos tienen que tener en cuenta habilidades limitadas y específicas.
+    - Usabilidad: Los productos tienen que cumplir con los requisitos y las necesidades de los usuarios.
+- Factores de diversidad:
+    - Diversidad de Usuarios:
+        - Discapacidad: Grupos de usuarios con habilidades y necesidades comunes para adaptar el diseño de la interacción.
+            - Percepción – discapacidad auditiva y visual.
+            - Movimiento – discapacidad física.
+            - Cognición – habilidades de la mente humana de procesar información, pensar, recordad, razonar y tomar decisiones.
+        - Edad: Perciben y procesan la información de forma distinta dependiendo de su edad. Puede ayudar al diseñador a tomar decisiones sobre cómo presentar la información.
+            - Niños.
+            - Mayores y ancianos.
+        - Experiencia: Dependen también de las experiencias y los conocimientos previos que tiene el usuario con la tecnología.
+            - Opciones accesibles: Menú de ayuda, documentación más detallada, uso de etiquetas e iconos.
+        - Cultura: Incluir detalles relacionados con la cultura del usuario, para hacer un sistema más inclusivo y tolerante.
+            - Barreras del idioma.
+            - Diferencias culturales al interpretar símbolos, colores, gestos…
+        - Social: Condición social y las oportunidades educativas pueden crear barreras de acceso a la tecnología.
+    - Diversidad Tecnológica: El entorno puede representar un impedimento a la hora de utilizar un sistema. El usuario podría resultar temporalmente discapacitado.
+        - Web Accessibility: Garantizar que personas con discapacidad u otros grupos de usuarios vulnerables puedan acceder, entender, navegar e interpretar con el contenido disponible en internet. También para que puedan contribuir publicando nuevo contenido.
+        - Guías Web de Accesibilidad:
+            - WCAG: Hacer todo el contenido web accesible. Basada en una amplia experiencia de expertos en el dominio.
+                - Son principios generales de diseño accesible.
+                - 3 niveles: A, AA y AAA.
+            - WAI-ARIA: Hacer el contenido dinámico y los controles avanzado de la interfaz de usuario accesibles. Los elementos web avanzados podrían afectar la accesibilidad.
+            - Surgen limitaciones en la aplicación de las guías: Necesitan un entrenamiento extensivo y lleva tiempo aplicarlas.
+            - Hay herramientas semiautomáticas para comprobar archivos HTML.
+- Técnicas de interacción:
+    - Voz: Manos del usuario están ocupadas o no puede utilizar ni el teclado ni el ratón.
+        - Sistema de salida de voz.
+        - Sistemas de reconocimiento de voz.
+        - Sistemas de dialogo hablado, tanto entrada como salida.
+    - Háptica: Cooperación entre sensores en la piel y sensores en los músculos. Exploración a través de las manos para recopilar información a través del tacto activo.
+        - Tacto remoto, experiencia de un objeto distante.
+        - Leer textos, equivalencia táctil de letras visuales.
+        - Manipulación háptica de objetos.
+    - Interacción basada en escaneo: Interacción a través de interruptores, el marcador de enfoque escanea la interfaz para resaltar objetos interactivos secuencialmente.
+        - Es lento, pero útil.
+        - Se puede activar mediante diferentes modalidades.
+            - Mano, dedo, pie, lengua, cabeza, aliento, ojo, teclado, ratón.
+        - Para usuarios con dificultades para usar dispositivos de entrada clásicos.
+    - Eye tracking: Usar la mirada para comunicarse. Cuando la mirada es la única opción de comunicación disponible, se utiliza para seleccionar elementos.
+        - Problemas: Movimientos oculares involuntarios o demasiado rápidos.
+        - No se puede revisar lo que está escribiendo al mismo tiempo que se está escribiendo.
+        - Aproximadamente 10 palabras por minuto.
+    - Monitorización de gesto y cabeza: Los gestos como características importantes de las expresiones humanas.
+        - Varios enfoques para el reconocimiento de gestos.
+        - Interactuar mediante gestos.
+        - No solo gestos con las manos, sino también con la cabeza y el cuerpo.
+    - Interfaces cerebrales: Sistemas de comunicación en tiempo real para enviar mensajes usando bioseñales del cerebro.
+        - Usuarios con partes de su cerebro activas, pero si ningún otro medio de comunicación.
+        - Dos tipos:
+            - Invasivos: Sondas dentro del cerebro.
+            - No invasivo: Electrodos colocados externamente.
+        - Los biopotenciales son señales eléctricas obtenidas del cuerpo, cada una tiene sus propias características.
+    - Lenguaje de signos: Usuario que por determinadas circunstancias utiliza un lenguaje de señas para comunicarse.
+        - Sistemas de traducción automática de texto en ingles a animaciones en lenguaje de signos.
+        - Introducir comandos en un sistema informático usando lenguaje de signos y, com resultado obtener como salida, texto, voz o lengua de signos.
+    - Interfaces multimodales: Dos o más modos de entrada.
+        - Multisensorial: Múltiples modalidades sensoriales.
+        - Multicanal: varios canales para la misma o diferentes modalidades.
+        - Multitarea: Varias tareas al mismo tiempo.
+        - Multiforma: Las mismas tareas de formas alternativas.
+
 - TEMA 3 - Diseño Web
 
     ## Diseño Web
@@ -549,7 +551,7 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
         - Navegación por el sitio.
             - Navegación: Capacidad de moverse por el sitio web para conseguir los objetivos del usuario.
             - Es la forma básica de recogida de información en los sitios web.
-                
+              
                 - Se puede hacer mediante: Enlaces u otro tipo de herramienta.
             - Estoy:
                 - En la web como un todo, título de la página, breve introducción...
@@ -558,7 +560,7 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
                 - Basándose en el navegador, botón atrás, historial…
                 - Basándose en el diseño del sitio web, migas de pan, cookies…
             - Puedo ir:
-                
+              
                 - Enlace y ayudas a la navegación
             - Tipos de enlaces
                 - Estructurales
@@ -585,71 +587,45 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
 - Ayudas a la navegación
                 - Visita guiada
 
-                    <img src="IU/Untitled%207.png" alt="IU/Untitled%207.png" style="zoom:50%;" />
-
-                - Mapas del sitio
-
-                    <img src="IU/Untitled%208.png" alt="IU/Untitled%208.png" style="zoom:50%;" />
-
-                - Directorios
-
-                    <img src="IU/Untitled%209.png" alt="IU/Untitled%209.png" style="zoom:50%;" />
-
-                - Volver atrás (migas de pan): Ir a secciones superiores en la jerarquía.
-
-                    <img src="IU/Untitled%2010.png" alt="IU/Untitled%2010.png" style="zoom:50%;" />
-
-                - Opciones de ayuda: Dar más información de un contenido/termino
-
-                    <img src="IU/Untitled%2011.png" alt="IU/Untitled%2011.png" style="zoom:50%;" />
-
-                - Opciones de búsqueda: Barra de búsqueda
-
-                    <img src="IU/Untitled%2012.png" alt="IU/Untitled%2012.png" style="zoom:50%;" />
-
-                - Uso de metáforas (por ejemplo, un calendario): Por asociación a algo que existe en el mundo real.
-
-                    <img src="IU/Untitled%2013.png" alt="IU/Untitled%2013.png" style="zoom:50%;" />
-            
             - Problema
-                - No indicar al usuario donde se encuentra
+    - No indicar al usuario donde se encuentra
                     - Paginas en blanco
-                    - Uso del mismo título en varias paginas
+        - Uso del mismo título en varias paginas
                     - Inconsistencia entre nombre del enlace y título de la página asociada.
-                - No indicar al usuario el camino
+    - No indicar al usuario el camino
                     - Enlaces auto-referenciados
-                    - Exceso de enlaces embebidos.
+        - Exceso de enlaces embebidos.
                     - Profundidad excesiva/ Demasiados niveles de búsqueda.
-                - No facilitar búsqueda adecuada
+    - No facilitar búsqueda adecuada
                     - Pobre navegación entre los resultados.
-                    - Resultados numerosos o poco relacionados.
-        - Interacción.
-    - Diseño detallado del sitio, aspectos a considerar en:
-        - Páginas: Cada uno de los documentos o espacios de interacción que conforman un sitio web.
-            - Principios básicos:
-                - Dar preponderancia al contenido frente a la estética o la navegación
-                - Separar contenido de presentación
-                - Independencia de plataforma
-                - Asegurar la consistencia
-            - Layout
-                - Crear agrupaciones intuitivas, de contenidos y de acciones.
-                - Destacar los componentes más importantes.
-                - Hacer los controles visibles.
-                - Equilibrio entre estética y usabilidad.
-                - Usar el espacio en blanco a fin de facilitar la exploración de contenidos.
-            - Scrolling:
-                - Los contenidos más importantes por encima del tamaño de página.
-                - Páginas cortas para la pagina principal, navegación o de acceso inmediato.
-                - El contenido por encima del tamaño normal debe animar o mostrar la utilidad de hacer scroll.
-            - Reducir el scroll vertical a un par de desplazamientos.
-                - Evitar siempre el scroll horizontal.
-
-                    <img src="IU/Untitled%2014.png" alt="IU/Untitled%2014.png" style="zoom:67%;" />
-    
-        - Widgets: componente software concebido para proveer información visual y facilitar una interacción determinada.
-            - Proceso de diseño basado en widgets
-                - Estructurar la interacción.
-                - Controlar la interacción.
+        - Resultados numerosos o poco relacionados.
+            - Interacción.
+- Diseño detallado del sitio, aspectos a considerar en:
+                - Páginas: Cada uno de los documentos o espacios de interacción que conforman un sitio web.
+        - Principios básicos:
+                        - Dar preponderancia al contenido frente a la estética o la navegación
+            - Separar contenido de presentación
+                        - Independencia de plataforma
+            - Asegurar la consistencia
+                    - Layout
+            - Crear agrupaciones intuitivas, de contenidos y de acciones.
+                        - Destacar los componentes más importantes.
+            - Hacer los controles visibles.
+                        - Equilibrio entre estética y usabilidad.
+                        - Usar el espacio en blanco a fin de facilitar la exploración de contenidos.
+                    - Scrolling:
+                        - Los contenidos más importantes por encima del tamaño de página.
+                        - Páginas cortas para la pagina principal, navegación o de acceso inmediato.
+                        - El contenido por encima del tamaño normal debe animar o mostrar la utilidad de hacer scroll.
+                    - Reducir el scroll vertical a un par de desplazamientos.
+                        - Evitar siempre el scroll horizontal.
+            
+                            <img src="IU/Untitled%2014.png" alt="IU/Untitled%2014.png" style="zoom:67%;" />
+            
+                - Widgets: componente software concebido para proveer información visual y facilitar una interacción determinada.
+                    - Proceso de diseño basado en widgets
+                        - Estructurar la interacción.
+                    - Controlar la interacción.
                 - Introducir información.
         - Contenidos: Conjunto de textos, imágenes, videos y, en general, elementos multimedia que determinan la información proporcionada por un sitio web.
             - Principios básicos:
@@ -669,7 +645,7 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
                     - Destacar la información de interés o más relevantes.
                 - No utilizar jerga.
     - Utilidad vs Usabilidad
-        - Relacionadas, pero no son lo mismo.
+    - Relacionadas, pero no son lo mismo.
         - Utilidad se refiere únicamente al uso que se hace de un sistema.
         - Usabilidad incluye no solo la usabilidad, sino también la eficiencia, seguridad, memorabilidad, capacidad de aprendizaje y satisfacción.
     - Recomendaciones para mejorar la utilidad
@@ -704,35 +680,10 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
                 - Edad, idioma, objetivos, requisitos de eficiencia o familiaridad.
 - Diseño para todos: La usabilidad ha de garantizase para el máximo número de usuarios posibles, si necesidad de adaptación.
             
-        <img src="IU/Untitled%2015.png" alt="IU/Untitled%2015.png" style="zoom:50%;" />
-            
-        - Potenciar la legibilidad frente a la vistosidad
-            - Combinación de elementos multimedia
-                - Evitar animaciones innecesarias y gráficos complejos.
-                - Evitar elementos simultáneos que demanden la atención.
-            - Considerar la capacidad de procesamiento de la información.
-            - El texto
-            - Las imágenes
-            - Las locuciones, primar la claridad.
-            - Las plantillas para organizar los elementos y crear composiciones de una forma armónica.
-            - Utilizar colores con alto contraste entre el texto y el fondo.
-            - El texto debe ser estático, sin elementos parpadeantes o en movimiento.
-            - Extensión de línea: unos 60 características.
-            - Tipo de letra:
-                - Fuente de letra que facilite la lectura (Arial, Times, Sans Serif).
-                - Tamaño de fuente de letra adecuado (11-13 puntos).
-                - Adecuar el espacio entre líneas.
-            - No utilizar mayúsculas.
-            - Justificar el texto a la izquierda.
     - El fondo no debe dificultad la lectura.
-        
+      
         <img src="IU/Untitled%2016.png" alt="IU/Untitled%2016.png" style="zoom:67%;" />
         
-            - Calidad de la imagen vs cantidad de espacio
-                - Menor calidad de imagen.
-                - Imágenes de mejor calidad bajo demanda.
-                - Debería verse completa en configuraciones estándar.
-                - Tener en cuenta el tamaño si queremos que se pueda imprimir.
         - Mantener la consistencia
             - Debe hacerse un uso semántico del color y de otros recursos audiovisuales.
             - Utilizar los nombres para referirse a las mismas cosas.
@@ -846,30 +797,21 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
     
                 - L: Hacer que vaya rápido el sitio web, los sitios lentos son frustrantes.
     
-                        <img src="IU/Untitled%2026.png" alt="IU/Untitled%2026.png" style="zoom:80%;" />
-    
                 - 15 patrones comunes:
-                    
+      
                     1. .
             - Proporcionan un vocabulario común
             - Proporcionan una forma efectiva de comunicar principios complejos
             - Ayudan a documentar las arquitecturas software.
             - Capturan las partes esenciales de un diseño de manera compacta
         - Muestran más de una solución
+            
             - No proporcionan una solución exacta
         - No resuelven todos los problemas de diseño
     - Proceso de desarrollo: Los patrones de diseño web se pueden aplicar a lo largo de todo el proceso de desarrollo.
             
         <img src="IU/Untitled%2027.png" alt="IU/Untitled%2027.png" style="zoom:80%;" />
             
-                - Fase de descubrimiento: Localizar clientes objetivos y sus necesidades, y los objetivos de negocios.
-                    - Proceso: Determinar el objetivo global. Decidir la proporción de valor del sitio. Hacer lo básico primero.
-                - Fase de exploración: Generación y evaluación de varios diseños. Reflejan ideas no implementadas.
-                    - Proceso: Generación del mapa del sitio. Evaluar los diseños con los clientes.
-                - Fase de refinamiento: Una vez seleccionada una idea de diseño, hay que explorarlo. Proporcionar la navegación, las plantillas y el flujo.
-                    - Proceso: Iterativamente refinar, detallar y probar indefinidamente. Determinar tipos de páginas. Determinar aspectos, pero no contenidos.
-                - Fase de producción: Crear una especificación detalla del sitio. Proporcionar la navegación, las platilla y el flujo.
-                    - Proceso: Definir detalladamente el sitio, creando prototipos interactivos. Evaluación del sitio con clientes.
         - Métodos de inspección: conjunto de procedimientos que permiten evaluar una interfaz a fin de determinar su grado de usabilidad.
 - TEMA 4 - Interacción con las interfaces
 
