@@ -42,8 +42,8 @@
 ### First semester
 
 * [Computer Architecture](3.1%20AC/AC.html)
-* [Heuristics and Optimization](3.1%20SO/SO.html)
-* [Software Engineering](3.1%20HO/HO.html)
+* [Heuristics and Optimization](3.1%20HO/HO.html)
+* [Software Engineering](3.1%20IS/IS.html)
 * [User Interfaces](3.1%20IU/IU.html)
 * [Computer Networks](3.1%20RO/RO.html)
 
