@@ -5,6 +5,7 @@
 [Notas](https://www.notion.so/Notas-c5d8e9e57e2446a884c4add67cb65874)
 
 Magistral: Ana Tajadura Jimenez
+
 Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero flexible Online
 
 # Teoría
@@ -373,10 +374,8 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
     
                     - Se validan los prototipos para comprobar si satisfacen los requisitos o por el contrario se detectan problemas de usabilidad.
 - Diseño iPhone
-                
-        
-        <img src="IU/Untitled%204.png" alt="IU/Untitled%204.png" style="zoom: 50%;" /><img src="IU/Untitled%205.png" alt="IU/Untitled%205.png" style="zoom:50%;" />
-    
+  <img src="IU/Untitled%204.png" alt="IU/Untitled%204.png" style="zoom: 50%;" /><img src="IU/Untitled%205.png" alt="IU/Untitled%205.png" style="zoom:50%;" />
+  
     - Prototype: Creación de un prototipo para captar nuevos requisitos y cambios.
         - ¿Qué es?
             - Conjunto de bocetos de las pantallas.
@@ -798,20 +797,21 @@ Practicas: Teresa Onorati tonorati@uc3m.es Tutorias: Martes 12:30-14:00 pero fle
                 - L: Hacer que vaya rápido el sitio web, los sitios lentos son frustrantes.
     
                 - 15 patrones comunes:
-      
+            
                     1. .
             - Proporcionan un vocabulario común
             - Proporcionan una forma efectiva de comunicar principios complejos
             - Ayudan a documentar las arquitecturas software.
             - Capturan las partes esenciales de un diseño de manera compacta
         - Muestran más de una solución
-            
+          
             - No proporcionan una solución exacta
         - No resuelven todos los problemas de diseño
     - Proceso de desarrollo: Los patrones de diseño web se pueden aplicar a lo largo de todo el proceso de desarrollo.
             
         <img src="IU/Untitled%2027.png" alt="IU/Untitled%2027.png" style="zoom:80%;" />
             
+        
         - Métodos de inspección: conjunto de procedimientos que permiten evaluar una interfaz a fin de determinar su grado de usabilidad.
 - TEMA 4 - Interacción con las interfaces
 
