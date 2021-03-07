@@ -1,3 +1,0 @@
-set PATH=%PATH%;C:\Program Files\OpenSSL-Win64\bin
-
-Las pass son 1234
