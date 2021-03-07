@@ -357,7 +357,9 @@ Análisis lineal: La cadena de entrada se lee de izquierda a derecha y se agrupa
 
 **Analizador semántico:** Busca errores semánticos, reúne información de tipos; identifica operadores y operandos.
 
-- Recibe el árbol sintáctico explícita o implícitamente, y trata de determinar si tiene sentido las distintas operaciones. Por ejemplo: Sumar un número y una cadena de caracteres.
+- Recibe el árbol sintáctico explícita o implícitamente, y trata de determinar si tiene sentido las distintas operaciones. 
+
+	Por ejemplo: Sumar un número y una cadena de caracteres.
 
 
 **Generador de código**: A veces se encuentra en análisis y otras en generación. Convierte el árbol en instrucciones, código intermedio(ensamblador). El recorrido es importante ya que al generar código no se ve la jerarquía. Por ejemplo: Primero se tienen que hacer las operaciones antes de asignar el valor.
@@ -458,19 +460,15 @@ Nosotros vamos a usar DT para representar.
 
 ### **Diagrama de Transiciones - DT**
 
-Definir formalmente un AL es hacer los DT de los tokens (ojo con los separadores que llevan a finales, si no hay nada, que no salga)
+**Definir formalmente un AL es hacer los DT de los tokens** (ojo con los separadores que llevan a finales, si no hay nada, que no salga)
 
 Se usa para especificar el funcionamiento de un Analizador Léxico mediante un AFD. **UNO POR TOKEN**
 
-Se diferencian porque el DT reconoce un token cuando reconoce un delimitador y devuelve entonces el token.
+Se diferencian porque el DT reconoce un token cuando reconoce un delimitador y devuelve entonces el token. **Lee caracteres hasta completar un token entonces: Devuelve el token leído** y Deja el buffer listo para la siguiente llamada.
 
-**Lee caracteres hasta completar un token entonces: Devuelve el token leído** y Deja el buffer listo para la siguiente llamada.
+No tiene estados de error. De los estados de aceptación no salen transiciones, necesita una transición mas que no pertenece al token, que le hace salir y devolver el token.
 
-No tiene estados de error.
-
-De los estados de aceptación no salen transiciones, necesita una transición mas que no pertenece al token, que le hace salir y devolver el token.
-
-Esto quiere decir que aquello estados que son terminales y pueden transitar a otro estado tengan una transición para otro tipo de carácter que hace que salga como final.
+Esto quiere decir que aquellos estados que son terminales y pueden transitar a otro estado tengan una transición para otro tipo de carácter que hace que salga como final.
 
 <img src="PL/Untitled%2030.png" alt="PL/Untitled%2030.png" style="zoom:33%;" />
 
@@ -497,37 +495,34 @@ Representa directamente con un programa al DT en cuestión.
 
 #### Utilizando un generador de Analizadores Léxicos (es lo que usaremos)
 
-**Ventajas**: Comodidad y Rapidez de desarrollo.
+- **Ventajas**: Comodidad y Rapidez de desarrollo.
 
-**Inconvenientes**: Ineficiencia.
+- **Inconvenientes**: Ineficiencia.
 
-**Recomendación**: Ordenar las reglas de acuerdo a la frecuencia de utilización.
+- **Recomendación**: Ordenar las reglas de acuerdo a la frecuencia de utilización.
 
 #### Utilizando ensamblador
 
-**Ventajas**: Mas eficiente y compacto.
-
-**Inconvenientes**: Mas difícil de desarrollar y Dificultad de mantenimiento de código generado.
+- **Ventajas**: Mas eficiente y compacto.
+- **Inconvenientes**: Mas difícil de desarrollar y Dificultad de mantenimiento de código generado.
 
 #### Utilizando un lenguaje de alto nivel
 
-**Ventajas**: Eficiente y Compacto.
+- **Ventajas**: Eficiente y Compacto.
+- **Inconveniente**: Realizar todo a mano.
 
-**Inconveniente**: Realizar todo a mano.
+- Técnicas:
+	- **Programación**: Muy eficiente.
 
-Técnicas:
-
-- **Programación**: Muy eficiente.
-
-- **Controlado por tablas**: Código pequeño, general y manejable.
+	- **Controlado por tablas**: Código pequeño, general y manejable.
 
 ### Programación de un AL
 
-Dos punteros de lectura:
+**Dos punteros** de lectura:
 
-**Puntero actual**: El ultimo carácter aceptado.
+- **Puntero actual**: El ultimo carácter aceptado.
 
-**Puntero de búsqueda**: El ultimo carácter leído.
+- **Puntero de búsqueda**: El ultimo carácter leído.
 
 <img src="PL/Untitled%2033.png" alt="PL/Untitled%2033.png" style="zoom: 50%;" />
 
@@ -541,13 +536,15 @@ Dos punteros de lectura:
 
 Hay pocos detectables por el analizador léxico.
 
-Detectables, según el diseñador:
+**Detectables, según el diseñador:**
+
 - Número de caracteres de los identificadores.
 - Caracteres ilegales.
 - Otros, como admitir números sin la parte entera.
 - Cadena que no concuerda con ningún token.
 
-En caso de error:
+**En caso de error:**
+
 1. Anotar el error, indicarlos.
 2. Recuperarme del error para continuar con el análisis.
     Ignorar, Borrar, Insertar o Corregir.
@@ -555,13 +552,13 @@ En caso de error:
 
 ### Identificación de palabras reservadas
 
-Mediante resolución implícita, todas identificadas en el comienzo de la tabla de símbolos, o resolución explícita, usando patrones para las palabras reservadas.
+Mediante **resolución implícita**, todas identificadas en el comienzo de la tabla de símbolos, o **resolución explícita**, usando patrones para las palabras reservadas.
 
 ### Prioridad de los tokens
 
-Criterio: Se utilizan heurística para dar prioridad al token que concuerda con el lexema más largo. 
+**Criterio**: Se utilizan heurística para dar prioridad al token que concuerda con **el lexema más largo**. 
 
-En el caso se puede concordar a varios tokens se asocia al que esté en primer lugar.
+**En el caso se puede concordar a varios tokens** se asocia al que esté **en primer lugar**.
 
 <img src="PL/image-20210305191616426.png" alt="image-20210305191616426" style="zoom: 50%;" /><img src="PL/image-20210305191651759.png" alt="image-20210305191651759" style="zoom:50%;" /><img src="PL/image-20210305191616426.png" alt="image-20210305191616426" style="zoom: 50%;" /><img src="PL/image-20210305191651759.png" alt="image-20210305191651759" style="zoom:50%;" />
 
