@@ -1,13 +1,13 @@
 # Dirección de proyectos de desarrollo de software
 
-# Información
+## Información
 
 [Notas](https://www.notion.so/Notas-daa020ee0df745a993220bb3d150a2bb)
 
 Teorías: Angel Garcia Crespo acrespo@ia.uc3m.es
 Prácticas: Israel Gonzalez Carrasco igcarras@ia.uc3m.es
 
-# Presentación
+## Presentación
 
 Entregas prácticamente semanales.
 
@@ -33,13 +33,13 @@ USAR el formato de Asunto indicado en las Normas.
 
 Todas las entregas con un formato de documento fijo, con todas las partes básicas de un documento.
 
-# Métrica 3
+## Métrica 3
 
 El cliente solo busca el producto final, no se hace a la idea de todo lo qua hay detrás y que se debe tener en cuenta.
 
 Resolver problemas y conflictos, colaborar con el cliente en la definición y consecución de objetivos, planificar el proyecto en todos sus aspectos, dirigir y coordinar recursos, tomar decisiones, etc.
 
-## Proyectos de Desarrollo Software
+### Proyectos de Desarrollo Software
 
 **Proyecto**: Tareas interrelacionadas, cosas que debe hacerse y completarse con tiempo determinado, con cierto coste y otras restricciones que pueden aplicarse para llegar a un resultado especifico.
 
@@ -53,7 +53,7 @@ Crea algo nuevo, una entrega tangible o intangible que es unica.
 
 <img src="DPDS/Untitled.png" alt="DPDS/Untitled.png" style="zoom:80%;" />
 
-## Metodología de Desarrollo Software
+### Metodología de Desarrollo Software
 
 Hay muchos participantes y stakeholders.
 
@@ -71,7 +71,7 @@ Hay muchos participantes y stakeholders.
 
 Hace énfasis al entrono ene l cual se plantea y estructura el desarrollo de un sistema.
 
-## Metodología basadas en planificación
+### Metodología basadas en planificación
 
 Énfasis en la **planificación de tareas y control del proyecto**, en especificación precisa de requisitos y modelado. Se centra en el control del proceso.
 
@@ -125,7 +125,7 @@ Cada tarea se describe su contenido haciendo referencia a sus principales accion
 - Perfil de Programador.
 - Cliente y entidades externas: Clientes, Proveedores y Stakeholders.
 
-# Oferta
+## Oferta
 
 > Lo mas importante del proyecto, es que nos lo den, para ello hay que hacer una buena oferta. Una vez nos lo asignen ya nos preocupamos de los demas factores.
 
@@ -161,6 +161,6 @@ Hay que establecer la **forma de pago**, cuando se van a realizar los pagos. Cua
 
 [DPDS_Plantilla_Oferta_v3.0.pdf](DPDS/DPDS_Plantilla_Oferta_v3.0.pdf)
 
-# Recursos
+## Recursos
 
 [DPDS_Revision_Metrica_V3.pdf](DPDS/DPDS_Revision_Metrica_V3.pdf)
