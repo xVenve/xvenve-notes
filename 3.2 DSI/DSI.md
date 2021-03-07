@@ -17,11 +17,12 @@
 [Guía de iniciación al data binding en Angular | Qué es y cómo se utiliza](https://www.acontracorrientech.com/guia-practica-del-databinding-en-angular/)
 
 ## Cuestionarios
+
 ### Test 1
 
 [https://aulaglobal.uc3m.es/mod/wooclap/view.php?id=3117738&redirect=1](https://aulaglobal.uc3m.es/mod/wooclap/view.php?id=3117738&redirect=1)
 
-**El contexto de diseño caracteriza...** 
+**El contexto de diseño caracteriza...**
 
 - **... la situación/práctica/fenómeno/actividad para la que se va a diseñar**
 
@@ -75,7 +76,6 @@
 - Programación POO – Encapsula datos y funciones.
 
 - Programación conducida por eventos – Facilita GUI a partir de componentes.
-
 
 **Paradigmas programación web**: Ha seguido una evolución parecida.
 
@@ -236,7 +236,7 @@ El **objetivo es decrementar la carga mental**, reducir el abismo.
 
 - **Gaver**: Perceptibles, falsas, ocultas.
 
-    - **Secuenciales**: Una te da información para hacer otra.
+  - **Secuenciales**: Una te da información para hacer otra.
     - **Anidadas**: Una affordance sirve como contexto de otra.
 
 **Modelo conceptual vs. Modelo mental** (Craik)
@@ -247,7 +247,6 @@ El **objetivo es decrementar la carga mental**, reducir el abismo.
 - **Modelo mental**: Como piensa el usuario que funciona el sistema.
 
 - El diseñador debe basar su modelo conceptual en cómo piensan los usuarios, hay que preguntar y usar experiencias en productos previos.
-
 
 #### Métodos
 
@@ -481,7 +480,6 @@ Múltiples técnicas para entender sus necesidades, deseos, valores… Investiga
 
     Formativa//Sumativa, En el lab//In the wild, Usabilidad, Métodos de inspección, Experimentos, Entrevistas y observaciones.
 
-
 El diseño centrado en usuarios es un proceso caro, requiere mucho tiempo hablar con personas, producir prototipos y demás fases del proceso. Pero merece la pena este coste para diseñar sistemas bien.
 
 ### Ventajas
@@ -532,17 +530,16 @@ Es importante **formularla más o menos formalmente**, se parte de una manera m�
 
 **Identificar a los participantes**, para los usuarios que vamos a diseñar.
 
-Hay que coger muestras del conjunto de participantes, no se puede acceder a todos. 
+Hay que coger muestras del conjunto de participantes, no se puede acceder a todos.
 
 Tipos de muestras:
 
-- **Muestreo probabilístico:** 
-    - **Aleatorio**: Un número aleatorio de participantes.
+- **Muestreo probabilístico:**
+  - **Aleatorio**: Un número aleatorio de participantes.
     - **Estratificado**: Grupo representativo.
-- **Muestreo no probabilístico:** 
-    - Conveniencia: Los que haya o se ofrezcan.
+- **Muestreo no probabilístico:**
+  - Conveniencia: Los que haya o se ofrezcan.
     - Voluntarios.
-
 
 **Relación con participantes**
 
@@ -601,14 +598,13 @@ Muchas otras no, como la observación directa, entrevistas...
 
     Se puede consultar en cualquier momento y revisar.
 
-
 ### Entrevistas
 
 Consiste en un entrevistador **preguntando a usuarios con un objetivo**. Normalmente de forma **síncrona**.
 
-**Tipos**, dependiendo del control de entrevistador y libertad de los participantes: 
+**Tipos**, dependiendo del control de entrevistador y libertad de los participantes:
 
-- **No estructuradas:** Sin protocolo o preparación. 
+- **No estructuradas:** Sin protocolo o preparación.
 
     Preguntas abiertas, que son explicativas que nos permite extraer conocimiento.
 
@@ -622,7 +618,7 @@ Consiste en un entrevistador **preguntando a usuarios con un objetivo**. Normalm
 
     Las mismas para todos los participantes.
 
-    Se realizan cuando se tiene un objetivo claro, una serie de preguntas específicas y repuestas esperadas. 
+    Se realizan cuando se tiene un objetivo claro, una serie de preguntas específicas y repuestas esperadas.
 
     Requieren menor tiempo.
 
@@ -630,29 +626,29 @@ Consiste en un entrevistador **preguntando a usuarios con un objetivo**. Normalm
 
     Combina de los otros dos tipos.
 
-    Guion con: 
+    Guion con:
 
-    - Serie de temas a cubrir, y preguntas planificadas.
+  - Serie de temas a cubrir, y preguntas planificadas.
     - Preguntas específicas de seguimiento o para sonsacar más información.
 
     **Probing o prompts**, preguntas neutras como: ¿Algo que añadir?
 
     **Herramientas de apoyo:** Gráficos, imágenes de la experiencia.
 
-**Planificación**: 
+**Planificación**:
 
 - **Donde**:
-    - **Online**: Es más cómodo, pero necesita logística extra.
+  - **Online**: Es más cómodo, pero necesita logística extra.
     - **En el sitio:** Se realiza en el entorno de uso por lo que se observa el entorno, suscita preguntas.
     - **Sitio neutro o contexto artificial:** Como un laboratorio. La logística está más a mano, pero es más difícil poner en situación y contexto artificial.
 - **Protocolo (no intimidar):**
-    - **Introducción**: Quién eres, objetivo, temas éticos, consentimiento.
-    - **Preguntas demográficas. Preguntas de warm-up.** 
+  - **Introducción**: Quién eres, objetivo, temas éticos, consentimiento.
+    - **Preguntas demográficas. Preguntas de warm-up.**
     - **Sesión principal:** Temas y preguntas clave.
     - **Preguntas de cool-off:** Preguntas finales.
     - **Cierre**: Espacio para que pregunten, agradecimientos e indicar que ha terminado.
 
-**Desarrollar las preguntas:** 
+**Desarrollar las preguntas:**
 
 Depende del tipo de entrevista.
 
@@ -674,7 +670,7 @@ Para obtener respuestas a preguntas específicas de **muchos participantes.**
 
 **Diseño**
 
-- **Estructura:** 
+- **Estructura:**
 
     Información acerca del estudio y consentimiento, tiempo estimado de realización, instrucciones claras de cómo completarlo.
 
@@ -695,7 +691,7 @@ Para obtener respuestas a preguntas específicas de **muchos participantes.**
 - **Check boxes y rangos**. Ejm: O 18 to 21
 
 - **Rating Scale:**
-    - **Escala semántica diferencial**: Good _ _ _ _ _ _ _ Bad
+  - **Escala semántica diferencial**: Good _ _ _ _ _ _ _ Bad
     - **Likert**: Normalmente de 5 a 7 puntos, según como preciso queremos que sean. Orden consistente. Número par para forzar la no neutralidad.
 
 ### Focus Groups
@@ -763,11 +759,11 @@ Importante equilibrar entre lo que surja y el objetivo claro de la observación.
 
 **Grado de participación:** Infiltrado (Activo, participa el observador en primera persona, difícil disociar participante y observador) o Ajeno (Pasivo, normalmente en el lab).
 
-**Planificación y realización:** 
+**Planificación y realización:**
 
-​    Atención equilibrada a participantes. 
+​    Atención equilibrada a participantes.
 
-​    **Re-focus**: a medida que se surgen aspectos relevantes. 
+​    **Re-focus**: a medida que se surgen aspectos relevantes.
 
 ​    Actividad intensa, puesto que se anota durante observaciones y al final del día.
 
@@ -817,7 +813,7 @@ Hay que tener en cuenta cómo gestionar el equipo.
 
 ​    **Think Aloud:** Usuario piensa en voz a la vez que actúa, lo que nos permite entender lo que piensan y sus modelos mentales y expectativas.
 
-​    **Diarios:** Los participantes documentan su experiencia. 
+​    **Diarios:** Los participantes documentan su experiencia.
 
 ​        Auto-documentación de participantes, de forma regular.
 
@@ -903,7 +899,7 @@ Entender actividades, objetos involucrados, espacio de la interacción y posible
 
     **Análisis**: según el tipo de datos.
 
-    - **Cualitativo**: Anotaciones, grabaciones...
+  - **Cualitativo**: Anotaciones, grabaciones...
     - **Cuantitativo**: logs, grabaciones...
 
 ## Análisis Cualitativo
@@ -991,27 +987,27 @@ Expresado en forma **numérica**. Magnitud, cantidad, tamaño, grado, orden... d
 
 Compila, ordena, resume, y presenta datos para permitir interpretaciones posteriores.
 
-**Organizar los datos, en una estructura estándar**. 
+**Organizar los datos, en una estructura estándar**.
 
 Filas: sujetos. Columnas:  variables.
 
 **Tipo de variables:**
 
 - **Cualitativas**: No operaciones aritméticas.
-    - **Ordinales**: Siguen un orden o secuencia. Ej: Meses de año.
-    - **Categóricos**: No siguen un orden. Ej: Estado civil.
+  - **Ordinales**: Siguen un orden o secuencia. Ej: Meses de año.
+  - **Categóricos**: No siguen un orden. Ej: Estado civil.
 - **Numéricas**: Operaciones aritméticas.
-    - **Discretos**: Valores enteros. Ej: Edad.
-    - **Continuos**: Valores en un intervalo. Ej: Sueldo.
+  - **Discretos**: Valores enteros. Ej: Edad.
+  - **Continuos**: Valores en un intervalo. Ej: Sueldo.
 
 **Análisis de Datos numéricos:**
 
 - **Medidas de tendencia central:**
-    - **Media**: Promedio.
+  - **Media**: Promedio.
     - **Mediana**: El punto central.
     - **Moda**: Valor más frecuente.
 - **Medidas de dispersión**: Variabilidad de una distribución respecto a una medida.
-    - **Desviación típica**: Desviación con la media.
+  - **Desviación típica**: Desviación con la media.
     - **Rango R**= Max-Min.
     - **Desviación con la mediana**: Cuartiles.
     - **Rango intercuartílicos**, IQR: Q3-Q1
@@ -1119,13 +1115,11 @@ Distintas maneras de presentar el material
 
 - De la audiencia.
 
-
 **Propósitos finales:**
 
 - Derivar requisitos, necesidades, design drives.
 
 - Evaluar un producto o en desarrollo.
-
 
 **Múltiples representaciones**: gráficas, tablas, descripciones textuales, temas, categorías...
 
@@ -1134,6 +1128,5 @@ Distintas maneras de presentar el material
 - Como background o evidencia de conclusiones.
 
 - Para dar rigor, poner el materia raw a modo de anexo.
-
 
 **Tipos**: Resúmenes, Anotaciones rigurosas o Stories.
