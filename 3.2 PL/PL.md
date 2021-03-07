@@ -1,4 +1,6 @@
-# PL
+# Procesadores del Lenguaje
+
+[TOC]
 
 ## Información
 
@@ -7,9 +9,12 @@
 > Teorías: Antonio Berlanga de Jesús y Jesús García Herrero
 >
 > Prácticas: Juan Manuel Alonso Weber jmaw@ia.uc3m.es
->
 
-## Presentación
+## Recursos
+
+[LibroCompiladores.pdf](PL/82b023f9736138ad1bfdba842c04b6ce.pdf)
+
+# Presentación
 
 Practicas semanales de 2 en 2.
 
@@ -23,7 +28,7 @@ Vamos a usar bison y flex, programaremos en C. El editor de texto que queramos.
 
 [RepasoTALF.pdf](PL/G1ab.pdf)
 
-### Definiciones
+## Definiciones
 
 **Forma sentencial**: Aplicando reglas de producción llego a $x \in \sum^*$
 
@@ -37,10 +42,9 @@ Vamos a usar bison y flex, programaremos en C. El editor de texto que queramos.
 
 - Recursividad a derechas: $A → xA$
 
-
 **Reglas compresoras**: Aquellas que producen menos símbolos de los que hay a la izquierda. Como lo es $x::= \lambda$
 
-### Gramática
+## Gramática
 
 $G=\{ \sum_T, \sum_N, S, P\}$
 
@@ -50,7 +54,7 @@ $G=\{ \sum_T, \sum_N, S, P\}$
 
 - $S$: **Axioma** $S \in \sum_N$
 
-- $P$: Conjunto de **Reglas de producción**. 
+- $P$: Conjunto de **Reglas de producción**.
 
 - Backus Normal Form: $P_i ::= P_d$
 
@@ -60,8 +64,7 @@ $G=\{ \sum_T, \sum_N, S, P\}$
 
 - $\lambda$  Clausula vacía
 
-
-#### Tipos de Gramáticas
+### Tipos de Gramáticas
 
 **Tipo 3**: Autómata Finito Determinista y Autómata Finito No Determinista.
 
@@ -73,13 +76,11 @@ $G=\{ \sum_T, \sum_N, S, P\}$
 
 - Lineal derecha: $P_d ::= a | aN$
 
-
 **Tipo 2**: Autómata a Pila.
 
-- Lenguaje Independiente del Contexto. 
+- Lenguaje Independiente del Contexto.
 
 - Un No Terminal para dar cualquier sentencia, excepto lambda que solo lo puede dar el axioma.
-
 
 **Tipo 1**: Maquina Linealmente Acotada.
 
@@ -87,15 +88,13 @@ $G=\{ \sum_T, \sum_N, S, P\}$
 
 - Cualquier sentencia para dar cualquier secuencia, pero que no sea una regla reductora(tampoco se puede No Terminal para dar lambda).
 
-
 **Tipo 0**: Maquina de Turing.
 
 - Lenguaje sin restricciones.
 
 - Cualquier sentencia para dar cualquier secuencia de símbolos, incluso reglas reductoras.
 
-
-### Problemas de lectura de sentencias
+## Problemas de lectura de sentencias
 
 **Precedencia**: Hay operadores con mayor prioridad. Se debe hacer desde lo último derivado hacia arriba.  Esto provoca ambigüedad, que es nuestro enemigo.
 
@@ -110,7 +109,7 @@ then B else C
 
 **Asociatividad**: Entre operaciones con la misma precedencia. 1-1-1-1
 
-### Derivación
+## Derivación
 
 Aplicación de una producción a una forma sentencial.
 
@@ -118,7 +117,7 @@ Aplicación de una producción a una forma sentencial.
 
 **Derivación más a la derecha**: Sustituye el símbolo no terminal más a la derecha.
 
-### Ambigüedad
+## Ambigüedad
 
 Hay distintos niveles:
 
@@ -126,7 +125,7 @@ Hay distintos niveles:
 - **Gramática**: Si puede obtener una sentencia con dos derivaciones.
 - **Lenguaje**: Todas las gramáticas que lo generan son ambiguas entonces es inherentemente ambiguo.
 
-### Bien formar Gramáticas
+## Bien formar Gramáticas
 
 **Limpiar**:
 
@@ -136,12 +135,11 @@ Hay distintos niveles:
 
 3. Sin **símbolos superfluos**: Empezamos con las reglas que solo producen terminales e ir subiendo por pasos.
 
-
 Sin reglas **no generativas**: Las que dan lambda, quitarlas y sustituir sus apariciones por lambda(nada).
 
 Sin reglas de **redenominación**: Las que llaman aun solo símbolo No Terminal, poner las reglas de ese símbolo en el que lo invoca.
 
-### Transformaciones útiles en compiladores
+## Transformaciones útiles en compiladores
 
 Estas transformaciones facilitan a los analizadores predictivos. Estos analizadores implican que nunca se va a hacer backtracking siempre sabemos que regla de producción hay que aplicar o no hay más, pero no se retrocede.
 
@@ -157,13 +155,13 @@ Estas transformaciones facilitan a los analizadores predictivos. Estos analizado
 
 - Para evitar recursividades pendientes, ya que leemos de izquierda a derecha, así reconocemos mientras aplicamos reglas.
 
-- A la reglas no recursivas a izquierda se le concatena un nuevo No Terminal (quitamos las que eran recursivas). 
+- A la reglas no recursivas a izquierda se le concatena un nuevo No Terminal (quitamos las que eran recursivas).
 
 - Ese nuevo símbolo produce $\lambda$ y lo que producía originalmente que era recursivo a izquierda, pero en recursividad a la derecha.
 
 <img src="PL/Untitled%202.png" alt="PL/Untitled%202.png" style="zoom: 50%;" />
 
-### **Autómata Finito Determinista**
+## Autómata Finito Determinista
 
 $AFD=( \sum, Q, f, q_o, F)$
 
@@ -191,7 +189,7 @@ Extensión a palabras: Recibe una palabra y va cogiendo los símbolos de entrada
 
 Siempre se puede pasar de G3 a AFD, aunque puede que no directo, por medio de AFND.
 
-### **Autómata Finito No Determinista**
+## Autómata Finito No Determinista
 
 - Admite $\lambda$ y más de una posibilidad por símbolo.
 
@@ -205,7 +203,7 @@ Para cualquier AFD existe uno no determinista equivalente.
 
 Para toda gramática G3 existe un autómata determinista y no determinista.
 
-### **Autómata a Pila (G2)**
+## Autómata a Pila (G2)
 
 $AP=(\sum, \Gamma, Q, A_0, q_0, f, F)$
 
@@ -215,7 +213,7 @@ $AP=(\sum, \Gamma, Q, A_0, q_0, f, F)$
 
 - $A_0$ Símbolo de pila inicial
 
-- $f(q,\lambda,A)$ Transita a uno o varios estados y puede escribir o no en pila, cuando escribe pueden ser mas de 1.
+- $f(q,\lambda,A)$ Transita a uno o varios estados y puede escribir o no en pila, cuando escribe pueden ser más de 1.
 
 - Para toda gramática G2 existe un AP.
 
@@ -223,12 +221,11 @@ $AP=(\sum, \Gamma, Q, A_0, q_0, f, F)$
 
 - Lenguaje aceptado por un AP, palabras que reconoce, y el final lo determina:
 
-
 **Por estado final:** Cuando llega a un estado final y la secuencia de entrada está vacía, termina.
 
 **Por vaciado de pila:** Entrada y pila vacía, termina.
 
-### **Expresiones Regulares G3**
+## Expresiones Regulares G3
 
 **Definición:**
 
@@ -244,10 +241,9 @@ $AP=(\sum, \Gamma, Q, A_0, q_0, f, F)$
 
 - $\alpha ^*$ es una ER, la clausura.
 
-
 **ER útiles:**
 
-- $\alpha ^+ =\alpha \cdot \alpha ^* = \alpha ^* \cdot \alpha$ Al menos 1
+- $\alpha ^+ =\alpha \cdot \alpha ^*= \alpha ^* \cdot \alpha$ Al menos 1
 
 - $\alpha? = \alpha | \lambda$ Puede ser alpha o lambda
 
@@ -261,7 +257,7 @@ Dos EERR son equivalentes si describen el mismo lenguaje.
 
 Inferencia: Si X=AX+B entonces X=A*B
 
-## Tema 1: Introducción
+# Tema 1: Introducción
 
 **Compilador**: Proceso de traducción que convierte un programa fuente escrito en un lenguaje de alto nivel a un programa objeto en código maquina y listo por tanto para ejecutarse en el ordenador. Solo se genera el programa objeto cuando no hay errores.
 
@@ -287,8 +283,8 @@ Los primeros traducían formulas aritméticas a código máquina.
 - Para entender mejor los lenguajes de programación.
 - Conocer la teoría que hace posible su funcionamiento y como se ha llegado hasta este punto.
 - Aplicar la teoría y herramientas a otros campos:
-    - Intérpretes de comandos y consultas
-    - Formateadores de texto (LaTeX, HTML)
+  - Intérpretes de comandos y consultas
+  - Formateadores de texto (LaTeX, HTML)
     - Gráficos, ecuaciones,… (PS, GIF, EQN, …)
     - Lenguajes de simulación (GPSS)
 
@@ -313,7 +309,7 @@ Los primeros traducían formulas aritméticas a código máquina.
 
 **Compile-Link-Go frente a Compile-Go**: Uno Fragmenta, Compila, Enlaza las partes y tras crearlo lo ejecuta, y el otro Compila en un módulo cargable y Ejecuta el módulo.
 
-**Compilador de una o varias pasadas**. 
+**Compilador de una o varias pasadas**.
 
 Una pasada es un recorrido total de todo el código fuente con una misión específica.
 
@@ -325,7 +321,7 @@ Una pasada es un recorrido total de todo el código fuente con una misión espec
 
 **Ejecutable**: Código objeto enlazado con las librerías.
 
-### Compilación
+## Compilación
 
 <img src="PL/Untitled%209.png" alt="PL/Untitled%209.png" style="zoom:33%;" /><img src="PL/Untitled%2010.png" alt="PL/Untitled%2010.png" style="zoom:25%;" />
 
@@ -349,7 +345,7 @@ Análisis lineal: La cadena de entrada se lee de izquierda a derecha y se agrupa
 
 **Analizador sintáctico:** Agrupa los componentes léxico en frases gramaticales que el compilador utiliza. A partir de los tokens produce un árbol sintáctico.
 
-- Recibe tokens → crea un árbol. 
+- Recibe tokens → crea un árbol.
 
 - En las hojas tiene los terminales en la manera en la que identifica el token.
 
@@ -357,10 +353,9 @@ Análisis lineal: La cadena de entrada se lee de izquierda a derecha y se agrupa
 
 **Analizador semántico:** Busca errores semánticos, reúne información de tipos; identifica operadores y operandos.
 
-- Recibe el árbol sintáctico explícita o implícitamente, y trata de determinar si tiene sentido las distintas operaciones. 
+- Recibe el árbol sintáctico explícita o implícitamente, y trata de determinar si tiene sentido las distintas operaciones.
 
-	Por ejemplo: Sumar un número y una cadena de caracteres.
-
+    Por ejemplo: Sumar un número y una cadena de caracteres.
 
 **Generador de código**: A veces se encuentra en análisis y otras en generación. Convierte el árbol en instrucciones, código intermedio(ensamblador). El recorrido es importante ya que al generar código no se ve la jerarquía. Por ejemplo: Primero se tienen que hacer las operaciones antes de asignar el valor.
 
@@ -376,7 +371,7 @@ Análisis lineal: La cadena de entrada se lee de izquierda a derecha y se agrupa
 
 **Back-end**: Etapa final. Fases que dependen de la máquina, dependen del lenguaje intermedio. Optimización de código, generación de código, operaciones con la tabla de símbolos.
 
-### Diagramas de Tombstone
+## Diagramas de Tombstone
 
 Conjunto de piezas de puzzle útiles para razonar acerca de los procesadores de lenguaje y los programas.
 
@@ -390,11 +385,11 @@ La máquina y el lenguaje deben coincidir.
 
     <img src="PL/Untitled%2025.png" alt="PL/Untitled%2025.png" style="zoom:50%;" /><img src="PL/Untitled%2026.png" alt="PL/Untitled%2026.png" style="zoom: 33%;" />
 
-## Tema 2: Análisis Léxico
+# Tema 2: Análisis Léxico
 
 <img src="PL/Untitled%2027.png" alt="PL/Untitled%2027.png" style="zoom: 33%;" />
 
-### **Funciones del Análisis Léxico**
+## Funciones del Análisis Léxico
 
 **Manejar el fichero fuente:** Leer los caracteres de la entrada. Eliminar comentarios y delimitadores. Relacionar los mensaje de error con las líneas del programa fuente.
 
@@ -402,7 +397,7 @@ La máquina y el lenguaje deben coincidir.
 
 **Controlar si es de formato libre o no:** Libre: PASCAL. No libre: FORTRAN.
 
-### **Aspectos del Análisis Léxico:**
+## Aspectos del Análisis Léxico
 
 **Diseño más sencillo:** Los símbolos que trata el scanner se describe con una gramática más simple que la del parser.
 
@@ -427,19 +422,15 @@ La máquina y el lenguaje deben coincidir.
 
 - El lexema de num son los valores que puede tomar: 12, 34, 480
 
-
-**Atributos:** Información adicional que tiene el token. 
+**Atributos:** Información adicional que tiene el token.
 
 - id.lexema="x" id.tipo id.ámbito
-
 
 **Patrón:** Define la secuencia de caracteres válidos para un tokens, formato de los lexemas.
 
 - $[0-9]^+$ Naturales  $-?[0-9]^+$ Enteros de -9 a 9
 
-
 - El + al final, indica que hay 1 o más ocurrencias. Para poner determinados símbolos se pone "\"
-
 
 **Especificar tokens:** Con expresiones regulares, patrones, o Autómatas Finitos.
 
@@ -447,8 +438,7 @@ La máquina y el lenguaje deben coincidir.
 
 - Se pueden usar Expresiones regulares o Autómatas Finitos.
 
-
-**Tabla de símbolos:** Almacenan la correspondencia entre tokens y lexemas, en muchos lenguajes hay palabras claves (reservadas) que no se pueden declarar como una variable para ello se almacena en la tabla. 
+**Tabla de símbolos:** Almacenan la correspondencia entre tokens y lexemas, en muchos lenguajes hay palabras claves (reservadas) que no se pueden declarar como una variable para ello se almacena en la tabla.
 
 - Los atributos de los identificadores se pueden guardar en la tablas de símbolos. Los otros en otra tabla.
 
@@ -458,7 +448,7 @@ Un AF no devuelve el token, se usa otra cosa para que nos dé el token cuando re
 
 Nosotros vamos a usar DT para representar.
 
-### **Diagrama de Transiciones - DT**
+## Diagrama de Transiciones - DT
 
 **Definir formalmente un AL es hacer los DT de los tokens** (ojo con los separadores que llevan a finales, si no hay nada, que no salga)
 
@@ -466,24 +456,25 @@ Se usa para especificar el funcionamiento de un Analizador Léxico mediante un A
 
 Se diferencian porque el DT reconoce un token cuando reconoce un delimitador y devuelve entonces el token. **Lee caracteres hasta completar un token entonces: Devuelve el token leído** y Deja el buffer listo para la siguiente llamada.
 
-No tiene estados de error. De los estados de aceptación no salen transiciones, necesita una transición mas que no pertenece al token, que le hace salir y devolver el token.
+No tiene estados de error. De los estados de aceptación no salen transiciones, necesita una transición más que no pertenece al token, que le hace salir y devolver el token.
 
 Esto quiere decir que aquellos estados que son terminales y pueden transitar a otro estado tengan una transición para otro tipo de carácter que hace que salga como final.
 
 <img src="PL/Untitled%2030.png" alt="PL/Untitled%2030.png" style="zoom:33%;" />
 
-### **Construcción de un AFD para AL**
+## Construcción de un AFD para AL
 
 Normalmente se parte de representación de las reglas de tokens con expresiones regulares.
+
 1. Toda expresión regular tiene un AFND asociado.
 2. Construir un AFD para el mismo lenguaje del AFND
 3. Optimización del AFD.
 
-### Tabla de Transiciones de DT
+## Tabla de Transiciones de DT
 
 <img src="PL/Untitled%2031.png" alt="PL/Untitled%2031.png" style="zoom:33%;" />
 
-### Autómata programado
+## Autómata programado
 
 Es la manera de programar un Analizador Léxico.
 
@@ -491,9 +482,9 @@ Representa directamente con un programa al DT en cuestión.
 
 <img src="PL/Untitled%2032.png" alt="PL/Untitled%2032.png" style="zoom: 50%;" />
 
-### Implementación de un AL
+## Implementación de un AL
 
-#### Utilizando un generador de Analizadores Léxicos (es lo que usaremos)
+### Utilizando un generador de Analizadores Léxicos (es lo que usaremos)
 
 - **Ventajas**: Comodidad y Rapidez de desarrollo.
 
@@ -501,22 +492,22 @@ Representa directamente con un programa al DT en cuestión.
 
 - **Recomendación**: Ordenar las reglas de acuerdo a la frecuencia de utilización.
 
-#### Utilizando ensamblador
+### Utilizando ensamblador
 
 - **Ventajas**: Mas eficiente y compacto.
 - **Inconvenientes**: Mas difícil de desarrollar y Dificultad de mantenimiento de código generado.
 
-#### Utilizando un lenguaje de alto nivel
+### Utilizando un lenguaje de alto nivel
 
 - **Ventajas**: Eficiente y Compacto.
 - **Inconveniente**: Realizar todo a mano.
 
 - Técnicas:
-	- **Programación**: Muy eficiente.
+  - **Programación**: Muy eficiente.
 
-	- **Controlado por tablas**: Código pequeño, general y manejable.
+    - **Controlado por tablas**: Código pequeño, general y manejable.
 
-### Programación de un AL
+## Programación de un AL
 
 **Dos punteros** de lectura:
 
@@ -532,7 +523,7 @@ Representa directamente con un programa al DT en cuestión.
 
 **Acciones**: InstallName(introduce un nombre en la tabla de símbolos).
 
-### Errores Léxicos
+## Errores Léxicos
 
 Hay pocos detectables por el analizador léxico.
 
@@ -550,19 +541,19 @@ Hay pocos detectables por el analizador léxico.
     Ignorar, Borrar, Insertar o Corregir.
 3. Seguir.
 
-### Identificación de palabras reservadas
+## Identificación de palabras reservadas
 
 Mediante **resolución implícita**, todas identificadas en el comienzo de la tabla de símbolos, o **resolución explícita**, usando patrones para las palabras reservadas.
 
-### Prioridad de los tokens
+## Prioridad de los tokens
 
-**Criterio**: Se utilizan heurística para dar prioridad al token que concuerda con **el lexema más largo**. 
+**Criterio**: Se utilizan heurística para dar prioridad al token que concuerda con **el lexema más largo**.
 
 **En el caso se puede concordar a varios tokens** se asocia al que esté **en primer lugar**.
 
 <img src="PL/image-20210305191616426.png" alt="image-20210305191616426" style="zoom: 50%;" /><img src="PL/image-20210305191651759.png" alt="image-20210305191651759" style="zoom:50%;" /><img src="PL/image-20210305191616426.png" alt="image-20210305191616426" style="zoom: 50%;" /><img src="PL/image-20210305191651759.png" alt="image-20210305191651759" style="zoom:50%;" />
 
-### AL y Lenguajes de Programación
+## AL y Lenguajes de Programación
 
 El **AL agrupa caracteres para formar tokens**, por tanto es importante definir el “delimitador”.
 
@@ -575,24 +566,16 @@ Otro concepto importante es el de “**palabra reservada**”
 **Lenguajes según uso de delimitadores y palabras reservadas:**
 
 - **Delimitadores blancos; con palabras reservadas**
-    - Caso más sencillo de lenguaje (PASCAL, COBOL)
+  - Caso más sencillo de lenguaje (PASCAL, COBOL)
 - **Delimitadores blancos; sin palabras reservadas**
-    - PL/I
+  - PL/I
 - **Blancos se ignoran; sin palabras reservadas**
-    - El tipo más difícil de lenguaje, aparecen ambigüedades (FORTRAN)
-    - El espacio en blanco se elimina con un preprocesado.
-    - El AL tiene que retroceder y comenzar de nuevo.
+  - El tipo más difícil de lenguaje, aparecen ambigüedades (FORTRAN)
+  - El espacio en blanco se elimina con un preprocesado.
+  - El AL tiene que retroceder y comenzar de nuevo.
 
-### Ejemplo de crear un AL
+## Ejemplo de crear un AL
 
 <img src="PL/image-20210305192603381.png" alt="image-20210305192603381" style="zoom:50%;" /><img src="PL/image-20210305192620642.png" alt="image-20210305192620642" style="zoom:50%;" /><img src="PL/image-20210305192648153.png" alt="image-20210305192648153" style="zoom:50%;" /><img src="PL/image-20210305192718592.png" alt="image-20210305192718592" style="zoom:50%;" /><img src="PL/image-20210305192731385.png" alt="image-20210305192731385" style="zoom:50%;" />
 
-## Tema 3: Análisis Sintáctico
-
-
-
-## Recursos
-
-
-
-[LibroCompiladores.pdf](PL/82b023f9736138ad1bfdba842c04b6ce.pdf)
+# Tema 3: Análisis Sintáctico
