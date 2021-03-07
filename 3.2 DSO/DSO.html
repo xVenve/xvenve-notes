@@ -2,15 +2,15 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>DSO</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
-.mac-os-11 { --title-bar-height: 28px; }
+<title>DSO</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit inherit; background-repeat: inherit inherit; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
 .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
 #write.first-line-indent p { text-indent: 2em; }
 #write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
 #write.first-line-indent li { margin-left: 2em; }
@@ -18,7 +18,7 @@ a:active, a:hover { outline: 0px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
 .typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
 .typora-export .task-list-item input { pointer-events: none; }
-@media screen and (max-width: 500px) { 
+@media screen and (max-width: 500px) {
   body.typora-export { padding-left: 0px; padding-right: 0px; }
   #write { padding-left: 20px; padding-right: 20px; }
   .CodeMirror-sizer { margin-left: 0px !important; }
@@ -27,7 +27,7 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
 #write li > figure:last-child { margin-bottom: 0.5rem; }
 #write ol, #write ul { position: relative; }
 img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
-button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+button, input, select, textarea { color: inherit; font: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
 *, ::after, ::before { box-sizing: border-box; }
 #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
@@ -45,7 +45,7 @@ h6 { font-size: 1rem; }
 .hidden { display: none; }
 .md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
 a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
 sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
 #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
 figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
@@ -54,8 +54,8 @@ tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
 table.md-table td { min-width: 32px; }
-.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
-.CodeMirror-linenumber { }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
 .CodeMirror { text-align: left; }
 .CodeMirror-placeholder { opacity: 0.3; }
 .CodeMirror pre { padding: 0px 4px; }
@@ -65,7 +65,7 @@ div.hr:focus { cursor: none; }
 #write.fences-no-line-wrapping pre { white-space: pre; }
 #write pre.ty-contain-cm { white-space: normal; }
 .CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit inherit; background-repeat: inherit inherit; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
 .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
 #write .md-fences.mock-cm { white-space: pre-wrap; }
 .md-fences.md-fences-with-lineno { padding-left: 0px; }
@@ -74,7 +74,7 @@ div.hr:focus { cursor: none; }
 .CodeMirror-line, twitterwidget { break-inside: avoid; }
 .footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
 .footnotes + .footnotes { margin-top: 0px; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; background-repeat: initial initial; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
 li div { padding-top: 0px; }
 blockquote { margin: 1rem 0px; }
 li .mathjax-block, li p { margin: 0.5rem 0px; }
@@ -84,7 +84,7 @@ blockquote > :last-child { margin-bottom: 0px; }
 blockquote > :first-child, li > :first-child { margin-top: 0px; }
 .footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
 #write .footnote-line { white-space: pre-wrap; }
-@media print { 
+@media print {
   body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
   #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
@@ -94,7 +94,7 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
 p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
 #write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
 p > .md-image:only-child { display: inline-block; width: 100%; }
@@ -107,7 +107,7 @@ p > .md-image:only-child { display: inline-block; width: 100%; }
 .task-list-item.md-task-list-item { padding-left: 0px; }
 .md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
 .math { font-size: 1rem; }
-.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
 .md-toc-content { position: relative; margin-left: 0px; }
 .md-toc-content::after, .md-toc::after { display: none; }
 .md-toc-item { display: block; color: rgb(65, 131, 196); }
@@ -120,7 +120,7 @@ p > .md-image:only-child { display: inline-block; width: 100%; }
 .md-toc-h4 .md-toc-inner { margin-left: 6em; }
 .md-toc-h5 .md-toc-inner { margin-left: 8em; }
 .md-toc-h6 .md-toc-inner { margin-left: 10em; }
-@media screen and (max-width: 48em) { 
+@media screen and (max-width: 48em) {
   .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
   .md-toc-h4 .md-toc-inner { margin-left: 5em; }
   .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
@@ -131,87 +131,80 @@ a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; 
 .md-attr { display: none; }
 .md-fn-count::after { content: "."; }
 code, pre, samp, tt { font-family: var(--monospace); }
-kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; background-position: initial initial; background-repeat: initial initial; }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
 .md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
-code { text-align: left; }
-a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
 .md-inline-math .MathJax_SVG .noError { display: none !important; }
 .html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
 .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
 .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
 .MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
 .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
 .MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
 .os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
 .md-diagram-panel > svg { max-width: 100%; }
 [lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
 [lang="mermaid"] .node text { font-size: 1rem; }
-table tr th { border-bottom-width: 0px; }
+table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
-mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); background-position: initial initial; background-repeat: initial initial; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
 .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
 mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
-@media print { 
+@media print {
   .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
 }
 .md-diagram-panel .messageText { stroke: none !important; }
 .md-diagram-panel .start-state { fill: var(--node-fill); }
 .md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
-.md-require-zoom-fix foreignObject { font-size: var(--mermaid-font-zoom); }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
 
 
 :root {
-    --side-bar-bg-color: #fafafa;
+    --side-bar-bg-color: #efefef;
     --control-text-color: #777;
+    --primary-color: #393894;
+    --primary-btn-border-color: #393894;
+    --active-file-bg-color: #eaeaea;
+    --active-file-text-color: inherit;
+    --active-file-border-color: #393894;
+    --item-hover-text-color: #393894;
 }
 
-@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
-
-/* open-sans-regular - latin-ext_latin */
-  /* open-sans-italic - latin-ext_latin */
-    /* open-sans-700 - latin-ext_latin */
-    /* open-sans-700italic - latin-ext_latin */
-  html {
-    font-size: 16px;
+html {
+    font-size: .925rem;
 }
 
 body {
-    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: rgb(51, 51, 51);
+    background: none;
+    font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #2e2e2e;
     line-height: 1.6;
+    height: 100%;
 }
 
 #write {
-    max-width: 860px;
-  	margin: 0 auto;
-  	padding: 30px;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 30px;
     padding-bottom: 100px;
+    position: static;
+    width: 100%;
 }
 
-@media only screen and (min-width: 1400px) {
-	#write {
-		max-width: 1024px;
-	}
-}
-
-@media only screen and (min-width: 1800px) {
-	#write {
-		max-width: 1200px;
-	}
-}
-
-#write > ul:first-child,
-#write > ol:first-child{
+#write>ul:first-child,
+#write>ol:first-child {
     margin-top: 30px;
 }
 
 a {
-    color: #4183C4;
+    color: #1b69b6;
 }
+
 h1,
 h2,
 h3,
@@ -225,6 +218,7 @@ h6 {
     line-height: 1.4;
     cursor: text;
 }
+
 h1:hover a.anchor,
 h2:hover a.anchor,
 h3:hover a.anchor,
@@ -233,84 +227,88 @@ h5:hover a.anchor,
 h6:hover a.anchor {
     text-decoration: none;
 }
+
 h1 tt,
 h1 code {
     font-size: inherit;
 }
+
 h2 tt,
 h2 code {
     font-size: inherit;
 }
+
 h3 tt,
 h3 code {
     font-size: inherit;
 }
+
 h4 tt,
 h4 code {
     font-size: inherit;
 }
+
 h5 tt,
 h5 code {
     font-size: inherit;
 }
+
 h6 tt,
 h6 code {
     font-size: inherit;
 }
+
 h1 {
+    padding-bottom: .3em;
     font-size: 2.25em;
     line-height: 1.2;
     border-bottom: 1px solid #eee;
 }
+
 h2 {
+    padding-bottom: .3em;
     font-size: 1.75em;
     line-height: 1.225;
     border-bottom: 1px solid #eee;
 }
 
-/*@media print {
-    .typora-export h1,
-    .typora-export h2 {
-        border-bottom: none;
-        padding-bottom: initial;
-    }
-
-    .typora-export h1::after,
-    .typora-export h2::after {
-        content: "";
-        display: block;
-        height: 100px;
-        margin-top: -96px;
-        border-top: 1px solid #eee;
-    }
-}*/
-
 h3 {
     font-size: 1.5em;
     line-height: 1.43;
 }
+
 h4 {
     font-size: 1.25em;
 }
+
 h5 {
     font-size: 1em;
 }
+
 h6 {
-   font-size: 1em;
+    font-size: 1em;
     color: #777;
 }
+
 p,
 blockquote,
 ul,
 ol,
 dl,
-table{
+table {
     margin: 0.8em 0;
 }
+
+ul li,
+ol li {
+    line-height: 1.2;
+}
+
 li>ol,
 li>ul {
     margin: 0 0;
 }
+
 hr {
     height: 2px;
     padding: 0;
@@ -324,83 +322,99 @@ hr {
 li p.first {
     display: inline-block;
 }
+
 ul,
 ol {
     padding-left: 30px;
 }
+
 ul:first-child,
 ol:first-child {
     margin-top: 0;
 }
+
 ul:last-child,
 ol:last-child {
     margin-bottom: 0;
 }
+
 blockquote {
     border-left: 4px solid #dfe2e5;
+    font-family: 'Hack';
+    font-size: 13px;
     padding: 0 15px;
-    color: #777777;
+    color: #707070;
 }
+
 blockquote blockquote {
+    font-family: 'Hack';
     padding-right: 0;
 }
+
 table {
+    font-size: .875rem;
     padding: 0;
     word-break: initial;
 }
+
 table tr {
-    border-top: 1px solid #dfe2e5;
+    border-top: 1px solid #dfdfdf;
     margin: 0;
     padding: 0;
 }
-table tr:nth-child(2n),
+
 thead {
     background-color: #f8f8f8;
 }
-table th {
+
+table tr th {
     font-weight: bold;
-    border: 1px solid #dfe2e5;
+    border: 1px solid #dfdfdf;
     border-bottom: 0;
+    border-bottom: solid 2px #ccc;
     margin: 0;
-    padding: 6px 13px;
+    padding: 10px 16px;
 }
-table td {
+
+table tr td {
     border: 1px solid #dfe2e5;
     margin: 0;
-    padding: 6px 13px;
+    padding: 10px 16px;
 }
-table th:first-child,
-table td:first-child {
+
+table tr th:first-child,
+table tr td:first-child {
     margin-top: 0;
 }
-table th:last-child,
-table td:last-child {
+
+table tr th:last-child,
+table tr td:last-child {
     margin-bottom: 0;
 }
 
 .CodeMirror-lines {
-    padding-left: 4px;
+    padding: 4px 0;
 }
 
 .code-tooltip {
-    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
     border-top: 1px solid #eef2f2;
 }
 
 .md-fences,
-code,
+/* code, */
 tt {
-    border: 1px solid #e7eaed;
-    background-color: #f8f8f8;
     border-radius: 3px;
+    color: #b9bcba;
     padding: 0;
-    padding: 2px 4px 0px 4px;
     font-size: 0.9em;
 }
 
 code {
-    background-color: #f3f4f4;
-    padding: 0 2px 0 2px;
+    padding: 2px 4px;
+    color: #c0341d;
+    background-color: #fbe5e1;
+    border-radius: 4px;
 }
 
 .md-fences {
@@ -410,29 +424,31 @@ code {
     padding-bottom: 6px;
 }
 
-
-.md-task-list-item > input {
-  margin-left: -1.3em;
+.md-task-list-item>input {
+    margin-left: -1.3em;
 }
 
 @media print {
     html {
         font-size: 13px;
     }
+
     table,
     pre {
         page-break-inside: avoid;
     }
+
     pre {
         word-wrap: break-word;
     }
 }
 
 .md-fences {
-	background-color: #f8f8f8;
+    background-color: #f8f8f8;
 }
+
 #write pre.md-meta-block {
-	padding: 1rem;
+    padding: 1rem;
     font-size: 85%;
     line-height: 1.45;
     background-color: #f7f7f7;
@@ -443,31 +459,34 @@ code {
 }
 
 .mathjax-block>.code-tooltip {
-	bottom: .375rem;
+    bottom: .375rem;
 }
 
 .md-mathjax-midline {
     background: #fafafa;
 }
 
-#write>h3.md-focus:before{
-	left: -1.5625rem;
-	top: .375rem;
+#write>h3.md-focus:before {
+    left: -1.5625rem;
+    top: .375rem;
 }
-#write>h4.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
+
+#write>h4.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
 }
-#write>h5.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
+
+#write>h5.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
 }
-#write>h6.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
+
+#write>h6.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
 }
+
 .md-image>.md-meta {
-    /*border: 1px solid #ddd;*/
     border-radius: 3px;
     padding: 2px 0px 0px 4px;
     font-size: 0.9em;
@@ -479,13 +498,130 @@ code {
     opacity: 1;
 }
 
-.md-toc { 
-    margin-top:20px;
-    padding-bottom:20px;
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
 }
 
 .sidebar-tabs {
     border-bottom: none;
+    font-weight: normal;
+}
+
+#typora-sidebar .sidebar-tabs {
+    font-family: 'Open Sans' !important;
+    border-bottom: 1px solid #dfdfdf;
+    font-weight: bold;
+}
+
+#typora-sidebar .file-list-item-file-name {
+    font-family: 'Open Sans';
+    font-weight: bold;
+}
+
+#typora-source .CodeMirror-lines {
+  max-width: auto; /*or 1000px*/
+}
+
+#typora-sidebar .file-list-item-summary,
+#typora-sidebar .ty-search-item-line {
+    font-family: 'Open Sans';
+}
+
+#typora-sidebar #outline-content .outline-h1>.outline-item {
+    font-family: 'Open Sans';
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node.active .file-node-background,
+#typora-sidebar .file-list-item.file-library-file-node.active {
+    border-left: 4px solid #393894;
+}
+
+.file-library-node:not(.file-node-root):focus>.file-node-content {
+    outline: none;
+}
+
+#typora-sidebar .file-list-item.file-library-file-node:hover {
+    background: #f1f1f1;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node {
+    padding: 0;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node.active .file-node-title {
+    color: #2a2971;
+}
+
+#typora-sidebar .file-tree-node {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    padding-left: 15px;
+}
+
+.file-node-icon {
+    color: #707070;
+    margin-right: 8px;
+}
+
+.active .file-node-icon {
+    color: #2a2971;
+}
+
+.file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#707070' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M438.944,352c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H133.056c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h245.888c44.113,0,80-35.888,80.001-80c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20 c0,22.056-17.944,40-40,40H133.056c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v252 C418.944,343.046,427.899,352,438.944,352z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,120,358.944,120z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,200h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,200,358.944,200z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M278.054,280H152.944c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h125.112c11.046,0,19.999-8.954,19.999-20 C298.054,288.954,289.1,280,278.054,280z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node:hover .file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#2a2971' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M438.944,352c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H133.056c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h245.888c44.113,0,80-35.888,80.001-80c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20 c0,22.056-17.944,40-40,40H133.056c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v252 C418.944,343.046,427.899,352,438.944,352z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,120,358.944,120z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M358.944,200h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S369.989,200,358.944,200z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M278.054,280H152.944c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h125.112c11.046,0,19.999-8.954,19.999-20 C298.054,288.954,289.1,280,278.054,280z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node.active:hover .file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#2a2971' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath d='M352.459,220c0-11.046-8.954-20-20-20h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206 C343.505,240,352.459,231.046,352.459,220z'/%3E%3Cpath d='M126.459,280c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20H251.57c11.046,0,20-8.954,20-20c0-11.046-8.954-20-20-20 H126.459z'/%3E%3Cpath d='M173.459,472H106.57c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v123 c0,11.046,8.954,20,20,20c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H106.57c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h66.889c11.046,0,20-8.954,20-20C193.459,480.954,184.505,472,173.459,472z'/%3E%3Cpath d='M467.884,289.572c-23.394-23.394-61.458-23.395-84.837-0.016l-109.803,109.56c-2.332,2.327-4.052,5.193-5.01,8.345 l-23.913,78.725c-2.12,6.98-0.273,14.559,4.821,19.78c3.816,3.911,9,6.034,14.317,6.034c1.779,0,3.575-0.238,5.338-0.727 l80.725-22.361c3.322-0.92,6.35-2.683,8.79-5.119l109.573-109.367C491.279,351.032,491.279,312.968,467.884,289.572z M333.776,451.768l-40.612,11.25l11.885-39.129l74.089-73.925l28.29,28.29L333.776,451.768z M439.615,346.13l-3.875,3.867 l-28.285-28.285l3.862-3.854c7.798-7.798,20.486-7.798,28.284,0C447.399,325.656,447.399,338.344,439.615,346.13z'/%3E%3Cpath d='M332.459,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S343.505,120,332.459,120z'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+.active .file-node-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='#2a2971' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath d='M352.459,220c0-11.046-8.954-20-20-20h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206 C343.505,240,352.459,231.046,352.459,220z'/%3E%3Cpath d='M126.459,280c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20H251.57c11.046,0,20-8.954,20-20c0-11.046-8.954-20-20-20 H126.459z'/%3E%3Cpath d='M173.459,472H106.57c-22.056,0-40-17.944-40-40V80c0-22.056,17.944-40,40-40h245.889c22.056,0,40,17.944,40,40v123 c0,11.046,8.954,20,20,20c11.046,0,20-8.954,20-20V80c0-44.112-35.888-80-80-80H106.57c-44.112,0-80,35.888-80,80v352 c0,44.112,35.888,80,80,80h66.889c11.046,0,20-8.954,20-20C193.459,480.954,184.505,472,173.459,472z'/%3E%3Cpath d='M467.884,289.572c-23.394-23.394-61.458-23.395-84.837-0.016l-109.803,109.56c-2.332,2.327-4.052,5.193-5.01,8.345 l-23.913,78.725c-2.12,6.98-0.273,14.559,4.821,19.78c3.816,3.911,9,6.034,14.317,6.034c1.779,0,3.575-0.238,5.338-0.727 l80.725-22.361c3.322-0.92,6.35-2.683,8.79-5.119l109.573-109.367C491.279,351.032,491.279,312.968,467.884,289.572z M333.776,451.768l-40.612,11.25l11.885-39.129l74.089-73.925l28.29,28.29L333.776,451.768z M439.615,346.13l-3.875,3.867 l-28.285-28.285l3.862-3.854c7.798-7.798,20.486-7.798,28.284,0C447.399,325.656,447.399,338.344,439.615,346.13z'/%3E%3Cpath d='M332.459,120h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206c11.046,0,20-8.954,20-20S343.505,120,332.459,120z'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+.file-library-node.file-tree-node {
+    padding: 0;
+    margin: 0;
+}
+
+.file-node-background {
+    padding: 25px 10px;
+    padding: 18px 10px 18px 0;
+}
+
+.file-node-content {
+    padding: 15px 5px;
+    padding: 8px 8px 8px 0;
+}
+
+.file-node-content:hover {
+    cursor: pointer;
+}
+
+.active .file-node-content {
+    font-weight: bold;
 }
 
 #typora-quick-open {
@@ -505,18 +641,39 @@ code {
     border-left-color: rgba(85, 85, 85, 0.12);
 }
 
-header, .context-menu, .megamenu-content, footer{
-    font-family: "Segoe UI", "Arial", sans-serif;
+header,
+.context-menu,
+.megamenu-content,
+footer {
+    font-family: "Open Sans", "Arial", sans-serif;
+}
+
+.megamenu-opened header {
+    background-image: none;
+}
+
+#typora-sidebar #ty-sidebar-footer {
+    background-color: #f9f9f9 !important;
+    border-top: 1px solid #dfdfdf;
+}
+
+.megamenu-menu-header {
+    border-bottom: 1px solid #16161a;
+}
+
+.megamenu-menu-list li:not(.saved) a:not(.active):hover,
+.megamenu-menu-list li a.active {
+    background: #101010 !important;
 }
 
 .file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state{
+.file-node-content:hover .file-node-open-state {
     visibility: visible;
 }
 
 .mac-seamless-mode #typora-sidebar {
-    background-color: #fafafa;
-    background-color: var(--side-bar-bg-color);
+    background-color: #f9f9f9;
+    font-weight: 100;
 }
 
 .md-lang {
@@ -544,10 +701,177 @@ header, .context-menu, .megamenu-content, footer{
     background: #999;
 }
 
+/* CodeMirror Dracula theme */
+.cm-s-inner {
+    border: 1px solid var(--accent-color) !important;
+    border-radius: .25rem;
+    font-family: 'Hack';
+}
+
+.cm-s-inner.CodeMirror,
+.cm-s-inner .CodeMirror-gutters {
+    background-color: #212425 !important;
+    color: #f8f8f2 !important;
+    border: none;
+}
+
+.CodeMirror {
+    height: 300px;
+    height: auto;
+}
+
+.CodeMirror-lines {
+    padding: 4px 0;
+    /* Vertical padding around content */
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid green;
+    z-index: 3;
+}
+
+.cm-s-inner .CodeMirror-gutters {
+    background-color: #0d0e0f !important;
+    border-right: 1px solid #444;
+    border-radius: 4px;
+    width: 5ch;
+    color: #5c5d5c !important;
+    height: 100%;
+    white-space: nowrap;
+}
+
+.cm-s-inner .CodeMirror-cursor {
+    border-left: solid rgb(96, 255, 96) !important;
+}
+
+.cm-s-inner .CodeMirror-linenumber {
+    color: #5c5d5c;
+    font-weight: bold;
+    width: 4ch !important;
+}
+
+.cm-s-inner .CodeMirror-line::selection,
+.cm-s-inner .CodeMirror-line::-moz-selection,
+.cm-s-inner .CodeMirror-line>span::selection,
+.cm-s-inner .CodeMirror-line>span::-moz-selection,
+.cm-s-inner .CodeMirror-line>span>span::selection,
+.cm-s-inner .CodeMirror-line>span>span::-moz-selection {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-inner span.cm-comment {
+    color: #969896;
+}
+
+.cm-s-inner span.cm-string,
+.cm-s-inner span.cm-string-2 {
+    color: #e4eb9b;
+}
+
+.cm-s-inner span.cm-number {
+    color: #c7b2e4;
+}
+
+.cm-s-inner span.cm-variable,
+.cm-s-inner span.cm-variable-2 {
+    /* color: #50fa7b; */
+    /* color: #a8b151; */
+    color: #81a2be;
+}
+
+.cm-s-inner span.cm-def {
+    color: white;
+}
+
+.cm-s-inner span.cm-operator {
+    color: #ff79c6;
+}
+
+.cm-s-inner span.cm-keyword {
+    color: #e79ac6;
+    color: #b294bb;
+}
+
+.cm-s-inner span.cm-atom {
+    color: #bd93f9;
+}
+
+.cm-s-inner span.cm-meta {
+    color: #f8f8f2;
+}
+
+.cm-s-inner span.cm-tag {
+    color: #8abeb7;
+}
+
+.cm-s-inner span.cm-attribute {
+    color: #91eba7;
+}
+
+.cm-s-inner span.cm-qualifier {
+    color: #82ee9d;
+}
+
+.cm-s-inner span.cm-property {
+    /* color: #66d9ef; */
+    color: #7091b1;
+    color: #81a2be;
+}
+
+.cm-s-inner span.cm-builtin {
+    color: #8ffaaa;
+}
+
+.cm-s-inner span.cm-variable-3,
+.cm-s-inner span.cm-type {
+    color: #f1c290;
+}
+
+.md-fences.md-focus .cm-s-inner .CodeMirror-activeline-background {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-inner .CodeMirror-matchingbracket {
+    text-decoration: underline;
+    color: white !important;
+}
+
+.cm-s-inner .CodeMirror-selected,
+.cm-s-inner .CodeMirror-selectedtext {
+    background: #3b4254 !important;
+    color: inherit;
+    text-shadow: none;
+}
+
+#write>p:first-child:empty {
+    position: static;
+}
+
+#write>p:first-child:not(:only-child)::before,
+#write>p:only-child::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("file:///C://Users//Jorge//AppData//Roaming//Typora/themes/gitlab/logo.png") no-repeat 45% 90% transparent;
+    background-size: cover;
+    opacity: 0;
+    height: 100%;
+    max-width: 100%;
+    width: 100%;
+}
+
+#write>p:only-child:empty::before {
+    opacity: 1;
+}
+
  :root {--mermaid-font-zoom:1em ;} 
 </style>
 </head>
-<body class='typora-export'>
-<div id='write'  class=''><h1><a name="diseño-de-sistemas-operativos" class="md-header-anchor"></a><span>Diseño de sistemas operativos</span></h1><h2><a name="información" class="md-header-anchor"></a><span>Información</span></h2><p><a href='https://www.notion.so/Notas-2607b92b49e64106afd141326b010798'><span>Notas</span></a></p><blockquote><p><span>Teorías: Javier García Guzmán</span></p><p><span>Prácticas: Mat Max Montalvo Martínez</span></p></blockquote><h2><a name="tema-1-arquitectura-de-sistemas-iot" class="md-header-anchor"></a><span>Tema 1: Arquitectura de Sistemas IoT</span></h2><p><a href='https://learning.oreilly.com/library/view/internet-of-things/9781788470599/a7f866bd-4ac8-47f3-a175-0f10d91a5ce2.xhtml'><span>Internet of Things for Architects</span></a></p><p><span>Definición de Internet de las Cosas</span></p><p><a href='https://learning.oreilly.com/library/view/internet-of-things/9781119456742/part04.xhtml#part'><span>Internet of Things A to Z</span></a></p><p><span>Aplicaciones Actuales de Internet de las Cosas</span></p><p><a href='https://learning.oreilly.com/library/view/build-your-own/9781484244982/html/474034_1_En_2_Chapter.xhtml'><span>Build Your Own IoT Platform: Develop a Fully Flexible and Scalable Internet of Things Platform in 24 Hours</span></a></p><p><span>Arquitectura de Sistemas de Internet de las Cosas</span></p><p><strong><span>IoT - Internet de las Cosas</span></strong><span>: Consiste en conectar a internet, cualquier dispositivo, vehículo, edificios o en general objetos a los que se les haya dotado de sensores, actuadores y conexión a la red. Lo que les permite obtener e intercambiar información. Red de objetos conectados a internet que aporta valor añadidos a los usuarios que interactúan con ellos.</span></p><p><span>Consiste en añadir </span><strong><span>inteligencia computacional</span></strong><span> a dispositivos para mejorar las funcionalidades.</span></p><p><span>Permite que los dispositivos puedan intercambiar información.</span></p><p><span>Se busca que sean pequeños y tengan un chip que les permita </span><strong><span>conectarse a la red</span></strong><span> y operar en ella. Lo estandarizo IBM.</span></p><p><span>El </span><strong><span>top 6 áreas</span></strong><span> de aplicación de IoT:</span></p><ol start='' ><li><strong><span>Industrial/Fabricación</span></strong><span>: Automatizar, controlar la distribución, gestión de instalaciones.</span></li><li><strong><span>Transporte/Movilidad:</span></strong><span> Coches, trafico en ciudad, vehículos de transporte masivo y transporte industrial.</span></li><li><strong><span>Energía/Gestión eléctrica</span></strong><span>: Predecir consumo, personalizar, bien estar de los ocupantes, monitorizar el consumo detallado, instalaciones con sensores.</span></li><li><strong><span>Gestión de inventarios/Comercial</span></strong><span>: Saber cuanto queda y pedir, facilitar compras.</span></li><li><strong><span>Ciudad</span></strong><span>: Recoge muchas áreas; basura, vigilancia, trafico, etc.</span></li><li><strong><span>Salud:</span></strong><span> Investigación, la forma de tratar, las emergencias, distribución de información medica y dispositivos.</span></li></ol><p><strong><span>Agricultura de precisión</span></strong><span>: Según las previsiones ambientales y meteorológica, plagas y demás se calcula el mejor momento para sembrar. Además, cuando ya esta plantado, las condiciones del suelo, cuando regar y abonar las tierras, así como la recolecta.</span></p><h3><a name="en-iot-de-vehículos-hay-distintos-niveles" class="md-header-anchor"></a><span>En </span><strong><span>IoT de vehículos</span></strong><span> hay distintos niveles:</span></h3><p><strong><span>0</span></strong><span>: Sin automatización.</span></p><p><strong><span>1</span></strong><span>: Asistencia en la conducción.</span></p><p><strong><span>2</span></strong><span>: Control de carril, lateral y longitudinal.</span></p><p><strong><span>3</span></strong><span>: Conducción autónoma, pero el conductor en su puesto, para riesgos.</span></p><p><strong><span>4</span></strong><span>: Conducción autónoma, pero el conductor en su  puesto, supervisar.</span></p><p><strong><span>5</span></strong><span>: Conducción totalmente autónoma, sin conductor.</span></p><h3><a name="elementos-iot" class="md-header-anchor"></a><strong><span>Elementos IoT:</span></strong></h3><p><strong><span>Colector</span></strong><span>: Recogen información, sensores, o se activan, actuadores, que se intercambian en internet.</span></p><p><strong><span>Transmisor</span></strong><span>: Puertas de enlace, pasarelas, pasan los datos a la red desde los dispositivos.</span></p><p><strong><span>Agregación + Distribución</span></strong><span>: Calculo y procesamiento de la información.</span></p><p><strong><span>Consumidor</span></strong><span>: Los usuarios/clientes acceden a los datos.</span></p><h3><a name="evolución" class="md-header-anchor"></a><strong><span>Evolución</span></strong><span>: </span></h3><p><span>3 generaciones.</span></p><ol start='' ><li><p><strong><span>RFID y sensores</span></strong></p><p><span>Tecnología de detección por radio frecuencia.</span></p><p><span>Las cosas contengan información, las etiquetas (como NFC, se estandarizó para indicar que datos contiene) y tener un dispositivo que al acercarlo podamos leerla.</span></p></li><li><p><strong><span>Web services e inter-networking</span></strong><span> (2004-2012): Interconexión completa de las cosas y la red de las cosas.</span></p><p><span>IPv4, HTTP, Bluetooth, TCP, UDP, etc.</span></p><p><span>Pasan a tener una manera fácil de conectarse los dispositivos entre sí o con internet.</span></p></li><li><p><strong><span>Social, Cloud &amp; ICN:</span></strong><span> La era de la computación en la nube y la Internet del futuro.</span></p><p><span>En esta generación la lógica pasa a estar en la nube, no en el dispositivo.</span></p><p><span>Gestión de grandes cantidades de información.</span></p><p><span>Seguridad, evitar accesos fraudulentos.</span></p></li></ol><h3><a name="arquitectura-de-in-sistema-iot" class="md-header-anchor"></a><strong><span>Arquitectura de in Sistema IoT:</span></strong></h3><p><strong><span>Dispositivos (Devices)</span></strong><span>: Sensores y actuadores FÍSICOS, que normalmente tienen un microprocesador, que mide el medio físico y transforma las mediciones a señales digitales. Su función es tomar medidas y procesarlas, pero su función no puede ser solo transmitir la información.</span></p><p><span>Actuador, Sensores, LED, LCD, Beacon (la parte dispositivo), Termostato, RFID, Trampa para ratones inteligente, Dispositivos embebidos, etc.</span></p><p><strong><span>Pasarela (Gateway)</span></strong><span>: Dispositivo o protocolo con la capacidad de comunicar con internet los dispositivos, para transmitir los datos tomados. Su única función es transmitir.</span></p><p><span>Router, Wifi, GSM, Bluetooth, Zigbee, Raspberry a veces, AMQP, CoAP, LoRaWAN (sistema de radio), Wimax.</span></p><p><span>Un móvil está entre Device y Gateway.</span></p><p><strong><span>Plataforma IoT (IoT Platform):</span></strong><span> Conjunto de servicios orquestados para gestionar una gran red de dispositivos interconectados y que proporcionan información a aplicaciones u otros tipos de sistemas de información. Gestiona y almacena grandes cantidades de datos y las redirige. Funciona com middleware.</span></p><p><span>Es una nube de servidores que dan servicios:</span></p><ol start='' ><li><p><strong><span>Message broker y Message bus</span></strong><span>: Se encarga de conectar los dispositivos físicos con los distintos procesos que forman parte de la red de IoT. Manda los datos a todos los que estén conectados a su bus, suscritos por API Rest.</span></p></li><li><p><strong><span>Message router</span></strong><span>: Está suscrito al message broker, los mensajes que recibe los enriquece; dando información semántica, de contexto, de estad y los reenvía a aquellos componentes que van a gestionar la lógica de las aplicaciones relacionadas con la nube IoT. Otra cosa que hace es transformar datos, descomprimir y decodificar datos para hacerlos mas fáciles de procesar y tratar.</span></p></li><li><p><strong><span>Rest API</span></strong><span>: Interfaz que usan otros programas para obtener los servicios o las funcionalidades de un componente. Esta API se caracteriza por ser accesible por http e independiente del estado del sistema.</span></p></li><li><p><strong><span>Data Management</span></strong><span>: Para almacenar y gestionar los datos tomados en la red.</span></p></li><li><p><strong><span>Rule engine</span></strong><span>: Permite monitorear los mensajes recibidos desde el router y permite lanzar distintas acciones en distintos elementos. Decide que acción tomar. </span></p><p><span>Ejem: Si se abre la puerta, entonces avisar de intruso.</span></p></li><li><p><strong><span>Microproceso</span></strong><span>: Proporciona funcionalidades muy específicas a través de una interfaz API Rest bien definidas mediante un contrato de datos. Muchos los coordina el rule engine. Se busca que este muy cohesionado y poco acoplado.</span></p><p><span>Ejem: El que actualiza la estación meteorológica en el móvil, es un proceso muy concreto.</span></p></li><li><p><strong><span>Device manager</span></strong><span>: Permite monitorizar algunos elementos de los sensores físicos como si esta activo, la batería o si esta conectado a la red.</span></p></li><li><p><strong><span>App y User management</span></strong><span>: Sistema de permisos que identifica y gestiona el acceso de usuarios y aplicaciones.</span></p></li></ol><p><strong><span>Aplicación(Application)</span></strong><span>: La interfaz que el usuario utiliza para controlar el sistema.</span></p><p><strong><span>iBeacon</span></strong><span> es un ejemplo de protocolo y </span><strong><span>Beacon</span></strong><span> es el dispositivo. Ambos están relacionados con dispositivos.</span></p><p><strong><span>Small Data</span></strong><span>: Que solo proporcione la información de valor añadido. Es un conjunto de datos con un volumen y un formato que hacen que los datos sean accesibles, informativos y procesables.</span></p><p><strong><span>Wimax</span></strong><span>: Conjunto de tecnologías y protocolos para aumentar el alcance de las redes inalámbricas (en vez de 30 metros, 40 kilómetros).</span></p><h2><a name="tema-2-sensores-y-actuadores" class="md-header-anchor"></a><span>Tema 2: Sensores y Actuadores</span></h2><p><a href='https://learning.oreilly.com/library/view/internet-of-things/9781788470599/d39be056-b166-476e-868e-c415e4dfa886.xhtml'><span>Internet of Things for Architects</span></a></p><p><span>Introducción a Sensores y Actuadores. Hasta la sección &#39;Up to Functional examples (putting it all together)’ incluida.</span></p><h3><a name="sensores-analógicos-y-digitales" class="md-header-anchor"></a><strong><span>Sensores analógicos y digitales</span></strong></h3><p><span>Los sensores </span><strong><span>analógicos</span></strong><span> son los que producen una señal analógica basada en lo que perciben, más gradual . </span></p><p><span>Los sensores </span><strong><span>digitales</span></strong><span> son los que producen señales digitales en respuesta a lo que mide, más unos y ceros.</span></p><h3><a name="sensores-activos-y-pasivos-mal" class="md-header-anchor"></a><strong><span>Sensores activos y pasivos MAL</span></strong></h3><p><span>Sensores </span><strong><span>Activos</span></strong><span>: Generan señales sin requerir de fuente alguna de alimentación.</span></p><p><span>Sensores </span><strong><span>Pasivos</span></strong><span>: Generan señales al medir por intermedio de una fuente auxiliar.</span></p><h2><a name="recursos" class="md-header-anchor"></a><span>Recursos</span></h2><p><a href='https://learning.oreilly.com/playlists/5a6c045f-e39c-465e-9e7c-60dcbb12aebb'><span>Playlist: In-demand content selected by experts and peers</span></a></p></div>
+<body class='typora-export os-windows'>
+<div id='write'  class=' first-line-indent'><h1><a name="diseño-de-sistemas-operativos" class="md-header-anchor"></a><span>Diseño de sistemas operativos</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n2943"><a class="md-toc-inner" href="#diseño-de-sistemas-operativos">Diseño de sistemas operativos</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n2946"><a class="md-toc-inner" href="#información">Información</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n2951"><a class="md-toc-inner" href="#recursos">Recursos</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n2953"><a class="md-toc-inner" href="#tema-1-arquitectura-de-sistemas-iot">Tema 1: Arquitectura de Sistemas IoT</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n2976"><a class="md-toc-inner" href="#en-iot-de-vehículos-hay-distintos-niveles">En IoT de vehículos hay distintos niveles</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n2983"><a class="md-toc-inner" href="#elementos-iot">Elementos IoT</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n2988"><a class="md-toc-inner" href="#evolución">Evolución</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3004"><a class="md-toc-inner" href="#arquitectura-de-in-sistema-iot">Arquitectura de in Sistema IoT</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n3035"><a class="md-toc-inner" href="#tema-2-sensores-y-actuadores">Tema 2: Sensores y Actuadores</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3037"><a class="md-toc-inner" href="#sensores">Sensores</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3073"><a class="md-toc-inner" href="#actuadores">Actuadores</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3076"><a class="md-toc-inner" href="#factores-de-selección-de-sensores-y-actuadores">Factores de selección de Sensores y Actuadores</a></span></p></div><h2><a name="información" class="md-header-anchor"></a><span>Información</span></h2><p><a href='https://www.notion.so/Notas-2607b92b49e64106afd141326b010798'><span>Notas</span></a></p><blockquote><p><span>Teorías: Javier García Guzmán</span></p><p><span>Prácticas: Mat Max Montalvo Martínez</span></p></blockquote><h2><a name="recursos" class="md-header-anchor"></a><span>Recursos</span></h2><p><a href='https://learning.oreilly.com/playlists/5a6c045f-e39c-465e-9e7c-60dcbb12aebb'><span>Lista de libros de referencia</span></a></p><h1><a name="tema-1-arquitectura-de-sistemas-iot" class="md-header-anchor"></a><span>Tema 1: Arquitectura de Sistemas IoT</span></h1><p><a href='https://learning.oreilly.com/library/view/internet-of-things/9781788470599/a7f866bd-4ac8-47f3-a175-0f10d91a5ce2.xhtml'><span>Definición de Internet de las Cosas</span></a></p><p><a href='https://learning.oreilly.com/library/view/internet-of-things/9781119456742/part04.xhtml#part'><span>Aplicaciones Actuales de Internet de las Cosas</span></a></p><p><a href='https://learning.oreilly.com/library/view/build-your-own/9781484244982/html/474034_1_En_2_Chapter.xhtml'><span>Arquitectura de Sistemas de Internet de las Cosas</span></a></p><p><strong><span>IoT - Internet de las Cosas</span></strong><span>: Consiste en conectar a internet, cualquier dispositivo, vehículo, edificios o en general objetos a los que se les haya dotado de sensores, actuadores y conexión a la red. Lo que les permite obtener e intercambiar información. Red de objetos conectados a internet que aporta valor añadidos a los usuarios que interactúan con ellos.</span></p><p><span>Consiste en añadir </span><strong><span>inteligencia computacional</span></strong><span> a dispositivos para mejorar las funcionalidades.</span></p><p><span>Permite que los dispositivos puedan intercambiar información.</span></p><p><span>Se busca que sean pequeños y tengan un chip que les permita </span><strong><span>conectarse a la red</span></strong><span> y operar en ella. Lo estandarizo IBM.</span></p><p><span>El </span><strong><span>top 6 áreas</span></strong><span> de aplicación de IoT:</span></p><ol start='' ><li><strong><span>Industrial/Fabricación</span></strong><span>: Automatizar, controlar la distribución, gestión de instalaciones.</span></li><li><strong><span>Transporte/Movilidad:</span></strong><span> Coches, tráfico en ciudad, vehículos de transporte masivo y transporte industrial.</span></li><li><strong><span>Energía/Gestión eléctrica</span></strong><span>: Predecir consumo, personalizar, bien estar de los ocupantes, monitorizar el consumo detallado, instalaciones con sensores.</span></li><li><strong><span>Gestión de inventarios/Comercial</span></strong><span>: Saber cuánto queda y pedir, facilitar compras.</span></li><li><strong><span>Ciudad</span></strong><span>: Recoge muchas áreas; basura, vigilancia, trafico, etc.</span></li><li><strong><span>Salud:</span></strong><span> Investigación, la forma de tratar, las emergencias, distribución de información médica y dispositivos.</span></li></ol><p><strong><span>Agricultura de precisión</span></strong><span>: Según las previsiones ambientales y meteorológica, plagas y demás se calcula el mejor momento para sembrar. Además, cuando ya está plantado, las condiciones del suelo, cuando regar y abonar las tierras, así como la recolecta.</span></p><h2><a name="en-iot-de-vehículos-hay-distintos-niveles" class="md-header-anchor"></a><span>En IoT de vehículos hay distintos niveles</span></h2><p><strong><span>0</span></strong><span>: Sin automatización.</span></p><p><strong><span>1</span></strong><span>: Asistencia en la conducción.</span></p><p><strong><span>2</span></strong><span>: Control de carril, lateral y longitudinal.</span></p><p><strong><span>3</span></strong><span>: Conducción autónoma, pero el conductor en su puesto, para riesgos.</span></p><p><strong><span>4</span></strong><span>: Conducción autónoma, pero el conductor en su  puesto, supervisar.</span></p><p><strong><span>5</span></strong><span>: Conducción totalmente autónoma, sin conductor.</span></p><h2><a name="elementos-iot" class="md-header-anchor"></a><span>Elementos IoT</span></h2><p><strong><span>Colector</span></strong><span>: Recogen información, sensores, o se activan, actuadores, que se intercambian en internet.</span></p><p><strong><span>Transmisor</span></strong><span>: Puertas de enlace, pasarelas, pasan los datos a la red desde los dispositivos.</span></p><p><strong><span>Agregación + Distribución</span></strong><span>: Calculo y procesamiento de la información.</span></p><p><strong><span>Consumidor</span></strong><span>: Los usuarios/clientes acceden a los datos.</span></p><h2><a name="evolución" class="md-header-anchor"></a><span>Evolución</span></h2><p><span>3 generaciones.</span></p><ol start='' ><li><p><strong><span>RFID y sensores</span></strong></p><p><span>Tecnología de detección por radio frecuencia.</span></p><p><span>Las cosas contengan información, las etiquetas (como NFC, se estandarizó para indicar que datos contiene) y tener un dispositivo que al acercarlo podamos leerla.</span></p></li><li><p><strong><span>Web services e inter-networking</span></strong><span> (2004-2012): Interconexión completa de las cosas y la red de las cosas.</span></p><p><span>IPv4, HTTP, Bluetooth, TCP, UDP, etc.</span></p><p><span>Pasan a tener una manera fácil de conectarse los dispositivos entre sí o con internet.</span></p></li><li><p><strong><span>Social, Cloud &amp; ICN:</span></strong><span> La era de la computación en la nube y la Internet del futuro.</span></p><p><span>En esta generación la lógica pasa a estar en la nube, no en el dispositivo.</span></p><p><span>Gestión de grandes cantidades de información.</span></p><p><span>Seguridad, evitar accesos fraudulentos.</span></p></li></ol><h2><a name="arquitectura-de-in-sistema-iot" class="md-header-anchor"></a><span>Arquitectura de in Sistema IoT</span></h2><p><strong><span>Dispositivos (Devices)</span></strong><span>: Sensores y actuadores FÍSICOS, que normalmente tienen un microprocesador, que mide el medio físico y transforma las mediciones a señales digitales. Su función es tomar medidas y procesarlas, pero su función no puede ser solo transmitir la información.</span></p><p><span>Actuador, Sensores, LED, LCD, Beacon (la parte dispositivo), Termostato, RFID, Trampa para ratones inteligente, Dispositivos embebidos, etc.</span></p><p><strong><span>Pasarela (Gateway)</span></strong><span>: Dispositivo o protocolo con la capacidad de comunicar con internet los dispositivos, para transmitir los datos tomados. Su única función es transmitir.</span></p><p><span>Router, Wifi, GSM, Bluetooth, Zigbee, Raspberry a veces, AMQP, CoAP, LoRaWAN (sistema de radio), Wimax.</span></p><p><span>Un móvil está entre Device y Gateway.</span></p><p><strong><span>Plataforma IoT (IoT Platform):</span></strong><span> Conjunto de servicios orquestados para gestionar una gran red de dispositivos interconectados y que proporcionan información a aplicaciones u otros tipos de sistemas de información. Gestiona y almacena grandes cantidades de datos y las redirige. Funciona com middleware.</span></p><p><span>Es una nube de servidores que dan servicios:</span></p><ol start='' ><li><p><strong><span>Message broker y Message bus</span></strong><span>: Se encarga de conectar los dispositivos físicos con los distintos procesos que forman parte de la red de IoT. Manda los datos a todos los que estén conectados a su bus, suscritos por API Rest.</span></p></li><li><p><strong><span>Message router</span></strong><span>: Está suscrito al message broker, los mensajes que recibe los enriquece; dando información semántica, de contexto, de estad y los reenvía a aquellos componentes que van a gestionar la lógica de las aplicaciones relacionadas con la nube IoT. Otra cosa que hace es transformar datos, descomprimir y decodificar datos para hacerlos más fáciles de procesar y tratar.</span></p></li><li><p><strong><span>Rest API</span></strong><span>: Interfaz que usan otros programas para obtener los servicios o las funcionalidades de un componente. Esta API se caracteriza por ser accesible por http e independiente del estado del sistema.</span></p></li><li><p><strong><span>Data Management</span></strong><span>: Para almacenar y gestionar los datos tomados en la red.</span></p></li><li><p><strong><span>Rule engine</span></strong><span>: Permite monitorear los mensajes recibidos desde el router y permite lanzar distintas acciones en distintos elementos. Decide que acción tomar.</span></p><p><span>Ejem: Si se abre la puerta, entonces avisar de intruso.</span></p></li><li><p><strong><span>Microproceso</span></strong><span>: Proporciona funcionalidades muy específicas a través de una interfaz API Rest bien definidas mediante un contrato de datos. Muchos los coordina el rule engine. Se busca que este muy cohesionado y poco acoplado.</span></p><p><span>Ejem: El que actualiza la estación meteorológica en el móvil, es un proceso muy concreto.</span></p></li><li><p><strong><span>Device manager</span></strong><span>: Permite monitorizar algunos elementos de los sensores físicos como si está activo, la batería o si está conectado a la red.</span></p></li><li><p><strong><span>App y User management</span></strong><span>: Sistema de permisos que identifica y gestiona el acceso de usuarios y aplicaciones.</span></p></li></ol><p><strong><span>Aplicación(Application)</span></strong><span>: La interfaz que el usuario utiliza para controlar el sistema.</span></p><p><strong><span>iBeacon</span></strong><span> es un ejemplo de protocolo y </span><strong><span>Beacon</span></strong><span> es el dispositivo. Ambos están relacionados con dispositivos.</span></p><p><strong><span>Small Data</span></strong><span>: Que solo proporcione la información de valor añadido. Es un conjunto de datos con un volumen y un formato que hacen que los datos sean accesibles, informativos y procesables.</span></p><p><strong><span>Wimax</span></strong><span>: Conjunto de tecnologías y protocolos para aumentar el alcance de las redes inalámbricas (en vez de 30 metros, 40 kilómetros).</span></p><h1><a name="tema-2-sensores-y-actuadores" class="md-header-anchor"></a><span>Tema 2: Sensores y Actuadores</span></h1><p><a href='https://learning.oreilly.com/library/view/internet-of-things/9781788470599/d39be056-b166-476e-868e-c415e4dfa886.xhtml'><span>Introducción a Sensores y Actuadores</span></a><span> Hasta la sección &#39;Up to Functional examples (putting it all together)’ incluida.</span></p><h2><a name="sensores" class="md-header-anchor"></a><span>Sensores</span></h2><p><span>Conjunto de componentes electrónicos capaces de detectar cambios físicos en el entorno y enviar información a otros componentes electrónicos, generalmente un procesador de computadora.</span></p><p><strong><span>Ejemplos</span></strong><span>: Sensor de luz (LDR), sensor de ultrasonidos, giroscopio, fototransistor, Reed switch, ...</span></p><p><span>Los sensores se pueden clasificar en tipos según lo que miden: Gases, velocidad, flujo, fugas, movimiento, electricidad, ...</span></p><p><span>Según la señal que produce:</span></p><ul><li><p><strong><span>Analógico</span></strong><span>: Produce voltaje analógico constante de los medido. El grafico de voltaje sobre el tiempo debe ser continuo y suave.</span></p><ul><li><img src="DSO/image-20210307210139988.png" alt="image-20210307210139988" style="zoom: 33%;" /><span> Sensor de presión, sensor de luz, sensor de temperatura, acelerómetro, sensor de sonido.</span></li></ul></li><li><p><strong><span>Digital</span></strong><span>: Produce un voltaje discreto, por lo general tendrá uno u otro de dos valores, 0V (apagado) a 5V (encendido). Gracias a la miniaturización hay más dado que se puede introducir un conversor.</span></p><ul><li><img src="DSO/image-20210307210421078.png" alt="image-20210307210421078" style="zoom:33%;" /><span> Sensor de ultrasonidos, sensor de infrarrojos, acelerómetro, sensor de sonido (suele ser analógico), sensor de temperatura.</span></li></ul></li></ul><p><span>Según si necesitan energía:</span></p><ul><li><p><strong><span>Sensor activo</span></strong><span>: Siempre </span><strong><span>necesitan</span></strong><span> su propia fuente de energía.</span></p><ul><li><span>Sensor de ultrasonidos, radar, LiDAR, sensor de humedad, cámara infrarroja.</span></li></ul></li><li><p><strong><span>Sensor pasivo</span></strong><span>: </span><strong><span>No necesitan</span></strong><span> una fuente de energía, usan factores externos para alimentarse.</span></p><ul><li><span>Sensor infrarrojo (fotodiodo infrarrojo), sensor PIR, sensor de luz (LDR)</span></li></ul></li></ul><p><strong><span>Sensor piezoeléctrico:</span></strong></p><ol start='' ><li><span>Un cristal piezoeléctrico se coloca entre dos placas de metal que están en perfecto equilibrio y conduce ninguna corriente eléctrica.</span></li><li><span>Las placas de metal aplican tensión o fuerza mecánica sobre el material que hace que las cargas eléctricas del cristal se desequilibren.</span></li><li><span>Las placas de metal recogen esas cargas y produce un voltaje y envía una corriente eléctrica a través de un circuito.</span></li></ol><h2><a name="actuadores" class="md-header-anchor"></a><span>Actuadores</span></h2><p><span>Cualquier dispositivo capaz de intervenir para cambiar las condiciones físicas del entorno generando los datos.</span></p><p><strong><span>Ejemplos</span></strong><span>: Display, LED, servomotor, motor de paso a paso, Relay, solenoide, actuadores lineales, ...</span></p><h2><a name="factores-de-selección-de-sensores-y-actuadores" class="md-header-anchor"></a><span>Factores de selección de Sensores y Actuadores</span></h2><p><strong><span>Factores ambientales</span></strong><span>: Temperatura, Humedad, Corrosión, Interferencia electromagnética, Tamaño, Rudeza y Consumo de energía.</span></p><p><strong><span>Factores económicos</span></strong><span>: Coste, Disponibilidad y Tiempo de vida.</span></p><p><strong><span>Factores característicos del sensor</span></strong><span>: Sensibilidad, Rango, Estabilidad, Repetibilidad, Rango de error, Tiempo de respuesta y Linealidad.</span></p></div>
 </body>
 </html>
