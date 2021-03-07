@@ -1,88 +1,89 @@
 # Diseño de sistemas interactivos
 
-# Información
+## Información
 
 [Notas](https://www.notion.so/Notas-fb736b1e411645c38c86aa930bfca7a4)
 
-Teorías: Elena Márquez Segura (Coordinadora) elena.marquez@uc3m.es
-Prácticas: Pablo Acuña pacua@inf.uc3m.es
+> Teorías: Elena Márquez Segura (Coordinadora) elena.marquez@uc3m.es
+>
+> Prácticas: Pablo Acuña pacua@inf.uc3m.es
 
-- Test 1
+[TOC]
 
-    [https://aulaglobal.uc3m.es/mod/wooclap/view.php?id=3117738&redirect=1](https://aulaglobal.uc3m.es/mod/wooclap/view.php?id=3117738&redirect=1)
+### Test 1
 
-    **El contexto de seño caracteriza...** 
+[https://aulaglobal.uc3m.es/mod/wooclap/view.php?id=3117738&redirect=1](https://aulaglobal.uc3m.es/mod/wooclap/view.php?id=3117738&redirect=1)
 
-    - **... la situación/práctica/fenómeno/actividad para la que se va a diseñar**
+**El contexto de diseño caracteriza...** 
 
-    **Verdadero o Falso: El contexto de diseño considera, entre otras cosas, quiénes son los/as usuarios/as, sus características, necesidades, deseos...**
+- **... la situación/práctica/fenómeno/actividad para la que se va a diseñar**
 
-    - **Verdadero**
+**Verdadero o Falso: El contexto de diseño considera, entre otras cosas, quiénes son los/as usuarios/as, sus características, necesidades, deseos...**
 
-    **Obtener consentimiento por parte de los/as participantes (usuarios/as)...**
+- **Verdadero**
 
-    - **Todas las anteriores**
+**Obtener consentimiento por parte de los/as participantes (usuarios/as)...**
 
-    **En entrevistas y cuestionarios, las preguntas cerradas tienen sentido cuando...**
+- **Todas las anteriores** (participantes y entrevistados)
 
-    - **...tenemos claro el foco y objetivo de la investigación**
+**En entrevistas y cuestionarios, las preguntas cerradas tienen sentido cuando...**
 
-    **En general, esta es una pregunta correcta en una entrevista: "¿Qué problemas tienes con este producto?"**
+- **...tenemos claro el foco y objetivo de la investigación**
 
-    - **Falso**
+**En general, esta es una pregunta correcta en una entrevista: "¿Qué problemas tienes con este producto?"**
 
-    **En general, esta es una pregunta correcta en una entrevista: "¿crees que el producto debería ser más pequeño y barato?"**
+- **Falso**
 
-    - **Falso**
+**En general, esta es una pregunta correcta en una entrevista: "¿crees que el producto debería ser más pequeño y barato?"**
 
-    **Marca todas las correctas. Un "Contextual Inquiry"...**
+- **Falso**
 
-    - **...se puede considerar una técnica etnográfica**
-    - **... es una técnica de observación directa en la que el/la investigador/a mantienen un rol activo, preguntando a medida que van observando**
+**Marca todas las correctas. Un "Contextual Inquiry"...**
 
-    **Un Experience Sampling Method (ESM) es...**
+- **… se puede considerar una técnica etnográfica**
+- **… es una técnica de observación directa en la que el/la investigador/a mantienen un rol activo, preguntando a medida que van observando**
 
-    - **... es una técnica cualitativa de observación indirecta parecida al diario, en la que se mandan prompts o recordatorios a los/as participantes**
+**Un Experience Sampling Method (ESM) es...**
 
-    **Marca todas las respuestas verdaderas acerca de Embodied Interaction**
+- **... es una técnica cualitativa de observación indirecta parecida al diario, en la que se mandan prompts o recordatorios a los/as participantes**
 
-    - **… se puede referir a cualquier sistema interactivo, desde móviles y ordenadores, hasta videojuegos de movimiento**
-    - **… es un enfoque de diseño y estudio de sistemas interactivos que se centra en, y saca partido de cómo las personas entienden y actúan en el terreno físico y social**
+**Marca todas las respuestas verdaderas acerca de Embodied Interaction**
 
-    **Señala todas las respuestas correctas acerca del análisis de datos**
+- **… se puede referir a cualquier sistema interactivo, desde móviles y ordenadores, hasta videojuegos de movimiento**
+- **… es un enfoque de diseño y estudio de sistemas interactivos que se centra en, y saca partido de cómo las personas entienden y actúan en el terreno físico y social**
 
-    - **Se pueden tener datos cualitativos y hacer análisis cuantitativos y viceversa**
-    - **En análisis cuantitativo, podemos encontrarnos variables cualitativas y variables numéricas**
+**Señala todas las respuestas correctas acerca del análisis de datos**
 
-# Web Components
+- **Se pueden tener datos cualitativos y hacer análisis cuantitativos y viceversa**
+- **En análisis cuantitativo, podemos encontrarnos variables cualitativas y variables numéricas**
+
+## Web Components
 
 **Evolución de los paradigmas de programación:**
 
-Programación monolítica.
+- Programación monolítica.
 
-Programación procedimental – Encapsula datos locales.
+- Programación procedimental – Encapsula datos locales.
 
-Programación POO – Encapsula datos y funciones.
+- Programación POO – Encapsula datos y funciones.
 
-Programación conducida por eventos – Facilita GUI a partir de componentes.
+- Programación conducida por eventos – Facilita GUI a partir de componentes.
+
 
 **Paradigmas programación web**: Ha seguido una evolución parecida.
 
-HTML Monolítico (la web es estática)
+- HTML Monolítico (la web es estática)
 
-HTML (datos + estructura) + CSS (estilo gráfico) + JS (comportamiento)
-
-Antes se mandaba el HTML completo, pero hoy en día se envía JSON que son mas ligeros y transmiten solo datos.
+- HTML (datos + estructura) + CSS (estilo gráfico) + JS (comportamiento)
+- Antes se mandaba el HTML completo, pero hoy en día se envía JSON que son más ligeros y transmiten solo datos.
 
 **WEB COMPONENTS (W3C + Google -> web components)**: Para personalizar y facilitar el desarrollo web, se crean:
 
-**Custom HTML Components**: Definir nuevas etiquetas.
+- **Custom HTML Components**: Definir nuevas etiquetas.
+- **HTML Template**: Preparados para enmaquetar.
+- **Shadow DOM**: Encapsula elementos DOM.
 
-**HTML Template**: Preparados para enmaquetar.
-
-**Shadow DOM**: Encapsula elementos DOM.
-
-**HTML imports**: Librerías, que permiten modularizar aplicaciones.
+- **HTML imports**: Librerías, que permiten modularizar aplicaciones.
 
 Su uso facilita la programación web y la compatibilidad con cualquier navegador.
 
@@ -92,7 +93,7 @@ Su uso facilita la programación web y la compatibilidad con cualquier navegador
 
 **Angular**: Tiene una curva de aprendizaje compleja. Es bueno para aplicaciones complejas como intranet, extranet, app corporativas. Además, es un Framework completo dirigido a desarrolladores corporativos.
 
-# Introducción
+## Introducción
 
 **HCI - Human-Computer Interaction**: Interacción Persona-Ordenador.
 
@@ -104,21 +105,21 @@ Su uso facilita la programación web y la compatibilidad con cualquier navegador
 
 **UCD - User-centered Design**: Diseño Centrado en el Usuario.
 
-Es muy importante para el uso de los sistemas, incluso puede ser cuestión de vida o muerte. En los que un mal diseño tiene consecuencias graves, en estos se usa redundancia y cosas claras. Aunque la mayoría de las veces son problemas cotidianos.
+Un buen diseño muy importante para el uso de los sistemas, incluso puede ser cuestión de vida o muerte. En los que un mal diseño tiene consecuencias graves, en estos se usa redundancia y cosas claras. Aunque la mayoría de las veces son problemas cotidianos.
 
 **Affordance**: Que te dice como hacer, que te permite, que se ofrece. Gibson(70s) en el entorno medible relacionales, Norman(80s) son fáciles de percibir y Gaver(90s) perceptibles falsas ocultas.
 
-**Secuenciales**: Al realizar una nos lleva a otra. Girar un pomo y empujar para abrir.
+- **Secuenciales**: Al realizar una nos lleva a otra. Girar un pomo y empujar para abrir.
 
-**Anidadas**: Una puerta en un marco, con un pomo. Una dentro de otra.
+- **Anidadas**: Una puerta en un marco, con un pomo. Una dentro de otra.
 
-Ejemplo: Un asa pide tirar y una placa empujar.
+	Ejemplo: Un asa pide tirar y una placa empujar.
 
 <img src="DSI/Untitled.png" alt="DSI/Untitled.png" style="zoom:80%;" />
 
 **Mapping**: Coincidencia entre los controles y la representación física.
 
-# Tema 1
+## Tema 1
 
 **HCI - Human-Computer Interaction**: Interacción Persona-Ordenador.
 
@@ -134,7 +135,7 @@ Ejemplo: Un asa pide tirar y una placa empujar.
 
 **Sistema Interactivo**: Aquello que reciben datos y realizan una acción o proceso.
 
-## La interfaz
+### La interfaz
 
 Medio de interacción y comunicación con los usuarios, que permite enviar y recibir información.
 
@@ -144,23 +145,21 @@ Medio de interacción y comunicación con los usuarios, que permite enviar y rec
 
 **Interacción**: Acción o relación recíproca entre varios objetos.
 
-## Diseño de Sistemas Interactivos
+### Diseño de Sistemas Interactivos
 
 Campo multidisciplinar que se centra en diseñar el comportamiento de sistemas con los que interactúan los usuario y forman parte. Para apoyarlo en su día a día.
 
-Trata de crear experiencias que aumentan, extienden, mejoran, aporta, construyen, facilitan la manera en la que la gente trabaja o actúa.
-
-Desarrollar tecnología que sea fácil y agradable de usar para los usuarios.
+Trata de crear experiencias que aumentan, extienden, mejoran, aporta, construyen, facilitan la manera en la que la gente trabaja o actúa. Desarrollar tecnología que sea fácil y agradable de usar para los usuarios.
 
 Equipos multidisciplinares, hay que tener en cuenta muchos factores para el diseño centrado en usuario.
 
-## Usabilidad vs. Experiencia de Usuario
+### Usabilidad vs. Experiencia de Usuario
 
 **Usabilidad**: La eficacia, la eficiencia y la satisfacción de usuarios determinados alcanzando objetivos concretos en un contexto determinado.
 
 **UX**: Percepciones y respuestas resultado del uso (y anticipación de uso) de un producto, sistema o servicio. En definitiva, todos los aspectos de la experiencia del usuario al interactuar con un producto, servicio, entorno o establecimiento.
 
-## HCI
+### HCI
 
 HCI en el inicio, una pequeña muy pequeña del diseño.
 
@@ -168,15 +167,15 @@ Hoy en día, es un campo muy amplio.
 
 Evolución de HCI en olas.
 
-## Etapas en HCI – Olas
+### Etapas en HCI – Olas
 
 Distintos paradigmas (modelo/superteoria), programa, y de investigación y diseño. Etapas.
 
 Coexisten, a veces en conflicto, lo que afecta lo que entendemos por verdad. No está bien definida la frontera o distinción.
 
-## Primera Ola
+#### Primera Ola
 
-Es el primer paradigma(Harrison): **Ergonomía y Factores Humanos**, psicología + inteligencia.
+Es el primer paradigma (Harrison): **Ergonomía y Factores Humanos**, psicología + inteligencia.
 
 Muy pragmático, ateórico.
 
@@ -184,7 +183,7 @@ Muy pragmático, ateórico.
 
 **Foco**: Identificar problema concretos en la interacción que crean mal funcionamiento y desarrollar una solución para que encajen.
 
-### Background
+##### Background
 
 HCI emerge en **80s**, **encaje de persona-maquina**.
 
@@ -198,7 +197,7 @@ Investigación en universidades y laboratorios industriales.
 
 **Tecnología**: WIMP.
 
-### Foco
+##### Foco
 
 **Trabajo**: Centrado en la oficina, ordenadores de sobremesa.
 
@@ -206,7 +205,7 @@ Trabajo, tareas, productividad. Muy centrada en la máquina.
 
 **Estudios**: Evaluaciones de sistemas existentes. Análisis de características de uso en situaciones específicas.
 
-### Teoría
+##### Teoría
 
 User friendly – **Amigable para el usuario.**
 
@@ -214,37 +213,36 @@ User friendly – **Amigable para el usuario.**
 
 El **objetivo es decrementar la carga mental**, reducir el abismo.
 
-**Abismo(golfo) de ejecución**: Diferencia entre el objetivo de usuario y las acciones permitidas por el sistema.
+- **Abismo (golfo) de ejecución**: Diferencia entre las acciones que el usuario quiere hacer para alcanzar el objetivo y las acciones permitidas por el sistema.
 
-**Abismo de evaluación**: Diferencia entre lo que esperaba el usuario observar y lo que el usuario ve, le requiere más esfuerzo.
+- **Abismo de evaluación**: Diferencia entre lo que esperaba el usuario observar y lo que el usuario ve, le requiere más esfuerzo.
 
-Cuanto más tamaño de abismo, más dificultad de entender.
+	Cuanto más tamaño de abismo, más dificultad de entender.
 
 **Affordances** (Gibson, Norman, Gaver)
 
-**Gibson**: Relativas a las capacidades de los actores, no todos los perciben, pero son independiente de su percepción, aunque no lo veas no quiere decir que no esté.
+- **Gibson**: Relativas a las capacidades de los actores, no todos los perciben, pero son independiente de su percepción, aunque no lo veas no quiere decir que no esté.
 
-**Norman** las introduce en HCI en relación al diseño e introduciendo el factor de la percepción.
+- **Norman** las introduce en HCI en relación con el diseño e introduciendo el factor de la percepción.
 
-Cuando esta bien hecho, el usuario solo mirando es capaz de reconocerlo, sin dibujos, ni etiquetas.
+	Cuando esta bien hecho, el usuario solo mirando es capaz de reconocerlo, sin dibujos, ni etiquetas.
 
-**Gaver**: Perceptibles, falsas, ocultas.
+- **Gaver**: Perceptibles, falsas, ocultas.
 
-**Secuenciales**: Una te da información para hacer otra.
-
-**Anidadas**: Una affordance sirve como contexto de otra.
+	- **Secuenciales**: Una te da información para hacer otra.
+	- **Anidadas**: Una affordance sirve como contexto de otra.
 
 **Modelo conceptual vs. Modelo mental** (Craik)
 
-Ideal vs. Realidad
+- Ideal vs. Realidad
 
-**Modelo conceptual**: Como el diseñador lo concibe e implementa.
+- **Modelo conceptual**: Como el diseñador lo concibe e implementa.
+- **Modelo mental**: Como piensa el usuario que funciona el sistema.
 
-**Modelo mental**: Como piensa el usuario que funciona el sistema.
+- El diseñador debe basar su modelo conceptual en como piensan los usuarios, hay que preguntar y usar experiencias en productos previos.
 
-El diseñador debe basar su modelo conceptual en como piensan los usuarios, hay que preguntar y usar experiencias en productos previos.
 
-### Métodos
+##### Métodos
 
 En el laboratorio, experimentos controlados.
 
@@ -268,21 +266,21 @@ Modelado de factores humanos, especificaciones, guiar y requisitos rígidos.
 
 Evaluación de expertos. Heurísticas.
 
-### Contribución y Valores
+##### Contribución y Valores
 
 Evaluación de sistemas.
 
 Análisis de tareas.
 
-Especificaciones de dieno, importante para fases posteriores ciclo de diseño.
+Especificaciones de diseño, importante para fases posteriores ciclo de diseño.
 
 El diseño, no están importante, es un vehículo.
 
 Investigación en HCI.
 
-## Segunda Ola
+#### Segunda Ola
 
-### Background
+##### Background
 
 1990s
 
@@ -294,7 +292,7 @@ Se mira a la interacción más que al computador.
 
 **De análisis a Diseño**: De trazar requisitos de usuarios a prototipado iterativo, de usuarios al final a diseño centrado en usuario (UCD)
 
-### Teoría
+##### Teoría
 
 Situaciones reales y complejas en el entorno de trabajo.
 
@@ -302,7 +300,7 @@ Situaciones reales y complejas en el entorno de trabajo.
 
 **Coordinación de acción conjunto**: Coincidencia, colaboración y cooperación.
 
-**Situated Action o Acción situada (Rogers)**
+###### **Situated Action o Acción situada (Rogers)**
 
 La interacción se entiende situada como atada al ahora y aquí en ese contexto.
 
@@ -330,11 +328,9 @@ Importancia de trabajo de campo (in the wild) para entender el contexto y la sit
 
 **Critica**: Muy centrado en lo particular, difícil generalizar.
 
-**Distributed Cognition o Cognición Distribuida**
+###### **Distributed Cognition o Cognición Distribuida**
 
-De ciencias cognitivas.
-
-Cognición y conocimiento no están confinados en el individuo, si no en su entorno.
+De ciencias cognitivas. Cognición y conocimiento no están confinados en el individuo, si no en su entorno.
 
 “La mente esta en el mundo” distribuido a través de un “sistema cognitivo”
 
@@ -364,7 +360,7 @@ Como se coordinan las unidades distribuidas.
 
 **Critica**: No rápido y sucio (“quick and dirty”), receta…
 
-### Métodos
+##### Métodos
 
 Proactivos.
 
@@ -374,9 +370,9 @@ User-Centered Design Processes (Norman and Draper)
 
 Investigación y diseño contextual.
 
-**Análisis**: Sociología, antropología, etnometodología. Trabajos de campo, Técnicas observacionales y Micro análisis.
+**Análisis**: Sociología, antropología, etnometodología. Trabajos de campo, Técnicas observacionales y Microanálisis.
 
-### Contribución y Valores
+##### Contribución y Valores
 
 **Emergencia CSCW (Computer Supported Cooperative Work)**: Extiende el foco de la diada persona-computador a grupos de trabajo. Centrado en tareas colaborativas/cooperativo.
 
@@ -386,9 +382,9 @@ Diseño como disciplina, Design Science.
 
 Importancia de los usuarios en el proceso de diseño, UCD.
 
-## Tercera Ola
+#### Tercera Ola
 
-### Background
+##### Background
 
 2000s
 
@@ -402,7 +398,7 @@ Mas allá del rendimiento, y la información sobre la vida humana.
 
 La tecnología también amplia alcance, tecnología móvil, ubica, ambiental, tangible… y espacio híbridos.
 
-### Teoría
+##### Teoría
 
 De lo cognitivo a lo emocional. Experiencia estética, desde una perspectiva pragmática/cultural/fenomenológica.
 
@@ -424,19 +420,19 @@ Necesitamos nuevas maneras de interactuar con computadores, que se ajusta mejor 
 
 Para una nueva interacción y experiencia, se explota nuestra habilidades y familiaridad con objetos del día a día, para que la computación se manifieste como si fuera un objeto del día a día..
 
-### Métodos
+##### Métodos
 
-Mas allá de los usuarios. Es un enfoque más explicativo.
+Más allá de los usuarios. Es un enfoque más explicativo.
 
 **Diseño en el centro:**
 
-**Design Thinking:** Inspirado en prácticas, en artes, en diseño. Pensamiento “no racional” en el sentido de “no científicos”. Pensar fuere de la caja, out of the box. Innovación, se centra en lo que aún no existe.
+- **Design Thinking:** Inspirado en prácticas, en artes, en diseño. Pensamiento “no racional” en el sentido de “no científicos”. Pensar fuere de la caja, out of the box. Innovación, se centra en lo que aún no existe.
 
-**Embodied design Methods:** Métodos que usan corporalidad de los diseñadores y usuarios.
+- **Embodied design Methods:** Métodos que usan corporalidad de los diseñadores y usuarios.
 
-**Research through Design (RtD):** Conocimiento a través del diseño.
+- **Research through Design (RtD):** Conocimiento a través del diseño.
 
-### Contribución y Valores
+##### Contribución y Valores
 
 De centrarse en la información, a centrarse en la acción, en las sensaciones, emociones.
 
@@ -452,7 +448,7 @@ Métodos que tienen el diseño en el centro.
 
 De interpretación objetivo a subjetiva, de individuo a colectivo.
 
-## User Centered Design (UCD)
+### User Centered Design (UCD)
 
 Proceso iterativo de diseño, centrado en los usuarios.
 
@@ -462,115 +458,109 @@ Múltiples técnicas para entender sus necesidades, deseos, valores… Investiga
 
 **Objetivo**: Crear experiencias y productos usables, accesibles, etc.
 
-### Fases:
+#### Fases
 
-**Entender el contexto de diseño**: Necesidades, deseos, etc. llevan a requisitos y valores de diseño.
+- **Entender el contexto de diseño**: Necesidades, deseos, etc. llevan a requisitos y valores de diseño.
 
-Documentación, Entrevistas, Cuestionarios, Observación y Focus Group.
+	Documentación, Entrevistas, Cuestionarios, Observación y Focus Group.
 
-Generan Personas, Escenarios y Requisitos
+	Generan Personas, Escenarios y Requisitos
 
-**Diseño**.
+- **Diseño**.
 
-Sketch, Paper Prototype, Wireframes, Mockup y Software Prototype.
+	Sketch, Paper Prototype, Wireframes, Mockup y Software Prototype.
 
-**Evaluación vs. Contexto de diseño: usuarios y requisitos.**
+- **Evaluación vs. Contexto de diseño: usuarios y requisitos.**
 
-Formativa//Sumativa, En el lab//In the wild, Usabilidad, Métodos de inspección, Experimentos, Entrevistas y observaciones.
+	Formativa//Sumativa, En el lab//In the wild, Usabilidad, Métodos de inspección, Experimentos, Entrevistas y observaciones.
+
 
 El diseño centrado en usuarios es un proceso caro, requiere mucho tiempo hablar con personas, producir prototipos y demás fases del proceso. Pero merece la pena este coste para diseñar sistemas bien.
 
-### Ventajas:
+#### Ventajas
 
 Diseñador no es lo mismo que Usuarios.
 
 Problemas, necesidades y deseos que vemos no son lo mismo que los que tiene el usuario.
 
-Contacto con usuarios, aumenta la empatía y que se lleve a cabo un diseño ético, que respete las necesidades y prácticas de los usuarios.
+Contacto con usuarios, **aumenta la empatía y que se lleve a cabo un diseño ético**, que respete las necesidades y prácticas de los usuarios.
 
-Involucrar a usuarios, hace que sea más probable que se cumplan sus necesidades y requisitos, lo que hace que tengamos más ventas y menos problemas de atención al cliente.
+Involucrar a usuarios, hace que sea **más probable que se cumplan sus necesidades y requisitos**, lo que hace que tengamos más ventas y menos problemas de atención al cliente.
 
-Pensar en el contexto y tareas especificas del usuario, hace que haya menor error humano y mas seguridad, se tienen en cuenta más factores que hay cuando se usa el sistema.
+Pensar en el contexto y tareas especificas del usuario, hace que haya **menor error humano y mas seguridad**, se tienen en cuenta más factores que hay cuando se usa el sistema.
 
-# Tema 2: Primera fase UCD
+## Tema 2: Primera fase UCD
 
-## Contexto de Diseño
+### Contexto de Diseño
 
 Conocer al usuario, sus objetivos, características y contexto.
 
-Caracterización de la situación, fenómeno, práctica o actividad para la que se va a diseñar.
+**Caracterización de la situación, fenómeno, práctica o actividad para la que se va a diseñar.**
 
 Quienes son los usuarios, sus objetivos, necesidades, actividades que realizan, espacio donde tiene lugar y que recursos tiene.
 
-## Técnicas básicas de recogida de datos
+### Técnicas básicas de recogida de datos
 
 Sirven para describir y acotar el contexto.
 
-### Investigación Previa
+#### Investigación Previa
 
 **Estudio de documentación**
 
 Manuales, legislación, datos estadísticos del gobierno, etc.
 
-Feedback directo, mediante logs, muestras de email, investigación de mercado (da información actual), user testing o libro blanco.
-
-Redes sociales o Reviews.
+Feedback directo, mediante logs, muestras de email, investigación de mercado (da información actual), user testing o libro blanco. Redes sociales o Reviews.
 
 **State of the art (“lo último”)** Ver lo que hay
 
-Producto que la gente usa en nuestro contexto de diseño.
+Producto que la gente usa en nuestro contexto de diseño. Para la innovación es descubrir la oportunidad.
 
-Para la innovación es descubrir la oportunidad.
-
-### Claves para Recogida de Datos
+#### Claves para Recogida de Datos
 
 **El objetivo** es entender mejor el espacio de diseño.
 
 Se **condiciona** por la técnica, los datos, el análisis, etc.
 
-Es importante **formularla mas o menos formalmente**, se parte de una manera mas general y se va concretamente.
+Es importante **formularla mas o menos formalmente**, se parte de una manera más general y se va concretamente.
 
 **Identificar a los participantes**, para los usuarios que vamos a diseñar.
 
-Hay que coger muestras del conjunto de participantes, no se puede acceder a todos. Tipos de muestras:
+Hay que coger muestras del conjunto de participantes, no se puede acceder a todos. 
 
-**Muestreo probabilístico:** 
+Tipos de muestras:
 
-Aleatorio: Un número aleatorio de participantes.
+- **Muestreo probabilístico:** 
+	- **Aleatorio**: Un número aleatorio de participantes.
+	- **Estratificado**: Grupo representativo.
+- **Muestreo no probabilístico:** 
+	- Conveniencia: Los que haya o se ofrezcan.
+	- Voluntarios.
 
-Estratificado: Grupo representativo.
-
-**Muestreo no probabilístico:** 
-
-Conveniencia: Los que haya o se ofrezcan.
-
-Voluntarios.
 
 **Relación con participantes**
 
-Debe ser clara y profesional, informar de quien somos, que estamos estudiando, que haremos con la información y como se va a tratar sus datos.
+Debe ser **clara y profesional**, informar de quién somos, que estamos estudiando, que haremos con la información y como se va a tratar sus datos.
 
-**Consentimiento**: Proteger participantes e investigador.
+**Consentimiento**: Proteger **participantes e investigador**.
 
-Incentivos, por conveniencia para que haya mas participantes, ya que puro voluntario es mas dificil.
+Incentivos, por conveniencia para que haya mas participantes, ya que puro voluntario es mas difícil.
 
 **Triangulación**: Investigación de un fenómeno desde al menos dos perspectivas:
 
-De datos, usando distintas fuentes.
+- De datos, usando distintas fuentes.
 
-De investigadores.
+- De investigadores.
+- **Metodológica**: uso de distintas técnicas de recogida de datos.
 
-**Metodológica**: uso de distintas técnicas de recogida de datos.
-
-Que sea metodologica.
+Que sea metodológica.
 
 **Estudio piloto.**
 
-**Version reducida** del estudio.
+​	**Versión reducida** del estudio.
 
-**Se prueba esa version antes del estudio principal**, se realizan preguntas mas dirigidas a saber si esta bien el cuestionario qua a las propias respuestas, se realiza de forma iterativa. Identifica problemas y se aprende de errores. Sobre el protocolo a seguir, equipo, instrucciones, preguntas, cuestionarios.
+​	**Se prueba esa versión antes del estudio principal**, se realizan preguntas mas dirigidas a saber si esta bien el cuestionario qua a las propias respuestas, se realiza de forma iterativa. Identifica problemas y se aprende de errores. Sobre el protocolo a seguir, equipo, instrucciones, preguntas, cuestionarios.
 
-### Captura de Datos
+#### Captura de Datos
 
 Importante para análisis posterior.
 
@@ -578,107 +568,96 @@ Algunas formas de recogida de datos se **auto-documentan**, es decir que los dat
 
 Muchas otras no, como la observación directa, entrevistas...
 
-**Técnicas**:
+**Técnicas**
 
-**Anotaciones de campo:**
+- **Anotaciones de campo:**
 
-Es una técnica mas resumida con menor número de detalles.
+	Es una técnica más resumida con menor número de detalles.
 
-**Ventajas**: Mas flexible, menos logistica y menos intrusivo.
+	**Ventajas**: Más flexible, menos logística y menos intrusivo.
 
-**Desventajas**: Mas difícil de escribir y preguntar, observar, ...
+	**Desventajas**: Más difícil de escribir y preguntar, observar, ...
 
-**Grabación de audio:**
+- **Grabación de audio:**
 
-Alternativa a las anotaciones, que se pueden transcribir posteriormente.
+	Alternativa a las anotaciones, que se pueden transcribir posteriormente.
 
-Facilita la documentación.
+	Facilita la documentación.
 
-**Grabación de video:**
+- **Grabación de video:**
 
-Proporciona captura visual y auditiva.
+	Proporciona captura visual y auditiva.
 
-El problema es que requiere mas planificación y logística, como cámaras, localización o baterías, y es mas intrusivo.
+	El problema es que requiere más planificación y logística, como cámaras, localización o baterías, y es más intrusivo.
 
-**Audio y video: Sin tratar (raw data)**
+- **Audio y video: Sin tratar (raw data)**
 
-Se puede consultar en cualquier momento y revisar.
+	Se puede consultar en cualquier momento y revisar.
 
-### Entrevistas
 
-Consiste en un entrevistador preguntando a usuarios con un objetivo. Normalmente de forma síncrona.
+#### Entrevistas
+
+Consiste en un entrevistador **preguntando a usuarios con un objetivo**. Normalmente de forma **síncrona**.
 
 **Tipos**, dependiendo del control de entrevistador y libertad de los participantes: 
 
-**No estructuradas:** Sin protocolo o preparación. 
+- **No estructuradas:** Sin protocolo o preparación. 
 
-Preguntas abiertas, que son explicativas que nos permite extraer conocimiento.
+	Preguntas abiertas, que son explicativas que nos permite extraer conocimiento.
 
-La ventaja es que permite respuestas mas profundas y  mas datos, lo que permite entender mejor el contexto de diseño.
+	La ventaja es que permite respuestas mas profundas y más datos, lo que permite entender mejor el contexto de diseño.
 
-Datos complejos, aunque interrelacionados.
+	Datos complejos, aunque interrelacionados.
 
-**Estructuradas:** Mas control.
+- **Estructuradas:** Más control.
 
-Preguntas cerradas (lista de opciones) y predeterminadas, como un cuestionario.
+	Preguntas cerradas (lista de opciones) y predeterminadas, como un cuestionario. Preguntas cortas, claras y sencillas.
 
-Las mismas para todos los participantes.
+	Las mismas para todos los participantes.
 
-Preguntas cortas, claras y sencillas.
+	Se realizan cuando se tiene un objetivo claro, una serie de preguntas especificas y repuestas esperadas. 
 
-Se realizan cuando se tiene un objetivo claro, una serie de preguntas especificas y repuestas esperadas.
+	Requieren menor tiempo.
 
-Requieren menor tiempo.
+- **Semi-estructuradas**
 
-**Semi-estructuradas**
+	Combina de los otros dos tipos.
 
-Combina de los otros dos tipos.
+	Guion con: 
 
-Guion con: 
+	- Serie de temas a cubrir, y preguntas planificadas.
+	- Preguntas especificas de seguimiento o para sonsacar más información.
 
-Serie de temas a cubrir, y preguntas planificadas.
+	**Probing o prompts**, preguntas neutras como: ¿Algo que añadir?
 
-Preguntas especificas de seguimiento o para sonsacar mas información.
-
-**Probing o prompts**, preguntas neutras como: Algo que añadir?
-
-**Herramientas de apoyo:** Graficos, imagenes de la experiencia.
+	**Herramientas de apoyo:** Gráficos, imágenes de la experiencia.
 
 **Planificación**: 
 
-**Donde**
+- **Donde**:
+	- **Online**: Es mas cómodo, pero necesita logística extra.
+	- **En el sitio:** Se realiza en el entorno de uso por lo que se observa el entorno, suscita preguntas.
+	- **Sitio neutro o contexto artificial:** Como un laboratorio. La logística está mas a mano, pero es mas difícil poner en situación y contexto artificial.
+- **Protocolo (no intimidar):**
+	- **Introducción**: Quién eres, objetivo, temas éticos, consentimiento.
+	- **Preguntas demográficas. Preguntas de warm-up.** 
+	- **Sesión principal:** Temas y preguntas clave.
+	- **Preguntas de cool-off:** Preguntas finales.
+	- **Cierre**: Espacio para que pregunten, agradecimientos y indicar que ha terminado.
 
-**Online**: Es mas cómodo, pero necesita logistica extra.
+**Desarrollar las preguntas:** 
 
-**En el sitio:** Se realiza en el entorno de uso por lo que se observa el entorno, suscita preguntas.
+​	Depende del tipo de entrevista.
 
-**Sitio neutro o contexto artificial:** Como un laboratorio. La logística está mas a mano, pero es mas difícil poner en situación y contexto artificial.
-
-**Protocolo (no intimidar):**
-
-**Introducción**: Quién eres, objetivo, temas éticos, consentimiento.
-
-**Preguntas demográficas. Preguntas de warm-up.** 
-
-**Sesión principal:** Temas y preguntas clave.
-
-**Preguntas de cool-off:** Preguntas finales.
-
-**Cierre**: Espacio para que pregunten, agradecimientos y indicar que ha terminado.
-
-**Desarrollar las preguntas:**
-
-Depende del tipo de entrevista.
-
-**Evitar**: Preguntas largas, confusas, jerga especifica, preguntas peligrosas que condicionan respuestas(asumir algo, coacción o se les pueda dar la vuelta), cerradas y binarias sin seguimiento, y preguntas de doble-cañón (no queda claro a cual responde, por que hay varias posibles).
+​	**Evitar**: Preguntas largas, confusas, jerga especifica, preguntas peligrosas que condicionan respuestas (asumir algo, coacción o se les pueda dar la vuelta), cerradas y binarias sin seguimiento, y preguntas de doble-cañón (no queda claro a cual responde, por que hay varias posibles).
 
 La **documentación**, **equipo** y material para recoger datos, **gestión** de la cita y espacio, y **realizar la entrevista**.
 
-### Cuestionarios
+#### Cuestionarios
 
-Consiste en una serie de preguntas. Normalmente de forma asíncrona.
+Consiste en una **serie de preguntas**. Normalmente de forma **asíncrona**.
 
-Para obtener respuestas a preguntas especificas de muchos participantes.
+Para obtener respuestas a preguntas especificas de **muchos participantes.**
 
 **Las preguntas pueden ser:** Preguntas abiertas o cerradas.
 
@@ -688,29 +667,33 @@ Para obtener respuestas a preguntas especificas de muchos participantes.
 
 **Diseño**
 
-**Estructura:** Información acerca del estudio y consentimiento, tiempo estimado de realización, instrucciones claras de cómo completarlo, preguntas demográficas (identificar el tipo de persona) y por ultimo preguntas especificar agrupadas por temática.
+- **Estructura:** 
 
-**Orden:** Lógico para facilitar la realización, las preguntas mas generales primero.
+	Información acerca del estudio y consentimiento, tiempo estimado de realización, instrucciones claras de cómo completarlo.
 
-Distintas versiones para poblaciones distintas.
+	Preguntas demográficas (identificar el tipo de persona).
 
-**Estilo**: Compacto pero no cargado y mostrar el progreso en el cuestionario.
+	Preguntas especificas agrupadas por temática.
 
-**Evitar**: Preguntas mal formuladas, preguntas negativas para evitar que pueda equivocarse y falta de claridad, ya que no estamos aclararlo.
+- **Orden:** Lógico para facilitar la realización, las preguntas mas generales primero.
+
+	Distintas versiones para poblaciones distintas.
+
+- **Estilo**: Compacto pero no cargado y mostrar el progreso en el cuestionario.
+
+- **Evitar**: Preguntas mal formuladas, preguntas negativas para evitar que pueda equivocarse y falta de claridad, ya que no estamos aclararlo.
 
 **Formatos**
 
-**Check boxes y rangos**. Ejm: O 18 to 21
+- **Check boxes y rangos**. Ejm: O 18 to 21
 
-**Rating Scale:**
+- **Rating Scale:**
+	- **Escala semántica diferencial**: Good _ _ _ _ _ _ _ Bad
+	- **Likert**: Normalmente de 5 a 7 puntos, según como preciso queremos que sean. Orden consistente. Número par para forzar la no neutralidad.
 
-**Escala semántica diferencial**: Good _ _ _ _ _ _ _ Bad
+#### Focus Groups
 
-**Likert**: Normalmente de 5 a 7 puntos, según como preciso queremos que sean. Orden consistente. Número par para forzar la no neutralidad.
-
-### Focus Groups
-
-Investigacion cualitativa. Consiste en una **entrevista en grupos** de 3-12 personas.
+Investigación cualitativa. Consiste en una **entrevista en grupos** de 3-12 personas.
 
 **Muestra de población representativa**: Distintas clases de usuarios.
 
@@ -720,143 +703,140 @@ Se les pregunta **opinión**, percepción, creencias, actitudes, prácticas resp
 
 **Ventajas**: Salen temas importantes y sensibles, se descubren diferencias de opiniones y posturas, y puntos en común.
 
-### Observación
+#### Observación
 
 Ver como se usa el sistema, ya sea de forma directa o indirecta.
 
-Util en muchas **fases del proceso** de diseño:
+Útil en muchas **fases del proceso** de diseño:
 
-**Pronto**: Entender el espacio de diseño, los usuarios, contexto y las tareas.
-
-**Más adelante**: Ver el diseño en uso, como mejora/aporta a esas tareas.
+- **Pronto**: Entender el espacio de diseño, los usuarios, contexto y las tareas.
+- **Más adelante**: Ver el diseño en uso, como mejora/aporta a esas tareas.
 
 Se pueden llevar a cabo en el campo o en un espacio controlado.
 
-**Pueden ser directas( en el momento) o indirecto (grabaciones de actividad).**
+**Pueden ser directas (en el momento) o indirecto (grabaciones de actividad).**
 
 **Directas en el campo**
 
-Muy difícil explicar lo que hacen exactamente, hay que verlo.
+​	Muy difícil explicar lo que hacen exactamente, hay que verlo.
 
-Difícil tener el panorama completo, estar en el sitio ayuda.
+​	Difícil tener el panorama completo, estar en el sitio ayuda.
 
-Proporciona detalles de cómo comportan los usuarios, que hacen, cómo lo hacen.
+​	Proporciona detalles de cómo comportan los usuarios, que hacen, cómo lo hacen.
 
-Importante equilibrar entre lo que surja y el objetivo claro de la observación.
+​	Importante equilibrar entre lo que surja y el objetivo claro de la observación.
 
-**Ventaja**: Riqueza de datos.
+​	**Ventaja**: Riqueza de datos.
 
-**Desventajas**: Necesita logistica, acceso a los espacios y análisis.
+​	**Desventajas**: Necesita logística, acceso a los espacios y análisis.
 
-**Planificacion y realizacion:**
+​	**Planificación y realización:**
 
-Marco de observación.
+​		Marco de observación.
 
-Grado de participacion.
+​		Grado de participación.
 
-Documentación y registro de datos.
+​		Documentación y registro de datos.
 
-Acceso y aceptación.
+​		Acceso y aceptación.
 
-Inclusion de distintas perspectivas.
+​		Inclusión de distintas perspectivas.
 
-Temas sensibles (cultura, acceso a espacios privados)
+​		Temas sensibles (cultura, acceso a espacios privados)
 
-**Marco o Estructura de Observación** para manejar la complejidad:
+​	**Marco o Estructura de Observación** para manejar la complejidad:
 
-**Sencillo**: Mas posible añadir puntos nuevo.
+​		**Sencillo**: Más posible añadir puntos nuevo.
 
 <img src="DSI/Untitled%201.png" alt="DSI/Untitled%201.png" style="zoom:80%;" />
 
-**Detallado**: Mas especifico.
+​		**Detallado**: Más especifico.
 
 <img src="DSI/Untitled%202.png" alt="DSI/Untitled%202.png" style="zoom:80%;" />
 
-**Grado de participación:** Infiltrado(Activo, participa el observador en primera persona, difícil disociar participante y observador) o Ajeno(Pasivo, normalmente en el lab).
+​	**Grado de participación:** Infiltrado (Activo, participa el observador en primera persona, difícil disociar participante y observador) o Ajeno (Pasivo, normalmente en el lab).
 
-**Planificacion y realizacion:** 
+​	**Planificación y realización:** 
 
-Atención equilibrada a participantes. 
+​		Atención equilibrada a participantes. 
 
-**Re-focus**: a medida que se surgen aspectos relevantes. 
+​		**Re-focus**: a medida que se surgen aspectos relevantes. 
 
-Actividad intensa, puesto que se anota durante observaciones y al final del día.
+​		Actividad intensa, puesto que se anota durante observaciones y al final del día.
 
-**Etnográficas**:
+​	**Etnográficas**:
 
-Entendimiento detallada, con matices.
+​		Entendimiento detallada, con matices.
 
-**Rol**: participant observer, activo.
+​		**Rol**: participant observer, activo.
 
-Observaciones directas+entrevistas, cuestionarios, estudios de artefactos.
+​		Observaciones directas+entrevistas, cuestionarios, estudios de artefactos.
 
-Importante, llevar mente abierta, naïve.
+​		Importante, llevar mente abierta, naïve.
 
-**Datos**: Que hace y dice la gente.
+​		**Datos**: Que hace y dice la gente.
 
-**Recogida datos**: Notas de campo, documentos, fotos,...
+​		**Recogida datos**: Notas de campo, documentos, fotos,...
 
-**Técnicas etnográfica:**
+​	**Técnicas etnográfica:**
 
-**Investigación contextual**: Mezcla entrevista y observación. Van haciendo cosas y comentando que hacen.
+​		**Investigación contextual**: Mezcla entrevista y observación. Van haciendo cosas y comentando que hacen.
 
-**Rol**: activo, modelo de aprendiz.
+​		**Rol**: activo, modelo de aprendiz.
 
-**Entrevista contextual**: Observación, discusión y reconstruction de eventos pasados.
+​		**Entrevista contextual**: Observación, discusión y reconstrucción de eventos pasados.
 
-**4 principios:** contexto, relación, interpretación y foco.
+​		**4 principios:** contexto, relación, interpretación y foco.
 
-**Recogida datos:** Anotación, grabaciones de audio y video. Anotaciones al final de las sesiones.
+​		**Recogida datos:** Anotación, grabaciones de audio y video. Anotaciones al final de las sesiones.
 
 **Directivas en espacio controlado**
 
-En el laboratorio, mas formal y mas control, se sigue un protocolo.
+​	En el laboratorio, más formal y más control, se sigue un protocolo.
 
-Mas intrusivo, van a un espacio controlado.
+​	Más intrusivo, van a un espacio controlado.
 
-**Ventajas**: Control de variables.
+​	**Ventajas**: Control de variables.
 
-**Desventajas**: Pretension y situación artificial.
+​	**Desventajas**: Pretensión y situación artificial.
 
-**Foco**: Acciones y comportamientos concretos.
+​	**Foco**: Acciones y comportamientos concretos.
 
-**Datos**: Video, fotografías, anotaciones.
+​	**Datos**: Video, fotografías, anotaciones.
 
-Hay que tener en cuenta como gestionar el equipo.
+​	Hay que tener en cuenta como gestionar el equipo.
 
-**Técnicas**:
+​	**Técnicas**:
 
-**Think Aloud:** Usuario piensa en voz a la vez que actúa, lo que nos permite entender lo que piensan y sus modelos mentales y expectativas.
+​		**Think Aloud:** Usuario piensa en voz a la vez que actúa, lo que nos permite entender lo que piensan y sus modelos mentales y expectativas.
 
-**Diarios:** Los participantes documentan su experiencia. 
+​		**Diarios:** Los participantes documentan su experiencia. 
 
-Auto-documentación de participantes, de forma regular.
+​			Auto-documentación de participantes, de forma regular.
 
-**Ventajas**: Lo hacen ellos, no requiere mucho tiempo de investigadores. Menos logística, es un diario.
+​			**Ventajas**: Lo hacen ellos, no requiere mucho tiempo de investigadores. Menos logística, es un diario.
 
-**Desventajas**: Depende plenamente de los participantes, es difícil para los usuarios seguirlo haciendo.
+​			**Desventajas**: Depende plenamente de los participantes, es difícil para los usuarios seguirlo haciendo.
 
-**Experience Sampling Method (ESM):** Muy parecido al diario. Con prompts en momentos concretos determinados por tiempo o eventos.
+​		**Experience Sampling Method (ESM):** Muy parecido al diario. Con prompts en momentos concretos determinados por tiempo o eventos. Invitan a la acción inmediata.
 
-Invitan a la acción inmediata.
+​		**Logs de Interacción:** Software en un dispositivo que captura lo que hace el usuarios para posterior análisis.
 
-**Logs de Interacción:** Software en un dispositivo que captura lo que hace el usuarios para posterior análisis.
+​			**Captura**: clics, key press, tiempo empleado.
 
-**Captura**: clicks, key press, tiempo empleado.
+​			Se combina con otras fuentes de datos.
 
-Se combina con otras fuentes de datos.
+​			**Ventajas**: No intrusivo.
 
-**Ventajas**: No intrusivo.
+​			**Desventajas**: Aspecto ético.
 
-**Desventajas**: Aspecto ético.
+​			**Logística**: Herramientas de visualización.
 
-**Logística**: Herramientas de visualización.
+​	**Elegir una técnica:** No hay una adecuada para todos los casos. Depende de muchos factores: proyecto, objetivo, usuarios.
 
-**Elegir una técnica:** No hay una adecuada para todos los casos. Depende de muchos factores: proyecto, objetivo, usuarios.
+​		Lo mejor es utilizar triangulación, combinar técnicas.
 
-Lo mejor es utilizar triangulación, combinar técnicas.
-
-# Tema 3: Análisis de Estudios de Campo
+## Tema 3: Análisis de Estudios de Campo
 
 Es importante **tener evidencias de cómo es realmente el contexto, no solo suposiciones (assumptions) y verdades no fundadas (claims)**, para esto debemos hacer una buena elección de técnicas de investigación. Caer en este problema es frecuente, lo importante es saber que no son verdad.
 
@@ -864,33 +844,33 @@ En esta fase buscamos definir unas técnicas para concretar el contexto de dise�
 
 **El análisis depende:**
 
-Del **objetivo** de tu trabajo de campo.
+​	Del **objetivo** de tu trabajo de campo.
 
-De las **técnicas** de investigación y recogida de datos.
+​	De las **técnicas** de investigación y recogida de datos.
 
-De tus **datos** obtenidos con esas técnicas elegidas.
+​	De tus **datos** obtenidos con esas técnicas elegidas.
 
 **Posibles objetivos:**
 
-Entender a los usuarios, es importante diferenciar entre usuario y otros stakeholder (parte interesada).
+​	Entender a los usuarios, es importante diferenciar entre usuario y otros stakeholder (parte interesada).
 
-Entender actividades, objetos involucrados, espacio de la interacción y posibles problemas y fricción.
+​	Entender actividades, objetos involucrados, espacio de la interacción y posibles problemas y fricción.
 
 **Tipos de análisis:** no tiene por qué coincidir con el tipo de datos.
 
-**Cuantitativos**: Proporción, porcentaje, medias...
+- **Cuantitativos**: Proporción, porcentaje, medias...
 
-**Cualitativos**: Temas emergentes y patrones, impresiones y reacciones prominentes...
+- **Cualitativos**: Temas emergentes y patrones, impresiones y reacciones prominentes...
 
-Los datos debens ser rigurosos y precisos, expresado numéricamente, evitando interpretaciones, para poder medir.
+	Los datos deben ser rigurosos y precisos, expresado numéricamente, evitando interpretaciones, para poder medir.
 
-**Tipos de Datos y Análisis:**
+### Tipos de Datos y Análisis
 
 - **Entrevistas**:
 
     **Datos**: Notas y grabaciones.
 
-    **Tratamiento**: Transcripciones y anotacione extendidas.
+    **Tratamiento**: Transcripciones y anotaciones extendidas.
 
     **Preguntas cerradas:** normalmente cuantitativos.
 
@@ -916,20 +896,19 @@ Los datos debens ser rigurosos y precisos, expresado numéricamente, evitando in
 
     **Análisis**: según el tipo de datos.
 
-    **Cualitativo**: Anotaciones, grabaciones...
+    - **Cualitativo**: Anotaciones, grabaciones...
+    - **Cuantitativo**: logs, grabaciones...
 
-    **Cuantitativo**: logs, grabaciones...
-
-## Análisis Cualitativo
+### Análisis Cualitativo
 
 Se identifican en el proceso de recogida de datos.
 
-### Categorización de datos
+#### Categorización de datos
 
 Anotaciones, entrevistas, transcripciones, se pueden analizar con distinta granularidad
 
-- **Gruesa**: Identification temas, a nivel general.
-- **Fina**: a nivel de palabra, mas detallado.
+- **Gruesa**: Identificación temas, a nivel general.
+- **Fina**: A nivel de palabra, mas detallado.
 
 **Esquema de categorización:**
 
@@ -939,43 +918,43 @@ Anotaciones, entrevistas, transcripciones, se pueden analizar con distinta granu
 
 Importante el rigor, el esquema de categorización tiene que ser fiable y debe haber concordancia de los distintos evaluadores.
 
-Comprobación de nivel de discrepancia: Coeficiente kappa de Cohen, el nivel de acuerdo que hay. Si es bajo, mal entrenamiento y problemas en el esquema de categorización.
+​	Comprobación de nivel de discrepancia: Coeficiente kappa de Cohen, el nivel de acuerdo que hay. Si es bajo, mal entrenamiento y problemas en el esquema de categorización.
 
-Técnica: **Content Analysis o Análisis de contenido**
+**Técnica:** Content Analysis o **Análisis de contenido**
 
-Se utiliza para cualquier tipo de documentos y "textos" (video, periodista, citas...)
+​	Se utiliza para cualquier tipo de documentos y "textos" (video, periodista, citas...)
 
-Es una técnica de conteo de ocurrencias, ya sea temas y categorías como de palabras clave.
+​	Es una técnica de **conteo de ocurrencias**, ya sea temas y categorías como de palabras clave.
 
-Descripción cuantitativa, objetiva, y sistemática del contenido.
+​	**Descripción cuantitativa, objetiva, y sistemática del contenido.**
 
-Cuantifica el contenido en términos de categorías.
+​	Cuantifica el contenido en términos de categorías.
 
-### Identificación de patrones y temas
+#### Identificación de patrones y temas
 
 Emergen a medida que te familiarizas con los datos.
 
 Los objetivos del estudio orientan el foco de temas y patrones.
 
-**Affinity diagram o Diagrama de afinidad**
+#### **Affinity diagram o Diagrama de afinidad**
 
-Organización de notas/ideas/información según una jerarquía por similitud.
+**Organización de notas/ideas/información** según una jerarquía por similitud.
 
 Es un proceso inductivo, que surge de un flujo de información y se agrupa, bottom-up.
 
 **Proceso**:
 
-1. Codificación abierta o Open coding: Desgranar los datos en partes discretas, etiquetas.
-2. Codificación axial o Axial coding: Agrupación de las notas por similitud.
-3. Conexión: De las categorías y etiquetas.
-4. Creacion de categorias globales.
-5. Revision de datos con base en estas categorías globales.
+1. **Codificación abierta o Open coding**: **Desgranar los datos** en partes discretas, etiquetas.
+2. **Codificación axial o Axial coding:** **Agrupación** de las notas por similitud.
+3. **Conexión**: De las categorías y etiquetas.
+4. Creación de **categorías globales.**
+5. **Revisión de datos** con base en estas categorías globales.
 
 Generación de conocimiento y síntesis, para extraer conclusiones.
 
-Se sacan requisitos y necesidades, y se concreta el contexto de diseño.
+​	Se sacan requisitos y necesidades, y se concreta el contexto de diseño.
 
-### Conversation Analysis o Análisis de la Conversación
+#### Conversation Analysis o Análisis de la Conversación
 
 De etnometodología, cómo interactúa la gente y dinámicas de interacción.
 
@@ -987,63 +966,50 @@ Búsqueda de patrones
 
 Como la gente se coordina, se entiende, actúa conjuntamente.
 
-### Video Analysis & Interaction Analysis
+#### Video Analysis & Interaction Analysis
 
 Micro o macro.
 
 **Macro**: Idea general, una primera pasada.
 
-Decision de elementos clave: momentos o incidencias críticas.
+Decisión de elementos clave: momentos o incidencias críticas.
 
 **Análisis en profundidad**: Descripción de lo ocurrido, con palabras claves y pantallazos.
 
 **Herramientas**: Manual, hoja de cálculo o software específico.
 
-## Análisis Cuantitativo
+### Análisis Cuantitativo
 
-Expresado en forma numérica.
-
-Magnitud, cantidad, tamaño, grado, orden... de atributos de participantes.
+Expresado en forma **numérica**. Magnitud, cantidad, tamaño, grado, orden... de atributos de participantes.
 
 Compila, ordena, resume, y presenta datos para permitir interpretaciones posteriores.
 
-Organizar los datos, en una estructura estándar. Filas, sujetos, y columnas, las variables.
+**Organizar los datos, en una estructura estándar**. 
+
+​	Filas: sujetos. Columnas:  variables.
 
 **Tipo de variables:**
 
-**Cualitativas**: No operaciones aritméticas.
-
-**Ordinales**: Siguen un orden o secuencia. Ej: Meses de año.
-
-**Categóricos**: No siguen un orden. Ej: Estado civil.
-
-**Numéricas**: Operaciones aritméticas.
-
-**Discretos**: Valores enteros. Ej: Edad.
-
-**Continuos**: Valores en un intervalo. Ej: Sueldo.
+- **Cualitativas**: No operaciones aritméticas.
+	- **Ordinales**: Siguen un orden o secuencia. Ej: Meses de año.
+	- **Categóricos**: No siguen un orden. Ej: Estado civil.
+- **Numéricas**: Operaciones aritméticas.
+	- **Discretos**: Valores enteros. Ej: Edad.
+	- **Continuos**: Valores en un intervalo. Ej: Sueldo.
 
 **Análisis de Datos numéricos:**
 
-**Medidas de tendencia central:**
+- **Medidas de tendencia central:**
+	- **Media**: Promedio.
+	- **Mediana**: El punto central.
+	- **Moda**: Valor más frecuente.
+- **Medidas de dispersión**: Variabilidad de una distribución respecto a una medida.
+	- **Desviación típica**: Desviación con la media.
+	- **Rango R**= Max-Min.
+	- **Desviación con la mediana**: Cuartiles.
+	- **Rango intercuartílicos**, IQR: Q3-Q1
 
-**Media**: Promedio.
-
-**Mediana**: El punto central.
-
-**Moda**: Valor más frecuente.
-
-**Medidas de dispersion**: Variabilidad de una distribución respecto a una medida.
-
-**Desviación típica**: Desviación con la media.
-
-**Rango R**= Max-Min.
-
-**Desviación con la mediana**: Cuartiles.
-
-**Rango intercuartílicos**, IQR: Q3-Q1
-
-## Tabla de frecuencia
+### Tabla de frecuencia
 
 <img src="DSI/Untitled%203.png" alt="DSI/Untitled%203.png" style="zoom:80%;" />
 
@@ -1051,37 +1017,32 @@ Organizar los datos, en una estructura estándar. Filas, sujetos, y columnas, la
 
 Los datos numéricos con variables continuas, y discretas con muchos valores pueden ser inmanejables, para solventarlo:
 
-Dividir el rango en clases del mismo tamaño y sin solapamientos.
+- Dividir el rango en clases del mismo tamaño y sin solapamientos.
+- Nueva tabla de frecuencias.
+- Facilita representación gráfica posterior.
 
-Nueva tabla de frecuencias.
-
-Facilita representación gráfica posterior.
-
-## Gráficos Estadísticos
+### Gráficos Estadísticos
 
 Representación visual de datos estadísticos.
 
-**Util** para captar la atención, presentacion de informacion sencilla, clara y precisa, facilita comparación de datos, destaca tendencias y diferencias, e ilustrativos.
+**Útil** para captar la atención, presentación de información sencilla, clara y precisa, facilita comparación de datos, destaca tendencias y diferencias, e ilustrativos.
 
-### Boxplot o Diagrama de cajas y bigotes
+#### Boxplot o Diagrama de cajas y bigotes
 
-Para medidas de tendencia central y dispersion.
+Para medidas de tendencia central y dispersión.
 
 <img src="DSI/Untitled%204.png" alt="DSI/Untitled%204.png" style="zoom:80%;" />
 
 Visualiza medidas de desviación con la mediana:
 
-**Tres cuartiles**: Q1, Q2, Q3.
+- **Tres cuartiles**: Q1, Q2, Q3.
+- **Caja**: Q1 y Q3.
+- **Mediana**.
+- **Bigotes**: mínimo y máximo.
 
-**Caja**: Q1 y Q3.
+### Gráficos para Distribuciones
 
-**Mediana**.
-
-**Bigotes**: mínimo y máximo.
-
-## Gráficos para Distribuciones
-
-### Gráfico de barras
+#### Gráfico de barras
 
 <img src="DSI/Untitled%205.png" alt="DSI/Untitled%205.png" style="zoom:80%;" />
 
@@ -1089,25 +1050,25 @@ Frecuencias de una **variable cualitativa o discreta**. Sencillo, agrupado y api
 
 La altura indica la frecuencia o porcentaje y la barras son **categóricas**, no valores numéricos.
 
-**Util**: Comparar magnitudes.
+**Útil**: Comparar magnitudes.
 
 **Tipos**: Verticales u horizontales.
 
-### Polígono de Frecuencias
+#### Polígono de Frecuencias
 
 Visualización de frecuencias de cada una de las categorías.
 
 <img src="DSI/Untitled%206.png" alt="DSI/Untitled%206.png" style="zoom:80%;" />
 
-### Histograma
+#### Histograma
 
 <img src="DSI/Untitled%207.png" alt="DSI/Untitled%207.png" style="zoom:80%;" />
 
 Representa las frecuencias de una **variable cuantitativa continua.**
 
-Area de la barra es la frecuencia y el eje son intervalos de variable continua.
+Área de la barra es la frecuencia y el eje son intervalos de variable continua.
 
-### Gráfico de sectores
+#### Gráfico de sectores
 
 <img src="DSI/Untitled%208.png" alt="DSI/Untitled%208.png" style="zoom:80%;" />
 
@@ -1115,9 +1076,9 @@ Representación circular de las frecuencias relativas.
 
 Variable cualitativa o discreta, se muestran en porcentajes.
 
-Util: Cuando hay pocos categorías.
+Útil: Cuando hay pocos categorías.
 
-### Gráfico de líneas
+#### Gráfico de líneas
 
 <img src="DSI/Untitled%209.png" alt="DSI/Untitled%209.png" style="zoom:80%;" />
 
@@ -1125,15 +1086,15 @@ Representa relaciones entre dos variables.
 
 Una o varias variables.
 
-Util para ver tendencias.
+Útil para ver tendencias.
 
-### Grafico de Dispersión
+#### Grafico de Dispersión
 
 <img src="DSI/Untitled%2010.png" alt="DSI/Untitled%2010.png" style="zoom:80%;" />
 
 Relación entre dos variables ene ejes cartesianos e informa del grado de correlación.
 
-## Resultados
+### Resultados
 
 Requiere habilidad, esfuerzo y trabajo.
 
@@ -1141,33 +1102,36 @@ Distintas maneras de presentar el material
 
 **Depende**:
 
-Del objetivo de tu trabajo de campo
+- Del objetivo de tu trabajo de campo
 
-De tus técnicas de investigación y recogida de datos
+- De tus técnicas de investigación y recogida de datos
 
-De tus datos obtenidos
+- De tus datos obtenidos
 
-Del análisis realizado
+- Del análisis realizado
 
-De la audiencia.
+- De la audiencia.
+
 
 **Propósitos finales:**
 
-Derivar requisitos, necesidades, design drives.
+- Derivar requisitos, necesidades, design drives.
 
-Evaluar un producto o en desarrollo.
+- Evaluar un producto o en desarrollo.
 
-**Multiples representaciones**: graficas, tablas, descripciones textuales, temas, categorias...
 
-Presentar los resultados.
+**Múltiples representaciones**: gráficas, tablas, descripciones textuales, temas, categorías...
 
-Como background o evidencia de conclusiones.
+- Presentar los resultados.
 
-Para dar rigor, poner el materia raw a mode de anexo.
+- Como background o evidencia de conclusiones.
+
+- Para dar rigor, poner el materia raw a modo de anexo.
+
 
 **Tipos**: Resúmenes, Anotaciones rigurosas o Stories.
 
-# Recursos
+## Recursos
 
 [▶ Claves para entender Angular - Qué es y cómo se utiliza este framework](https://www.acontracorrientech.com/claves-para-entender-angular-que-es-y-como-se-utiliza/)
 
