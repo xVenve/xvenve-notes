@@ -373,7 +373,7 @@ Para evitar sobreajuste se debe generalizar, hay **2 métodos**:
 - **Pre-poda**: Mientras se construye se poda.
 
   - **Método de $\chi^2$ (chi-cuadrado)**: Si en un nodo la diferencia entre clases no es significativa, no se divide, para con la mayoría. Muy conservador.
-    - **Mediante curvas de error**: Cross-validation. De esta manera podemos detectar el punto de inflexión, donde se empieza a producir overfitting (en el punto que se separan las curvas).
+  - **Mediante curvas de error**: Cross-validation. De esta manera podemos detectar el punto de inflexión, donde se empieza a producir overfitting (en el punto que se separan las curvas).
 
 - **Post-poda**: Después de generar poda.
 
@@ -381,7 +381,7 @@ Para evitar sobreajuste se debe generalizar, hay **2 métodos**:
 
   - **Eliminando precondiciones o reglas**: Tras haberlo pasado a reglas, eliminamos condiciones o reglas completas. Tras la eliminación se calcula el error, si mejora, el modelo principal pasa a ser el que lo eliminó y se sigue probado. Si no se prueba otra condición o regla.
 
-        <img src="AA/image-20210305201114245.png" alt="image-20210305201114245" style="zoom: 33%;" /><img src="AA/image-20210305201127523.png" alt="image-20210305201127523" style="zoom: 33%;" />
+    <img src="AA/image-20210305201114245.png" alt="image-20210305201114245" style="zoom: 33%;" /><img src="AA/image-20210305201127523.png" alt="image-20210305201127523" style="zoom: 33%;" />
 
 ### Atributos con valores continuos
 
