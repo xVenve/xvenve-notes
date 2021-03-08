@@ -113,7 +113,7 @@ Es una nube de servidores que dan servicios:
 
     Ejem: Si se abre la puerta, entonces avisar de intruso.
 
-6. **Microproceso**: Proporciona funcionalidades muy específicas a través de una interfaz API Rest bien definidas mediante un contrato de datos. Muchos los coordina el rule engine. Se busca que este muy cohesionado y poco acoplado.
+6. **Microservicios**: Proporciona funcionalidades muy específicas a través de una interfaz API Rest bien definidas mediante un contrato de datos. Muchos los coordina el rule engine. Se busca que este muy cohesionado y poco acoplado.
 
     Ejem: El que actualiza la estación meteorológica en el móvil, es un proceso muy concreto.
 
