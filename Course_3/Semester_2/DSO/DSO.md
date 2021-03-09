@@ -12,7 +12,7 @@
 
 ## Recursos
 
-[REFERENCIAS](DSO/Referencias.html)
+[REFERENCIAS](Referencias.html)
 
 [Lista de libros de referencia](https://learning.oreilly.com/playlists/5a6c045f-e39c-465e-9e7c-60dcbb12aebb)
 
