@@ -4,54 +4,54 @@
 
 ### First semester
 
-* [Calculus](1.1%20C/C.html)
-* [Information Skills](1.1%20TBUI/TBUI.html)
-* [Linear Algebra](1.1%20AL/AL.html)
-* [Physics](1.1%20F/F.html)
-* [Programming](1.1%20P/P.html)
-* [Writing and Communication Skills](1.1%20TEOYE/TEOYE.html)
+* [Calculus](Course_1/Semester_1/C/C.html)
+* [Information Skills](Course_1/Semester_1/TBUI/TBUI.html)
+* [Linear Algebra](Course_1/Semester_1/AL/AL.html)
+* [Physics](Course_1/Semester_1/F/F.html)
+* [Programming](Course_1/Semester_1/P/P.html)
+* [Writing and Communication Skills](Course_1/Semester_1/TEOYE/TEOYE.html)
 
 ### Second semester
 
-* [Algorithms and Data Structures](1.2%20EDA/EDA.html)
-* [Computer Technology](1.2%20TC/TC.html)
-* [Discrete Mathematics](1.2%20MD/MD.html)
-* [Logic](1.2%20L/L.html)
-* [Principles of Computer Engineering](1.2%20PF/PF.html)
+* [Algorithms and Data Structures](Course_1/Semester_2/EDA/EDA.html)
+* [Computer Technology](Course_1/Semester_2/TC/TC.html)
+* [Discrete Mathematics](Course_1/Semester_2/MD/MD.html)
+* [Logic](Course_1/Semester_2/L/L.html)
+* [Principles of Computer Engineering](Course_1/Semester_2/PF/PF.html)
 
 ## Second course
 
 ### First semester
 
-* [Applied Differential Calculus](2.1%20CDA/CDA.html)
-* [Automata and Formal Language Theory](2.1%20TALF/TALF.html)
-* [Computer Structure](2.1%20EC/EC.html)
-* [Introduction to Business Management](2.1%20FGE/FGE.html)
-* [Statistics](2.1%20E/E.html)
+* [Applied Differential Calculus](Course_2/Semester_1/CDA/CDA.html)
+* [Automata and Formal Language Theory](Course_2/Semester_1/TALF/TALF.html)
+* [Computer Structure](Course_2/Semester_1/EC/EC.html)
+* [Introduction to Business Management](Course_2/Semester_1/FGE/FGE.html)
+* [Statistics](Course_2/Semester_1/E/E.html)
 
 ### Second semester
 
-* [Artificial Intelligence](2.2%20IA/IA.html)
-* [Cryptography and Computer Security](2.2%20CSI/CSI.html)
-* [Files and Databases](2.2%20FBD/FBD.html)
-* [Operating Systems](2.2%20SO/SO.html)
-* [Principles of Software Development](2.2%20PDS/PDS.html)
+* [Artificial Intelligence](Course_2/Semester_2/IA/IA.html)
+* [Cryptography and Computer Security](Course_2/Semester_2/CSI/CSI.html)
+* [Files and Databases](Course_2/Semester_2/FBD/FBD.html)
+* [Operating Systems](Course_2/Semester_2/SO/SO.html)
+* [Principles of Software Development](Course_2/Semester_2/PDS/PDS.html)
 
 ## Third course
 
 ### First semester
 
-* [Computer Architecture](3.1%20AC/AC.html)
-* [Computer Networks](3.1%20RO/RO.html)
-* [Heuristics and Optimization](3.1%20HO/HO.html)
-* [Software Engineering](3.1%20IS/IS.html)
-* [User Interfaces](3.1%20IU/IU.html)
+* [Computer Architecture](Course_3/Semester_1/AC/AC.html)
+* [Computer Networks](Course_3/Semester_1/RO/RO.html)
+* [Heuristics and Optimization](Course_3/Semester_1/HO/HO.html)
+* [Software Engineering](Course_3/Semester_1/IS/IS.html)
+* [User Interfaces](Course_3/Semester_1/IU/IU.html)
 
 ### Second semester
 
-* [Compilers](3.2%20PL/PL.html)
-* [Design of Interactive Systems](3.2%20DSI/DSI.html)
-* [Machine Learning](3.2%20AA/AA.html)
-* [Operating Systems Design](3.2%20DSO/DSO.html)
-* [Software Development Projects Management](3.2%20DPDS/DPDS.html)
+* [Compilers](Course_3/Semester_2/PL/PL.html)
+* [Design of Interactive Systems](Course_3/Semester_2/DSI/DSI.html)
+* [Machine Learning](Course_3/Semester_2/AA/AA.html)
+* [Operating Systems Design](Course_3/Semester_2/DSO/DSO.html)
+* [Software Development Projects Management](Course_3/Semester_2/DPDS/DPDS.html)
 
