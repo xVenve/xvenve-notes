@@ -175,3 +175,9 @@ Cualquier dispositivo capaz de intervenir para cambiar las condiciones físicas 
 **Factores económicos**: Coste, Disponibilidad y Tiempo de vida.
 
 **Factores característicos del sensor**: Sensibilidad, Rango, Estabilidad, Repetibilidad, Rango de error, Tiempo de respuesta y Linealidad.
+
+# Tema 3: Sistemas operativos embebidos para Dispositivos IoT
+
+[Introducción a los Sistemas Embebidos](https://aulaglobal.uc3m.es/mod/url/view.php?id=3123882) Solo capítulo 1
+
+[Sistemas Operativos Embebidos](https://aulaglobal.uc3m.es/mod/url/view.php?id=3123883) Capítulo 9
