@@ -108,7 +108,7 @@ Un móvil está entre Device y Gateway.
 Es una nube de servidores que dan servicios:
 
 1. **Message broker y Message bus**: Se encarga de conectar los dispositivos físicos con los distintos procesos que forman parte de la red de IoT. Manda los datos a todos los que estén conectados a su bus, suscritos por API Rest.
-2. **Message router**: Está suscrito al message broker, los mensajes que recibe los enriquece; dando información semántica, de contexto, de estad y los reenvía a aquellos componentes que van a gestionar la lógica de las aplicaciones relacionadas con la nube IoT. Otra cosa que hace es transformar datos, descomprimir y decodificar datos para hacerlos más fáciles de procesar y tratar.
+2. **Message router**: Está suscrito al message broker, los mensajes que recibe los enriquece; dando información semántica, de contexto, de estado y los reenvía a aquellos componentes que van a gestionar la lógica de las aplicaciones relacionadas con la nube IoT. Otra cosa que hace es transformar datos, descomprimir y decodificar datos para hacerlos más fáciles de procesar y tratar.
 3. **Rest API**: Interfaz que usan otros programas para obtener los servicios o las funcionalidades de un componente. Esta API se caracteriza por ser accesible por http e independiente del estado del sistema.
 4. **Data Management**: Para almacenar y gestionar los datos tomados en la red.
 5. **Rule engine**: Permite monitorear los mensajes recibidos desde el router y permite lanzar distintas acciones en distintos elementos. Decide que acción tomar.
@@ -122,7 +122,7 @@ Es una nube de servidores que dan servicios:
 7. **Device manager**: Permite monitorizar algunos elementos de los sensores físicos como si está activo, la batería o si está conectado a la red.
 8. **App y User management**: Sistema de permisos que identifica y gestiona el acceso de usuarios y aplicaciones.
 
-**Aplicación(Application)**: La interfaz que el usuario utiliza para controlar el sistema.
+**Aplicación (Application)**: La interfaz que el usuario utiliza para controlar el sistema.
 
 **iBeacon** es un ejemplo de protocolo y **Beacon** es el dispositivo. Ambos están relacionados con dispositivos.
 
