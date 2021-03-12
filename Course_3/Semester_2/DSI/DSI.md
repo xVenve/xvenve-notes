@@ -456,6 +456,8 @@ De interpretación objetivo a subjetiva, de individuo a colectivo.
 
 ## User Centered Design (UCD)
 
+<img src="DSI/image-20210312134547277.png" alt="image-20210312134547277" style="zoom:80%;" />
+
 Proceso iterativo de diseño, centrado en los usuarios.
 
 Involucrados a través de todo el proceso de diseño.
@@ -957,6 +959,16 @@ Generación de conocimiento y síntesis, para extraer conclusiones.
 
 Se sacan requisitos y necesidades, y se concreta el contexto de diseño.
 
+### Análisis de Situaciones clave
+
+Centrado en comportamientos clave por su impacto:
+
+- **Critico**: para el desarrollo de la actividad que se estudia.
+- **Deseable**: Impacto positivo.
+- **Indeseable**: Impacto negativo
+
+Hay que  identificar incidentes significativos por parte de los usuarios (entrevistas, retrospectiva) y por los propios investigadores (observación directa, video análisis). Nos permite identificar factores contextuales, elementos y aspectos clave determinantes de acción, experiencia...
+
 ### Conversation Analysis o Análisis de la Conversación
 
 De etnometodología, cómo interactúa la gente y dinámicas de interacción.
@@ -1130,3 +1142,201 @@ Distintas maneras de presentar el material
 - Para dar rigor, poner el materia raw a modo de anexo.
 
 **Tipos**: Resúmenes, Anotaciones rigurosas o Stories.
+
+# Tema 4: Empezando el proceso de diseño
+
+**Interpretación y transformación de los resultados** del análisis en requisitos y directrices de diseño. Se pasa de usuarios a personas y se traza el estado deseado.
+
+Los análisis iniciales antes de interpretar y transformar hay que tenerlos representado de una manera adecuada, volviéndolos a analizar, algunos métodos son los siguientes.
+
+## Resúmenes
+
+El objetivo es tener una **visión general, un resumen general.** Se trabaja con datos cualitativos, cuantitativo y mixtos.
+
+Se pueden emplear **múltiples representaciones** como gráficas, tablas, temas o categorías, para facilitar el seguimiento de los datos. Van **acompañados de citas, anécdotas, imágenes o videos para que sea más ilustrativo y presentar evidencias empíricas.**
+
+## Stories
+
+Storytelling o narraciones, **manera intuitiva de comunicación de ideas y experiencias**. Muy usadas en IxD como base para el diseño, se itera el proceso y se mejora el producto.
+
+Extraídas de anécdotas reales de los usuarios (contadas en entrevistas o cuestionarios) o de construcciones en base a resultados (observaciones, encuestas).
+
+Es importante **especificar procedencia y veracidad,** para dar validez a las historias.
+
+Son útiles para ilustrar otro tipo de prestaciones de datos, proporcionar evidencias y aumentar  la credibilidad, y para inspirar el diseño.
+
+## Notaciones
+
+**Aspectos clave** (necesidades, aspiraciones, expectativas) del contexto de diseño actual o del diseño futuro que se busca.
+
+Se basan en deseos y necesidades actuales y objetivos de usabilidad y UX.
+
+Es importante entender el contexto de diseño para proceder de esta manera, están prefijadas por el proyecto o se producen durante el proceso de diseño.
+
+### Notaciones informales
+
+**No hay una sintaxis o estructura establecida**, es más abierta por lo que se puede producir ambiguos.
+
+Mismo aspectos/dimensiones que las notaciones rigurosas.
+
+**Ventaja**: Inspiran más y permiten innovar, al no ser tan rígidos.
+
+**Desventaja**: No son tan preciso y no siguen de guía
+
+### Notaciones rigurosas o establecidas
+
+**Sintaxis y semántica establecidas.**
+
+Tienen una estructura clara.
+
+**Ventajas**: Guía de una manera más clara de que mirar en cuanto a conclusiones, y son más precisos.
+
+**Desventajas**: No son flexible y no permiten la innovación.
+
+### Requisitos
+
+**Declaración que describe de manera clara, concisa y especifica aspectos y cualidades clave del producto**, que debería hacer y cómo, en que entono se va a usar, por quien y como.
+
+No es una listas de features (características).
+
+**Características**: Específicos (no ambiguos y claro) , correctos, consistentes y verificables.
+
+Lo importante es que los requisitos sean: Medibles, Específicos y bien documentados(vengan de una necesidad del usuario)
+
+### Requisitos y directrices de diseño
+
+Se **discuten, refinan, aclaran y revisan de manera iterativa.**
+
+No se pueden aislar de otras actividades de diseño, **ambas están ligadas a la actividades de diseño** y estas a ellos.
+
+Base para empezar a diseñar, **no son rígidos** por ello se itera de manera continuada, pero no deben tampoco cambiar radicalmente sin motivo.
+
+Son importante porque ayudan a **evitar que un error se prolongó en el proceso y nos resulte más caro** resolverlo. Los errores se pueden producir por: Falta de entendimiento con los stakeholders, análisis deficiente o unas directrices de diseño pobres.
+
+### Tipos
+
+**Ingeniería de Software**: Funcionales y No funcionales.
+
+Las **7 dimensiones de Gottesdiener y Gorman**: Usuario,  Interfaz, Acciones, Datos, Control, Ambiente(espacio) y Calidad.
+
+<img src="DSI/image-20210312143721537.png" alt="image-20210312143721537" style="zoom:50%;" />
+
+**Espacial/Ambiental**: Espacio físico (luz, humedad, ruido o que hay), espacio social (usado por una persona o muchas, si es compartido o individual) y espacio tecnológico (tecnología necesario y limitaciones).
+
+**Características de usuarios**: Edad, experiencia previa, circunstancias personales, capacidades físicas, nos permite sacar distintos requisitos.
+
+**Objetivos de usabilidad**: Eficiencia, eficacia, satisfacción, facilidad de aprendizaje con la que unos usuarios determinado alcanza en un contexto determinado un objetivo concreto.
+
+**Objetivos de experiencia de usuarios:**
+
+- Percepciones y respuestas resultado del uso y/o anticipación de uso de un producto, sistema o servicio.
+- Incluye: emociones, creencias, preferencias, percepciones, respuestas físicas y psicológicas, etc.
+- En definitiva: Aspectos clave de la experiencia de usuarios/as al interactuar con un producto, servicio, entorno o establecimiento
+ Algunos aspectos: usabilidad, funcionalidad, estética (experiential quality),contenido, el “look & feel,” y el atractivo sensorial y emocional.  El cómo se siente
+
+McCarty & Wrigth proponen **4 hilos claves** de una UX integral
+
+- Sensual thread: Aspectos sensoriales y viscerales.
+- Emotional thread: Emociones.
+- Compositional thread: Parte narrativa de una experiencia.
+- Spatio-temporal thread: Espacio y tiempo en el que se desarrollan nuestras experiencias y que afectan como las vivimos.
+
+Ayudan a pensar en la relación entre la tecnología y la experiencia.
+
+## Atomic Requirements Shell de Volere  (Robertson and Robertson, 2014)
+
+Define una plantilla de campos que deben tener los requisitos. Framework general de requisitos no específicos de IxD.
+
+<img src="DSI/2_9_volere_snow_card_alt.jpg" alt="The Snow Card | Mastering the Requirements Process | InformIT" style="zoom:50%;" />
+
+## User Stories
+
+Sirven para **capturar lo que el producto tiene que hace e iniciar una conversión entre stakeholders.**
+
+Muy usadas **en desarrollo ágil** de software y producto, para planificar los sprints.
+
+Bloques o unidades de funcionalidades (perspectivas de los usuarios) y objetivos no funcionales(usabilidad y UX).
+
+**Consiste en:** descripción, estimación de tiempo, test para verificación.
+
+**Epics**: User story complejo, que requiere semanas o meses de implementación, y se divide en otros más pequeño.
+
+- Del tipo: Yo como <> quiero <> para <>
+
+**Task o tareas**: User stories más pequeños de otra más grande.
+
+Se suelen representar como tarjetas, para que **no quepa mucha información a propósito**, pero hoy en día hay software específico.
+
+## Personas y Scenarios
+
+Se utilizan para **transmitir la visión y el propósito de un producto.**
+
+Suelen ir juntas, funcionan como **guías para el diseño  y desarrollo** en todas las etapas del UCD.
+
+Se utilizan detalles realistas sobres los usuarios actuales o futuros.
+
+**Diferencias**:
+
+- Ambos usan la narrativa.
+- **Error común**: mezclar detalles de la persona y del escenario.
+- **Persona**: Caracteriza al usuario **típico**.
+- **Escenario**: Describe una **situación o momento de esa persona**, usando un producto o intentando conseguir un objetivo.
+
+### Personas (Cooper, 1999)
+
+**Descripciones detalladas del usuario típico de un producto.**
+
+No es un usuario concreto. No inventado, usando datos empíricos.
+
+Son **importantes los detalles para dar vida a las personas** y poder visualizarlos como usuarios reales.
+
+Se crean normalmente varias personas, una principal que representa una sección amplia de los usuarios.
+
+Ayudan a la toma de decisiones de  diseño y a recordar quien es la gente que va a usar el producto, **pensado que haría una persona en esa situación.**
+
+**Incluye datos relevantes**: Nombre, foto, datos personales, sus objetivos, actitudes, aptitudes y detalles relacionados con el tipo de producto a desarrollar. Aunque hay que equilibrar la información general y especifica.
+
+### Scenarios/Escenarios
+
+**Descripción narrativa informal.** Describe actividades o tareas de usuarios y sus objetivos
+
+Permite exploración y discusión acerca de contexto, necesidades, y requisitos.
+
+No incluye tecnología necesariamente, depende de la fase del proceso.
+
+**Vocabulario cotidiano, cercano a todos los interesados.**
+
+Permite identificar las partes interesadas, los artefactos involucrados, el contexto de los usuarios, sus problemas, necesidades, etc.
+
+**Ejemplos**:
+
+- **Descripción de un escenario o situación existente**: Es clave para entender las prácticas y acciones de los usuarios. Explorar las limitaciones, contextos, pain points, facilitadores, etc. Ayudan a materializar requisitos.
+- **Descripción de un escenario o situación con una posible tecnología futura**: Describe una situación de uso, pone de manifiesto necesidades de los usuarios y posibles aspectos de diseño.
+- **Descripción de una función del sistema futuro**: Describe una función e incluye a dos personas. Pone de manifiesto suposiciones, expectativas y situaciones en las que se pueden ver los usuarios. Ayuda a traducir en requisitos, como un requisito ambiental.
+
+Se desarrollan después del análisis del trabajo de campo, para explicar o discutir aspectos clave de los objetivos de los usuarios en acción. No capturen todos los objetivos, ni se relaciona con todos los requisitos.
+
+Se centran en el detalle y la riqueza.
+
+## Use Cases o Casos de Uso
+
+**Describe la interacción de manera más precisa**, no tanto el contexto.
+
+Se centra en ** requisitos funcionales y en objetivos de usuarios** pero con **énfasis en la interacción** usuario-producto.
+
+No son lo mismo que las user stories, son más dirigidas a la interacción.
+
+Describe **paso a paso y de manera detallada** al interacción.
+
+Útil para pensar acerca de la interacción y para capturar nuevos requisitos (enriquece requisitos básicos).
+
+**Varios estilos:**
+
+- **Estilo 1 Essential Use Case Constantine and Lockwood(1999)**
+  - División en tareas del usuario y del producto.  Solo menciona tareas.
+  - Se representa como Intención usuario y Responsabilidad del sistema. No mucho acerca de la interaccione exacta.
+
+- **Estilo 2: Mas detallado y especifico**
+  - Captura el objetivo del usuario cuando interactúa con el producto. Se describe la interacción de una manera más guiada y natural.
+  - Se muestras distintos cursos (maneras), uno principal que es la más común, y otros alternativos por si se produce un error o hay otra vía para alcanzar el objetivo.
+
