@@ -535,5 +535,131 @@ Regresión no lineal y no paramétrica.
 **Hojas**: Se calcula un modelo lineal y se utiliza regresión estándar.
 
 **Salida**: En las hojas tiene funciones de regresión, en los nodos no hoja se tienen atributos acotados <. Cada nodo tiene un conjunto de entrenamiento y se hace su regresión lineal.
+<img src="AA/image-20210305230339091.png" alt="image-20210305230339091" style="zoom: 33%;" /><img src="AA/image-20210305230601935.png" alt="image-20210305230601935" style="zoom: 25%;" />
 
-<img src="AA/image-20210305230339091.png" alt="image-20210305230339091" style="zoom: 33%;" /><img src="AA/image-20210305230601935.png" alt="image-20210305230601935" style="zoom: 33%;" />
+En los árboles de regresión, los nodos hoja tienen modelos lineales y para llegar a esos nodos se usa como heurística es la Desviación típica (cuanto menor mejor), que se calcula haciendo una media ponderada ($S_{S=si}\cdot\frac {|S_{S=si}|}{|S|}$) de las desviaciones típicas de cada uno de los conjuntos resultantes.
+
+Tras la construcción del árbol hay un proceso de poda, que consiste en Simplificar los modelos lineales de las hojas, Simplificar el árbol para que sea más pequeño y por último el Suavizado.
+
+## Poda
+
+Paso 0: Antes de realizar la poda se crean modelos lineales de los nodos intermedios, que se utilizaran para ver si se pueden simplificar los subárboles por ese modelo del nodo intermedio. Para estos modelos se usan solo los atributos que aparecen en el subárbol.
+
+<img src="AA/image-20210312090434196.png" alt="image-20210312090434196" style="zoom: 25%;" />
+
+Para decidir si simplificamos por un modelo lineal necesitamos una medida del error. Si el modelo lineal proporciona menor error con respecto al subárbol podemos simplificarlo utilizando el modelo.
+
+La medida de error que empleamos es el **Error absoluto medio**, que es la media de error al clasificar las instancias el subconjunto de instancias de entrenamiento del subárbol. Se calcula como $$residuo(T) = \frac 1 n \sum _{i \in T} ||f(i) \hat{f}(i)||$$, dado un subárbol con un subconjunto de n instancias de entrenamiento T.
+
+El residuo subestima el error en instancias nuevas (que no ha visto nunca), para solucionar esto se multiplica por $\alpha = \frac {n+v}{n-v}$. Tal que n es el número de ejemplos del subárbol y v el número de atributos del modelo.
+
+Por lo que el error aumenta cuando hay muchos parámetros o hay pocas instancias.
+
+**Formula del error:** $error\_estimado(T) = \alpha \times residuo(T)$ Es una proporción del residuo.
+
+1. **Simplificación de los modelos lineales** (Busca eliminar atributos)
+
+    Se realiza en cada modelo lineal. Se eliminan atributos, que se seleccionan utilizando escalada para reducir el error estimado. En el extremo, deja solo una constante, como termino independiente.
+
+    $M= 0.25a_1+0.12a_2+300a_5-40 \Rightarrow M=0.12a_2+300a_5-40$
+
+2. Simplificación del subárbol (Busca eliminar subárboles por modelo lineales)
+
+    Cada nodo interno del árbol tiene un modelo lineal simplificado y un modelo subárbol, y se elige aquel que minimice el error estimado. Si el modelo da mejor resultado, se sustituye el subárbol por el nodo del modelo.
+
+3. **Suavizar el árbol.**
+
+    Algunos trabajos se ha comprobado que realizar un suavizado mejor la predicción final, dado que lea predicción en cada nodo puede variar mucho. Lo que hace es en lugar de devolver la predicción del modelo en el nodo hoja. se consideran también los modelos en los nodos intermedios entre el nodo hoja y el nodo raíz.
+
+# Otras técnicas
+
+## Aprendizaje Bayesiano
+
+Funcionan bien en la clasificación de textos, text mining. Permite recibir los datos de manera incremental y va creciendo el modelo.
+
+### Hipótesis más probable (MAP)
+
+Se busca la hipótesis que explique mejor los datos. $$P(h_i/E)= \frac {P(E/h_i)P(h_i)}{P(E)}$$
+
+Es aquella que $\arg \max P(h_i/E)$ o  $\arg \max P(E/h_i) $. Cogemos el $h_i$ más probable, pero puede haber otros muchos modelos que dicen que no y que habría que considerar, entonces lo que queremos es la clase más probable para esos datos.
+
+### Clasificación más probable
+
+Probabilidad de la clase C dados los ejemplos E: $P(C/E) = \sum _{h_i \in H} P(C/h_i) \cdot P(h_i/E)$
+
+A esto se le llama **Clasificador Bayesiano Optimo**, en la practica el tamaño de H hace que sea imposible, además no tenemos un modelo como tal si no la probabilidad de la clase más probable para esos datos.
+
+### Naïve Bayes
+
+$\arg \max P(C/a_1,...,a_n)= \arg \max _{c \in C} \frac {P(a_1,...,a_n/C)P(C)}{P(a_1,...,a_n)}=\arg \max_{c \in C} P(a_1,...,a_n/C)P(C)$
+
+Podemos quitar el denominador porque todos las clases se evalúan con los mismos atributos. Y $P(a_1,...,a_n/C)$ es muy complejo de calcular, exponencial, se necesitaría una tabla de todas las combinaciones.
+
+Para evitar esta complejidad se hace una simplificación, **se asume que los valores de los atributos una vez se conoce la clase son condicionalmente independientes**, lo que quiere decir que se puede calcular como un producto. $P(a_1,...,a_n/C) = P(a_1/C) \cdot P(a_2/C) \cdot ... \cdot P(a_n/C)$. El problema es que ahora no es una aproximación y no un clasificador bayesiano óptimo. **Suele funcionar bastante bien** esta aproximación.
+
+$P(c=c_1)= \frac {n\_casos\_c=1}{n\_casosTotales}$  $P(a=v_1/c=c_1)= \frac {n\_casos\_c=1\_y\_v=v_1}{n\_casos\_c=1}$
+
+## Redes de neuronas
+
+### Neurona
+
+<img src="AA/image-20210312101135112.png" alt="image-20210312101135112" style="zoom: 33%;" />
+
+Las e**ntradas son los valores de los atributos** ($x_1,x_2,..,x_n$) y un umbral, se hace **combinación lineal de las entradas con unos pesos** ($w_0+w_ix_1+...+w_nx_n$) y se pasa el **resultado por una función de activación** que nos da la salida.
+
+**Tipos de función de activación:**
+
+- Umbral, devuelve 0 o 1. <img src="AA/image-20210312101914163.png" alt="image-20210312101914163" style="zoom: 33%;" />
+- Lineal. <img src="AA/image-20210312101925885.png" alt="image-20210312101925885" style="zoom: 33%;" />
+- Sigmoidal.<img src="AA/image-20210312101943269.png" alt="image-20210312101943269" style="zoom: 33%;" />
+- RELU, se ha visto que el aprendizaje es más rápido.<img src="AA/image-20210312101950741.png" alt="image-20210312101950741" style="zoom: 33%;" />
+
+El aprendizaje consiste en determinar los pesos que se aplican a las entradas.
+
+La regla que se aplica de forma habitual es la **Regla delta**, que es parecido al descenso del gradiente. Se empieza con peso aleatorio y con las iteraciones del entrenamiento se van actualizando los pesos. $w_i \leftarrow w_i+\Delta w_i$  El delta es una pequeña variación es ŋ$(t-o)x_1$ donde ŋ es una tasa de aprendizaje, $t$ la salida real y $o$ el valor que damos.
+
+En general para hacer descenso del gradiente necesitamos que la función sea derivable y con un único mínimo.
+
+Se van metiendo los datos de entrada, se recibe la salida y según el error se van actualizando los pesos, se para cuando los pesos se estabilizan.
+
+### Perceptrón
+
+Es una forma más simple de red de neuronas, formada por una sola neurona. Usa la función escalón como función de activación.
+
+Se usa en tareas de clasificación lineal, es capaz de determinar el hiperplano capaz de discriminar los ejemplos en dos clases.
+
+### Redes
+
+<img src="AA/image-20210312102144206.png" alt="image-20210312102144206" style="zoom:80%;" /> Red neuronal multicapa
+
+Es un **conjunto de neurona conectadas entre sí** que se distribuyen en capas.
+
+**Ventajas**:
+
+- Son robustas ante el ruido.
+- Trabajan con datos complejos (difíciles de clasificar, como sensores)
+- Éxito en reconocimiento del habla y visión. Deep learning
+- Dan bueno resultado.
+
+**Desventaja**: El aprendizaje es lento.
+
+En las redes multicapa el cálculo del error se complica, hay varias salidas y capas ocultas.
+
+### Backpropagation o Retropropagación
+
+Se basa en: $Error \sim \sum _{d \in D} \sum_{k \in outputs} (t_{kd}-o_{kd})^2$. Para cada ejemplo:
+
+1. Se propaga desde la **entrada hasta la salida** (calcular la salida de la red)
+2. **Propagación del error hacia atrás**: En las que están en la última capa es fácil, pero para las que están en las capas intermedias no tanto.
+    1. Se calcula el **error en la unidad de salida**: $\delta_k \leftarrow$ $o_k(1-o_k)(t_k-o_k)$ Este valor es el (t-o) de la variación delta, en este caso para una función sigmoidal en vez de lineal
+    2. **En las capas ocultas**: Se calcula con las unidades que están conectadas posteriormente, $\delta_n \leftarrow o_n(1-o_n)\sum_{k \in output} w_{kn}\delta_k$
+
+### Deep Learning
+
+Redes neuronales convolucionales. Se usan para procesado de imágenes.
+
+**Puede recibir datos en crudo, no necesita que se los pasemos como atributo valor** tras un preproceso de elegir los atributos relevantes y dar valor a instancias. Recibe el grueso de los datos y los va cogiendo por partes y agrupando, Convolution. Después se reduce la resolución de la imagen, Pooling. Se repite el proceso hasta que tenemos lo datos para clasificar, extracción de características, y podemos generar una red neuronal totalmente conectada, classification.
+
+<img src="AA/image-20210312111406573.png" alt="image-20210312111406573" style="zoom: 50%;" />
+
+## Algoritmos genéticos
