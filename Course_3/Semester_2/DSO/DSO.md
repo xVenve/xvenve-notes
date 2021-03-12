@@ -181,3 +181,56 @@ Cualquier dispositivo capaz de intervenir para cambiar las condiciones físicas 
 [Introducción a los Sistemas Embebidos](https://aulaglobal.uc3m.es/mod/url/view.php?id=3123882) Solo capítulo 1
 
 [Sistemas Operativos Embebidos](https://aulaglobal.uc3m.es/mod/url/view.php?id=3123883) Capítulo 9
+
+## Que es un sistema embebido o integrado?
+
+Son sistemas que integran uno o más sensores y que son capaces de comunicarse con la red, con capacidades limitadas, por lo que están entre la capa de Dispositivos y Pasarelas.
+
+Se aplican sobre sobre cosas cotidianas para mejorarla, pero no proporciona una mayor complejidad del sistema, permite realizar la mismas funciones o alguna más pero mejor.
+
+Todo dispositivo IoT es un sistema embebido, pero no todo sistema embebido es IoT. Los sistemas IoT son accesibles a través de internet y puede enviar la información que registra en tiempo real por internet.
+
+**Los sistema embebidos o integrados** son aquellos capaces de interactuar con el usuario o con otra herramienta invisible para el usuario. Es decir, no tiene por qué haber una interacción directa con el usuario (un pendrive se enchufa al ordenador, no al usuario)
+
+- Ejem: Memoria flash, pendrive, sistema antibloqueo de ruedas.
+
+**Un sistema IoT** es aquel  con el que podemos interactuar directamente, acceder a sus datos o que nos los muestre, y tiene capacidad de internet. Hoy en día es muy barato transformar un sistema embebido a IoT.
+
+**Factor clave de los sistemas embebidos**:
+
+- La **eficiencia**, velocidad a la que responde o realiza la tarea específica). Para alcanzar la eficiencia **se cambia el enfoque de la programación**, no hay recursos ilimitado y hay que adaptarlo para que consuma poca energía y memoria.
+- El **consumo de energía**, si se encuentra en algún lugar remoto y tiene una batería debe durar mucho.
+- El **uso de memoria**, ya que afecta al rendimiento y son caras.
+- **Precio**, ya que ante productos similares se elige el más barato.
+- **Sistema critico**, aquel del que el tiempo de respuesta es clave, que si falla puede correr riesgo alguna vida humana.
+
+**No podemos aprovechar la Ley de Moore**, nos tenemos que ajustar al sistema como está actualmente, no podemos esperar a que pase el tiempo suficiente para que compremos otro que de mejor rendimiento. Hay que diseñar sistemas que sean rápidos con la tecnología actual y pueda durar en el un largo periodo de tiempo.
+
+**Del cuestionario:**
+
+- Se dice que un **sistema es en tiempo real si el tiempo de respuesta es crítico**. Como el sistema ABS o de detección de colisión.
+- Es cierto que la mayoría de los sistemas informáticos integrados están diseñados por equipos pequeños con plazo ajustados.
+- Un sistema en tiempo real se define como un sistema cuya corrección de la puntualidad de su respuesta.
+- Es cierto que un sistema integrado puede definirse como un sistema de control o un sistema informático diseñado para realizar una tarea específica.
+
+### Ordenador personal vs. Sistema embebido
+
+**Sistema embebido**: Son específicos de una aplicación, se focalizan en una tarea o conjunto de tareas relacionadas en todo momento.
+
+- Todos los recursos están dirigidos a realizar esa tarea, por lo que la realiza muy bien, pero no van sobrados de recursos y una aplicación es muy difícil o imposible. El software y hardware lo diseñan juntos por lo que es más eficiente y fiable, se adaptan al hardware perfectamente.
+- Utilizan arquitecturas muy variadas, con diferentes CPU, periféricos, SO y prioridades de diseño.
+- El tiempo de arranque es casi instantáneo, medido en segundos.
+
+**Computadora de escritorio**: Puede ejecutar cualquier clase se aplicación según las necesidades del usuario.
+
+- Está listo para cualquier tarea por lo que consume más energía y recursos. El diseño de hardware lo desarrollan empresas distintas, por lo que sobran recursos o se requiere más de los que hay, sobreestima. Además se pueden ampliar fácilmente y económicamente si es necesario.
+- Usan una arquitectura muy similar todos y ejecutan software en sistemas idénticos.
+- El tiempo de inicio se puede medir en minutos cuando se carga desde disco.
+
+**Del cuestionario:**
+
+- Un sistema embebido no necesita interacción humana para realizar tareas.
+- Un sistema embebido necesita menos potencia operativa que una computadora.
+- Los ordenadores se pueden reprogramar par aun nuevo propósito.
+- Los ordenadores son difíciles cuando se usan, en comparación con un sistema embebido.
+- Los ordenadores pueden realizar muchas tareas.
