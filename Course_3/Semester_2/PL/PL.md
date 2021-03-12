@@ -574,8 +574,96 @@ Otro concepto importante es el de “**palabra reservada**”
   - El espacio en blanco se elimina con un preprocesado.
   - El AL tiene que retroceder y comenzar de nuevo.
 
-## Ejemplo de crear un AL
+## Ejemplo de crear un AL y ASi
 
 <img src="PL/image-20210305192603381.png" alt="image-20210305192603381" style="zoom:50%;" /><img src="PL/image-20210305192620642.png" alt="image-20210305192620642" style="zoom:50%;" /><img src="PL/image-20210305192648153.png" alt="image-20210305192648153" style="zoom:50%;" /><img src="PL/image-20210305192718592.png" alt="image-20210305192718592" style="zoom:50%;" /><img src="PL/image-20210305192731385.png" alt="image-20210305192731385" style="zoom:50%;" />
 
 # Tema 3: Análisis Sintáctico
+
+## Introducción
+
+<img src="PL/image-20210312115053541.png" alt="image-20210312115053541" style="zoom: 50%;" />
+
+Su función es comprobar que la secuencia de componentes léxicos es una secuencia del lenguaje y generar el árbol sintáctico (explicito o no)
+
+Los lenguajes de programación que debe reconocer normalmente son independientes del contexto, por lo que se representan con gramáticas de tipo 2, diagramas de sintaxis o autómatas a pila.
+
+Ventajas de utilizar gramáticas:
+
+- Son especificaciones sintácticas y precisas de lenguajes.
+- Se puede generar automáticamente un analizador.
+- Mientras se construye se pueden descubrir inconsistencias, ambigüedades,...
+- Da estructura al lenguaje de programación lo que hace que sea más fácil de generar código y detectar errores.
+- Fácil de ampliar y modificar el lenguaje.
+
+Nos interesan los analizadores deterministas, que son los que de un estado con un símbolo solo puede ir a 1 estado. También admitiremos las transiciones con $\lambda$.
+
+Tipos de analizadores:
+
+- **Descendente**: Va desde la raíz (axioma) hasta las hojas (tokens, símbolos terminales. Nosotros trataremos los predictivos solo, que son capaces de elegir el token correcto en cada momento, no los que tienen retroceso.
+
+    **LL(k)**, LL(1) Tengo que leer k tokens para identificar que regla de producción usar.
+
+- Ascendente: Va de los nodos hojas(secuencia de tokens) hasta la raíz (axioma). Es predictivo.
+
+    **LR(k)**, que puede ser LR(0), SLR(1), LALR(1) y LR(1)
+
+LR significa que lee de izquierda a derecha (LX) y elige la producción más a la derecha (XR, right).
+
+## Análisis Sintáctico Descendiente
+
+Tenemos una secuencia de tokens x y el objetivo es determinar si la secuencia es una secuencia del lenguaje definido por la gramática G. El proceso que seguimos es:
+
+1. Partir del axioma la forma sentencial.
+2. Coger un token de izquierda a derecha.
+3. Seleccionar una regla de producción. Se debe sabe según el token actual la regla que usar.
+4. Si coinciden token y símbolo de la forma sentencial, se lee el siguiente token.
+5. Sustituir el símbolo no terminal de la forma sentencial por la parte derecha de la regla elegida.
+6. Repetir el proceso hasta que la entrada haya sido procesada.
+
+### Con Retroceso
+
+Lo que cambia es la manera de seleccionar al regla, este lo hace por búsqueda en profundidad con retroceso lo que hace que tenga una complejidad de $O(k^n)$.
+
+### Predictivo
+
+Analizador que sólo necesita conocer $k$ tokens de la cadena de entrada para determinar la regla de producción que debe aplicarse. El número de tokens, $k$, necesarios para tomar la decisión de que regla de producción aplicar, define el nombre del analizador, $LL(k)$, $LR(k)$
+
+Características:
+
+- Son autómatas a pila deterministas por vaciado.
+- No hay retroceso, usa autómatas a pila deterministas predictivos.
+- la complejidad es lineal $O(n)$, tal que n es el número de tokens que hay en la sentencia (preferible al exponencial del con retroceso)
+
+Para evitar problemas a la hora de seleccionar una regla de selección **se debe elimina la Recursividad a izquierda y Factorizamos a izquierdas**. La recursividad a izquierdas hay que evitarla desde el principio, pero la factorización si se produce no es un gran problema es fácil de resolverla.
+
+<img src="PL/image-20210312125711682.png" alt="image-20210312125711682" style="zoom: 67%;" /><img src="PL/image-20210312125654582.png" alt="image-20210312125654582" style="zoom: 33%;" />
+
+En los casos que se tienen varias reglas de producción  entre las que elegir usará el conjunto primero del terminar más a la izquierda.
+
+#### Conjunto Primero
+
+$PRIMERO(\alpha)$ Todos los Terminales que aparecen más a la izquierda que se derivan de esa forma sentencial. Son los posibles terminales que pueden aparecer más a la izquierda de cualquier secuencia de producciones de $\alpha$.
+$$
+PRIMERO(\alpha)=\{ x | (\alpha \rightarrow _* x \cdot \beta), (x \in \Sigma_T \cup \Sigma^*) \}
+$$
+Si $X=\lambda \Rightarrow PRIMERO(X)=\{\lambda\}$
+
+Si $X \in \Sigma_T \Rightarrow PRIMERO(X)=\{X\}$ El conjunto primero de un terminal es él mismo.
+
+Si X tiene alguna regla que empieza por un No Terminal es como calcular el conjunto primero de éste. Ojo con lambda.
+
+**Ejemplos:**
+
+<img src="PL/image-20210312131340113.png" alt="image-20210312131340113" style="zoom:50%;" />
+
+<img src="PL/image-20210312131911027.png" alt="image-20210312131911027" style="zoom: 80%;" /><img src="PL/image-20210312131942164.png" alt="image-20210312131942164" style="zoom: 67%;" />
+
+#### Conjunto Siguiente
+
+Conjunto primero de todo lo que aparece concatenado de un símbolo No terminal en todas las formas senténciales que se derivan del axioma. Son todos los símbolos Terminales que se producen al derivar desde el axioma.
+$$
+SIGUIENTE(A)=\{ x | (S \rightarrow _*\alpha A \beta), (A \in \Sigma_N), (\alpha \in \Sigma^*), (\beta \in \Sigma^+),(x\in PRIMERO(\beta)-\{\lambda\})\}
+$$
+
+## Análisis Sintáctico Ascendente
