@@ -4,8 +4,8 @@
 
 ### First semester
 
-* [Calculus](Course_1/Semester_1/C/C.html)
-* [Information Skills](Course_1/Semester_1/TBUI/TBUI.html)
+* [Calculus](Course_1/Semester_1/C/C.pdf)
+* [Information Skills](Course_1/Semester_1/TBUI/TBUI.pdf)
 * [Linear Algebra](Course_1/Semester_1/AL/AL.pdf)
 * [Physics](Course_1/Semester_1/F/F.html)
 * [Programming](Course_1/Semester_1/P/P.html)
