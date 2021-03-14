@@ -1204,9 +1204,9 @@ función de error de cada uno de los pesos.
 \subsection{Regresión no lineal}
 
 Cuando usamos este tipo de funciones hay que tener \textbf{cuidado}, la
-evaluación se debe realizar con ejemplos de un conjunto distinto del de
+evaluación se debe realizar con ejemplos de un conjunto distinto al de
 entrenamiento, porque la función no lineal se puede ajustar muy bien a
-esos, pero a al resto.
+esos, pero no al resto.
 
 Esta función es más difícil de generar.
 
@@ -1257,7 +1257,7 @@ subconjunto.
 \end{itemize}
 
 \textbf{Criterio de parada}: Pocos ejemplos o poca variación de los
-valores(desviación típica pequeña)
+valores (desviación típica pequeña)
 
 \textbf{Hojas}: Se calcula un modelo lineal y se utiliza regresión
 estándar.
@@ -1284,7 +1284,7 @@ que sea más pequeño y por último el Suavizado.
 \newpage
 \section{Poda}
 
-Paso 0: Antes de realizar la poda se crean modelos lineales de los nodos
+\textbf{Paso 0}: Antes de realizar la poda se crean modelos lineales de los nodos
 intermedios, que se utilizaran para ver si se pueden simplificar los
 subárboles por ese modelo del nodo intermedio. Para estos modelos se
 usan solo los atributos que aparecen en el subárbol.
@@ -1328,7 +1328,7 @@ residuo.
 
   \(M= 0.25a_1+0.12a_2+300a_5-40 \Rightarrow M=0.12a_2+300a_5-40\)
 \item
-  Simplificación del subárbol (Busca eliminar subárboles por modelo
+\textbf{Simplificación del subárbol} (Busca eliminar subárboles por modelo
   lineales)
 
   Cada nodo interno del árbol tiene un modelo lineal simplificado y un
@@ -1536,7 +1536,7 @@ distribuyen en capas.
 \item
   Éxito en reconocimiento del habla y visión. Deep learning
 \item
-  Dan bueno resultado.
+  Dan buenso resultados.
 \end{itemize}
 
 \textbf{Desventaja}: El aprendizaje es lento.
@@ -1582,8 +1582,8 @@ Para cada ejemplo:
 Redes neuronales convolucionales. Se usan para procesado de imágenes.
 
 \textbf{Puede recibir datos en crudo, no necesita que se los pasemos
-como atributo valor} tras un preproceso de elegir los atributos
-relevantes y dar valor a instancias. Recibe el grueso de los datos y los
+como atributo valor}, lo que es una ventaja no hay que elegir los atributos
+relevantes y organizar los datos. Recibe el grueso de los datos y los
 va cogiendo por partes y agrupando, Convolution. Después se reduce la
 resolución de la imagen, Pooling. Se repite el proceso hasta que tenemos
 lo datos para clasificar, extracción de características, y podemos
