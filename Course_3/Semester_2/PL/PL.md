@@ -588,7 +588,7 @@ Su función es comprobar que la secuencia de componentes léxicos es una secuenc
 
 Los lenguajes de programación que debe reconocer normalmente son independientes del contexto, por lo que se representan con gramáticas de tipo 2, diagramas de sintaxis o autómatas a pila.
 
-Ventajas de utilizar gramáticas:
+**Ventajas de utilizar gramáticas:**
 
 - Son especificaciones sintácticas y precisas de lenguajes.
 - Se puede generar automáticamente un analizador.
@@ -598,13 +598,13 @@ Ventajas de utilizar gramáticas:
 
 Nos interesan los analizadores deterministas, que son los que de un estado con un símbolo solo puede ir a 1 estado. También admitiremos las transiciones con $\lambda$.
 
-Tipos de analizadores:
+**Tipos de analizadores:**
 
 - **Descendente**: Va desde la raíz (axioma) hasta las hojas (tokens, símbolos terminales. Nosotros trataremos los predictivos solo, que son capaces de elegir el token correcto en cada momento, no los que tienen retroceso.
 
     **LL(k)**, LL(1) Tengo que leer k tokens para identificar que regla de producción usar.
 
-- Ascendente: Va de los nodos hojas(secuencia de tokens) hasta la raíz (axioma). Es predictivo.
+- **Ascendente**: Va de los nodos hojas(secuencia de tokens) hasta la raíz (axioma). Es predictivo.
 
     **LR(k)**, que puede ser LR(0), SLR(1), LALR(1) y LR(1)
 
@@ -612,28 +612,28 @@ LR significa que lee de izquierda a derecha (LX) y elige la producción más a l
 
 ## Análisis Sintáctico Descendiente
 
-Tenemos una secuencia de tokens x y el objetivo es determinar si la secuencia es una secuencia del lenguaje definido por la gramática G. El proceso que seguimos es:
+Tenemos una secuencia de tokens x y el objetivo es **determinar si la secuencia es una secuencia del lenguaje** definido por la gramática G. El proceso que seguimos es:
 
-1. Partir del axioma la forma sentencial.
-2. Coger un token de izquierda a derecha.
-3. Seleccionar una regla de producción. Se debe sabe según el token actual la regla que usar.
-4. Si coinciden token y símbolo de la forma sentencial, se lee el siguiente token.
-5. Sustituir el símbolo no terminal de la forma sentencial por la parte derecha de la regla elegida.
-6. Repetir el proceso hasta que la entrada haya sido procesada.
+1. **Partir del axioma** la forma sentencial.
+2. **Coger un token de izquierda a derecha.**
+3. **Seleccionar una regla de producción**. Se debe sabe **según el token actual** la regla que usar.
+4. **Si coinciden** token y símbolo de la forma sentencial, se **lee el siguiente token**.
+5. **Sustituir el símbolo no terminal** de la forma sentencial por la parte derecha de la regla elegida.
+6. **Repetir** el proceso hasta que la entrada haya sido procesada.
 
 ### Con Retroceso
 
-Lo que cambia es la manera de seleccionar al regla, este lo hace por búsqueda en profundidad con retroceso lo que hace que tenga una complejidad de $O(k^n)$.
+Lo que cambia es la manera de seleccionar al regla, este **lo hace por búsqueda en profundidad con retroceso** lo que hace que tenga una **complejidad de $O(k^n)$**.
 
 ### Predictivo
 
-Analizador que sólo necesita conocer $k$ tokens de la cadena de entrada para determinar la regla de producción que debe aplicarse. El número de tokens, $k$, necesarios para tomar la decisión de que regla de producción aplicar, define el nombre del analizador, $LL(k)$, $LR(k)$
+**Analizador que sólo necesita conocer $k$ tokens de la cadena de entrada para determinar la regla de producción** que debe aplicarse. El número de tokens, $k$, necesarios para tomar la decisión de que regla de producción aplicar, define el nombre del analizador, $LL(k)$, $LR(k)$
 
-Características:
+**Características:**
 
 - Son autómatas a pila deterministas por vaciado.
 - No hay retroceso, usa autómatas a pila deterministas predictivos.
-- la complejidad es lineal $O(n)$, tal que n es el número de tokens que hay en la sentencia (preferible al exponencial del con retroceso)
+- La **complejidad es linea**l $O(n)$, tal que n es el número de tokens que hay en la sentencia (preferible al exponencial del con retroceso)
 
 Para evitar problemas a la hora de seleccionar una regla de selección **se debe elimina la Recursividad a izquierda y Factorizamos a izquierdas**. La recursividad a izquierdas hay que evitarla desde el principio, pero la factorización si se produce no es un gran problema es fácil de resolverla.
 
@@ -643,7 +643,7 @@ En los casos que se tienen varias reglas de producción  entre las que elegir us
 
 #### Conjunto Primero
 
-$PRIMERO(\alpha)$ Todos los Terminales que aparecen más a la izquierda que se derivan de esa forma sentencial. Son los posibles terminales que pueden aparecer más a la izquierda de cualquier secuencia de producciones de $\alpha$.
+$PRIMERO(\alpha)$ Todos los Terminales que aparecen más a la izquierda que se derivan de esa forma sentencial. **Son los posibles terminales que pueden aparecer más a la izquierda de cualquier secuencia de producciones de $\alpha$.**
 $$
 PRIMERO(\alpha)=\{ x | (\alpha \rightarrow _* x \cdot \beta), (x \in \Sigma_T \cup \Sigma^*) \}
 $$
