@@ -129,7 +129,7 @@ hmargin=3cm
 }
 
 % NOTAS A PIE DE PÁGINA
-\usepackage{chngcntr} %para numeración contínua de las notas al pie
+\usepackage{chngcntr} %para numeración continua de las notas al pie
 \counterwithout{footnote}{chapter}
 
 % LISTADOS DE CÓDIGO
@@ -568,8 +568,7 @@ pertenece a una de las dos clases:
 \textbf{Entropía en múltiples clases}:
 \(Entropia(S) \equiv \sum_{c\in C} -p_c \log _2 p_c\)
 
-Cuanto más se diferencian las proporciones, cuanto más notablemente hay
-de una que de otra, más tiende a 0.
+Cuanto más se diferencian las proporciones, cuanto más notablemente hay de una que de otra, más tiende a 0.
 
 \textbf{Nuestro objetivo es minimizar la entropía.}
 
@@ -853,7 +852,7 @@ Es un proceso iterativo, tras la última etapa se vuelve al principio.
 		\begin{figure}[H]
 			Ejemplo
 			\ffigbox[\FBwidth]
-			{\caption{Busqueda por atributos}}
+			{\caption{Búsqueda por atributos}}
 			{\includegraphics[scale=.2]{Untitled 15.png}}
 		\end{figure}
         \begin{itemize}
@@ -1342,7 +1341,7 @@ residuo.
   intermedios entre el nodo hoja y el nodo raíz.
 \end{enumerate}
 
-\chapter{Otras técnicas}
+\chapter{TEMA 4. Resumen otras técnicas}
 
 \section{Aprendizaje Bayesiano}
 
@@ -1533,7 +1532,7 @@ distribuyen en capas.
 \item
   Éxito en reconocimiento del habla y visión. Deep learning
 \item
-  Dan buenso resultados.
+  Dan buenos resultados.
 \end{itemize}
 
 \textbf{Desventaja}: El aprendizaje es lento.
@@ -1593,5 +1592,168 @@ generar una red neuronal totalmente conectada, classification.
 \end{figure}
 
 \section{Algoritmos genéticos}
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Diagrama Genético}}
+	{\includegraphics[scale=.4]{2021-03-19 11_26_59-otras-tecnicas.pdf - Foxit Reader.png}}
+\end{figure}
+Aprendizaje basado en evolución simulada, se mantiene una colección de soluciones, se evoluciona a través de generaciones por recombinación de las más adecuadas y eliminación de las menos adecuadas, y se termina cuando se obtiene una solución suficientemente adecuada.
+
+Son algoritmos de búsqueda local estocástica, que las acciones tienen una probabilidad de ocurrir, que son buenos para la optimización.
+
+Hacen búsqueda en el espacio de soluciones, pero cuando es fácil encontrar una solución, pero no la óptima. Funcionan por generaciones, en la que cada generación tiene una población, que está compuesta por p individuos, cada uno es una solución al problema.
+
+\textbf{Factores clave:}
+\begin{itemize}
+  \item Elegir como representar los datos, se pueden utilizar cadenas de bits (llamado Genético) o alguna estructura de datos más compleja.
+  \item Las operaciones para combinar (pequeños cambios) soluciones y generar soluciones nuevas.
+  \item La función de adecuación (fitness) que indica como de buena es una población, cuanto más es mejor. Transforma el genotipo (cadena de bits) en el fenotipo (significado de la cadena bits).
+\end{itemize}
+
+\textbf{Proceso:}
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Algoritmo genético}}
+	{\includegraphics[scale=.3]{2021-03-19 11_42_34-otras-tecnicas.pdf - Foxit Reader.png}}
+\end{figure}
+\begin{enumerate}
+  \item Se selecciona, individuos de la población de soluciones. Se pueden elegir por Ruleta (por número aleatorio) o por Torneo (se coge un par de individuos y se escoge el mejor, dejando al otro fuera).
+  \item A la nueva población se le realizan una serie de modificaciones como: reproducción, cruce, mutaciones y clone. Y quedan unos sobrevivientes, siempre tiene el mismo número de individuos.
+  Cada operación tiene una probabilidad, por eso es búsqueda estocástica.
+  \begin{description}
+    \item[Cruze] Una parte de un par de individuos, mezcla de los progenitores.
+    \item[Reproducción] Pasa a la nueva generación/población igual.
+    \item[Mutación] Cambios muy pequeños, un solo bit.
+  \end{description}
+  \item Se evalúa la nueva población. Si es mejor pasa a ser la población base (generación), Si no se descarta y se intentan otras alternativas.
+\end{enumerate}
+
+\chapter{TEMA 5. Técnicas Vagas y No Supervisadas}
+\section{Aprendizaje basado en instancias (IBL)}
+No genera modelo, lo que hace es que cuando recibe un dato nuevo busca algunos similares de los conocidos.
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Estrategia IBL}}
+	{\includegraphics[scale=.3]{2021-03-19 12_05_34-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}}
+\end{figure}
+\textbf{Fases:}
+\begin{enumerate}
+  \item \textbf{Entrenamiento:} Almacenamiento de todo el conjunto de datos disponibles.
+  \item \textbf{Generalización:} Cuando recibe un nuevo dato, se cogen un conjunto de datos similares, que son utilizados para clasificar el nuevo dato. Todo el computo se realiza en tiempo de clasificación, Aprendizaje Perezoso.
+\end{enumerate}
+Para definir similitud, se utilizan medidas de distancia (más cercano, más similares).
+
+El algoritmo recibe como entrada k, que indica el número de vecinos más cercanos que se van a considerar (K-NN, K-Nearest Neighbors). 
+
+\subsection{K-Nearest Neighbors}
+Las instancias corresponden a puntos en un espacio de dimensión n (n atributos) y los vecinos más cercanos se calculan con la distancia euclídea ($d\left( \overrightarrow{x},\overrightarrow{z}\right)   = \sqrt {\sum _{i=1}^{n}  \left( x_{i}-z_{i}\right)^2 }$).
+
+Si los atributos tienen diferentes rangos, se normalizan, y si son valores simbólicos, se define el valor por posible valor.
+\subsection{Función Objetivo}
+Dada una instancia x y sus k vecinos, nos indica cual es la clase. Dependiendo del tipo de valores se usan distintos métodos:
+\begin{description}
+  \item[Caso discreto (clasificación)] Valor más común de entre los k vecinos más cercanos. 
+  $$ \hat{f}(\overrightarrow{x}) = \arg\max _{c \in C} \sum^k_{i=1} \delta(c,f(\overrightarrow{z^i}))$$
+  \item[Caso continuo (regresión)] Valor medio de entre los k vecinos. 
+  $$ \hat{f}(\overrightarrow{x}) = \frac{\sum^k_{i=1} f(\overrightarrow{z^i})}{k}$$
+\end{description}
+También se puede ponderar la importancia de cada vecino en el valor de la función objetivo, en función de su distancia. Donde $w_i = \frac{1}{d(\vec{x},\vec{z^i})^2}$.
+\begin{description}
+  \item[Caso discreto (clasificación)] $ \hat{f}(\overrightarrow{x}) = \arg\max _{c \in C} \sum^k_{i=1} w_i \times \delta(c,f(\overrightarrow{z^i}))$
+  \item[Caso continuo (regresión)] Media ponderada. $ \hat{f}(\overrightarrow{x}) = \frac{\sum^k_{i=1} w_i f(\overrightarrow{z^i})}{\sum^k_{i=1} w_i}$
+\end{description}
+
+\subsection{Selección de los K vecinos}
+El parámetro k identifica cuantos vecinos se utilizan para la decisión, su valor es el que mejor resultados aporta, no hay una regla que siempre funcione. Las regiones que se forman con 1-NN se denominan regiones de Voronoi.
+
+\textbf{Medidas de distancia}
+\begin{description}
+  \item[Distancia de Hamming (atributos no numéricos)] $\left(x_{m}-z_{m}\right)=\left\{\begin{array}{ll}0 & \text { si } x_{m}=z_{m} \\ 1 & \text { si } x_{m} \neq z_{m}\end{array}\right.$
+  \item[Manhattan] $d(\vec{x}, \vec{z})=\sum_{m=1}^{n}\left|x_{m}-z_{m}\right|$
+  \item[Minkowski] $d(\vec{x}, \vec{z})=\left(\sum_{m=1}^{n}\left|x_{m}-z_{m}\right|^{k}\right)^{\frac{1}{k}}$
+\end{description}
+\subsection{Propiedades}
+\begin{itemize}
+  \item Las instancias son puntos de un espacio n dimensional, donde n es el número de atributos.
+
+  \item No hay muchos atributos por instancias, 20 aprox.
+
+  \item Hay muchos datos de entrenamiento.
+
+\end{itemize}
+
+\subsubsection{Ventajas}
+\begin{itemize}
+  \item Simple e intuitivo.
+
+  \item Fácil de usar.
+
+  \item Funciona bien cuando la función objetivo es muy compleja.
+
+  \item El entrenamiento es muy rápido.
+
+  \item Efectivo si hay muchos ejemplos. Consistente asintóticamente: Con infinitos ejemplos y un k suficientemente grande, es capaz de aproximarse al mejor clasificador (Bayes óptimo).
+
+\end{itemize}
+\subsubsection{Problemas y sus soluciones}
+\begin{itemize}
+  \item Muy \textbf{sensible a atributos irrelevantes}
+  \begin{itemize}
+    \item \textbf{Selección de atributos:} Determinar qué características son las interesantes, y eliminar las restantes. Se pueden utilizar técnicas wrapper, que busca en el espacio de atributos, métodos estadísticos, algoritmos genéticos, etc.
+    \item \textbf{Ponderación de atributos:} Es menos radical que eliminar atributos y consiste en dar el peso que minimice el error a los distintos atributos a la hora de seleccionar vecinos por distancia.
+  \end{itemize}
+ 
+  \item \textbf{Coste de clasificación alto (tiempo)}, no tarda en entrenar, pero cuando clasifica compara todos los ejemplos
+  \begin{itemize}
+    \item \textbf{Indexación:} Organizar el conjunto de instancias
+    \begin{itemize}
+      \item \textbf{Árboles KD (k dimensional):} Particionar el espacio en regiones marcadas por las instancias que tenemos, en el que cada rama va reduciendo el espacio. Alterna entre dimensiones.
+      
+      \begin{figure}[H]
+        \ffigbox[\FBwidth]
+        {\caption{Ejemplo Árbol KD}}
+        {\includegraphics[scale=.7]{2021-03-19 14_58_39-AA IBL y no supervisados I.mkv.png}}
+      \end{figure}
+
+      \item \textbf{Agrupación o clustering:} Que es de aprendizaje no supervisado.
+    \end{itemize}
+  \end{itemize}
+  \item \textbf{Almacenamiento (memoria) de todos los ejemplos}
+  \begin{itemize}
+    \item \textbf{Selección de instancias:} Elegir un grupo reducido de instancias (prototipos, ejemplos representativos) que mantengan la misma información que el conjunto total. Se puede hacer de manera incremental, desde el conjunto vacío e ir añadiendo, o decremental, desde el conjunto completo y eliminando. Se sigue un criterio para sacar o meter una instancia en el conjunto, que siga clasificando correctamente o se reduce las que clasifica mal.
+    \item \textbf{Reemplazo de instancias:} Calcular prototipos a partir del conjunto de entrenamiento, y esos prototipos podrían sustituirse por los ejemplos que lo han generado. Se pueden generar con técnicas de clustering.
+  \end{itemize}
+
+\end{itemize}
+\subsection{Otros métodos}
+\subsubsection{Locally Weighted Regression}
+En vez de devolver la media de la clase de los k vecinos, se crea un modelo lineal de forma local en zonas del espacio. Por cada consulta se obtienen los k vecinos y se crea el modelo de regresión lineal.
+
+Se podría aplicar cualquier otro método de aproximación, como las redes neuronales.
+\subsubsection{Case Based Reasoning}
+Los ejemplos no son de la forma atributo-valor, sino que se representan con cualquier estructura de datos, como pueden ser imágenes, documentos, planes, etc. Consigue adaptar los datos de otros problemas al actual, viendo cómo se han resuelto problemas previos.
+
+
+\section{Aprendizaje no supervisado}
+No conocemos la clase, solo tenemos atributos en los ejemplos.
+
+Lo que se hace es ver que instancias son parecidas y se crean grupos de instancias similares. También se utiliza para reducir el número de instancias y quedarnos con el más representativo del grupo.
+
+\subsection{Posibles objetivos}
+\begin{itemize}
+  \item \textbf{Agrupación:} Dado un conjunto de ejemplos sin etiquetar, agruparlos según algún criterio.
+  
+  Ese criterio suele venir por:
+  \begin{itemize}
+    \item \textbf{Aprendizaje paramétrico:} Parámetros asumidos.
+    \item \textbf{Aprendizaje no paramétrico:} Alguna medida de distancia.
+  \end{itemize}
+  POR COMPLETAR
+  \item \textbf{Indexación:} Dado un conjunto de ejemplos, facilitar su acceso organizándolos.
+  \item \textbf{Asociación:} Dados unos datos, establecer relaciones y/asociaciones entre datos.
+  \item \textbf{Generación de jerarquías:} Dados unos datos en un mismo nivel, generar jerarquías en dichos datos.
+  \item \textbf{Reducción de dimensionalidad:} Dados unos datos, reducir la dimensión o número de atributos que caracterizan los datos.
+  \item \textbf{Visualización:} Dados unos datos con representación compleja, permitir su visualización.
+\end{itemize}
 
 \end{document}
