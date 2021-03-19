@@ -585,10 +585,10 @@ a los Sistemas Embebidos} Solo capítulo 1
 \href{https://aulaglobal.uc3m.es/mod/url/view.php?id=3123883}{Sistemas
 Operativos Embebidos} Capítulo 9
 
-\section{Que es un sistema embebido o
+\section{¿Que es un sistema embebido o
 integrado?}
 
-Sistemas basados en computadora que no parecen ser computadoras: la complejidad esta oculta al usuarios.
+Sistemas basados en computadora que no parecen ser computadoras: la complejidad esta oculta al usuario.
 
 Son sistemas que integran uno o más sensores y que son capaces de
 comunicarse con la red, con capacidades limitadas, por lo que están
@@ -603,7 +603,7 @@ embebido es IoT. Los sistemas IoT son accesibles a través de internet y
 puede enviar la información que registra en tiempo real por internet.
 
 \textbf{Los sistema embebidos o integrados} son aquellos capaces de
-interactuar con el usuario (a traves de  una interfaz simple) o con otra herramienta invisible para el usuario. Es decir, no tiene por qué haber una interacción directa con el usuario (un pendrive se enchufa al ordenador, no al usuario)
+interactuar con el usuario (a través de una interfaz simple) o con otra herramienta invisible para el usuario. Es decir, no tiene por qué haber una interacción directa con el usuario (un pendrive se enchufa al ordenador, no al usuario)
 
 \begin{itemize}
 
@@ -622,7 +622,7 @@ embebido a IoT.
 
 \item
   La \textbf{eficiencia}, velocidad a la que responde o realiza la tarea
-  específica). Para alcanzar la eficiencia \textbf{se cambia el enfoque
+  específica. Para alcanzar la eficiencia \textbf{se cambia el enfoque
   de la programación}, no hay recursos ilimitados y hay que adaptarlo
   para que consuma poca energía y memoria.
 \item
@@ -722,11 +722,98 @@ aplicación según las necesidades del usuario.
   sistema embebido.
 \item
   Los ordenadores pueden realizar muchas tareas.
+\end{itemize}		
+
+\section{Estructura de un sistema embebido}
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Estructura genérica de un Sistema Embebido}}
+	{\includegraphics[scale=.35]{2021-03-19 16_58_28-DSO Elementos Sistema embebido.mkv.png}}
+\end{figure}
+
+\begin{description}
+	\item[Microcontrolador] Es el componente que ejecuta un programa en un sistema integrado, y se encuentra en la zona central, se encarga de realizar el procesamiento. Recibe los datos de los sensores, procesa y envía señal a los actuadores.
+	
+	Consta de CPU, RAM, ROM, puertos E/S y temporizadores.
+	
+	Mas lento que un microprocesador, menos memoria y menos funciones.
+	
+	Requiere ser programado, se debe escribir el código del programa que va a realizar. El código se escribe en el host, un ordenador de sobremesa o laptop, y después se transfiere el programa del host al microcontrolador.
+	\item[Cajas negras] Realizan parte del trabajo del microprocesador para reducir la carga, algunas tareas específicas. Algunos ejemplos son:
+	\begin{description}
+		\item[IP Core] Circuito integrado que desempeña una función que interactúa con el microcontrolador, y son baratos un volumen alto. Muy útiles para tareas comunes como controlador de network (Ethernet, CAN)  o de audio/video (Audio Códec, Controlador VGA). Necesita interactuar con el microprocesador y se siguen unos protocolos de comunicación. 
+
+		\item[FPGA - Field Programmable Gate Array] Matriz de puertas lógicas programable en campo, es un chip con una red de puertas de memoria RAM que se pueden configurar (establecer las conexiones en chips o puertas), para realizar una serie de tareas, como puede ser filtrar una señal o comprimir video. Es más rápido que software, pero más lento que ASIC. 
+
+		\item[DSP] Procesadores y compresores de señales digitales, tanto de audio como de video. Son más económicos que los procesadores, pero tiene capacidades más limitadas.
+
+	\end{description}
+	\item[Conversores] Analógico-Digital sale de sensor, derecha y el Digital-Analógico va al actuador, derecha. Los analógico a digital son muy comunes, porque los sensores son analógicos y el microcontrolador es digital.
+	\item[Sensores y actuadores] Toma medidas del medio que rodea al dispositivo y puede alterar el entorno. Sensores a la izquierda y actuadores a la derecha.
+\end{description}
+
+\section{Ejemplos de Sistemas embebidos que usamos}
+\subsection{Arduino}
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Estructura Arduino}}
+	{\includegraphics[scale=.5]{2021-03-19 17_31_12-DSO Elementos Sistema embebido.mkv.png}}
+\end{figure}
+
+
+Es una plataforma de código abierto sed para construir proyecto de electrónica.	Consta de una placa de circuito programable física (microcontrolador) y una pieza de software, o IDE (entorno de desarrollo) que se ejecuta en una computadora portátil o computadora personal utilizada para escribir y cargar código de computadora en la física. Tiene pines analógicos y digitales.
+	
+No necesita una pieza software separada para cargar un nuevo condigo en la placa.
+	
+Utiliza una versión simplificada de C++, lo que lo hace más fácil de aprender.
+	
+Razones por la que se usa: Es de código abierto, económico, multiplataforma, prototipos rápidos, entorno programable más simple y claro. Algunas también cuentan con conexión a Internet incorporada o la posibilidad de conectividad externa.
+	
+Razones para no utilizarlos: Poca memoria para datos y RAM, procesamiento, arquitectura basada en 8 bits, caro cuando se necesita a gran escala, mala calidad/precio, las empresas no les gusta que sea open source, no está aliado con proveedores y no da garantías.
+
+\subsection{Raspberry Pi}
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Estructura Raspberry Pi}}
+	{\includegraphics[scale=.4]{2021-03-19 17_48_46-DSO Elementos Sistema embebido.mkv.png}}
+\end{figure}
+
+Es una computadora de bajo costo del tamaño de una tarjeta de crédito que se conecta a un monitor de computadora o televisor y utiliza un teclado y un mouse estándar.
+
+La Raspberry PI tiene una conexión GPIO de 40 pines, lo que facilita la conexión con el mundo exterior.
+
+
+	\begin{description}
+		\item[GPIO] Significa entrada/salida de uso general. Estos pines son una interfaz física entre Raspberry Pi y el mundo exterior. 
+		
+		El Pi puede recibir información de sensores y actuadores, y controlar actuadores como LED, ejecutar motores y muchas otras cosas.
+		
+		Hay 40 pines y proporcionan varias funciones diferentes. Los pines ID SD e ID SC son para conectar una EROM.
+		\begin{itemize}
+			\item GPIO 14 y 15 son para comunicación UART puerto serie que transmite poca información (baja frecuencia), como USB, RFID, Bluetooth, GPS, GSM o GPRDS.
+			\item GPIO 2 y 3 se usan para I2C, comunicación entre placas, como un LCD, otras placas base (Raspberry, Arduino, ...) o un reloj de tiempo real.
+			\item GPIO 7, 8, 9, 10 y 11 implementan servicios de SPI ... que la evolución de I2C, su función es comunicar full duplex, como SSD card, IP Core o Memoria Flash.
+		\end{itemize}
+		  
+	\end{description}  
+\textbf{Del cuestionario:}
+
+\begin{itemize}
+
+\item Cual de los siguientes NO es un beneficio de usar un sistema operativo? 
+
+La frecuencia del reloj del microprocesador se puede aumentar significativamente.
 \end{itemize}
+
+
+
 
 \chapter{Recursos}
 \href{https://learning.oreilly.com/playlists/5a6c045f-e39c-465e-9e7c-60dcbb12aebb}{Lista de libros de referencia}
-%\includepdf[pages=-]{docs/Referencias.pdf}
+\includepdf[pages=-]{docs/Referencias.pdf}
 
 
 
