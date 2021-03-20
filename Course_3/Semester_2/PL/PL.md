@@ -574,7 +574,7 @@ Otro concepto importante es el de “**palabra reservada**”
   - El espacio en blanco se elimina con un preprocesado.
   - El AL tiene que retroceder y comenzar de nuevo.
 
-## Ejemplo de crear un AL y ASi
+## Ejemplo de crear un AL y ASI
 
 <img src="PL/image-20210305192603381.png" alt="image-20210305192603381" style="zoom:50%;" /><img src="PL/image-20210305192620642.png" alt="image-20210305192620642" style="zoom:50%;" /><img src="PL/image-20210305192648153.png" alt="image-20210305192648153" style="zoom:50%;" /><img src="PL/image-20210305192718592.png" alt="image-20210305192718592" style="zoom:50%;" /><img src="PL/image-20210305192731385.png" alt="image-20210305192731385" style="zoom:50%;" />
 
@@ -623,7 +623,7 @@ Tenemos una secuencia de tokens x y el objetivo es **determinar si la secuencia 
 
 ### Con Retroceso
 
-Lo que cambia es la manera de seleccionar al regla, este **lo hace por búsqueda en profundidad con retroceso** lo que hace que tenga una **complejidad de $O(k^n)$**.
+Lo que cambia es la manera de seleccionar la regla, este **lo hace por búsqueda en profundidad con retroceso** lo que hace que tenga una **complejidad de $O(k^n)$**.
 
 ### Predictivo
 
@@ -633,13 +633,13 @@ Lo que cambia es la manera de seleccionar al regla, este **lo hace por búsqueda
 
 - Son autómatas a pila deterministas por vaciado.
 - No hay retroceso, usa autómatas a pila deterministas predictivos.
-- La **complejidad es linea**l $O(n)$, tal que n es el número de tokens que hay en la sentencia (preferible al exponencial del con retroceso)
+- La **complejidad es líneas ** $O(n)$, tal que n es el número de tokens que hay en la sentencia (preferible al exponencial del con retroceso)
 
 Para evitar problemas a la hora de seleccionar una regla de selección **se debe elimina la Recursividad a izquierda y Factorizamos a izquierdas**. La recursividad a izquierdas hay que evitarla desde el principio, pero la factorización si se produce no es un gran problema es fácil de resolverla.
 
 <img src="PL/image-20210312125711682.png" alt="image-20210312125711682" style="zoom: 67%;" /><img src="PL/image-20210312125654582.png" alt="image-20210312125654582" style="zoom: 33%;" />
 
-En los casos que se tienen varias reglas de producción  entre las que elegir usará el conjunto primero del terminar más a la izquierda.
+En los casos que se tienen varias reglas de producción entre las que elegir usará el conjunto primero del terminar más a la izquierda.
 
 #### Conjunto Primero
 
@@ -653,17 +653,104 @@ Si $X \in \Sigma_T \Rightarrow PRIMERO(X)=\{X\}$ El conjunto primero de un termi
 
 Si X tiene alguna regla que empieza por un No Terminal es como calcular el conjunto primero de éste. Ojo con lambda.
 
-**Ejemplos:**
-
-<img src="PL/image-20210312131340113.png" alt="image-20210312131340113" style="zoom:50%;" />
-
-<img src="PL/image-20210312131911027.png" alt="image-20210312131911027" style="zoom: 80%;" /><img src="PL/image-20210312131942164.png" alt="image-20210312131942164" style="zoom: 67%;" />
-
 #### Conjunto Siguiente
 
 Conjunto primero de todo lo que aparece concatenado de un símbolo No terminal en todas las formas senténciales que se derivan del axioma. Son todos los símbolos Terminales que se producen al derivar desde el axioma.
+
+El conjunto siguiente nunca va a contener a $\lambda$. $ es el token que indica fin de sentencia.
+
+Se aplica sobre los No Terminales de la parte de la derecha de todas las producciones.
 $$
 SIGUIENTE(A)=\{ x | (S \rightarrow _*\alpha A \beta), (A \in \Sigma_N), (\alpha \in \Sigma^*), (\beta \in \Sigma^+),(x\in PRIMERO(\beta)-\{\lambda\})\}
 $$
+
+Fases:
+
+- Obtener las reglas de formación de los conjuntos siguientes. Se aplica sobre todos los NT de la derecha de la regla de producción. Tiene la forma de $A \rightarrow \alpha B \beta$, se asocian las partes de la regla con los símbolos, donde B es el NT sobre del que queremos el S(B).
+	1. El conjunto siguiente del axioma es $ siempre, pero hay que aplicar el conjunto siguiente sobre sus reglas.
+	2. Se aplica $S(B)=S(B)\cup PRIMERO(\beta)-\{\lambda\}$, que si no hay $\beta$ hace que esta regla no haga nada y se haga la siguiente.
+	3. Si $S(\beta)$ contiene a $\lambda$ también se aplica, $S(B)=S(B)\cup S(A)$
+- Ir aplicando las reglas, escribiendo los T en una tabla, hasta que el conjunto siguiente no cambie en una iteración.
+
+
+
+#### Conjunto de Predicción
+
+Es el criterio para determinar que regla expandir para un símbolo no terminal, y se aplica sobre las reglas de producción completa.
+
+Dado $A \rightarrow \alpha$:
+
+- Si $PRIMERO(\alpha)$ NO contiene $\lambda$, $PREDICCION(A \rightarrow \alpha) = PRIMERO(\alpha)$.
+- Si $PRIMERO(\alpha)$ CONTIENE $\lambda$, $PREDICCION(A \rightarrow \alpha) = [PRIMERO(\alpha)-\{\lambda\}] \cup S(A)$.
+
+
+
+#### Condiciones LL
+
+Condiciones que debe tener para hacer Análisis Sintáctico Descendente Predictivo.
+
+Estas condiciones se aplican sobre NT que tienen más de una regla de producción.
+
+1. Condición PRIMERO-PRIMERO: Los conjuntos primeros de las reglas de producción del NT deben ser disjuntos (no tengas símbolos en común). $A \rightarrow \alpha_1 |...|\alpha_n, P(\alpha_1) \cap ... \cap P(\alpha_n) = \empty$
+2. Condición PRIMERO-SIGUIENTE: Esta se aplica cuando alguna de las reglas tiene en su conjunto primero $\lambda$, entonces el conjunto primero del resto de las reglas (sin incluir la de lambda) deben ser disjuntas con el conjunto siguiente del NT de la izquierda.
+
+#### Análisis Descendente Recursivo
+
+##### Estrategia
+
+Para construirlo se crea un procedimiento por cada NT que sea capaz de reconocer las distintas reglas de producción que tiene asociadas, para ello va leyendo símbolo a símbolo con token_actual, siguiendo las siguientes reglas:
+
+- Si se lee un Terminal: Si coincide el token_actual con lo esperado lee el siguiente token, sino coincide da error sintáctico.
+- Si se lee un NT: Se llama al procedimiento del NT que se encargara de reconocerlo.
+- Si se lee una lambda: No se hace nada.
+
+Si la pila se vacía y la entrada ha sido procesada entonces la secuencia de tokens es reconocida, entonces iría al analizador semántico.
+
+##### Ventajas:
+
+- Requieren formalizar una gramática.
+- Son fáciles de escribir e interpretar.
+- Adecuados para analizadores simples.
+
+##### Inconvenientes:
+
+- Difíciles de ampliar y mantener.
+- Coste computacional asociado a la recursividad.
+- Construcción específica para el lenguaje reconocido.
+- Conjunto reducido de lenguajes independientes de contexto.
+
+#### Análisis Sintáctico LL(1)
+
+Es un analizador predictivo que procesa los tokens de izquierda a derecha, con derivaciones más a la izquierda.
+
+Necesita sólo 1 símbolo de preanálisis para determinar qué producción aplicar.
+
+##### Análisis Descendente Dirigido por tablas
+
+Características:
+
+- Se construye en árbol de derivación desde el axioma.
+- La cima de la pila determina la operación a realizar.
+- La sustitución de los símbolos no terminales por producciones está definida en una tabla, en la que las filas son los NT y las columnas los T. 
+- Debe cumplir las condiciones LL para analizarse con LL(1)
+
+Construcción de la tabla: Se construye con el Conjunto de Predicción, filas NT y columnas Terminales y $.
+
+- Dentro se ponen las reglas de producción, que se ponen en la fila del NT de la izquierda de la regla y en las columnas de todos los T del conjunto de predicción de la regla.
+
+La idea general es:
+
+- Si el símbolo de preanálisis y la cima de la pila son $ es que hemos terminado con éxito.
+- Si el símbolo de preanálisis en es un T y la cima de pila es el mismo, pero no $ (seria final), se saca de la pila y se lee token (lo que lo saca de la secuencia a reconocer)
+- Si el símbolo de cima de pila es un NT, se consulta la fila del NT y la columna del símbolo de preanálisis, si esta está vacía error sino se meta en la cima de la pila.
+
+#### Ejemplo completo
+
+1. Calcular Conjuntos Primeros.
+2. Calcular Conjuntos Siguientes.
+3. Calcular Conjuntos de Predicción.<img src="PL/image-20210320110844879.png" alt="image-20210320110844879" style="zoom:80%;" />
+4. Comprobación de la Condiciones de LL(1)![image-20210320110940170](PL/image-20210320110940170.png)
+5. Tabla de Conjuntos de Predicción ![image-20210320111419566](PL/image-20210320111419566.png)
+6. Prueba de lectura de secuencia de entrada (falta que se vaya ) y los NT que quedan se van con el $)![image-20210320111752355](PL/image-20210320111752355.png)
 
 ## Análisis Sintáctico Ascendente
