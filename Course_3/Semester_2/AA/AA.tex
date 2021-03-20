@@ -561,9 +561,9 @@ pertenece a una de las dos clases:
   sobre el total.
 \end{itemize}
 
-\(p\oplus+p\ominus=1\)
+\(p_\oplus+p_\ominus=1\)
 
-\(p\oplus+p\ominus=0.5\) Entropía máxima
+\(p_\oplus+p_\ominus=0.5\) Entropía máxima
 
 \textbf{Entropía en múltiples clases}:
 \(Entropia(S) \equiv \sum_{c\in C} -p_c \log _2 p_c\)
@@ -1211,7 +1211,7 @@ Esta función es más difícil de generar.
 Elegir una función lineal, logística o cualquier tipo, para que se
 ajuste.
 
-El modelo o predictor adapta una forma predeterminada.
+El modelo o predictor adopta una forma predeterminada.
 
 Regresión lineal es regresión paramétrica. También se puede hacer
 regresión no lineal paramétrica, función logística, polinómica, etc.
@@ -1332,9 +1332,9 @@ residuo.
   el modelo da mejor resultado, se sustituye el subárbol por el nodo del
   modelo.
 \item
-  \textbf{Suavizar el árbol.}
+  \textbf{Suavizar el árbol}
 
-  Algunos trabajos se ha comprobado que realizar un suavizado mejor la
+  Algunos trabajos se ha comprobado que realizar un suavizado mejora la
   predicción final, dado que lea predicción en cada nodo puede variar
   mucho. Lo que hace es en lugar de devolver la predicción del modelo en
   el nodo hoja. se consideran también los modelos en los nodos
@@ -1354,7 +1354,7 @@ recibir los datos de manera incremental y va creciendo el modelo.
 Se busca la hipótesis que explique mejor los datos.
 \[P(h_i/E)= \frac {P(E/h_i)P(h_i)}{P(E)}\]
 
-Es aquella que \(\arg \max P(h_i/E)\) o $\arg \max P(E/h\_i) $.
+Es aquella que \(\arg \max P(h_i/E)\) o $\arg \max P(E/h_i) $.
 Cogemos el \(h_i\) más probable, pero puede haber otros muchos modelos
 que dicen que no y que habría que considerar, entonces lo que queremos
 es la clase más probable para esos datos.
@@ -1498,7 +1498,7 @@ En general para hacer descenso del gradiente necesitamos que la función
 sea derivable y con un único mínimo.
 
 Se van metiendo los datos de entrada, se recibe la salida y según el
-error se van actualizando los pesos, se para cuando los pesos se
+error se van actualizando los pesos, para cuando los pesos se
 estabilizan.
 
 \subsection{Perceptrón}
@@ -1599,15 +1599,15 @@ generar una red neuronal totalmente conectada, classification.
 \end{figure}
 Aprendizaje basado en evolución simulada, se mantiene una colección de soluciones, se evoluciona a través de generaciones por recombinación de las más adecuadas y eliminación de las menos adecuadas, y se termina cuando se obtiene una solución suficientemente adecuada.
 
-Son algoritmos de búsqueda local estocástica, que las acciones tienen una probabilidad de ocurrir, que son buenos para la optimización.
+\textbf{Son algoritmos de búsqueda local estocástica}, que las acciones tienen una probabilidad de ocurrir, son buenos para la optimización.
 
-Hacen búsqueda en el espacio de soluciones, pero cuando es fácil encontrar una solución, pero no la óptima. Funcionan por generaciones, en la que cada generación tiene una población, que está compuesta por p individuos, cada uno es una solución al problema.
+Hacen \textbf{búsqueda en el espacio de soluciones}, se usan cuando es fácil encontrar una solución, pero no la óptima. Funcionan por generaciones, en la que cada \textbf{generación} tiene una \textbf{población}, que está compuesta por p \textbf{individuos}, cada uno es una solución al problema.
 
 \textbf{Factores clave:}
 \begin{itemize}
   \item Elegir como representar los datos, se pueden utilizar cadenas de bits (llamado Genético) o alguna estructura de datos más compleja.
-  \item Las operaciones para combinar (pequeños cambios) soluciones y generar soluciones nuevas.
-  \item La función de adecuación (fitness) que indica como de buena es una población, cuanto más es mejor. Transforma el genotipo (cadena de bits) en el fenotipo (significado de la cadena bits).
+  \item Las operaciones para combinar soluciones y generar soluciones nuevas.
+  \item La \textbf{función de adecuación (fitness)} que indica como de buena es una población, cuanto más es mejor. Transforma el genotipo (cadena de bits) en el fenotipo (significado de la cadena bits).
 \end{itemize}
 
 \textbf{Proceso:}
@@ -1617,7 +1617,7 @@ Hacen búsqueda en el espacio de soluciones, pero cuando es fácil encontrar una
 	{\includegraphics[scale=.3]{2021-03-19 11_42_34-otras-tecnicas.pdf - Foxit Reader.png}}
 \end{figure}
 \begin{enumerate}
-  \item Se selecciona, individuos de la población de soluciones. Se pueden elegir por Ruleta (por número aleatorio) o por Torneo (se coge un par de individuos y se escoge el mejor, dejando al otro fuera).
+  \item Se selecciona un conjunto de individuos de la población de soluciones. Se pueden elegir por Ruleta (por número aleatorio) o por Torneo (se coge un par de individuos y se escoge el mejor, dejando al otro fuera).
   \item A la nueva población se le realizan una serie de modificaciones como: reproducción, cruce, mutaciones y clone. Y quedan unos sobrevivientes, siempre tiene el mismo número de individuos.
   Cada operación tiene una probabilidad, por eso es búsqueda estocástica.
   \begin{description}
@@ -1666,7 +1666,7 @@ También se puede ponderar la importancia de cada vecino en el valor de la funci
 \subsection{Selección de los K vecinos}
 El parámetro k identifica cuantos vecinos se utilizan para la decisión, su valor es el que mejor resultados aporta, no hay una regla que siempre funcione. Las regiones que se forman con 1-NN se denominan regiones de Voronoi.
 
-\textbf{Medidas de distancia}
+Medidas de distancia:
 \begin{description}
   \item[Distancia de Hamming (atributos no numéricos)] $\left(x_{m}-z_{m}\right)=\left\{\begin{array}{ll}0 & \text { si } x_{m}=z_{m} \\ 1 & \text { si } x_{m} \neq z_{m}\end{array}\right.$
   \item[Manhattan] $d(\vec{x}, \vec{z})=\sum_{m=1}^{n}\left|x_{m}-z_{m}\right|$
@@ -1731,7 +1731,7 @@ En vez de devolver la media de la clase de los k vecinos, se crea un modelo line
 
 Se podría aplicar cualquier otro método de aproximación, como las redes neuronales.
 \subsubsection{Case Based Reasoning}
-Los ejemplos no son de la forma atributo-valor, sino que se representan con cualquier estructura de datos, como pueden ser imágenes, documentos, planes, etc. Consigue adaptar los datos de otros problemas al actual, viendo cómo se han resuelto problemas previos.
+Los ejemplos no son de la forma atributo-valor, sino que se representan con cualquier estructura de datos, como pueden ser imágenes, documentos, planos, etc. Consigue adaptar los datos de otros problemas al actual, viendo cómo se han resuelto problemas previos.
 
 
 \section{Aprendizaje no supervisado}
