@@ -1646,21 +1646,21 @@ Para definir similitud, se utilizan medidas de distancia (más cercano, más sim
 El algoritmo recibe como entrada k, que indica el número de vecinos más cercanos que se van a considerar (K-NN, K-Nearest Neighbors). 
 
 \subsection{K-Nearest Neighbors}
-Las instancias corresponden a puntos en un espacio de dimensión n (n atributos) y los vecinos más cercanos se calculan con la distancia euclídea ($d\left( \overrightarrow{x},\overrightarrow{z}\right)   = \sqrt {\sum _{i=1}^{n}  \left( x_{i}-z_{i}\right)^2 }$).
+Las instancias corresponden a puntos en un espacio de dimensión n (n atributos) y los vecinos más cercanos se calculan con la distancia euclídea ($d\left( \vec{x},\vec{z}\right)   = \sqrt {\sum _{i=1}^{n}  \left( x_{i}-z_{i}\right)^2 }$).
 
 Si los atributos tienen diferentes rangos, se normalizan, y si son valores simbólicos, se define el valor por posible valor.
 \subsection{Función Objetivo}
 Dada una instancia x y sus k vecinos, nos indica cual es la clase. Dependiendo del tipo de valores se usan distintos métodos:
 \begin{description}
   \item[Caso discreto (clasificación)] Valor más común de entre los k vecinos más cercanos. 
-  $$ \hat{f}(\overrightarrow{x}) = \arg\max _{c \in C} \sum^k_{i=1} \delta(c,f(\overrightarrow{z^i}))$$
+  $$ \hat{f}(\vec{x}) = \arg\max _{c \in C} \sum^k_{i=1} \delta(c,f(\vec{z^i}))$$
   \item[Caso continuo (regresión)] Valor medio de entre los k vecinos. 
-  $$ \hat{f}(\overrightarrow{x}) = \frac{\sum^k_{i=1} f(\overrightarrow{z^i})}{k}$$
+  $$ \hat{f}(\vec{x}) = \frac{\sum^k_{i=1} f(\vec{z^i})}{k}$$
 \end{description}
 También se puede ponderar la importancia de cada vecino en el valor de la función objetivo, en función de su distancia. Donde $w_i = \frac{1}{d(\vec{x},\vec{z^i})^2}$.
 \begin{description}
-  \item[Caso discreto (clasificación)] $ \hat{f}(\overrightarrow{x}) = \arg\max _{c \in C} \sum^k_{i=1} w_i \times \delta(c,f(\overrightarrow{z^i}))$
-  \item[Caso continuo (regresión)] Media ponderada. $ \hat{f}(\overrightarrow{x}) = \frac{\sum^k_{i=1} w_i f(\overrightarrow{z^i})}{\sum^k_{i=1} w_i}$
+  \item[Caso discreto (clasificación)] $ \hat{f}(\vec{x}) = \arg\max _{c \in C} \sum^k_{i=1} w_i \times \delta(c,f(\vec{z^i}))$
+  \item[Caso continuo (regresión)] Media ponderada. $ \hat{f}(\vec{x}) = \frac{\sum^k_{i=1} w_i f(\vec{z^i})}{\sum^k_{i=1} w_i}$
 \end{description}
 
 \subsection{Selección de los K vecinos}
