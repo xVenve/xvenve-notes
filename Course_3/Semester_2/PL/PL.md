@@ -633,7 +633,7 @@ Lo que cambia es la manera de seleccionar la regla, este **lo hace por búsqueda
 
 - Son autómatas a pila deterministas por vaciado.
 - No hay retroceso, usa autómatas a pila deterministas predictivos.
-- La **complejidad es líneas ** $O(n)$, tal que n es el número de tokens que hay en la sentencia (preferible al exponencial del con retroceso)
+- La **complejidad es líneas** $O(n)$, tal que n es el número de tokens que hay en la sentencia (preferible al exponencial del con retroceso)
 
 Para evitar problemas a la hora de seleccionar una regla de selección **se debe elimina la Recursividad a izquierda y Factorizamos a izquierdas**. La recursividad a izquierdas hay que evitarla desde el principio, pero la factorización si se produce no es un gran problema es fácil de resolverla.
 
@@ -667,12 +667,14 @@ $$
 Fases:
 
 - Obtener las reglas de formación de los conjuntos siguientes. Se aplica sobre todos los NT de la derecha de la regla de producción. Tiene la forma de $A \rightarrow \alpha B \beta$, se asocian las partes de la regla con los símbolos, donde B es el NT sobre del que queremos el S(B).
-	1. El conjunto siguiente del axioma es $ siempre, pero hay que aplicar el conjunto siguiente sobre sus reglas.
-	2. Se aplica $S(B)=S(B)\cup PRIMERO(\beta)-\{\lambda\}$, que si no hay $\beta$ hace que esta regla no haga nada y se haga la siguiente.
-	3. Si $S(\beta)$ contiene a $\lambda$ también se aplica, $S(B)=S(B)\cup S(A)$
+
+ 1. El conjunto siguiente del axioma es $ siempre, pero hay que aplicar el conjunto siguiente sobre sus reglas.
+
+ 2. Se aplica $S(B)=S(B)\cup PRIMERO(\beta)-\{\lambda\}$, que si no hay $\beta$ hace que esta regla no haga nada y se haga la siguiente.
+
+ 3. Si $PRIMERO(\beta)$ contiene a $\lambda$ también se aplica, $S(B)=S(B)\cup S(A)$
+
 - Ir aplicando las reglas, escribiendo los T en una tabla, hasta que el conjunto siguiente no cambie en una iteración.
-
-
 
 #### Conjunto de Predicción
 
@@ -683,16 +685,14 @@ Dado $A \rightarrow \alpha$:
 - Si $PRIMERO(\alpha)$ NO contiene $\lambda$, $PREDICCION(A \rightarrow \alpha) = PRIMERO(\alpha)$.
 - Si $PRIMERO(\alpha)$ CONTIENE $\lambda$, $PREDICCION(A \rightarrow \alpha) = [PRIMERO(\alpha)-\{\lambda\}] \cup S(A)$.
 
-
-
 #### Condiciones LL
 
 Condiciones que debe tener para hacer Análisis Sintáctico Descendente Predictivo.
 
 Estas condiciones se aplican sobre NT que tienen más de una regla de producción.
 
-1. Condición PRIMERO-PRIMERO: Los conjuntos primeros de las reglas de producción del NT deben ser disjuntos (no tengas símbolos en común). $A \rightarrow \alpha_1 |...|\alpha_n, P(\alpha_1) \cap ... \cap P(\alpha_n) = \empty$
-2. Condición PRIMERO-SIGUIENTE: Esta se aplica cuando alguna de las reglas tiene en su conjunto primero $\lambda$, entonces el conjunto primero del resto de las reglas (sin incluir la de lambda) deben ser disjuntas con el conjunto siguiente del NT de la izquierda.
+1. **Condición PRIMERO-PRIMERO:** Los conjuntos primeros de las reglas de producción del NT deben ser disjuntos (no tengas símbolos en común). $A \rightarrow \alpha_1 |...|\alpha_n, P(\alpha_1) \cap ... \cap P(\alpha_n) = \empty$
+2. **Condición PRIMERO-SIGUIENTE**: Esta se aplica cuando alguna de las reglas tiene en su conjunto primero $\lambda$, entonces el conjunto primero del resto de las reglas (sin incluir la de lambda) deben ser disjuntas con el conjunto siguiente del NT de la izquierda.
 
 #### Análisis Descendente Recursivo
 
@@ -706,13 +706,13 @@ Para construirlo se crea un procedimiento por cada NT que sea capaz de reconocer
 
 Si la pila se vacía y la entrada ha sido procesada entonces la secuencia de tokens es reconocida, entonces iría al analizador semántico.
 
-##### Ventajas:
+##### Ventajas
 
 - Requieren formalizar una gramática.
 - Son fáciles de escribir e interpretar.
 - Adecuados para analizadores simples.
 
-##### Inconvenientes:
+##### Inconvenientes
 
 - Difíciles de ampliar y mantener.
 - Coste computacional asociado a la recursividad.
@@ -731,7 +731,7 @@ Características:
 
 - Se construye en árbol de derivación desde el axioma.
 - La cima de la pila determina la operación a realizar.
-- La sustitución de los símbolos no terminales por producciones está definida en una tabla, en la que las filas son los NT y las columnas los T. 
+- La sustitución de los símbolos no terminales por producciones está definida en una tabla, en la que las filas son los NT y las columnas los T.
 - Debe cumplir las condiciones LL para analizarse con LL(1)
 
 Construcción de la tabla: Se construye con el Conjunto de Predicción, filas NT y columnas Terminales y $.
