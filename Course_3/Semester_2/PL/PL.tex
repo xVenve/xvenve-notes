@@ -233,7 +233,7 @@ hmargin=3cm
 %	TRABAJO
 %----------	
 \clearpage
-\pagenumbering{arabic} % numeración con múmeros arábigos para el resto de la publicación	
+\pagenumbering{arabic} % numeración con números arábigos para el resto de la publicación	
 
 
 %----------
@@ -464,7 +464,7 @@ retrocede.
   Para evitar recursividades pendientes, ya que leemos de izquierda a
   derecha, así reconocemos mientras aplicamos reglas.
 \item
-  A la reglas no recursivas a izquierda se le concatena un nuevo No
+  A las reglas no recursivas a izquierda se le concatena un nuevo No
   Terminal (quitamos las que eran recursivas).
 \item
   Ese nuevo símbolo produce \(\lambda\) y lo que producía originalmente
@@ -473,7 +473,7 @@ retrocede.
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Algoritmo de Eliminacion de recursividad a Izquierdas}}
+	{\caption{Algoritmo de Eliminación de recursividad a Izquierdas}}
 	{\includegraphics[scale=.4]{Untitled 2.png}}
 \end{figure}
 
@@ -513,7 +513,7 @@ extensión a palabra el \(q_o\) alcanza su estado de F, final.
 \textbf{Equivalencia de AFD:} Si el lenguaje que reconocen es el mismo.
 
 \textbf{Minimización de AFD:} Autómata finito mínimo equivalente es
-aquel con menor número de estado pero mismo lenguaje.
+aquel con menor número de estado, pero mismo lenguaje.
 
 Siempre se puede pasar de G3 a AFD, aunque puede que no directo, por
 medio de AFND.
@@ -529,7 +529,7 @@ medio de AFND.
   en AFD.
 \item
   En este caso se permite transicionar sin recibir símbolo, lambda,
-  además varias transiciones para un mismo símbolo en un mismo estado.
+  además, varias transiciones para un mismo símbolo en un mismo estado.
 \end{itemize}
 
 \begin{figure}[H]
@@ -569,7 +569,7 @@ determinista.
 \end{itemize}
 
 \textbf{Por estado final:} Cuando llega a un estado final y la secuencia
-de entrada está vacía, termina.
+de entrada, está vacía, termina.
 
 \textbf{Por vaciado de pila:} Entrada y pila vacía, termina.
 
@@ -778,7 +778,7 @@ agrupa en componentes léxicos (tokens)
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Diagrama Analizador Lexico}}
+	{\caption{Diagrama Analizador Léxico}}
 	{\includegraphics[scale=.25]{Untitled 12.png}}
 \end{figure}
 
@@ -796,7 +796,7 @@ un árbol sintáctico.
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Diagrama Analizador Sintactico}}
+	{\caption{Diagrama Analizador Sintáctico}}
 	{\includegraphics[scale=.25]{Untitled 13.png}}
 \end{figure}
 
@@ -819,7 +819,7 @@ las operaciones antes de asignar el valor.
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Diagrama Generador de codigo}}
+	{\caption{Diagrama Generador de código}}
 	{\includegraphics[scale=.25]{Untitled 14.png}}
 \end{figure}
 
@@ -873,14 +873,14 @@ La máquina y el lenguaje deben coincidir.
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Diagrama Maquinas Abstractas e Interpretes}}
+	{\caption{Diagrama Maquinas Abstractas e Intérpretes}}
 	{\includegraphics[scale=.2]{Untitled 20.png}
 	\includegraphics[scale=.2]{Untitled 21.png}}
 \end{figure}
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Obtener un comilador rápido}}
+	{\caption{Obtener un compilador rápido}}
 	{\includegraphics[scale=.15]{Untitled 22.png}
 	\includegraphics[scale=.15]{Untitled 23.png}}
 \end{figure}
@@ -914,7 +914,7 @@ La máquina y el lenguaje deben coincidir.
 \section{Funciones del Análisis Léxico}
 
 \textbf{Manejar el fichero fuente:} Leer los caracteres de la entrada.
-Eliminar comentarios y delimitadores. Relacionar los mensaje de error
+Eliminar comentarios y delimitadores. Relacionar los mensajes de error
 con las líneas del programa fuente.
 
 \textbf{Interfaz con las otras fases de análisis:} Generar la secuencia
@@ -984,7 +984,7 @@ tokens, formato de los lexemas.
   \([0-9]^+\) Naturales \(-?[0-9]^+\) Enteros de -9 a 9
 \item
   El + al final, indica que hay 1 o más ocurrencias. Para poner
-  determinados símbolos se pone ""
+  determinados símbolos se ponen ""
 \end{itemize}
 
 \textbf{Especificar tokens:} Con expresiones regulares, patrones, o
@@ -999,12 +999,12 @@ Autómatas Finitos.
 
 \textbf{Tabla de símbolos:} Almacenan la correspondencia entre tokens y
 lexemas, en muchos lenguajes hay palabras claves (reservadas) que no se
-pueden declarar como una variable para ello se almacena en la tabla.
+pueden declarar una variable para ello se almacena en la tabla.
 
 \begin{itemize}
 
 \item
-  Los atributos de los identificadores se pueden guardar en la tablas de
+  Los atributos de los identificadores se pueden guardar en la tabla de
   símbolos. Los otros en otra tabla.
 \end{itemize}
 
@@ -1095,7 +1095,7 @@ Representa directamente con un programa al DT en cuestión.
 \item
   \textbf{Inconvenientes}: Ineficiencia.
 \item
-  \textbf{Recomendación}: Ordenar las reglas de acuerdo a la frecuencia
+  \textbf{Recomendación}: Ordenar las reglas de acuerdo con la frecuencia
   de utilización.
 \end{itemize}
 
@@ -1222,7 +1222,7 @@ esté \textbf{en primer lugar}.
 
 \section{AL y Lenguajes de Programación}
 
-El \textbf{AL agrupa caracteres para formar tokens}, por tanto es
+El \textbf{AL agrupa caracteres para formar tokens}, por tanto, es
 importante definir el ``delimitador''.
 
 \begin{itemize}
@@ -1405,7 +1405,7 @@ por búsqueda en profundidad con retroceso} lo que hace que tenga una
 \subsection{Predictivo}
 
 \textbf{Analizador que sólo necesita conocer \(k\) tokens de la cadena
-de entrada para determinar la regla de producción} que debe aplicarse.
+de entrada, para determinar la regla de producción} que debe aplicarse.
 El número de tokens, \(k\), necesarios para tomar la decisión de que
 regla de producción aplicar, define el nombre del analizador, \(LL(k)\),
 \(LR(k)\)
@@ -1539,7 +1539,7 @@ producción.
   \(A \rightarrow \alpha_1 |...|\alpha_n, P(\alpha_1) \cap ... \cap P(\alpha_n) = \empty\)
 \item
   \textbf{Condición PRIMERO-SIGUIENTE}: Esta se aplica cuando alguna de
-  las reglas tiene en su conjunto primero \(\lambda\), entonces el
+  las reglas tienen en su conjunto primero \(\lambda\), entonces el
   conjunto primero del resto de las reglas (sin incluir la de lambda)
   deben ser disjuntas con el conjunto siguiente del NT de la izquierda.
 \end{enumerate}
