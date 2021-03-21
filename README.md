@@ -49,8 +49,8 @@
 
 ### Second semester
 
-* [Compilers](Course_3/Semester_2/PL/PL.html)
+* [Compilers](Course_3/Semester_2/PL/PL.pdf)
 * [Design of Interactive Systems](Course_3/Semester_2/DSI/DSI.pdf)
 * [Machine Learning](Course_3/Semester_2/AA/AA.pdf)
 * [Operating Systems Design](Course_3/Semester_2/DSO/DSO.pdf)
-* [Software Development Projects Management](Course_3/Semester_2/DPDS/DPDS.html)
+* [Software Development Projects Management](Course_3/Semester_2/DPDS/DPDS.pdf)
