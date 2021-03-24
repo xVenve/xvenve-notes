@@ -576,11 +576,16 @@ Linealidad.
 \chapter{Tema 3: Sistemas operativos embebidos para Dispositivos
 IoT}
 
-\href{https://aulaglobal.uc3m.es/mod/url/view.php?id=3123882}{Introducción
-a los Sistemas Embebidos} Solo capítulo 1
+\href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP001.html#CHP001titl}{Introducción a los Sistemas Embebidos} Solo capítulo 1
 
-\href{https://aulaglobal.uc3m.es/mod/url/view.php?id=3123883}{Sistemas
+\href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP009.html#CHP009titl}{Sistemas
 Operativos Embebidos} Capítulo 9
+
+\href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP008.html#CHP008titl}{Drivers de Dispositivos
+} Hasta el encabezado "8.1 Example 1: Device Drivers for Interrupt Handling"
+
+\href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP010.html#CHP010titl}{Middleware
+} Secciones 10.1 y 10.2
 
 \section{¿Que es un sistema embebido o
 integrado?}
@@ -805,13 +810,182 @@ La Raspberry PI tiene una conexión GPIO de 40 pines, lo que facilita la conexi�
 
 La frecuencia del reloj del microprocesador se puede aumentar significativamente.
 \end{itemize}
+ 
+\subsection{Raspberry Pi vs. Arduino}
+AMPLIAR CON LAS DIAPOSITIVAS
+
+\subsection{¿Es Raspberry Pi un dispositivo de IoT?}
+
+\section{Sistemas Operativos embebidos}
+Proporcionar una capa de abstraccion para le software sobre el sistema operativo.
+
+Administrar los diversos recursos de hardware y software del sistema para garantizar que toto el sistema funciona de manera eficiente y confiable.
+
+FOTO DE CAPAS Y PARTES
+
+\subsection{Principales Sistemas Opertativos embebidos actuales} 
+Zephyr, Micrium, RTOS, R IOT, VxWorks, ThreadX, MircroEJ, TinyOS, APACHE, ARMmbed, Contiki, Nucleus, Windows IoT, snappy, android things, Mongoose o mynewt.
+
+\subsection{Requisitos de un Sistema Operativo Embebido}
+\begin{itemize}	
+	\item Requisitos de CPU 
+	\item Requisito de Memoria, suelen tener poca memoria.
+	\item Características limitadas
+\end{itemize}
+
+Autonomia
+\begin{itemize}	
+	\item Soporte a Plataformas
+	\item Eficiencia energetica, como suspenderse bajo inactividad o protocolos de comunicacion de bajo consumo.
+	\item Stack de Red Adaptativo
+	\item Fiabilidad
+\end{itemize}
+
+Programabilidad: Gestionar procesos, threads, shockets...
+\begin{itemize}
+	\item API estandar 
+	\item Lenguajes de Programación estandar 
+\end{itemize}
+
+\subsection{Modelo general de un sistema embebido}
+FOTO
+
+\subsubsection{Controladores de Dispositivos - Drivers}
+Son las bibliotecas de software que sirven para interactuar con los distintos elementos hardware. Inicializan el hardware y admininistran el acceso al mismo mediante capas sueprioes de software.
+
+Acciones:
+ \begin{itemize}
+	 \item Hardware Startup: 
+	 Inicialización del hardware tras el encendido o el restablecimiento.
+	 \item Hardware Shutdown: 
+	 Configurando el hardware en su estado PowerOFF.
+	 \item Hardware Disable: 
+	 Permitir que otro software desactive el hardware sobre la marcha.
+	 \item Hardware Acquire: 
+	 Permitir que otro software obtenga acceso singular (bloqueo) al hardware.
+	 \item Hardware Write: 
+	  Permitir que otro software escriba datos en el hardware.
+	 \item Hardware Install: 
+	  Permitir que otro software instale nuevo hardware sobre la marcha.
+	 \item Hardware Release: 
+	  Permitir que otro software libere (desbloquee) hardware.
+	 \item Hardware Unmapping: 
+	 Permitiendo eliminar bloques de datos de dispositivos de almacenamiento de hardware.
+
+ \end{itemize}
+
+\subsubsection{Kernel}
+
+\begin{description}
+	\item[Process Management] 
+	
+	Threads: Crear hilos, controlarlos, terminarlos o sincronizarlos\dots
+
+	Semaphores: Primitiva de sincronización.
+
+	Priority scheduling:
+
+	Real-time signal extension: Interrupciones y señales, para activaar notificaciones de aplicaciones asincronamente.
+
+	Timers: Mecanismo de notificacion de cuando un ha ocurrido un evento como la escritura de un dato.
+
+	.PCI.
+	 
+	\item[Memory Management]
+	El proceso de 
+
+	Process memory locking
+
+	Memory mapped files
+
+	Shared memory object
+
+	Kernel vs user mode?
+	
+	\item[I/O System Management]  
+	Los dispositiovs de E/S tambein deben compartirse entre los diversos procesos y, pro tanto, al igual que con la memoria, el acceso y la asignacion de un dispostivo de E/S deben adminsitrarse. 
+\end{description}
+
+\subsubsection{Middleware}
+
+Cualquier software del sistema, que no es kernel del sistema operativo, controladores de  dispositivos o las aplicaciones que se van a desarrollar.
+
+Controaldores de red.
+
+Virtualizacion\dots
+
+Middelware basico: Relacionado con la comunicacion entre... 
+
+
+
+\paragraph{Gestion de multitareas y de procesos en sistemas embebidos}
+
+No se pueden hacer multiples tareas a la vez, por lo que tenemos que tener un mecanimso que administre y planifique el orden de ejecucion de los distitnos procesos. Indicar ucando entran y salen, y el paso de datos.
+
+La Rpi como tiene 4 nucleos se considera nanoordenador, no sistema embebido.
+
+
+\paragraph{Implementación de procesos en Sistemas Operativos embebeidos}
+
+Las tareas estan estructuradas como un jerarquia de tareas principales y secundarias, y cuando se inicia el kernetl embebido, solo existe una tarea.
+
+
+\paragraph{Creacion de tareas}
+
+La creación tipo “fork” crea una copia del espacio de memoria de la tarea principal en lo que se asigna para la tarea secundaria, lo que permite que la tarea secundaria herede varias propiedades, como el código del programa y las variables, de la tarea principal.
+
+La creación tipo “exec” se utiliza para eliminar explícitamente del espacio de memoria de la tarea secundaria cualquier referencia al programa principal y establece el nuevo código de programa que pertenece a la tarea secundaria para que se ejecute.
+
+La creación tipo “spawn model” crea un espacio de direcciones completamente nuevo para la tarea secundaria. La llamada al "modelo de generación" permite definir el nuevo programa y los argumentos para la tarea secundaria. 
+
+Spawn model: No tiene espacios duplicados, no gasta tanta memoria como fork/exec.
+
+fork/exec: Nos permite coordinar de una manera mas sencilla, pero es mas lenta por que tiene que copiar y elimar cuando hace el exec.
+
+Scheduler: Es el que nos dice cuando y cuanto tiene va a ejectuar cada uno de los procesos, va metiendo y sacando de la CPU.
+
+
+\paragraph{Factores clave del scheduling}
+
+Reponse Time: Tiempo para que el programador haga que el contexto cambie a una tarea lista e incluye el timepo de espera de la tarea en cola lista.
+
+Turnaround time: El tiempo qu tarda un proceso en completarse
+
+Overhead: El tiempo y los datos necesarios para determinar que tareas se ejecutan  a continuación.
+
+Fairness: ?Cuales son los factores\dots
+
+XXX
+
+
+Starvation:
+
+\paragraph{Preventivo vs. No preventivo}
+
+Preventivo - Apropiativo: Las tareas reciben el control de la CPU maestra hasta que finalizan su ejecucion, independientemente.
+
+No Preventivo - No apropiativo: Se les puede expulsar de las CPU mientras ejecutan, se divide los procesos en rodajas.
+
+
+\paragraph{Planificacion e Raspberry Pi OS}
+
+Opera en todos los componentes.
+
+Solo se ejecuta una tarea a la vez.
+
+El planificador es un componente independiente.
+
+El programador predetermiado es una cola FIFO simple.
+
+El planificación es consciente de la energia, y pone el procesador en suspension cuando no hay ninguna tarea en la cola.
 
 
 
 
-\chapter{Recursos}
-\href{https://learning.oreilly.com/playlists/5a6c045f-e39c-465e-9e7c-60dcbb12aebb}{Lista de libros de referencia}
-\includepdf[pages=-]{docs/Referencias.pdf}
+
+%\chapter{Recursos}
+%\href{https://learning.oreilly.com/playlists/5a6c045f-e39c-465e-9e7c-60dcbb12aebb}{Lista de libros de referencia}
+%\includepdf[pages=-]{docs/Referencias.pdf}
 
 
 
