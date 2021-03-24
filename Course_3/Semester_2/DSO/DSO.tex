@@ -812,9 +812,34 @@ La frecuencia del reloj del microprocesador se puede aumentar significativamente
 \end{itemize}
  
 \subsection{Raspberry Pi vs. Arduino}
-AMPLIAR CON LAS DIAPOSITIVAS
+\begin{itemize}
+	\item Raspberry usa un procesador de proposito general y Arduino un microprocesador.
+	\item Raspberry Pi es más rápido (1.4GHz vs 16MHz).
+	\item Raspberry Pi puede administrar un espacio de direcciones más grande (procesador de 64 bits, frente a 8 bits).
+	\item Raspberry Pi tiene más memoria: Arduino tiene 32K Flash, 2K RAM, 1K EPROM; y Raspberry Pi SRAM de 1 Gb, Micro SD.
+	\item Raspberry Pi tiene niveles de voltaje de E/S más bajos (3.3v frente a 5v)
+\end{itemize}
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Raspberry Pi vs. Arduino}}
+	{\includegraphics[scale=.62]{2021-03-24 19_03_44-Tema 03 - Gateways IoT - Sistemas Embebidos.png}}
+\end{figure}
 
 \subsection{¿Es Raspberry Pi un dispositivo de IoT?}
+
+Similitudes:
+\begin{itemize}
+	\item Conectividad de red e inteligencia computacional.
+	\item Pequeño y barato (en relación con una PC).
+	\item Puede interactuar directamente con sensores/actuadores a través de pines.
+\end{itemize}
+
+
+Diferencias:
+\begin{itemize}
+	\item La interfaz puede ser exactamente la misma que la de una PC con Linux: Las complejidades del sistema pueden ser visibles.
+\end{itemize}
 
 \section{Sistemas Operativos embebidos}
 Proporcionar una capa de abstraccion para le software sobre el sistema operativo.
@@ -854,25 +879,17 @@ FOTO
 Son las bibliotecas de software que sirven para interactuar con los distintos elementos hardware. Inicializan el hardware y admininistran el acceso al mismo mediante capas sueprioes de software.
 
 Acciones:
- \begin{itemize}
-	 \item Hardware Startup: 
-	 Inicialización del hardware tras el encendido o el restablecimiento.
-	 \item Hardware Shutdown: 
-	 Configurando el hardware en su estado PowerOFF.
-	 \item Hardware Disable: 
-	 Permitir que otro software desactive el hardware sobre la marcha.
-	 \item Hardware Acquire: 
-	 Permitir que otro software obtenga acceso singular (bloqueo) al hardware.
-	 \item Hardware Write: 
-	  Permitir que otro software escriba datos en el hardware.
-	 \item Hardware Install: 
-	  Permitir que otro software instale nuevo hardware sobre la marcha.
-	 \item Hardware Release: 
-	  Permitir que otro software libere (desbloquee) hardware.
-	 \item Hardware Unmapping: 
-	 Permitiendo eliminar bloques de datos de dispositivos de almacenamiento de hardware.
+\begin{description}
+	\item[Hardware Startup] Inicialización del hardware tras el encendido o el restablecimiento.
+	\item[Hardware Shutdown] Configurando el hardware en su estado PowerOFF.
+	\item[Hardware Disable] Permitir que otro software desactive el hardware sobre la marcha.
+	\item[Hardware Acquire] Permitir que otro software obtenga acceso singular (bloqueo) al hardware.
+	\item[Hardware Write] Permitir que otro software escriba datos en el hardware.
+	\item[Hardware Install] Permitir que otro software instale nuevo hardware sobre la marcha.   
+	\item[Hardware Release] Permitir que otro software libere (desbloquee) hardware. 
+	\item[Hardware Unmapping] Permitiendo eliminar bloques de datos de dispositivos de almacenamiento de hardware.
+\end{description}
 
- \end{itemize}
 
 \subsubsection{Kernel}
 
@@ -912,9 +929,11 @@ Cualquier software del sistema, que no es kernel del sistema operativo, controla
 
 Controaldores de red.
 
-Virtualizacion\dots
+Virtualizacion...
 
-Middelware basico: Relacionado con la comunicacion entre... 
+Middleware basico - core: Middleware de controlador de red.
+
+Middleware complejo: Middleware especifico del mercado, mensajeria y comunicaciones complejas,mesajeria distribuida y orientada a mensajes, y transacciones distribuidas.
 
 
 
