@@ -252,14 +252,6 @@ Prácticas: Mat Max Montalvo Martínez
 \chapter{Tema 1: Arquitectura de Sistemas
 IoT}
 
-\href{https://learning.oreilly.com/library/view/internet-of-things/9781788470599/a7f866bd-4ac8-47f3-a175-0f10d91a5ce2.xhtml}{Definición
-de Internet de las Cosas}
-
-\href{https://learning.oreilly.com/library/view/internet-of-things/9781119456742/part04.xhtml\#part}{Aplicaciones
-Actuales de Internet de las Cosas}
-
-\href{https://learning.oreilly.com/library/view/build-your-own/9781484244982/html/474034_1_En_2_Chapter.xhtml}{Arquitectura
-de Sistemas de Internet de las Cosas}
 
 \textbf{IoT - Internet de las Cosas}: Consiste en conectar a internet
 cualquier dispositivo, vehículo, edificios o en general objetos a los
@@ -460,8 +452,6 @@ alcance de las redes inalámbricas (en vez de 30 metros, 40 kilómetros).
 \chapter{Tema 2: Sensores y
 Actuadores}
 
-\href{https://learning.oreilly.com/library/view/internet-of-things/9781788470599/d39be056-b166-476e-868e-c415e4dfa886.xhtml}{Introducción
-a Sensores y Actuadores} 
 
 Hasta la sección `Up to Functional examples
 (putting it all together)' incluida.
@@ -575,17 +565,6 @@ Linealidad.
 
 \chapter{Tema 3: Sistemas operativos embebidos para Dispositivos
 IoT}
-
-\href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP001.html#CHP001titl}{Introducción a los Sistemas Embebidos} Solo capítulo 1
-
-\href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP009.html#CHP009titl}{Sistemas
-Operativos Embebidos} Capítulo 9
-
-\href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP008.html#CHP008titl}{Drivers de Dispositivos
-} Hasta el encabezado "8.1 Example 1: Device Drivers for Interrupt Handling"
-
-\href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP010.html#CHP010titl}{Middleware
-} Secciones 10.1 y 10.2
 
 \section{¿Que es un sistema embebido o
 integrado?}
@@ -735,7 +714,9 @@ aplicación según las necesidades del usuario.
 \end{figure}
 
 \begin{description}
-	\item[Microcontrolador] Es el componente que ejecuta un programa en un sistema integrado, y se encuentra en la zona central, se encarga de realizar el procesamiento. Recibe los datos de los sensores, procesa y envía señal a los actuadores.
+	\item[Microcontrolador] Es el componente que ejecuta un programa en un sistema integrado, y se encuentra en la zona central, se encarga de realizar el procesamiento. 
+	
+	Conectado a otros compoenentes del hardware, envia ordenes a los sensores y recibe datos de los sensores. 
 	
 	Consta de CPU, RAM, ROM, puertos E/S y temporizadores.
 	
@@ -788,20 +769,20 @@ Es una computadora de bajo costo del tamaño de una tarjeta de crédito que se c
 La Raspberry PI tiene una conexión GPIO de 40 pines, lo que facilita la conexión con el mundo exterior.
 
 
-	\begin{description}
-		\item[GPIO] Significa entrada/salida de uso general. Estos pines son una interfaz física entre Raspberry Pi y el mundo exterior. 
+\begin{description}
+	\item[GPIO] Significa entrada/salida de uso general. Estos pines son una interfaz física entre Raspberry Pi y el mundo exterior. 
+	
+	El Pi puede recibir información de sensores y actuadores, y controlar actuadores como LED, ejecutar motores y muchas otras cosas.
+	
+	Hay 40 pines y proporcionan varias funciones diferentes. 
+	\begin{itemize}
+		\item Los pines 27 y 28, ID SD e ID SC, son para conectar una EEPROM.
+		\item Pines 8 y 10, GPIO 14 y 15, son para comunicación UART puerto serie que transmite poca información (baja frecuencia), como USB, RFID, Bluetooth, GPS, GSM o GPRDS.
+		\item GPIO 2 y 3 (clock) se usan para I2C, comunicación entre placas, como un LCD, otras placas base (Raspberry, Arduino, ...) o un reloj de tiempo real.
+		\item GPIO 7, 8, 9, 10 y 11 implementan otro mecanismo de comunciación el SPI, que es la evolución del protocolo I2C, su función es comunicar full duplex, como SSD card, IP Core o Memoria Flash.
+	\end{itemize}
 		
-		El Pi puede recibir información de sensores y actuadores, y controlar actuadores como LED, ejecutar motores y muchas otras cosas.
-		
-		Hay 40 pines y proporcionan varias funciones diferentes. 
-		\begin{itemize}
-			\item Los pines 27 y 28, ID SD e ID SC, son para conectar una EEPROM.
-			\item Pines 8 y 10, GPIO 14 y 15, son para comunicación UART puerto serie que transmite poca información (baja frecuencia), como USB, RFID, Bluetooth, GPS, GSM o GPRDS.
-			\item GPIO 2 y 3 (clock) se usan para I2C, comunicación entre placas, como un LCD, otras placas base (Raspberry, Arduino, ...) o un reloj de tiempo real.
-			\item GPIO 7, 8, 9, 10 y 11 implementan otro mecanismo de comunciación el SPI, que es la evolución del protocolo I2C, su función es comunicar full duplex, como SSD card, IP Core o Memoria Flash.
-		\end{itemize}
-		  
-	\end{description}  
+\end{description}  
 \textbf{Del cuestionario:}
 
 \begin{itemize}
@@ -810,10 +791,10 @@ La Raspberry PI tiene una conexión GPIO de 40 pines, lo que facilita la conexi�
 
 La frecuencia del reloj del microprocesador se puede aumentar significativamente.
 \end{itemize}
- 
+	
 \subsection{Raspberry Pi vs. Arduino}
 \begin{itemize}
-	\item Raspberry usa un procesador de proposito general y Arduino un microprocesador.
+	\item Raspberry usa un procesador de propósito general y Arduino un microprocesador.
 	\item Raspberry Pi es más rápido (1.4GHz vs 16MHz).
 	\item Raspberry Pi puede administrar un espacio de direcciones más grande (procesador de 64 bits, frente a 8 bits).
 	\item Raspberry Pi tiene más memoria: Arduino tiene 32K Flash, 2K RAM, 1K EPROM; y Raspberry Pi SRAM de 1 Gb, Micro SD.
@@ -828,7 +809,7 @@ La frecuencia del reloj del microprocesador se puede aumentar significativamente
 
 \subsection{¿Es Raspberry Pi un dispositivo de IoT?}
 
-Similitudes:
+\textbf{Similitudes:}
 \begin{itemize}
 	\item Conectividad de red e inteligencia computacional.
 	\item Pequeño y barato (en relación con una PC).
@@ -836,175 +817,227 @@ Similitudes:
 \end{itemize}
 
 
-Diferencias:
+\textbf{Diferencias:}
 \begin{itemize}
 	\item La interfaz puede ser exactamente la misma que la de una PC con Linux: Las complejidades del sistema pueden ser visibles.
 \end{itemize}
 
 \section{Sistemas Operativos embebidos}
-Proporcionar una capa de abstraccion para le software sobre el sistema operativo.
+Es una parte opcional de la pila de software de un dispositivo, lo que significa que no todos los sistemas integrados tienen uno.
 
-Administrar los diversos recursos de hardware y software del sistema para garantizar que toto el sistema funciona de manera eficiente y confiable.
+Proporciona una capa de abstracción para el software sobre el sistema operativo.
+Administra los diversos recursos de hardware y software del sistema para garantizar que toto el sistema funciona de manera eficiente y confiable.
 
-FOTO DE CAPAS Y PARTES
+En nuestro caso tiene como función proporcionar una interfaz común (no tiene por qué ser grafica) y abstracta a todos los elementos de hardware y que sea capaz de que las aplicaciones que se van a desarrollar sobre él se programen de la manera más fácilmente posible.
 
-\subsection{Principales Sistemas Opertativos embebidos actuales} 
-Zephyr, Micrium, RTOS, R IOT, VxWorks, ThreadX, MircroEJ, TinyOS, APACHE, ARMmbed, Contiki, Nucleus, Windows IoT, snappy, android things, Mongoose o mynewt.
+El núcleo del sistema operativo es el kernel, pero depende el SO embebido tendremos distintos tipos, algunos más robustos que tienen incluso interfaz gráfica o más ligeros que tienen la gestión de procesos y memoria.
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Capas Sistema Operativo}}
+	{\includegraphics[scale=.6]{2021-03-25 09_19_18-2021-03-24 16-59-20.mkv.png}}
+\end{figure}
+
+\subsection{Principales Sistemas Operativos embebidos actuales} 
+Zephyr, Micrium, RTOS (Real Time Operative Systems), R IOT, VxWorks, ThreadX, MircroEJ, TinyOS, APACHE, ARMmbed, Contiki, Nucleus, Windows IoT, snappy, android things, Mongoose o mynewt.
 
 \subsection{Requisitos de un Sistema Operativo Embebido}
+\textbf{Restricciones de Hardware Heterogéneos}
 \begin{itemize}	
-	\item Requisitos de CPU 
-	\item Requisito de Memoria, suelen tener poca memoria.
+	\item Requisitos de CPU: Las operaciones no deben ser de carga alta, hay baja frecuencia.
+	\item Requisito de Memoria: Suelen tener poca memoria (Arduino 4K).
 	\item Características limitadas
-\end{itemize}
-
-Autonomia
-\begin{itemize}	
 	\item Soporte a Plataformas
-	\item Eficiencia energetica, como suspenderse bajo inactividad o protocolos de comunicacion de bajo consumo.
-	\item Stack de Red Adaptativo
-	\item Fiabilidad
 \end{itemize}
 
-Programabilidad: Gestionar procesos, threads, shockets...
+\textbf{Autonomía}
+\begin{itemize}	
+	\item Eficiencia energética: Como suspenderse bajo inactividad o protocolos de comunicación de bajo consumo.
+	\item Stack de Red Adaptativo
+	\item Fiabilidad, cuanto más tiempo pase antes de que necesite asistencia o ser remplazado, más autonomía.
+\end{itemize}
+
+\textbf{Programabilidad:} 
 \begin{itemize}
-	\item API estandar 
-	\item Lenguajes de Programación estandar 
+	\item API estándar: Gestionar procesos, servicios, tareas, threads, interrupciones, shockets...
+	\item Lenguajes de Programación estándar, que nos permita utilizar la API para desarrollar aplicaciones. 
 \end{itemize}
 
 \subsection{Modelo general de un sistema embebido}
-FOTO
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Modelo General SO}}
+	{\includegraphics[scale=.5]{2021-03-25 10_06_39-2021-03-24 16-59-20.mkv.png}}
+\end{figure}
 
-\subsubsection{Controladores de Dispositivos - Drivers}
-Son las bibliotecas de software que sirven para interactuar con los distintos elementos hardware. Inicializan el hardware y admininistran el acceso al mismo mediante capas sueprioes de software.
+Es un conjunto de librerías que proporcionan 3 grandes áreas de procesamiento: Gestión de tareas, de memoria y de Entrada/Salida. Dependiendo del SO puede incluir los drivers de los distintos dispositivos hardware que conectamos, o servicios de programación más refinados para tareas más complejas en el Middleware.
 
-Acciones:
-\begin{description}
-	\item[Hardware Startup] Inicialización del hardware tras el encendido o el restablecimiento.
-	\item[Hardware Shutdown] Configurando el hardware en su estado PowerOFF.
-	\item[Hardware Disable] Permitir que otro software desactive el hardware sobre la marcha.
-	\item[Hardware Acquire] Permitir que otro software obtenga acceso singular (bloqueo) al hardware.
-	\item[Hardware Write] Permitir que otro software escriba datos en el hardware.
-	\item[Hardware Install] Permitir que otro software instale nuevo hardware sobre la marcha.   
-	\item[Hardware Release] Permitir que otro software libere (desbloquee) hardware. 
-	\item[Hardware Unmapping] Permitiendo eliminar bloques de datos de dispositivos de almacenamiento de hardware.
-\end{description}
+\subsubsection{Controladores de Dispositivos - Device Drivers}
+Son las bibliotecas de software que sirven para interactuar con los distintos elementos hardware. Inicializan el hardware y administran el acceso al mismo mediante capas superiores de software. Por ejemplos los de GPIO de Raspberry Pi.
 
+Todos los controladores de dispositivos generalmente se componen de todas o una combinación de las siguientes funciones: Inicio, Apagado, Lectura, Escritura, Deshabilitar o Habilitar hardware.
+
+\textbf{Acciones:}
+\begin{itemize}
+	\item \textbf{Hardware Startup:} Inicialización del hardware tras el encendido o el restablecimiento.
+	\item \textbf{Hardware Shutdown:} Configurando el hardware en su estado PowerOFF.
+	\item \textbf{Hardware Disable:} Permitir que otro software desactive el hardware sobre la marcha.
+	\item \textbf{Hardware Acquire:} Permitir que otro software obtenga acceso singular (bloqueo) al hardware.
+	\item \textbf{Hardware Write:} Permitir que otro software escriba datos en el hardware.
+	\item \textbf{Hardware Install:} Permitir que otro software instale nuevo hardware sobre la marcha.   
+	\item \textbf{Hardware Release:} Permitir que otro software libere (desbloquee) hardware. 
+	\item \textbf{Hardware Unmapping:} Permitiendo eliminar bloques de datos de dispositivos de almacenamiento de hardware.
+\end{itemize}
 
 \subsubsection{Kernel}
 
 \begin{description}
-	\item[Process Management] 
+	\item[Gestión de Procesos - Process Management] Como el sistema operativo administra y ve otro software en el sistema embebido. 
+
+	\begin{description}
+		\item[Threads] Crear hilos, lanzarlos, controlarlos, terminarlos o sincronizarlos. Estos nos permiten tener varias tareas en ejecución de manera concurrente. 
+		\item[Semaphores] Primitiva de sincronización, para evitar las condiciones de carrera.
+		\item[Priority scheduling] Determinar el orden en el que los hilos entran a ejecutar.
+		\item[Real-time signal extension] Interrupciones y señales, para activar notificaciones de aplicaciones asíncronamente.
+		\item[Timers] Mecanismo de notificación que nos avisa cuando se ha alcanzado o superado un determinado tiempo.
+		\item[IPC] Comunicación Inter-Proceso.
+	\end{description}
+
+	\paragraph{Gestión de multitareas y de procesos en sistemas embebidos}
+
+	Una de las principales diferencias de los SO embebidos es que no tenemos múltiples núcleos, donde en cada núcleo se podría ejecutar distintas cosas, lo que tenemos es un único núcleo que ejecuta una única tarea a la vez y va asignando rodajas a los procesos para dar la sensación de que se ejecutan varias en paralelo.
+
+	Como no se pueden hacer múltiples tareas a la vez, por lo que debemos tener un mecanismo que administre y planifique el orden de ejecución de los distintos procesos. Indicar cuando entran y salen, y el paso de datos.
 	
-	Threads: Crear hilos, controlarlos, terminarlos o sincronizarlos\dots
-
-	Semaphores: Primitiva de sincronización.
-
-	Priority scheduling:
-
-	Real-time signal extension: Interrupciones y señales, para activaar notificaciones de aplicaciones asincronamente.
-
-	Timers: Mecanismo de notificacion de cuando un ha ocurrido un evento como la escritura de un dato.
-
-	.PCI.
-	 
-	\item[Memory Management]
-	El proceso de 
-
-	Process memory locking
-
-	Memory mapped files
-
-	Shared memory object
-
-	Kernel vs user mode?
+	La Raspberry Pi como tiene 4 núcleos se considera nano ordenador, no sistema embebido.
 	
-	\item[I/O System Management]  
-	Los dispositiovs de E/S tambein deben compartirse entre los diversos procesos y, pro tanto, al igual que con la memoria, el acceso y la asignacion de un dispostivo de E/S deben adminsitrarse. 
+	
+	\paragraph{Implementación de procesos en Sistemas Operativos embebidos}
+	
+	Las tareas están estructuradas como una jerarquía de tareas principales y secundarias, y cuando se inicia el kernel embebido, solo existe una tarea de la que se lanzan todas las demás.
+	
+	
+	\paragraph{Creación de tareas}
+	La creación de tareas en sistemas operativos integrados se basa principalmente en dos modelos, fork/exec (deriva del IEEE/ISO POSIX) y spawn (deriva de fork/exec).
+
+	\begin{itemize}
+		\item \textbf{fork:} Crea una copia del espacio de memoria de la tarea principal en lo que se asigna para la tarea secundaria, lo que permite que la tarea secundaria herede varias propiedades, como el código del programa y las variables, de la tarea principal.
+		\item \textbf{exec:} Se utiliza para eliminar explícitamente del espacio de memoria de la tarea secundaria cualquier referencia al programa principal y establece el nuevo código de programa que pertenece a la tarea secundaria para que se ejecute.
+		\item \textbf{spawn model:} Crea un espacio de direcciones completamente nuevo para la tarea secundaria. La llamada al "modelo de generación" permite definir el nuevo programa y los argumentos para la tarea secundaria. 
+	\end{itemize}
+
+	\textbf{Spawn model:} No tiene espacios duplicados, optimiza el espacio de memoria, no gasta tanta memoria como fork/exec. Es más complicado compartir propiedades entre procesos.
+	
+	\textbf{fork/exec:} Nos permite coordinar de una manera más sencilla y compartir propiedades, pero es más lenta y requiere más memoria (que es limitada) por que tiene que copiar y eliminar.
+	
+	\paragraph{Planificador de Tareas - Scheduler:} Es el que nos dice cuándo y cuanto tiene va a ejecutar cada una de las tareas, va metiendo y sacando de la CPU. El programador clasifica las tareas en READY, RUNNING y BLOCK.
+	
+	\paragraph{Factores clave del Scheduling}
+	Lo critico es la efectividad y la eficiencia en cuanto al tiempo de respuesta en cambiar entre tareas y elegir cual es la va a continuación.
+	\begin{itemize}
+		\item 	\textbf{Tiempo de respuesta - Response Time:} Tiempo para que el programador haga que el contexto cambie a una tarea lista e incluye el tiempo de espera de la tarea en cola lista.
+		\item 	\textbf{Turnaround time:} El tiempo que tarda un proceso en completarse.
+		\item 	\textbf{Overhead:} El tiempo y los datos necesarios para determinar que tareas se ejecutan a continuación.
+		\item 	\textbf{Fairness:} Ser capaz de realizar una partición equitativa entre todas las tareas que están pendientes de ejecución. ?Cuales son los factores determinantes en cuanto a qué procesos llegan a ejecutarse?
+		\item 	\textbf{Throughput:} Procesar tantas tareas como sea posible en un periodo de tiempo determinado. tareas por unidad de tiempo.
+		\item 	\textbf{Starvation:} Donde una tarea nunca llega a ejecutarse, nunca recibe una rodaja de tiempo.
+	\end{itemize}
+
+	
+	\paragraph{Preventivo vs. No preventivo}
+	(Es confusa cual es cual, por parte del profesor)
+	\begin{itemize}
+		\item 	\textbf{Preventivo - Apropiativo:} No se le puede expulsar. Las tareas reciben el control de la CPU maestra hasta que finalizan su ejecución, independientemente del tiempo o la importancia de las otras tareas que están en espera.
+		
+		Ejemplos: FCFS, SPF o SJF, Prioridades
+
+		\item 	\textbf{No Preventivo - No apropiativo:} Se les puede expulsar de las CPU cuando acaba su rodaja, se dividen los procesos en rodajas de duración fija. El SO fuerza el cambio de contexto en una tarea, ya sea que una tarea en ejecución haya terminado de ejecutarse o este cooperando con el cambio de contexto.	
+
+		Ejemplos: Round Robin, SRTF, Colas Multinivel
+	\end{itemize}
+	
+	\paragraph{Planificación e Raspberry Pi OS}
+	\begin{itemize}
+		\item 	Opera en todos los componentes.
+		\item 	Solo se ejecuta una tarea a la vez.
+		\item 	El planificador es un componente independiente.
+		\item 	El programador predeterminado es una cola FIFO simple.
+		\item 	La planificación es consciente de la energía, y pone el procesador en suspensión cuando no hay ninguna tarea en la cola.
+	\end{itemize}
+
+	\paragraph{Manejo de señales e interrupciones} Cuando llega una interrupción externa, saca el proceso de la CPU y atiende la interrupción ejecutando la rutina correspondiente, y vuelve al proceso previo.
+
+	\paragraph{Sincronización y comunicación entre tareas} Nos permite que las distintas subtareas compartan datos, la manera más sencilla es utilizando espacios de memoria compartidos.
+
+	\item[Memory Management] El espacio del sistema embebido es compartido por todos los diferentes procesos, por lo que es necesario administrar el acceso y la asignación de partes del espacio de memoria. Los procesos de memoria para tener en cuenta:
+	\begin{description}
+		\item[Process memory locking] Ser capaz de bloquear y evitar los accesos indebidos al espacio de memoria de otros procesos.
+		\item[Memory mapped files] Llevar a memorias secundarias algunos mapas o páginas que tenga en función de las restricciones.
+		\item[Shared memory object] Implementar variables, objetos o espacios de memoria compartidos en distintos procesos para favorecer su sincronización.
+	\end{description}
+
+	\paragraph{Modo de usuario vs. Modo kernel}
+		La forma en que los sistemas operativos administran el espacio de memoria lógica difiere de un sistema operativo a otro, pero los núcleos generalmente ejecutan el código del núcleo en un espacio de memoria separado de los procesos que ejecutan código de nivel superior( es decir, middleware y código de capa de aplicación).
+
+	
+	\item[I/O System Management] Se encarga de cómo vamos a almacenar o permitir que los procesos entre si accedan al espacio de almacenamiento secundario. Lo que queremos es una interfaz estándar para que puedan acceder a todos los espacios de almacenamiento independientemente del hardware y driver que tenga implementado.
+
+	Los dispositivos de E/S también deben compartirse entre los diversos procesos y, por tanto, al igual que con la memoria, el acceso y la asignación de un dispositivo de E/S deben administrarse. 
+
+	\begin{figure}[H]
+		\ffigbox[\FBwidth]
+		{\caption{Gestión de archivos en Sistemas Embebidos}}
+		{\includegraphics[scale=.5]{2021-03-25 11_52_40-2021-03-24 16-59-20.mkv.png}}
+	\end{figure}
+
 \end{description}
 
 \subsubsection{Middleware}
 
-Cualquier software del sistema, que no es kernel del sistema operativo, controladores de  dispositivos o las aplicaciones que se van a desarrollar.
+Cualquier software del sistema que no es kernel del sistema operativo, controladores de dispositivos o las aplicaciones que se van a desarrollar.
 
-Controaldores de red.
+\textbf{Razones para usar Middleware}
+\begin{itemize}
+	\item Adaptability
+	\item Connectivity
+	\item Flexibility and Scalability
+	\item Portability
+	\item Security
+\end{itemize}
 
-Virtualizacion...
-
-Middleware basico - core: Middleware de controlador de red.
-
-Middleware complejo: Middleware especifico del mercado, mensajeria y comunicaciones complejas,mesajeria distribuida y orientada a mensajes, y transacciones distribuidas.
-
-
-
-\paragraph{Gestion de multitareas y de procesos en sistemas embebidos}
-
-No se pueden hacer multiples tareas a la vez, por lo que tenemos que tener un mecanimso que administre y planifique el orden de ejecucion de los distitnos procesos. Indicar ucando entran y salen, y el paso de datos.
-
-La Rpi como tiene 4 nucleos se considera nanoordenador, no sistema embebido.
-
-
-\paragraph{Implementación de procesos en Sistemas Operativos embebeidos}
-
-Las tareas estan estructuradas como un jerarquia de tareas principales y secundarias, y cuando se inicia el kernetl embebido, solo existe una tarea.
-
-
-\paragraph{Creacion de tareas}
-
-La creación tipo “fork” crea una copia del espacio de memoria de la tarea principal en lo que se asigna para la tarea secundaria, lo que permite que la tarea secundaria herede varias propiedades, como el código del programa y las variables, de la tarea principal.
-
-La creación tipo “exec” se utiliza para eliminar explícitamente del espacio de memoria de la tarea secundaria cualquier referencia al programa principal y establece el nuevo código de programa que pertenece a la tarea secundaria para que se ejecute.
-
-La creación tipo “spawn model” crea un espacio de direcciones completamente nuevo para la tarea secundaria. La llamada al "modelo de generación" permite definir el nuevo programa y los argumentos para la tarea secundaria. 
-
-Spawn model: No tiene espacios duplicados, no gasta tanta memoria como fork/exec.
-
-fork/exec: Nos permite coordinar de una manera mas sencilla, pero es mas lenta por que tiene que copiar y elimar cuando hace el exec.
-
-Scheduler: Es el que nos dice cuando y cuanto tiene va a ejectuar cada uno de los procesos, va metiendo y sacando de la CPU.
-
-
-\paragraph{Factores clave del scheduling}
-
-Reponse Time: Tiempo para que el programador haga que el contexto cambie a una tarea lista e incluye el timepo de espera de la tarea en cola lista.
-
-Turnaround time: El tiempo qu tarda un proceso en completarse
-
-Overhead: El tiempo y los datos necesarios para determinar que tareas se ejecutan  a continuación.
-
-Fairness: ?Cuales son los factores\dots
-
-XXX
-
-
-Starvation:
-
-\paragraph{Preventivo vs. No preventivo}
-
-Preventivo - Apropiativo: Las tareas reciben el control de la CPU maestra hasta que finalizan su ejecucion, independientemente.
-
-No Preventivo - No apropiativo: Se les puede expulsar de las CPU mientras ejecutan, se divide los procesos en rodajas.
-
-
-\paragraph{Planificacion e Raspberry Pi OS}
-
-Opera en todos los componentes.
-
-Solo se ejecuta una tarea a la vez.
-
-El planificador es un componente independiente.
-
-El programador predetermiado es una cola FIFO simple.
-
-El planificación es consciente de la energia, y pone el procesador en suspension cuando no hay ninguna tarea en la cola.
+\textbf{Tipos de Middleware}
+\begin{itemize}
+	\item \textbf{Middleware básico - core:} Relacionado con la gestión de las comunicaciones (Controladores de Red) y elementos que permitan virtualizar el funcionamiento.
+	\item \textbf{Middleware complejo:} Middleware especifico del mercado, mensajería y comunicaciones complejas, mensajería distribuida y orientada a mensajes, y transacciones distribuidas.
+\end{itemize}
 
 
 
 
 
-%\chapter{Recursos}
-%\href{https://learning.oreilly.com/playlists/5a6c045f-e39c-465e-9e7c-60dcbb12aebb}{Lista de libros de referencia}
-%\includepdf[pages=-]{docs/Referencias.pdf}
+\chapter{Recursos}
+\href{https://learning.oreilly.com/playlists/5a6c045f-e39c-465e-9e7c-60dcbb12aebb}{Lista de libros de referencia}
+
+\section{Tema 1: Arquitectura de Sistemas IoT}
+\href{https://learning.oreilly.com/library/view/internet-of-things/9781788470599/a7f866bd-4ac8-47f3-a175-0f10d91a5ce2.xhtml}{Definición de Internet de las Cosas}
+
+\href{https://learning.oreilly.com/library/view/internet-of-things/9781119456742/part04.xhtml\#part}{Aplicaciones  Actuales de Internet de las Cosas}
+
+\href{https://learning.oreilly.com/library/view/build-your-own/9781484244982/html/474034_1_En_2_Chapter.xhtml}{Arquitectura de Sistemas de Internet de las Cosas}
+
+\section{Tema 2: Sensores yActuadores}
+\href{https://learning.oreilly.com/library/view/internet-of-things/9781788470599/d39be056-b166-476e-868e-c415e4dfa886.xhtml}{Introducción a Sensores y Actuadores} Hasta la sección 'Up to Functional examples (putting it all together)' incluida
+
+\section{Tema 3: Sistemas operativos embebidos para Dispositivos IoT}
+\href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP001.html#CHP001titl}{Introducción a los Sistemas Embebidos} Solo capítulo 1
+
+\href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP009.html#CHP009titl}{Sistemas Operativos Embebidos} Capítulo 9
+
+\href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP008.html#CHP008titl}{Drivers de Dispositivos} Hasta el encabezado "8.1 Example 1: Device Drivers for Interrupt Handling"
+
+\href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP010.html#CHP010titl}{Middleware} Secciones 10.1 y 10.2
+
+
 
 
 
