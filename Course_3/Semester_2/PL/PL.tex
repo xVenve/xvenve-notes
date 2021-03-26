@@ -1597,7 +1597,30 @@ de tokens es reconocida, entonces iría al analizador semántico.
 \item
   Conjunto reducido de lenguajes independientes de contexto.
 \end{itemize}
+ 
+\newpage
 
+\subsubsection{Ejemplo:}
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Descendente Recursivo: Gramática y Procedimiento Axioma}}
+	{\includegraphics[scale=.4]{2021-03-26 17_49_53-Ejercicio descendente recursivo.png}}
+\end{figure}
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Descendente Recursivo: Procedimientos}}
+	{\includegraphics[scale=.5]{Untitled 102.png}}
+\end{figure}
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Descendente Recursivo: Reconocimiento secuencia}}
+	{\includegraphics[scale=.7]{2021-03-26 17_50_51-Ejercicio descendente recursivo.png}}
+\end{figure}
+
+\newpage
 
 \subsubsection{Análisis Sintáctico LL(1)}
 
@@ -1608,7 +1631,7 @@ Necesita sólo 1 símbolo de preanálisis para determinar qué producción
 aplicar.
 
 
-\paragraph{Análisis Descendente Dirigido por tablas}
+\subsubsection{Análisis Descendente Dirigido por tablas}
 
 Características:
 
@@ -1699,7 +1722,7 @@ La idea general es:
   Prueba de lectura de secuencia de entrada (falta que se vaya ) y los
   NT que quedan se van con el \$)
 
-  \begin{figure}[H]
+\begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Prueba de lectura de secuencias ASI}}
 	{\includegraphics[scale=.23]{image-20210320111752355.png}}
@@ -1709,5 +1732,135 @@ La idea general es:
 
 \section{Análisis Sintáctico Ascendente}
 
+Una secuencia de tokens x pertenece al lenguaje definido por G si genera una secuencia valida del lenguaje. Se van aplicando reglas de producción que generan un árbol sintáctico.
+
+\begin{enumerate}
+  \item Coger tokens de izquierda a derecha.
+  \item Buscar el pivote de reducción (que reduciremos)
+  \item Aplicar derivaciones más a la derecha, sustituyen por NT.
+  \item Repetir el proceso hasta que la entrada ha sido procesada y reducida al axioma.
+\end{enumerate}
+
+\textbf{Pivote de reducción:} Subcadena w de una forma sentencial x, $x \in \sum^+$, que es la parte derecha de una regla de producción y sustituye a la inversa, mete el NT del lado izquierdo. 
+
+La decisión es si añadir otro terminal al pivote (desplazar) o aplicar la producción en orden inverso.
+\begin{itemize}
+  \item $x=uwv, A \rightarrow w | S \rightarrow uAv$
+  \item Reduce el pivote más a la izquierda.
+  \item A la derecha del pivote solo hay terminales o $\lambda$.
+  \item El pivote se puede buscar utilizando una pila.
+\end{itemize}
+
+\subsection{Prefijo} 
+Terminales y No Terminales que se pueden encontrar en pila, que nos permite llegar al axioma.
+
+\subsection{Prefijo viable} 
+Terminales y No Terminales que pueden encontrarse en la pila y pueden formar parte de un pivote que permita reducir hasta el axioma. 
+
+Un prefijo de un prefijo viable también es un prefijo viable.
+
+La estrategia es construir un autómata que reconozca los prefijos viables de la gramática, el autómata LR(0) los reconoce.
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Prefijos viables}}
+	{\includegraphics[scale=.4]{2021-03-26 18_27_20-ASintactico.pdf - Foxit Reader.png}}
+\end{figure}
+  
+\subsection{Análisis LR}
+Para algunas gramáticas independientes de contexto, LR(k), se puede construir un autómata a pila determinista.
+
+\begin{itemize}
+  \item k es la cantidad de símbolos de preanálisis necesarios para tomas una decisión.
+\end{itemize}
+
+Tipos de analizadores:
+\begin{itemize}
+  \item \textbf{SLR(1)} es un LR simple. La clase más pequeña de gramáticas, numero de estados más pequeño, simple y rápida.
+  \item \textbf{LR(1)}. La clase más grande de gramáticas, el mayor número de estados, construcción larga y penosa.
+  \item \textbf{LALR(1)}. La clase intermedia de gramáticas, numero de estados como SLR(1), construcción larga y penosa.
+\end{itemize}
+En cuanto a que gramáticas pueden representas: $G2>LR>LALR>SLR$
+
+\subsection{Análisis Sintáctico LR(1)}
+
+\subsubsection{Esquema del Análisis Ascendente dirigido por tabla}
+En este caso las filas son el Conjunto LR(0), también llamado \textbf{conjunto LR canónico}, que son todos los estados resultados de hacer el cierre del axioma y los sucesivos Ir$\_$a.
+
+Las columnas son \textbf{Acciones}, Terminales y \$, y por otro lado \textbf{Ir$\_$a}, No Terminales.
+
+\subsubsection{Item LR(0)}
+
+Son reglas de producción con $\cdot$, que indica que lo de la izquierda está en la pila.
+\begin{itemize}
+  \item $A \rightarrow \alpha \beta \cdot \gamma$, $\alpha,\beta$ en pila.
+  \item Los símbolos a la derecha todavía no se han procesado. $\gamma$ sin procesar.
+  \item Cuando se produce que a la derecha de $\cdot$ no hay símbolos es posible que haya encontrado un pivote de reducción.
+\end{itemize}
+
+\newpage
+
+\subsubsection{Analizador LR(0)}
+A partir de los ítems se puede construir un AFD que realice el análisis de prefijos viables.
+
+Los estados de ese AFD se les llama \textbf{Conjunto canónico LR(0)}, que es lo que buscamos para la tabla, cada uno de esos estados está formado por un conjunto de ítems.
+
+Cuando el axioma tenga varias producciones, se amplía la gramática, haciendo que un nuevo NT sea el axioma y produzca el axioma anterior. $S'\rightarrow S$
+
+\textbf{Para crear los estados del Conjunto canónico LR(0) utilizaremos:}
+\begin{itemize}
+  \item \textbf{Cierre(ítems)} Determina los ítems que pertenecen a un estado. 
+  
+  Lo que hace es añadir a todas las reglas de producción del NT izquierdo, el punto $\cdot$ a la izquierda. Además, si el punto está justo a la izquierda de un NT se hace también para sus reglas. 
+  \begin{figure}[H]
+    \ffigbox[\FBwidth]
+    {\caption{Cierre(ítems)}}
+    {\includegraphics[scale=.4]{2021-03-26 19_10_20-ASintactico.pdf - Foxit Reader.png}}
+  \end{figure}
+  
+  \item \textbf{Ir$\_$a(ítems, Símbolo)} Genera un nuevo estado a partir de los ítems de un estado y símbolo gramaticales.
+  
+  Hace el cierre de pasar el punto al otro lado de Símbolo, que se pasa como parámetro. Es vacío cuando no hay ningún item que tenga el punto a su izquierda.
+  \begin{figure}[H]
+    \ffigbox[\FBwidth]
+    {\caption{Ir$\_$a(ítems, Símbolo)}}
+    {\includegraphics[scale=.4]{2021-03-26 19_14_19-ASintactico.pdf - Foxit Reader.png}}
+  \end{figure}
+\end{itemize}
+
+El analizador LR(0) es un Autómata con Pila Determinista, los estados del analizador son conjuntos de ítems.
+
+\textbf{Algoritmo de creación del analizador LR(0)}
+\begin{enumerate}
+  \item Crear el conjunto canónico LR(0)
+  \begin{enumerate}
+    \item Ampliar la gramática $S'\rightarrow S$, cuando axioma tiene más de una regla.
+    \item $E_0 = Cierre(S'\rightarrow S)$.
+    \item Repetir mientras son creados nuevos estados, $E_i = Ir\_a(I_k, \alpha), \forall \alpha \in \sum^+$, hacer para aquellos símbolos que estén a la derecha de un punto, si no darán vacío y no nos son de utilidad. Que crea tantos estados como posibles aplicaciones de la función Ir$\_$a en todos los estados, mientras no genere estados exactamente iguales, pero puede haber reglas repetidas.
+  \end{enumerate}
+  \item Asociar acciones a los ítems de los estados, que son: Desplazar, Reducir, Ir a otro estado, Aceptar y Error.
+\end{enumerate}
+
+Ejemplo: 
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Generar Conjunto Canónico LR(0)}}
+  {\includegraphics[scale=.3]{2021-03-26 19_23_58-ASintactico.pdf - Foxit Reader.png}}
+\end{figure}
+\newpage
+\textbf{Asociar acciones a los ítems de los estados:}
+\begin{itemize}
+  \item $\forall I_k = \{ A \rightarrow \alpha \cdot x \beta\} I_k \in E_j \space y \space x\in \sum_T, Accion(E_j, x)=Desplazar E_n, E_n = Ir\_a(E_j,x)$
+  \item $\forall I_k = \{ A \rightarrow \alpha \cdot X \beta\} I_k \in E_j \space y \space X\in \sum_N, Ir\_a(E_j,X) = E_n$
+  \item $\forall I_k = \{ A \rightarrow \alpha \cdot \} I_k \in E_j, Accion(E_j, x)= Reducir A \rightarrow \alpha, \forall x \in \{ \sum_T, \$ \}$
+  \item $I_k = \{ S' \rightarrow S \cdot \} I_k \in E_j, Accion(E_j, \$)= Aceptar$
+\end{itemize}
+
+Ejemplo: 
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Analizador LR(0)}}
+  {\includegraphics[scale=.35]{2021-03-26 19_51_21-ASintactico.pdf - Foxit Reader.png}}
+\end{figure}
 
 \end{document}
