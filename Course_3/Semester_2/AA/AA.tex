@@ -1735,6 +1735,7 @@ Se podría aplicar cualquier otro método de aproximación, como las redes neuro
 \subsubsection{Case Based Reasoning}
 Los ejemplos no son de la forma atributo-valor, sino que se representan con cualquier estructura de datos, como pueden ser imágenes, documentos, planos, etc. Consigue adaptar los datos de otros problemas al actual, viendo cómo se han resuelto problemas previos.
 
+\newpage
 
 \section{Aprendizaje no supervisado}
 No conocemos la clase, solo tenemos atributos en los ejemplos.
@@ -1744,13 +1745,6 @@ Lo que se hace es ver que instancias son parecidas y se crean grupos de instanci
 \subsection{Posibles objetivos}
 \begin{itemize}
   \item \textbf{Agrupación:} Dado un conjunto de ejemplos sin etiquetar, agruparlos según algún criterio.
-  
-  Ese criterio suele venir por:
-  \begin{itemize}
-    \item \textbf{Aprendizaje paramétrico:} Parámetros asumidos.
-    \item \textbf{Aprendizaje no paramétrico:} Alguna medida de distancia.
-  \end{itemize}
-  POR COMPLETAR
   \item \textbf{Indexación:} Dado un conjunto de ejemplos, facilitar su acceso organizándolos.
   \item \textbf{Asociación:} Dados unos datos, establecer relaciones y/asociaciones entre datos.
   \item \textbf{Generación de jerarquías:} Dados unos datos en un mismo nivel, generar jerarquías en dichos datos.
@@ -1758,4 +1752,157 @@ Lo que se hace es ver que instancias son parecidas y se crean grupos de instanci
   \item \textbf{Visualización:} Dados unos datos con representación compleja, permitir su visualización.
 \end{itemize}
 
+\subsection{Agrupación}
+El objetivo es dado un conjunto de ejemplos sin etiquetar, agruparlos siguiendo algún criterio predefinido. Usaremos la técnica k-medias.
+Ese criterio suele venir por:
+\begin{itemize}
+  \item \textbf{Aprendizaje paramétrico:} Parámetros asumidos, se asume que los datos siguen una distribución.
+  \item \textbf{Aprendizaje no paramétrico:} Necesitamos alguna medida de distancia para ver cuales se parecen más entre ellos. Se basa en agrupar las instancias por similitud; a menor distancia, mayor similitud. 
+
+  Se puede utilizar Distancia euclídea (la más usada) $d\left( \vec{x},\vec{z}\right)   = \sqrt {\sum _{i=1}^{n}  \left( x_{i}-z_{i}\right)^2 }$, euclídea ponderada $d\left( \vec{x},\vec{z},\vec{w}\right)   = \sqrt {\sum _{i=1}^{n} w_i \left( x_{i}-z_{i}\right)^2 }$, etc.
+
+  \textbf{Tipos de técnicas:}
+  \begin{itemize}
+    \item Técnicas de particionamiento (como k-medias).
+    
+    La salida es un conjunto de clases/grupos de instancias.
+
+    \item Técnicas Aglomerativos (jerárquica).
+    
+    La salida es una jerarquía de clases, en cada clase hay instancias, pero hay clases de clases con mayor importancia.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{k-medias o Algoritmo de Lloyd}
+
+Realiza una discretización o particionamiento del espacio.
+
+Genera regiones de Voronoi y nos proporciona un representante de la región, se definen mediante una medida de distancia y un conjunto de ejemplos representativos.
+
+\textbf{Objetivo:} Generar el conjunto de prototipos/centroides que minimice una determinada medida de error o distorsión.
+
+
+\textbf{Algoritmo de Lloyd Generalizado (T, k):} Conjunto de entrenamiento T y k número de grupos/clases. Los prototipos se representan con $\mu$.
+
+\begin{enumerate}
+  \item Comenzar con un conjunto inicial de k prototipos $C_1 = \{\vec{\mu_1}, ..., \vec{\mu_k} \}$.
+  \item Dado un conjunto de prototipos, $C_m$, ejecutar la Iteración de Lloyd para generar el siguiente conjunto de prototipos, $C_{m+1}$. Los prototipos varían entre conjuntos, se van centrando.
+  
+  \textbf{Iteración de Lloyd ($C_m$, T, k):} $C_m$ Conjunto prototipo, T Conjunto de entrenamiento y k número de grupos. Crea regiones y recalcula centroide.
+  \begin{enumerate}
+    \item Dado un conjunto de prototipos $C_m = \{\vec{\mu_1}, ..., \vec{\mu_k} \}$, partir el conjunto de entrada T en k particiones $R_i, ..., R_k$ usando la siguiente condición: Los ejemplos pertenecen a la región del prototipo más cercano, y solo de ese. (Si se genera una partición vacía, utiliza alguna estrategia para tratar el caso)
+    
+    $$R_i = \{ \vec{x} \in T: d(\vec{x}, \vec{\mu_i}) \leq d(\vec{x}, \vec{\mu_j}); \space para \space todo \space j \neq i \}$$
+    
+    \item Recalcular los centroides de cada partición, pasa a ser el punto medio de la región, y actualiza el conjunto de prototipos con esos centroides.
+    $$centroide(R_i) = \frac{1}{|R_i|} \sum_{\vec{x} \in R_i} \vec{x}$$
+  \end{enumerate}
+  \item Calcular la distorsión para el nuevo conjunto, $C_{m+1}$, midiendo como de cerca están las instancias $x_i$ del prototipo $\mu_j$.
+  $$D = \sum^{|T|}_{i=1} d( \vec{x_i}, \vec{\mu_j})^2$$
+  $$C_{m+1} = \{\vec{\mu_i}|\vec{\mu_i} = centroide(R_i) \}$$
+  \item Si el decremento de la distorsión entre dos interacciones no supera un umbral (bastante bajo), parar. Sino ir al paso 2. 
+\end{enumerate}
+
+\newpage
+
+\textbf{Ejemplo:}
+
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{k-medias I}}
+  {\includegraphics[scale=.2]{2021-03-26 09_37_22-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}
+  \includegraphics[scale=.2]{2021-03-26 09_38_09-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}}
+\end{figure}
+
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{k-medias II}}
+  {\includegraphics[scale=.2]{2021-03-26 09_39_23-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}
+  \includegraphics[scale=.2]{2021-03-26 09_39_55-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}}
+\end{figure}
+
+\textbf{Algunas consideraciones:}
+\begin{itemize}
+  \item Atributos con diferentes rangos es imprescindible normalizarlos.
+  \item Atributos simbólicos: Utilizamos Distancia de Hamming. 
+\end{itemize}
+
+\textbf{Parámetros de k-medias:}
+
+Nos indica el número de clases a considerar y nos sirve para la selección de semillas.
+
+Selección de semillas:
+\begin{itemize}
+  \item ejecutar varias veces y quedarse con la mejor partición.
+  \item otra alternativa es utilizar K-MEANS++ (que es una selección más inteligente)
+\end{itemize}
+
+Selección de k automáticamente:
+\begin{itemize}
+  \item Se puede probar con distintos k y quedarse con el que los conjunto tengan menos distorsión.
+  \item Otro método es G-MEANS.
+\end{itemize}
+
+\newpage
+
+\subsubsection{Métodos Aglomerativos}
+
+Consisten en generar unos árboles denominado dendogramas.
+
+\textbf{Clustering jerárquico:} No sol se generan grupos, sino también una jerarquía entre ellos.
+
+\textbf{Búsqueda hacia arriba:} 
+\begin{enumerate}
+  \item Inicialmente, cada representa un ejemplo.
+  \item Se repite N-1 veces (siendo N el número de ejemplos):
+  \begin{enumerate}
+    \item Se calcula la similitud entre todo par de ejemplos.
+    \item Se agrupan los dos más cercanos.
+    \item Se sustituyen los dos nodos por su representante/centroide/prototipo.
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{Ejemplo:}
+
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Clustering jerárquico I}}
+  {\includegraphics[scale=.2]{2021-03-26 10_12_33-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}
+  \includegraphics[scale=.2]{2021-03-26 10_13_31-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}}
+\end{figure}
+
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Clustering jerárquico II}}
+  {\includegraphics[scale=.2]{2021-03-26 10_13_56-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}
+  \includegraphics[scale=.2]{2021-03-26 10_14_24-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}}
+\end{figure}
+
+\newpage
+
+\subsubsection{Distancia entre clústeres}
+
+Distintas definiciones:
+\begin{itemize}
+  \item Mínima entre las instancias de los clústeres. $d_{min}(C_i, C_j) = \min_{\vec{x} \in C_i, \vec{y} \in C_j} d(\vec{x}, \vec{y})$
+  \item Máxima. $d_{max}(C_i, C_j) = \max_{\vec{x} \in C_i, \vec{y} \in C_j} d(\vec{x}, \vec{y})$
+  \item Media. $d_{media}(C_i, C_j) = \frac{1}{|C_i||C_j|} \sum_{\vec{x} \in C_i, \vec{y} \in C_j} d(\vec{x}, \vec{y})$
+  \item Como distancia entre sus centroides. $d_{centro}(C_i, C_j) = d(\vec{\mu_i}, \vec{\mu_j})$
+\end{itemize}
+
+\section{Aprendizaje semi-supervisado}
+
+En algunos dominios etiquetar es pesado (páginas web, imágenes). La solución es etiquetar unas pocas instancias.
+
+\subsection{co-training [Blum and Mitchell, 1998]}
+
+Se tienen dos conjuntos de datos independientes con diferentes atributos, que entrenan clasificadores independientes, y etiquetar las demás instancias con la clase que diga el clasificador que tenga más confianza y repetir el proceso.
+
+\subsection{CO-EM}
+
+Entrenas con las clasificadas y los resultados pasan al conjunto de entrenamiento.
+
+Aprendizaje supervisado con las instancias etiquetadas. Realiza en bucle, clasificar las instancias no etiquetadas y reconstruir el clasificador.
+
 \end{document}
+
