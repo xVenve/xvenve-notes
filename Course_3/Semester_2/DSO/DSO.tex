@@ -863,10 +863,10 @@ Zephyr, Micrium, RTOS (Real Time Operative Systems), R IOT, VxWorks, ThreadX, Mi
 	\item Lenguajes de Programación estándar, que nos permita utilizar la API para desarrollar aplicaciones. 
 \end{itemize}
 
-\subsection{Modelo general de un sistema embebido}
+\subsection{Capa de Software del Sistema}
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Modelo General SO}}
+	{\caption{Modelo General SO embebido}}
 	{\includegraphics[scale=.5]{2021-03-25 10_06_39-2021-03-24 16-59-20.mkv.png}}
 \end{figure}
 
@@ -882,10 +882,14 @@ Todos los controladores de dispositivos generalmente se componen de todas o una 
 	\item \textbf{Hardware Startup:} Inicialización del hardware tras el encendido o el restablecimiento.
 	\item \textbf{Hardware Shutdown:} Configurando el hardware en su estado PowerOFF.
 	\item \textbf{Hardware Disable:} Permitir que otro software desactive el hardware sobre la marcha.
+	\item \textbf{Hardware Enable:} Permitir que otro software active el hardware sobre la marcha.
 	\item \textbf{Hardware Acquire:} Permitir que otro software obtenga acceso singular (bloqueo) al hardware.
-	\item \textbf{Hardware Write:} Permitir que otro software escriba datos en el hardware.
-	\item \textbf{Hardware Install:} Permitir que otro software instale nuevo hardware sobre la marcha.   
 	\item \textbf{Hardware Release:} Permitir que otro software libere (desbloquee) hardware. 
+	\item \textbf{Hardware Read:} Permitir que otro software lea datos en el hardware.
+	\item \textbf{Hardware Write:} Permitir que otro software escriba datos en el hardware.
+	\item \textbf{Hardware Install:} Permitir que otro software instale nuevo hardware sobre la marcha.  
+	\item \textbf{Hardware Uninstall:} Permitir que otro software quite hardware instalado sobre la marcha.   
+	\item \textbf{Hardware Mapping:} Permite el mapeo de direcciones hacia y desde dispositivos de almacenamiento de hardware para leer y escribir datos.
 	\item \textbf{Hardware Unmapping:} Permitiendo eliminar bloques de datos de dispositivos de almacenamiento de hardware.
 \end{itemize}
 
@@ -994,26 +998,31 @@ Todos los controladores de dispositivos generalmente se componen de todas o una 
 
 \subsubsection{Middleware}
 
-Cualquier software del sistema que no es kernel del sistema operativo, controladores de dispositivos o las aplicaciones que se van a desarrollar.
+Cualquier software del sistema que no es kernel del sistema operativo, controladores de dispositivos o las aplicaciones que se van a desarrollar. Se puede encontrar dentro de los controladores de los dispositivos, del software del SO o independiente sobre estos dos.
 
 \textbf{Razones para usar Middleware}
 \begin{itemize}
-	\item Adaptability
-	\item Connectivity
-	\item Flexibility and Scalability
-	\item Portability
-	\item Security
+	\item \textbf{Adaptabilidad - Adaptability:} Permite que el middleware superpuesto y/o aplicaciones integradas se adapten a los cambios en la disponibilidad de los recursos.
+	\item \textbf{Conectividad - Connectivity:} Proporciona al middleware superpuesto y/o aplicaciones integradas la capacidad de comunicarse de forma transparente entre aplicaciones de distintos dispositivos, a través una interfaz estándar y amigable.
+	\item \textbf{Flexibilidad y Escalabilidad - Flexibility and Scalability:} Permite que el middleware y/o aplicaciones integradas sean configurables y personalizables en términos de funcionalidad según los requisitos de la aplicación.
+	\item \textbf{Portabilidad - Portability:} Permite que las aplicaciones integradas y/o middleware superpuestas se ejecuten en diferentes  sistemas integrados con diferentes capas de software y/o hardware.
+	\item \textbf{Seguridad - Security:} Garantiza que el middleware superpuesto y/o las aplicaciones integradas tengan acceso autorizado a los recursos del sistema.
 \end{itemize}
 
 \textbf{Tipos de Middleware}
 \begin{itemize}
-	\item \textbf{Middleware básico - core:} Relacionado con la gestión de las comunicaciones (Controladores de Red) y elementos que permitan virtualizar el funcionamiento.
+	\item \textbf{Middleware básico - core:} Tiene un propósito mas general y es el mas común. Sirve como base para el mas complejo y está relacionado con la gestión de sistemas de archivos, las comunicaciones (Controladores de Red) y elementos que permitan virtualizar el funcionamiento.
 	\item \textbf{Middleware complejo:} Middleware especifico del mercado, mensajería y comunicaciones complejas, mensajería distribuida y orientada a mensajes, y transacciones distribuidas.
 \end{itemize}
 
+Aun así puede ser middleware \textbf{propietario}, que significa que es un software cerrado respaldado por un empresa que lo licencia a otra para su uso, o puede ser \textbf{abierto}, lo que significa que puede ser implementado y/o licenciado por cualquier parte interesada.
 
+\subsection{Capa de Software de Aplicación}
+Se encuentra en la parte superior de la capa de software del sistema y depende del software del sistema, o administra y lo ejecuta. 
 
+Es el software dentro de la  capa de aplicación el que define inherentemente que tipo de dispositivo es un sistema integrado, porque la funcionalidad de una aplicación representa al mas alto nivel el propósito de ese sistema integrado y realiza la mayor parte de la interacción con los usuarios o administradores de ese dispositivo.
 
+Se pueden dividir en aplicaciones integradas \textbf{especificas del mercado} (implementada en un solo tipo de dispositivo) o de \textbf{propósito general} (se pueden implementar en varios tipos de dispositivos).
 
 \chapter{Recursos}
 \href{https://learning.oreilly.com/playlists/5a6c045f-e39c-465e-9e7c-60dcbb12aebb}{Lista de libros de referencia}
@@ -1025,7 +1034,7 @@ Cualquier software del sistema que no es kernel del sistema operativo, controlad
 
 \href{https://learning.oreilly.com/library/view/build-your-own/9781484244982/html/474034_1_En_2_Chapter.xhtml}{Arquitectura de Sistemas de Internet de las Cosas}
 
-\section{Tema 2: Sensores yActuadores}
+\section{Tema 2: Sensores y Actuadores}
 \href{https://learning.oreilly.com/library/view/internet-of-things/9781788470599/d39be056-b166-476e-868e-c415e4dfa886.xhtml}{Introducción a Sensores y Actuadores} Hasta la sección 'Up to Functional examples (putting it all together)' incluida
 
 \section{Tema 3: Sistemas operativos embebidos para Dispositivos IoT}
@@ -1036,8 +1045,6 @@ Cualquier software del sistema que no es kernel del sistema operativo, controlad
 \href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP008.html#CHP008titl}{Drivers de Dispositivos} Hasta el encabezado "8.1 Example 1: Device Drivers for Interrupt Handling"
 
 \href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP010.html#CHP010titl}{Middleware} Secciones 10.1 y 10.2
-
-
 
 
 
