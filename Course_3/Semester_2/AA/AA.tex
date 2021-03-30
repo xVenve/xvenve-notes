@@ -1849,11 +1849,11 @@ Selección de k automáticamente:
 
 Consisten en generar unos árboles denominado dendogramas.
 
-\textbf{Clustering jerárquico:} No sol se generan grupos, sino también una jerarquía entre ellos.
+\textbf{Clustering jerárquico:} No solo se generan grupos, sino también una jerarquía entre ellos.
 
 \textbf{Búsqueda hacia arriba:} 
 \begin{enumerate}
-  \item Inicialmente, cada representa un ejemplo.
+  \item Inicialmente, cada ejemplo representa una clase.
   \item Se repite N-1 veces (siendo N el número de ejemplos):
   \begin{enumerate}
     \item Se calcula la similitud entre todo par de ejemplos.
@@ -1896,13 +1896,15 @@ En algunos dominios etiquetar es pesado (páginas web, imágenes). La solución 
 
 \subsection{co-training [Blum and Mitchell, 1998]}
 
-Se tienen dos conjuntos de datos independientes con diferentes atributos, que entrenan clasificadores independientes, y etiquetar las demás instancias con la clase que diga el clasificador que tenga más confianza y repetir el proceso.
+Se tienen dos conjuntos de datos independientes con diferentes atributos, que entrenan clasificadores independientes, y se etiquetan las demás instancias con la clase que diga el clasificador que tenga más confianza y se repetite el proceso.
 
 \subsection{CO-EM}
 
-Entrenas con las clasificadas y los resultados pasan al conjunto de entrenamiento.
+Entrena con las clasificadas, clasifica el resto y el resultado se añade al conjunto de entrenamiento.
 
-Aprendizaje supervisado con las instancias etiquetadas. Realiza en bucle, clasificar las instancias no etiquetadas y reconstruir el clasificador.
+Realiza en bucle: Clasificar las instancias no etiquetadas y reconstruir el clasificador.
+
+Es aprendizaje supervisado con las instancias etiquetadas. 
 
 \end{document}
 
