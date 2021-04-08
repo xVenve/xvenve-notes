@@ -1088,7 +1088,7 @@ Los protocolos dominantes son MQTT y CoAP.
 	{\includegraphics[scale=.5]{2021-04-08 09_06_45-2021-04-07 17-01-12.mkv.png}}
 \end{figure}
 
-El problema de usar TCP y HTTP (basado en TCP) es que son muy ricos en información que es una ventaja, pero en el caso de los dispositivos IoT no es posible disponer de recursos están limitados, por lo que se preferirá aquellos más ligeros.
+El problema de usar TCP y HTTP (basado en TCP) es que son muy ricos en información que es una ventaja, pero en el caso de los dispositivos IoT se dispone de recursos limitados, por lo que se preferirá aquellos más ligeros.
 
 \section{Middleware Orientado a Mensajes}
 
@@ -1111,7 +1111,7 @@ El servicio de mensajería consta de 3 partes; Publisher (publicador, emisor), B
 
 El broker hace como intermediario de los publicadores y suscriptores, de esta manera se reduce el acoplamiento y es más fácil escalar el sistema. 
 
-A diferencia de HTTP, no es necesario que el publicador sepa a quien enviárselo, de esta manera se reduce también el consumo de recursos. Al igual los suscriptores no tienen que consultar a d montón de publicadores, solo al broker.
+A diferencia de HTTP, no es necesario que el publicador sepa a quien enviárselo, de esta manera se reduce también el consumo de recursos. Al igual los suscriptores no tienen que consultar a un montón de publicadores, solo al broker.
 
 \newpage
 
@@ -1142,7 +1142,7 @@ Se empezó a trabajar en el en 1993 por IBM, para comunicar dispositivos en luga
 
 Normalmente hay un suscriptor, un broker y un publicador, que funcionan como se ha descrito arriba (uno crea los topic, otro los gestiona y el ultimo lo recibe).
 
-Se debe tener encuentra cuál es el tamaño máximo de los mensajes según el proveedor (IBM Watson allows for payload sizes up to 128 KB, while Google supports 256 KB), dado que admite cualquier archivo hay que cuidar de esto
+Se debe tener en cuenta cuál es el tamaño máximo de los mensajes según el proveedor (IBM Watson allows for payload sizes up to 128 KB, while Google supports 256 KB), dado que admite cualquier archivo hay que cuidar de esto
 
 \textbf{Desarrollo:}
 \begin{itemize}
