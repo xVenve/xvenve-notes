@@ -478,7 +478,7 @@ Según la señal que produce:
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Diagrama de voltaje Sensor Analogico}}
+	{\caption{Diagrama de voltaje Sensor Analógico}}
 	{\includegraphics[scale=.5]{image-20210307210139988.png}}
 \end{figure}
 
@@ -716,7 +716,7 @@ aplicación según las necesidades del usuario.
 \begin{description}
 	\item[Microcontrolador] Es el componente que ejecuta un programa en un sistema integrado, y se encuentra en la zona central, se encarga de realizar el procesamiento. 
 	
-	Conectado a otros compoenentes del hardware, envia ordenes a los sensores y recibe datos de los sensores. 
+	Conectado a otros componentes del hardware, envía órdenes a los actuadores y recibe datos de los sensores. 
 	
 	Consta de CPU, RAM, ROM, puertos E/S y temporizadores.
 	
@@ -748,7 +748,7 @@ aplicación según las necesidades del usuario.
 
 Es una plataforma de código abierto sed para construir proyecto de electrónica.	Consta de una placa de circuito programable física (microcontrolador) y una pieza de software, o IDE (entorno de desarrollo) que se ejecuta en una computadora portátil o computadora personal utilizada para escribir y cargar código de computadora en la física. Tiene pines analógicos y digitales.
 	
-No necesita una pieza software separada para cargar un nuevo codigo en la placa.
+No necesita una pieza software separada para cargar un nuevo código en la placa.
 	
 Utiliza una versión simplificada de C++, lo que lo hace más fácil de aprender.
 	
@@ -779,7 +779,7 @@ La Raspberry PI tiene una conexión GPIO de 40 pines, lo que facilita la conexi�
 		\item Los pines 27 y 28, ID SD e ID SC, son para conectar una EEPROM.
 		\item Pines 8 y 10, GPIO 14 y 15, son para comunicación UART puerto serie que transmite poca información (baja frecuencia), como USB, RFID, Bluetooth, GPS, GSM o GPRDS.
 		\item GPIO 2 y 3 (clock) se usan para I2C, comunicación entre placas, como un LCD, otras placas base (Raspberry, Arduino, ...) o un reloj de tiempo real.
-		\item GPIO 7, 8, 9, 10 y 11 implementan otro mecanismo de comunciación el SPI, que es la evolución del protocolo I2C, su función es comunicar full duplex, como SSD card, IP Core o Memoria Flash.
+		\item GPIO 7, 8, 9, 10 y 11 implementan otro mecanismo de comunicación el SPI, que es la evolución del protocolo I2C, su función es comunicar full duplex, como SSD card, IP Core o Memoria Flash.
 	\end{itemize}
 		
 \end{description}  
@@ -949,13 +949,15 @@ Todos los controladores de dispositivos generalmente se componen de todas o una 
 
 	
 	\paragraph{Preventivo vs. No preventivo}
-	(Es confusa cual es cual, por parte del profesor)
+
+	Utilizar el término más parecido a la terminología inglesa, Expropiativo y No expropiativo.
+
 	\begin{itemize}
-		\item 	\textbf{Preventivo - Apropiativo:} No se le puede expulsar. Las tareas reciben el control de la CPU maestra hasta que finalizan su ejecución, independientemente del tiempo o la importancia de las otras tareas que están en espera.
+		\item \textbf{Non-pre-emptive - No expropiativo - Apropiativo:} No se le puede expulsar. Las tareas reciben el control de la CPU maestra hasta que finalizan su ejecución, independientemente del tiempo o la importancia de las otras tareas que están en espera.
 		
 		Ejemplos: FCFS, SPF o SJF, Prioridades
 
-		\item 	\textbf{No Preventivo - No apropiativo:} Se les puede expulsar de las CPU cuando acaba su rodaja, se dividen los procesos en rodajas de duración fija. El SO fuerza el cambio de contexto en una tarea, ya sea que una tarea en ejecución haya terminado de ejecutarse o este cooperando con el cambio de contexto.	
+		\item \textbf{Pre-emptive - Expropiativo - No apropiativo:} Se les puede expulsar de las CPU cuando acaba su rodaja, se dividen los procesos en rodajas de duración fija. El SO fuerza el cambio de contexto en una tarea, ya sea que una tarea en ejecución haya terminado de ejecutarse o este cooperando con el cambio de contexto.	
 
 		Ejemplos: Round Robin, SRTF, Colas Multinivel
 	\end{itemize}
@@ -1005,24 +1007,165 @@ Cualquier software del sistema que no es kernel del sistema operativo, controlad
 	\item \textbf{Adaptabilidad - Adaptability:} Permite que el middleware superpuesto y/o aplicaciones integradas se adapten a los cambios en la disponibilidad de los recursos.
 	\item \textbf{Conectividad - Connectivity:} Proporciona al middleware superpuesto y/o aplicaciones integradas la capacidad de comunicarse de forma transparente entre aplicaciones de distintos dispositivos, a través una interfaz estándar y amigable.
 	\item \textbf{Flexibilidad y Escalabilidad - Flexibility and Scalability:} Permite que el middleware y/o aplicaciones integradas sean configurables y personalizables en términos de funcionalidad según los requisitos de la aplicación.
-	\item \textbf{Portabilidad - Portability:} Permite que las aplicaciones integradas y/o middleware superpuestas se ejecuten en diferentes  sistemas integrados con diferentes capas de software y/o hardware.
+	\item \textbf{Portabilidad - Portability:} Permite que las aplicaciones integradas y/o middleware superpuestas se ejecuten en diferentes sistemas integrados con diferentes capas de software y/o hardware.
 	\item \textbf{Seguridad - Security:} Garantiza que el middleware superpuesto y/o las aplicaciones integradas tengan acceso autorizado a los recursos del sistema.
 \end{itemize}
 
 \textbf{Tipos de Middleware}
 \begin{itemize}
-	\item \textbf{Middleware básico - core:} Tiene un propósito mas general y es el mas común. Sirve como base para el mas complejo y está relacionado con la gestión de sistemas de archivos, las comunicaciones (Controladores de Red) y elementos que permitan virtualizar el funcionamiento.
+	\item \textbf{Middleware básico - core:} Tiene un propósito más general y es el más común. Sirve como base para el más complejo y está relacionado con la gestión de sistemas de archivos, las comunicaciones (Controladores de Red) y elementos que permitan virtualizar el funcionamiento.
 	\item \textbf{Middleware complejo:} Middleware especifico del mercado, mensajería y comunicaciones complejas, mensajería distribuida y orientada a mensajes, y transacciones distribuidas.
 \end{itemize}
 
-Aun así puede ser middleware \textbf{propietario}, que significa que es un software cerrado respaldado por un empresa que lo licencia a otra para su uso, o puede ser \textbf{abierto}, lo que significa que puede ser implementado y/o licenciado por cualquier parte interesada.
+Aun así, puede ser middleware \textbf{propietario}, que significa que es un software cerrado respaldado por una empresa que lo licencia a otra para su uso, o puede ser \textbf{abierto}, lo que significa que puede ser implementado y/o licenciado por cualquier parte interesada.
 
 \subsection{Capa de Software de Aplicación}
 Se encuentra en la parte superior de la capa de software del sistema y depende del software del sistema, o administra y lo ejecuta. 
 
-Es el software dentro de la  capa de aplicación el que define inherentemente que tipo de dispositivo es un sistema integrado, porque la funcionalidad de una aplicación representa al mas alto nivel el propósito de ese sistema integrado y realiza la mayor parte de la interacción con los usuarios o administradores de ese dispositivo.
+Es el software dentro de la capa de aplicación el que define inherentemente que tipo de dispositivo es un sistema integrado, porque la funcionalidad de una aplicación representa al más alto nivel el propósito de ese sistema integrado y realiza la mayor parte de la interacción con los usuarios o administradores de ese dispositivo.
 
 Se pueden dividir en aplicaciones integradas \textbf{especificas del mercado} (implementada en un solo tipo de dispositivo) o de \textbf{propósito general} (se pueden implementar en varios tipos de dispositivos).
+
+\section{Preguntas Test 2}
+\begin{itemize}
+	\item Seleccione la frase incorrecta con respecto a la definición de sistemas embebidos:
+	
+	d. PDA o web pads son ejemplos típicos de sistemas embebidos.
+	
+	\item ¿Por qué POSIX es muy relevante en el área de sistemas operativos integrados?
+	
+	b. Porque proporciona una interfaz de programación estándar para sistemas operativos embebidos. 
+	
+	\item Seleccione la afirmación correcta con respecto a las señales/interrupciones del sistema operativo integrado:
+	
+	b. Las interrupciones son indicadores de que un evento asincrónico ha sido generado por algún evento externo.
+	
+	\item Seleccione la afirmación correcta con respecto a la interfaz GPIO de Raspberry Pi:
+	
+	a. Los pines UART se pueden usar para comunicar su Raspberry Pi con otros dispositivos que tengan una interfaz serie.
+	
+	\item Las placas de desarrollo de microcontroladores...
+	
+	a. incluyen hardware para programar microcontroladores. 
+	
+	\item Seleccione la afirmación correcta con respecto a las funcionalidades de los controladores del sistema operativo integrado:
+	
+	b. La funcionalidad de instalación de hardware permite que otro software instale nuevo hardware sobre la marcha.
+	
+	\item Seleccionar la afirmación incorrecta:
+	
+	d. Raspberry Pi está diseñado para la integración de hardware de bajo nivel.
+	
+	\item Las responsabilidades de gestión de la memoria en el sistema operativo embebido incluye:
+	
+	a. Determinar qué procesos cargar en el espacio de memoria disponible.
+	
+	\item Seleccionar la afirmación incorrecta:
+	
+	?? a. Windows IoT no es un sistema operativo embebido IoT.
+	
+	c. Debian no es un sistema operativo embebido IoT. 
+	
+	\item La placa Arduino One no incluye
+	
+	a. Una ranura para tarjeta Micro SD.
+\end{itemize}
+
+
+\chapter{Tema 5: Protocolos de comunicación de dispositivos con infraestructuras IoT}
+
+\section{Edge Interface, Message Broker y Message Bus}
+
+Se encargan de enrutar y recibir los mensajes de datos que proporcionan los dispositivos IoT, tratan con la transmisión de mensajes con el mundo físico, especialmente dispositivos y sensores Heterogéneos. Se trata de encapsular de una manera estandarizada las maneras, métodos, tecnologías o protocolos de transporte que utilizan los dispositivos IoT para conectarse a internet.
+
+Los protocolos estándar son las herramientas que unen y encapsulan datos sin procesar de un sensor a algo significativo y formateado para que la nube lo acepte.
+
+Los protocolos dominantes son MQTT y CoAP.
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Protocolos de comunicación}}
+	{\includegraphics[scale=.5]{2021-04-08 09_06_45-2021-04-07 17-01-12.mkv.png}}
+\end{figure}
+
+El problema de usar TCP y HTTP (basado en TCP) es que son muy ricos en información que es una ventaja, pero en el caso de los dispositivos IoT no es posible disponer de recursos están limitados, por lo que se preferirá aquellos más ligeros.
+
+\section{Middleware Orientado a Mensajes}
+
+Se basan en una cola de mensajes; CORBA, MQTT, AMQP o XMPP son algunos de los protocolos que lo utilizan.
+
+El servicio de mensajería consta de 3 partes; Publisher (publicador, emisor), Broker (gestor de mensajes, retransmisor) y Subscriber (suscriptor, receptor).
+\begin{itemize}
+	\item El publicador se conecta y entonces puede enviar datos por un canal (topic).
+	\item El broker confirma las conexiones y hace de intermediario, recibiendo y retransmitiendo.
+	\item El suscriptor se conecta y pide recibir los mensajes de un canal (topic), y el broker se los irá enviando.
+\end{itemize}
+
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Comunicación orientada a mensajes}}
+	{\includegraphics[scale=.4]{2021-04-08 09_17_44-2021-04-07 17-01-12.mkv.png}
+	\includegraphics[scale=.22]{2021-04-08 09_20_09-2021-04-07 17-01-12.mkv.png}}
+\end{figure}
+
+El broker hace como intermediario de los publicadores y suscriptores, de esta manera se reduce el acoplamiento y es más fácil escalar el sistema. 
+
+A diferencia de HTTP, no es necesario que el publicador sepa a quien enviárselo, de esta manera se reduce también el consumo de recursos. Al igual los suscriptores no tienen que consultar a d montón de publicadores, solo al broker.
+
+\newpage
+
+\section{Servicio RESTful}
+
+Es la alternativa a los protocolos basados en mensajes.
+
+En un modelo RESTful el servidor posee el estado de un recurso, sabe en qué estado se encuentra.
+La recepción de peticiones y la recepción de respuesta es independiente del estado. Se suele utilizar cuando quiero enviar datos a un servidor o los quiero recuperar.
+
+Envía con post y recibe con get, resolviendo el URL.
+
+Utiliza directamente el protocolo HTTP, todos están sobre este, mediante una URL podemos identificar el path.
+Al emplear HTTP son protocolos muy exigentes en cuanto a nivel de comunicaciones, requiere mayor cabecera y numero de intercambios de mensajes.
+
+Por ejemplo: CoAP
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Servicio RESTful}}
+	{\includegraphics[scale=.5]{2021-04-08 09_36_12-2021-04-07 17-01-12.mkv.png}}
+\end{figure}
+
+\section{MQTT - Message Queuing Telemetry Transport}
+Protocolo de cola de mensajes, es el protocolo de intercambio de mensajes en el ámbito IoT por excelencia.
+
+Se empezó a trabajar en el en 1993 por IBM, para comunicar dispositivos en lugares remotos, con latencias altas y bajo ancho de banda.
+
+Normalmente hay un suscriptor, un broker y un publicador, que funcionan como se ha descrito arriba (uno crea los topic, otro los gestiona y el ultimo lo recibe).
+
+Se debe tener encuentra cuál es el tamaño máximo de los mensajes según el proveedor (IBM Watson allows for payload sizes up to 128 KB, while Google supports 256 KB), dado que admite cualquier archivo hay que cuidar de esto
+
+\textbf{Desarrollo:}
+\begin{itemize}
+	\item 1993 - Se comienza a trabajar en él.
+	\item 1999 - Andy Standford-Cark y Arlen Nipper fueron los autores de la primera versión del protocolo.
+	\item 2010 - MQTT fue lanzado libre de regalías, royalties (se podía utilizar sin pagar).
+	\item 2012 - Se lanzo la primera versión de Mosquitto.
+	\item 2013 - MQTT-SN que fue especificado y diseñado para funcionar sobre UDP, Zigbee y otros transportes.
+	\item 2014 - MQTT se convirtió en un estándar OASIS (de comunicaciones).
+	\item 2018 - Se aprobó la versión MQTT v5 (aunque no es la más extendida).
+\end{itemize}
+
+\textbf{Objetivos:}
+\begin{itemize}
+	\item Debe ser fácil de implementar.
+	\item Disponer de una calidad de servicio.
+	\item Ser ligero y eficiente en ancho de banda, debe dar soporte a dispositivos con poco ancho de banda y consumo de energía.
+	\item Ser agnóstico en cuanto al tipo de datos, puede tratar cualquier tipo de datos.
+	\item Tener conciencia continua de la sesión.
+	\item Abordar problemas de seguridad.
+\end{itemize}
+
+
 
 \chapter{Recursos}
 \href{https://learning.oreilly.com/playlists/5a6c045f-e39c-465e-9e7c-60dcbb12aebb}{Lista de libros de referencia}
@@ -1030,7 +1173,7 @@ Se pueden dividir en aplicaciones integradas \textbf{especificas del mercado} (i
 \section{Tema 1: Arquitectura de Sistemas IoT}
 \href{https://learning.oreilly.com/library/view/internet-of-things/9781788470599/a7f866bd-4ac8-47f3-a175-0f10d91a5ce2.xhtml}{Definición de Internet de las Cosas}
 
-\href{https://learning.oreilly.com/library/view/internet-of-things/9781119456742/part04.xhtml\#part}{Aplicaciones  Actuales de Internet de las Cosas}
+\href{https://learning.oreilly.com/library/view/internet-of-things/9781119456742/part04.xhtml\#part}{Aplicaciones Actuales de Internet de las Cosas}
 
 \href{https://learning.oreilly.com/library/view/build-your-own/9781484244982/html/474034_1_En_2_Chapter.xhtml}{Arquitectura de Sistemas de Internet de las Cosas}
 
@@ -1046,6 +1189,9 @@ Se pueden dividir en aplicaciones integradas \textbf{especificas del mercado} (i
 
 \href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP010.html#CHP010titl}{Middleware} Secciones 10.1 y 10.2
 
-
+\section{Tema 5: Protocolos de comunicación de dispositivos con infraestructuras IoT}
+\href{https://learning.oreilly.com/library/view/internet-of-things/9781788470599/b34f5cd8-115c-490c-b5c2-38a3a966a65a.xhtml}{Proctocolos de comunicación IoT}
 
 \end{document}
+
+
