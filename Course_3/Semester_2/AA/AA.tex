@@ -1904,7 +1904,246 @@ Entrena con las clasificadas, clasifica el resto y el resultado se añade al con
 
 Realiza en bucle: Clasificar las instancias no etiquetadas y reconstruir el clasificador.
 
-Es aprendizaje supervisado con las instancias etiquetadas. 
+Es aprendizaje supervisado con las instancias etiquetadas.
+
+\chapter{TEMA 6. Conjuntos de clasificadores y Reglas de asociación}
+\section{Conjuntos de clasificadores - Emsembles}
+Se emplea en aprendizaje supervisado, la mayoría se pueden utilizar tanto en Clasificación como en Regresión, pero hay algunos más específicos.
+
+Se tienen un grupo de clasificadores cuyas decisiones individuales se combinan de alguna manera. A menudo son mucho más precisos que cualquiera de los clasificadores individuales.
+
+Los clasificadores individuales deben ser diversos (errores no correlados) y precisos (al menos mejor que una clasificación aleatoria).
+
+Razones por las que se pueden encontrar buenos conjuntos:
+\begin{itemize}
+  \item \textbf{Estadística:} Si construimos muchos modelos que no tengan mucha precisión, combinando los modelos estadísticamente se reduce el error.
+  \item \textbf{Computacional:} Como cada hipótesis se construye de manera diferente, combinar varias búsquedas locales, nos permite encontrar un modelo final más preciso sin la necesidad de explorar todo el espacio de hipótesis.
+  \item \textbf{Representacional:} Es posible que combinando distintas hipótesis (en la que alguna puede estar en un espacio de hipótesis que no contenga a la funciona) lleguemos a poder representar una mejor aproximación a la función real.
+\end{itemize}
+
+Métodos de construcción de conjuntos
+\begin{itemize}
+  \item Manipulación de las instancias del conjunto de entrenamiento
+  \begin{itemize}
+    \item Bagging
+    \item Comités de validación cruzada
+    \item AdaBoost (Boosting)
+  \end{itemize}
+  \item Manipulación de los atributos (utilizar atributos distintos en los clasificadores)
+  \begin{itemize}
+    \item Random forests
+  \end{itemize}
+  \item Manipulación de las salidas/clases
+  \begin{itemize}
+    \item Error correcting output coding - ECOC
+  \end{itemize}
+  \item Meta-Aprendizaje
+  \begin{itemize}
+    \item Stacking
+  \end{itemize}
+\end{itemize}
+
+\subsection{Bagging - Boostrap aggregating [Breiman, 1996]}
+Construir distintos conjuntos de entrenamientos, generar los clasificadores y la salida será lo que diga la mayoría de los clasificadores.
+
+Generan muestras de m instancias del conjunto de entrenamiento, donde cada muestra se genera haciendo selección aleatoria con remplazo (una instancia se puede coger en varios conjuntos) Se genera un clasificador con cada muestra.
+
+Los clasificadores se pueden generar en paralelo, y se combina las decisiones de los clasificadores por voto mayoritario.
+
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Bagging}}
+  {\includegraphics[scale=.3]{2021-04-09 23_26_39-Settings.png}}
+\end{figure}
+
+\subsubsection{Algoritmo de Bagging}
+\textbf{Procedimiento Bagging (E, B, N)}, donde E es el conjunto de entrenamiento, B el algoritmo de aprendizaje y N el número de clasificadores que se generan (copias de E).
+
+Para $i = 1$ hasta N:
+
+\hspace{6mm} $E' =$ muestra de $E$ (selección aleatoria con reemplazo).
+
+\hspace{6mm} $C_i = B(E')$ (crea un nuevo clasificador a partir de $E'$).
+
+Devolver clasificadores $C_i$.
+
+\subsection{Comités de validación cruzada}
+Se construyen conjuntos de entrenamiento de forma similar a validación cruzada (básicamente igual, pero cada uno de los clasificadores que se utilizaría para estimas el error es lo que se busca):
+\begin{itemize}
+  \item Se dividen los ejemplos de entrenamiento en k conjuntos disjuntos.
+  \item Se crean k conjuntos de entrenamiento en el que en cada uno se deja fuera uno de los conjuntos disjuntos.
+\end{itemize}
+
+\subsection{Boosting [Shapire, 1990]}
+La idea es ir construyendo un clasificador (incremental) que en base a lo que ha fallado previamente vaya mejorando, se especializan los clasificadores en ejemplos mal clasificadores.
+
+Se utiliza principalmente en clasificación binaria (+1 -1). Mejora la precisión de clasificadores débiles, como puede ser OneR.
+
+El algoritmo de boosting más utilizado es AdaBoost - Adaptative Boosting.
+
+Los clasificadores se general de manera secuencial y se combina la decisión de los clasificadores por voto ponderado.
+\subsubsection{Algoritmo de Boosting}
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Boosting}}
+  {\includegraphics[scale=.25]{2021-04-10 00_10_42-ensembles-reglasAsociacion.pdf - Foxit Reader.png}}
+\end{figure}
+
+Se tienen unas instancias con unos pesos, se utiliza un algoritmo de aprendizaje que genera un modelo, se evalúan las instancias y según las mal clasificadas se recalculan los pesos de las instancias (que lo solucionaran los futuros clasificadores)
+
+\textbf{Procedimiento AdaBoostM1(E, B, T)}, donde E es el conjunto de entrenamiento E, B el algoritmo de aprendizaje base y T el número de iteraciones.
+
+Inicializar pesos: $w(x_i) = \frac 1 n$. Inicialmente todas las instancias (x) tienen el mismo peso.
+
+Para $t = 1$ hasta $T$:
+\begin{itemize}
+  \item Normalizar pesos $w(x_i)$ (suman todas 1 en total)
+  \item $C_t = B(E_t)$ Se construye un clasificador con el conjunto de entrenamiento con pesos.
+  \item \textbf{Error por instancia:} $ierror(x_i)$ (0 si bien clasificado, 1 si mal clasificado)
+  \item \textbf{Error del clasificador:} $error_{C_t} = \frac {\sum_i w(x_i)\cdot ierror(x_i)} {\sum_i w(x_i)}$ Medida ponderada, para tener en cuenta los pesos de las instancias y poder darles luego más importancia.
+  \item \textbf{Peso del clasificador:} $peso_{C_t} = ln \left( \frac{1-error_{C_t}}{error_{C_t}} \right)$ Da más peso a los clasificados que cometen menos error (son más precisos)
+  \item \textbf{Actualización de pesos:} $w(x_i) = w(x_i) \times e^{(peso_{C_t} \times ierror(x_i))}$ Da más peso a las instancias predichas incorrectamente. De esta manera se trata de que se llegue a clasificar bien (se va especializando)
+\end{itemize}
+Devolver clasificador C* donde cada clasificador se pondera por su peso.
+
+De esta manera tenemos T clasificadores, a los que pasaremos instancias y tendremos en cuenta el peso del clasificador (ponderar el resultado) para elegir la clase final.
+
+\subsection{Manipulación de atributos}
+Se generan distintos clasificadores con distintos subconjuntos de atributos.
+
+Problemas cuando eliminar atributos provoca un mal comportamiento de los clasificadores.
+
+\subsection{Bosques aleatorios (Random Forests) [Breiman, 2001]}
+Por un lado, se modifican instancias y por otro atributos.
+
+\textbf{Aprendizaje:} Se construyen k arboles de decisión (regresión) aleatorios.
+\begin{itemize}
+  \item elegir aleatoriamente $|E|$ ejemplos (con reemplazo) de los E originales.
+  \item en cada nodo del árbol de decisión (regresión), elegir aleatoriamente $m \ll |A|$ atributos.
+  \item usualmente $m = \sqrt{|A|}$.
+  \item expandir el mejor atributo (de los m), los mejores estarán en la raíz.
+  \item no se podan los árboles.
+\end{itemize}
+
+\textbf{Clasificación:} Se elige la moda de los votos de cada clasificador.
+
+\textbf{Regresión:} Se hace la media.
+
+\subsection{Error Correcting Output Code (ECOC)}
+Manipulación de las salidas (clases)
+
+Se utiliza para problemas con muchas clases como Reconocimiento de dígitos o clasificación de artículos de periódicos.
+
+A cada clase se le asigna un código binario (vector de n bits), que se denomina un error correcting output code.
+
+Se construye un clasificador binario para cada bit y para clasificar se utilizan todos los clasificadores para generar un código. Se devuelve la clase cuyo código sea más cercano al generado, para esto se puede usar la distancia de Hamming para cada bit con las clases.
+
+\subsection{Stacking - Stacked Generalization [Wolpert, 1992]}
+Genera los clasificadores a partir de algoritmos distintos y se combinan las decisiones de los clasificadores mediante otro clasificador, un meta-clasificador.
+
+Tiene dos niveles de aprendizaje (Nivel-0 y Nivel-1)
+\begin{itemize}
+  \item Nivel 0: Entrenar los clasificadores.
+  \item Nivel 1: Entrenar el metaclasificador.
+\end{itemize}
+
+\textbf{Entrenamiento:}
+\begin{itemize}
+  \item Divide los datos en k-folds de forma similar a validación cruzada.
+  \item Se realizan k iteraciones. Se utilizan k-1 folds para entrenar los clasificadores de Nivel-0 y el otro para hacer predicciones (probar) de cada clasificador.
+  \item El conjunto de entrenamiento de Nivel-1 se construye utilizando los atributos originales y las k predicciones para cada instancia (utiliza las predicciones de los clasificadores como atributos del metaclasificador, pero mantiene la clase de la instancia).
+\end{itemize}
+Al clasificar, primero se pasa por los clasificadores de nivel 0, para construir la instancia que se pasara al metaclasificador, que proporciona la clase final.
+
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Stacking}}
+  {\includegraphics[scale=.2]{2021-04-10 00_37_18-ensembles-reglasAsociacion.pdf - Foxit Reader.png}}
+\end{figure}
+
+\section{Reglas de asociación}
+Se emplea en aprendizaje no supervisado.
+
+\subsection{Conjuntos más frecuentes de elementos}
+\textbf{Objetivo:} 
+
+Dados un conjunto de ejemplos no etiquetados (en forma de conjunto de ítems) y un umbral de cobertura (coverage, support) de subconjuntos. 
+
+Trata de determinar el subconjunto de ítems que son más frecuentes (frequent itemsets).
+
+Si un conjunto es \textbf{frecuente}, cualquier \textbf{subconjunto es también} frecuente.
+
+Si un conjunto \textbf{NO es frecuente}, cualquier \textbf{superconjunto tampoco} lo es.
+
+Teniendo unos conjuntos de elementos, podemos determinar la cobertura de un subconjunto de elementos según en cuantos de esos conjuntos aparecen esos elementos juntos.
+
+\subsubsection{Algoritmo APRIORI [Agrawal and Srikant, 1994]}
+
+$i = 1$
+
+$L_1 =$ encontrar todos los ítems que aparecen en al menos un C \% de los ejemplos en E.
+
+El proceso consiste en generar subconjuntos de tamaño i, y en $L_i$ metemos aquellos que cumplen la cobertura mínima requerida, y en $L_{i+1}$ se hacen subconjuntos de tamaño i+1 con los L anteriores.
+
+\newpage
+
+Repetir
+
+\hspace{6mm} $i = i + 1$
+
+\hspace{6mm} $S_i =$ encontrar todos los subconjuntos de i ítems, combinando conjuntos frecuentes previos
+
+\hspace{6mm} $L_i =$ podar aquellos elementos de Si que aparecen en menos de un C \% de los ejemplos en E
+
+Hasta que $L_i = \emptyset$. Devolver la unión de todos los Li
+
+Los subconjuntos de salida son aquellos que no son subconjuntos de otros, partiendo de coger el del ultimo L no vacío.
+
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{APRIORI}}
+  {\includegraphics[scale=.4]{2021-04-10 01_06_33-ensembles-reglasAsociacion.pdf - Foxit Reader.png}}
+\end{figure}
+
+\subsection{Reglas de asociación}
+\textbf{Objetivo:} Dados conjuntos de ejemplos, trata de determinar reglas que relacionen los elementos.
+
+Se suelen utilizar como entrada los conjuntos más frecuentes.
+
+Se calcula la precisión (confianza) de cada regla.
+
+Se suelen escoger las que maximicen la precisión, las que sobrepasen un umbral de precisión y las N que tengan mayor precisión.
+
+\begin{center}
+  $X \Rightarrow Y$
+\end{center}
+
+\textbf{Soporte de la regla:} número de veces que el par antecedente-consecuente se dan juntos en los ejemplos.
+$$C = \frac{|X, Y|}{|N|}$$
+
+\textbf{Precisión (confianza) de la regla:} número de veces que el par antecedente-consecuente se dan juntos en los ejemplos sobre el número de veces que el antecedente es cierto.
+$$P = \frac{|X, Y|}{|X|}$$
+
+La idea es elegir las reglas cuya cobertura es mayor que un umbral de cobertura y cuya precisión sea mayor que un umbral de precisión.
+
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Ejemplo. Reglas de asociación I}}
+  {\includegraphics[scale=.3]{2021-04-10 01_17_45-ensembles-reglasAsociacion.pdf - Foxit Reader.png}}
+\end{figure}
+
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Ejemplo. Reglas de asociación II}}
+  {\includegraphics[scale=.3]{2021-04-10 01_18_02-ensembles-reglasAsociacion.pdf - Foxit Reader.png}}
+\end{figure}
+
+\textbf{Si se parte de ejemplos atributo-valor:} Se define un elemento por cada valor del atributo (Si salario puede ser alto o bajo, los elementos serán salarioAlto y salarioBajo), de tal manera que un ejemplo/instancia se define como el conjunto de los elementos de sus valores de atributos (sin que haya más de un elemento que se refiera al mismo atributo). Se ejecuta APRIORI: genera reglas de asociación.
+
+\textbf{Ejemplo:}
+
+\textbf{Si} numero-habitacionesAlto Y salarioMedio \textbf{Entonces} numero-hijosAlto
+
+\textbf{Si} salarioAlto \textbf{Entonces} precio-viviendaAlto
 
 \end{document}
-
