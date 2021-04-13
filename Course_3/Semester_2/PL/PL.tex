@@ -277,9 +277,9 @@ derecha.
 
 \begin{itemize}
 \item
-  Recursividad a izquierda: \(A → Ay\)
+  Recursividad a izquierda: $A \rightarrow Ay$
 \item
-  Recursividad a derechas: \(A → xA\)
+  Recursividad a derechas: $A \rightarrow xA$
 \end{itemize}
 
 \textbf{Reglas compresoras}: Aquellas que producen menos símbolos de los
@@ -1350,16 +1350,14 @@ transiciones con \(\lambda\).
 \textbf{Tipos de analizadores:}
 
 \begin{itemize}
-\item
-  \textbf{Descendente}: Va desde la raíz (axioma) hasta las hojas
+\item \textbf{Descendente}: Va desde la raíz (axioma) hasta las hojas
   (tokens, símbolos terminales. Nosotros trataremos los predictivos
   solo, que son capaces de elegir el token correcto en cada momento, no
   los que tienen retroceso.
 
   \textbf{LL(k)}, LL(1) Tengo que leer k tokens para identificar que
   regla de producción usar.
-\item
-  \textbf{Ascendente}: Va de los nodos hojas(secuencia de tokens) hasta
+\item \textbf{Ascendente}: Va de los nodos hojas(secuencia de tokens) hasta
   la raíz (axioma). Es predictivo.
 
   \textbf{LR(k)}, que puede ser LR(0), SLR(1), LALR(1) y LR(1)
@@ -1782,6 +1780,12 @@ Tipos de analizadores:
 \end{itemize}
 En cuanto a que gramáticas pueden representas: $G2>LR>LALR>SLR$
 
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Comparación de grámaticas}}
+	{\includegraphics[scale=.57]{2021-04-13 15_35_24-ASintactico.pdf - Foxit Reader.png}}
+\end{figure}
+
 \subsection{Análisis Sintáctico LR(1)}
 
 \subsubsection{Esquema del Análisis Ascendente dirigido por tabla}
@@ -1862,5 +1866,88 @@ Ejemplo:
   {\caption{Analizador LR(0)}}
   {\includegraphics[scale=.35]{2021-03-26 19_51_21-ASintactico.pdf - Foxit Reader.png}}
 \end{figure}
+
+LR(0) toma la decisión de desplazar o reducir SIN depender del token de entrada, solo del estado, pero si del estado al que transita.
+
+Se puede producir \textbf{Conflicto de Reducción-Desplazamiento}, cuando para un mismo estado y símbolo hay dos acciones.
+Para solventar esto se amplía el LR(0) a SLR(1)
+
+\textbf{Ventajas}
+\begin{itemize}
+  \item Fáciles de construir.
+  \item Las reducciones están asociadas a estados.
+\end{itemize}
+
+\textbf{Inconvenientes}
+\begin{enumerate}
+  \item Son muy pocas las que se pueden utilizar.
+  \item Estrategias de recuperación de error.
+\end{enumerate}
+
+\subsection{Análisis SLR(1)}
+Es un Autómata con Pila Determinista.
+\begin{itemize}
+  \item Los estados del analizador son conjuntos de ítems.
+\end{itemize}
+
+Se construye igual que el analizar LR(0), pero la asignación de la acción Reducir cambia.
+
+\textbf{Algoritmo de creación del analizador SLR(1)}
+\begin{itemize}
+  \item Crear el conjunto canónico LR(0), los estados.
+  \item Asociar acciones (Desplazar, Reducir, Ir\_a, Aceptar, Error) a los ítems de los estados.
+\end{itemize}
+
+\textbf{Asociar acciones a los ítems de los estados:}
+\begin{itemize}
+  \item $\forall I_k = \{ A \rightarrow \alpha \cdot x \beta\} I_k \in E_j \space y \space x\in \sum_T, Accion(E_j, x)=Desplazar E_n, E_n = Ir\_a(E_j,x)$
+  \item $\forall I_k = \{ A \rightarrow \alpha \cdot X \beta\} I_k \in E_j \space y \space X\in \sum_N, Ir\_a(E_j,X) = E_n$
+  \item $\forall I_k = \{ A \rightarrow \alpha \cdot \} I_k \in E_j, Accion(E_j, x)= Reducir A \rightarrow \alpha, \forall x \in Siguiente(A), \alpha \in \sum ^*$ Se pone reducción solo para los T de $S(A)$
+  \item $I_k = \{ S' \rightarrow S \cdot \} I_k \in E_j, Accion(E_j, \$)= Aceptar$
+\end{itemize}
+
+Cuando se indica R2, indica que la regla que se reduce es la numerada como 2.
+
+\textbf{Condiciones SLR(1):}
+Tienen que cumplirse dos condiciones para poder hace un análisis SLR(1). 
+
+No es necesario eliminar la recursividad a derechas e izquierda y ni es necesario factorizar.
+
+\begin{itemize}
+  \item Sin conflictos \textbf{Desplazamiento-Reducción}, debe darse que en los estados que haya reducciones no haya otro item que tenga desplazar para un símbolo del conjunto siguiente de la reducción.
+  
+  $A \rightarrow \alpha \cdot x \beta$
+
+  $B \rightarrow \alpha \cdot$
+
+  Entonces $x \notin Siguiente(B)$
+
+  \item Sin conflictos \textbf{Reducción-Reducción}, debe cumplir que cuando haya más de una regla de reducción en un estado, sus conjuntos siguientes sean disjuntos.
+    
+  $A \rightarrow \alpha \cdot $
+
+  $B \rightarrow \gamma \cdot$
+
+  Entonces $Siguiente(A) \cap Siguiente(B)$
+\end{itemize}
+
+\includepdf[pages=78]{docs/ASintactico.pdf}
+
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Ejemplo analizador SLR(1)}}
+  {\includegraphics[scale=.5]{2021-04-13 14_59_35-ASintactico.pdf - Foxit Reader.png}}
+\end{figure}
+
+\subsection{Comparación LL vs LR}
+\textbf{Simplicidad:} LL es más fácil de construir y completar.
+
+\textbf{Tamaño:} LL es más pequeño.
+
+\textbf{Generalidad:} Todas las LL son LR, pero no al contrario.
+
+\textbf{Detección de error:} LR requiere menos acciones para detectar el error.
+
+\textbf{Recuperación de errores:} LL es más sencillo de implementar.
 
 \end{document}
