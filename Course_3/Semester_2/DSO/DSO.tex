@@ -1149,7 +1149,7 @@ El servicio de mensajería consta de 3 partes; Publisher (publicador, emisor), B
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Comunicación orientada a mensajes}}
-	{\includegraphics[scale=.4]{2021-04-08 09_17_44-2021-04-07 17-01-12.mkv.png}
+	{\includegraphics[scale=.5]{2021-04-08 09_17_44-2021-04-07 17-01-12.mkv.png}
 	\includegraphics[scale=.22]{2021-04-08 09_20_09-2021-04-07 17-01-12.mkv.png}}
 \end{figure}
 
@@ -1161,7 +1161,7 @@ A diferencia de HTTP, no es necesario que el publicador sepa a quien enviárselo
 
 \section{Servicio RESTful}
 
-Es la alternativa a los protocolos basados en mensajes.
+Es la alternativa a los protocolos basados en mensajes. Es asíncrono el intercambio de mensajes.
 
 En un modelo RESTful el servidor posee el estado de un recurso, sabe en qué estado se encuentra.
 La recepción de peticiones y la recepción de respuesta es independiente del estado. Se suele utilizar cuando quiero enviar datos a un servidor o los quiero recuperar.
@@ -1176,7 +1176,7 @@ Por ejemplo: CoAP
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Servicio RESTful}}
-	{\includegraphics[scale=.5]{2021-04-08 09_36_12-2021-04-07 17-01-12.mkv.png}}
+	{\includegraphics[scale=.7]{2021-04-08 09_36_12-2021-04-07 17-01-12.mkv.png}}
 \end{figure}
 
 \section{MQTT - Message Queuing Telemetry Transport}
@@ -1186,9 +1186,9 @@ Se empezó a trabajar en el en 1993 por IBM, para comunicar dispositivos en luga
 
 Normalmente hay un suscriptor, un broker y un publicador, que funcionan como se ha descrito arriba (uno crea los topic, otro los gestiona y el ultimo lo recibe).
 
-Se debe tener en cuenta cuál es el tamaño máximo de los mensajes según el proveedor (IBM Watson allows for payload sizes up to 128 KB, while Google supports 256 KB), dado que admite cualquier archivo hay que cuidar de esto
+Se debe tener en cuenta cuál es el tamaño máximo de los mensajes según el proveedor (IBM Watson allows for payload sizes up to 128 KB, while Google supports 256 KB), dado que admite cualquier archivo hay que cuidar de esto, aunque se recomienda que se envíen en formato JSON o en binario, porque son los mejores para conexiones inestables y poco almacenamiento.
 
-\textbf{Desarrollo:}
+\subsection{Desarrollo:}
 \begin{itemize}
 	\item 1993 - Se comienza a trabajar en él.
 	\item 1999 - Andy Standford-Cark y Arlen Nipper fueron los autores de la primera versión del protocolo.
@@ -1199,7 +1199,7 @@ Se debe tener en cuenta cuál es el tamaño máximo de los mensajes según el pr
 	\item 2018 - Se aprobó la versión MQTT v5 (aunque no es la más extendida).
 \end{itemize}
 
-\textbf{Objetivos:}
+\subsection{Objetivos:}
 \begin{itemize}
 	\item Debe ser fácil de implementar.
 	\item Disponer de una calidad de servicio.
@@ -1207,6 +1207,213 @@ Se debe tener en cuenta cuál es el tamaño máximo de los mensajes según el pr
 	\item Ser agnóstico en cuanto al tipo de datos, puede tratar cualquier tipo de datos.
 	\item Tener conciencia continua de la sesión.
 	\item Abordar problemas de seguridad.
+\end{itemize}
+
+\subsection{Estructura de un paquete MQTT}
+\begin{itemize}
+	\item \textbf{Cabecera:} Indica que tipo de mensaje que estamos mandando y algunas flags.
+	\item \textbf{Longitud del paquete}S. 
+	\item \textbf{Cabecera adicional (opcional)}: de longitud variable , de uso marginal. 
+	\item \textbf{Payload (datos):} Puede tener un tamaño variable, que por protocolo son 256MB máximo, pero dependiendo del proveedor puede ser menor.
+\end{itemize}
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Estructura de un paquete MQTT}}
+	{\includegraphics[scale=.5]{f4bd0f8a-2e92-4cdd-abfc-c7b067788d4a.png}}
+\end{figure}
+
+\subsection{Tipos de mensajes} 
+\subsubsection{CONNECT (cliente a servidor)}
+Solicitud de conexión con el broker. 
+
+Solo es obligatorio el identificador de cliente (en nuestro caso lo administra paho), opcionalmente se puede proporcionar nombre de usuario, contraseña, keep alive o última voluntad.
+
+\subsubsection{CONNECT (servidor a cliente)}
+Es el ACK de la conexión recibida, responde al CONNECT con un código (RC).
+\begin{description}
+	\item[0] Conexión satisfactoria.
+	\item[1] Conexión rechazada, versión de MQTT inaceptable.	
+	\item[2] Conexión rechazada, cliente identificado es UTF-8 y el servidor no lo permite.	
+	\item[3] Conexión rechazada, servidor no disponible.	
+	\item[4] Conexión rechazada, nombre o contraseña incorrecta.
+	\item[5] Conexión rechazada, el cliente no tiene permiso de conexión.
+\end{description}
+
+\subsubsection{PUBLISH}
+Publicar datos en una rama del canal. 
+
+Necesita un identificador de paquete/mensaje, nombre del canal (topic), nivel de calidad del servicio, retain y los datos (payload) son opcionales.
+
+\subsubsection{SUBSCRIBE}
+Suscribirse a un canal.
+
+Requiere identificador de paquete, tópico al que se suscribe, nivel de calidad de servicio. Opcionalmente topic\_2 y qos2. Poniendo llaves en el topic, con el nombre dentro, se suscribe a todos. /uc3m/aulas/{aulas}/temperature
+
+\subsection{Elementos de los mensajes} 
+
+\subsubsection{Last will - Ultima voluntad} 
+Es el mensaje que se envía a todos los suscriptores suscritos a ese canal cuando se pierde la conexión de un publicador. Este parámetro se introduce al inicio.
+
+\subsubsection{Retain} 
+En el indicamos si queremos que se retenga el mensaje hasta que sea confirmada la recepción por todos los suscriptores.
+
+\subsubsection{Keep alive} 
+Indica cada cuanto tiempo se envía un mensaje al suscribirse, si no se recibe uno en 1,5 veces este valor se envía la última voluntad a los suscriptores. El servidor tiene un temporizador para controlar los tiempos.
+
+\textbf{Desconexión inesperada de publicadores:} Se puede deber a quedarse sin batería, internet o no enviar el disconnect. 
+\begin{itemize}
+	\item Conexión con petición de almacenamiento de "última voluntad"
+	\item Almacenamiento de petición de "última voluntad"
+	\item confirmación de conexión.
+	\item El publicador publica mensajes.
+	\item El suscriptor recibe mensajes.
+	\item El cliente inesperadamente deja de responder.
+	\item El broker envía el mensaje de "última voluntad" a los suscriptores.
+\end{itemize}
+En caso de que el cliente no tenga nada que enviar envía periódicamente PINGRESP para que no piense que se ha muerto y se reinicie su temporizador.
+
+
+\subsubsection{QoS - Calidad del servicio}
+Son los aseguramientos de entrega de los mensajes enviados por un publicador. Nos permite indicar como queremos que sea la conexión respecto a la recepción de los mensajes.
+
+\begin{description}
+\item[0 - Transmisión no asegurada] Es un proceso de entrega de mejor esfuerzo sin que el receptor reconozca un mensaje o el remitente vuelve a intentar transmitir. No se asegura de la entrega de todos los mensajes, si no llega se pierde.
+
+Debe usarse cuando no se necesita la cola de mensajes, para conexiones por cable o sistemas muy limitado en ancho de banda.
+
+	\textbf{Orden de los eventos}
+	\begin{enumerate}
+	\item El dispositivo publicador se conecta al broker.
+	\item El suscriptor se conecta al broker.
+	\item El publicador publica un mensaje a través del broker.
+	\item El broker envía un mensaje al suscriptor con la información por el publicador.
+	\end{enumerate}
+
+	\begin{figure}[H]
+		\ffigbox[\FBwidth]
+		{\caption{QoS 0}}
+		{\includegraphics[scale=.5]{0_1NSybQWdhHvVhnTb.png}}
+	\end{figure}
+
+\item[1 - Transmisión asegurada] Asegura la entrega al menos una vez, puede recibirse el mismo mensaje varias veces. Produce más tráfico, el receptor envía un acuse de recibo con una respuesta PUBACK. Debería ser el uso predeterminado, más rápido que el 2 y reduce el costo de transmisión.
+
+	El publicador almacena el mensaje hasta que recibe la confirmación del broker de que se ha enviado al suscriptor. Se desentiende cuando sabe que se ha enviado.
+			
+	El broker cunado recibe el mensaje lo almacena, envía al suscriptor, avisa del envió al publicador y hasta que no recibe la confirmación de los suscriptores no elimina el mensaje.
+
+	El suscriptor cuando recibe el mensaje confirma la recepción al broker.
+
+	\textbf{Orden de los eventos}
+	\begin{enumerate}
+	\item El dispositivo publicador A se conecta al broker.
+	\item El suscriptor B se conecta al broker.
+	\item El publicador publica un mensaje a través del broker.
+	\item El publicador A almacena el mensaje enviado.
+	\item El broker almacena el mensaje enviado por el publicador A.
+	\item El broker envía un mensaje al suscriptor B con la información enviada por el publicador A.
+	\item El broker notifica al publicador A que se ha enviado el mensaje.
+	\item El publicador A elimina el mensaje enviado.
+	\item El suscriptor B confirma que ha recibido el mensaje.
+	\item El broker elimina el último mensaje enviado por el publicador A.
+	\end{enumerate}
+
+	\begin{figure}[H]
+		\ffigbox[\FBwidth]
+		{\caption{QoS 1}}
+		{\includegraphics[scale=.35]{0_b4pvXUWp6MVnAAFy.png}}
+	\end{figure}
+
+\item[2 - Servicio asegurado en aplicaciones] Asegura la entrega, pero solo se recibirá el mensaje una única vez por suscriptor. Informa tanto al remitente como al receptor que se ha transmitido correctamente, se confirman todos los mensajes incluidas las confirmaciones de entregas.
+
+Se usa para aplicaciones de misión crítica, sobre todo en aquellas circunstancias en las que recibir un mensaje duplicado podría provocar fallos.
+
+	\textbf{Orden de los eventos}
+	\begin{enumerate}
+	\item El dispositivo publicador A se conecta al broker.
+	\item El suscriptor B se conecta al broker.
+	\item El publicador A almacena el mensaje enviado.
+	\item El publicador A publica un mensaje a través del broker.
+	\item El broker almacena el mensaje enviado por el publicador A.
+	\item El broker envía un mensaje al suscriptor B con la información enviada por el publicador A.
+	\item El suscriptor B confirma que ha recibido el mensaje.
+	\item El broker envía al publicador A la confirmación de recepción de mensaje.
+	\item El publicador A envía la confirmación de la eliminación del mensaje al broker.
+	\item El broker informa al suscriptor B de la eliminación del mensaje.
+	\item El suscriptor B confirma al broker la recepción del aviso de eliminación del mensaje.
+	\item El suscriptor B elimina la información de estado de recepción del mensaje.
+	\item El broker confirma al publicador A la confirmación de la recepción del aviso de eliminación del mensaje por parte del suscriptor B.
+	\item El broker elimina el último mensaje enviado por el publicador A.
+	\item El publicador A elimina el mensaje enviado.
+	\end{enumerate}
+	
+	Error en la imagen: el broker guardaría el mensaje después de recibirlo.
+	\begin{figure}[H]
+		\ffigbox[\FBwidth]
+		{\caption{QoS 2}}
+		{\includegraphics[scale=.35]{0_G6zwc_VftJ4AcueS.png}}
+	\end{figure}
+\end{description}
+
+\section{MQTT-SN - Message Queuing Telemetry Transport for Sensor Networks}
+Se utiliza en los casos en los que se quieren conectar sensores que se encuentran en lugares remotos, tienen problemas de batería, tiene una conexión inalámbrica débil o la conexión requiere mucha energía. Para optimizar los recursos.
+
+
+\subsection{Elementos de estas redes:}
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Estructura MQTT-SN}}
+	{\includegraphics[scale=.35]{15a80880-30ad-472a-bf98-254556798207.png}}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Endpoints:} Los distintos sensores o dispositivos.
+	\item \textbf{Gateways - Puertas de enlace:} Son los responsables de convertir MQTT-SN a MQTT para enviarlo al router. Se pueden tener retransmisores y repetidores, que permite que llegue más lejos la señal cuando se encuentran en lugares remotos.
+\end{itemize}
+
+Los gateways/routers envían periódicamente mensajes broadcast (ADVERTISE) informando de que están disponibles, de esta manera los clientes pueden buscar los gateways a los que se pueden conectar con SEARCHGW, y estos les responderán con GWAINFO con la información de puerta de enlace.
+
+\subsection{Diferencias con el MQTT}
+\begin{itemize}
+	\item Hay tes mensajes CONNECT en MQTT-SN frente a uno en MQTT, los dos adicionales se utilizan para transportar adicionalmente el tema o el mensaje explícitamente.
+	\item MQTT-SN se puede ejecutar en un medio simplificado y UDP.
+	\item Los nombres de los temas se reemplazan por mensajes de ID de tema cortos de dos bytes de longitud. Esto es para ayudar con las limitaciones de ancho de banda en las redes inalámbricas.
+	\item Los ID de tema predeterminados y los nombres cortos de tema se pueden usar sin ningún registro. Para utilizar esta función, tanto el cliente como el servidor deben utilizar el mismo ID de tema. Los nombres breves de los temas son lo suficientemente cortos como para incluirse en el mensaje PUBLISH.
+	\item Se introduce un procedimiento de descubrimiento para ayudar a los clientes y permitirles encontrar las direcciones de red de servidores y puertas de enlace. Pueden existir varias puertas de enlace en la topología y se pueden utilizar para compartir la carga de la comunicación con los clientes.
+\end{itemize}
+
+\section{CoAP (Constrained Application Protocol) - Protocolo de Aplicación Restringida}
+	Es un estándar del IETF, está pensado para facilitar la conexión entre dos máquinas punto a punto.
+
+	El broker no existe como tal, sino que para conectarte a un servidor necesita conocer su dirección física. Una vez establecida la conexión es hasta 64 veces mejor que su equivalente con HTTP y software similar.
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Estructura CoAP}}
+	{\includegraphics[scale=.35]{79e6a27f-bae5-4c7b-963a-dcd46c9e26f1.png}}
+\end{figure}
+
+\subsection{Requisitos a satisfacer}
+	\begin{itemize}
+		\item Debe tener una complejidad adecuada que se tienen en una red IoT, con baja capacidad de procesamiento y una 	\item RAM muy limitada. Memoria hasta 256K y RAM de 12K. Reduciendo la sobrecarga de los mensajes de HTTP, pero con un método de direccionamiento exactamente igual al de HTTP.
+		\item Es necesario un mecanismo que permita gestionar la cache de solicitudes de recursos recientes, para optimizar.
+		\item Tiene que implementar peticiones post, get, put y delete, de manera que permita facilitar y automatizar la creación, eliminación, lectura y actualización de un dispositivo, canal o recursos.
+		\item Cada dispositivo debe tener su URI, un identificador único de recurso, similar al de URL.
+		\item Periodos de latencias muy bajos.
+		\item Tiene que trabajar sobre UDP, para aligerar el protocolo.
+	\end{itemize}
+
+\subsection{Mecanismos para la conexión}
+Para que un dispositivo se conecte a un sensor, se debe realizar una petición directa al sensor.
+
+Se utiliza el protocolo coap (coap://) en vez de http, con un nombre de URL que represente a los dispositivos (myhome.in:5683), una subdirección dentro de la URL para indicar el dispositivo (nest\_livingroom) y por último el nombre del parámetro de control del dispositivo (temp). Este último se podría completar con las distintas peticiones get, put, post o delete, que nos devuelven los datos o el código de error correspondiente (los códigos están reducidos).
+
+$coap://myhome.in:5683/nest\_livingroom/temp$
+
+\subsection{Diferencias con MQTT}
+\begin{itemize}
+	\item No hay como tal broker en CoAP de manera general, pero se podría tener un observador en el medio que gestione las publicaciones.
+	\item Es más ligero CoAP.
+	\item Se pueden referenciar los recursos con si fuera una URI, para esto se necesita un resolvedor.
+	\item El intercambio de mensajes es totalmente asíncrono.
 \end{itemize}
 
 
@@ -1237,5 +1444,3 @@ Se debe tener en cuenta cuál es el tamaño máximo de los mensajes según el pr
 \href{https://learning.oreilly.com/library/view/internet-of-things/9781788470599/b34f5cd8-115c-490c-b5c2-38a3a966a65a.xhtml}{Proctocolos de comunicación IoT}
 
 \end{document}
-
-
