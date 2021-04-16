@@ -269,7 +269,7 @@ Los casos que no funcionan son importantes, no solo poner pruebas con
 
 \section{Recursos}
 
-\chapter{TEMA 1. Introducción}
+\chapter{Introducción}
 
 \textbf{Definición}:
 
@@ -386,11 +386,9 @@ Personalización, Seguridad, Videojuego, etc.
   Cuestiones éticas.
 \end{itemize}
 
-\chapter{TEMA 2. Árboles y Reglas de
-Decisión}
+\chapter{Árboles y Reglas de Decisión}
 
-\section{Aprendizaje inductivo (De lo más específico a lo más
-general)}
+\section{Aprendizaje inductivo (De lo más específico a lo más general)}
 
 Encontrar una \textbf{función h} (la hipótesis o modelo) que aproxime la
 \textbf{función f} (desconocida) definida por un conjunto de ejemplos.
@@ -1064,7 +1062,7 @@ variable.}
 	\item[J4.8] Implementación JAVA de C4.5.
 \end{description}
 
-\chapter{TEMA 3. Regresión}
+\chapter{Regresión}
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Ejemplo instancias de Regresión}}
@@ -1343,7 +1341,7 @@ residuo.
   intermedios entre el nodo hoja y el nodo raíz.
 \end{enumerate}
 
-\chapter{TEMA 4. Resumen otras técnicas}
+\chapter{Resumen otras técnicas}
 
 \section{Aprendizaje Bayesiano}
 
@@ -1630,7 +1628,7 @@ Hacen \textbf{búsqueda en el espacio de soluciones}, se usan cuando es fácil e
   \item Se evalúa la nueva población. Si es mejor pasa a ser la población base (generación), Si no se descarta y se intentan otras alternativas.
 \end{enumerate}
 
-\chapter{TEMA 5. Técnicas Vagas y No Supervisadas}
+\chapter{Técnicas Vagas y No Supervisadas}
 \section{Aprendizaje basado en instancias (IBL)}
 No genera modelo, lo que hace es que cuando recibe un dato nuevo busca algunos similares de los conocidos.
 \begin{figure}[H]
@@ -1906,7 +1904,7 @@ Realiza en bucle: Clasificar las instancias no etiquetadas y reconstruir el clas
 
 Es aprendizaje supervisado con las instancias etiquetadas.
 
-\chapter{TEMA 6. Conjuntos de clasificadores y Reglas de asociación}
+\chapter{Conjuntos de clasificadores y Reglas de asociación}
 \section{Conjuntos de clasificadores - Emsembles}
 Se emplea en aprendizaje supervisado, la mayoría se pueden utilizar tanto en Clasificación como en Regresión, pero hay algunos más específicos.
 
@@ -2145,5 +2143,228 @@ La idea es elegir las reglas cuya cobertura es mayor que un umbral de cobertura 
 \textbf{Si} numero-habitacionesAlto Y salarioMedio \textbf{Entonces} numero-hijosAlto
 
 \textbf{Si} salarioAlto \textbf{Entonces} precio-viviendaAlto
+
+\chapter{Aprendizaje por Refuerzo}
+Consiste en aprender a decidir, ante una situación determinada, que acción es la más adecuada para lograr un objetivo.
+
+Se utiliza una Política que acción, que dado un estado del agente nos diga cual es la acción debe ejecutar, $\pi: s \rightarrow a$. 
+
+Se construye a partir de experiencias de interacción con el entorno: $<s_i, a_i, s'_i, r_i>$ (estado actual, acción, estado siguiente, refuerzo)
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Diagrama Aprendizaje por refuerzo}}
+  {\includegraphics[scale=.3]{default.jpg}}
+\end{figure}
+
+Mediante un proceso iterativo de prueba y error, en que se van proporcionando señales de refuerzo que premia (positivo) o castigan (negativo) las decisiones en el proceso de maximizar el refuerzo.
+
+Por debajo del aprendizaje por refuerzo hay un Proceso de Decisión de Markov.
+
+\section{MDP - Markov Decision Process}
+
+Se tiene una serie de estados en los que se pueden realizar unas determinadas acciones, aunque también se hay estados absorbentes en los que no se puede aplicar ninguna acción.
+
+Las acciones \textbf{deterministas} siempre produce la misma transición de estado y el mismo refuerzo, sin embargo, en los \textbf{no deterministas/estocástico} un mismo estado y una acción pueden producir distintos resultados, son funciones estocásticas.
+
+Se define con la tupla $<S, A, T, R>$:
+\begin{itemize}
+  \item S - Conjunto de Estados.
+  \item A - Conjunto de Acciones.
+  \item T - Función de Transición $T(s, a, s')$; dado un estado, una acción y el estado siguiente nos dice la probabilidad de que ocurra esa transición.
+  \item R - Función de Refuerzo $R: S \times A \times S \rightarrow \mathbb{R}$, proporciona el refuerzo recibido al ejecutar la acción $a$ en estado $s$ y llegar al $s'$.
+\end{itemize}
+
+\subsection{Propiedad de Markov}
+Se asume que se cumple esta propiedad cuando realizamos un MDP.
+
+\textbf{Propiedad de Markov:} El pasado más allá del estado inmediatamente anterior no son relevantes, la acción a ejecutar solo depende del estado actual. El estado actual y el refuerzo obtenido son condicionalmente independientes de la historia pasada.
+
+$$P(s_{t+1}, r_{t+1}| s_t,a_t)$$
+
+\subsection{Métodos de Resolución}
+Hay dos posibilidades:
+\begin{itemize}
+  \item \textbf{Se conoce el modelo}, la Función de Transición de estados y la Función de Refuerzo del MDP.
+  
+  En este caso se utiliza \textbf{Programación Dinámica}, hay dos opciones.
+  \begin{itemize}
+    \item \textbf{Iteración de valor.}
+    \item \textbf{Iteración de la política.}
+  \end{itemize}
+
+  \item \textbf{No se conoce el modelo}, hay dos opciones:
+  \begin{itemize}
+    \item \textbf{Aprender el modelo} y usar métodos basados en el modelo, Programación Dinámica.
+    \item \textbf{Aprender las funciones de valor y/o políticas directamente}: métodos libres de modelo o Aprendizaje por Refuerzo.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Políticas y Optimalidad}
+
+El \textbf{objetivo es encontrar una política}, $\pi: S \rightarrow A$, que nos diga para cada estado posible cual es la acción que debe ejecutarse para maximizar el refuerzo acumulado en el tiempo.
+
+\textbf{Criterio de optimalidad de horizonte infinito descontado}: Asumiendo que se suma hasta infinito, se valora más que se obtenga el mayor refuerzo lo antes posible, para esto se utiliza un factor de descuento, $0 \leq \gamma \leq 1$, que reduce la importancia de las ganancias futuras.
+$$\sum ^\infty _{k=0} \gamma^k r_{t+1+k}$$
+
+\newpage
+
+\subsubsection{Función de Valor (V) - valor-estado}
+Dada una política $\pi$ y un estado inicial s, $V^\pi (s)$ representa el refuerzo descontado en el tiempo si se aplica la política $\pi$ partiendo de s. En el caso no determinista es un valor esperado.
+$$V^\pi(s_t)=E \left[ \sum ^\infty _{k=0} \gamma^k r_{t+1+k} \right]$$
+
+\subsubsection{Política óptima}
+La política óptima $\pi^*$, es aquella que maximiza $V^\pi (s)$ para todos los estados. $V^* (s)$ es máximo refuerzo descontado acumulado en el tiempo que el agente puede conseguir comenzando en el estado s y siguiendo la política óptima $\pi^*$.
+$$\pi ^* \equiv \arg \max_\pi V^\pi (s), \forall s \equiv V^* (s)$$
+
+\subsubsection{Función de valor-acción (Q)}
+Dada una política $\pi$, un estado inicial s y una acción a, $Q^\pi (s, a)$ representa el refuerzo descontado acumulado en el tiempo si se aplica la acción a en el estado s, y a partir de ahí se ejecuta la política $\pi$.
+$$Q^* (s, a) = \max_\pi Q^\pi (s,a), \forall s \in S, \forall a \in A$$
+$$V^* (s) = \max_a Q^* (s,a), \forall s \in S$$
+
+Política optima en función de Q, maximiza el refuerzo de cada acción que se puede ejecutar en ese estado.
+$$\pi^* (s) = \arg \max_{a \in A} Q^* (s,a), \forall s \in S$$
+
+\subsubsection{Ecuaciones de Bellman}
+Ecuaciones recurrentes que se basan en calcular el refuerzo total optimo maximizando sobre la elección de una primera acción y considerando un futuro óptimo.
+$$Q^* (s, a) = \sum _{s'} T(s,a, s') [R(s,a,s') + \gamma V^* (s')]$$
+$$V^* (s) = \max_a Q^*(s,a) = \max _a \sum _{s'} T(s,a, s') [R(s,a,s') + \gamma V^* (s')]$$
+
+\subsection{Resolver el MDP: Aproximaciones Basadas en el Modelo}
+La Función de Transición y la Función de Refuerzo son conocidas, se trata de resolver las ecuaciones de Bellman mediante Programación Dinámica y tenemos dos opciones que resuelven el mismo problema:
+\subsubsection{Algoritmo Iteración de valor - Value Iteration}
+\begin{itemize}
+  \item Inicializar: $V(s) = 0$ para todo $s$
+  \item Repetir hasta convergencia
+  \begin{enumerate}
+    \item Dados $V(s)$ para todo $s$, actualizar los valores para la nueva iteración teniendo en cuenta los de la anterior.
+    $$V(s) = \max _a \sum _{s'} T(s,a, s') [R(s,a,s') + \gamma V^* (s')], \forall s$$
+    \item La política generada en la iteración consiste en quedarnos con la acción que genera el mayor valor para cada estado posible. Aunque solo nos interesará en la última iteración que será la óptima.
+    $$\pi(s) = \arg \max_a \sum _{s'} T(s,a, s') [R(s,a,s') + \gamma V^* (s')], \forall s$$
+  \end{enumerate}
+\end{itemize}
+Cuando el algoritmo converge (los valores se estabilizan) la política es óptima.
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Algoritmo Iteración de valor}}
+  {\includegraphics[scale=.3]{2021-04-16 13_01_42-refuerzo.pdf - Foxit Reader.png}}
+\end{figure}
+
+\subsubsection{Algoritmo Iteración de política - Policy Iteration}
+Es como hacer Iteración valor, pero en la Ecuación de Bellman en vez de evaluar todas las acciones se evalúa solo la acción que proporciona la política que vamos actualizando, en cuanto al cálculo de la política es igual, por lo que debemos tener en cuenta todas las acciones en todos los estados (lo que parecía que nos ahorrábamos calcular, se calcula ahora).
+\begin{itemize}
+  \item Elegir una política $\pi$ arbitraria (aleatoria)
+  \item Repetir hasta convergencia
+  \begin{enumerate}
+    \item Evaluación de la política: resolver las ecuaciones $\forall s \in S$
+    $$V(s) = \sum _{s'} T(s,\pi(s), s') [R(s,\pi(s),s') + \gamma V^* (s')]$$
+    \item Mejora de la política $\forall s \in S$
+    $$\pi(s) = \arg \max_a \sum _{s'} T(s,a, s') [R(s,a,s') + \gamma V^* (s')], \forall s$$
+  \end{enumerate}
+\end{itemize}
+Cuando el algoritmo converge (la política se estabiliza) la política es óptima.
+
+\section{Aprendizaje por Refuerzo}
+\subsection{Modelo desconocido}
+Problema de Aprendizaje por Refuerzo (definido como un MDP):
+\begin{itemize}
+  \item Conjunto de todos los posibles estados, S.
+  \item Conjunto de todas las posibles acciones, A.
+  \item Función de Transición de estados desconocida $T: S\times A \times S \rightarrow \mathbb{R}$.
+  \item Función de Refuerzo $R: S \times A \times S \rightarrow \mathbb{R}$.
+\end{itemize}
+\textbf{Objetivo:} aprender la política de acción,$\pi: S \rightarrow A$ , que maximice el refuerzo esperado acumulado en el tiempo mediante exploración del entorno.
+
+\newpage
+
+\subsection{Aproximaciones Basadas en el Modelo}
+\begin{enumerate}
+  \item Se aprende el modelo (T y R) y se resuelven las ecuaciones por Programación Dinámica ( Iteración de valor o Política)
+  \begin{itemize}
+    \item Técnicas costosas computacionalmente.
+    \item No útil para respuestas en tiempo real
+    \item Se debe asegurar que se aprende el entorno completamente.
+    \item No es sensible a cambios en el entorno 
+  \end{itemize}
+  \item Se aprende el modelo a la vez que la función Q (algoritmo Dyna-Q)
+\end{enumerate}
+
+\subsection{Aproximaciones libres de Modelo}
+Aprende directamente del entorno mediante prueba y error.
+\begin{itemize}
+  \item Actualización directa de la función de valor Q a partir de interacciones con el entorno.
+  \item Basados en procesos de prueba y error.
+  \item NO aprenden el MDP subyacente.
+\end{itemize}
+Métodos Monte Carlo y métodos de Diferencia Temporal (Q-learning, SARSA)
+
+\subsection{Métodos Monte Carlo (MC)}
+\subsubsection{Monte Carlo con Arranque Exploratorio}
+
+\subsection{Métodos de Diferencia Temporal (TD)}
+\subsubsection{Q-Learning}
+Se basa en estimar de forma iterativa la función de valor-acción optima, $Q^*(s,a)$. 
+
+La función Q la podemos representar en forma de tabla con |S| filas y |A| columnas, en cada casilla se pondrá el refuerzo acumulado en el tiempo cuando en ese estado se ejecuta esa acción asumiendo refuerzo futuro óptimo.
+
+Esta tabla que se genera nos facilita obtener la política optima, de tal manera que la mejor acción de cada estado es el máximo de su fila.
+$$\pi(s) = \arg \max _a Q^* (s,a)$$
+
+Consiste en que después de cada transición se recalcula la tabla Q entera aproximándose poco a poco a la óptima, y se van generando episodios de aprendizaje, una serie de transiciones consecutivas hasta que termina o se para. $\underbrace{sas'} \underbrace{a'r's''} \underbrace{a''r''s'''}...$
+
+\textbf{Funciones de Actualización de Q}
+\begin{itemize}
+  \item Función de Actualización \textbf{determinista} 
+  $$Q(s,a) \leftarrow r + \gamma \max_{a'} Q(s',a')$$
+  \item Función de actualización \textbf{no determinista} (en general)
+  $$Q(s,a) \leftarrow (1-\alpha) Q(s,a) + \alpha[r + \gamma \max_{a'} Q(s',a')]$$
+\end{itemize}
+
+$\alpha \in [0,1]$ representa la tasa de aprendizaje, modula la agresividad con la que se actualiza la tabla.
+
+$\gamma$ es el factor de descuento, como van perdiendo importancia las decisiones más alejadas del estado actual del agente.
+
+\textbf{Algoritmo de Q-Learning($\gamma, \alpha$)}
+En el que se realizan varios escenarios para ir mejorando la tabla Q, en cada uno de los escenarios se va evaluando la mejor acción para generar un estado completo (s,a,r,s') y se actualiza la tabla antes de transitar a él.
+\begin{itemize}
+  \item Inicializar $Q(s, a), \forall s \in S, a \in A$ (lo habitual es inicializar a 0)
+  \item Repetir (para cada episodio)
+  \begin{itemize}
+    \item Inicializa el estado inicial, s, aleatoriamente.
+    \item Repetir (para cada paso del episodio)
+    \begin{itemize}
+      \item Selecciona una acción a y la ejecuta.
+      \item Recibe el estado actual s', y el refuerzo, r.
+      \item $Q(s,a) \leftarrow (1-\alpha) Q(s,a) + \alpha[r + \gamma \max_{a'} Q(s',a')]$      
+      \item Asigna $s \leftarrow s'$
+    \end{itemize}
+  \end{itemize}
+  \item Devuelve $Q(s, a)$.
+\end{itemize}
+
+\newpage
+
+\textbf{Ejemplo Q-Learning}
+
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Ejemplo Q-Learning I}}
+  {\includegraphics[scale=.2]{2021-04-16 13_05_26-refuerzo.pdf - Foxit Reader.png}
+  \includegraphics[scale=.25]{2021-04-16 13_05_47-refuerzo.pdf - Foxit Reader.png}}
+\end{figure}
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Ejemplo Q-Learning II}}
+  {\includegraphics[scale=.2]{2021-04-16 13_07_03-refuerzo.pdf - Foxit Reader.png}
+  \includegraphics[scale=.2]{2021-04-16 13_07_51-refuerzo.pdf - Foxit Reader.png}}
+\end{figure}
+
+\subsection{Exploración vs. Explotación}
+
+\subsection{Aplicaciones}
+
+\section{Representación de la función Q}
+
+\section{Generalización en Aprendizaje por Refuerzo}
+\subsection{Discretización del Espacio de Estados}
 
 \end{document}
