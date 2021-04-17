@@ -1444,9 +1444,14 @@ elegir usará el conjunto primero del terminar más a la izquierda.
 \(PRIMERO(\alpha)\) Todos los Terminales que aparecen más a la izquierda
 que se derivan de esa forma sentencial. \textbf{Son los posibles
 terminales que pueden aparecer más a la izquierda de cualquier secuencia
-de producciones de \(\alpha\).} \[
-PRIMERO(\alpha)=\{ x | (\alpha \rightarrow _* x \cdot \beta), (x \in \Sigma_T \cup \Sigma^*) \}
-\] Si \(X=\lambda \Rightarrow PRIMERO(X)=\{\lambda\}\)
+de producciones de \(\alpha\).} 
+\begin{figure}[H]
+  $PRIMERO(\alpha)=\{ x | (\alpha \rightarrow _* x \cdot \beta), (x \in \Sigma_T \cup \Sigma^*)\}$
+
+  \captionsetup{justification=centering}
+  \caption{Conjunto Primero}
+\end{figure}
+Si \(X=\lambda \Rightarrow PRIMERO(X)=\{\lambda\}\)
 
 Si \(X \in \Sigma_T \Rightarrow PRIMERO(X)=\{X\}\) El conjunto primero
 de un terminal es él mismo.
@@ -1466,10 +1471,13 @@ El conjunto siguiente nunca va a contener a \(\lambda\). \$ es el token
 que indica fin de sentencia.
 
 Se aplica sobre los No Terminales de la parte de la derecha de todas las
-producciones. \[
-SIGUIENTE(A)=\{ x | (S \rightarrow _*\alpha A \beta), (A \in \Sigma_N), (\alpha \in \Sigma^*), (\beta \in \Sigma^+),(x\in PRIMERO(\beta)-\{\lambda\})\}
-\]
+producciones. 
+\begin{figure}[H]
+  $SIGUIENTE(A)=\{ x | (S \rightarrow _*\alpha A \beta), (A \in \Sigma_N), (\alpha \in \Sigma^*), (\beta \in \Sigma^+),(x\in PRIMERO(\beta)-\{\lambda\})\}$
 
+  \captionsetup{justification=centering}
+  \caption{Conjunto Siguiente}
+\end{figure}
 Fases:
 
 \begin{itemize}
@@ -1507,22 +1515,21 @@ terminal, y se aplica sobre las reglas de producción completa.
 
 Dado \(A \rightarrow \alpha\):
 
-\begin{itemize}
+\begin{figure}[H]
+ \begin{eqnarray*}
+    PREDICCION(A \rightarrow \alpha) &=& PRIMERO(\alpha) / \lambda \notin PRIMERO(\alpha) \\
+    PREDICCION(A \rightarrow \alpha) &=& [PRIMERO(\alpha)-\{\lambda\}] \cup S(A) / \lambda \in PRIMERO(\alpha)
+ \end{eqnarray*}
 
-\item
-  Si \(PRIMERO(\alpha)\) NO contiene \(\lambda\),
-  \(PREDICCION(A \rightarrow \alpha) = PRIMERO(\alpha)\).
-\item
-  Si \(PRIMERO(\alpha)\) CONTIENE \(\lambda\),
-  \(PREDICCION(A\rightarrow\alpha) = [PRIMERO(\alpha)-\{\lambda\}] \cup S(A)\).
-\end{itemize}
+  \captionsetup{justification=centering}
+  \caption{Conjunto de Predicción}
+\end{figure}
 
-
+\pagebreak
 \subsubsection{Condiciones LL}
 
 Condiciones que debe tener para hacer Análisis Sintáctico Descendente
 Predictivo.
-
 Estas condiciones se aplican sobre NT que tienen más de una regla de
 producción.
 
@@ -1596,7 +1603,7 @@ de tokens es reconocida, entonces iría al analizador semántico.
   Conjunto reducido de lenguajes independientes de contexto.
 \end{itemize}
  
-\newpage
+\pagebreak
 
 \subsubsection{Ejemplo:}
 
@@ -1618,7 +1625,7 @@ de tokens es reconocida, entonces iría al analizador semántico.
 	{\includegraphics[scale=.7]{2021-03-26 17_50_51-Ejercicio descendente recursivo.png}}
 \end{figure}
 
-\newpage
+\pagebreak
 
 \subsubsection{Análisis Sintáctico LL(1)}
 
@@ -1675,7 +1682,7 @@ La idea general es:
   se meta en la cima de la pila.
 \end{itemize}
 
-\newpage
+\pagebreak
 
 \subsubsection{Ejemplo completo}
 
@@ -1705,7 +1712,7 @@ La idea general es:
 	{\includegraphics[scale=.17]{image-20210320110940170.png}}
 \end{figure}
 
-\newpage
+\pagebreak
 \item
   Tabla de Conjuntos de Predicción
 
@@ -1802,7 +1809,7 @@ Son reglas de producción con $\cdot$, que indica que lo de la izquierda está e
   \item Cuando se produce que a la derecha de $\cdot$ no hay símbolos es posible que haya encontrado un pivote de reducción.
 \end{itemize}
 
-\newpage
+\pagebreak
 
 \subsubsection{Analizador LR(0)}
 A partir de los ítems se puede construir un AFD que realice el análisis de prefijos viables.
@@ -1851,7 +1858,7 @@ Ejemplo:
   {\caption{Generar Conjunto Canónico LR(0)}}
   {\includegraphics[scale=.3]{2021-03-26 19_23_58-ASintactico.pdf - Foxit Reader.png}}
 \end{figure}
-\newpage
+\pagebreak
 \textbf{Asociar acciones a los ítems de los estados:}
 \begin{itemize}
   \item $\forall I_k = \{ A \rightarrow \alpha \cdot x \beta\} I_k \in E_j \space y \space x\in \sum_T, Accion(E_j, x)=Desplazar E_n, E_n = Ir\_a(E_j,x)$
