@@ -302,7 +302,7 @@ el programa que es capaz de resolver nuestro problema.
 	{\includegraphics[scale=.15]{Untitled 1.png}}
 \end{figure}
 
-\newpage
+\pagebreak
 
 \textbf{Es útil cuando:}
 
@@ -332,10 +332,8 @@ Tarea, Medida y Experiencia.
 	{\caption{Tipos de tareas de Aprendizaje Automático}}
 	{\includegraphics[scale=.2]{Untitled 2.png}}
 \end{figure}
+\pagebreak
 \textbf{Tipos de tareas de Aprendizaje Automático:}
-
-
-
 \begin{itemize}
 
 \item
@@ -494,7 +492,7 @@ distintas clases.
   si no, \textbf{ejecutar el ID3} con la tabla formada por los ejemplos
   de ese nodo, pero sin el atributo que todos tiene en común.
 \end{enumerate}
-
+\pagebreak
   Ejemplo:
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
@@ -543,7 +541,7 @@ valor)
 
 Para calcular la ganancia se utiliza el concepto de Entropía, como
 medida de la pureza o impureza de un conjunto ejemplos.
-\newpage
+\pagebreak
 \section{Entropía}
 
 \textbf{Entropía en clasificación binaria}: El conjunto de ejemplos S
@@ -573,15 +571,19 @@ Cuanto más se diferencian las proporciones, cuanto más notablemente hay de una
 \textbf{La ganancia de información:} mide la efectividad de un atributo
 para clasificar, es la \textbf{reducción esperada de la entropía} cuando
 se divide el conjunto de datos original S según el atributo dado A.
+\begin{figure}[H]
+  \begin{itemize}
+    \item
+      \(G(S,A)=Entropia(S) - Entropia\_ Atr(S,A)\)
+    \item
+      \(Entropia\_ Atr(S,A)= \sum_{c \in valores(A)} \frac {|S_{A=v}|}{|S|} Entropia(S_{A=v})\)
+    \item
+      \(Entropia(S_{A=v})= -\sum_{c \in C} \frac {|S_{A=v,C=c}|}{|_{A=v}|} \log_2 \frac {|S_{A=v,C=c}|}{|_{A=v}|}\)
+    \end{itemize}
+    \captionsetup{justification=centering}
+  \caption{Formulas Entropia}
+\end{figure}
 
-\begin{itemize}
-\item
-  \(G(S,A)=Entropia(S) - Entropia\_ Atr(S,A)\)
-\item
-  \(Entropia\_ Atr(S,A)= \sum_{c \in valores(A)} \frac {|S_{A=v}|}{|S|} Entropia(S_{A=v})\)
-\item
-  \(Entropia(S_{A=v})= -\sum_{c \in C} \frac {|S_{A=v,C=c}|}{|_{A=v}|} \log_2 \frac {|S_{A=v,C=c}|}{|_{A=v}|}\)
-\end{itemize}
 
 \textbf{Se elige el atributo que maximiza la ganancia de información},
 ya que menos resta es el que menos entropía tiene, o elegir el que menor
@@ -594,7 +596,7 @@ ya que menos resta es el que menos entropía tiene, o elegir el que menor
 	Ejemplo
 	\ffigbox[\FBwidth]
 	{\caption{Ejemplo cálculo de entropía}}
-	{\includegraphics[scale=.15]{Untitled 10.png}}
+	{\includegraphics[scale=.1]{Untitled 10.png}}
 \end{figure}
 
 
@@ -687,8 +689,9 @@ nuevos, para ello se tienen \textbf{dos conjuntos de ejemplos, uno para
 entrenar y otros de prueba}. Tras crear el modelo se pasan los ejemplos
 de prueba y se calcula el número de errores, se evalúan los resultados.
 
-\(Accuracy= \frac {numeroEjemplosClasificadosCorrectamente}{numeroTotalEjemplos}\)
+  $Accuracy= \frac {numeroEjemplosClasificadosCorrectamente}{numeroTotalEjemplos}$
 Proporción de aciertos sobre conjunto de prueba.
+  Proporción de aciertos sobre el conjunto de prueba.
 
 Un problema de hacer la división de conjuntos es que no se usan todos
 para entrenar, y esto es problemático si no se tienen muchos.
@@ -853,7 +856,7 @@ Es un proceso iterativo, tras la última etapa se vuelve al principio.
 			Ejemplo
 			\ffigbox[\FBwidth]
 			{\caption{Búsqueda por atributos}}
-			{\includegraphics[scale=.2]{Untitled 15.png}}
+			{\includegraphics[scale=.15]{Untitled 15.png}}
 		\end{figure}
         \begin{itemize}
         
@@ -1014,15 +1017,16 @@ podrá usar para clasificar.
 \item
   Por cada valor v del atributo A, se puede \textbf{crear un atributo binario},
   de si ese atributo toma ese valor o no.
-\item
-  \textbf{Razón de ganancia (GainRatio, GR)}: Ganancia calculada como la
+\item \textbf{Razón de ganancia (GainRatio, GR)}: Ganancia calculada como la
   ganancia partido por una penalización por el número de valores del
   atributos.
-  $$
-  GR(S,A)= \frac {G(S,A)=max Entropia(S)-EntropiaAtrib(S,A)}{Split\_Information(S,A)=-\sum_{v\in valores(A)} \frac {|S_v|}{|S|} \cdot log_2(\frac {|S_v|}{|S|})}
-  $$
-\item
-  \textbf{Split\_Information(S,A)}: Entropía de S con respecto de A.
+  \begin{figure}[H]
+    $$
+    GR(S,A)= \frac {G(S,A)=max Entropia(S)-EntropiaAtrib(S,A)}{Split\_Information(S,A)=-\sum_{v\in valores(A)} \frac {|S_v|}{|S|} \cdot log_2(\frac {|S_v|}{|S|})}
+    $$
+    \captionsetup{justification=centering}
+    \caption{Razón de ganancia}
+  \end{figure}
   $$
   Split\_Information(S,A)=-\sum_{v\in valores(A)} \frac {|S_v|}{|S|} \cdot log_2(\frac {|S_v|}{|S|}) 
   $$
@@ -1127,7 +1131,7 @@ La \textbf{suma de todas las diferencias de los valores de la función y
 su aproximación}. Buscamos aquella aproximación que minimice E.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Ejemplo de error en Regresión Lineal}}
+	{\caption{Error en Regresión Lineal}}
 	{\includegraphics[scale=.10]{image-20210305212854142.png}}
 \end{figure}
 
@@ -1164,7 +1168,7 @@ tangente y desplazando los valores de los pesos}.
 
 \textbf{Gradiente del error respecto a w:} Derivada parcial de la
 función de error de cada uno de los pesos.
-\(\nabla E[\vec{w}] \equiv\left[\frac{\partial E}{\partial w_{0}}, \frac{\partial E}{\partial w_{1}}, \cdots \frac{\partial E}{\partial w_{n}}\right]\)
+\(\nabla E[\vec{w}] \equiv\left[\frac{\partial E}{\partial w_{0}}, \frac{\partial E}{\partial w_{1}}, \cdots ,\frac{\partial E}{\partial w_{n}}\right]\)
 
 \textbf{Regla de entrenamiento:}
 \(\Delta \vec{w}=-\eta \nabla E[\vec{w}]\)
@@ -1181,7 +1185,7 @@ función de error de cada uno de los pesos.
 \item
   \(x_{i,e}\): Valor del \textbf{atributo} a para la instancia e.
 \end{itemize}
-\newpage
+\pagebreak
 \textbf{Procedimiento: Descenso de Gradiente(C,n)}
 
 \begin{itemize}
@@ -1237,8 +1241,11 @@ subconjunto.
   Elige aquel atributo que maximice la reducción del error (en vez de
   entropía o desviación típica). Nos quedamos con la menor media de
   desviaciones.
-
-  \(\Delta \operatorname{error}(S, A)=\operatorname{sd}(S)-\sum_{v \in \text { valoresTestNodo }(A)} \frac{\left|S_{A=v}\right|}{|S|} \times \operatorname{sd}\left(S_{A=v}\right)\)
+  \begin{figure}[H]
+    \(\Delta \operatorname{error}(S, A)=\operatorname{sd}(S)-\sum_{v \in \text { valoresTestNodo }(A)} \frac{\left|S_{A=v}\right|}{|S|} \times \operatorname{sd}\left(S_{A=v}\right)\)
+    \captionsetup{justification=centering}
+    \caption{Formula desviación M5}
+  \end{figure}
 
   \begin{itemize}
   
@@ -1277,7 +1284,7 @@ de cada uno de los conjuntos resultantes.
 Tras la construcción del árbol hay un proceso de poda, que consiste en
 Simplificar los modelos lineales de las hojas, Simplificar el árbol para
 que sea más pequeño y por último el Suavizado.
-\newpage
+\pagebreak
 \section{Poda}
 
 \textbf{Paso 0}: Antes de realizar la poda se crean modelos lineales de los nodos
@@ -1352,7 +1359,11 @@ recibir los datos de manera incremental y va creciendo el modelo.
 (MAP)}
 
 Se busca la hipótesis que explique mejor los datos.
-\[P(h_i/E)= \frac {P(E/h_i)P(h_i)}{P(E)}\]
+\begin{figure}[H]
+  \[P(h_i/E)= \frac {P(E/h_i)P(h_i)}{P(E)}\]
+  \captionsetup{justification=centering}
+  \caption{Formula Hipótesis más probable}
+\end{figure}
 
 Es aquella que \(\arg \max P(h_i/E)\) o $\arg \max P(E/h_i) $.
 Cogemos el \(h_i\) más probable, pero puede haber otros muchos modelos
@@ -1363,7 +1374,11 @@ es la clase más probable para esos datos.
 probable}
 
 Probabilidad de la clase C dados los ejemplos E:
-\(P(C/E) = \sum _{h_i \in H} P(C/h_i) \cdot P(h_i/E)\)
+\begin{figure}[H]
+  \(P(C/E) = \sum _{h_i \in H} P(C/h_i) \cdot P(h_i/E)\)
+  \captionsetup{justification=centering}
+  \caption{Formula Clase más probable}
+\end{figure}
 
 A esto se le llama \textbf{Clasificador Bayesiano Optimo}, en la
 practica el tamaño de H hace que sea imposible, además no tenemos un
@@ -1372,7 +1387,11 @@ datos.
 
 \subsection{Naïve Bayes}
 
-\(\arg \max P(C/a_1, ...,a_n)= \arg \max _{c \in C} \frac {P(a_1, ...,a_n/C)P(C)}{P(a_1, ...,a_n)}=\arg \max_{c \in C} P(a_1, ...,a_n/C)P(C)\)
+\begin{figure}[H]
+  \(\arg \max P(C/a_1, ...,a_n)= \arg \max _{c \in C} \frac {P(a_1, ...,a_n/C)P(C)}{P(a_1, ...,a_n)}=\arg \max_{c \in C} P(a_1, ...,a_n/C)P(C)\)
+  \captionsetup{justification=centering}
+  \caption{Formula Naïve Bayes}
+\end{figure}
 
 Podemos quitar el denominador porque todas las clases se evalúan con los
 mismos atributos. Y \(P(a_1, ...,a_n/C)\) es muy complejo de calcular,
@@ -1415,6 +1434,8 @@ las entradas con unos pesos} (\(w_0+w_ix_1+...+w_nx_n\)) y se pasa el
 	{\caption{Función Umbral}}
 	{\includegraphics[scale=.8]{image-20210312101914163.png}}
 \end{figure}
+
+\pagebreak
 \item
   Lineal.
   \begin{figure}[H]
@@ -1609,7 +1630,7 @@ Hacen \textbf{búsqueda en el espacio de soluciones}, se usan cuando es fácil e
   \item Las operaciones para combinar soluciones y generar soluciones nuevas.
   \item La \textbf{función de adecuación (fitness)} que indica como de buena es una población, cuanto más es mejor. Transforma el genotipo (cadena de bits) en el fenotipo (significado de la cadena bits).
 \end{itemize}
-
+\pagebreak
 \textbf{Proceso:}
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
@@ -1652,16 +1673,26 @@ Si los atributos tienen diferentes rangos, se normalizan, y si son valores simb�
 \subsection{Función Objetivo}
 Dada una instancia x y sus k vecinos, nos indica cual es la clase. Dependiendo del tipo de valores se usan distintos métodos:
 \begin{description}
-  \item[Caso discreto (clasificación)] Valor más común de entre los k vecinos más cercanos. 
-  $$ \hat{f}(\vec{x}) = \arg\max _{c \in C} \sum^k_{i=1} \delta(c,f(\vec{z^i}))$$
+  \item[Caso discreto (clasificación)] Valor más común de entre los k vecinos más cercanos.
+  \begin{figure}[H]
+    \begin{eqnarray}
+      \hat{f}(\vec{x}) &=& \arg\max _{c \in C} \sum^k_{i=1} \delta(c,f(\vec{z^i})) \\
+      \hat{f}(\vec{x}) &=& \arg\max _{c \in C} \sum^k_{i=1} w_i \times \delta(c,f(\vec{z^i}))
+    \end{eqnarray}
+    \captionsetup{justification=centering}
+    \caption{Función objetivo K-Nearest: Clasificación}
+  \end{figure} 
   \item[Caso continuo (regresión)] Valor medio de entre los k vecinos. 
-  $$ \hat{f}(\vec{x}) = \frac{\sum^k_{i=1} f(\vec{z^i})}{k}$$
+  \begin{figure}[H]
+    \begin{eqnarray}
+      \hat{f}(\vec{x}) &=& \frac{\sum^k_{i=1} f(\vec{z^i})}{k}\\
+      \hat{f}(\vec{x}) &=& \frac{\sum^k_{i=1} w_i f(\vec{z^i})}{\sum^k_{i=1} w_i}
+    \end{eqnarray}
+    \captionsetup{justification=centering}
+    \caption{Función objetivo K-Nearest: Regresión}
+  \end{figure}
 \end{description}
 También se puede ponderar la importancia de cada vecino en el valor de la función objetivo, en función de su distancia. Donde $w_i = \frac{1}{d(\vec{x},\vec{z^i})^2}$.
-\begin{description}
-  \item[Caso discreto (clasificación)] $ \hat{f}(\vec{x}) = \arg\max _{c \in C} \sum^k_{i=1} w_i \times \delta(c,f(\vec{z^i}))$
-  \item[Caso continuo (regresión)] Media ponderada. $ \hat{f}(\vec{x}) = \frac{\sum^k_{i=1} w_i f(\vec{z^i})}{\sum^k_{i=1} w_i}$
-\end{description}
 
 \subsection{Selección de los K vecinos}
 El parámetro k identifica cuantos vecinos se utilizan para la decisión, su valor es el que mejor resultados aporta, no hay una regla que siempre funcione. Las regiones que se forman con 1-NN se denominan regiones de Voronoi.
@@ -1672,6 +1703,7 @@ Medidas de distancia:
   \item[Manhattan] $d(\vec{x}, \vec{z})=\sum_{m=1}^{n}\left|x_{m}-z_{m}\right|$
   \item[Minkowski] $d(\vec{x}, \vec{z})=\left(\sum_{m=1}^{n}\left|x_{m}-z_{m}\right|^{k}\right)^{\frac{1}{k}}$
 \end{description}
+\pagebreak
 \subsection{Propiedades}
 \begin{itemize}
   \item Las instancias son puntos de un espacio n dimensional, donde n es el número de atributos.
@@ -1733,8 +1765,6 @@ Se podría aplicar cualquier otro método de aproximación, como las redes neuro
 \subsubsection{Case Based Reasoning}
 Los ejemplos no son de la forma atributo-valor, sino que se representan con cualquier estructura de datos, como pueden ser imágenes, documentos, planos, etc. Consigue adaptar los datos de otros problemas al actual, viendo cómo se han resuelto problemas previos.
 
-\newpage
-
 \section{Aprendizaje no supervisado}
 No conocemos la clase, solo tenemos atributos en los ejemplos.
 
@@ -1790,7 +1820,7 @@ Genera regiones de Voronoi y nos proporciona un representante de la región, se 
   \begin{enumerate}
     \item Dado un conjunto de prototipos $C_m = \{\vec{\mu_1}, ..., \vec{\mu_k} \}$, partir el conjunto de entrada T en k particiones $R_i, ..., R_k$ usando la siguiente condición: Los ejemplos pertenecen a la región del prototipo más cercano, y solo de ese. (Si se genera una partición vacía, utiliza alguna estrategia para tratar el caso)
     
-    $$R_i = \{ \vec{x} \in T: d(\vec{x}, \vec{\mu_i}) \leq d(\vec{x}, \vec{\mu_j}); \space para \space todo \space j \neq i \}$$
+    $$R_i = \{ \vec{x} \in T: d(\vec{x}, \vec{\mu_i}) \leq d(\vec{x}, \vec{\mu_j}); \forall j \neq i \}$$
     
     \item Recalcular los centroides de cada partición, pasa a ser el punto medio de la región, y actualiza el conjunto de prototipos con esos centroides.
     $$centroide(R_i) = \frac{1}{|R_i|} \sum_{\vec{x} \in R_i} \vec{x}$$
@@ -1800,8 +1830,6 @@ Genera regiones de Voronoi y nos proporciona un representante de la región, se 
   $$C_{m+1} = \{\vec{\mu_i}|\vec{\mu_i} = centroide(R_i) \}$$
   \item Si el decremento de la distorsión entre dos interacciones no supera un umbral (bastante bajo), parar. Sino ir al paso 2. 
 \end{enumerate}
-
-\newpage
 
 \textbf{Ejemplo:}
 
@@ -1841,8 +1869,6 @@ Selección de k automáticamente:
   \item Otro método es G-MEANS.
 \end{itemize}
 
-\newpage
-
 \subsubsection{Métodos Aglomerativos}
 
 Consisten en generar unos árboles denominado dendogramas.
@@ -1876,7 +1902,7 @@ Consisten en generar unos árboles denominado dendogramas.
   \includegraphics[scale=.2]{2021-03-26 10_14_24-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}}
 \end{figure}
 
-\newpage
+\pagebreak
 
 \subsubsection{Distancia entre clústeres}
 
@@ -2083,7 +2109,7 @@ $L_1 =$ encontrar todos los ítems que aparecen en al menos un C \% de los ejemp
 
 El proceso consiste en generar subconjuntos de tamaño i, y en $L_i$ metemos aquellos que cumplen la cobertura mínima requerida, y en $L_{i+1}$ se hacen subconjuntos de tamaño i+1 con los L anteriores.
 
-\newpage
+\pagebreak
 
 Repetir
 
@@ -2178,8 +2204,11 @@ Se define con la tupla $<S, A, T, R>$:
 Se asume que se cumple esta propiedad cuando realizamos un MDP.
 
 \textbf{Propiedad de Markov:} El pasado más allá del estado inmediatamente anterior no son relevantes, la acción a ejecutar solo depende del estado actual. El estado actual y el refuerzo obtenido son condicionalmente independientes de la historia pasada.
-
-$$P(s_{t+1}, r_{t+1}| s_t,a_t)$$
+\begin{figure}[H]
+  $$P(s_{t+1}, r_{t+1}| s_t,a_t)$$
+    \captionsetup{justification=centering}
+  \caption{Propiedad de Markov}
+\end{figure}
 
 \subsection{Métodos de Resolución}
 Hay dos posibilidades:
@@ -2206,28 +2235,48 @@ El \textbf{objetivo es encontrar una política}, $\pi: S \rightarrow A$, que nos
 \textbf{Criterio de optimalidad de horizonte infinito descontado}: Asumiendo que se suma hasta infinito, se valora más que se obtenga el mayor refuerzo lo antes posible, para esto se utiliza un factor de descuento, $0 \leq \gamma \leq 1$, que reduce la importancia de las ganancias futuras.
 $$\sum ^\infty _{k=0} \gamma^k r_{t+1+k}$$
 
-\newpage
+\pagebreak
 
 \subsubsection{Función de Valor (V) - valor-estado}
 Dada una política $\pi$ y un estado inicial s, $V^\pi (s)$ representa el refuerzo descontado en el tiempo si se aplica la política $\pi$ partiendo de s. En el caso no determinista es un valor esperado.
-$$V^\pi(s_t)=E \left[ \sum ^\infty _{k=0} \gamma^k r_{t+1+k} \right]$$
+
+\begin{figure}[H]
+  $$V^\pi(s_t)=E \left[ \sum ^\infty _{k=0} \gamma^k r_{t+1+k} \right]$$
+  \captionsetup{justification=centering}
+  \caption{Función de Valor}
+\end{figure}
 
 \subsubsection{Política óptima}
 La política óptima $\pi^*$, es aquella que maximiza $V^\pi (s)$ para todos los estados. $V^* (s)$ es máximo refuerzo descontado acumulado en el tiempo que el agente puede conseguir comenzando en el estado s y siguiendo la política óptima $\pi^*$.
+
 $$\pi ^* \equiv \arg \max_\pi V^\pi (s), \forall s \equiv V^* (s)$$
+
 
 \subsubsection{Función de valor-acción (Q)}
 Dada una política $\pi$, un estado inicial s y una acción a, $Q^\pi (s, a)$ representa el refuerzo descontado acumulado en el tiempo si se aplica la acción a en el estado s, y a partir de ahí se ejecuta la política $\pi$.
-$$Q^* (s, a) = \max_\pi Q^\pi (s,a), \forall s \in S, \forall a \in A$$
-$$V^* (s) = \max_a Q^* (s,a), \forall s \in S$$
+
+\begin{figure}[H]
+  \begin{eqnarray*}
+    Q^* (s, a) &=& \max_\pi Q^\pi (s,a), \forall s \in S, \forall a \in A \\
+    V^* (s) &=& \max_a Q^* (s,a), \forall s \in S
+  \end{eqnarray*} 
+  \captionsetup{justification=centering}
+  \caption{Función de valor-acción}
+\end{figure}
 
 Política optima en función de Q, maximiza el refuerzo de cada acción que se puede ejecutar en ese estado.
 $$\pi^* (s) = \arg \max_{a \in A} Q^* (s,a), \forall s \in S$$
-
+\pagebreak
 \subsubsection{Ecuaciones de Bellman}
 Ecuaciones recurrentes que se basan en calcular el refuerzo total optimo maximizando sobre la elección de una primera acción y considerando un futuro óptimo.
-$$Q^* (s, a) = \sum _{s'} T(s,a, s') [R(s,a,s') + \gamma V^* (s')]$$
-$$V^* (s) = \max_a Q^*(s,a) = \max _a \sum _{s'} T(s,a, s') [R(s,a,s') + \gamma V^* (s')]$$
+\begin{figure}[H]
+  \begin{eqnarray*}
+    Q^* (s, a) &=& \sum _{s'} T(s,a, s') [R(s,a,s') + \gamma V^* (s')]\\
+    V^* (s) &=& \max_a Q^*(s,a) = \max _a \sum _{s'} T(s,a, s') [R(s,a,s') + \gamma V^* (s')]
+  \end{eqnarray*} 
+  \captionsetup{justification=centering}
+  \caption{Ecuaciones de Bellman}
+\end{figure}
 
 \subsection{Resolver el MDP: Aproximaciones Basadas en el Modelo}
 La Función de Transición y la Función de Refuerzo son conocidas, se trata de resolver las ecuaciones de Bellman mediante Programación Dinámica y tenemos dos opciones que resuelven el mismo problema:
@@ -2274,8 +2323,6 @@ Problema de Aprendizaje por Refuerzo (definido como un MDP):
 \end{itemize}
 \textbf{Objetivo:} aprender la política de acción,$\pi: S \rightarrow A$ , que maximice el refuerzo esperado acumulado en el tiempo mediante exploración del entorno.
 
-\newpage
-
 \subsection{Aproximaciones Basadas en el Modelo}
 \begin{enumerate}
   \item Se aprende el modelo (T y R) y se resuelven las ecuaciones por Programación Dinámica ( Iteración de valor o Política)
@@ -2313,10 +2360,20 @@ Consiste en que después de cada transición se recalcula la tabla Q entera apro
 
 \textbf{Funciones de Actualización de Q}
 \begin{itemize}
-  \item Función de Actualización \textbf{determinista} 
-  $$Q(s,a) \leftarrow r + \gamma \max_{a'} Q(s',a')$$
+  \item Función de Actualización \textbf{determinista}
+  \begin{figure}[H]
+    $$Q(s,a) \leftarrow r + \gamma \max_{a'} Q(s',a')$$
+
+    \captionsetup{justification=centering}
+    \caption{Función de Actualización de Q Determinista}
+  \end{figure}
   \item Función de actualización \textbf{no determinista} (en general)
-  $$Q(s,a) \leftarrow (1-\alpha) Q(s,a) + \alpha[r + \gamma \max_{a'} Q(s',a')]$$
+  \begin{figure}[H]
+    $$Q(s,a) \leftarrow (1-\alpha) Q(s,a) + \alpha[r + \gamma \max_{a'} Q(s',a')]$$
+
+    \captionsetup{justification=centering}
+    \caption{Función de Actualización de Q No Determinista}
+  \end{figure}
 \end{itemize}
 
 $\alpha \in [0,1]$ representa la tasa de aprendizaje, modula la agresividad con la que se actualiza la tabla.
@@ -2341,7 +2398,7 @@ En el que se realizan varios escenarios para ir mejorando la tabla Q, en cada un
   \item Devuelve $Q(s, a)$.
 \end{itemize}
 
-\newpage
+\pagebreak
 
 \textbf{Ejemplo Q-Learning}
 
