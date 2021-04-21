@@ -1010,7 +1010,7 @@ pueden declarar una variable para ello se almacena en la tabla.
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{}}
+	{\caption{Diagramas A. Lexico}}
 	{\includegraphics[scale=.2]{Untitled 28.png}
 	\includegraphics[scale=.2]{Untitled 29.png}}
 \end{figure}
@@ -1957,4 +1957,145 @@ No es necesario eliminar la recursividad a derechas e izquierda y ni es necesari
 
 \textbf{Recuperación de errores:} LL es más sencillo de implementar.
 
+\chapter{Tema 4: Análisis Semántico}
+
+\section{Introducción}
+El análisis semántico es una \textbf{extensión del análisis sintáctico para la compresión del programa}, para comprobar que tiene sentido y que está conectado. Destaca por la verificación de tipos.
+
+Es un paso \textbf{previo a su traducción, aunque hay partes que se pueden ir haciendo}. También modifica la tabla de símbolos.
+
+Las gramáticas independientes del contexto \textbf{(G2) no son suficientes para este análisis}, se necesita realizar comprobaciones de larga distancia en el árbol sintáctico (que no se pueden representar con reglas de producción) y no solo comprobar que se deriva de la gramática del lenguaje.
+
+Para cumplir lo anterior se utilizan Gramáticas de atributos (gramáticas atribuidas), que son más ricas.
+
+\textbf{ Algunas de las comprobaciones que se realizan durante el Análisis Semántico:}
+\begin{itemize}
+  \item Comprobación de \textbf{tipos}, los operadores y operandos deben ser compatibles.
+  \item Comprobaciones de \textbf{unicidad}, en aquellas situaciones en los que un objetico solo puede definirse una vez exclusivamente.
+  \item Comprobaciones \textbf{relacionadas con nombres}, cuando el mismo nombre debe aparecer dos o más veces.
+  \item Comprobación del \textbf{flujo de control}, controlar las proposiciones para abandonar el flujo de control, que tiene finalización.
+\end{itemize}
+\pagebreak
+\section{Gramáticas atribuidas}
+Son gramáticas G2 a las que se añaden atributos y reglas de evaluación de atributos (reglas semánticas).
+\begin{itemize}
+  \item Cada \textbf{atributo} es una variable que representa una propiedad del símbolo terminal o no terminal, puede ser una cadena , numero, tipo, posición de memoria, etc.
+  \item \textbf{Reglas semánticas} (Reglas para calcular/Reglas para comprobar), se asocian a las producciones sintácticas (reglas de producción). Se definen en función de los atributos de los símbolos en la producción.
+  \item Sobre los atributos y reglas hay unas condiciones semánticas.
+\end{itemize}
+
+Se pueden construir Arboles adornador o decorados, donde se muestra la relación entre atributos de una misma regla de producción.
+
+\textbf{Gramáticas atribuida $GA=\{G,A,R,B\}$}
+\begin{itemize}
+  \item G - \textbf{Gramática} libre de contexto (G2), $G = \{\Sigma_N, \Sigma_T, S, P\}$.
+  \item A - Conjunto de \textbf{atributos} asociados a cada símbolo X. Son disjuntos.
+  \item R - \textbf{Reglas semánticas} asociadas a cada regla en P.
+  \item B - \textbf{Condiciones} asociadas a cada regla de P.
+\end{itemize}
+
+\textbf{Existen diferentes Especificaciones:}
+\begin{itemize}
+  \item \textbf{DDS - Definición dirigida por la sintaxis}, acciones tras cada producción (sin orden específicos).
+  
+  \begin{figure}[H]
+    \ffigbox[\FBwidth]
+    {\caption{Ejemplo DDS}}
+    {\includegraphics[scale=.3]{2021-04-21 10_49_57-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+  \end{figure}
+
+  \item \textbf{EDT - Esquema de Traducción}, las acciones semánticas se intercalan con los símbolos de la producción, indicando el orden de ejecución de las acciones semánticas. Es una notación para hacer un traductor. Tiene dos tipos:
+  \begin{itemize}
+    \item EDT \textbf{solo con atributos sintetizados}, las acciones se ponen al final de la producción.
+    \item EDT con \textbf{atributos sintetizados y heredados}, la posición de las acciones debe tener en cuenta los cálculos y atributos que contribuyen.
+    \begin{itemize}
+      \item Un atributo heredado (en la parte derecha de la producción) DEBE calculará con una acción antes de dicho símbolo.
+      \item Una acción NO debe referirse a un atributo sintetizado de un símbolo que este la derecha de la acción.
+      \item Para calcular el No Terminal izquierdo DEBE haberse calculado previamente todos los atributos de los símbolos que participen.
+    \end{itemize}
+  \end{itemize}
+  \begin{figure}[H]
+    \ffigbox[\FBwidth]
+    {\caption{Ejemplo DDS}}
+    {\includegraphics[scale=.3]{2021-04-21 11_14_06-05_resum_Sem_2021.pdf - Foxit Reader.png}
+    \includegraphics[scale=.24]{2021-04-21 11_14_40-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+  \end{figure}
+\end{itemize}
+
+Una gramática atribuida GA es \textbf{completa} si, para todo atributo de toda regla hay una acción semántica asociada para calcularlo.
+\begin{itemize}
+  \item Para toda regla P: $X\rightarrow\alpha$ en P, AS(X) está en AC(P).
+  \item Para toda regla Q: $Y\rightarrow\alpha X \beta$ en Q, AH(X) está en AC(Q).
+  \item $AS(X) \cup AH(X) = A(X)$ $AS(X) \cap AH(X)=\emptyset$
+\end{itemize}
+
+Una gramática atribuida GA esta \textbf{bien definida} si, para cualquier sentencia en L(GA), todos los atributos pueden ser calculados (este proceso se llama evaluación de la gramática). Además, una sentencia de su lenguaje tiene atributos correctos si se verifican las condiciones en B(P) para cada regla P de la gramática.
+\begin{itemize}
+  \item \textbf{Gramática Atribuida bien definida $\Rightarrow$ Gramática Atribuida completa}
+\end{itemize}
+En el caso de buscar que este bien definida es más fácil buscar un fallo (para decir que no lo es), que comprobar que se cumple para todas las sentencias del lenguaje (que es inabarcable). Si no se encuentra el contraejemplo se dice que no se puede demostrar que no lo es.
+
+\section{Tipos de atributos y gramáticas}
+\subsection{Atributos heredados y sintetizados}
+\textbf{Dos tipos de atributos:}
+\begin{itemize}
+  \item \textbf{Sintetizados:} El valor de un nodo (parte izquierda) depende solo de los valores de los nodos hijos (parte derecha). Se hace de abajo hacia arriba.
+  \begin{figure}[H]
+    \ffigbox[\FBwidth]
+    {\caption{A. sintetizado}}
+    {\includegraphics[scale=.3]{2021-04-21 10_46_33-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+  \end{figure}
+
+  \item \textbf{Heredados:} Los valores se pasan a niveles inferiores del árbol, el valor depende de los hermanos y del padre (como un sumidero de datos).
+  
+  \begin{figure}[H]
+    \ffigbox[\FBwidth]
+    {\caption{A. heredado}}
+    {\includegraphics[scale=.3]{2021-04-21 10_47_58-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+  \end{figure}
+
+\end{itemize}
+Los atributos mantienen su tipo en toda la gramática, y los tokens (símbolos terminales) solo tienen atributos sintetizados.
+
+Los atributos heredados se tratan utilizando estructuras auxiliares para pasar los datos, como puede ser una tabla o una pila.
+
+\textbf{Atributos calculados AC(P):} Atributos calculados con producción P, que exista una regla de cálculo asociada a la obtención de su valor.
+\begin{itemize}
+  \item \textbf{Atributos sintetizados AS(X):} Cuando lo que se calcula es el símbolo de la parte izquierda de la regla.
+  \item \textbf{Atributos heredados AH(X):} Cuando el valor que se calcula es el producido en una regla de producción.
+\end{itemize}
+\pagebreak
+\subsection{Evaluación de las reglas semánticas}
+\textbf{Hay dos métodos:}
+\begin{itemize}
+  \item Métodos con \textbf{árbol de análisis sintáctico}: Se realizan en el momento de compilación y el orden que se sigue viene dado por el grafo de dependencias (ordenamiento topológico) de cada nodo construido según el árbol de análisis sintáctico. No funciona para gramáticas con ciclos.
+  \item Métodos de evaluación \textbf{durante el análisis sintáctico}: La evaluación se hace en una sola pasada y no es necesario construir un grafo de dependencias de forma explicita, lo que lo hace más eficiente. 
+  \begin{itemize}
+    \item Hay métodos \textbf{basados en reglas}, en el que las acciones semánticas asociadas a las producciones se analizan a mano o con alguna herramienta.
+    \item Hay métodos \textbf{sin recuerdo}, el orden de evaluación no tiene en cuenta las reglas semánticas.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Evaluación durante el análisis sintáctico}
+\begin{itemize}
+  \item \textbf{S-A Grammars - Gramáticas de Atributos Sintetizados:} Gramática donde solo existen atributos sintetizados.
+  
+  Se puede evaluar con un analizador descendente, mediante una pila, y descendente por medio de rutinas y valores devueltos.
+  \item \textbf{L-A Grammars - Gramáticas de Atributos por la Izquierda:} Gramática donde todos los atributos heredados de cualquier producción dependen solo de atributos de símbolos a su izquierda o del símbolo de la parte izquierda de la producción.
+  
+  La información debe fluir de izquierda a derecha.
+
+  Las L-A de tipo LL(1) pueden evaluarse con analizadores descendentes y ascendentes.
+
+  Solo algunas de las LR(1) que NO son LL(1) pueden evaluarse con L-A mediante un analizador ascendente.
+\end{itemize}
+\section{Evaluación de atributos}
+\subsection{Árbol de dependencia}
+\subsection{DDS y TDS}
+\section{Árbol de Sintaxis abstracta}
+\subsection{Evaluación de varias pasadas}
+
+
+
 \end{document}
+
