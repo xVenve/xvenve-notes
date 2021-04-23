@@ -1116,7 +1116,7 @@ Se pueden dividir en aplicaciones integradas \textbf{especificas del mercado} (i
 \end{itemize}
 
 
-\chapter{Tema 5: Protocolos de comunicación de dispositivos con infraestructuras IoT}
+\chapter{Tema 5: Protocolos para gestionar dispositivos IoT en la nube}
 
 \section{Edge Interface, Message Broker y Message Bus}
 
@@ -1371,10 +1371,15 @@ Se utiliza en los casos en los que se quieren conectar sensores que se encuentra
 \end{itemize}
 
 Los gateways/routers envían periódicamente mensajes broadcast (ADVERTISE) informando de que están disponibles, de esta manera los clientes pueden buscar los gateways a los que se pueden conectar con SEARCHGW, y estos les responderán con GWAINFO con la información de puerta de enlace.
+\begin{itemize}
+	\item \textbf{ADVERTISE:} Transmite periódicamente desde una puerta de enlace para anunciar su presencia.
+	\item \textbf{SEARCHGW:} Emitido por un cliente cuando busca una puerta de enlace en particular. Parte del mensaje es un parámetro de radio, que indica cuántos saltos debe seguir el mensaje SEARCHGW en una topología de red.
+	\item \textbf{GWINFO:} Ésta es la respuesta de las puertas de enlace al recibir un mensaje SEARCHGW. Contiene el ID y la dirección de la puerta de enlace, que solo se transmite cuando SEARCHGW se envía desde un cliente.
+\end{itemize}
 
 \subsection{Diferencias con el MQTT}
 \begin{itemize}
-	\item Hay tes mensajes CONNECT en MQTT-SN frente a uno en MQTT, los dos adicionales se utilizan para transportar adicionalmente el tema o el mensaje explícitamente.
+	\item Hay tres mensajes CONNECT en MQTT-SN frente a uno en MQTT, los dos adicionales se utilizan para transportar además el tema o el mensaje explícitamente.
 	\item MQTT-SN se puede ejecutar en un medio simplificado y UDP.
 	\item Los nombres de los temas se reemplazan por mensajes de ID de tema cortos de dos bytes de longitud. Esto es para ayudar con las limitaciones de ancho de banda en las redes inalámbricas.
 	\item Los ID de tema predeterminados y los nombres cortos de tema se pueden usar sin ningún registro. Para utilizar esta función, tanto el cliente como el servidor deben utilizar el mismo ID de tema. Los nombres breves de los temas son lo suficientemente cortos como para incluirse en el mensaje PUBLISH.
@@ -1393,20 +1398,14 @@ Los gateways/routers envían periódicamente mensajes broadcast (ADVERTISE) info
 
 \subsection{Requisitos a satisfacer}
 	\begin{itemize}
-		\item Debe tener una complejidad adecuada que se tienen en una red IoT, con baja capacidad de procesamiento y una 	\item RAM muy limitada. Memoria hasta 256K y RAM de 12K. Reduciendo la sobrecarga de los mensajes de HTTP, pero con un método de direccionamiento exactamente igual al de HTTP.
+		\item Debe tener una complejidad adecuada que se tienen en una red IoT, con baja capacidad de procesamiento y una 	
+		\item RAM muy limitada. Memoria hasta 256K y RAM de 12K. Reduciendo la sobrecarga de los mensajes de HTTP, pero con un método de direccionamiento exactamente igual al de HTTP.
 		\item Es necesario un mecanismo que permita gestionar la cache de solicitudes de recursos recientes, para optimizar.
 		\item Tiene que implementar peticiones post, get, put y delete, de manera que permita facilitar y automatizar la creación, eliminación, lectura y actualización de un dispositivo, canal o recursos.
 		\item Cada dispositivo debe tener su URI, un identificador único de recurso, similar al de URL.
 		\item Periodos de latencias muy bajos.
 		\item Tiene que trabajar sobre UDP, para aligerar el protocolo.
 	\end{itemize}
-
-\subsection{Mecanismos para la conexión}
-Para que un dispositivo se conecte a un sensor, se debe realizar una petición directa al sensor.
-
-Se utiliza el protocolo coap (coap://) en vez de http, con un nombre de URL que represente a los dispositivos (myhome.in:5683), una subdirección dentro de la URL para indicar el dispositivo (nest\_livingroom) y por último el nombre del parámetro de control del dispositivo (temp). Este último se podría completar con las distintas peticiones get, put, post o delete, que nos devuelven los datos o el código de error correspondiente (los códigos están reducidos).
-
-$coap://myhome.in:5683/nest\_livingroom/temp$
 
 \subsection{Diferencias con MQTT}
 \begin{itemize}
@@ -1416,7 +1415,154 @@ $coap://myhome.in:5683/nest\_livingroom/temp$
 	\item El intercambio de mensajes es totalmente asíncrono.
 \end{itemize}
 
+\subsection{Mecanismos para la conexión}
+Para que un dispositivo se conecte a un sensor, se debe realizar una petición directa al sensor.
 
+Se utiliza el protocolo coap (coap://) en vez de http, con un nombre de URL que represente a los dispositivos (myhome.in:5683), una subdirección dentro de la URL para indicar el dispositivo (nest\_livingroom) y por último el nombre del parámetro de control del dispositivo (temp). Este último se podría completar con las distintas peticiones get, put, post o delete, que nos devuelven los datos o el código de error correspondiente (los códigos están reducidos).
+
+$coap://myhome.in:5683/nest\_livingroom/temp$
+
+\subsection{Características}
+\begin{itemize}
+	\item Similar a HTTP, lo que cambia es el protocolo, se utiliza uno que produce muy poco tráfico.
+	\item Protocolos sin conexión.
+	\item Seguridad a través de DTLS en lugar de TLS en una transmisión HTTP normal.
+	\item Intercambios de mensajes COMPLETAMENTE asincrónico.
+	\item Diseño liviano y requisitos de recursos y baja sobrecarga de encabezado.
+	\item Soporte para URI y tipos de contenido.
+	\item Basado en UDP.
+	\item Un mapeo HTTP sin estado que permite a proxis.
+	enlazar con sesiones HTTP
+\end{itemize}
+
+\subsection{Actores principales}
+\begin{itemize}
+	\item Endpoints: Son los sensores o dispositivos IoT que proporcionan información.
+	\item Proxies: Nos permite conectar los endpoints a la red, funcionan como intermediarios de los mensajes, reciben CoAP y puede salir otro formato para los servidores.
+	\item Servidor CoAP: Es al que nos conectamos cuando queremos obtener la información de los sensores.
+	\item Observador: Elemento que se puede utilizar como si fuera un broker de MQTT.
+	\begin{figure}[H]
+		\ffigbox[\FBwidth]
+		{\caption{CoAP Observer}}
+		{\includegraphics[scale=.48]{2a2f42a1-0813-4e84-a244-72e6f2667ba8.png}}
+	\end{figure}
+
+	
+\end{itemize}
+
+\textbf{DTLS} es el protocolo de comunicación seguro que se monta sobre CoAP, da una capa de seguridad a UDP sobre los mensajes en transmisiones punto a punto.
+
+\subsection{Tipos de mensajes}
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{CoAP Messages}}
+	{\includegraphics[scale=.48]{d5c42d4c-400c-4d55-9eea-96fc5bedf353.png}}
+\end{figure}
+
+Todos los mensajes tienen un MID (message ID) y un Token, es un código que nos da en algún momento el servidor (representa nuestros datos propios) y se utiliza para indicar quienes somos, así nos puede reconocer.
+
+\begin{itemize}
+	\item \textbf{CON - Confirmable:} Requiere un ACK. Si se envía un mensaje CON, se debe recibir un ACK dentro de un intervalo de tiempo aleatorio entre ACK\_TIMEOUT y este valor multiplicado por un valor aleatorio. Si no se recibe el ACK, el remitente transmite el mensaje CON una y otra vez a intervalos que aumentan exponencialmente hasta que recibe le ACK o un RST.
+	\begin{itemize}
+		\item El A manda CON get \/temp con un token. 
+		\item El B envía un mensaje ACK al A.
+		\item El B manda CON con el contenido solicitado.
+		\item El A confirma la recepción con un ACK.
+	\end{itemize}
+	\item \textbf{NON: No-confirmable:} No requiere un ACK. Esencialmente un mensaje o transmisión de disparar y olvidar.
+	\begin{itemize}
+		\item El cliente A manda un mensaje NON para get \/temp, con un token para identificarme.
+		\item El cliente B lo recibe y envía al Cliente A el contenido solicitado con el token que le envió A, para que sepa que es suyo.
+	\end{itemize}
+	\item \textbf{ACK - Reconocimiento:} Reconoce mensajes CON. El mensaje ACK puede combinarse con otros datos.
+	\begin{figure}[H]
+		\ffigbox[\FBwidth]
+		{\caption{CoAP Messages Retransmission}}
+		{\includegraphics[scale=.48]{b15b5a2c-b9bc-4099-8786-a2bb1272ac9c.png}}
+	\end{figure}
+	\item \textbf{RST - Reseteo:} Indica que se ha recibido un mensaje CON, pero falta el contexto. El mensaje RST puede combinarse con otros datos.
+\end{itemize}
+	
+
+\chapter{Tema 6: Microservicios para la gestión de nubes de dispositivos IoT}
+\section{Microservicio}
+Es un servicio que está disponible en internet y como su nombre indica proporciona una capacidad especifica que necesitamos en la plataforma IoT y es accesible mediante una API.
+
+\textbf{Cohesión:} Numero distinto de responsabilidades que tiene un componente.
+
+Un microservicio es un componente que tiene vida independiente, aunque se integre en un sistema complejo puede funcionar de manera independiente.
+
+Es micro porque esta clase de servicios tienen un conjunto de responsabilidades pequeño, porque lo que buscamos es que se puedan utilizar en multitud de entornos, así son más generales. Por ejemplo, se utilizan para gestionar sensores, solamente para recibir las mediciones de los sensores de la red, o dispositivos, para ver en qué estado están o regístralos.
+
+
+\section{Interfaz API ReST}
+Es un servicio/API que es independiente del estado en el que se encuentra el servidor. (CoAP es un ejemplo de una implementación de API ReST)
+
+Mecanismo que se utiliza para exponer distintos microservicios. Sirve para implementar o hacer visibles las funcionalidades o capacidades que exponen las distintas partes de la plataforma\/nube IoT.
+
+Las API RESTful son útiles para funciones de soporte y utilidades que no necesitan conectividad o en tiempo real.
+
+Aunque normalmente lo utilizan programas y aplicaciones ascendentes, los dispositivos descendentes también pueden acceder a estas API cuando sea necesario. Proporcionará una serie de métodos disponibles para los usuarios del microservicio.
+
+
+\section{Gestión de una red de dispositivos IoT}
+Para gestionar el gran volumen de información que se mueve lo que se necesita es que los elementos de la nube IoT sean elásticos, que a nivel tecnológico se pueda pasar de proporcionar servicio a un centenar de dispositivos a centenares de miles, proporcionando el mismo servicio.
+
+Otra manera para flexibilizar el despliegue de microservicios es que tenga su propio almacén de datos, así se pueden hacer consultas más refinadas.
+
+Es fundamental tener servicios muy atómicos que se puedan transportar muy fácilmente (llevar de una parte a otra) y que se puedan replicar de manera eficiente en muchos servidores para trabajar de manera colaborativa.
+
+En contenedores se verá cómo se despliega.
+
+Los microservicios deben ser configurables de manera automática, es decir con archivos externos de configuración con toda la información necesaria para crear distintas instancias del microservicio.
+
+\section{Ejemplos}
+\textbf{Microservicios de IoT}
+
+\begin{itemize}
+	\item Gestión de dispositivos, se encarga de registrar, de registrar y conocer el estado de los dispositivos para transmitirla.
+	\item Ingestión de telemétrica, recepción de mensajes de los dispositivos que tengamos distribuidos por el mundo. Gestiona grandes cantidades de datos.
+	\item Transformación y Almacenamiento. 
+	\item Estado y Notificaciones.
+	\item Analíticas y Visualización de datos. 
+\end{itemize}
+
+\textbf{Microservicios y su tipo}
+\begin{itemize}
+	\item Gestión de Dispositivos - Device Microservice
+	\item Recepción de Telemetría - Ingestion Event Hub
+	\item Notificaciones - Alarm Event Hub
+	\item Almacenamiento - Envent Relational Store
+	\item Visualización de Datos - Reference Data Microservice
+\end{itemize}
+
+\section{Características}
+	\begin{description}
+		\item[Autónomos] Capaz de existir independientemente de otros componentes de la plataforma IoT, responder, reaccionar o desarrollase independientemente del todo. Que se pueda tener funciones sin requerir el todo y estos componentes se pueden poner a ejecutar de manera aislada.
+		\item[Aislados] Capaz de ejecutarse aisladamente de los demás componentes, pudiéndose ejecutar en diferentes lugares y en diferentes momentos.
+		\item[Elástico] Cuando gestionando los recursos de manera razonable es capaz de proporcionar servicio a centenares de usuarios y a centenares de miles de usuarios, es capaz de estirarse para dar servicio a más usuarios sin necesidad de desarrollo adicional, solo replicando el microservicio en contenedores y servidores
+		\item[Resiliente] Capaz de mantenerse en funcionamiento después de un error, no se queda bloqueada se debe poder recuperar.
+		\item[Responsive] Debe proporcionar una respuesta rápida y eficiente por muchos usuarios que se tenga.
+		\item[Orientado a mensaje] Disponible a partir de una interfaz HTTP, que los datos se transferirán mediante una llamada CoAP, HTTP o similar, y los datos están guardados en un objeto (de una manera más rica) como JSON o binario, de manera que los sistemas separados en una red estén conectados.
+		
+		Si quiero accederá a un método de un microservicio hare una petición get, post, put o delete, si está en una nube mediante HTTP y si es un dispositivo con la nube mediante CoAP o MQTT.
+
+		\item[Programable] Un plan de tareas que se realizan con el fin de lograr un resultado especifico. Que estas funcionalidades de la API se puedan acceder desde un navegador o por medio de otras aplicaciones. Esta programación en un microservicio se hace mediante un protocolo de red.
+		\item[Configurable] Diseñado para poderse adaptar a diferentes configuraciones específicas, que se tiene que adaptar a las distintas posibles configuraciones de despliegue, hacer que sea más fácil realizar estas configuraciones. Diseñado para poderse adaptar a diferentes configuraciones especificas o para algún propósito especifico.
+		\item[Automatizado] Tener controles que permitan que algo funcione o suceda sin ser controlado directamente por una persona.
+	\end{description}
+
+\textbf{Solución monolítica:} Aquellas que se implementan como un gran cuerpo de código con todo,  y se necesita el todo, no se encuentra divida en partes más pequeñas (como podrían ser microservicios) para obtener solo lo que nos interesa. Eso hace que sea muy difícil de mantener y evolucionar, está todo muy acoplado entre sí.
+
+\section{Ventajas de las Arquitecturas de Microservicios}
+\begin{itemize}
+	\item	Mejor escalamiento del desarrollo.
+	\item	Mayor velocidad de desarrollo.
+	\item	Apoya la modernización iterativa o incremental.
+	\item	Aprovecha el moderno ecosistema de desarrollo de software (nube, contenedores, DevOps, sin servidor)
+	\item	Admite escalado horizontal y granulado.
+	\item	Pone poca complejidad cognitiva en la cabeza del desarrollador gracias a su tamaño más pequeño.
+\end{itemize}
 
 \chapter{Recursos}
 \href{https://learning.oreilly.com/playlists/5a6c045f-e39c-465e-9e7c-60dcbb12aebb}{Lista de libros de referencia}
@@ -1442,5 +1588,12 @@ $coap://myhome.in:5683/nest\_livingroom/temp$
 
 \section{Tema 5: Protocolos de comunicación de dispositivos con infraestructuras IoT}
 \href{https://learning.oreilly.com/library/view/internet-of-things/9781788470599/b34f5cd8-115c-490c-b5c2-38a3a966a65a.xhtml}{Proctocolos de comunicación IoT}
+
+\section{Tema 6: Microservicios para la gestión de nubes de dispositivos IoT}
+\href{https://learning.oreilly.com/library/view/microservices-iot-and/9781484212752/9781484212769_Ch02.xhtml}{¿Qué es un microservicio?} Capítulo 2 completo
+
+\href{https://learning.oreilly.com/library/view/microservices-iot-and/9781484212752/9781484212769_Ch03.xhtml}{Arquitecturas de Microservicios} Capítulo 3 completo
+
+\href{https://towardsdatascience.com/microservice-architecture-and-its-10-most-important-design-patterns-824952d7fa41}{Patrones de Diseño de Microservicios} Artículo completo
 
 \end{document}
