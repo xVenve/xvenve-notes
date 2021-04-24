@@ -1934,7 +1934,7 @@ Es aprendizaje supervisado con las instancias etiquetadas.
 \section{Conjuntos de clasificadores - Emsembles}
 Se emplea en aprendizaje supervisado, la mayoría se pueden utilizar tanto en Clasificación como en Regresión, pero hay algunos más específicos.
 
-Se tienen un grupo de clasificadores cuyas decisiones individuales se combinan de alguna manera. A menudo son mucho más precisos que cualquiera de los clasificadores individuales.
+Se tiene un grupo de clasificadores cuyas decisiones individuales se combinan de alguna manera. A menudo son mucho más precisos que cualquiera de los clasificadores individuales.
 
 Los clasificadores individuales deben ser diversos (errores no correlados) y precisos (al menos mejor que una clasificación aleatoria).
 
@@ -1972,7 +1972,7 @@ Construir distintos conjuntos de entrenamientos, generar los clasificadores y la
 
 Generan muestras de m instancias del conjunto de entrenamiento, donde cada muestra se genera haciendo selección aleatoria con remplazo (una instancia se puede coger en varios conjuntos) Se genera un clasificador con cada muestra.
 
-Los clasificadores se pueden generar en paralelo, y se combina las decisiones de los clasificadores por voto mayoritario.
+Los clasificadores se pueden generar en paralelo, y se combinan las decisiones de los clasificadores por voto mayoritario.
 
 \begin{figure}[H]
   \ffigbox[\FBwidth]
@@ -1992,20 +1992,20 @@ Para $i = 1$ hasta N:
 Devolver clasificadores $C_i$.
 
 \subsection{Comités de validación cruzada}
-Se construyen conjuntos de entrenamiento de forma similar a validación cruzada (básicamente igual, pero cada uno de los clasificadores que se utilizaría para estimas el error es lo que se busca):
+Se construyen conjuntos de entrenamiento de forma similar a validación cruzada (básicamente igual, pero cada uno de los clasificadores que se utilizaría para estimar el error es lo que se busca):
 \begin{itemize}
   \item Se dividen los ejemplos de entrenamiento en k conjuntos disjuntos.
   \item Se crean k conjuntos de entrenamiento en el que en cada uno se deja fuera uno de los conjuntos disjuntos.
 \end{itemize}
 
 \subsection{Boosting [Shapire, 1990]}
-La idea es ir construyendo un clasificador (incremental) que en base a lo que ha fallado previamente vaya mejorando, se especializan los clasificadores en ejemplos mal clasificadores.
+La idea es ir construyendo un clasificador (incremental) que en base a lo que ha fallado previamente vaya mejorando, se especializan los clasificadores en ejemplos mal clasificados.
 
 Se utiliza principalmente en clasificación binaria (+1 -1). Mejora la precisión de clasificadores débiles, como puede ser OneR.
 
 El algoritmo de boosting más utilizado es AdaBoost - Adaptative Boosting.
 
-Los clasificadores se general de manera secuencial y se combina la decisión de los clasificadores por voto ponderado.
+Los clasificadores se generan de manera secuencial y se combina la decisión de los clasificadores por voto ponderado.
 \subsubsection{Algoritmo de Boosting}
 \begin{figure}[H]
   \ffigbox[\FBwidth]
@@ -2345,16 +2345,60 @@ Aprende directamente del entorno mediante prueba y error.
 Métodos Monte Carlo y métodos de Diferencia Temporal (Q-learning, SARSA)
 
 \subsection{Métodos Monte Carlo (MC)}
+El objetivo es estimar $Q^*$, el refuerzo que voy a obtener a futuro si aplico la opción optima.
+
+Basado en: 
+\begin{itemize}
+  \item Alternar la evaluación de política y su mejora, en sucesivas ejecuciones de episodios de aprendizaje.
+  \item Actualización de Q basada en la media de los refuerzos en los episodios.
+  \item Actualiza Q al final de cada episodio.
+\end{itemize}
+
 \subsubsection{Monte Carlo con Arranque Exploratorio}
+\begin{itemize}
+  \item Inicializar, $\forall s \in S, \forall a \in A$:
+  \begin{itemize}
+    \item $Q(s, a)$ valor arbitrario.
+    \item $\pi(s)$ valor arbitrario.
+    \item $ganancias(s, a)$ lista vacía.
+  \end{itemize}
+  \item Repetir para siempre:
+  \begin{enumerate}
+    \item Generar un episodio usando arranque exploratorio (comienza en un estado aleatorio) y la política $\pi$.
+    \item Para cada par $(s, a)$ que aparece en el episodio:
+    \begin{itemize}
+      \item $R(s, a) = r + \gamma r'+ \gamma r''+ \gamma r'''+\dots$ refuerzo descontado acumulado tras (empezando a descontando con el refuerzo siguiente) la PRIMERA ocurrencia del par $(s, a)$. 
+      \item Anadir $R(s, a)$ a $ganancias(s, a)$, cada par tiene su lista de refuerzos almacenados.
+      \item $G = promedio(ganancias(s, a))$
+      \item $Q(s, a) \leftarrow (1-\alpha)Q(s, a) + \alpha G$ (Caso determinista $\alpha = 1$, $Q(s, a) \leftarrow G$)
+    \end{itemize}
+    \item Para cada $s$ en el episodio: $\pi(s) \leftarrow \arg \max_a Q(s, a)$
+  \end{enumerate}
+\end{itemize}
 
 \subsection{Métodos de Diferencia Temporal (TD)}
+El objetivo es estimar $Q^*$.
+
+Combinación de las ideas de Programación Dinámica y los métodos de Monte Carlo:
+\begin{itemize}
+  \item Aprendizaje por prueba y error. Estimaciones sobre estimaciones.
+  \item Basado en el cálculo de las funciones de valor-acción Q.
+  \item Se actualiza Q en el paso del episodio.
+\end{itemize}
+
+Algoritmos:
+\begin{itemize}
+  \item Q-Learning: off-policy (no lleva una política que vaya actualizando)
+  \item SARSA (State–action–reward–state–action): on-policy
+\end{itemize}
+
 \subsubsection{Q-Learning}
-Se basa en estimar de forma iterativa la función de valor-acción optima, $Q^*(s,a)$. 
+Se basa en estimar de forma iterativa la función de valor-acción optima, $Q^*(s, a)$. 
 
 La función Q la podemos representar en forma de tabla con |S| filas y |A| columnas, en cada casilla se pondrá el refuerzo acumulado en el tiempo cuando en ese estado se ejecuta esa acción asumiendo refuerzo futuro óptimo.
 
 Esta tabla que se genera nos facilita obtener la política optima, de tal manera que la mejor acción de cada estado es el máximo de su fila.
-$$\pi(s) = \arg \max _a Q^* (s,a)$$
+$$\pi(s) = \arg \max _a Q^* (s, a)$$
 
 Consiste en que después de cada transición se recalcula la tabla Q entera aproximándose poco a poco a la óptima, y se van generando episodios de aprendizaje, una serie de transiciones consecutivas hasta que termina o se para. $\underbrace{sas'} \underbrace{a'r's''} \underbrace{a''r''s'''}...$
 
@@ -2362,26 +2406,26 @@ Consiste en que después de cada transición se recalcula la tabla Q entera apro
 \begin{itemize}
   \item Función de Actualización \textbf{determinista}
   \begin{figure}[H]
-    $$Q(s,a) \leftarrow r + \gamma \max_{a'} Q(s',a')$$
+    $$Q(s, a) \leftarrow r + \gamma \max_{a'} Q(s’, a')$$
 
     \captionsetup{justification=centering}
     \caption{Función de Actualización de Q Determinista}
   \end{figure}
   \item Función de actualización \textbf{no determinista} (en general)
   \begin{figure}[H]
-    $$Q(s,a) \leftarrow (1-\alpha) Q(s,a) + \alpha[r + \gamma \max_{a'} Q(s',a')]$$
+    $$Q(s, a) \leftarrow (1-\alpha) Q(s, a) + \alpha[r + \gamma \max_{a'} Q(s’, a')]$$
 
     \captionsetup{justification=centering}
     \caption{Función de Actualización de Q No Determinista}
   \end{figure}
 \end{itemize}
 
-$\alpha \in [0,1]$ representa la tasa de aprendizaje, modula la agresividad con la que se actualiza la tabla.
+$\alpha \in [0,1]$ representa la tasa de aprendizaje, la agresividad con la que se actualiza la tabla.
 
 $\gamma$ es el factor de descuento, como van perdiendo importancia las decisiones más alejadas del estado actual del agente.
 
 \textbf{Algoritmo de Q-Learning($\gamma, \alpha$)}
-En el que se realizan varios escenarios para ir mejorando la tabla Q, en cada uno de los escenarios se va evaluando la mejor acción para generar un estado completo (s,a,r,s') y se actualiza la tabla antes de transitar a él.
+En el que se realizan varios escenarios para ir mejorando la tabla Q, en cada uno de los escenarios se va evaluando la mejor acción para generar un estado completo (s, a, r, s') y se actualiza la tabla antes de transitar a él.
 \begin{itemize}
   \item Inicializar $Q(s, a), \forall s \in S, a \in A$ (lo habitual es inicializar a 0)
   \item Repetir (para cada episodio)
@@ -2391,14 +2435,12 @@ En el que se realizan varios escenarios para ir mejorando la tabla Q, en cada un
     \begin{itemize}
       \item Selecciona una acción a y la ejecuta.
       \item Recibe el estado actual s', y el refuerzo, r.
-      \item $Q(s,a) \leftarrow (1-\alpha) Q(s,a) + \alpha[r + \gamma \max_{a'} Q(s',a')]$      
+      \item $Q(s, a) \leftarrow (1-\alpha) Q(s, a) + \alpha[r + \gamma \max_{a'} Q(s’, a')]$      
       \item Asigna $s \leftarrow s'$
     \end{itemize}
   \end{itemize}
   \item Devuelve $Q(s, a)$.
 \end{itemize}
-
-\pagebreak
 
 \textbf{Ejemplo Q-Learning}
 
@@ -2417,11 +2459,101 @@ En el que se realizan varios escenarios para ir mejorando la tabla Q, en cada un
 
 \subsection{Exploración vs. Explotación}
 
+\textbf{Exploración:} Acciones aleatorias.
+
+\textbf{Explotación:} Utilizar acciones de la política actual $\pi (s)=\arg \max _a Q (s, a)$
+
+\textbf{Estrategias principales de selección de acciones}, para balancear la exploración y la explotación sesgando la selección de acciones con conocimiento del dominio:
+\begin{itemize}
+  \item \textbf{$\epsilon-greedy$:} Ejecuta una acción aleatoria con probabilidad $\epsilon$ y la acción $\arg \max_a Q(s, a)$ con probabilidad $1-\epsilon$
+  \item \textbf{Softmax:} A cada acción que se puede ejecutar en un estado se le asigna una probabilidad.
+  $$ P(a_i|s)= \frac{e^{Q(s, a_i)/\tau}} {\Sigma_{a_j \in A} e^{Q(s, a_j)/\tau}} $$
+  
+  Se utiliza un parámetro llamado Temperatura $\tau$, si es alta la acción es equiprobable (exploración pura), si es media es más probabilidad la que tiene mayor $Q(s, a)$ y si es baja se sigue la política (exploración pura).
+
+  Lo ideal es que de más probabilidad a aquellas con mayor $Q(s, a)$, de tal manera que es aleatorio, pero la mejor acción es más probable.
+\end{itemize}
+
 \subsection{Aplicaciones}
+Tiene muchas aplicaciones entre las que destaca la planificación en tiempo real y para entornos estocásticos.
+\begin{itemize}
+  \item Control de dispositivos de salud.
+  \item Control de robots.
+  \item Control de procesos de fabricación.
+  \item Control de temperatura.
+  \item Predicción de series.
+  \item Juegos: AlphaGo, TD-Gammon.
+  \item Logística.
+  \item Problemas canónicos: navegación en un grid, balance de un sistema cart-pole.
+\end{itemize}
 
 \section{Representación de la función Q}
+\subsection{Pac-Man}
+\textbf{Observaciones:} coordenadas discretas x e y de Pac-Man y fantasmas.
+
+\textbf{Acciones:} movimientos de tamaño 1 en las 4 direcciones.
+
+\textbf{Objetivo:} comer fantasmas.
+
+\subsection{Representación Tabular de la Función Q}
+\textbf{Problema:} espacio de estados continuo o de gran tamaño.
+
+\textbf{Solución:} métodos de generalización, abstracción: 
+\begin{itemize}
+  \item \textbf{Aproximaciones ad-hoc} basadas en conocimiento del dominio.
+  \item \textbf{Discretización} del espacio de estados, pasar de continuo a discreto.
+  \item \textbf{Aproximación de funciones}, en vez de una tabla discreta que sea una función.
+\end{itemize}
+
+\subsection{Mountain-Cart}
+\textbf{Observaciones:} valores continuos de posición $x$ y velocidad $v$ del coche.
+
+\textbf{Acciones:} aplicación de fuerza hacia la derecha, izquierda, o nula.
+
+\textbf{Objetivo:} alcanzar la bandera con velocidad 0.
 
 \section{Generalización en Aprendizaje por Refuerzo}
 \subsection{Discretización del Espacio de Estados}
+Los problemas que surgen al discretizar son:
+\begin{itemize}
+  \item Las discretizaciones erróneas pueden romper fácilmente la propiedad de Márkov.
+  
+  Al discretizar puede dejar de ser determinista, ya que puede ocurrir que al hacer una acción no se salga siempre del estado (como ocurriría en Pac-man si en vez de ir casilla a casilla son de 2x2).
+
+  \item El número de regiones necesarias para discretizar el espacio de estados.
+\end{itemize}
+
+\subsection{Discretización uniforme del espacio de estados}
+Discretizar cada atributo en un numero dado de niveles de discretización o regiones, todas las regiones del mismo tamaño.
+
+Esto supone un problema porque no se tiene en cuenta el número de ejemplos por región, por lo que puede haber regiones que no tengan ninguno y otras que estén superpobladas.
+
+Se debería especializar más en las que tienen más ejemplos.
+
+\subsection{Discretización de Resolución Variable: Arboles KD}
+La discretización más fina en las regiones que más ejemplos hay.
+
+Los nodos y hojas del árbol representan regiones del espacio de estados.
+
+En cada nodo del árbol, una región se divide en otras dos, esta división se realizará según un criterio.
+
+Con esta técnica una región se ira partiendo en dos hasta que cumpla las condiciones establecidas, y se crearan regiones más grandes para las menos pobladas y más pequeñas para las superpobladas.
+
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Discretización: Árbol KD}}
+  {\includegraphics[scale=.25]{2021-04-24 14_09_21-refuerzo.pdf - Foxit Reader.png}}
+\end{figure}
+
+\subsection{Clustering (Agrupamiento) para Q-Learning}
+\begin{enumerate}
+  \item Discretización no uniforme del espacio de estados (k-means).
+  \item Los clústeres obtenidos se consideran la nueva representación del espacio de estados.
+  
+  $sars' \rightarrow C_5arC_7$
+  \item Se aplica Q-Learning sobre la nueva representación.
+\end{enumerate}
+
+
 
 \end{document}
