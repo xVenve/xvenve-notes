@@ -1482,7 +1482,8 @@ Todos los mensajes tienen un MID (message ID) y un Token, es un código que nos 
 	\end{figure}
 	\item \textbf{RST - Reseteo:} Indica que se ha recibido un mensaje CON, pero falta el contexto. El mensaje RST puede combinarse con otros datos.
 \end{itemize}
-	
+
+\textbf{Simetrico} ambos extremos de la comunicacion tienen que ser capaces de proporcionar los mismos mensajes en la comunicación, la comunicación entre ambos nodos se realiza de la misma manera, sin embargo \textbf{asimetrico} cada uno se comporta de una manera distinta cuando se comunican. 
 
 \chapter{Tema 6: Microservicios para la gestión de nubes de dispositivos IoT}
 \section{Microservicio}
@@ -1494,6 +1495,9 @@ Un microservicio es un componente que tiene vida independiente, aunque se integr
 
 Es micro porque esta clase de servicios tienen un conjunto de responsabilidades pequeño, porque lo que buscamos es que se puedan utilizar en multitud de entornos, así son más generales. Por ejemplo, se utilizan para gestionar sensores, solamente para recibir las mediciones de los sensores de la red, o dispositivos, para ver en qué estado están o regístralos.
 
+Son neutrales en cuanto al lenguaje de programación, cada microservicio puede estar en uno distinto mientras se comuniquen mediante la API REST.
+
+Al ser partes pequeñas y con funcion especifica pueden ser lanzados rapida y frecuentemente.
 
 \section{Interfaz API ReST}
 Es un servicio/API que es independiente del estado en el que se encuentra el servidor. (CoAP es un ejemplo de una implementación de API ReST)
@@ -1516,25 +1520,15 @@ En contenedores se verá cómo se despliega.
 
 Los microservicios deben ser configurables de manera automática, es decir con archivos externos de configuración con toda la información necesaria para crear distintas instancias del microservicio.
 
-\section{Ejemplos}
-\textbf{Microservicios de IoT}
-
+\section{Áreas de los Microservicios y su tipo}
 \begin{itemize}
-	\item Gestión de dispositivos, se encarga de registrar, de registrar y conocer el estado de los dispositivos para transmitirla.
-	\item Ingestión de telemétrica, recepción de mensajes de los dispositivos que tengamos distribuidos por el mundo. Gestiona grandes cantidades de datos.
-	\item Transformación y Almacenamiento. 
-	\item Estado y Notificaciones.
-	\item Analíticas y Visualización de datos. 
+	\item \textbf{Gestión de Dispositivos - Device Microservice}, se encarga de registrar, de registrar y conocer el estado de los dispositivos para transmitirla.
+	\item \textbf{Ingestión de telemétrica - Ingestion Event Hub}, recepción de mensajes de los dispositivos que tengamos distribuidos por el mundo. Gestiona grandes cantidades de datos.
+	\item \textbf{Transformación y Almacenamiento - Event Relational Store}. 
+	\item \textbf{Estado y Notificaciones - Alarm Event Hub}.
+	\item \textbf{Analíticas y Visualización de Datos - Reference Data Microservice}. 
 \end{itemize}
 
-\textbf{Microservicios y su tipo}
-\begin{itemize}
-	\item Gestión de Dispositivos - Device Microservice
-	\item Recepción de Telemetría - Ingestion Event Hub
-	\item Notificaciones - Alarm Event Hub
-	\item Almacenamiento - Envent Relational Store
-	\item Visualización de Datos - Reference Data Microservice
-\end{itemize}
 
 \section{Características}
 	\begin{description}
@@ -1552,18 +1546,207 @@ Los microservicios deben ser configurables de manera automática, es decir con a
 		\item[Automatizado] Tener controles que permitan que algo funcione o suceda sin ser controlado directamente por una persona.
 	\end{description}
 
-\textbf{Solución monolítica:} Aquellas que se implementan como un gran cuerpo de código con todo,  y se necesita el todo, no se encuentra divida en partes más pequeñas (como podrían ser microservicios) para obtener solo lo que nos interesa. Eso hace que sea muy difícil de mantener y evolucionar, está todo muy acoplado entre sí.
+\section{Arquitectura de Microservicios}
 
-\section{Ventajas de las Arquitecturas de Microservicios}
+El principio básico para desarrollo de una arquitectura de servicios en la nube como el IoT consiste en la separación de intereses, es un principio de diseño que permite separar la implementación de todo un sistema complejo en distintas capas, cada capa de acuerdo con su ámbito o foco de actuación. 
+
+Esa separación, se logra mediante el encapsulamiento e interfaces bien definidas, que es lo que buscamos con los microservicios.
+Este tipo de encapsulamiento se debe hacer en las 5 áreas que se describen arriba.
+
+En función de la separación de los intereses hay distinta tipos de arquitecturas.
+
+\subsection{Solución monolítica} 
+Aquellas que se implementan como un gran cuerpo de código con todo,  y se necesita el todo, no se encuentra divida en partes más pequeñas (como podrían ser microservicios) para obtener solo lo que nos interesa. Eso hace que sea muy difícil de mantener y evolucionar, está todo muy acoplado entre sí.
+
+\subsection{Arquitectura en capas}
+Se establecen unas capas según las funcionalidades e intereses.
+
+\subsubsection{Modelo Vista Controlador}
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Arquitectura Modelo Vista Controlador}}
+	{\includegraphics[scale=.8]{9781484212769_Fig03-01.jpg}}
+\end{figure}
 \begin{itemize}
-	\item	Mejor escalamiento del desarrollo.
-	\item	Mayor velocidad de desarrollo.
-	\item	Apoya la modernización iterativa o incremental.
-	\item	Aprovecha el moderno ecosistema de desarrollo de software (nube, contenedores, DevOps, sin servidor)
+	\item \textbf{Presentación}, la de interfaz de usuario, lo que se muestra al usuario e interactúa.
+	\item \textbf{Aplicación}, tiene toda la lógica de negocio.
+	
+	Es una capa monolítica si se quiere cambiar algo de esta capa de aplicación hay que reinstalar toda la capa por completo, como si fuera un monolito.
+	
+	\item \textbf{Persistencia}, donde produce el almacenamiento y consulta de datos.
+\end{itemize}
+\pagebreak
+\subsubsection{Aplicaciones normales}
+
+Se tiene una evolución muy superior que MVC, consisten en proporcionar diferentes interfaces de usuario mediante contratos o servicios web.
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Arquitectura en capas}}
+	{\includegraphics[scale=.8]{9781484212769_Fig03-02.jpg}}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Clientes móvil/web}: Se pueden conectar vía móvil, tablet, web, etc.
+	\item \textbf{Clientes ricos}: Como puede ser el que se puede acceder desde un computador de escritorio.
+	\item \textbf{Contratos y Servicios web}: Para controlar las diferentes interfaces se utiliza SOAP o REST.
+	
+	\textbf{SOAP} es un protocolo especifico que se gestiona de manera independiente a HTTP y tiene otros estándares adicionales para publicar servicios complejos en internet, que permite implementar más seguridad o atomicidad de las operaciones. Emplea XML.
+
+	\textbf{REST} es un estilo arquitectónico para exponer servicios web en internet mediante HTTP y que nos permite más tipos. Emplea XML o JSON, permite más tipos de protocolos.
+
+	\item \textbf{Capa de dominio:} Es donde se tienen las reglas de negocio.
+	\item \textbf{Capa de aplicación}: Se coreografían las reglas de negocio.
+	\item \textbf{Capa de almacenamiento}: Se tienen las distintas operaciones de gestión de los datos, desde la gestión física de datos, el modelo de datos y el cacheo.
+\end{itemize}
+
+\pagebreak
+\subsection{Arquitectura de Microservicios}
+En las arquitecturas de microservicios las 3 capas (Presentación, Aplicación y Persistencia) están separadas en diferentes nodos que pueden trabajar de manera independiente y luego hay servicios que coreografían las peticiones para realizar las operaciones de manera atómica.
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Arquitectura de Microservicios}}
+	{\includegraphics[scale=.8]{9781484212769_Fig03-03.jpg}}
+\end{figure}
+
+La capa de aplicación está formada por microservicios que se coordinan con una API que hace de coreografiador según las peticiones que recibe de la WebApp.
+
+Cuando se recibe una petición de la WebApp se pasa a la API (coreografiador) que se encarga de pasarla al microservicio correcto para realizar lo solicitado, cada microservicio posee sus propios datos con su propio gestor de bases de datos. 
+
+Incluso un mismo microservicio según la configuración que le demos puede utilizar un gestor de bases de datos u otro.
+
+\subsection{Ventajas de las Arquitecturas de Microservicios}
+\begin{itemize}
+	\item	Mejor escalamiento del desarrollo, cada microservicio se centra en una cuestión de esta manera el trabajo de desarrollo se puede dividir entre distinta equipos de desarrollo y sean más diversos.
+	\item	Mayor velocidad de desarrollo, al haber más equipos que trabajen en paralelo.
+	\item	Apoya la modernización iterativa o incremental, .
+	\item	Aprovecha el moderno ecosistema de desarrollo de software (nube, contenedores, DevOps, sin servidor), nos permite desplegar en un nodo independiente cada uno de estos microservicios de esta manera se da servicio a más sistemas.
 	\item	Admite escalado horizontal y granulado.
 	\item	Pone poca complejidad cognitiva en la cabeza del desarrollador gracias a su tamaño más pequeño.
 \end{itemize}
 
+\section{Elementos de los Microservicios}
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Elementos de un Microservicio}}
+	{\includegraphics[scale=.8]{9781484212769_Fig03-04.jpg}}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Capa de modelos:} Tiene su propio modelo de datos que es la estructura que deben tener los datos que entran y salen de nuestros microservicios. En la practica el modelo de datos es agnóstico, independiente.
+	\item \textbf{Capa de SDK - Software Development Kit:} Conjunto de herramientas y librerías que se utilizan para desarrollar código, que incluye funciones que realizan las llamadas a la API ReST para facilitarnos interactuar con ellas de manera que no haga falta que lo hagamos nosotros.
+	\item Nuestros microservicios van a utilizar comunicación HTTP, por lo tanto, dentro de sus elementos se encuentran las distintas peticiones Cuando se realiza una petición lo que se hace es ir construyendo una petición HTTP
+	\begin{itemize}
+		\item \textbf{GET - Leer}: Puede hacerse de manera simple, mediante la URL con el id a consultar, o más compleja mediante el uso de una interrogación e igual, para determinar los parámetros y debe ser capaz de trabajar con estos.
+		
+		GET http://myapi.looksfamiliar.com/profiles/user/id/99999
+
+		GET http://myapi.looksfamiliar.com/profiles?location=Massachusetts
+
+		\item \textbf{POST - Crear}: Peticiones que nos permiten crear elementos, los parámetros se pasan con una estructura determinada como JSON
+		
+		\{ "id" : "99999", "first" : "Bob", "last" : "Familiar" \}
+
+		POST http://myapi.looksfamiliar.com/profiles/user
+		
+		\item \textbf{PUT - Sustituir o actualizar}
+		\item \textbf{PATCH - Modificar Parcialmente}
+		\item \textbf{DELETE - Borrar}
+	\end{itemize}
+	\item \textbf{Protocolo:} Puede ser de dos tipos ReST o SOAP.
+	\begin{table}[H]
+		\begin{tabular}{l|c|c|}
+		\cline{2-3}
+		& \textbf{SOAP/WSPL} & \textbf{ReST} \\ \hline
+		\multicolumn{1}{|l|}{\textbf{Estilo}}                                                      
+		& Protocolo & Arquitectónico \\ \hline
+		\multicolumn{1}{|l|}{\textbf{Foco}} 
+		& \begin{tabular}[c]{@{}c@{}}Orientado a la funcionalidad\\ -\textgreater Hacer Transacciones\end{tabular} & \begin{tabular}[c]{@{}c@{}}Orientado a datos - \\ Acceder a los datos de un recurso\end{tabular} \\ \hline
+		\multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Formato \\ de Datos\end{tabular}}} 
+		& XML & Texto, JSON, HTML, XML \\ \hline
+		\multicolumn{1}{|l|}{\textbf{Seguridad}}                                                  
+		& WS-Security -\textgreater SSL & TLS y SSL -\textgreater HTTP \\ \hline
+		\multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Ancho \\ de banda\end{tabular}}} &
+			\begin{tabular}[c]{@{}c@{}}Requiere más al usar XML y ser un \\ protocolo, tiene su propia secuencia de \\ negociación de mensajes, más tráfico\end{tabular} & Requiere menos \\ \hline
+		\multicolumn{1}{|l|}{\textbf{Cache}}                                                       
+		& No se puede gestionar & Puede gestionar caché \\ \hline
+		\multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Contrato \\ de datos\end{tabular}}} 
+		& Necesito conocer la Clase del Objeto & \begin{tabular}[c]{@{}c@{}}No tiene por qué ser conocido \\ el tipo de datos previamente\end{tabular} \\ \hline
+		\multicolumn{1}{|l|}{\textbf{Atomicidad}}                                                  
+		& Si & No \\ \hline
+		\end{tabular}
+		\caption{Diferencias entre SOAP y ReST}
+	\end{table}
+	\item \textbf{API Gateway}
+	\item \textbf{Capa de servicio}: Es donde realmente se implementa el funcionamiento, el código que tenemos que utilizar para implementar los métodos que exponen sobre la API. Actúa con la capa de acceso a datos para gestionar los datos en persistencia.
+	\item \textbf{Capa de acceso a Datos}: Gestión de la persistencia de los datos y las caches. Interfaces para acceder a los datos.
+	\item \textbf{Capa de automatización}: Es la que permite configurar mediante una secuencia de script, lanzar y ejecutar las distintas instancias de los microservicios mediante tecnología como contenedores, todo de manera automatizada. 
+\end{itemize}
+
+\section{Características Importantes de una Arquitectura de Microservicios}
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Arquitectura de Microservicios II}}
+	{\includegraphics[scale=.3]{0_W5T2tfcKgudQZYnu.jpeg}}
+\end{figure}
+
+Toda aplicación se divide en procesos separados, donde cada proceso tiene distintos módulos internos, de manera que cada uno es un pequeño monolito que se puede trabajar independiente
+
+Para desarrollar estas arquitecturas podemos utilizar distintos patrones de diseño, es un pareja problema-solución software, la solución dada como una guía de cómo resolver ese problema específico.
+
+Algunos patrones de diseño para microservicios son:
+
+\subsection{Bases de datos por microservicio}
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Database per Microservice}}
+	{\includegraphics[scale=.3]{1_WWJQH50jxgrqh-ABFRQuzQ.jpeg}}
+\end{figure}
+
+Un único repositorio de datos para cada microservicio se trata de reducir el acoplamiento entre ellos, la dependencia entre cada uno de ellos.
+
+El problema es como permitir que los distintos microservicios intercambien información entre sí, se comunicarían de manera asíncrona, para solventar esto se usa la siguiente.
+
+\subsection{Abastecimiento de eventos}
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Event Sourcing}}
+	{\includegraphics[scale=.3]{1_tRDaroNg_GnGdCZDFxLFKQ.jpeg}}
+\end{figure}
+
+Para que intercambien información necesitamos implementar un coreografiador que sea capaz de almacenar los distinto eventos, y cuando hemos completado esto eventos le datos la información a los elementos de interfaz de usuario para identificar que la operación se realizado correctamente.
+
+Se meten las distintas peticiones en una cola de mensajes síncrona, de tal manera que se ejecutan los eventos en orden, de manera que cuando se ejecutan ambas se da por completada con éxito, de esta manera se asegura que se haya ejecutado convenientemente.
+
+En caso de que un evento provoque una situación de error, todos los anteriores se deshacen para evitar problemas de atomicidad de estos elementos.
+\begin{itemize}
+	\item \textbf{Pros:} Proporciona soluciones atómicas bien definidas y se tiene un registro de las peticiones de los microservicios, incluso un registro por cada microservicio. Se realiza mediante eventos y no compartiendo datos o estructura.
+	\item \textbf{Contras:} Realizar esas coreografías es complejo y requiere un almacén adicional para las peticiones y estado antes y después de cada evento,  para poder ante cualquier problema volver al estado anterior.
+\end{itemize}		
+
+\subsection{Backends para Frontends (BFF)}
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Backends for Frontends}}
+	{\includegraphics[scale=.3]{1_FCZRcAuSLhrNOjcq1zYXDw.jpeg}}
+\end{figure}
+
+Como se tiene distintas interfaces que tienen distintas componentes de interfaz visual, de manera que se utiliza un orquestado distinto para los distintos tipos de interfaces de usuario (web/mobile), se gestionan los microservicios de manera distinta para que se adapte mejor a estos, como en el móvil que necesita niveles de seguridad, uso de menos recursos, datos menos ricos.
+
+Al estar separadas se exponen distintas funcionalidades, por lo que se puede proteger para aquellas más vulnerables.
+
+Se gestiona un backends para cada interfaz cada uno con su orquestador/coreografiados.
+
+\begin{itemize}
+	\item \textbf{Contras:} El problema es que se puede producir lógica duplicada, que resulta problemático a la hora de las pruebas y corrección de errores.
+
+	Hay muchas posibles interfaces lo que hace es que se vuelva más complejo al haber tanta variedad, necesidades que cubrir y requisitos que satisfacer.
+\end{itemize}	
+	
+	
+	
 \chapter{Recursos}
 \href{https://learning.oreilly.com/playlists/5a6c045f-e39c-465e-9e7c-60dcbb12aebb}{Lista de libros de referencia}
 
