@@ -1120,7 +1120,7 @@ Se pueden dividir en aplicaciones integradas \textbf{especificas del mercado} (i
 
 \section{Edge Interface, Message Broker y Message Bus}
 
-Se encargan de enrutar y recibir los mensajes de datos que proporcionan los dispositivos IoT, tratan con la transmisión de mensajes con el mundo físico, especialmente dispositivos y sensores Heterogéneos. Se trata de encapsular de una manera estandarizada las maneras, métodos, tecnologías o protocolos de transporte que utilizan los dispositivos IoT para conectarse a internet.
+Se encargan de enrutar y recibir los mensajes de datos que proporcionan los dispositivos IoT, tratan con la transmisión de mensajes con el mundo físico, especialmente dispositivos y sensores heterogéneos. Se trata de encapsular de una manera estandarizada los métodos, tecnologías o protocolos de transporte que utilizan los dispositivos IoT para conectarse a internet.
 
 Los protocolos estándar son las herramientas que unen y encapsulan datos sin procesar de un sensor a algo significativo y formateado para que la nube lo acepte.
 
@@ -1161,7 +1161,7 @@ A diferencia de HTTP, no es necesario que el publicador sepa a quien enviárselo
 
 \section{Servicio RESTful}
 
-Es la alternativa a los protocolos basados en mensajes. Es asíncrono el intercambio de mensajes.
+Es la alternativa a los protocolos basados en mensajes. Es asíncrono el intercambio de mensajes. Por ejemplo: CoAP
 
 En un modelo RESTful el servidor posee el estado de un recurso, sabe en qué estado se encuentra.
 La recepción de peticiones y la recepción de respuesta es independiente del estado. Se suele utilizar cuando quiero enviar datos a un servidor o los quiero recuperar.
@@ -1170,8 +1170,6 @@ Envía con post y recibe con get, resolviendo el URL.
 
 Utiliza directamente el protocolo HTTP, todos están sobre este, mediante una URL podemos identificar el path.
 Al emplear HTTP son protocolos muy exigentes en cuanto a nivel de comunicaciones, requiere mayor cabecera y numero de intercambios de mensajes.
-
-Por ejemplo: CoAP
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
@@ -1212,7 +1210,7 @@ Se debe tener en cuenta cuál es el tamaño máximo de los mensajes según el pr
 \subsection{Estructura de un paquete MQTT}
 \begin{itemize}
 	\item \textbf{Cabecera:} Indica que tipo de mensaje que estamos mandando y algunas flags.
-	\item \textbf{Longitud del paquete}S. 
+	\item \textbf{Longitud del paquete} 
 	\item \textbf{Cabecera adicional (opcional)}: de longitud variable , de uso marginal. 
 	\item \textbf{Payload (datos):} Puede tener un tamaño variable, que por protocolo son 256MB máximo, pero dependiendo del proveedor puede ser menor.
 \end{itemize}
@@ -1253,7 +1251,7 @@ Requiere identificador de paquete, tópico al que se suscribe, nivel de calidad 
 \subsection{Elementos de los mensajes} 
 
 \subsubsection{Last will - Ultima voluntad} 
-Es el mensaje que se envía a todos los suscriptores suscritos a ese canal cuando se pierde la conexión de un publicador. Este parámetro se introduce al inicio.
+Es el mensaje que se envía a todos los suscriptores de un canal cuando se pierde la conexión de un publicador. Este parámetro se introduce al inicio.
 
 \subsubsection{Retain} 
 En el indicamos si queremos que se retenga el mensaje hasta que sea confirmada la recepción por todos los suscriptores.
@@ -1265,7 +1263,7 @@ Indica cada cuanto tiempo se envía un mensaje al suscribirse, si no se recibe u
 \begin{itemize}
 	\item Conexión con petición de almacenamiento de "última voluntad"
 	\item Almacenamiento de petición de "última voluntad"
-	\item confirmación de conexión.
+	\item Confirmación de conexión.
 	\item El publicador publica mensajes.
 	\item El suscriptor recibe mensajes.
 	\item El cliente inesperadamente deja de responder.
@@ -1354,9 +1352,9 @@ Se usa para aplicaciones de misión crítica, sobre todo en aquellas circunstanc
 		{\includegraphics[scale=.35]{0_G6zwc_VftJ4AcueS.png}}
 	\end{figure}
 \end{description}
-
+\pagebreak
 \section{MQTT-SN - Message Queuing Telemetry Transport for Sensor Networks}
-Se utiliza en los casos en los que se quieren conectar sensores que se encuentran en lugares remotos, tienen problemas de batería, tiene una conexión inalámbrica débil o la conexión requiere mucha energía. Para optimizar los recursos.
+Se utiliza en los casos en los que se quiere conectar sensores que se encuentran en lugares remotos, tienen problemas de batería, tiene una conexión inalámbrica débil o la conexión requiere mucha energía. En los que hay que optimizar los recursos.
 
 
 \subsection{Elementos de estas redes:}
@@ -1367,12 +1365,12 @@ Se utiliza en los casos en los que se quieren conectar sensores que se encuentra
 \end{figure}
 \begin{itemize}
 	\item \textbf{Endpoints:} Los distintos sensores o dispositivos.
-	\item \textbf{Gateways - Puertas de enlace:} Son los responsables de convertir MQTT-SN a MQTT para enviarlo al router. Se pueden tener retransmisores y repetidores, que permite que llegue más lejos la señal cuando se encuentran en lugares remotos.
+	\item \textbf{Gateways - Puertas de enlace:} Son los responsables de convertir MQTT-SN a MQTT para enviarlo al router. Se pueden tener retransmisores y repetidores, que permiten que llegue más lejos la señal cuando se encuentran en lugares remotos.
 \end{itemize}
 
 Los gateways/routers envían periódicamente mensajes broadcast (ADVERTISE) informando de que están disponibles, de esta manera los clientes pueden buscar los gateways a los que se pueden conectar con SEARCHGW, y estos les responderán con GWAINFO con la información de puerta de enlace.
 \begin{itemize}
-	\item \textbf{ADVERTISE:} Transmite periódicamente desde una puerta de enlace para anunciar su presencia.
+	\item \textbf{ADVERTISE:} Se transmite periódicamente desde una puerta de enlace para anunciar su presencia.
 	\item \textbf{SEARCHGW:} Emitido por un cliente cuando busca una puerta de enlace en particular. Parte del mensaje es un parámetro de radio, que indica cuántos saltos debe seguir el mensaje SEARCHGW en una topología de red.
 	\item \textbf{GWINFO:} Ésta es la respuesta de las puertas de enlace al recibir un mensaje SEARCHGW. Contiene el ID y la dirección de la puerta de enlace, que solo se transmite cuando SEARCHGW se envía desde un cliente.
 \end{itemize}
@@ -1385,7 +1383,7 @@ Los gateways/routers envían periódicamente mensajes broadcast (ADVERTISE) info
 	\item Los ID de tema predeterminados y los nombres cortos de tema se pueden usar sin ningún registro. Para utilizar esta función, tanto el cliente como el servidor deben utilizar el mismo ID de tema. Los nombres breves de los temas son lo suficientemente cortos como para incluirse en el mensaje PUBLISH.
 	\item Se introduce un procedimiento de descubrimiento para ayudar a los clientes y permitirles encontrar las direcciones de red de servidores y puertas de enlace. Pueden existir varias puertas de enlace en la topología y se pueden utilizar para compartir la carga de la comunicación con los clientes.
 \end{itemize}
-
+\pagebreak
 \section{CoAP (Constrained Application Protocol) - Protocolo de Aplicación Restringida}
 	Es un estándar del IETF, está pensado para facilitar la conexión entre dos máquinas punto a punto.
 
@@ -1398,8 +1396,7 @@ Los gateways/routers envían periódicamente mensajes broadcast (ADVERTISE) info
 
 \subsection{Requisitos a satisfacer}
 	\begin{itemize}
-		\item Debe tener una complejidad adecuada que se tienen en una red IoT, con baja capacidad de procesamiento y una 	
-		\item RAM muy limitada. Memoria hasta 256K y RAM de 12K. Reduciendo la sobrecarga de los mensajes de HTTP, pero con un método de direccionamiento exactamente igual al de HTTP.
+		\item Debe tener una complejidad adecuada que se tienen en una red IoT, con baja capacidad de procesamiento y una RAM muy limitada. Memoria hasta 256K y RAM de 12K. Reduciendo la sobrecarga de los mensajes de HTTP, pero con un método de direccionamiento exactamente igual al de HTTP.
 		\item Es necesario un mecanismo que permita gestionar la cache de solicitudes de recursos recientes, para optimizar.
 		\item Tiene que implementar peticiones post, get, put y delete, de manera que permita facilitar y automatizar la creación, eliminación, lectura y actualización de un dispositivo, canal o recursos.
 		\item Cada dispositivo debe tener su URI, un identificador único de recurso, similar al de URL.
@@ -1418,9 +1415,7 @@ Los gateways/routers envían periódicamente mensajes broadcast (ADVERTISE) info
 \subsection{Mecanismos para la conexión}
 Para que un dispositivo se conecte a un sensor, se debe realizar una petición directa al sensor.
 
-Se utiliza el protocolo coap (coap://) en vez de http, con un nombre de URL que represente a los dispositivos (myhome.in:5683), una subdirección dentro de la URL para indicar el dispositivo (nest\_livingroom) y por último el nombre del parámetro de control del dispositivo (temp). Este último se podría completar con las distintas peticiones get, put, post o delete, que nos devuelven los datos o el código de error correspondiente (los códigos están reducidos).
-
-$coap://myhome.in:5683/nest\_livingroom/temp$
+Se utiliza el protocolo coap (coap://) en vez de http, con un nombre de URL que represente a los dispositivos (myhome.in:5683), una subdirección dentro de la URL para indicar el dispositivo (nest\_livingroom) y por último el nombre del parámetro de control del dispositivo (temp). Este último se podría completar con las distintas peticiones get, put, post o delete, que nos devuelven los datos o el código de error correspondiente (los códigos están reducidos). $$\text{coap://myhome.in:5683/nest\_livingroom/temp}$$
 
 \subsection{Características}
 \begin{itemize}
@@ -1431,16 +1426,15 @@ $coap://myhome.in:5683/nest\_livingroom/temp$
 	\item Diseño liviano y requisitos de recursos y baja sobrecarga de encabezado.
 	\item Soporte para URI y tipos de contenido.
 	\item Basado en UDP.
-	\item Un mapeo HTTP sin estado que permite a proxis.
-	enlazar con sesiones HTTP
+	\item Un mapeo HTTP sin estado que permite a proxis enlazarse con sesiones HTTP
 \end{itemize}
 
 \subsection{Actores principales}
 \begin{itemize}
-	\item Endpoints: Son los sensores o dispositivos IoT que proporcionan información.
-	\item Proxies: Nos permite conectar los endpoints a la red, funcionan como intermediarios de los mensajes, reciben CoAP y puede salir otro formato para los servidores.
-	\item Servidor CoAP: Es al que nos conectamos cuando queremos obtener la información de los sensores.
-	\item Observador: Elemento que se puede utilizar como si fuera un broker de MQTT.
+	\item \textbf{Endpoints:} Son los sensores o dispositivos IoT que proporcionan información.
+	\item \textbf{Proxies:} Nos permite conectar los endpoints a la red, funcionan como intermediarios de los mensajes, reciben CoAP y puede salir otro formato para los servidores.
+	\item \textbf{Servidor CoAP:} Es al que nos conectamos cuando queremos obtener la información de los sensores.
+	\item \textbf{Observador:} Elemento que se puede utilizar como si fuera un broker de MQTT.
 	\begin{figure}[H]
 		\ffigbox[\FBwidth]
 		{\caption{CoAP Observer}}
@@ -1487,13 +1481,13 @@ Todos los mensajes tienen un MID (message ID) y un Token, es un código que nos 
 
 \chapter{Tema 6: Microservicios para la gestión de nubes de dispositivos IoT}
 \section{Microservicio}
-Es un servicio que está disponible en internet y como su nombre indica proporciona una capacidad especifica que necesitamos en la plataforma IoT y es accesible mediante una API.
+Es un servicio que está disponible en la plataforma IoT y como su nombre indica (miceo) proporciona una capacidad especifica que necesitamos y es accesible mediante una API.
 
 \textbf{Cohesión:} Numero distinto de responsabilidades que tiene un componente.
 
 Un microservicio es un componente que tiene vida independiente, aunque se integre en un sistema complejo puede funcionar de manera independiente.
 
-Es micro porque esta clase de servicios tienen un conjunto de responsabilidades pequeño, porque lo que buscamos es que se puedan utilizar en multitud de entornos, así son más generales. Por ejemplo, se utilizan para gestionar sensores, solamente para recibir las mediciones de los sensores de la red, o dispositivos, para ver en qué estado están o regístralos.
+Es micro porque esta clase de servicios tienen un conjunto de responsabilidades pequeño, porque lo que buscamos es que se puedan utilizar en multitud de entornos, así son más generales. Por ejemplo, se utilizan para gestionar sensores, solamente para recibir las mediciones de los sensores de la red, o gestionar dispositivos, para ver en qué estado están o regístralos.
 
 Son neutrales en cuanto al lenguaje de programación, cada microservicio puede estar en uno distinto mientras se comuniquen mediante la API REST.
 
@@ -1502,15 +1496,15 @@ Al ser partes pequeñas y con funcion especifica pueden ser lanzados rapida y fr
 \section{Interfaz API ReST}
 Es un servicio/API que es independiente del estado en el que se encuentra el servidor. (CoAP es un ejemplo de una implementación de API ReST)
 
-Mecanismo que se utiliza para exponer distintos microservicios. Sirve para implementar o hacer visibles las funcionalidades o capacidades que exponen las distintas partes de la plataforma\/nube IoT.
+Mecanismo que se utiliza para exponer distintos microservicios. Sirve para implementar o hacer visibles las funcionalidades o capacidades que exponen las distintas partes de la plataforma/nube IoT.
 
-Las API RESTful son útiles para funciones de soporte y utilidades que no necesitan conectividad o en tiempo real.
+Las API RESTful son útiles para funciones de soporte y utilidades que no necesitan conectividad o ser en tiempo real.
 
 Aunque normalmente lo utilizan programas y aplicaciones ascendentes, los dispositivos descendentes también pueden acceder a estas API cuando sea necesario. Proporcionará una serie de métodos disponibles para los usuarios del microservicio.
 
 
 \section{Gestión de una red de dispositivos IoT}
-Para gestionar el gran volumen de información que se mueve lo que se necesita es que los elementos de la nube IoT sean elásticos, que a nivel tecnológico se pueda pasar de proporcionar servicio a un centenar de dispositivos a centenares de miles, proporcionando el mismo servicio.
+Para gestionar el gran volumen de información que se mueve, lo que se necesita es que los elementos de la nube IoT sean elásticos, es decir que a nivel tecnológico se pueda pasar de proporcionar servicio a un centenar de dispositivos a centenares de miles de dispositivos.
 
 Otra manera para flexibilizar el despliegue de microservicios es que tenga su propio almacén de datos, así se pueden hacer consultas más refinadas.
 
@@ -1548,7 +1542,7 @@ Los microservicios deben ser configurables de manera automática, es decir con a
 
 \section{Arquitectura de Microservicios}
 
-El principio básico para desarrollo de una arquitectura de servicios en la nube como el IoT consiste en la separación de intereses, es un principio de diseño que permite separar la implementación de todo un sistema complejo en distintas capas, cada capa de acuerdo con su ámbito o foco de actuación. 
+El principio básico para el desarrollo de una arquitectura de servicios en la nube, como es el IoT, consiste en la separación de intereses, siguiendo un principio de diseño que permite separar la implementación de todo un sistema complejo en distintas capas, donde cada capa tiene su ámbito o foco de actuación. 
 
 Esa separación, se logra mediante el encapsulamiento e interfaces bien definidas, que es lo que buscamos con los microservicios.
 Este tipo de encapsulamiento se debe hacer en las 5 áreas que se describen arriba.
@@ -1556,7 +1550,11 @@ Este tipo de encapsulamiento se debe hacer en las 5 áreas que se describen arri
 En función de la separación de los intereses hay distinta tipos de arquitecturas.
 
 \subsection{Solución monolítica} 
-Aquellas que se implementan como un gran cuerpo de código con todo,  y se necesita el todo, no se encuentra divida en partes más pequeñas (como podrían ser microservicios) para obtener solo lo que nos interesa. Eso hace que sea muy difícil de mantener y evolucionar, está todo muy acoplado entre sí.
+Aquellas que se implementan como un gran cuerpo con todo el código y se necesita utilizar el sistema. n
+
+No se encuentra divida en partes más pequeñas (como podrían ser microservicios) para obtener solo lo que nos interesa. 
+
+Esto hace que sea muy difícil de mantener y evolucionar, todo está muy acoplado entre sí.
 
 \subsection{Arquitectura en capas}
 Se establecen unas capas según las funcionalidades e intereses.
@@ -1571,9 +1569,9 @@ Se establecen unas capas según las funcionalidades e intereses.
 	\item \textbf{Presentación}, la de interfaz de usuario, lo que se muestra al usuario e interactúa.
 	\item \textbf{Aplicación}, tiene toda la lógica de negocio.
 	
-	Es una capa monolítica si se quiere cambiar algo de esta capa de aplicación hay que reinstalar toda la capa por completo, como si fuera un monolito.
+	Es una capa monolítica si se quiere cambiar algo de esta capa hay que reinstalar toda la capa por completo, como si fuera un monolito.
 	
-	\item \textbf{Persistencia}, donde produce el almacenamiento y consulta de datos.
+	\item \textbf{Persistencia}, donde se produce el almacenamiento y consulta de datos.
 \end{itemize}
 \pagebreak
 \subsubsection{Aplicaciones normales}
@@ -1588,7 +1586,7 @@ Se tiene una evolución muy superior que MVC, consisten en proporcionar diferent
 
 \begin{itemize}
 	\item \textbf{Clientes móvil/web}: Se pueden conectar vía móvil, tablet, web, etc.
-	\item \textbf{Clientes ricos}: Como puede ser el que se puede acceder desde un computador de escritorio.
+	\item \textbf{Clientes ricos}: Como puede ser el que se puede acceder desde un computador de escritorio, en el que se puede proporcionar y acceder a mucha más información.
 	\item \textbf{Contratos y Servicios web}: Para controlar las diferentes interfaces se utiliza SOAP o REST.
 	
 	\textbf{SOAP} es un protocolo especifico que se gestiona de manera independiente a HTTP y tiene otros estándares adicionales para publicar servicios complejos en internet, que permite implementar más seguridad o atomicidad de las operaciones. Emplea XML.
@@ -1597,7 +1595,7 @@ Se tiene una evolución muy superior que MVC, consisten en proporcionar diferent
 
 	\item \textbf{Capa de dominio:} Es donde se tienen las reglas de negocio.
 	\item \textbf{Capa de aplicación}: Se coreografían las reglas de negocio.
-	\item \textbf{Capa de almacenamiento}: Se tienen las distintas operaciones de gestión de los datos, desde la gestión física de datos, el modelo de datos y el cacheo.
+	\item \textbf{Capa de almacenamiento}: Se tienen las distintas operaciones de gestión de los datos, desde la gestión física de datos, hasta el modelo de datos y el cacheo.
 \end{itemize}
 
 \pagebreak
@@ -1618,9 +1616,9 @@ Incluso un mismo microservicio según la configuración que le demos puede utili
 
 \subsection{Ventajas de las Arquitecturas de Microservicios}
 \begin{itemize}
-	\item	Mejor escalamiento del desarrollo, cada microservicio se centra en una cuestión de esta manera el trabajo de desarrollo se puede dividir entre distinta equipos de desarrollo y sean más diversos.
+	\item	Mejor escalabilidad del desarrollo, cada microservicio se centra en una cuestión, de esta manera el trabajo de desarrollo se puede dividir entre distintos equipos de desarrollo y que sean más diversos.
 	\item	Mayor velocidad de desarrollo, al haber más equipos que trabajen en paralelo.
-	\item	Apoya la modernización iterativa o incremental, .
+	\item	Apoya la modernización iterativa o incremental.
 	\item	Aprovecha el moderno ecosistema de desarrollo de software (nube, contenedores, DevOps, sin servidor), nos permite desplegar en un nodo independiente cada uno de estos microservicios de esta manera se da servicio a más sistemas.
 	\item	Admite escalado horizontal y granulado.
 	\item	Pone poca complejidad cognitiva en la cabeza del desarrollador gracias a su tamaño más pequeño.
@@ -1637,7 +1635,7 @@ Incluso un mismo microservicio según la configuración que le demos puede utili
 \begin{itemize}
 	\item \textbf{Capa de modelos:} Tiene su propio modelo de datos que es la estructura que deben tener los datos que entran y salen de nuestros microservicios. En la practica el modelo de datos es agnóstico, independiente.
 	\item \textbf{Capa de SDK - Software Development Kit:} Conjunto de herramientas y librerías que se utilizan para desarrollar código, que incluye funciones que realizan las llamadas a la API ReST para facilitarnos interactuar con ellas de manera que no haga falta que lo hagamos nosotros.
-	\item Nuestros microservicios van a utilizar comunicación HTTP, por lo tanto, dentro de sus elementos se encuentran las distintas peticiones Cuando se realiza una petición lo que se hace es ir construyendo una petición HTTP
+	\item Nuestros microservicios van a utilizar comunicación HTTP, por lo tanto, dentro de sus elementos se encuentran las distintas peticiones.
 	\begin{itemize}
 		\item \textbf{GET - Leer}: Puede hacerse de manera simple, mediante la URL con el id a consultar, o más compleja mediante el uso de una interrogación e igual, para determinar los parámetros y debe ser capaz de trabajar con estos.
 		
@@ -1647,7 +1645,7 @@ Incluso un mismo microservicio según la configuración que le demos puede utili
 
 		\item \textbf{POST - Crear}: Peticiones que nos permiten crear elementos, los parámetros se pasan con una estructura determinada como JSON
 		
-		\{ "id" : "99999", "first" : "Bob", "last" : "Familiar" \}
+		\{ \"id" : "99999", "first" : "Bob", "last" : "Familiar" \}
 
 		POST http://myapi.looksfamiliar.com/profiles/user
 		
@@ -1663,7 +1661,7 @@ Incluso un mismo microservicio según la configuración que le demos puede utili
 		\multicolumn{1}{|l|}{\textbf{Estilo}}                                                      
 		& Protocolo & Arquitectónico \\ \hline
 		\multicolumn{1}{|l|}{\textbf{Foco}} 
-		& \begin{tabular}[c]{@{}c@{}}Orientado a la funcionalidad\\ -\textgreater Hacer Transacciones\end{tabular} & \begin{tabular}[c]{@{}c@{}}Orientado a datos - \\ Acceder a los datos de un recurso\end{tabular} \\ \hline
+		& \begin{tabular}[c]{@{}c@{}}Orientado a la funcionalidad\\ - Hacer Transacciones\end{tabular} & \begin{tabular}[c]{@{}c@{}}Orientado a datos - \\ Acceder a los datos de un recurso\end{tabular} \\ \hline
 		\multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Formato \\ de Datos\end{tabular}}} 
 		& XML & Texto, JSON, HTML, XML \\ \hline
 		\multicolumn{1}{|l|}{\textbf{Seguridad}}                                                  
@@ -1680,9 +1678,9 @@ Incluso un mismo microservicio según la configuración que le demos puede utili
 		\caption{Diferencias entre SOAP y ReST}
 	\end{table}
 	\item \textbf{API Gateway}
-	\item \textbf{Capa de servicio}: Es donde realmente se implementa el funcionamiento, el código que tenemos que utilizar para implementar los métodos que exponen sobre la API. Actúa con la capa de acceso a datos para gestionar los datos en persistencia.
-	\item \textbf{Capa de acceso a Datos}: Gestión de la persistencia de los datos y las caches. Interfaces para acceder a los datos.
-	\item \textbf{Capa de automatización}: Es la que permite configurar mediante una secuencia de script, lanzar y ejecutar las distintas instancias de los microservicios mediante tecnología como contenedores, todo de manera automatizada. 
+	\item \textbf{Capa de Servicio}: Es donde realmente se implementa el funcionamiento, el código que tenemos que utilizar para implementar los métodos que se exponen sobre la API. Actúa con la capa de acceso a datos para gestionar los datos en persistencia.
+	\item \textbf{Capa de Acceso a Datos}: Gestión de la persistencia de los datos y las caches. Interfaces para acceder a los datos.
+	\item \textbf{Capa de Automatización}: Es la que permite configurar mediante una secuencia de script, lanzar y ejecutar las distintas instancias de los microservicios mediante tecnología como contenedores, todo de manera automatizada. 
 \end{itemize}
 
 \section{Características Importantes de una Arquitectura de Microservicios}
@@ -1692,7 +1690,7 @@ Incluso un mismo microservicio según la configuración que le demos puede utili
 	{\includegraphics[scale=.3]{0_W5T2tfcKgudQZYnu.jpeg}}
 \end{figure}
 
-Toda aplicación se divide en procesos separados, donde cada proceso tiene distintos módulos internos, de manera que cada uno es un pequeño monolito que se puede trabajar independiente
+Toda aplicación se divide en procesos separados, donde cada proceso tiene distintos módulos internos, de manera que cada uno es un pequeño monolito que puede trabajar de  manera independiente.
 
 Para desarrollar estas arquitecturas podemos utilizar distintos patrones de diseño, es un pareja problema-solución software, la solución dada como una guía de cómo resolver ese problema específico.
 
@@ -1716,9 +1714,9 @@ El problema es como permitir que los distintos microservicios intercambien infor
 	{\includegraphics[scale=.3]{1_tRDaroNg_GnGdCZDFxLFKQ.jpeg}}
 \end{figure}
 
-Para que intercambien información necesitamos implementar un coreografiador que sea capaz de almacenar los distinto eventos, y cuando hemos completado esto eventos le datos la información a los elementos de interfaz de usuario para identificar que la operación se realizado correctamente.
+Para que intercambien información necesitamos implementar un coreografiador que sea capaz de almacenar los distintos eventos, y cuando hemos completado estos eventos le damos la información a los elementos de la interfaz de usuario para identificar que la operación se ha realizado correctamente.
 
-Se meten las distintas peticiones en una cola de mensajes síncrona, de tal manera que se ejecutan los eventos en orden, de manera que cuando se ejecutan ambas se da por completada con éxito, de esta manera se asegura que se haya ejecutado convenientemente.
+Se meten las distintas peticiones en una cola de mensajes síncrona, de tal manera que se ejecutan los eventos en orden, de manera que cuando se ejecutan con éxito, se asegura que se haya ejecutado convenientemente.
 
 En caso de que un evento provoque una situación de error, todos los anteriores se deshacen para evitar problemas de atomicidad de estos elementos.
 \begin{itemize}
@@ -1733,16 +1731,18 @@ En caso de que un evento provoque una situación de error, todos los anteriores 
 	{\includegraphics[scale=.3]{1_FCZRcAuSLhrNOjcq1zYXDw.jpeg}}
 \end{figure}
 
-Como se tiene distintas interfaces que tienen distintas componentes de interfaz visual, de manera que se utiliza un orquestado distinto para los distintos tipos de interfaces de usuario (web/mobile), se gestionan los microservicios de manera distinta para que se adapte mejor a estos, como en el móvil que necesita niveles de seguridad, uso de menos recursos, datos menos ricos.
+Como se tienen distintas interfaces que tienen distintos componentes de interfaz visual, de manera que se utiliza un orquestado distinto para los distintos tipos de interfaces de usuario (web/mobile), se gestionan los microservicios de manera distinta para que se adapten mejor a estas.
+
+Por ejemplo, el móvil es menos seguro y usa menos recursos, por lo que recibe datos menos ricos.
 
 Al estar separadas se exponen distintas funcionalidades, por lo que se puede proteger para aquellas más vulnerables.
 
-Se gestiona un backends para cada interfaz cada uno con su orquestador/coreografiados.
+Se gestiona un backends para cada interfaz cada cuenta con su orquestador/coreografiador.
 
 \begin{itemize}
-	\item \textbf{Contras:} El problema es que se puede producir lógica duplicada, que resulta problemático a la hora de las pruebas y corrección de errores.
+	\item \textbf{Contras:} El problema es que se puede producir lógica duplicada, que resulta problemático a la hora de realizar las pruebas y coregir los errores.
 
-	Hay muchas posibles interfaces lo que hace es que se vuelva más complejo al haber tanta variedad, necesidades que cubrir y requisitos que satisfacer.
+	Hay muchas posibles interfaces lo que hace que se vuelva más complejo, al haber tanta variedad de dispositivos, necesidades que cubrir y requisitos que satisfacer.
 \end{itemize}	
 	
 	
