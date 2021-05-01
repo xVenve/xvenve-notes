@@ -1957,7 +1957,7 @@ No es necesario eliminar la recursividad a derechas e izquierda y ni es necesari
 
 \textbf{Recuperación de errores:} LL es más sencillo de implementar.
 
-\chapter{Tema 4: Análisis Semántico}
+\chapter{Tema 5: Análisis Semántico}
 
 \section{Introducción}
 El análisis semántico es una \textbf{extensión del análisis sintáctico para la compresión del programa}, para comprobar que tiene sentido y que está conectado. Destaca por la verificación de tipos.
@@ -1968,7 +1968,7 @@ Las gramáticas independientes del contexto \textbf{(G2) no son suficientes para
 
 Para cumplir lo anterior se utilizan Gramáticas de atributos (gramáticas atribuidas), que son más ricas.
 
-\textbf{ Algunas de las comprobaciones que se realizan durante el Análisis Semántico:}
+\textbf{Algunas de las comprobaciones que se realizan durante el Análisis Semántico:}
 \begin{itemize}
   \item Comprobación de \textbf{tipos}, los operadores y operandos deben ser compatibles.
   \item Comprobaciones de \textbf{unicidad}, en aquellas situaciones en los que un objetico solo puede definirse una vez exclusivamente.
@@ -2016,7 +2016,7 @@ Se pueden construir Arboles adornador o decorados, donde se muestra la relación
   \end{itemize}
   \begin{figure}[H]
     \ffigbox[\FBwidth]
-    {\caption{Ejemplo DDS}}
+    {\caption{Ejemplo EDT}}
     {\includegraphics[scale=.3]{2021-04-21 11_14_06-05_resum_Sem_2021.pdf - Foxit Reader.png}
     \includegraphics[scale=.24]{2021-04-21 11_14_40-05_resum_Sem_2021.pdf - Foxit Reader.png}}
   \end{figure}
@@ -2089,13 +2089,196 @@ Los atributos heredados se tratan utilizando estructuras auxiliares para pasar l
 
   Solo algunas de las LR(1) que NO son LL(1) pueden evaluarse con L-A mediante un analizador ascendente.
 \end{itemize}
-\section{Evaluación de atributos}
-\subsection{Árbol de dependencia}
-\subsection{DDS y TDS}
-\section{Árbol de Sintaxis abstracta}
-\subsection{Evaluación de varias pasadas}
+
+\section{Evaluación de Atributos}
+\subsection{Evaluación Ascendente con Atributos Sintetizados}
+Los atributos sintetizados se pueden evaluar durante el análisis de la entrada con un analizador sintáctico ascendente.
+
+La pila de estados LR tiene asociados los símbolos gramaticales.
+Basta crear otra pila con los valores de los atributos sintetizados asociados.
+
+Con cada reducción se calculan los nuevos atributos sintetizados accediendo en la pila a los atributos de símbolos gramaticales del lado derecho de la producción
+
+\subsection{Grafos de dependencia}
+La manera de resolver las gramáticas en el peor caso se consigue construyendo uno de estos grafos.
+
+Los atributos no pueden evaluarse en cualquier orden, tras tenerlo construido se pasa un algoritmo que lo determina.
+
+Nos permite representar interdependencias entre atributos heredados y sintetizados de un árbol de análisis sintáctico.
+
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Grafo de dependencia}}
+  {\includegraphics[scale=.3]{2021-05-01 01_15_15-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+\end{figure}
+
+\textbf{Creación:} Cada una de las reglas de producción $A \rightarrow X_1 ... X_n$ representan una parte del grafo, de tal manera que la unión de todas es el grafo completo.
+\begin{enumerate}
+  \item Se crea un nodo por cada atributo $X_i.a_j$ de cada símbolo de la producción.
+  \begin{itemize}
+    \item Atributos heredados - Izquierda.
+    \item Atributos sintetizados - Derecha.
+  \end{itemize}
+  \item Para cada regla semántica $X_i.a_j = f(...,X_k.a_l, ...)$ se hacen arcos desde cada nodo $X_k.a_l$ hacia el nodo $X_i.a_j$, esto se repite para cada k y l afectada por la regla.
+\end{enumerate}
+\pagebreak
+\subsection{Árbol de Sintaxis abstracta}
+Es una alternativa más sencilla, el grafo de demencias es más completo.
+
+Se usa para los casos en los que la gramática no se puede evaluar en una pasada.
+
+Evaluación en varias pasadas: Se construye el árbol explícitamente y se evalúa en función del orden de recorrido.
+
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Árbol Sintáctico Abstracto}}
+  {\includegraphics[scale=.25]{2021-05-01 01_21_28-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+\end{figure}
+
+El Árbol sintáctico abstracto es una estructura de datos que condensa un árbol de análisis sintáctico. 
+\begin{itemize}
+  \item Las operaciones y las palabras claves no forman parte de las hojas, sino que son absorbidas por el padre. 
+  \item Los elementos que tienen información semántica representan las hojas.
+\end{itemize}
+
+Construcción en la programación:
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Árbol de sintaxis abstracta}}
+  {\includegraphics[scale=.25]{2021-05-01 01_30_29-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+\end{figure}
+\begin{itemize}
+  \item Un nodo para cada operador y cada operando.
+  \item Un nodo almacena su tipo y su valor si es un operando, en caso de ser un operador en vez de valor almacena el puntero a los operadores. Los punteros y tipo son atributos sintetizados
+  \begin{itemize}
+    \item hazNodo (operador, izquierda, derecha)
+    \item hazHoja (id, entrada)
+    \item hazHoja (num, val)
+  \end{itemize}
+\end{itemize}
+
+\section{Orden de recorrido del árbol}
+
+Los atributos heredados los calculamos antes y los sintetizados después. 
+
+Nos vamos moviendo de izquierda a derecha.
+
+Una vez calculado el heredado se puede pasar al sintetizado.
+
+\textbf{Complejidad de la evaluación}
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Complejidad de la evaluación}}
+  {\includegraphics[scale=.25]{2021-05-01 01_46_28-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+\end{figure}
+\begin{itemize}
+  \item S-atribuida, Gramáticas atribuida, va hacia arriba. Calculamos lo de los hijos y lo pasamos hacia arriba.
+  \item L-atribuida, Gramáticas por la izquierda. De forma sistemática, se hace una sola visita, recorriendo el árbol.
+  \item Combinada, hay que ver el orden de dependencia entre atributos para construir el orden.
+\end{itemize}
+
+\textbf{Orden dinámico:} Para aquellos que hasta que no lo construimos no sabemos el orden, cuando no está fijada la relación entre atributos.
+  
+Para estos casos es necesario construir el grafo de dependencias, no nos vale el Árbol Sintáctico Abstracto.
+
+\textbf{Orden estático:} Analizando la gramática y las dependencias se establece el orden a priori.
+  \begin{itemize}
+    \item \textbf{Caso que no necesita un árbol de atributos:} Gramáticas S-A y L-A, las de una pasada.
+    \item \textbf{Sobre el árbol de atributos:} Los 3 primeros se puede hacer de una sola pasada por el árbol en las que se calculan los atributos.
+    \begin{itemize}
+      \item \textbf{Recorrido post-orden}, depende solo de atributos sintetizados.
+      \begin{figure}[H]
+        \ffigbox[\FBwidth]
+        {\caption{Recorrido post-orden}}
+        {\includegraphics[scale=.25]{2021-05-01 01_50_04-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+      \end{figure}
+      \item \textbf{Recorrido pre-orden}, aparecen atributos heredados por la izquierda, el caso de las Gramáticas L-A.
+      \begin{figure}[H]
+        \ffigbox[\FBwidth]
+        {\caption{Recorrido pre-orden}}
+        {\includegraphics[scale=.25]{2021-05-01 01_51_44-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+      \end{figure}
+      \pagebreak
+      \item \textbf{Recorrido combinado}, atributos sintetizados dependen de heredados.
+      \begin{figure}[H]
+        \ffigbox[\FBwidth]
+        {\caption{Recorrido combinado}}
+        {\includegraphics[scale=.25]{2021-05-01 01_52_19-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+      \end{figure}
+      \item \textbf{Recorrido de varias pasadas, Recorrido combinada}, atributos heredados dependen de sintetizados.
+    \end{itemize}
+  \end{itemize}
+
+\chapter{Tema 6: Comprobación de Tipos}
+\section{Introducción}
+Su función es representar y mantener la información de tipos (inferencia).
+
+Comprueba que el tipo de una construcción tenga sentido en su contexto según el lenguaje.
+
+Se encuentra tras la construcción del TSA (árbol sintáctico abstracto). ??
+
+En la gramática atribuidas es sencillo, pero no siempre es así y para los tipos más complejos se usan tablas.
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Ejemplo Comprobación de Tipos}}
+  {\includegraphics[scale=.25]{2021-05-01 02_14_46-06_resum_Tipos_2021.pdf - Foxit Reader.png}}
+\end{figure}
+
+Un lenguaje \textbf{especifica que operaciones son válidas para cada tipo}, mediante la formalización de reglas semánticas de verificación.
+
+Se \textbf{detectan errores} como: Acceso incorrecto a memoria, Límites de abstracción, mal uso de estructuras, etc.
+
+\textbf{Tipos de lenguajes:}
+\begin{itemize}
+  \item \textbf{Estáticamente tipificados:} La mayoría de las comprobaciones se realizan en tiempo de \textbf{compilación} (C, Java). Menos libres, pero más seguros.
+  \item \textbf{Dinámicamente tipificados:} La mayoría de las comprobaciones en \textbf{ejecución} (Scheme, LISP)
+  \item \textbf{No tipificados:} Ninguna comprobación (código ensamblador)
+\end{itemize}
+
+\section{Sistemas de tipos}
+\subsection{Expresiones de tipos}
+Representan el tipo de las construcciones los valores posibles, todos los tipos de datos y operaciones aplicables.
+\begin{itemize}
+  \item Tipo de Expresión resultante de aplicar operadores aritméticos.
+  \item Resultado de aplicar operador \&.
+  \item Tipo de llamada a función.
+  \item …
+\end{itemize}
+
+\textbf{Pueden ser:}
+\begin{itemize}
+  \item \textbf{Tipos básicos:} El nombre de un tipo es una expresión de tipo. Su valor es una constante que lo representa.
+  \begin{itemize}
+    \item boolean, char, integer, real, vacío, error\_tipo,\dots
+  \end{itemize}
+  \item \textbf{Constructor de tipos y expresiones de tipos:} Son tipos más complejos formados de tipos básicos.
+  \begin{itemize}
+    \item \textbf{Array:} Es una estructura formada por una serie de elementos de un tipo, se especifica el número de elementos y el tipo de estos. $array[1\text{..}10]$
+    \item \textbf{Productos cartesianos:} Asociación de tipos en una estructura.
+    \item \textbf{Registros:} Es el producto de diferentes tipos, es decir usar como tipo productos cartesianos de otros tipos definidos.
+    
+    $record (("direccion" : integer) \times ("lexema" : array(1..15, Char)))$
+    
+    $array(1\text{..}10, record (("direccion" : integer) \times ("lexema" : array(1\text{..}15,char)))$
+
+    \item \textbf{Punteros:} Dado un tipo $T$, el $Pointer(T)$ es el tipo del puntero hacia elementos de tipo T.
+    \item \textbf{Funciones:} Es una relación entre un tipo origen y un tipo destino. El origen suele ser un producto cartesiano.
+    
+    Una función del tipo $f(a,b:char) : \hat{} integer$ tiene asociado $(char \times char) \rightarrow Pointer(integer)$
+  \end{itemize}
+\end{itemize}
+
+
+\subsection{Comprobación estática y dinámica}
+Estática en los lenguajes que los tipos no cambian.
+
+Dinámica para los lenguajes más complejos, que pueden variar el tipo directamente.
+\section{Especificación de un comprobador de tipos sencillo}
+\subsection{Conversiones y sobrecarga de tipos}
+\section{Tablas de Símbolos y POO}
 
 
 
 \end{document}
+
 
