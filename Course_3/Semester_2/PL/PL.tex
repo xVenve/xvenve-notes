@@ -729,7 +729,7 @@ específica.
 los errores después solo se compilan estos.
 
 \textbf{Autocompilador}: Compilador escrito en el propio lenguaje que
-compila. Esto facilita la Portabilidad:
+compila. Esto facilita la portabilidad.
 
 \textbf{Metacompilador}: Programa que recibe la definición de un
 lenguaje (Gramática) y genera un compilador para ese lenguaje.
@@ -1123,15 +1123,9 @@ Representa directamente con un programa al DT en cuestión.
   Técnicas:
 
   \begin{itemize}
-  \item
-    \textbf{Programación}: Muy eficiente.
-
-    \begin{itemize}
-    
-    \item
-      \textbf{Controlado por tablas}: Código pequeño, general y
-      manejable.
-    \end{itemize}
+  \item \textbf{Programación}: Muy eficiente.    
+  \item \textbf{Controlado por tablas}: Código pequeño, general y
+    manejable.
   \end{itemize}
 \end{itemize}
 
@@ -1351,13 +1345,13 @@ transiciones con \(\lambda\).
 
 \begin{itemize}
 \item \textbf{Descendente}: Va desde la raíz (axioma) hasta las hojas
-  (tokens, símbolos terminales. Nosotros trataremos los predictivos
+  (tokens, símbolos terminales). Nosotros trataremos los predictivos
   solo, que son capaces de elegir el token correcto en cada momento, no
   los que tienen retroceso.
 
   \textbf{LL(k)}, LL(1) Tengo que leer k tokens para identificar que
   regla de producción usar.
-\item \textbf{Ascendente}: Va de los nodos hojas(secuencia de tokens) hasta
+\item \textbf{Ascendente}: Va de los nodos hojas (secuencia de tokens) hasta
   la raíz (axioma). Es predictivo.
 
   \textbf{LR(k)}, que puede ser LR(0), SLR(1), LALR(1) y LR(1)
@@ -1380,7 +1374,8 @@ El proceso que seguimos es:
 \item
   \textbf{Coger un token de izquierda a derecha.}
 \item
-  \textbf{Seleccionar una regla de producción}. Se debe sabe
+  \textbf{Seleccionar una regla de producción}. Se debe saber
+  
   \textbf{según el token actual} la regla que usar.
 \item
   \textbf{Si coinciden} token y símbolo de la forma sentencial, se
@@ -1563,13 +1558,13 @@ siguientes reglas:
 \begin{itemize}
 
 \item
-  Si se lee un Terminal: Si coincide el token\_actual con lo esperado
+\textbf{Si se lee un Terminal}: Si coincide el token\_actual con lo esperado
   lee el siguiente token, sino coincide da error sintáctico.
 \item
-  Si se lee un NT: Se llama al procedimiento del NT que se encargara de
+\textbf{Si se lee un NT}: Se llama al procedimiento del NT que se encargara de
   reconocerlo.
 \item
-  Si se lee una lambda: No se hace nada.
+\textbf{Si se lee una lambda}: No se hace nada.
 \end{itemize}
 
 Si la pila se vacía y la entrada ha sido procesada entonces la secuencia
@@ -1746,7 +1741,7 @@ Una secuencia de tokens x pertenece al lenguaje definido por G si genera una sec
   \item Repetir el proceso hasta que la entrada ha sido procesada y reducida al axioma.
 \end{enumerate}
 
-\textbf{Pivote de reducción:} Subcadena w de una forma sentencial x, $x \in \sum^+$, que es la parte derecha de una regla de producción y sustituye a la inversa, mete el NT del lado izquierdo. 
+\textbf{Pivote de reducción:} Subcadena w de una forma sentencial x, $x \in \sum^+$, que es la parte derecha de una regla de producción y se sustituye a la inversa, es decir se mete el NT del lado izquierdo. 
 
 La decisión es si añadir otro terminal al pivote (desplazar) o aplicar la producción en orden inverso.
 \begin{itemize}
@@ -1765,7 +1760,7 @@ Terminales y No Terminales que pueden encontrarse en la pila y pueden formar par
 Un prefijo de un prefijo viable también es un prefijo viable.
 
 La estrategia es construir un autómata que reconozca los prefijos viables de la gramática, el autómata LR(0) los reconoce.
-
+\vspace{-10px}
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Prefijos viables}}
@@ -1776,7 +1771,7 @@ La estrategia es construir un autómata que reconozca los prefijos viables de la
 Para algunas gramáticas independientes de contexto, LR(k), se puede construir un autómata a pila determinista.
 
 \begin{itemize}
-  \item k es la cantidad de símbolos de preanálisis necesarios para tomas una decisión.
+  \item k es la cantidad de símbolos de preanálisis necesarios para tomar una decisión.
 \end{itemize}
 
 Tipos de analizadores:
@@ -1809,8 +1804,6 @@ Son reglas de producción con $\cdot$, que indica que lo de la izquierda está e
   \item Cuando se produce que a la derecha de $\cdot$ no hay símbolos es posible que haya encontrado un pivote de reducción.
 \end{itemize}
 
-\pagebreak
-
 \subsubsection{Analizador LR(0)}
 A partir de los ítems se puede construir un AFD que realice el análisis de prefijos viables.
 
@@ -1823,21 +1816,17 @@ Cuando el axioma tenga varias producciones, se amplía la gramática, haciendo q
   \item \textbf{Cierre(ítems)} Determina los ítems que pertenecen a un estado. 
   
   Lo que hace es añadir a todas las reglas de producción del NT izquierdo, el punto $\cdot$ a la izquierda. Además, si el punto está justo a la izquierda de un NT se hace también para sus reglas. 
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{Cierre(ítems)}}
-    {\includegraphics[scale=.4]{2021-03-26 19_10_20-ASintactico.pdf - Foxit Reader.png}}
-  \end{figure}
   
   \item \textbf{Ir$\_$a(ítems, Símbolo)} Genera un nuevo estado a partir de los ítems de un estado y símbolo gramaticales.
   
   Hace el cierre de pasar el punto al otro lado de Símbolo, que se pasa como parámetro. Es vacío cuando no hay ningún item que tenga el punto a su izquierda.
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{Ir$\_$a(ítems, Símbolo)}}
-    {\includegraphics[scale=.4]{2021-03-26 19_14_19-ASintactico.pdf - Foxit Reader.png}}
-  \end{figure}
 \end{itemize}
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Cierre(ítems) e Ir$\_$a(ítems, Símbolo)}}
+  {\includegraphics[scale=.4]{2021-03-26 19_10_20-ASintactico.pdf - Foxit Reader.png}
+  \includegraphics[scale=.4]{2021-03-26 19_14_19-ASintactico.pdf - Foxit Reader.png}}
+\end{figure}
 
 El analizador LR(0) es un Autómata con Pila Determinista, los estados del analizador son conjuntos de ítems.
 
@@ -1971,7 +1960,7 @@ Para cumplir lo anterior se utilizan Gramáticas de atributos (gramáticas atrib
 \textbf{Algunas de las comprobaciones que se realizan durante el Análisis Semántico:}
 \begin{itemize}
   \item Comprobación de \textbf{tipos}, los operadores y operandos deben ser compatibles.
-  \item Comprobaciones de \textbf{unicidad}, en aquellas situaciones en los que un objetico solo puede definirse una vez exclusivamente.
+  \item Comprobaciones de \textbf{unicidad}, en aquellas situaciones en las que un objeto solo puede definirse una vez exclusivamente.
   \item Comprobaciones \textbf{relacionadas con nombres}, cuando el mismo nombre debe aparecer dos o más veces.
   \item Comprobación del \textbf{flujo de control}, controlar las proposiciones para abandonar el flujo de control, que tiene finalización.
 \end{itemize}
@@ -2026,7 +2015,7 @@ Una gramática atribuida GA es \textbf{completa} si, para todo atributo de toda 
 \begin{itemize}
   \item Para toda regla P: $X\rightarrow\alpha$ en P, AS(X) está en AC(P).
   \item Para toda regla Q: $Y\rightarrow\alpha X \beta$ en Q, AH(X) está en AC(Q).
-  \item $AS(X) \cup AH(X) = A(X)$ $AS(X) \cap AH(X)=\emptyset$
+  \item $AS(X) \cup AH(X) = A(X)$, $AS(X) \cap AH(X)=\emptyset$
 \end{itemize}
 
 Una gramática atribuida GA esta \textbf{bien definida} si, para cualquier sentencia en L(GA), todos los atributos pueden ser calculados (este proceso se llama evaluación de la gramática). Además, una sentencia de su lenguaje tiene atributos correctos si se verifican las condiciones en B(P) para cada regla P de la gramática.
@@ -2089,13 +2078,13 @@ Los atributos heredados se tratan utilizando estructuras auxiliares para pasar l
 
   Solo algunas de las LR(1) que NO son LL(1) pueden evaluarse con L-A mediante un analizador ascendente.
 \end{itemize}
-
+\pagebreak
 \section{Evaluación de Atributos}
 \subsection{Evaluación Ascendente con Atributos Sintetizados}
 Los atributos sintetizados se pueden evaluar durante el análisis de la entrada con un analizador sintáctico ascendente.
 
 La pila de estados LR tiene asociados los símbolos gramaticales.
-Basta crear otra pila con los valores de los atributos sintetizados asociados.
+Basta con crear otra pila con los valores de los atributos sintetizados asociados.
 
 Con cada reducción se calculan los nuevos atributos sintetizados accediendo en la pila a los atributos de símbolos gramaticales del lado derecho de la producción
 
@@ -2109,7 +2098,7 @@ Nos permite representar interdependencias entre atributos heredados y sintetizad
 \begin{figure}[H]
   \ffigbox[\FBwidth]
   {\caption{Grafo de dependencia}}
-  {\includegraphics[scale=.3]{2021-05-01 01_15_15-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+  {\includegraphics[scale=.25]{2021-05-01 01_15_15-05_resum_Sem_2021.pdf - Foxit Reader.png}}
 \end{figure}
 
 \textbf{Creación:} Cada una de las reglas de producción $A \rightarrow X_1 ... X_n$ representan una parte del grafo, de tal manera que la unión de todas es el grafo completo.
@@ -2192,7 +2181,7 @@ Para estos casos es necesario construir el grafo de dependencias, no nos vale el
         {\caption{Recorrido post-orden}}
         {\includegraphics[scale=.25]{2021-05-01 01_50_04-05_resum_Sem_2021.pdf - Foxit Reader.png}}
       \end{figure}
-      \item \textbf{Recorrido pre-orden}, aparecen atributos heredados por la izquierda, el caso de las Gramáticas L-A.
+      \item \textbf{Recorrido pre-orden}, aparecen atributos heredados, el caso de las Gramáticas L-A.
       \begin{figure}[H]
         \ffigbox[\FBwidth]
         {\caption{Recorrido pre-orden}}
