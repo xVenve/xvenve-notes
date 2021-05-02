@@ -240,7 +240,6 @@ hmargin=3cm
 %	COMENZAR A ESCRIBIR AQUI
 %----------	
 
-
 \section{Información}
 
 \begin{quote}
@@ -2554,6 +2553,149 @@ Con esta técnica una región se ira partiendo en dos hasta que cumpla las condi
   \item Se aplica Q-Learning sobre la nueva representación.
 \end{enumerate}
 
+\chapter{Programación Lógica Inductiva - ILP}
+Aprendizaje para cuando tenemos los datos expresados de manera relacional.
+
+Se hace cuando el conocimiento no se puede representar como atributo-valor o tengan relación entre los datos difíciles de expresar.
+
+Método que emplearemos: FOIL - First Order Inductive Learner (Quinlan 1990).
+
+Es aprendizaje supervisado, inductivo, generaliza con los ejemplos.
+
+\section{Aprendizaje Relacional}
+TILDE - Arboles de decisión.
+
+WARMR - Reglas de Asociación, conjuntos frecuentes.
+
+\section{Proposicionalización}
+Lo que se puede hacer con la información relacional es pasarla a proposicional, hace mediante:
+\begin{itemize}
+  \item \textbf{Agregación}: Sumar los valores de distintos atributos para juntarlos en un atributo, el problema es que se pierde información.
+  \item \textbf{Introducir atributos nuevos} en la tabla original, tantos como registros haya. El problema es que muchos atributos tendrán valores desconocidos.
+\end{itemize}
+
+\section{Elementos de representación}
+\begin{itemize}
+  \item \textbf{Términos}: Cualquier secuencia que empieza en minúsculas es una constante y en mayúsculas es una variable. También funciones que tiene como parámetros constantes y variables. $a$, $X$ y $fun(X,Y)$
+  \item \textbf{Formulas atómicas}: Predicados definidos sobre términos. $tipo-cliente(X, bueno)$
+  \item \textbf{Literal}: Formula atómica o su negación ($\neg$).
+  \item \textbf{Clausula}: Disyunción de literales, oes de literales. $cliente(X,Y)\vee cliente(X,Z)$
+  \item \textbf{Formulas bien formadas}: Formulas atómicas unidas por conectivas ($\wedge, \vee, \rightarrow, \neg$) y cuantificadas ($\forall, \exists$)
+  \item \textbf{Clausula de Horn:} Clausula, disyunción de literales, que como mucho tiene un literal positivo. $\neg p \vee \neg q \vee \neg r \vee s$ que es $p \wedge q \wedge r \rightarrow s$ ($cuerpo \rightarrow cabeza$ que en prolog es $consecuente:-antecedente$).
+  \item \textbf{Regla de Horn:} Conjunto de cláusulas de Horn. Si se da una de las cláusulas se cumple la regla.
+  \item \textbf{Definición implícita:} Definido como una regla de Horn, de manera genérica.
+  \item \textbf{Definición explicita:} Definido como todos los argumentos válidos que hace que se cumplan.
+\end{itemize}
+
+\section{Generalización simple. Subsunción}
+Dada una sustitución $\theta= \{v_1/t_1, . . . , v_n/t_n\}$ y una formula $F$, $F\theta$ es el resultado de aplicar la sustitución sobre F.
+
+Que una sentencia sea más general que otra quiere decir que conociendo la general se puede deducir el otro.
+
+\textbf{Átomo A subsume al átomo B}, $A \succeq B$, si al aplicar la sustitución sobre A es igual a B.
+
+\textbf{Clausula C subsume a la cláusula D}, $C \succeq D$, si al aplicar la sustitución sobre C está contenida en D.
+
+\section{Generalización como consecuencia lógica}
+\textbf{Consecuencia lógica:} La consecuencia lógica se indica con $C \vDash D$, indica que conocido el antecedente se puede deducir el consecuente.
+
+\textbf{Consecuencia lógica relativa:} La consecuencia lógica se indica con $B,C \vDash D$, indica que conocido el antecedente y un conocimiento base se puede deducir el consecuente.
+
+\section{ILP - Programación Inductiva Lógica}
+Lo que buscamos es generar una hipótesis de manera que junto al conocimiento base, los ejemplos sean una consecuencia lógica relativa.
+$$B,H \vDash E$$
+\begin{itemize}
+  \item \textbf{B}: Conocimiento base.
+  \item \textbf{E}: Conjunto de Ejemplos.
+  \item \textbf{H}: Hipótesis.
+\end{itemize}
+
+Se trata de una búsqueda en el espacio de cláusulas que se llama \textbf{Refinamiento de Clausulas}, los algoritmos que se emplean son:
+\begin{itemize}
+  \item Mas especifico a más general, como GOLEM.
+  \item Mas general a más específico, como FOIL o PROLOG.
+\end{itemize} 
+
+\section{FOIL - First Order Inductive Learner}
+Aprendizaje inductivo de reglas de Horn, de más general a más específico, mediante una búsqueda en escalada con heurística en el espacio de cláusulas.
+
+\subsection{Algoritmo de FOIL}
+\textbf{Función FOIL (E+, E!, P, B): REGLA}
+
+$E^+$ y $E^-$ ejemplos positivos y negativos del concepto meta resp., P predicado a aprender, B conocimiento de base.
+\begin{itemize}
+  \item Hasta que $E^+ = \emptyset$, es decir que están cubiertos por alguna clausula:
+  \begin{itemize}
+    \item $N = E^-$
+    \item Clausula limpia, $CUERPO = \emptyset$
+    \item Hasta que $N = \emptyset$, que no deje pasar ejemplos negativos
+    \begin{itemize}
+      \item $L = literal-máxima-ganancia(E^+, E^-, P, B, N,CUERPO)$
+      \item Se añade un literal al cuerpo, $CUERPO = CUERPO, L$
+      \item Se quitan de N los ejemplos negativos que no deja pasar el literal, $N = N - \{e \in N | L \nvDash e\}$
+    \end{itemize}  
+    \item Se añade la cláusula a las reglas, $REGLA = REGLA \cup [P:-CUERPO]$
+    \item Se quitan los ejemplos positivos cubiertos por la regla, $E^+ = E^+ - \{e \in E^+ | CUERPO \vDash e\}$
+  \end{itemize}
+  \item Devolver $REGLA$
+\end{itemize}
+\pagebreak
+\subsection{Heurística de FOIL}
+$$G(L)=k\times [I(n^+,n^-)-I(n^+_L, n^-_L)]$$
+\begin{itemize}
+  \item $G(L)$: Ganancia que se obtiene al añadir el literal L a la cláusula.
+  \item $k$: Numero de ejemplos positivos que se cumplen con el conocimiento base B con L.
+  \item $n^+$: Numero de tuplas de la cláusula que hacen ciertos ejemplos positivos.
+  \item $n^-$: Numero de tuplas de la cláusula que hacen ciertos ejemplos negativos.
+  \item $n^+_L$: Numero de tuplas de la cláusula con el L que hacen ciertos ejemplos positivos.
+  \item $n^-_L$: Numero de tuplas de la cláusula con el L que hacen ciertos ejemplos negativos.
+  \item $I(x, y)=-\log_2 \left( \frac{x}{x-y} \right)$ la x son las positivas y la y la negativa.
+\end{itemize}
+
+\subsection{Tipos de literales}
+\begin{itemize}
+  \item Literales: $Q(V_1, V_2, ..., V_n)$, $\neg Q(V_1, V_2, ..., V_n)$.
+  \item Desigualdades: $X_i < c, X_i < X_j, X_i > c, X_i > X_j, X_i <= c, X_i <= X_j, X_i >= c, X_i >= X_j$.
+  \item Igualdades: $X_i = c, X_i = X_j, X_i \neq c, X_i \neq X_j$.
+\end{itemize}
+Los literales deben proceder de B.
+
+En los literales se pueden utilizar variables nuevas.
+
+En las comparaciones o desigualdades se usan variables que aparecen previamente.
+
+\subsection{Otras restricciones}
+\begin{itemize}
+  \item Q debe tener al menos una variable ya existente
+  \item No permite funciones ni constantes en las reglas aprendidas.
+  \item El conocimiento debe estar definido extensionalmente, que es costoso.
+  \item Se puede hacer poda cuando la ganancia este por debajo de un umbral.
+  \item FOIL permite obtener definiciones recursivas.
+\end{itemize}
+
+\subsection{Sesgo o bias}
+El espacio de búsqueda es mucho mayor que con representación atributo-valor, por lo que es necesario restringir:
+\begin{itemize}
+  \item El lenguaje en las cláusulas, no permitiendo funciones, ni contantes o solo atributos nuevos en los literales (al menos uno conocido).
+  \item Profundidad de recursión o número de variables.
+  \item Predicados procedentes del conocimiento base.
+  \item Heurísticas: definida por la función de ganancia.
+  \item Modos de los predicados.
+\end{itemize}
+
+\subsection{Otros algoritmos relacionales}
+\begin{itemize}
+  \item Reglas de decisión relacionales: PROGOL, GOLEM
+  \item Arboles de decisión relacionales: TILDE
+  \item Arboles de regresión relacionales: S-CART, TILDE-RT
+  \item Basado en instancias relacional: RIBL
+  \item Aprendizaje modelos probabilísticos relacionales
+  \item Por refuerzo relacional: RRL
+  \item Clustering relacional: FORC=K-MEDIAS relacional
+  \item Reglas de asociación o conjuntos frecuentes relacionales: APRIORI,WARMR
+  \item Aprendizaje de atributos relevantes con ILP: LINUS
+  \item Híbridos: arboles de decisión con IBL en los nodos hoja
+\end{itemize}
 
 
 \end{document}
