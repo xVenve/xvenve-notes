@@ -1412,7 +1412,7 @@ regla de producción aplicar, define el nombre del analizador, \(LL(k)\),
 \item
   No hay retroceso, usa autómatas a pila deterministas predictivos.
 \item
-  La \textbf{complejidad es líneas} \(O(n)\), tal que n es el número de
+  La \textbf{complejidad es lineal} \(O(n)\), tal que n es el número de
   tokens que hay en la sentencia (preferible al exponencial del con
   retroceso)
 \end{itemize}
@@ -1828,7 +1828,7 @@ Cuando el axioma tenga varias producciones, se amplía la gramática, haciendo q
   \includegraphics[scale=.4]{2021-03-26 19_14_19-ASintactico.pdf - Foxit Reader.png}}
 \end{figure}
 
-El analizador LR(0) es un Autómata con Pila Determinista, los estados del analizador son conjuntos de ítems.
+El analizador LR(0) es un Autómata a Pila Determinista, los estados del analizador son conjuntos de ítems.
 
 \textbf{Algoritmo de creación del analizador LR(0)}
 \begin{enumerate}
@@ -1881,7 +1881,7 @@ Para solventar esto se amplía el LR(0) a SLR(1)
 \end{enumerate}
 
 \subsection{Análisis SLR(1)}
-Es un Autómata con Pila Determinista.
+Es un Autómata a Pila Determinista.
 \begin{itemize}
   \item Los estados del analizador son conjuntos de ítems.
 \end{itemize}
@@ -1968,7 +1968,7 @@ Para cumplir lo anterior se utilizan Gramáticas de atributos (gramáticas atrib
 \section{Gramáticas atribuidas}
 Son gramáticas G2 a las que se añaden atributos y reglas de evaluación de atributos (reglas semánticas).
 \begin{itemize}
-  \item Cada \textbf{atributo} es una variable que representa una propiedad del símbolo terminal o no terminal, puede ser una cadena , numero, tipo, posición de memoria, etc.
+  \item Cada \textbf{atributo} es una variable que representa una propiedad del símbolo terminal o no terminal, puede ser una cadena, numero, tipo, posición de memoria, etc.
   \item \textbf{Reglas semánticas} (Reglas para calcular/Reglas para comprobar), se asocian a las producciones sintácticas (reglas de producción). Se definen en función de los atributos de los símbolos en la producción.
   \item Sobre los atributos y reglas hay unas condiciones semánticas.
 \end{itemize}
