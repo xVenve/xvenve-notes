@@ -1147,15 +1147,15 @@ Representa directamente con un programa al DT en cuestión.
 	{\includegraphics[scale=.3]{Untitled 33.png}}
 \end{figure}
 
-\textbf{Funciones de lectura}: GetChar(avanza uno del avanzado y da el
-valor), Fail(Mueve el puntero avanzado de vuelta al aceptado),
-Retract(mueve el puntero avanzado uno atrás) y Accept(mueve el puntero
+\textbf{Funciones de lectura}: GetChar (avanza uno del avanzado y da el
+valor), Fail (Mueve el puntero avanzado de vuelta al aceptado),
+Retract (mueve el puntero avanzado uno atrás) y Accept (mueve el puntero
 actual hasta el avanzado).
 
-\textbf{Primitivas}: IsLetter(letra), IsDigit(número) y
-IsDelimiter(separadores).
+\textbf{Primitivas}: IsLetter (letra), IsDigit (número) y
+IsDelimiter (separadores).
 
-\textbf{Acciones}: InstallName(introduce un nombre en la tabla de
+\textbf{Acciones}: InstallName (introduce un nombre en la tabla de
 símbolos).
 
 
@@ -2069,7 +2069,7 @@ Los atributos heredados se tratan utilizando estructuras auxiliares para pasar l
 \begin{itemize}
   \item \textbf{S-A Grammars - Gramáticas de Atributos Sintetizados:} Gramática donde solo existen atributos sintetizados.
   
-  Se puede evaluar con un analizador descendente, mediante una pila, y descendente por medio de rutinas y valores devueltos.
+  Se puede evaluar con un analizador ascendente, mediante una pila, y descendente por medio de rutinas y valores devueltos.
   \item \textbf{L-A Grammars - Gramáticas de Atributos por la Izquierda:} Gramática donde todos los atributos heredados de cualquier producción dependen solo de atributos de símbolos a su izquierda o del símbolo de la parte izquierda de la producción.
   
   La información debe fluir de izquierda a derecha.
@@ -2112,9 +2112,9 @@ Nos permite representar interdependencias entre atributos heredados y sintetizad
 \end{enumerate}
 \pagebreak
 \subsection{Árbol de Sintaxis abstracta}
-Es una alternativa más sencilla, el grafo de demencias es más completo.
+Es una alternativa más sencilla, el grafo de dependencias es más completo. Se utiliza cuando no es una Gramatica de atributos por la izquierda mediante esquema de traducción con atributos sintetizados (siempre).
 
-Se usa para los casos en los que la gramática no se puede evaluar en una pasada.
+Se usa para los casos en los que la gramática no se puede evaluar durante el análisi sintáctico.
 
 Evaluación en varias pasadas: Se construye el árbol explícitamente y se evalúa en función del orden de recorrido.
 
