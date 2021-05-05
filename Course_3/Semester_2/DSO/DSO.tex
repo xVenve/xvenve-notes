@@ -1481,7 +1481,7 @@ Todos los mensajes tienen un MID (message ID) y un Token, es un código que nos 
 
 \chapter{Tema 6: Microservicios para la gestión de nubes de dispositivos IoT}
 \section{Microservicio}
-Es un servicio que está disponible en la plataforma IoT y como su nombre indica (miceo) proporciona una capacidad especifica que necesitamos y es accesible mediante una API.
+Es un servicio que está disponible en la plataforma IoT y como su nombre indica (micro) proporciona una capacidad especifica que necesitamos y es accesible mediante una API.
 
 \textbf{Cohesión:} Numero distinto de responsabilidades que tiene un componente.
 
@@ -1529,11 +1529,11 @@ Los microservicios deben ser configurables de manera automática, es decir con a
 		\item[Autónomos] Capaz de existir independientemente de otros componentes de la plataforma IoT, responder, reaccionar o desarrollase independientemente del todo. Que se pueda tener funciones sin requerir el todo y estos componentes se pueden poner a ejecutar de manera aislada.
 		\item[Aislados] Capaz de ejecutarse aisladamente de los demás componentes, pudiéndose ejecutar en diferentes lugares y en diferentes momentos.
 		\item[Elástico] Cuando gestionando los recursos de manera razonable es capaz de proporcionar servicio a centenares de usuarios y a centenares de miles de usuarios, es capaz de estirarse para dar servicio a más usuarios sin necesidad de desarrollo adicional, solo replicando el microservicio en contenedores y servidores
-		\item[Resiliente] Capaz de mantenerse en funcionamiento después de un error, no se queda bloqueada se debe poder recuperar.
+		\item[Resiliente] Capaz de mantenerse en funcionamiento después de un error, no se queda bloqueada, se debe poder recuperar.
 		\item[Responsive] Debe proporcionar una respuesta rápida y eficiente por muchos usuarios que se tenga.
 		\item[Orientado a mensaje] Disponible a partir de una interfaz HTTP, que los datos se transferirán mediante una llamada CoAP, HTTP o similar, y los datos están guardados en un objeto (de una manera más rica) como JSON o binario, de manera que los sistemas separados en una red estén conectados.
 		
-		Si quiero accederá a un método de un microservicio hare una petición get, post, put o delete, si está en una nube mediante HTTP y si es un dispositivo con la nube mediante CoAP o MQTT.
+		Si quiero acceder a un método de un microservicio hare una petición get, post, put o delete, si está en una nube mediante HTTP y si es un dispositivo con la nube mediante CoAP o MQTT.
 
 		\item[Programable] Un plan de tareas que se realizan con el fin de lograr un resultado especifico. Que estas funcionalidades de la API se puedan acceder desde un navegador o por medio de otras aplicaciones. Esta programación en un microservicio se hace mediante un protocolo de red.
 		\item[Configurable] Diseñado para poderse adaptar a diferentes configuraciones específicas, que se tiene que adaptar a las distintas posibles configuraciones de despliegue, hacer que sea más fácil realizar estas configuraciones. Diseñado para poderse adaptar a diferentes configuraciones especificas o para algún propósito especifico.
@@ -1550,7 +1550,7 @@ Este tipo de encapsulamiento se debe hacer en las 5 áreas que se describen arri
 En función de la separación de los intereses hay distinta tipos de arquitecturas.
 
 \subsection{Solución monolítica} 
-Aquellas que se implementan como un gran cuerpo con todo el código y se necesita utilizar el sistema. n
+Aquellas que se implementan como un gran cuerpo con todo el código y se necesita tenerlo completo para utilizar el sistema.
 
 No se encuentra divida en partes más pequeñas (como podrían ser microservicios) para obtener solo lo que nos interesa. 
 
@@ -1634,7 +1634,7 @@ Incluso un mismo microservicio según la configuración que le demos puede utili
 
 \begin{itemize}
 	\item \textbf{Capa de modelos:} Tiene su propio modelo de datos que es la estructura que deben tener los datos que entran y salen de nuestros microservicios. En la practica el modelo de datos es agnóstico, independiente.
-	\item \textbf{Capa de SDK - Software Development Kit:} Conjunto de herramientas y librerías que se utilizan para desarrollar código, que incluye funciones que realizan las llamadas a la API ReST para facilitarnos interactuar con ellas de manera que no haga falta que lo hagamos nosotros.
+	\item \textbf{Capa de SDK - Software Development Kit:} Conjunto de herramientas y librerías que se utilizan para desarrollar código, incluye funciones que realizan las llamadas a la API ReST para facilitarnos interactuar con ellas de manera que no haga falta que lo hagamos nosotros.
 	\item Nuestros microservicios van a utilizar comunicación HTTP, por lo tanto, dentro de sus elementos se encuentran las distintas peticiones.
 	\begin{itemize}
 		\item \textbf{GET - Leer}: Puede hacerse de manera simple, mediante la URL con el id a consultar, o más compleja mediante el uso de una interrogación e igual, para determinar los parámetros y debe ser capaz de trabajar con estos.
@@ -1692,20 +1692,20 @@ Incluso un mismo microservicio según la configuración que le demos puede utili
 
 Toda aplicación se divide en procesos separados, donde cada proceso tiene distintos módulos internos, de manera que cada uno es un pequeño monolito que puede trabajar de  manera independiente.
 
-Para desarrollar estas arquitecturas podemos utilizar distintos patrones de diseño, es un pareja problema-solución software, la solución dada como una guía de cómo resolver ese problema específico.
+Para desarrollar estas arquitecturas podemos utilizar distintos patrones de diseño, que son parejas de problema-solución software, donde la solución viene dada como una guía de cómo resolver ese problema específico.
 
 Algunos patrones de diseño para microservicios son:
 
-\subsection{Bases de datos por microservicio}
+\subsection{Base de datos por microservicio}
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Database per Microservice}}
 	{\includegraphics[scale=.3]{1_WWJQH50jxgrqh-ABFRQuzQ.jpeg}}
 \end{figure}
 
-Un único repositorio de datos para cada microservicio se trata de reducir el acoplamiento entre ellos, la dependencia entre cada uno de ellos.
+Un único repositorio de datos para cada microservicio se trata de reducir el acoplamiento entre ellos, la dependencia.
 
-El problema es como permitir que los distintos microservicios intercambien información entre sí, se comunicarían de manera asíncrona, para solventar esto se usa la siguiente.
+El problema es como permitir que los distintos microservicios intercambien información entre sí, se comunicarían de manera asíncrona, para solventar esto se usa lo siguiente.
 
 \subsection{Abastecimiento de eventos}
 \begin{figure}[H]
@@ -1731,18 +1731,18 @@ En caso de que un evento provoque una situación de error, todos los anteriores 
 	{\includegraphics[scale=.3]{1_FCZRcAuSLhrNOjcq1zYXDw.jpeg}}
 \end{figure}
 
-Como se tienen distintas interfaces que tienen distintos componentes de interfaz visual, de manera que se utiliza un orquestado distinto para los distintos tipos de interfaces de usuario (web/mobile), se gestionan los microservicios de manera distinta para que se adapten mejor a estas.
+Como se tienen distintas interfaces que tienen distintos componentes de interfaz visual, se utiliza un orquestador distinto para los distintos tipos de interfaces de usuario (web/mobile), se gestionan los microservicios de manera distinta para que se adapten mejor a estas.
 
 Por ejemplo, el móvil es menos seguro y usa menos recursos, por lo que recibe datos menos ricos.
 
 Al estar separadas se exponen distintas funcionalidades, por lo que se puede proteger para aquellas más vulnerables.
 
-Se gestiona un backends para cada interfaz cada cuenta con su orquestador/coreografiador.
+Se gestiona un backends para cada interfaz cuenta con su orquestador/coreografiador.
 
 \begin{itemize}
 	\item \textbf{Contras:} El problema es que se puede producir lógica duplicada, que resulta problemático a la hora de realizar las pruebas y coregir los errores.
 
-	Hay muchas posibles interfaces lo que hace que se vuelva más complejo, al haber tanta variedad de dispositivos, necesidades que cubrir y requisitos que satisfacer.
+	Hay muchas posibles interfaces lo que hace que se vuelva más complejo, al haber tanta variedad de dispositivos, necesidades por cubrir y requisitos que satisfacer.
 \end{itemize}	
 	
 	
