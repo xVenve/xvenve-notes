@@ -1744,9 +1744,112 @@ Se gestiona un backends para cada interfaz cuenta con su orquestador/coreografia
 
 	Hay muchas posibles interfaces lo que hace que se vuelva más complejo, al haber tanta variedad de dispositivos, necesidades por cubrir y requisitos que satisfacer.
 \end{itemize}	
+
+\section{Preguntas Test 3}
+\begin{itemize}
+	\item Indique el orden CORRECTO de los eventos para la verificación periódica de la conexión de los clientes en el protocolo MQTT:
 	
+	1 - El publicador recibe del broker la confirmación de recepción del PINGREQ
+
+	2 - El publicador A publica un mensaje a través del broker
+
+	3 - El publicador A detecta que ha pasado el tiempo máximo entre mensajes
+
+	4 - El publicador envía un mensaje PINGREQ al broker
+
+	Seleccione una:
+
+	a. 2, 3, 4, 1 
+
+	\item Seleccione la respuesta CORRECTA con respecto a las diferencias entre MQTT y MQTT-SN. Seleccione una:
+
+	b. En MQTT-SN, se introduce un procedimiento de descubrimiento para ayudar a los clientes y permitirles encontrar las direcciones de red de servidores y puertas de enlace. 
+
+	\item Seleccione la afirmación INCORRECTA con respecto a las desventajas de las arquitecturas de microservicio. Seleccione una:
+
+	d. La complejidad pasa de la infraestructura al código. 
+
+	\item Seleccione la afirmación CORRECTA con respecto a los elementos de un microservicio. Seleccione una:
+
+	b. Los modelos definen la estructura de los datos a medida que entran y salen de un microservicio. 
+
+	\item Seleccione la respuesta INCORRECTA con respecto a las diferencias entre el Constrained Application Protocol (CoAP) y MQTT.
+	Seleccione una:
+
+	a. MQTT utiliza el modelo de comunicación solicitud-respuesta. 
+
+	\item Seleccione la respuesta CORRECTA con respecto a los mensajes del Protocolo de aplicación restringida (CoAP). Seleccione una:
+
+	d. Si se envía un mensaje CON, se debe recibir un ACK dentro de un intervalo de tiempo aleatorio entre ACK\_TIMEOUT y (ACK\_TIMEOUT * ACK\_RANDOM \_FACTOR). 
+
+	\item Seleccione la respuesta CORRECTA con respecto a los niveles de calidad de servicio en el protocolo MQTT.	Seleccione una:
 	
+	a. El modo QoS-1 garantizará la entrega del mensaje al menos una vez al receptor. 
+
+	\item Seleccione la afirmación INCORRECTA con respecto a las características de los microservicios. Seleccione una:
+
+	c. El concepto de "micro" en microservicio se refiere al tamaño del componente de software. 
+
+	\item Seleccione la afirmación CORRECTA con respecto a los beneficios de la base de datos por patrón de microservicio. Seleccione una:
+
+	d. Proporciona la propiedad completa de los datos a un servicio. 
+	\item Seleccione la afirmación INCORRECTA con respecto a la comparación entre REST API y SOAP / WSDL. 	Seleccione una:
+
+	b. REST es un protocolo, mientras que SOAP es un estilo de arquitectura. 
+\end{itemize}
+
+\chapter{Introducción a Contenedores}
+\section{Introducción}
+Es una analogía con el transporte de grandes cargas en contenedores de tamaño estándar, que les permite ser transportados fácilmente en camiones, trenes y barcos; maquinaria especializada. 
+
+Es un sistema de transporte muy estándar. Independientemente de la funcionalidad que integre queremos que sea estándar, como una caja negra.
+
+En los proyectos debe haber alguien que se encargue de controlar los problemas en la cadena de suministros, para que se utilicen las versiones correctas y todo pueda ser desplegado y probado.
+\begin{itemize}
+	\item \textbf{DevOps:} Se encarga de establecer entornos que permiten la integración, prueba y despliegue automatizado, que se puede conseguir con contenedores.
+\end{itemize}
+
+Un primer enfoque para resolver los problemas anteriores es utilizar \textbf{Máquinas Virtuales}, en la que en cada una tiene sus propias librerías y son independientes, pero tenemos el problema de que hay que mantenerlas todas actualizadas y se están utilizando demasiados recursos para correr una parte de nuestros sistemas (estamos matando moscas a cañonazos).
+Necesitamos un nuevo mecanismo para gestionar estas infraestructuras eficientemente.
+
+\section{Que son los contenedores?}
+En los 2000 surgieron los contenedores como ese mecanismo para gestionar las infraestructuras que necesitábamos, que son unidades estándar de software que empaquetan una aplicación que hemos desarrollado y todas sus dependencias, se ejecutan de manera aislada (muy importante para que no afecte al resto de la maquina), rápida y confiable.
+
+\begin{itemize}
+	\item \textbf{Contenedor:} Una unidad estándar de software \textbf{en ejecución}, que empaqueta el código y todas sus referencias.
+	\item \textbf{Imagen:} Es el conjunto de fichero que define el contenido o lo que puede ejecutar un contenedor.
+	Una imagen de contenedor es un paquete de software ligero e independiente, que incluyen lo necesario para correr la aplicación.
+\end{itemize}
+
+La diferencia con la alternativa de máquinas virtuales es que no tenemos un hipervisor, sino un sistema operativo base y un motor que es capaz de ejecutar distintos contenedores, donde cada contenedor tiene sus dependencias, sus sistemas de configuración y el código de la aplicación a desarrollar. Es mucho más liviano un contenedor que una máquina virtual, encapsula lo que se necesita para funcionar.
+
+Docker fue el que introdujo el termino de contenedor, pero hoy en día hay más alternativas como Openshift de Red Hat o Kubernetes de Google.
+
+\subsection{¿Por qué son importantes los contenedores?}
+\begin{itemize}
+	\item Las aplicaciones que se ejecutan en un contenedor son \textbf{más seguras que sus contrapartes} que no se ejecutan en un contenedor, ya que a nivel interno utiliza el espacio de nombre de kernel de Linux, lo que nos permite crear una caja cerrada en la que el proceso del contenedor no puede interactuar con ningún otro proceso que se ejecuta en la máquina, tiene su propia memoria y disco (es una sandbox).
 	
+	\item Los contenedores \textbf{facilitan la simulación de un entorno de producción}, incluso en la computadora portátil de un desarrollador.
+	Facilita mucho la instalación y despliegue.
+
+	\item Los operadores pueden finalmente \textbf{concentrarse en el aprovisionamiento de infraestructura y ejecutar y monitorear aplicaciones en producción}.
+\end{itemize}
+
+\subsection{Arquitectura de contenedores}
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Arquitectura de contenedores}}
+	{\includegraphics[scale=.4]{default.jpg}}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Sistema operativo de Linux}, lo que nos interesa son los espacios de nombres de Linux para ejecutar cada uno es un espacio y que sean independientes del resto de procesos.
+	\item \textbf{Runtime engine de Docker}, se compone del demonio de contenedores containerd y el ejecutador de contenedores runc, la combinación de ambos nos da todo el tiempo de vida de un contenedor. Se coge el contenedor de una imagen y lo pone a ejecutar.
+	\item \textbf{Docker engine}, proporciona la funcionalidad adicional para la gestión del contenedor en tiempo de ejecución.
+\end{itemize}
+
+
+
+
 \chapter{Recursos}
 \href{https://learning.oreilly.com/playlists/5a6c045f-e39c-465e-9e7c-60dcbb12aebb}{Lista de libros de referencia}
 
@@ -1779,4 +1882,10 @@ Se gestiona un backends para cada interfaz cuenta con su orquestador/coreografia
 
 \href{https://towardsdatascience.com/microservice-architecture-and-its-10-most-important-design-patterns-824952d7fa41}{Patrones de Diseño de Microservicios} Artículo completo
 
+\section{Tema 7: Introducción a Contenedores}
+\href{https://learning.oreilly.com/library/view/getting-started-with/9781838645700/fb4efc86-2e13-4f11-94be-2485878464ca.xhtml}{¿Qué son los contenedores y porqué debemos utilizarlos?}
+
+\href{https://learning.oreilly.com/library/view/getting-started-with/9781838645700/9f8c7bb0-cd1d-4dc3-8d6b-c08ef3590c44.xhtml}{Instalar el entorno de trabajo de Dockers} 
+
+\href{https://learning.oreilly.com/library/view/getting-started-with/9781838645700/ef53b9f7-3bd4-459e-9665-a53931a3ae0a.xhtml}{Trabajando con contenedores}
 \end{document}
