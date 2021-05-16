@@ -1850,9 +1850,7 @@ Docker fue el que introdujo el termino de contenedor, pero hoy en día hay más 
 
 \section{Creación de imágenes}
 \subsection{Imagen}
-En Linux todo es un archivo, de tal manera que las imágenes se gestionaran de esta manera.
-
-En un gran fichero comprimido con su propio sistema de ficheros, que está construido en capas.
+En Linux todo es un archivo, de tal manera que las imágenes se gestionaran de esta manera. Es un gran fichero comprimido con su propio sistema de ficheros, que está construido en capas.
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
@@ -1873,7 +1871,7 @@ Cuando se tiene una imagen de un contenedor lo que se tiene es una plantilla de 
 \end{itemize}
 
 
-Cuanto instanciamos un contenedor tenemos la capa de contenedor (sobre todas las demás), esta capa sí que es modificable para ajustar el funcionamiento de la imagen, pero el resto de las capas de la imagen son inmutables.
+Cuando instanciamos un contenedor tenemos la capa de contenedor (sobre todas las demás), esta capa sí que es modificable para ajustar el funcionamiento de la imagen, pero el resto de las capas de la imagen son inmutables.
 
 Si se hacen varias ejecuciones de contenedores cada uno tiene su capa de contenedor, pero estas compartirán la imagen y su estructura del sistema de ficheros.
 
@@ -1888,7 +1886,7 @@ El copy-on-write nos permite que los controladores de grafo de Docker puedan con
 
 \subsection{Creación de Imágenes}
 \subsubsection{Construcción de forma interactiva}
-Este método en lo que consiste es en ejecutar un contenedor y sobre este realizar las modificaciones que sean necesarias, en el momento que está como deseamos lo guardamos como una imagen dándole un nombre.
+Este método consiste en ejecutar un contenedor y sobre este realizar las modificaciones que sean necesarias, en el momento que está como deseamos lo guardamos como una imagen dándole un nombre.
 \begin{itemize}
 	\item \textbf{docker container run -it --name ejemplo alpine /bin/sh}
 	\item Hacemos desde terminal las modificaciones o instalaciones que queramos.
@@ -1917,7 +1915,7 @@ Cada línea constituye un nivel, el primero es la base.
 		\item 
 		FROM scratch
 	\end{itemize}
-	\item RUN es la cláusula que no permite ejecutar distintos comandos sobre el sistema de la capa base. Con barra invertida (contraria a /) se puede hacer que siga en la siguiente línea.
+	\item RUN es la cláusula que nos permite ejecutar distintos comandos sobre el sistema de la capa base. Con barra invertida (contraria a /) se puede hacer que siga en la siguiente línea.
 	\begin{itemize}
 		\item RUN apt-get update \&\& apt-get install -y wget
 	\end{itemize}
@@ -1948,11 +1946,11 @@ Cada línea constituye un nivel, el primero es la base.
 
 \paragraph{Docker Compose}
 
-Lo utilizaremos para ejecutar aplicaciones multiservicio/distribuida que tiene varios contenedores.
+Lo utilizaremos para ejecutar aplicaciones multiservicio/distribuidas, que tiene varios contenedores.
 
 Es una herramienta para definir y lanzar aplicaciones distribuidas con varios contenedores con un solo comando.
 
-Nos permite integrar todas las creaciones de contendores dentro de un único fichero llamado docker-compose.yaml .
+Nos permite integrar todas las creaciones de contenedores dentro de un único fichero llamado docker-compose.yaml .
 
 \textbf{Estructura:}
 \begin{lstlisting}
