@@ -1848,6 +1848,236 @@ Docker fue el que introdujo el termino de contenedor, pero hoy en día hay más 
 \end{itemize}
 
 
+\section{Creación de imágenes}
+\subsection{Imagen}
+En Linux todo es un archivo, de tal manera que las imágenes se gestionaran de esta manera.
+
+En un gran fichero comprimido con su propio sistema de ficheros, que está construido en capas.
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Estructura de una imagen}}
+	{\includegraphics[scale=.5]{c4c5fd21-cc6e-49e6-b4f8-1692a5f1a561.jpg}}
+\end{figure}
+Cuando se tiene una imagen de un contenedor lo que se tiene es una plantilla de archivos que se va a desplegar.
+\begin{itemize}
+	\item La primera capa es la base, sobre esta se construyen el resto.
+	\item Cada capa sobre la básica solo contiene los ficheros que vaya a añadir, eliminar o modificar con respecto a la capa anterior.
+	Se realizan las modificaciones y se empaqueta una nueva imagen hasta esta capa, que vuelvo a containerizar. Se generan imágenes de capa sobre capa.
+	\begin{itemize}
+		\item Capa 3: Añado los ficheros de datos, Add static files.
+		\item Capa 2: Añado el sistema de servidor, Add Nginx.
+		\item Capa base: El sistema operativo, Alpine Linux
+	\end{itemize}
+	\item Las capas son inmutables, solo se pueden quitar eliminando los archivos de esta.
+\end{itemize}
+
+
+Cuanto instanciamos un contenedor tenemos la capa de contenedor (sobre todas las demás), esta capa sí que es modificable para ajustar el funcionamiento de la imagen, pero el resto de las capas de la imagen son inmutables.
+
+Si se hacen varias ejecuciones de contenedores cada uno tiene su capa de contenedor, pero estas compartirán la imagen y su estructura del sistema de ficheros.
+
+\subsection{Docker Hub}
+Es un repositorio remoto central de imágenes donde se conectan todos los Docker engine (primero se mira el repo local y si no esta se mira en Docker Hub) para obtener la imagen del container deseado.
+
+\subsection{Copy-on-write}
+Las imágenes utilizan este sistema que consiste en que si se quiere utilizar algo de otra capa se utiliza directamente de ahí, pero si se quiere modificar algo de otra capa primero se realiza una copia en nuestra capa y esta es la que se modifica.
+
+\subsection{Docker Graph Drivers}
+El copy-on-write nos permite que los controladores de grafo de Docker puedan consolidar todos los ficheros desde la última capa que lo haya instanciado hasta la raíz.
+
+\subsection{Creación de Imágenes}
+\subsubsection{Construcción de forma interactiva}
+Este método en lo que consiste es en ejecutar un contenedor y sobre este realizar las modificaciones que sean necesarias, en el momento que está como deseamos lo guardamos como una imagen dándole un nombre.
+\begin{itemize}
+	\item \textbf{docker container run -it --name ejemplo alpine /bin/sh}
+	\item Hacemos desde terminal las modificaciones o instalaciones que queramos.
+	\item Podemos ver con \textbf{docker container diff ejemplo} los cambios.
+	\item Con \textbf{docker container commit ejemplo nombre-final} guardamos la nueva imagen.
+\end{itemize}
+
+\subsubsection{Construcción con Dockerfile}
+Dockerfile es un fichero de script que nos permite describir lo que hay en la nueva imagen como la secuencia de instrucciones necesarias para generarla, luego se puede construir y ejecutar. \textbf{Ejemplo:}
+\begin{lstlisting}
+FROM python:2.7
+RUN mkdir -p /app
+WORKDIR /app
+COPY ./requirements.txt /app/
+RUN pip install -r requirements.txt
+CMD ["python", "main.py"]
+\end{lstlisting}
+            
+Cada línea constituye un nivel, el primero es la base.
+
+\paragraph{Clausulas}
+\begin{itemize}
+	\item FROM es la cláusula que usa para establecer la imagen base sobre la que vamos a trabajar tiene que estar en Docker Hub, pero no tiene por qué ser un sistema operativo directamente.
+	\begin{itemize}
+		\item FROM centos:7
+		\item 
+		FROM scratch
+	\end{itemize}
+	\item RUN es la cláusula que no permite ejecutar distintos comandos sobre el sistema de la capa base. Con barra invertida (contraria a /) se puede hacer que siga en la siguiente línea.
+	\begin{itemize}
+		\item RUN apt-get update \&\& apt-get install -y wget
+	\end{itemize}
+	\item COPY y ADD Permite agregar contenido a la imagen de base, COPY es sobre documentos locales y ADD nos permite además traer archivos desde un URL.
+	\begin{itemize}
+		\item COPY ./app Permite copiar en app todo lo del directorio donde se ejecuta el Docker
+	\end{itemize}
+	\item WORKDIR Define el espacio de trabajo, establece el contexto de se van a realizar las ejecuciones de ahora en adelante.
+	\begin{itemize}
+		\item RUN cd /app/bin   El siguiente comando no se haría sobre bin, es necesario el WORKDIR.
+		\item WORKDIR /app/bin
+		\item RUN touch sample.txt
+	\end{itemize}
+	\item CMD y ENTRYPOINT Estas cláusulas son diferentes a las anteriores, definen que va a hacer el contenedor cuando ya esté en ejecución.
+	
+	La cabecera de los comandos se pone en ENTRYPOINT y los parámetros en CMD.
+	\begin{itemize}
+		\item ENTRYPOINT para casos en los que tienen su propia shell, como python o mariaDB, que entran en una consola propia.
+		\begin{itemize}
+			\item ENTRYPOINT["mysql"]
+		\end{itemize}	
+		\item CMD dice que ejecutar, aunque puede hacerse también la entrada a shell como el ENTRYPOINT.
+		\begin{itemize}
+			\item CMD["use ipt\_data"]
+		\end{itemize}	
+	\end{itemize}
+\end{itemize}
+
+\paragraph{Docker Compose}
+
+Lo utilizaremos para ejecutar aplicaciones multiservicio/distribuida que tiene varios contenedores.
+
+Es una herramienta para definir y lanzar aplicaciones distribuidas con varios contenedores con un solo comando.
+
+Nos permite integrar todas las creaciones de contendores dentro de un único fichero llamado docker-compose.yaml .
+
+\textbf{Estructura:}
+\begin{lstlisting}
+version: "3"
+services:
+	nombre_contenedor:
+		build: ./localizacion_del_Dockerfile
+		ports:
+			- "puerto_externo:puerto_interno"
+		volumes:
+			- volumenes de datos de almacenamiento de Datos
+		links:
+			- contenedor con el que estamos enlazados para sincronizarlos.
+		...
+\end{lstlisting}
+
+No se tiene todo el código en un único servidor, si no que tenemos muchos de ellos, que tienen nombres que nos son amigables (identificadores).
+Utilizamos un Load Balancer para balancear las peticiones que se reciben entre los diferentes servidores.
+
+El Docker Compose nos permite automatizar las creaciones dentro de un nodo de nuestro clúster de servidores. 
+
+El \textbf{Docker Swarm} nos permite ir generando distintos nodos virtuales en los que se introducen diversos contenedores, lo que nos permite como tal lanzar la aplicación distribuida.
+
+\subsubsection{Construcción desde un tarball}
+
+
+
+\section{Comandos Docker}
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Estructura comando Docker}}
+	{\includegraphics[scale=.3]{a18cdc15-25f8-4985-aa8d-4748d3dc2e05.png}}
+\end{figure}
+\begin{itemize}
+	\item \textbf{docker -v}
+	
+	Verificar versión de Docker.
+
+	\item \textbf{docker container run alpine COMANDO}
+	
+	Ejecutar un contenedor que corra en alpine el COMANDO.
+
+	\item \textbf{docker container run -d alpine COMANDO}
+	
+	-d para ejecutar un contenedor como demonio.
+
+	\item \textbf{docker container run -it --name test alpine COMANDO}
+	
+	--name para dar nombre al contenedor y -it para ver los mensajes de error.
+
+	\item \textbf{docker container stop NOMBREoID}
+	
+	Detener un contenedor.
+
+	\item \textbf{docker container start NOMBREoID}
+	
+	Reanudar un contenedor detenido.
+
+	\item \textbf{docker container rm NOMBREoID}
+	
+	Eliminar un contenedor de memoria, se puede usar -f para eliminar el contenedor este en el estado que este.
+
+	\item \textbf{docker container ls -l / docker container ls / docker container ls -a}
+	
+	Listar los contenedores con su ID, IMAGEN, COMANDO, CREACIÓN, ESTADO, PUERTOS y NOMBRE.
+	-l para el ultimo, sin nada solo los en ejecución y -a para todos.
+
+	\item \textbf{docker container ps}
+	
+	Listar los contenedores en ejecución con su ID, IMAGEN, COMANDO, CREACIÓN, ESTADO, PUERTOS y NOMBRE.
+
+	\item \textbf{docker container inspect NOMBREoID}
+	
+	Muestra los detalles del contenedor en forma de JSON.
+
+	\item \textbf{docker container exec NOMBREoID COMANDO}
+	
+	Ejecutar comandos en un contenedor en ejecución, se puede usar -i para ejecutar el comando de forma interactiva y -t para que nos proporcione un terminal para el comando.
+
+	\item \textbf{docker container attach NOMBREoID}
+	
+	Ligar el contenedor a la entrada, salida y error de nuestro terminal.
+
+	\item \textbf{docker container logs --tail 5 NOMBREoID}
+	
+	Ver un registro de los últimos 5 procesos en ejecución en el contenedor, sin --tail 5 muestra todos.
+
+	\item \textbf{docker container diff NOMBREoID}
+	
+	Visualizar las diferencias que se han producido con respecto a la imagen base, A añadido, C cambiado y D borrado.
+
+	\item \textbf{docker container commit NOMBREoID NOMBREIMAGEN}
+	
+	Crear la imagen de un contendor en su estado actual, y le damos un nombre.
+
+	\item \textbf{docker image ls}
+	
+	Listar las imágenes
+
+	\item \textbf{docker image history NOMBREoID}
+	
+	Lista las capas sobre las que se ha construido nuestra imagen.
+
+	\item \textbf{docker image build -t NOMBREoID}
+	
+	Construir una imagen sin ejecutarla desde un Dockerfile.
+
+	\item \textbf{docker image rm NOMBREoID}
+	
+	Borra la imagen del servidor local.
+
+	\item \textbf{docker image save -o DESTINO IMAGEN}
+	
+	\textbf{docker image load -i ORIGEN}
+	
+	Guardar y cargar una imagen.
+
+	\item \textbf{docker image tag alpine:latest gnschenker/alpine:1.0}
+	
+	\textbf{docker login -u gnschenker -p <my secret password>}
+	
+	\textbf{docker image push gnschenker/alpine:1.0}
+	
+	Dar etiqueta de versión a nuestra imagen, preparándola para publicarla, y subiendola a Docker Hub tras previo inicio de sesión.
+\end{itemize}
 
 
 \chapter{Recursos}
@@ -1888,4 +2118,9 @@ Docker fue el que introdujo el termino de contenedor, pero hoy en día hay más 
 \href{https://learning.oreilly.com/library/view/getting-started-with/9781838645700/9f8c7bb0-cd1d-4dc3-8d6b-c08ef3590c44.xhtml}{Instalar el entorno de trabajo de Dockers} 
 
 \href{https://learning.oreilly.com/library/view/getting-started-with/9781838645700/ef53b9f7-3bd4-459e-9665-a53931a3ae0a.xhtml}{Trabajando con contenedores}
+
+\href{https://learning.oreilly.com/library/view/getting-started-with/9781838645700/dd4d8c8e-9219-412e-853a-e52ea9de9183.xhtml}{¿Qué son imágenes y cómo se crean?}
+
+\href{https://learning.oreilly.com/library/view/getting-started-with/9781838645700/ff4d6320-c32f-481e-8269-dbd7b5a7cec5.xhtml}{Aplicaciones Multiservicio - Docker Compose}
+
 \end{document}
