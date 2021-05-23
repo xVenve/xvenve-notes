@@ -240,7 +240,8 @@ hmargin=3cm
 %	COMENZAR A ESCRIBIR AQUI
 %----------	
 
-\section{Información}
+\chapter{Información}
+\section{Profesores}
 
 \begin{quote}
 Teorías: Antonio Berlanga de Jesús y Jesús García Herrero
@@ -250,30 +251,25 @@ Prácticas: Juan Manuel Alonso Weber jmaw@ia.uc3m.es
 
 \section{Presentación}
 
-Practicas semanales de 2 en 2.
+Practicas semanales por parejas.
 
-Hay clases en el cronograma de más, algunas se usarán para recuperar.
+Hay clases en el cronograma de más, algunas se usarán para recuperar clases.
 
-Las practicas las hacemos en Linux, vale, máquina virtual, guernika y se
-puede hacer en WSL2. Lo importante es tener un terminal.
+Las practicas las haremos en Linux, se puede utilizar máquina virtual, guernika y WSL2, lo importante es tener un terminal.
 
-Vamos a usar bison y flex, programaremos en C. El editor de texto que
-queramos.
+Vamos a usar bison y flex, programaremos en C.
 
 \chapter{Repaso de TALF}
 
 \section{Definiciones}
 
-\textbf{Forma sentencial}: Aplicando reglas de producción llego a
-\(x \in \sum^*\)
+\textbf{Forma sentencial}: Aplicando reglas de producción llego a \(x \in \sum^*\)
 
-\textbf{Sentencia}: Forma sentencial en el que x no tiene No Terminales.
+\textbf{Sentencia}: Forma sentencial en el que x solo tiene Terminales.
 
-\textbf{Lenguaje asociado a una gramática}: Todas las sentencias, sin
-terminales, de una gramática.
+\textbf{Lenguaje asociado a una gramática}: Todas las sentencias, secuencias de Terminales, de una gramática.
 
-\textbf{Recursividad}: Aparece el terminal de la parte izquierda a la
-derecha.
+\textbf{Recursividad}: Aparece el terminal de la parte izquierda a la derecha.
 
 \begin{itemize}
 \item
@@ -748,10 +744,7 @@ lenguaje (Gramática) y genera un compilador para ese lenguaje.
 
 
 
-Antes del pasar al compilador se pasa al \textbf{preprocesador que hace
-muchas funciones}, entre ellas, sustituir las variables constantes por
-su valor y quita los comentarios. Cuando termina pasa el programa fuente
-al compilador.
+Antes del pasar al compilador se pasa al \textbf{preprocesador que hace muchas funciones}, entre ellas, sustituir las constantes por su valor y quita los comentarios. Cuando termina pasa el programa fuente al compilador.
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
@@ -759,83 +752,77 @@ al compilador.
 	{\includegraphics[scale=.27]{Untitled 11.png}}
 \end{figure}
 
-\textbf{Análisis}: Parte que solo depende de la estructura del lenguaje.
-No depende de la arquitectura.
+\textbf{Análisis}: Parte que solo depende de la estructura del lenguaje, no de la arquitectura de la maquina.
+\begin{itemize}
+  \item \textbf{Analizador léxico (scanner)}: Convierte la entrada (y::= 3+b*3) en Símbolos terminales (id op num op id op num) de una gramática. A este llegan directamente los datos, no al resto. Su salida va al siguiente.
 
-\textbf{Analizador léxico}: A este llegan directamente los datos, no al
-resto. Su salida va al siguiente.
+    Análisis lineal: La cadena de entrada se lee de izquierda a derecha y se agrupa en componentes léxicos (tokens)
+    
+    \begin{figure}[H]
+      \ffigbox[\FBwidth]
+      {\caption{Diagrama Analizador Léxico}}
+      {\includegraphics[scale=.25]{Untitled 12.png}}
+    \end{figure}
+    
+  \item \textbf{Analizador sintáctico:} Agrupa los componentes léxico en frases
+    gramaticales que el compilador utiliza. A partir de los tokens produce
+    un árbol sintáctico.
+    
+    \begin{itemize}
+    \item
+      Recibe tokens → crea un árbol.
+    \item
+      En las hojas tiene los terminales en la manera en la que identifica el
+      token.
+    \end{itemize}
+    
+    \begin{figure}[H]
+      \ffigbox[\FBwidth]
+      {\caption{Diagrama Analizador Sintáctico}}
+      {\includegraphics[scale=.25]{Untitled 13.png}}
+    \end{figure}
+  \pagebreak
+  \item \textbf{Analizador semántico:} Busca errores semánticos, reúne información de tipos, identifica operadores y operandos.
+  
+    \begin{itemize}
+    \item
+      Recibe el árbol sintáctico explícita o implícitamente, y trata de
+      determinar si tiene sentido las distintas operaciones.
+    
+      Por ejemplo: Sumar un número y una cadena de caracteres.
+    \end{itemize}
+\end{itemize}
+
 
 \textbf{Generación}: Depende de la arquitectura, pero no del lenguaje.
-
-\textbf{Generador de código intermedio}: A veces se encuentra en
-análisis y otras en generación.
-
-\textbf{Analizador léxico (scanner)}: Convierte la entrada (y::= 3+b*3)
-en Símbolos terminales (id op numo p id op num) de una gramática.
-
-Análisis lineal: La cadena de entrada se lee de izquierda a derecha y se
-agrupa en componentes léxicos (tokens)
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama Analizador Léxico}}
-	{\includegraphics[scale=.25]{Untitled 12.png}}
-\end{figure}
-
-\textbf{Analizador sintáctico:} Agrupa los componentes léxico en frases
-gramaticales que el compilador utiliza. A partir de los tokens produce
-un árbol sintáctico.
-
 \begin{itemize}
-\item
-  Recibe tokens → crea un árbol.
-\item
-  En las hojas tiene los terminales en la manera en la que identifica el
-  token.
+  \item \textbf{Generador de código intermedio}: A veces se encuentra en análisis y otras
+  en generación. Convierte el árbol en instrucciones, código
+  intermedio (ensamblador). El recorrido es importante ya que al generar
+  código no se ve la jerarquía. Por ejemplo: Primero se tienen que hacer
+  las operaciones antes de asignar el valor.
+  
+  \begin{figure}[H]
+    \ffigbox[\FBwidth]
+    {\caption{Diagrama Generador de código}}
+    {\includegraphics[scale=.25]{Untitled 14.png}}
+  \end{figure}
+  
+  \item \textbf{Optimizador:} Trata de darse cuenta de subárboles comunes para
+  no repetir operaciones en las que no cambian variables. En vez de volver
+  a poner esa estructura apunta a ella.
+  
+  \begin{figure}[H]
+    \ffigbox[\FBwidth]
+    {\caption{Diagrama Optimizador}}
+    {\includegraphics[scale=.3]{Untitled 15.png}}
+  \end{figure}
+  
+  \item \textbf{Generador de código:} El uso de código intermedio reduce la
+  complejidad del desarrollo de compiladores. m front ends y n back-ends
+  comparten un código intermedio común.
+
 \end{itemize}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama Analizador Sintáctico}}
-	{\includegraphics[scale=.25]{Untitled 13.png}}
-\end{figure}
-
-\textbf{Analizador semántico:} Busca errores semánticos, reúne
-información de tipos; identifica operadores y operandos.
-
-\begin{itemize}
-\item
-  Recibe el árbol sintáctico explícita o implícitamente, y trata de
-  determinar si tiene sentido las distintas operaciones.
-
-  Por ejemplo: Sumar un número y una cadena de caracteres.
-\end{itemize}
-
-\textbf{Generador de código}: A veces se encuentra en análisis y otras
-en generación. Convierte el árbol en instrucciones, código
-intermedio(ensamblador). El recorrido es importante ya que al generar
-código no se ve la jerarquía. Por ejemplo: Primero se tienen que hacer
-las operaciones antes de asignar el valor.
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama Generador de código}}
-	{\includegraphics[scale=.25]{Untitled 14.png}}
-\end{figure}
-
-\textbf{Optimizador:} Trata de darse cuenta de subárboles comunes para
-no repetir operaciones en las que no cambian variables. En vez de volver
-a poner esa estructura apunta a ella.
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama Optimizador}}
-	{\includegraphics[scale=.3]{Untitled 15.png}}
-\end{figure}
-
-\textbf{Generador de código:} El uso de código intermedio reduce la
-complejidad del desarrollo de compiladores. m front ends y n back-ends
-comparten un código intermedio común.
 
 \textbf{Front-end}: Etapa inicial. Fases que dependen del lenguaje
 fuente y que son independientes de la máquina. Análisis léxico,
@@ -928,7 +915,7 @@ FORTRAN.
 \section{Aspectos del Análisis Léxico}
 
 \textbf{Diseño más sencillo:} Los símbolos que trata el scanner se
-describe con una gramática más simple que la del parser.
+describen con una gramática más simple que la del parser.
 
 \textbf{Mejora la eficiencia:} Gran parte del tiempo de compilación se
 consume en la lectura y exploración.
@@ -997,9 +984,8 @@ Autómatas Finitos.
   Se pueden usar Expresiones regulares o Autómatas Finitos.
 \end{itemize}
 
-\textbf{Tabla de símbolos:} Almacenan la correspondencia entre tokens y
-lexemas, en muchos lenguajes hay palabras claves (reservadas) que no se
-pueden declarar una variable para ello se almacena en la tabla.
+\textbf{Tabla de símbolos:} Almacenan la correspondencia entre tokens y lexemas. 
+En muchos lenguajes hay palabras claves (reservadas) para las que no se puede declarar una variable, y estas se almacenan en la tabla.
 
 \begin{itemize}
 
@@ -1204,7 +1190,7 @@ usando patrones para las palabras reservadas.
 \textbf{Criterio}: Se utilizan heurística para dar prioridad al token
 que concuerda con \textbf{el lexema más largo}.
 
-\textbf{En el caso se puede concordar a varios tokens} se asocia al que
+\textbf{En el caso de que arios tokens tengan la misma longitud} se asocia al que
 esté \textbf{en primer lugar}.
 
 \begin{figure}[H]
@@ -1418,7 +1404,7 @@ regla de producción aplicar, define el nombre del analizador, \(LL(k)\),
 \end{itemize}
 
 Para evitar problemas a la hora de seleccionar una regla de selección
-\textbf{se debe elimina la Recursividad a izquierda y Factorizamos a
+\textbf{se debe eliminar la Recursividad a izquierdas y Factorizar a
 izquierdas}. La recursividad a izquierdas hay que evitarla desde el
 principio, pero la factorización si se produce no es un gran problema es
 fácil de resolverla.
@@ -1533,7 +1519,7 @@ producción.
 
 \item
   \textbf{Condición PRIMERO-PRIMERO:} Los conjuntos primeros de las
-  reglas de producción del NT deben ser disjuntos (no tengas símbolos en
+  reglas de producción del NT deben ser disjuntos (no tengan símbolos en
   común).
 
   \(A \rightarrow \alpha_1 |...|\alpha_n, P(\alpha_1) \cap ... \cap P(\alpha_n) = \empty\)
@@ -1970,7 +1956,7 @@ Son gramáticas G2 a las que se añaden atributos y reglas de evaluación de atr
 \begin{itemize}
   \item Cada \textbf{atributo} es una variable que representa una propiedad del símbolo terminal o no terminal, puede ser una cadena, numero, tipo, posición de memoria, etc.
   \item \textbf{Reglas semánticas} (Reglas para calcular/Reglas para comprobar), se asocian a las producciones sintácticas (reglas de producción). Se definen en función de los atributos de los símbolos en la producción.
-  \item Sobre los atributos y reglas hay unas condiciones semánticas.
+  \item Sobre los atributos y reglas hay unas \textbf{condiciones semánticas}.
 \end{itemize}
 
 Se pueden construir Arboles adornador o decorados, donde se muestra la relación entre atributos de una misma regla de producción.
