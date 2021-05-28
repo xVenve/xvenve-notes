@@ -251,11 +251,11 @@ Prácticas: Juan Manuel Alonso Weber jmaw@ia.uc3m.es
 
 \section{Presentación}
 
-Practicas semanales por parejas.
+Prácticas semanales por parejas.
 
 Hay clases en el cronograma de más, algunas se usarán para recuperar clases.
 
-Las practicas las haremos en Linux, se puede utilizar máquina virtual, guernika y WSL2, lo importante es tener un terminal.
+Las prácticas las haremos en Linux, se puede utilizar máquina virtual, guernika y WSL2, lo importante es tener un terminal.
 
 Vamos a usar bison y flex, programaremos en C.
 
@@ -333,7 +333,7 @@ Determinista.
   lo puede dar el axioma.
 \end{itemize}
 
-\textbf{Tipo 1}: Maquina Linealmente Acotada.
+\textbf{Tipo 1}: Máquina Linealmente Acotada.
 
 \begin{itemize}
 \item
@@ -343,7 +343,7 @@ Determinista.
   regla reductora(tampoco se puede No Terminal para dar lambda).
 \end{itemize}
 
-\textbf{Tipo 0}: Maquina de Turing.
+\textbf{Tipo 0}: Máquina de Turing.
 
 \begin{itemize}
 \item
@@ -619,7 +619,7 @@ Inferencia: Si X=AX+B entonces X=A*B
 
 \textbf{Compilador}: Proceso de traducción que convierte un programa
 fuente escrito en un lenguaje de alto nivel a un programa objeto en
-código maquina y listo por tanto para ejecutarse en el ordenador. Solo
+código máquina y listo por tanto para ejecutarse en el ordenador. Solo
 se genera el programa objeto cuando no hay errores.
 
 \begin{figure}[H]
@@ -639,12 +639,12 @@ Después, se creó el ensamblador que traduce un código nemotécnico
 Por último, el compilador sobre el ensamblador, esto facilito mucho las
 cosas.
 
-En los 50's se consideraban los programas más difíciles.
+En los 50 se consideraban los programas más difíciles.
 
 Con el tiempo se ha facilitado mucho con entornos de programación y
 herramientas, no hay una fecha exacta del primer compilador.
 
-Los primeros traducían formulas aritméticas a código máquina.
+Los primeros traducían fórmulas aritméticas a código máquina.
 
 \textbf{Motivación}:
 
@@ -689,18 +689,18 @@ Los primeros traducían formulas aritméticas a código máquina.
 \item
   Procesadores de texto.
 \item
-  Formateo de texto y descripción grafica.
+  Formateo de texto y descripción gráfica.
 \item
   Procesamiento del lenguaje natural.
 \item
   \ldots{}
 \end{itemize}
 
-\textbf{Diferencia entre compilador e interprete}: El compilador solo
+\textbf{Diferencia entre un compilador y un intérprete}: El compilador solo
 hace la traducción a algo que se puede ejecutar, sin embargo, el
 intérprete no solo lo traduce, sino que lo va ejecutando.
 
-\textbf{Ensamblador}: Compilador sencillo, traduce a código maquina
+\textbf{Ensamblador}: Compilador sencillo, traduce a código máquina
 sentencias simples de lenguaje fuente.
 
 \textbf{Traductor}: Normalmente se refiere a la traducción entre dos
@@ -752,7 +752,7 @@ Antes del pasar al compilador se pasa al \textbf{preprocesador que hace muchas f
 	{\includegraphics[scale=.27]{Untitled 11.png}}
 \end{figure}
 
-\textbf{Análisis}: Parte que solo depende de la estructura del lenguaje, no de la arquitectura de la maquina.
+\textbf{Análisis}: Parte que solo depende de la estructura del lenguaje, no de la arquitectura de la máquina.
 \begin{itemize}
   \item \textbf{Analizador léxico (scanner)}: Convierte la entrada (y::= 3+b*3) en Símbolos terminales (id op num op id op num) de una gramática. A este llegan directamente los datos, no al resto. Su salida va al siguiente.
 
@@ -764,7 +764,7 @@ Antes del pasar al compilador se pasa al \textbf{preprocesador que hace muchas f
       {\includegraphics[scale=.25]{Untitled 12.png}}
     \end{figure}
     
-  \item \textbf{Analizador sintáctico:} Agrupa los componentes léxico en frases
+  \item \textbf{Analizador sintáctico:} Agrupa los componentes léxicos en frases
     gramaticales que el compilador utiliza. A partir de los tokens produce
     un árbol sintáctico.
     
@@ -798,7 +798,7 @@ Antes del pasar al compilador se pasa al \textbf{preprocesador que hace muchas f
 \begin{itemize}
   \item \textbf{Generador de código intermedio}: A veces se encuentra en análisis y otras
   en generación. Convierte el árbol en instrucciones, código
-  intermedio (ensamblador). El recorrido es importante ya que al generar
+  intermedio (ensamblador). El recorrido es importante, ya que al generar
   código no se ve la jerarquía. Por ejemplo: Primero se tienen que hacer
   las operaciones antes de asignar el valor.
   
@@ -1091,9 +1091,9 @@ Representa directamente con un programa al DT en cuestión.
 \begin{itemize}
 
 \item
-  \textbf{Ventajas}: Mas eficiente y compacto.
+  \textbf{Ventajas}: Más eficiente y compacto.
 \item
-  \textbf{Inconvenientes}: Mas difícil de desarrollar y Dificultad de
+  \textbf{Inconvenientes}: Más difícil de desarrollar y Dificultad de
   mantenimiento de código generado.
 \end{itemize}
 
@@ -1122,9 +1122,9 @@ Representa directamente con un programa al DT en cuestión.
 
 \begin{itemize}
 \item
-  \textbf{Puntero actual}: El ultimo carácter aceptado.
+  \textbf{Puntero actual}: El último carácter aceptado.
 \item
-  \textbf{Puntero de búsqueda}: El ultimo carácter leído.
+  \textbf{Puntero de búsqueda}: El último carácter leído.
 \end{itemize}
 
 \begin{figure}[H]
@@ -1138,8 +1138,7 @@ valor), Fail (Mueve el puntero avanzado de vuelta al aceptado),
 Retract (mueve el puntero avanzado uno atrás) y Accept (mueve el puntero
 actual hasta el avanzado).
 
-\textbf{Primitivas}: IsLetter (letra), IsDigit (número) y
-IsDelimiter (separadores).
+\textbf{Primitivas}: IsLetter (letra), IsDigit (número) e IsDelimiter (separadores).
 
 \textbf{Acciones}: InstallName (introduce un nombre en la tabla de
 símbolos).
@@ -1249,7 +1248,7 @@ Otro concepto importante es el de ``\textbf{palabra reservada}''
   \item
     El tipo más difícil de lenguaje, aparecen ambigüedades (FORTRAN)
   \item
-    El espacio en blanco se elimina con un preprocesado.
+    El espacio en blanco se elimina con un preprocesador.
   \item
     El AL tiene que retroceder y comenzar de nuevo.
   \end{itemize}
@@ -1383,7 +1382,7 @@ por búsqueda en profundidad con retroceso} lo que hace que tenga una
 
 \subsection{Predictivo}
 
-\textbf{Analizador que sólo necesita conocer \(k\) tokens de la cadena
+\textbf{Analizador que solo necesita conocer \(k\) tokens de la cadena
 de entrada, para determinar la regla de producción} que debe aplicarse.
 El número de tokens, \(k\), necesarios para tomar la decisión de que
 regla de producción aplicar, define el nombre del analizador, \(LL(k)\),
@@ -1438,7 +1437,7 @@ Si \(X \in \Sigma_T \Rightarrow PRIMERO(X)=\{X\}\) El conjunto primero
 de un terminal es él mismo.
 
 Si X tiene alguna regla que empieza por un No Terminal es como calcular
-el conjunto primero de éste. Ojo con lambda.
+el conjunto primero de este. Ojo con lambda.
 
 
 \subsubsection{Conjunto Siguiente}
@@ -1527,7 +1526,7 @@ producción.
   \textbf{Condición PRIMERO-SIGUIENTE}: Esta se aplica cuando alguna de
   las reglas tienen en su conjunto primero \(\lambda\), entonces el
   conjunto primero del resto de las reglas (sin incluir la de lambda)
-  deben ser disjuntas con el conjunto siguiente del NT de la izquierda.
+  deben ser disjuntos con el conjunto siguiente del NT de la izquierda.
 \end{enumerate}
 
 
@@ -1545,7 +1544,7 @@ siguientes reglas:
 
 \item
 \textbf{Si se lee un Terminal}: Si coincide el token\_actual con lo esperado
-  lee el siguiente token, sino coincide da error sintáctico.
+  lee el siguiente token, si no coincide da error sintáctico.
 \item
 \textbf{Si se lee un NT}: Se llama al procedimiento del NT que se encargara de
   reconocerlo.
@@ -1613,7 +1612,7 @@ de tokens es reconocida, entonces iría al analizador semántico.
 Es un analizador predictivo que procesa los tokens de izquierda a
 derecha, con derivaciones más a la izquierda.
 
-Necesita sólo 1 símbolo de preanálisis para determinar qué producción
+Necesita solo 1 símbolo de preanálisis para determinar qué producción
 aplicar.
 
 
@@ -1654,12 +1653,12 @@ La idea general es:
   Si el símbolo de preanálisis y la cima de la pila son \$ es que hemos
   terminado con éxito.
 \item
-  Si el símbolo de preanálisis en es un T y la cima de pila es el mismo,
-  pero no \$ (seria final), se saca de la pila y se lee token (lo que lo
+  Si el símbolo de preanálisis es en un T y la cima de pila es el mismo,
+  pero no \$ (sería final), se saca de la pila y se lee token (lo que lo
   saca de la secuencia a reconocer)
 \item
   Si el símbolo de cima de pila es un NT, se consulta la fila del NT y
-  la columna del símbolo de preanálisis, si esta está vacía error sino
+  la columna del símbolo de preanálisis, si esta está vacía, error, sino
   se meta en la cima de la pila.
 \end{itemize}
 
@@ -1684,7 +1683,7 @@ La idea general es:
 \end{figure}
 
 \item
-  Comprobación de la Condiciones de
+  Comprobación de las Condiciones de
   LL(1)
   
   \begin{figure}[H]
@@ -1705,7 +1704,7 @@ La idea general es:
 \end{figure}
 
 \item
-  Prueba de lectura de secuencia de entrada (falta que se vaya ) y los
+  Prueba de lectura de secuencia de entrada (falta que se vaya) y los
   NT que quedan se van con el \$)
 
 \begin{figure}[H]
@@ -1718,7 +1717,7 @@ La idea general es:
 
 \section{Análisis Sintáctico Ascendente}
 
-Una secuencia de tokens x pertenece al lenguaje definido por G si genera una secuencia valida del lenguaje. Se van aplicando reglas de producción que generan un árbol sintáctico.
+Una secuencia de tokens x pertenece al lenguaje definido por G si genera una secuencia válida del lenguaje. Se van aplicando reglas de producción que generan un árbol sintáctico.
 
 \begin{enumerate}
   \item Coger tokens de izquierda a derecha.
@@ -1762,9 +1761,9 @@ Para algunas gramáticas independientes de contexto, LR(k), se puede construir u
 
 Tipos de analizadores:
 \begin{itemize}
-  \item \textbf{SLR(1)} es un LR simple. La clase más pequeña de gramáticas, numero de estados más pequeño, simple y rápida.
+  \item \textbf{SLR(1)} es un LR simple. La clase más pequeña de gramáticas, número de estados más pequeño, simple y rápida.
   \item \textbf{LR(1)}. La clase más grande de gramáticas, el mayor número de estados, construcción larga y penosa.
-  \item \textbf{LALR(1)}. La clase intermedia de gramáticas, numero de estados como SLR(1), construcción larga y penosa.
+  \item \textbf{LALR(1)}. La clase intermedia de gramáticas, número de estados como SLR(1), construcción larga y penosa.
 \end{itemize}
 En cuanto a que gramáticas pueden representas: $G2>LR>LALR>SLR$
 
@@ -1954,12 +1953,12 @@ Para cumplir lo anterior se utilizan Gramáticas de atributos (gramáticas atrib
 \section{Gramáticas atribuidas}
 Son gramáticas G2 a las que se añaden atributos y reglas de evaluación de atributos (reglas semánticas).
 \begin{itemize}
-  \item Cada \textbf{atributo} es una variable que representa una propiedad del símbolo terminal o no terminal, puede ser una cadena, numero, tipo, posición de memoria, etc.
+  \item Cada \textbf{atributo} es una variable que representa una propiedad del símbolo terminal o no terminal, puede ser una cadena, número, tipo, posición de memoria, etc.
   \item \textbf{Reglas semánticas} (Reglas para calcular/Reglas para comprobar), se asocian a las producciones sintácticas (reglas de producción). Se definen en función de los atributos de los símbolos en la producción.
   \item Sobre los atributos y reglas hay unas \textbf{condiciones semánticas}.
 \end{itemize}
 
-Se pueden construir Arboles adornador o decorados, donde se muestra la relación entre atributos de una misma regla de producción.
+Se pueden construir Árboles adornados o decorados, donde se muestra la relación entre atributos de una misma regla de producción.
 
 \textbf{Gramáticas atribuida $GA=\{G,A,R,B\}$}
 \begin{itemize}
@@ -1971,7 +1970,7 @@ Se pueden construir Arboles adornador o decorados, donde se muestra la relación
 
 \textbf{Existen diferentes Especificaciones:}
 \begin{itemize}
-  \item \textbf{DDS - Definición dirigida por la sintaxis}, acciones tras cada producción (sin orden específicos).
+  \item \textbf{DDS - Definición dirigida por la sintaxis}, acciones tras cada producción (sin orden específico).
   
   \begin{figure}[H]
     \ffigbox[\FBwidth]
@@ -1985,7 +1984,7 @@ Se pueden construir Arboles adornador o decorados, donde se muestra la relación
     \item EDT con \textbf{atributos sintetizados y heredados}, la posición de las acciones debe tener en cuenta los cálculos y atributos que contribuyen.
     \begin{itemize}
       \item Un atributo heredado (en la parte derecha de la producción) DEBE calculará con una acción antes de dicho símbolo.
-      \item Una acción NO debe referirse a un atributo sintetizado de un símbolo que este la derecha de la acción.
+      \item Una acción NO debe referirse a un atributo sintetizado de un símbolo que esté a la derecha de la acción.
       \item Para calcular el No Terminal izquierdo DEBE haberse calculado previamente todos los atributos de los símbolos que participen.
     \end{itemize}
   \end{itemize}
@@ -2004,11 +2003,11 @@ Una gramática atribuida GA es \textbf{completa} si, para todo atributo de toda 
   \item $AS(X) \cup AH(X) = A(X)$, $AS(X) \cap AH(X)=\emptyset$
 \end{itemize}
 
-Una gramática atribuida GA esta \textbf{bien definida} si, para cualquier sentencia en L(GA), todos los atributos pueden ser calculados (este proceso se llama evaluación de la gramática). Además, una sentencia de su lenguaje tiene atributos correctos si se verifican las condiciones en B(P) para cada regla P de la gramática.
+Una gramática atribuida GA está \textbf{bien definida} si, para cualquier sentencia en L(GA), todos los atributos pueden ser calculados (este proceso se llama evaluación de la gramática). Además, una sentencia de su lenguaje tiene atributos correctos si se verifican las condiciones en B(P) para cada regla P de la gramática.
 \begin{itemize}
   \item \textbf{Gramática Atribuida bien definida $\Rightarrow$ Gramática Atribuida completa}
 \end{itemize}
-En el caso de buscar que este bien definida es más fácil buscar un fallo (para decir que no lo es), que comprobar que se cumple para todas las sentencias del lenguaje (que es inabarcable). Si no se encuentra el contraejemplo se dice que no se puede demostrar que no lo es.
+En el caso de buscar que esté bien definido es más fácil buscar un fallo (para decir que no lo es), que comprobar que se cumple para todas las sentencias del lenguaje (que es inabarcable). Si no se encuentra el contraejemplo se dice que no se puede demostrar que no lo es.
 
 \section{Tipos de atributos y gramáticas}
 \subsection{Atributos heredados y sintetizados}
@@ -2044,7 +2043,7 @@ Los atributos heredados se tratan utilizando estructuras auxiliares para pasar l
 \textbf{Hay dos métodos:}
 \begin{itemize}
   \item Métodos con \textbf{árbol de análisis sintáctico}: Se realizan en el momento de compilación y el orden que se sigue viene dado por el grafo de dependencias (ordenamiento topológico) de cada nodo construido según el árbol de análisis sintáctico. No funciona para gramáticas con ciclos.
-  \item Métodos de evaluación \textbf{durante el análisis sintáctico}: La evaluación se hace en una sola pasada y no es necesario construir un grafo de dependencias de forma explicita, lo que lo hace más eficiente. 
+  \item Métodos de evaluación \textbf{durante el análisis sintáctico}: La evaluación se hace en una sola pasada y no es necesario construir un grafo de dependencias de forma explícita, lo que lo hace más eficiente. 
   \begin{itemize}
     \item Hay métodos \textbf{basados en reglas}, en el que las acciones semánticas asociadas a las producciones se analizan a mano o con alguna herramienta.
     \item Hay métodos \textbf{sin recuerdo}, el orden de evaluación no tiene en cuenta las reglas semánticas.
@@ -2098,9 +2097,9 @@ Nos permite representar interdependencias entre atributos heredados y sintetizad
 \end{enumerate}
 \pagebreak
 \subsection{Árbol de Sintaxis abstracta}
-Es una alternativa más sencilla, el grafo de dependencias es más completo. Se utiliza cuando no es una Gramatica de atributos por la izquierda mediante esquema de traducción con atributos sintetizados (siempre).
+Es una alternativa más sencilla, el grafo de dependencias es más completo. Se utiliza cuando no es una Gramática de atributos por la izquierda mediante esquema de traducción con atributos sintetizados (siempre).
 
-Se usa para los casos en los que la gramática no se puede evaluar durante el análisi sintáctico.
+Se usa para los casos en los que la gramática no se puede evaluar durante el análisis sintáctico.
 
 Evaluación en varias pasadas: Se construye el árbol explícitamente y se evalúa en función del orden de recorrido.
 
@@ -2147,7 +2146,7 @@ Una vez calculado el heredado se puede pasar al sintetizado.
   {\includegraphics[scale=.25]{2021-05-01 01_46_28-05_resum_Sem_2021.pdf - Foxit Reader.png}}
 \end{figure}
 \begin{itemize}
-  \item S-atribuida, Gramáticas atribuida, va hacia arriba. Calculamos lo de los hijos y lo pasamos hacia arriba.
+  \item S-atribuida, Gramáticas atribuidas, va hacia arriba. Calculamos lo de los hijos y lo pasamos hacia arriba.
   \item L-atribuida, Gramáticas por la izquierda. De forma sistemática, se hace una sola visita, recorriendo el árbol.
   \item Combinada, hay que ver el orden de dependencia entre atributos para construir el orden.
 \end{itemize}
@@ -2192,7 +2191,7 @@ Comprueba que el tipo de una construcción tenga sentido en su contexto según e
 
 Se encuentra tras la construcción del TSA (árbol sintáctico abstracto). ??
 
-En la gramática atribuidas es sencillo, pero no siempre es así y para los tipos más complejos se usan tablas.
+En la gramática atribuida es sencillo, pero no siempre es así y para los tipos más complejos se usan tablas.
 \begin{figure}[H]
   \ffigbox[\FBwidth]
   {\caption{Ejemplo Comprobación de Tipos}}
