@@ -258,8 +258,7 @@ Las prácticas consisten en 4 Tutoriales 0.5 cada uno y 2 Prácticas 1.5 cada un
 
 El objetivo de la asignatura es conseguir que gane solo el Pac-man sin ayuda nuestra.
 
-El objetivo de las prácticas no es pegar los resultados o con captura,
-si no documentar bien, incluyendo tablas y gráficas.
+El objetivo de las prácticas no es pegar los resultados o con captura, sino documentar bien, incluyendo tablas y gráficas.
 
 Los casos que no funcionan son importantes, no solo poner pruebas con éxito. Así se documentan los cambios realizados.
 
@@ -639,8 +638,7 @@ clase.
   Que no sean relevantes los atributos.
 \end{itemize}
 
-\textbf{Ruido en atributos:} Valores erróneos, sin valor (missing
-values) u outliers (que se salen de sus valores)
+\textbf{Ruido en atributos:} Valores erróneos, sin valor (missing values) u outliers (que se salen de sus valores)
 
 \textbf{Ruido en la clase:} Ejemplos con una clase incorrecta, ejemplos
 exactamente iguales, pero clase distinta (contradictorio)
@@ -762,7 +760,7 @@ Es un proceso iterativo, tras la última etapa se vuelve al principio.
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  \textbf{Pre-procesamiento}.
+  \textbf{Preprocesamiento}.
 
   \begin{itemize}
   \item
@@ -1408,7 +1406,7 @@ las entradas con unos pesos} (\(w_0+w_ix_1+...+w_nx_n\)) y se pasa el
 	\end{tikzpicture}}
 \end{figure}
 \item
-  Sigmoidal.
+  Sigmoide.
   \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Función Sigmoidal}}
@@ -1528,7 +1526,7 @@ Para cada ejemplo:
   \item
     Se calcula el \textbf{error en la unidad de salida}:
     \(\delta_k \leftarrow\) \(o_k(1-o_k)(t_k-o_k)\) Este valor es el
-    (t-o) de la variación delta, en este caso para una función sigmoidal
+    (t-o) de la variación delta, en este caso para una función sigmoide
     en vez de lineal
   \item
     \textbf{En las capas ocultas}: Se calcula con las unidades que están
@@ -1981,7 +1979,7 @@ Se generan distintos clasificadores con distintos subconjuntos de atributos.
 Problemas cuando eliminar atributos provoca un mal comportamiento de los clasificadores.
 
 \subsection{Bosques aleatorios (Random Forests) [Breiman, 2001]}
-Por un lado, se modifican instancias y por otro atributos.
+Por un lado, se modifican instancias y por otros atributos.
 
 \textbf{Aprendizaje:} Se construyen k árboles de decisión (regresión) aleatorios.
 \begin{itemize}
@@ -2060,9 +2058,9 @@ Repetir
 
 \hspace{6mm} $S_i =$ encontrar todos los subconjuntos de i ítems, combinando conjuntos frecuentes previos
 
-\hspace{6mm} $L_i =$ podar aquellos elementos de Si que aparecen en menos de un C \% de los ejemplos en E
+\hspace{6mm} $L_i =$ podar aquellos elementos de $S_i$ que aparecen en menos de un C \% de los ejemplos en E
 
-Hasta que $L_i = \emptyset$. Devolver la unión de todos los Li
+Hasta qué $L_i = \emptyset$. Devolver la unión de todos los $L_i$
 
 Los subconjuntos de salida son aquellos que no son subconjuntos de otros, partiendo de coger el del último L no vacío.
 
@@ -2311,7 +2309,7 @@ Basado en:
     \item Para cada par $(s, a)$ que aparece en el episodio:
     \begin{itemize}
       \item $R(s, a) = r + \gamma r'+ \gamma r''+ \gamma r'''+\dots$ refuerzo descontado acumulado tras (empezando a descontando con el refuerzo siguiente) la PRIMERA ocurrencia del par $(s, a)$. 
-      \item Anadir $R(s, a)$ a $ganancias(s, a)$, cada par tiene su lista de refuerzos almacenados.
+      \item Añadir $R(s, a)$ a $ganancias(s, a)$, cada par tiene su lista de refuerzos almacenados.
       \item $G = promedio(ganancias(s, a))$
       \item $Q(s, a) \leftarrow (1-\alpha)Q(s, a) + \alpha G$ (Caso determinista $\alpha = 1$, $Q(s, a) \leftarrow G$)
     \end{itemize}
@@ -2556,7 +2554,7 @@ $$B,H \vDash E$$
 
 Se trata de una búsqueda en el espacio de cláusulas que se llama \textbf{Refinamiento de Cláusulas}, los algoritmos que se emplean son:
 \begin{itemize}
-  \item Más especifico a más general, como GOLEM.
+  \item Más específico a más general, como GOLEM.
   \item Más general a más específico, como FOIL o PROLOG.
 \end{itemize} 
 
@@ -2640,8 +2638,6 @@ El espacio de búsqueda es mucho mayor que con representación atributo-valor, p
   \item Aprendizaje de atributos relevantes con ILP: LINUS
   \item Híbridos: árboles de decisión con IBL en los nodos hoja
 \end{itemize}
-
-
 
 
 \end{document}
