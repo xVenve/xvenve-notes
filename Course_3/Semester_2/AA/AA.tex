@@ -1257,7 +1257,7 @@ subárbol y v el número de atributos del modelo.
 Por lo que el error aumenta cuando hay muchos parámetros o hay pocas
 instancias.
 
-\textbf{Formula del error:}
+\textbf{Fórmula del error:}
 \(error\_estimado(T) = \alpha \times residuo(T)\) Es una proporción del
 residuo.
 
@@ -2186,22 +2186,22 @@ Dada una política $\pi$, un estado inicial s y una acción a, $Q^\pi (s, a)$ re
 
 \begin{figure}[H]
   \begin{eqnarray*}
-    Q^* (s, a) &=& \max_\pi Q^\pi (s,a), \forall s \in S, \forall a \in A \\
-    V^* (s) &=& \max_a Q^* (s,a), \forall s \in S
+    Q^* (s, a) &=& \max_\pi Q^\pi (s, a), \forall s \in S, \forall a \in A \\
+    V^* (s) &=& \max_a Q^* (s, a), \forall s \in S
   \end{eqnarray*} 
   \captionsetup{justification=centering}
   \caption{Función de valor-acción}
 \end{figure}
 
-Política optima en función de Q, maximiza el refuerzo de cada acción que se puede ejecutar en ese estado.
+Política óptima en función de Q, maximiza el refuerzo de cada acción que se puede ejecutar en ese estado.
 $$\pi^* (s) = \arg \max_{a \in A} Q^* (s,a), \forall s \in S$$
 \pagebreak
 \subsubsection{Ecuaciones de Bellman}
 Ecuaciones recurrentes que se basan en calcular el refuerzo total óptimo maximizando sobre la elección de una primera acción y considerando un futuro óptimo.
 \begin{figure}[H]
   \begin{eqnarray*}
-    Q^* (s, a) &=& \sum _{s'} T(s,a, s') [R(s,a,s') + \gamma V^* (s')]\\
-    V^* (s) &=& \max_a Q^*(s,a) = \max _a \sum _{s'} T(s,a, s') [R(s,a,s') + \gamma V^* (s')]
+    Q^* (s, a) &=& \sum _{s'} T(s, a, s') [R(s, a, s') + \gamma V^* (s')]\\
+    V^* (s) &=& \max_a Q^*(s, a) = \max _a \sum _{s'} T(s, a, s') [R(s, a, s') + \gamma V^* (s')]
   \end{eqnarray*} 
   \captionsetup{justification=centering}
   \caption{Ecuaciones de Bellman}
@@ -2250,11 +2250,11 @@ Problema de Aprendizaje por Refuerzo (definido como un MDP):
   \item Función de Transición de estados desconocida $T: S\times A \times S \rightarrow \mathbb{R}$.
   \item Función de Refuerzo $R: S \times A \times S \rightarrow \mathbb{R}$.
 \end{itemize}
-\textbf{Objetivo:} aprender la política de acción,$\pi: S \rightarrow A$ , que maximice el refuerzo esperado acumulado en el tiempo mediante exploración del entorno.
+\textbf{Objetivo:} aprender la política de acción,$\pi: S \rightarrow A$, que maximice el refuerzo esperado acumulado en el tiempo mediante exploración del entorno.
 
 \subsection{Aproximaciones Basadas en el Modelo}
 \begin{enumerate}
-  \item Se aprende el modelo (T y R) y se resuelven las ecuaciones por Programación Dinámica ( Iteración de valor o Política)
+  \item Se aprende el modelo (T y R) y se resuelven las ecuaciones por Programación Dinámica (Iteración de valor o Política)
   \begin{itemize}
     \item Técnicas costosas computacionalmente.
     \item No útil para respuestas en tiempo real
