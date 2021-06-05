@@ -1,4 +1,5 @@
-\documentclass[12pt]{report} %fuente a 12pt
+\documentclass[12pt, twoside, openright]{report} %fuente a 12pt, formato doble pagina y chapter a la derecha
+\raggedbottom % No ajustar el contenido con un salto de pagina
 
 % MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
 \usepackage[
@@ -27,7 +28,10 @@ hmargin=3cm
 	linkcolor=black, % enlaces a partes del documento (p.e. índice) en color negro
 	urlcolor=blue} % enlaces a recursos fuera del documento en azul
 
+% Añadir pdfs como partes del documento
 \usepackage{pdfpages}
+
+% Quitar la indentación de principio de los parrafos
 \setlength{\parindent}{0em}
 
 % EXPRESIONES MATEMATICAS
@@ -37,6 +41,7 @@ hmargin=3cm
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
+% Insertar graficas y fotos
 \usepackage{tikz}
 \usepackage{pgfplots}
 
@@ -49,7 +54,7 @@ hmargin=3cm
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
-\rfoot{\thepage}
+\fancyfoot[LO,RE]{\thepage}
 \fancypagestyle{plain}{\pagestyle{fancy}}
 
 % DISEÑO DE LOS TÍTULOS de las partes del trabajo (capítulos y epígrafes o subcapítulos)
@@ -105,10 +110,10 @@ hmargin=3cm
 
 % Diseño de tabla para ingeniería
 \captionsetup[table]{
-	format=upper,
-	name=TABLA,
+	format=hang,
+	name=Tabla,
 	justification=centering,
-	labelsep=period,
+	labelsep=colon,
 	width=.75\linewidth,
 	labelfont=small,
 	font=small,
@@ -123,7 +128,7 @@ hmargin=3cm
 	format=hang,
 	name=Fig.,
 	singlelinecheck=off,
-	labelsep=period,
+	labelsep=colon,
 	labelfont=small,
 	font=small		
 }
@@ -223,24 +228,17 @@ hmargin=3cm
 \listoffigures
 \thispagestyle{fancy}
 
-%--
-% Índice de tablas. Si no se incluyen, comenta las líneas siguientes
-%-
-\listoftables
-\thispagestyle{fancy}
-
 %----------
 %	TRABAJO
 %----------	
-\clearpage
 \pagenumbering{arabic} % numeración con números arábigos para el resto de la publicación	
 
 
 %----------
 %	COMENZAR A ESCRIBIR AQUI
 %----------	
-
-\section{Información}
+\chapter{Información}
+\section{Profesores}
 
 \begin{quote}
 Teorías: Raquel Fuentetaja rfuentet@inf.uc3m.es 2.1B19
@@ -262,9 +260,8 @@ El objetivo de las prácticas no es pegar los resultados o con captura, sino doc
 
 Los casos que no funcionan son importantes, no solo poner pruebas con éxito. Así se documentan los cambios realizados.
 
-\section{Recursos}
 
-\chapter{Introducción}
+\chapter{Tema 1: Introducción}
 
 \textbf{Definición}:
 
@@ -375,7 +372,7 @@ Personalización, Seguridad, Videojuego, etc.
   Cuestiones éticas.
 \end{itemize}
 
-\chapter{Árboles y Reglas de Decisión}
+\chapter{Tema 2: Árboles y Reglas de Decisión}
 
 \section{Aprendizaje inductivo (De lo más específico a lo más general)}
 
@@ -705,22 +702,22 @@ admite cierta diferencia.
 
 \(Accuracy= \frac {TP+TN}{TP+TP+FP+FN}\)
 
-\(Sensibilidad(recall)= \frac {TP}{TP+FN}\) Proporción de las que son
+\(\textit{Sensibilidad(recall)}= \frac {TP}{TP+FN}\) Proporción de las que son
 positivas acierta. Cuanto más es mejor.
 
 Cuando el coste de FN es alto.
 
-\(Especificidad= \frac {TN}{TN+FP}\) En qué medida acierta cuando la
+\(\textit{Especificidad}= \frac {TN}{TN+FP}\) En qué medida acierta cuando la
 clase es negativa.
 
-\(Tasa \space de\space falsos \space positivos=1-Especificidad= \frac {FP}{TN+FP}\)
+\(\textit{Tasa de falsos positivos}=1-\textit{Especificidad}= \frac {FP}{TN+FP}\)
 
-\(Precision \space de \space clase= \frac {TP}{TP+FP}\) En qué medida el
+\(\textit{Precision de clase}= \frac {TP}{TP+FP}\) En qué medida el
 clasificador acierta cuando predice clase positiva.
 
 Importante cuando el coste FP es alto.
 
-\(F1 \space score= 2\cdot \frac {precision \cdot recall}{precision +recall}\)
+\(\textit{F1 score}= 2\cdot \frac {precision \cdot recall}{precision +recall}\)
 Medida armónica entre sensibilidad y precisión de clase.
 
 Cuando se busca un buen balance entre recall y precisión de clase, y las
@@ -811,6 +808,7 @@ Es un proceso iterativo, tras la última etapa se vuelve al principio.
 			{\caption{Técnicas de wrapper}}
 			{\includegraphics[scale=.2]{Untitled 14.png}}
 		\end{figure}
+    \pagebreak
       \item
         \textbf{Búsqueda en el espacio de estado de los conjuntos de
         atributos.}
@@ -909,12 +907,7 @@ Para evitar sobreajuste se debe generalizar, hay \textbf{2 métodos}:
     \textbf{Eliminando subárboles}: Eliminando nodos del árbol empezando
     por las hojas, se evalúa el error tras eliminarlo, si no mejora
     probamos otro.
-
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Árboles en Post-poda}}
-		{\includegraphics[scale=.2]{image-20210305200826542.png}}
-	\end{figure}
+  \pagebreak
   \item
     \textbf{Eliminando precondiciones o reglas}: Tras haberlo pasado a
     reglas, eliminamos condiciones o reglas completas. Tras la
@@ -977,17 +970,18 @@ valores}
 
 \item
   Por cada valor v del atributo A, se puede \textbf{crear un atributo binario}, de si ese atributo toma ese valor o no.
+  \pagebreak
 \item \textbf{Razón de ganancia (GainRatio, GR)}: Ganancia calculada como la ganancia partida por una penalización por el número de valores del
   atributos.
   \begin{figure}[H]
     $$
-    GR(S, A)= \frac {G(S, A)=max Entropia(S)-EntropiaAtrib(S, A)}{Split\_Information(S, A)=-\sum_{v\in valores(A)} \frac {|S_v|}{|S|} \cdot log_2(\frac {|S_v|}{|S|})}
+    GR(S, A)= \frac {G(S, A)=max Entropia(S)-EntropiaAtrib(S, A)}{\textit{Split\_Information}(S, A)=-\sum_{v\in valores(A)} \frac {|S_v|}{|S|} \cdot log_2(\frac {|S_v|}{|S|})}
     $$
     \captionsetup{justification=centering}
     \caption{Razón de ganancia}
   \end{figure}
   $$
-  Split\_Information(S, A)=-\sum_{v\in valores(A)} \frac {|S_v|}{|S|} \cdot log_2(\frac {|S_v|}{|S|}) 
+  \textit{Split\_Information}(S, A)=-\sum_{v\in valores(A)} \frac {|S_v|}{|S|} \cdot log_2(\frac {|S_v|}{|S|}) 
   $$
 \end{itemize}
 
@@ -1022,10 +1016,10 @@ variable.}
 	\item[ID3, 1986]
 	\item[C4.5, 1993] Sucesor de ID3, atributos numéricos, conversación a reglas, poda.
 	\item[C5.0] Versión comercial.
-	\item[J4.8] Implementación JAVA de C4.5.
+	\item[J48] Implementación JAVA de C4.5.
 \end{description}
 
-\chapter{Regresión}
+\chapter{Tema 3: Regresión}
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Ejemplo instancias de Regresión}}
@@ -1246,12 +1240,6 @@ que sea más pequeño y por último el Suavizado.
 \textbf{Paso 0}: Antes de realizar la poda se crean modelos lineales de los nodos
 intermedios, que se utilizaran para ver si se pueden simplificar los subárboles por ese modelo del nodo intermedio. Para estos modelos se usan solo los atributos que aparecen en el subárbol.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Generación de modelos de nodos intermedios}}
-	{\includegraphics[scale=.15]{image-20210312090434196.png}}
-\end{figure}
-
 Para decidir si simplificamos por un modelo lineal necesitamos una
 medida del error. Si el modelo lineal proporciona menor error con
 respecto al subárbol podemos simplificarlo utilizando el modelo.
@@ -1299,7 +1287,7 @@ residuo.
   intermedios entre el nodo hoja y el nodo raíz.
 \end{enumerate}
 
-\chapter{Resumen otras técnicas}
+\chapter{Tema 4: Otras técnicas}
 
 \section{Aprendizaje Bayesiano}
 
@@ -1348,7 +1336,7 @@ exponencial, se necesitaría una tabla de todas las combinaciones.
 Para evitar esta complejidad se hace una simplificación, \textbf{se asume que los valores de los atributos una vez se conoce la clase son
 condicionalmente independientes}, lo que quiere decir que se puede
 calcular como un producto.
-\(P(a_1, ...,a_n/C) = P(a_1/C) \cdot P(a_2/C) \cdot ... \cdot P(a_n/C)\).
+\(P(a_1, ...,a_n/C) = P(a_1/C) \cdot P(a_2/C) \cdot ... \cdot P(a_n/C) \cdot P(C)\).
 El problema es que ahora es una aproximación y no un clasificador
 bayesiano óptimo. \textbf{Suele funcionar bastante bien} esta
 aproximación.
@@ -1367,91 +1355,99 @@ aproximación.
 \end{figure}
 Las \textbf{entradas son los valores de los atributos}
 (\(x_1,x_2,..,x_n\)) y un umbral, se hace \textbf{combinación lineal de
-las entradas con unos pesos} (\(w_0+w_ix_1+...+w_nx_n\)) y se pasa el
+las entradas con unos pesos} (\(w_0+w_1x_1+...+w_nx_n\)) y se pasa el
 \textbf{resultado por una función de activación} que nos da la salida.
 
 \textbf{Tipos de función de activación:}
-
-\begin{itemize}
-
-\item
-  Umbral, devuelve 0 o 1.
   \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Función Umbral}}
-	{\includegraphics[scale=.8]{image-20210312101914163.png}}
-\end{figure}
-
+    \ffigbox[\FBwidth]
+    {\caption{Función Umbral}}
+    {\begin{tikzpicture}[scale=.5]
+      \begin{axis}[
+      	title={Función Umbral},
+        xlabel={$x$},
+        ylabel={$y$},
+        legend pos=north west,
+        ymajorgrids=true,
+        xmajorgrids=true,
+        grid style=dashed,
+        axis lines=middle,
+        xmin=-1, xmax=1, ymin=-1.5, ymax=1.5,
+        axis x line=center,
+        axis y line=center,
+      ]
+      \addplot [thick, color=blue] plot coordinates
+      {
+          (-1, -1)
+          (0, -1)
+          (0, 0)
+          (0, 1)
+          (1, 1)
+      };
+      \legend{Función}
+        
+      \end{axis}
+    \end{tikzpicture}
+    \begin{tikzpicture}[scale=.5]
+      \begin{axis}[
+        title={Función Lineal},
+        xlabel={$x$},
+        ylabel={$y$},
+        legend pos=north west,
+        ymajorgrids=true,
+        xmajorgrids=true,
+        grid style=dashed,
+        axis lines=middle,
+        xmin=-2, xmax=2, ymin=-2, ymax=2,
+        axis x line=center,
+        axis y line=center,
+      ]
+      \addplot[thick, color=blue]
+        {x};
+        \legend{Función}
+        
+      \end{axis}
+    \end{tikzpicture}
+    \begin{tikzpicture}[scale=.5]
+      \begin{axis}[
+        title={Función Sigmoide},
+        xlabel={$x$},
+        ylabel={$y$},
+        legend pos=north west,
+        ymajorgrids=true,
+        xmajorgrids=true,
+        grid style=dashed,
+        axis lines=middle,
+        axis x line=center,
+        axis y line=center,
+      ]
+      \addplot[thick, color=blue]
+        {1/(1+exp(-x))};
+        \legend{Función}
+        
+      \end{axis}
+    \end{tikzpicture}
+    \begin{tikzpicture}[scale=.5]
+      \begin{axis}[
+        title={Función RELU},
+        xlabel={$x$},
+        ylabel={$y$},
+        legend pos=north west,
+        ymajorgrids=true,
+        xmajorgrids=true,
+        grid style=dashed,
+        axis lines=middle,
+        axis x line=center,
+        axis y line=center,
+      ]
+      \addplot[thick, color=blue]
+        {(x>=0)*x};
+        \legend{Función}
+        
+      \end{axis}
+    \end{tikzpicture}}
+  \end{figure}
 \pagebreak
-\item
-  Lineal.
-  \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Función Lineal}}
-	{\begin{tikzpicture}[scale=.5]
-		\begin{axis}[
-			title={Título},
-			xlabel={Eje x},
-			ylabel={Eje y},
-			legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-		]
-		\addplot[color=blue, mark=*]
-			{x};
-			\legend{Función}
-			
-		\end{axis}
-	\end{tikzpicture}}
-\end{figure}
-\item
-  Sigmoide.
-  \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Función Sigmoidal}}
-	{\begin{tikzpicture}[scale=.5]
-		\begin{axis}[
-			title={Título},
-			xlabel={Eje x},
-			ylabel={Eje y},
-			legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-		]
-		\addplot[color=blue, mark=*]
-			{1/(1+exp(-x))};
-			\legend{Función}
-			
-		\end{axis}
-	\end{tikzpicture}}
-\end{figure}
-  
-\item
-  RELU, se ha visto que el aprendizaje es más rápido.
-  \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Función RELU}}
-	{\begin{tikzpicture}[scale=.5]
-		\begin{axis}[
-			title={Título},
-			xlabel={Eje x},
-			ylabel={Eje y},
-			legend pos=north west,
-			ymajorgrids=true,
-			xmajorgrids=true,
-			grid style=dashed,
-		]
-		\addplot[color=blue, mark=*]
-			{(x>=0)*x};
-			\legend{Función}
-			
-		\end{axis}
-	\end{tikzpicture}}
-\end{figure}
-\end{itemize}
-
 El aprendizaje consiste en determinar los pesos que se aplican a las
 entradas.
 
@@ -1480,13 +1476,13 @@ Red neuronal multicapa
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Diagrama Red neuronal multicapa}}
-	{\includegraphics[scale=.85]{image-20210312102144206.png}}
+	{\includegraphics[scale=.82]{image-20210312102144206.png}}
 \end{figure}
-
+\vspace{-.5cm}
 Es un \textbf{conjunto de neuronas conectadas entre sí} que se distribuyen en capas.
 
 \textbf{Ventajas}:
-
+\vspace{-.5cm}
 \begin{itemize}
 
 \item
@@ -1590,7 +1586,7 @@ Hacen \textbf{búsqueda en el espacio de soluciones}, se usan cuando es fácil e
   \item Se evalúa la nueva población. Si es mejor pasa a ser la población base (generación), Si no se descarta y se intentan otras alternativas.
 \end{enumerate}
 
-\chapter{Técnicas Vagas y No Supervisadas}
+\chapter{Tema 5: Técnicas Vagas y No Supervisadas}
 \section{Aprendizaje basado en instancias (IBL)}
 No genera modelo, lo que hace es que cuando recibe un dato nuevo busca algunos similares de los conocidos.
 \begin{figure}[H]
@@ -1638,7 +1634,7 @@ También se puede ponderar la importancia de cada vecino en el valor de la funci
 \subsection{Selección de los K vecinos}
 El parámetro k identifica cuantos vecinos se utilizan para la decisión, su valor es el que mejor resultados aporta, no hay una regla que siempre funcione. Las regiones que se forman con 1-NN se denominan regiones de Voronoi.
 
-Medidas de distancia:
+\subsection{Medidas de distancia}
 \begin{description}
   \item[Distancia de Hamming (atributos no numéricos)] $\left(x_{m}-z_{m}\right)=\left\{\begin{array}{ll}0 & \text { si } x_{m}=z_{m} \\ 1 & \text { si } x_{m} \neq z_{m}\end{array}\right.$
   \item[Manhattan] $d(\vec{x}, \vec{z})=\sum_{m=1}^{n}\left|x_{m}-z_{m}\right|$
@@ -1715,7 +1711,7 @@ Lo que se hace es ver que instancias son parecidas y se crean grupos de instanci
 \begin{itemize}
   \item \textbf{Agrupación:} Dado un conjunto de ejemplos sin etiquetar, agruparlos según algún criterio.
   \item \textbf{Indexación:} Dado un conjunto de ejemplos, facilitar su acceso organizándolos.
-  \item \textbf{Asociación:} Dados unos datos, establecer relaciones y/asociaciones entre datos.
+  \item \textbf{Asociación:} Dados unos datos, establecer relaciones y/o asociaciones entre datos.
   \item \textbf{Generación de jerarquías:} Dados unos datos en un mismo nivel, generar jerarquías en dichos datos.
   \item \textbf{Reducción de dimensionalidad:} Dados unos datos, reducir la dimensión o número de atributos que caracterizan los datos.
   \item \textbf{Visualización:} Dados unos datos con representación compleja, permitir su visualización.
@@ -1871,7 +1867,7 @@ Realiza en bucle: Clasificar las instancias no etiquetadas y reconstruir el clas
 
 Es aprendizaje supervisado con las instancias etiquetadas.
 
-\chapter{Conjuntos de clasificadores y Reglas de asociación}
+\chapter{Tema 6: Conjuntos de clasificadores y Reglas de asociación}
 \section{Conjuntos de clasificadores - Emsembles}
 Se emplea en aprendizaje supervisado, la mayoría se pueden utilizar tanto en Clasificación como en Regresión, pero hay algunos más específicos.
 
@@ -2019,13 +2015,7 @@ Tiene dos niveles de aprendizaje (Nivel-0 y Nivel-1)
   \item El conjunto de entrenamiento de Nivel-1 se construye utilizando los atributos originales y las k predicciones para cada instancia (utiliza las predicciones de los clasificadores como atributos del metaclasificador, pero mantiene la clase de la instancia).
 \end{itemize}
 Al clasificar, primero se pasa por los clasificadores de nivel 0, para construir la instancia que se pasara al metaclasificador, que proporciona la clase final.
-
-\begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Stacking}}
-  {\includegraphics[scale=.2]{2021-04-10 00_37_18-ensembles-reglasAsociacion.pdf - Foxit Reader.png}}
-\end{figure}
-
+\pagebreak
 \section{Reglas de asociación}
 Se emplea en aprendizaje no supervisado.
 
@@ -2049,8 +2039,6 @@ $i = 1$
 $L_1 =$ encontrar todos los ítems que aparecen en al menos un C \% de los ejemplos en E.
 
 El proceso consiste en generar subconjuntos de tamaño i, y en $L_i$ metemos aquellos que cumplen la cobertura mínima requerida, y en $L_{i+1}$ se hacen subconjuntos de tamaño i+1 con los L anteriores.
-
-\pagebreak
 
 Repetir
 
@@ -2111,7 +2099,7 @@ La idea es elegir las reglas cuya cobertura es mayor que un umbral de cobertura 
 
 \textbf{Si} salarioAlto \textbf{Entonces} precio-viviendaAlto
 
-\chapter{Aprendizaje por Refuerzo}
+\chapter{Tema 7: Aprendizaje por Refuerzo}
 Consiste en aprender a decidir, ante una situación determinada, que acción es la más adecuada para lograr un objetivo.
 
 Se utiliza una Política que acción, que dado un estado del agente nos diga cuál es la acción debe ejecutar, $\pi: s \rightarrow a$. 
@@ -2495,7 +2483,7 @@ Con esta técnica una región se irá partiendo en dos hasta que cumpla las cond
   \item Se aplica Q-Learning sobre la nueva representación.
 \end{enumerate}
 
-\chapter{Programación Lógica Inductiva - ILP}
+\chapter{Tema 8: Programación Lógica Inductiva - ILP}
 Aprendizaje para cuando tenemos los datos expresados de manera relacional.
 
 Se hace cuando el conocimiento no se puede representar como atributo-valor o tengan relación entre los datos difíciles de expresar.
@@ -2562,7 +2550,7 @@ Se trata de una búsqueda en el espacio de cláusulas que se llama \textbf{Refin
 Aprendizaje inductivo de reglas de Horn, de más general a más específico, mediante una búsqueda en escalada con heurística en el espacio de cláusulas.
 
 \subsection{Algoritmo de FOIL}
-\textbf{Función FOIL (E+, E!, P, B): REGLA}
+\textbf{Función FOIL (E+, E-, P, B): REGLA}
 
 $E^+$ y $E^-$ ejemplos positivos y negativos del concepto meta resp., P predicado a aprender, B conocimiento de base.
 \begin{itemize}
@@ -2572,7 +2560,7 @@ $E^+$ y $E^-$ ejemplos positivos y negativos del concepto meta resp., P predicad
     \item Clausula limpia, $CUERPO = \emptyset$
     \item Hasta que $N = \emptyset$, que no deje pasar ejemplos negativos
     \begin{itemize}
-      \item $L = literal-máxima-ganancia(E^+, E^-, P, B, N, CUERPO)$
+      \item $L = literal-maxima-ganancia(E^+, E^-, P, B, N, CUERPO)$
       \item Se añade un literal al cuerpo, $CUERPO = CUERPO, L$
       \item Se quitan de N los ejemplos negativos que no deja pasar el literal, $N = N - \{e \in N | L \nvDash e\}$
     \end{itemize}  
@@ -2639,5 +2627,123 @@ El espacio de búsqueda es mucho mayor que con representación atributo-valor, p
   \item Híbridos: árboles de decisión con IBL en los nodos hoja
 \end{itemize}
 
+\chapter{Resumen}
+\section{Selección}
+\textbf{Clase etiqueta:} Árboles y reglas de decisión, KNN, Ensembles, Naïve Bayes, FOIL.
+
+\textbf{Probabilidad de las clases o text mining:} Naïve Bayes.
+
+\textbf{Muchos datos y difícil atributo-valor:} Relacional.
+
+\textbf{Clase numérica:} M5, CART, Ensembles o KNN.
+
+\textbf{Agrupar elementos:} k-medias.
+
+\textbf{Agrupar jerárquicamente o grupos:} Aglomerativos.
+
+\textbf{Asociaciones o elementos por su frecuencia:} APRIORI y Reglas de asociación.
+
+\textbf{Tomar decisiones, transiciones y recompensa:} Q-learning, Monte Carlo o Dyna-Q
+
+\textbf{Tomar decisiones, pero (S, A, T, R) conocido:} Programación dinámica.
+
+\section{Aprendizaje supervisado}
+Si va a haber atributos con valores vacíos usar representación relacional.
+\begin{itemize}
+  \item \textbf{Árboles de reglas de decisión:} Definir el nivel de poda, limpieza de los atributos y la selección de los atributos
+  \begin{itemize}
+    \item \textbf{ID3:} No con atributos numéricos o discretos con muchos valores.
+    \item \textbf{C4.5 y J48:} Con atributos numéricos o cuando se tengan muchos.
+  \end{itemize}
+  \item \textbf{Aprendizaje basado en instancias (IBK):} KNN.
+  \begin{itemize}
+    \item Definir el valor de k y la medida de similitud.
+    \item Limpiar los atributos con wrapper, normalizar o ponderar (si no se normaliza)
+    \item Limpiar el conjunto de ejemplos, borrando o con centroides.
+  \end{itemize}
+  \item \textbf{Naïve Bayes (text mining):} Clasificación probabilística.
+  \begin{itemize}
+    \item No hay parámetros que configurar, es calcular las tablas.
+    \item Permite trabajar con valores continuos (no hace falta discretizar)
+  \end{itemize}
+  \item \textbf{Deep Learning (imágenes y sonido):} Trabaja con los datos en bruto.
+  \item \textbf{Relacional: FOIL}, es aprendizaje relacional y hay que definir Conocimiento base, el predicado a aprender y los ejemplos que se usaran para entrenar.
+\end{itemize}
+\textbf{Tipos:}
+\begin{itemize}
+  \item \textbf{Clasificación}
+  \begin{itemize}
+    \item Árboles y reglas de Decisión: ID3, C4.5, J48
+    \item Aprendizaje basado en instancias: KNN
+    \item Conjuntos de clasificadores
+    \item Naïve Bayes y Clasificador Bayesiano
+    \item Relacional: FOIL
+  \end{itemize}
+  \item \textbf{Regresión}
+  \begin{itemize}
+    \item Aprendizaje basado en instancias: KNN
+    \item CART y M5
+    \item Conjuntos de clasificadores
+    \item Naïve Bayes, Redes neuronales, Deep Learning
+  \end{itemize}
+  \item \textbf{En relacional mirar la lista}, tiene posibles para todos
+\end{itemize}
+
+\section{Aprendizaje no supervisado}
+\begin{itemize}
+  \item \textbf{Clustering:} k-medias
+  \begin{itemize}
+    \item Definir el valor de k, medida de distancia, semillas y normalización/ponderar.
+  \end{itemize}
+  \item \textbf{Aglomerativos:} Clustering jerárquico, que genera un dendrograma.
+  \begin{itemize}
+    \item Definir medida de distancia, como tratar jerarquía y normalización/ponderar.
+  \end{itemize}
+  \item \textbf{Reglas de asociación y Conjuntos frecuentes:} APRIORI, aprendizaje asociativo
+  \begin{itemize}
+    \item Definir la cobertura.
+    \item Si hay valores numéricos continuos discretizar.
+    \item Explicar: primero conjuntos frecuentes y genera las reglas.
+    \item Definir como será las reglas objetiva.
+    \item Si se quiere tener en cuenta el orden, se busca no solo que aparezcan sino también el orden. Cuando aumenta el tamaño del conjunto salen más combinaciones.
+  \end{itemize}
+\end{itemize}
+
+\section{Aprendizaje por refuerzo}
+Definir Estados, Acciones, función de Transición (si es conocida) y función de Refuerzo (retardada casi siempre, los inmediatos llevan a comportamientos cortoplacistas)
+
+\begin{itemize}
+  \item \textbf{Q-learning}
+  \begin{itemize}
+    \item Indicar el factor de reducción $\gamma$ y de aprendizaje $\alpha$ si no es determinista.
+    \item Determinar que exploración/explotación usaremos: $\epsilon$-greedy o Softmax
+    \item Si la situación para la que se crea es crítica, entrenarlo en un simulador realista.
+  \end{itemize}
+  \item \textbf{Basada en el modelo: Dyna-Q}, no es buena para tiempo real.
+\end{itemize}
+
+\textbf{Factores que apuntan a este aprendizaje:}
+\begin{itemize}
+  \item Tarea de toma de decisiones secuenciales.
+  \item Se puede entender un MDP subyacente.
+  \item No se conoce a priori cuál es la mejor acción en cada situación.
+  \item Que sea de prueba y error.
+  \item El beneficio/impacto solo se conoce al final del episodio.
+\end{itemize}
+
+\section{Normalizar valores numericos}
+$$z_i = \frac{x_i - \min x}{\max x - \min x}$$
+
+\section{Tratamiento de valores nominales en distancias}
+\begin{itemize}
+  \item \textbf{Binarios:} Asignar a cada opción uno de los valores y hacer Hamming, 1 o 0.
+  \item \textbf{Ordinarios:} Primaria, ESO o Bachillerato. Asignar números según el orden y usarlos normal; 0, 1 y 3.
+  \item \textbf{Categóricos:} Rojo, Verde o Azul. Asignar números arbitrarios y usarlos normal; 1, 2 y 3.
+\end{itemize}
+\textbf{Distancia Hamming:} En vez de poner $(x_i - x_j)^2$ en la distancia euclídea se pone 0 o 1.
+\begin{itemize}
+  \item 0 si $x_i = x_j$
+  \item 1 si $x_i \neq x_j$
+\end{itemize}
 
 \end{document}
