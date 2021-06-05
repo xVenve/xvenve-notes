@@ -1,4 +1,5 @@
-\documentclass[12pt]{report} %fuente a 12pt
+\documentclass[12pt, twoside, openright]{report} %fuente a 12pt, formato doble pagina y chapter a la derecha
+\raggedbottom % No ajustar el contenido con un salto de pagina
 
 % MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
 \usepackage[
@@ -27,7 +28,11 @@ hmargin=3cm
 	linkcolor=black, % enlaces a partes del documento (p.e. índice) en color negro
 	urlcolor=blue} % enlaces a recursos fuera del documento en azul
 
+% Añadir pdfs como partes del documento
 \usepackage{pdfpages}
+
+% Quitar la indentación de principio de los parrafos
+\setlength{\parindent}{0em}
 
 % EXPRESIONES MATEMATICAS
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
@@ -36,6 +41,7 @@ hmargin=3cm
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
+% Insertar graficas y fotos
 \usepackage{tikz}
 \usepackage{pgfplots}
 
@@ -48,7 +54,7 @@ hmargin=3cm
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
-\rfoot{\thepage}
+\fancyfoot[LO,RE]{\thepage}
 \fancypagestyle{plain}{\pagestyle{fancy}}
 
 % DISEÑO DE LOS TÍTULOS de las partes del trabajo (capítulos y epígrafes o subcapítulos)
@@ -104,10 +110,10 @@ hmargin=3cm
 
 % Diseño de tabla para ingeniería
 \captionsetup[table]{
-	format=upper,
-	name=TABLA,
+	format=hang,
+	name=Tabla,
 	justification=centering,
-	labelsep=period,
+	labelsep=colon,
 	width=.75\linewidth,
 	labelfont=small,
 	font=small,
@@ -122,20 +128,18 @@ hmargin=3cm
 	format=hang,
 	name=Fig.,
 	singlelinecheck=off,
-	labelsep=period,
+	labelsep=colon,
 	labelfont=small,
 	font=small		
 }
 
 % NOTAS A PIE DE PÁGINA
-\usepackage{chngcntr} %para numeración contínua de las notas al pie
+\usepackage{chngcntr} %para numeración continua de las notas al pie
 \counterwithout{footnote}{chapter}
 
 % LISTADOS DE CÓDIGO
 % soporte y estilo para listados de código. Más información en https://es.wikibooks.org/wiki/Manual_de_LaTeX/Listados_de_código/Listados_con_listings
 \usepackage{listings}
-\setlength{\parindent}{0em}
-
 
 % definimos un estilo de listings
 \lstdefinestyle{estilo}{ frame=Ltb,
@@ -224,16 +228,10 @@ hmargin=3cm
 \listoffigures
 \thispagestyle{fancy}
 
-%--
-% Índice de tablas. Si no se incluyen, comenta las líneas siguientes
-%-
-\listoftables
-\thispagestyle{fancy}
-
 %----------
 %	TRABAJO
 %----------	
-\clearpage
+
 \pagenumbering{arabic} % numeración con números arábigos para el resto de la publicación	
 
 
@@ -241,7 +239,8 @@ hmargin=3cm
 %	COMENZAR A ESCRIBIR AQUI
 %----------	
 
-\section{Información}
+\chapter{Información}
+\section{Profesores}
 \begin{quote}
 Teorías: Elena Márquez Segura (Coordinadora) elena.marquez@uc3m.es
 
@@ -250,12 +249,12 @@ Prácticas: Pablo Acuña pacua@inf.uc3m.es
 
 \section{Recursos}
 
-\subsection{Data Binding}
+\subsubsection{Data Binding}
 \href{https://www.acontracorrientech.com/claves-para-entender-angular-que-es-y-como-se-utiliza/}{Claves para entender Angular - Qué es y cómo se utiliza este framework}
 
 \href{https://www.acontracorrientech.com/guia-practica-del-databinding-en-angular/}{Guía de iniciación al data binding en Angular | Qué es y cómo se utiliza}
 
-\subsection{Layouts\&Grids}
+\subsubsection{Layouts\&Grids}
 \href{https://webdesign.tutsplus.com/tutorials/create-a-broken-grid-layout-using-css-grid--cms-30870}{Create a Broken Grid Layout Using CSS Grid}
 
 \href{https://webdesign.tutsplus.com/es/articles/flexbox-vs-css-grid-which-should-you-use--cms-30184}{Flexbox frente a CSS Grid: ¿Cuál debes usar y cuándo?}
@@ -264,27 +263,27 @@ Prácticas: Pablo Acuña pacua@inf.uc3m.es
 
 \href{https://tburleson-layouts-demos.firebaseapp.com/#/docs}{Angular Flex-Layout Demos}
 
-\subsection{Angular Material}
+\subsubsection{Angular Material}
 \href{https://material.angular.io/}{Angular Material}
 
-\subsection{Routing}
+\subsubsection{Routing}
 \href{https://angular.io/start/start-routing}{Routing: Añadir navegación}
 
 \href{https://desarrolloweb.com/articulos/introduccion-sistema-routing-angular.html}{Introducción: sistema de routing}
 
-\subsection{Angular Services}
+\subsubsection{Angular Services}
 \href{https://angular.io/guide/architecture-services}{Introduction to services and dependency injection}
 
 \href{https://desarrolloweb.com/articulos/servicios-angular.html}{Angular Services}
 
-\subsection{Angular Asíncrono y Firebase}
+\subsubsection{Angular Asíncrono y Firebase}
 \href{https://rxjs-dev.firebaseapp.com/guide/overview}{Introducción RxJ}
 
 \href{https://angular.io/guide/rx-library}{The RxJS library}
 
 \chapter{Cuestionarios}
 
-\section{Test 1}
+\subsubsection{Test 1}
 
 \textbf{El contexto de diseño caracteriza\ldots{}}
 \begin{itemize}
@@ -339,7 +338,7 @@ Prácticas: Pablo Acuña pacua@inf.uc3m.es
   \item En análisis cuantitativo, podemos encontrarnos variables cualitativas y variables numéricas
 \end{itemize}
 \pagebreak
-\section{Test 2}
+\subsubsection{Test 2}
 
 \textbf{Selecciona TODAS las respuestas correctas acerca de las notaciones rigurosas para la presentación de resultados}
 \begin{itemize}
@@ -349,7 +348,7 @@ Prácticas: Pablo Acuña pacua@inf.uc3m.es
 
 \textbf{Selecciona TODAS las respuestas correctas acerca de los requisitos}
 \begin{itemize}
-  \item Describen de manera clara, concisa y específica aspectos y cualidades clave del producto
+  \item Describen de manera clara, concisa y específica los aspectos y cualidades clave del producto
   \item Deben ser específicos, correctos, consistentes y verificables
 \end{itemize}
 
@@ -396,7 +395,7 @@ Prácticas: Pablo Acuña pacua@inf.uc3m.es
   \item FALSO
 \end{itemize}
 \pagebreak
-\section{Test 3}
+\subsubsection{Test 3}
 
 \textbf{Marca LA respuesta correcta. En Affective Computing, se diseña y estudia tecnología que...}
 \begin{itemize}
@@ -408,7 +407,7 @@ Prácticas: Pablo Acuña pacua@inf.uc3m.es
   \end{itemize}
 \end{itemize}
 
-\textbf{Marca LAS respuestas correctas. ? Que tienen en común las expresiones faciales de Ekman y las dimensiones afectivas de Russell?}
+\textbf{Marca LAS respuestas correctas. ¿Qué tienen en común las expresiones faciales de Ekman y las dimensiones afectivas de Russell?}
 \begin{itemize}
   \item Ambas entienden y modelan las emociones de manera discreta.
   \item Ambos son criticados por ser reduccionistas, pero son muy usadas en HCI.
@@ -444,7 +443,7 @@ Prácticas: Pablo Acuña pacua@inf.uc3m.es
   \item ... estudian aspectos tales como la eficiencia, eficacia, facilidad de uso y de aprendizaje de un sistema.
 \end{itemize}
 
-\textbf{Marca TODAS las respuestas correctas. ?Cuales de los siguientes son métodos de evaluación se pueden considerar de inspección o de experto?}
+\textbf{Marca TODAS las respuestas correctas. ¿Cuáles de los siguientes son métodos de evaluación se pueden considerar de inspección o de experto?}
 \begin{itemize}
   \item Cognitive Walkthrough
   \item Heuristics (Heurísticas)
@@ -494,7 +493,7 @@ Su uso facilita la programación web y la compatibilidad con cualquier
 navegador.
 
 \textbf{Problemas del estándar}: Incompatibilidades entre navegadores y
-HMLT imports obsoletos.
+HTML imports obsoletos.
 
 \textbf{Frameworks (React/Vue.js/Angular)}
 
@@ -516,7 +515,7 @@ Persona-Ordenador.
 Un buen diseño muy importante para el uso de los sistemas, incluso puede ser cuestión de vida o muerte. En los que un mal diseño tiene consecuencias graves, en estos se usa redundancia y cosas claras. Aunque la mayoría de las veces son problemas cotidianos.
 
 \textbf{Affordance}: Que te dice como hacer, que te permite, que se
-ofrece. Gibson(70s) en el entorno medible relacionales, Norman(80s) son
+ofrece. Gibson(70s) en el entorno medible relacional, Norman(80s) son
 fáciles de percibir y Gaver(90s) perceptible Falsas ocultas.
 
 \begin{itemize}
@@ -538,7 +537,7 @@ fáciles de percibir y Gaver(90s) perceptible Falsas ocultas.
 \textbf{Mapping}: Coincidencia entre los controles y la representación
 física.
 
-\chapter{Tema 1}
+\chapter{Tema 1: Investigación Preliminar y Trabajo de Campo}
 
 \textbf{HCI - Human-Computer Interaction}: Interacción
 Persona-Ordenador.
@@ -778,7 +777,7 @@ Situaciones reales y complejas en el entorno de trabajo.
 
 \textbf{Importancia del contexto.}
 
-\textbf{Coordinación de acción conjunto}: Coincidencia, colaboración y
+\textbf{Coordinación de acción conjunta}: Coincidencia, colaboración y
 cooperación.
 
 \paragraph{Situated Action o Acción situada (Rogers)}
@@ -1354,7 +1353,7 @@ una entrevista estructurada.
 
 \begin{itemize}
 \item
-  \textbf{Check boxes y rangos}. Ejm: O 18 to 21
+  \textbf{Check boxes y rangos}. Ej. O 18 to 21
 \item
   \textbf{Rating Scale:}
 
@@ -1435,7 +1434,7 @@ análisis.
   \item Inclusión de distintas perspectivas.
   \item Temas sensibles (cultura, acceso a espacios privados)
 \end{itemize}
-
+\pagebreak
 \textbf{Marco o Estructura de Observación} para manejar la complejidad:
 \begin{itemize}
   \item \textbf{Sencillo}: Más posible añadir puntos nuevos.
@@ -1493,7 +1492,7 @@ fotos,\ldots{}
   \item \textbf{Recogida de datos:} Anotación, grabaciones de audio y
   video. Anotaciones al final de las sesiones.
 \end{itemize}
-
+\vspace{-.5cm}
 \subsubsection{Directas en espacio controlado}
 
 En el laboratorio, más formal y más control, se sigue un protocolo.
@@ -1541,9 +1540,7 @@ Hay que tener en cuenta cómo gestionar el equipo.
 \end{itemize}
 
 \textbf{Elegir una técnica:} No hay una adecuada para todos los casos.
-Depende de muchos factores: proyecto, objetivo, usuarios.
-
-\hspace{0pt} Lo mejor es utilizar triangulación, combinar técnicas.
+Depende de muchos factores: proyecto, objetivo, usuarios. Lo mejor es utilizar triangulación, combinar técnicas.
 
 \chapter{Tema 3: Análisis de Estudios de
 Campo}
@@ -1722,7 +1719,6 @@ agrupa, bottom-up.
 \end{enumerate}
 
 Generación de conocimiento y síntesis, para extraer conclusiones.
-
 Se sacan requisitos y necesidades, y se concreta el contexto de diseño.
 
 \subsection{Análisis de Situaciones
@@ -1792,7 +1788,7 @@ posteriores.
   \begin{itemize}
   
   \item
-    \textbf{Ordinales}: Siguen un orden o secuencia. Ej: Meses de año.
+    \textbf{Ordinales}: Siguen un orden o secuencia. Ej. Meses de año.
   \item
     \textbf{Categóricos}: No siguen un orden. Ej: Estado civil.
   \end{itemize}
@@ -1945,6 +1941,7 @@ continua.}
 continua.
 
 \subsection{Gráfico de sectores}
+\vspace{-1cm}
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Ejemplo de Gráfico de sectores}}
@@ -1976,12 +1973,12 @@ Dispersión}
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Ejemplo de Gráfico de dispersión}}
-	{\includegraphics[scale=.4]{Untitled 10.png}}
+	{\includegraphics[scale=.5]{Untitled 10.png}}
 \end{figure}
 
 Relación entre dos variables en ejes cartesianos e informa del grado de
 correlación.
-
+\pagebreak
 \section{Resultados}
 
 Requiere habilidad, esfuerzo y trabajo.
@@ -2163,7 +2160,7 @@ un contexto determinado un objetivo concreto.
   emocional. El cómo se siente
 \end{itemize}
 
-McCarty \& Wrigth proponen \textbf{4 hilos claves} de una UX integral
+McCarthy \& Wright proponen \textbf{4 hilos claves} de una UX integral
 
 \begin{itemize}
 
@@ -2288,19 +2285,12 @@ el contexto de los usuarios, sus problemas, necesidades, etc.
 \begin{itemize}
 
 \item
-  \textbf{Descripción de un escenario o situación existente}: Es clave
-  para entender las prácticas y acciones de los usuarios. Explorar las
-  limitaciones, contextos, pain points, facilitadores, etc. Ayudan a
-  materializar requisitos.
+  \textbf{Descripción de un escenario o situación existente}
 \item
   \textbf{Descripción de un escenario o situación con una posible
-  tecnología futura}: Describe una situación de uso, pone de manifiesto
-  necesidades de los usuarios y posibles aspectos de diseño.
+  tecnología futura}
 \item
-  \textbf{Descripción de una función del sistema futuro}: Describe una
-  función e incluye a dos personas. Pone de manifiesto suposiciones,
-  expectativas y situaciones en las que se pueden ver los usuarios.
-  Ayuda a traducir en requisitos, como un requisito ambiental.
+  \textbf{Descripción de una función del sistema futuro}
 \end{itemize}
 
 Se desarrollan después del análisis del trabajo de campo, para explicar
@@ -2528,7 +2518,7 @@ Más costoso de hacer. Se requiere SW específico.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Ejemplo Storyboard}}
-	{\includegraphics[scale=.4]{2021-03-20 23_53_31-L5.pdf - Foxit Reader.png}}
+	{\includegraphics[scale=.38]{2021-03-20 23_53_31-L5.pdf - Foxit Reader.png}}
 \end{figure}
 
 Muy visual, influenciado por comics y películas. Ilustraciones secuenciales de acciones o eventos por los que pasa el usuario y el producto para conseguir un objetivo.
@@ -2575,21 +2565,11 @@ Se representa una acción y el equipo sugiere cambios u otras condiciones y se v
 Ir al lugar del contexto o un lugar similar para hacer allí el brainstorming ayuda a visualizar.
 
 \textbf{Objetivo:} Condiciones similares, Empatía con los/as usuarios/as, Inmersión física (espacial) y Feedback inmediato
-
+\pagebreak
 \subsubsection{Sensibilización}
-\textbf{Objetivos:}
-\begin{itemize}
-  \item Sensibilizar a participantes (diseñadores/as, pero también otros/as)
-  \item Crear un vocabulario común para el equipo
-  \item Inspirar nuevas maneras de pensar
-  \item Inspirar ideas nuevas
-\end{itemize}
+\textbf{Objetivos:} Sensibilizar a participantes (diseñadores/as, pero también otros/as), Crear un vocabulario común para el equipo, Inspirar nuevas maneras de pensar y Inspirar ideas nuevas
 
-\textbf{Quién:}
-\begin{itemize}
-  \item Diseñadores/as
-  \item Facilitadores/as (expertos/as en actividad de sensibilización)
-\end{itemize}
+\textbf{Quién:} Diseñadores/as y Facilitadores/as (expertos/as en actividad de sensibilización)
 
 \textbf{Técnicas:}
 \begin{itemize}
@@ -2687,7 +2667,7 @@ Son la base de nuestra experiencia, de nuestra manera de actuar, de percibir el 
 Están altamente relacionadas, en la neurociencia se han realizado multitud de estudios.
 
 Esos estudios utilizan estimulación de punto de placer en el cerebro (Olds y Milner) o Reacción ante recompensas que superan las expectativas.
-
+\pagebreak
 \subsubsection{Drive Reduction Theory o Teoría de la reducción del impulso}
 Comportamiento
 \begin{itemize}
@@ -2712,14 +2692,11 @@ Si una acción o comportamiento es fácil de hacer, entonces es más probable qu
   \item Fácil en cuanto a tiempo, dinero, esfuerzo físico o mental.
 \end{itemize}
 
-\textbf{Que nos mueve a comportarnos de determinada manera?}
+\textbf{¿Qué nos mueve a comportarnos de determinada manera?}
 \begin{itemize}
   \item Los drivers o impulsos.
-  \item Salience o prominencias.
   \item Influencias o variables ambientales.
   \item Incentivos e impedimentos.
-  \item Facilitadores y barreras.
-  \item \dots
   \item Affordance
 \end{itemize}
 
@@ -2907,7 +2884,7 @@ Se trata de determinar si el producto es usable y satisfactorio. Los miembros de
   \item Objetivo: evaluar la experiencia de usuario/a con nuestro diseño
 \end{itemize}
 
-\section{Por qué?}
+\section{¿Por qué?}
 \begin{itemize}
   \item Para mejorar el producto de una manera informada, motivada o justificada.
   \begin{itemize}
@@ -2924,8 +2901,10 @@ Se trata de determinar si el producto es usable y satisfactorio. Los miembros de
   \end{itemize}
 \end{itemize}
 
-\section{Cuándo? Tipos}
+\section{¿Cuándo? Tipos}
 En distintos momentos del proceso de diseño.
+
+\pagebreak
 
 \textbf{Formative Evaluation - Evaluación formativa}
 \begin{itemize}
@@ -2938,7 +2917,7 @@ En distintos momentos del proceso de diseño.
 \begin{itemize}
   \item Con: Una solución final.
   \item El objetivo es pulir el producto. Evaluar el éxito de esa solución final.
-  \item \textbf{PULIR:} identificar posibles mejoras, p.ej. bugs y problemas de usabilidad; nuevas features, arreglos
+  \item \textbf{PULIR:} identificar posibles mejoras, p. ej. bugs y problemas de usabilidad; nuevas features, arreglos
 \end{itemize}
   
 \section{Definir el objetivo de la evaluación}
@@ -2988,7 +2967,7 @@ Principalmente en el lab o digital, rara vez en espacio natural. Si es usable el
 
 \textbf{Objetivo:} investigar cómo realizan los/as usuarios/as las tareas en cuestión y qué opinan/sienten al respecto
 
-\textbf{Métodos cualitativos y cuantitativos:} grabaciones vídeo de usuarios/as y/o de interacciones con SW (logging SW); cuestionarios (p.ej. satisfacción); entrevistas
+\textbf{Métodos cualitativos y cuantitativos:} grabaciones vídeo de usuarios/as y/o de interacciones con SW (logging SW); cuestionarios (p. ej. satisfacción); entrevistas
 
 Medidas de usabilidad: nivel de rendimiento y grado de satisfacción
 \begin{itemize}
@@ -3011,7 +2990,7 @@ Menos control y más validez ecológica, que está situada en un contexto simila
 \textbf{Documentación:} Recogidos por investigadores/as (p.ej. Observaciones); otros por participantes (p.ej. Diarios); otros “automáticos” (data logs)
 
 \subsubsection{Estudios sin usuarios presentes}
-\paragraph{Por qué?}        
+\paragraph{¿Por qué?}        
 Muchas veces como complemento a evaluaciones con usuarios/as.
 
 No es práctico o factible involucrar a usuarios/as.
@@ -3137,9 +3116,9 @@ Depende de que se evalúa, del objetivo de la evaluación y del tipo de evaluaci
 
 \textbf{Estudios en el lab}
 \begin{itemize}
-  \item Evaluar aspectos claves de diseño (p.ej. Elección de la tipografía, layout, estética…),
+  \item Evaluar aspectos claves de diseño (p. ej. Elección de la tipografía, layout, estética…),
   usabilidad.
-  \item Lo bueno es que se tiene control sobre las variables (p.ej estímulos externos: luz, sonido…)
+  \item Lo bueno es que se tiene control sobre las variables (p. ej. estímulos externos: luz, sonido…)
   \item Lo malo es que es una experiencia artificial
 \end{itemize}
 
@@ -3150,9 +3129,9 @@ Depende de que se evalúa, del objetivo de la evaluación y del tipo de evaluaci
   \item Lo malo es que no se tiene tanto control de las variables
 \end{itemize}
 
-Estudios remotos (p.ej. de comportamiento online)
+Estudios remotos (p. ej. de comportamiento online)
 
-Soluciones mixtas de compromiso – p.ej. Living Labs
+Soluciones mixtas de compromiso – p. ej. Living Labs
 
 \textbf{HomeLab}
 \begin{itemize}
