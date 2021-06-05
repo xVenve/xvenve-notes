@@ -1,0 +1,313 @@
+\documentclass[12pt, twoside, openright]{report} %fuente a 12pt, formato doble pagina y chapter a la derecha
+\raggedbottom % No ajustar el contenido con un salto de pagina
+
+% MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
+\usepackage[
+a4paper,
+vmargin=2.5cm,
+hmargin=3cm
+]{geometry}
+
+% INTERLINEADO: Estrecho (6 ptos./interlineado 1,15) o Moderado (6 ptos./interlineado 1,5)
+\renewcommand{\baselinestretch}{1.15}
+\parskip=6pt
+
+% DEFINICIÓN DE COLORES para portada y listados de código
+\usepackage[table]{xcolor}
+\definecolor{azulUC3M}{RGB}{0,0,102}
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+
+% Soporte para GENERAR PDF/A
+\usepackage[a-1b]{pdfx}
+
+% ENLACES
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,
+	linkcolor=black, % enlaces a partes del documento (p.e. índice) en color negro
+	urlcolor=blue} % enlaces a recursos fuera del documento en azul
+
+% Añadir pdfs como partes del documento
+\usepackage{pdfpages}
+
+% Quitar la indentación de principio de los parrafos
+\setlength{\parindent}{0em}
+
+% EXPRESIONES MATEMATICAS
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+
+\usepackage{txfonts} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Insertar graficas y fotos
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\usepackage[spanish, es-tabla]{babel} 
+\usepackage[babel, spanish=spanish]{csquotes}
+\AtBeginEnvironment{quote}{\small}
+
+% diseño de PIE DE PÁGINA
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[LO,RE]{\thepage}
+\fancypagestyle{plain}{\pagestyle{fancy}}
+
+% DISEÑO DE LOS TÍTULOS de las partes del trabajo (capítulos y epígrafes o subcapítulos)
+\usepackage{titlesec}
+\usepackage{titletoc}
+\titleformat{\chapter}[block]
+{\large\bfseries\filcenter}
+{\thechapter.}
+{5pt}
+{\MakeUppercase}
+{}
+\titlespacing{\chapter}{0pt}{0pt}{*3}
+\titlecontents{chapter}
+[0pt]                                               
+{}
+{\contentsmargin{0pt}\thecontentslabel.\enspace\uppercase}
+{\contentsmargin{0pt}\uppercase}                        
+{\titlerule*[.7pc]{.}\contentspage}                 
+
+\titleformat{\section}
+{\bfseries}
+{\thesection.}
+{5pt}
+{}
+\titlecontents{section}
+[5pt]                                               
+{}
+{\contentsmargin{0pt}\thecontentslabel.\enspace}
+{\contentsmargin{0pt}}
+{\titlerule*[.7pc]{.}\contentspage}
+
+\titleformat{\subsection}
+{\normalsize\bfseries}
+{\thesubsection.}
+{5pt}
+{}
+\titlecontents{subsection}
+[10pt]                                               
+{}
+{\contentsmargin{0pt}                          
+	\thecontentslabel.\enspace}
+{\contentsmargin{0pt}}                        
+{\titlerule*[.7pc]{.}\contentspage}  
+
+
+% DISEÑO DE TABLAS.
+\usepackage{multirow} % permite combinar celdas 
+\usepackage{caption} % para personalizar el título de tablas y figuras
+\usepackage{floatrow} % utilizamos este paquete y sus macros \ttabbox y \ffigbox para alinear los nombres de tablas y figuras de acuerdo con el estilo definido. Para su uso ver archivo de ejemplo 
+\usepackage{array} % con este paquete podemos definir en la siguiente línea un nuevo tipo de columna para tablas: ancho personalizado y contenido centrado
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\DeclareCaptionFormat{upper}{#1#2\uppercase{#3}\par}
+
+% Diseño de tabla para ingeniería
+\captionsetup[table]{
+	format=hang,
+	name=Tabla,
+	justification=centering,
+	labelsep=colon,
+	width=.75\linewidth,
+	labelfont=small,
+	font=small,
+}
+
+% DISEÑO DE FIGURAS.
+\usepackage{graphicx}
+\graphicspath{{img/}} %ruta a la carpeta de imágenes
+
+% Diseño de figuras para ingeniería
+\captionsetup[figure]{
+	format=hang,
+	name=Fig.,
+	singlelinecheck=off,
+	labelsep=colon,
+	labelfont=small,
+	font=small		
+}
+
+% NOTAS A PIE DE PÁGINA
+\usepackage{chngcntr} %para numeración continua de las notas al pie
+\counterwithout{footnote}{chapter}
+
+% LISTADOS DE CÓDIGO
+% soporte y estilo para listados de código. Más información en https://es.wikibooks.org/wiki/Manual_de_LaTeX/Listados_de_código/Listados_con_listings
+\usepackage{listings}
+
+% definimos un estilo de listings
+\lstdefinestyle{estilo}{ frame=Ltb,
+	framerule=0pt,
+	aboveskip=0.5cm,
+	framextopmargin=3pt,
+	framexbottommargin=3pt,
+	framexleftmargin=0.4cm,
+	framesep=0pt,
+	rulesep=.4pt,
+	backgroundcolor=\color{gray97},
+	rulesepcolor=\color{black},
+	%
+	basicstyle=\ttfamily\footnotesize,
+	keywordstyle=\bfseries,
+	stringstyle=\ttfamily,
+	showstringspaces = false,
+	commentstyle=\color{gray45},     
+	%
+	numbers=left,
+	numbersep=15pt,
+	numberstyle=\tiny,
+	numberfirstline = false,
+	breaklines=true,
+	xleftmargin=\parindent
+}
+
+\captionsetup[lstlisting]{font=small, labelsep=period}
+% fijamos el estilo a utilizar 
+\lstset{style=estilo}
+\renewcommand{\lstlistingname}{\uppercase{Código}}
+
+\pgfplotsset{compat=1.17} 
+%-------------
+%	DOCUMENTO
+%-------------
+
+\begin{document}
+\pagenumbering{roman} % Se utilizan cifras romanas en la numeración de las páginas previas al cuerpo del trabajo
+	
+%----------
+%	PORTADA
+%----------	
+\begin{titlepage}
+	\begin{sffamily}
+	\color{azulUC3M}
+	\begin{center}
+		\begin{figure}[H] %incluimos el logotipo de la Universidad
+			\makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
+		\end{figure}
+		\vspace{2.5cm}
+		\begin{Large}
+			Grado en Ingeniería Informática\\			
+			2020-2021\\
+			\vspace{2cm}		
+			\textsl{Apuntes}\\
+			\bigskip
+		\end{Large}
+		 	{\Huge Principios físicos de la Ingenieria Informatica}\\
+		 	\vspace*{0.5cm}
+	 		\rule{10.5cm}{0.1mm}\\
+			\vspace*{0.9cm}
+			{\LARGE Jorge Rodríguez Fraile\footnote{\href{mailto:100405951@alumnos.uc3m.es}{Universidad: 100405951@alumnos.uc3m.es}  |  \href{mailto:jrf1616@gmail.com}{Personal: jrf1616@gmail.com}}}\\ 
+			\vspace*{1cm}
+	\end{center}
+	\vfill
+	\color{black}
+		\includegraphics[width=4.2cm]{img/creativecommons.png}\\
+		Esta obra se encuentra sujeta a la licencia Creative Commons\\ \textbf{Reconocimiento - No Comercial - Sin Obra Derivada}
+	\end{sffamily}
+\end{titlepage}
+
+%----------
+%	ÍNDICES
+%----------	
+
+%--
+% Índice general
+%-
+\tableofcontents
+\thispagestyle{fancy}
+
+%----------
+%	TRABAJO
+%----------	
+\clearpage
+\pagenumbering{arabic} % numeración con múmeros arábigos para el resto de la publicación	
+
+
+%----------
+%	COMENZAR A ESCRIBIR AQUI
+%----------	
+
+\part{Información}
+\includepdf[pages=-]{docs/Cronograma_PFI_2018_2019.pdf}
+\includepdf[pages=-]{docs/PFI_presentacion_2018_2019.pdf}
+
+\part{Tema 1. Numeros complejos}
+\includepdf[pages=-]{docs/Tema_1_Numeros_complejos_(teoria).pdf}
+\includepdf[pages=-]{docs/Tema_1_Numeros_complejos_(problemas).pdf}
+
+\part{Tema 2. Corriente continua}
+\includepdf[pages=-]{docs/Tema__2_corriente_continua_PFI.pdf}
+\includepdf[pages=-]{docs/Tema_2._Corriente_continua_(problemas).pdf}
+
+\part{Tema 3. Resolución de circuitos de corriente continua}
+\includepdf[pages=-]{docs/PFI_Tema_3_2017.pdf}
+\includepdf[pages=-]{docs/Tema_3._Resolucion_de_circuitos_en_corriente_continua_(problemas).pdf}
+\includepdf[pages=-]{docs/Tema_3_Corriente_Continua__con__fuentes__de__corriente.pdf}
+
+\part{Tema 4. Simplificación de circuitos}
+\includepdf[pages=-]{docs/PFI_Tema__4__2017.pdf}
+\includepdf[pages=-]{docs/Tema_4__simplificacion_de_circuitos_problemas.pdf}
+
+\part{Tema 5. Inducción electromagnetica}
+\includepdf[pages=-]{docs/Tema_5__induccion_electromagnetica_teoria.pdf}
+\includepdf[pages=-]{docs/Tema_5_induccion_electromagnetica_problemas.pdf}
+
+\part{Tema 6. Corriente variable en el tiempo}
+\includepdf[pages=-]{docs/PFI_Tema__6_corrientes_variables_teoria.pdf}
+\includepdf[pages=-]{docs/Tema__6__Corrientes_Variables_problemas.pdf}
+
+\part{Tema 7. Resolución de circuitos de corriente alterna}
+\includepdf[pages=-]{docs/PFI_Tema__7_Corriente_alterna_teoria__2017.pdf}
+\includepdf[pages=-]{docs/Manual_Pspice_Student_v9.pdf}
+\includepdf[pages=-]{docs/PFI_Tema__7_Corriente_alterna_problemas_2017.pdf}
+
+\part{Examenes}
+\includepdf[pages=-]{docs/Primer_parcial_PFI_84_2018_2019.pdf}
+\includepdf[pages=-]{docs/Examen_ordinaria_PFI_2019.pdf}
+\includepdf[pages=-]{docs/Examen_1er_parcial_2013_BR_-_Soluciones_copia.pdf}
+\includepdf[pages=-]{docs/Examen_1er_parcial_2013_IH_-_Soluciones.pdf}
+\includepdf[pages=-]{docs/Examen_1er_parcial_2013_RD_-_Soluciones.pdf}
+\includepdf[pages=-]{docs/Primer_examen_parcial_2012_13_T_2_4.pdf}
+\includepdf[pages=-]{docs/primer_parcial_2015_2016_resuelto_.pdf}
+\includepdf[pages=-]{docs/primer_parcial_2016_2017_resuelto.pdf}
+\includepdf[pages=-]{docs/primer_parcial_resuelto2014_2015_.pdf}
+\includepdf[pages=-]{docs/RESOLUCION_primer_parcial_2011_12.pdf}
+\includepdf[pages=-]{docs/SOLUCIONES_PRIMER_PARCIAL_DE_EVALUACION_CONTINUA__2013-14_.pdf}
+\includepdf[pages=-]{docs/Resolucion_del_2o_parcial_gr_2011_12.pdf}
+\includepdf[pages=-]{docs/SEGUNDA_PRUEBA_DE__EVALUACION_CONTINUA_(soluciones_final).pdf}
+\includepdf[pages=-]{docs/segundo_parcial_2014_2015_resuelto_.pdf}
+\includepdf[pages=-]{docs/segundo_parcial_2016_2017_resuelto.pdf}
+\includepdf[pages=-]{docs/Segundo_parcial_resolucion_Angel_2012_13_t_5_6.pdf}
+\includepdf[pages=-]{docs/Examen_extraordinaria_PFI_2016_2017.pdf}
+\includepdf[pages=-]{docs/Examen_extraordinaria_Resuelto_2012_13.pdf}
+\includepdf[pages=-]{docs/Examen_ordinaria_14_15_solucion.pdf}
+\includepdf[pages=-]{docs/Examen_ordinaria_resuelto_PFI_2017_2018.pdf}
+\includepdf[pages=-]{docs/Examen_resuelto_conv_ordinaria.pdf}
+\includepdf[pages=-]{docs/PFI_2018_EXTRA.pdf}
+\includepdf[pages=-]{docs/PROPUESTA_DE_PROBLEMAS_EXAMEN_extraordinaria_FINAL_solucion.pdf}
+\includepdf[pages=-]{docs/Resolucion_convocatoria_ordinaria_examen_12_13.pdf}
+\includepdf[pages=-]{docs/Resolucion_examen_extraordinaria_2011_12.pdf}
+\includepdf[pages=-]{docs/RESOLUCION_EXAMEN_FINAL_DE_MAYO_2011_12.pdf}
+\includepdf[pages=-]{docs/Resolucion_extraordinaria_junio_2014.pdf}
+\includepdf[pages=-]{docs/solucion_examen_conv_ordinaria_2016_2.pdf}
+\includepdf[pages=-]{docs/Solucion_examen_convocatoria_ordinaria_2016_2017.pdf}
+\includepdf[pages=-]{docs/solucion_examen_PFI_extraordinaria_2015_16.pdf}
+
+\part{PSPICE}
+\includepdf[pages=-]{docs/Practica_PSPICE_RODRIGUEZ_FRAILE__ARIAS_ESPINOSA.pdf}
+
+\part{Tutoriales}
+\includepdf[pages=-]{docs/PDFPracticaObligatoria_2019.pdf}
+\includepdf[pages=-]{docs/Plantilla.pdf}
+
+\part{Laboratorio Faraday}
+\includepdf[pages=-]{docs/Practica_faraday_guion.pdf}
+\includepdf[pages=-]{docs/practica_faraday_plantilla.pdf}
+
+\end{document}
