@@ -1,0 +1,318 @@
+\documentclass[12pt, twoside, openright]{report} %fuente a 12pt, formato doble pagina y chapter a la derecha
+\raggedbottom % No ajustar el contenido con un salto de pagina
+
+% MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
+\usepackage[
+a4paper,
+vmargin=2.5cm,
+hmargin=3cm
+]{geometry}
+
+% INTERLINEADO: Estrecho (6 ptos./interlineado 1,15) o Moderado (6 ptos./interlineado 1,5)
+\renewcommand{\baselinestretch}{1.15}
+\parskip=6pt
+
+% DEFINICIÓN DE COLORES para portada y listados de código
+\usepackage[table]{xcolor}
+\definecolor{azulUC3M}{RGB}{0,0,102}
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+
+% Soporte para GENERAR PDF/A
+\usepackage[a-1b]{pdfx}
+
+% ENLACES
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,
+	linkcolor=black, % enlaces a partes del documento (p.e. índice) en color negro
+	urlcolor=blue} % enlaces a recursos fuera del documento en azul
+
+% Añadir pdfs como partes del documento
+\usepackage{pdfpages}
+
+% Quitar la indentación de principio de los parrafos
+\setlength{\parindent}{0em}
+
+% EXPRESIONES MATEMATICAS
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+
+\usepackage{txfonts} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Insertar graficas y fotos
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\usepackage[spanish, es-tabla]{babel} 
+\usepackage[babel, spanish=spanish]{csquotes}
+\AtBeginEnvironment{quote}{\small}
+
+% diseño de PIE DE PÁGINA
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[LO,RE]{\thepage}
+\fancypagestyle{plain}{\pagestyle{fancy}}
+
+% DISEÑO DE LOS TÍTULOS de las partes del trabajo (capítulos y epígrafes o subcapítulos)
+\usepackage{titlesec}
+\usepackage{titletoc}
+\titleformat{\chapter}[block]
+{\large\bfseries\filcenter}
+{\thechapter.}
+{5pt}
+{\MakeUppercase}
+{}
+\titlespacing{\chapter}{0pt}{0pt}{*3}
+\titlecontents{chapter}
+[0pt]                                               
+{}
+{\contentsmargin{0pt}\thecontentslabel.\enspace\uppercase}
+{\contentsmargin{0pt}\uppercase}                        
+{\titlerule*[.7pc]{.}\contentspage}                 
+
+\titleformat{\section}
+{\bfseries}
+{\thesection.}
+{5pt}
+{}
+\titlecontents{section}
+[5pt]                                               
+{}
+{\contentsmargin{0pt}\thecontentslabel.\enspace}
+{\contentsmargin{0pt}}
+{\titlerule*[.7pc]{.}\contentspage}
+
+\titleformat{\subsection}
+{\normalsize\bfseries}
+{\thesubsection.}
+{5pt}
+{}
+\titlecontents{subsection}
+[10pt]                                               
+{}
+{\contentsmargin{0pt}                          
+	\thecontentslabel.\enspace}
+{\contentsmargin{0pt}}                        
+{\titlerule*[.7pc]{.}\contentspage}  
+
+
+% DISEÑO DE TABLAS.
+\usepackage{multirow} % permite combinar celdas 
+\usepackage{caption} % para personalizar el título de tablas y figuras
+\usepackage{floatrow} % utilizamos este paquete y sus macros \ttabbox y \ffigbox para alinear los nombres de tablas y figuras de acuerdo con el estilo definido. Para su uso ver archivo de ejemplo 
+\usepackage{array} % con este paquete podemos definir en la siguiente línea un nuevo tipo de columna para tablas: ancho personalizado y contenido centrado
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\DeclareCaptionFormat{upper}{#1#2\uppercase{#3}\par}
+
+% Diseño de tabla para ingeniería
+\captionsetup[table]{
+	format=hang,
+	name=Tabla,
+	justification=centering,
+	labelsep=colon,
+	width=.75\linewidth,
+	labelfont=small,
+	font=small,
+}
+
+% DISEÑO DE FIGURAS.
+\usepackage{graphicx}
+\graphicspath{{img/}} %ruta a la carpeta de imágenes
+
+% Diseño de figuras para ingeniería
+\captionsetup[figure]{
+	format=hang,
+	name=Fig.,
+	singlelinecheck=off,
+	labelsep=colon,
+	labelfont=small,
+	font=small		
+}
+
+% NOTAS A PIE DE PÁGINA
+\usepackage{chngcntr} %para numeración continua de las notas al pie
+\counterwithout{footnote}{chapter}
+
+% LISTADOS DE CÓDIGO
+% soporte y estilo para listados de código. Más información en https://es.wikibooks.org/wiki/Manual_de_LaTeX/Listados_de_código/Listados_con_listings
+\usepackage{listings}
+
+% definimos un estilo de listings
+\lstdefinestyle{estilo}{ frame=Ltb,
+	framerule=0pt,
+	aboveskip=0.5cm,
+	framextopmargin=3pt,
+	framexbottommargin=3pt,
+	framexleftmargin=0.4cm,
+	framesep=0pt,
+	rulesep=.4pt,
+	backgroundcolor=\color{gray97},
+	rulesepcolor=\color{black},
+	%
+	basicstyle=\ttfamily\footnotesize,
+	keywordstyle=\bfseries,
+	stringstyle=\ttfamily,
+	showstringspaces = false,
+	commentstyle=\color{gray45},     
+	%
+	numbers=left,
+	numbersep=15pt,
+	numberstyle=\tiny,
+	numberfirstline = false,
+	breaklines=true,
+	xleftmargin=\parindent
+}
+
+\captionsetup[lstlisting]{font=small, labelsep=period}
+% fijamos el estilo a utilizar 
+\lstset{style=estilo}
+\renewcommand{\lstlistingname}{\uppercase{Código}}
+
+\pgfplotsset{compat=1.17} 
+%-------------
+%	DOCUMENTO
+%-------------
+
+\begin{document}
+\pagenumbering{roman} % Se utilizan cifras romanas en la numeración de las páginas previas al cuerpo del trabajo
+	
+%----------
+%	PORTADA
+%----------	
+\begin{titlepage}
+	\begin{sffamily}
+	\color{azulUC3M}
+	\begin{center}
+		\begin{figure}[H] %incluimos el logotipo de la Universidad
+			\makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
+		\end{figure}
+		\vspace{2.5cm}
+		\begin{Large}
+			Grado en Ingeniería Informática\\			
+			2019-2020\\
+			\vspace{2cm}		
+			\textsl{Apuntes}\\
+			\bigskip
+		\end{Large}
+		 	{\Huge Teoría de Automatas y Lenguajes Formales}\\
+		 	\vspace*{0.5cm}
+	 		\rule{10.5cm}{0.1mm}\\
+			\vspace*{0.9cm}
+			{\LARGE Jorge Rodríguez Fraile\footnote{\href{mailto:100405951@alumnos.uc3m.es}{Universidad: 100405951@alumnos.uc3m.es}  |  \href{mailto:jrf1616@gmail.com}{Personal: jrf1616@gmail.com}}}\\ 
+			\vspace*{1cm}
+	\end{center}
+	\vfill
+	\color{black}
+		\includegraphics[width=4.2cm]{img/creativecommons.png}\\
+		Esta obra se encuentra sujeta a la licencia Creative Commons\\ \textbf{Reconocimiento - No Comercial - Sin Obra Derivada}
+	\end{sffamily}
+\end{titlepage}
+
+%----------
+%	ÍNDICES
+%----------	
+
+%--
+% Índice general
+%-
+\tableofcontents
+\thispagestyle{fancy}
+
+%----------
+%	TRABAJO
+%----------	
+\clearpage
+\pagenumbering{arabic} % numeración con múmeros arábigos para el resto de la publicación	
+
+
+%----------
+%	COMENZAR A ESCRIBIR AQUI
+%----------	
+
+
+\part{Información}
+\includepdf[pages=-]{docs/19-20_PresentacionAsignatura.pdf}
+\includepdf[pages=-]{docs/CRONOGRAMA_19-20_FINAL.pdf}
+
+\part{TEMA 1. Introducción}
+\includepdf[pages=-]{docs/Tema1_TALF.pdf}
+
+\part{TEMA 2. Autómatas Formales}
+\includepdf[pages=-]{docs/Tema2-TALF.pdf}
+\includepdf[pages=-]{docs/Tema_2_ejercicios_TALF.pdf}
+
+\part{TEMA 3. Autómatas Finitos}
+\includepdf[pages=-]{docs/Tema3-TALF.pdf}
+\includepdf[pages=-]{docs/Tema3-TALF_Ampliado.pdf}
+\includepdf[pages=-]{docs/SolucionesEjercicios_Tema3_parte_2-3-1.pdf}
+\includepdf[pages=-]{docs/SolucionesEjercicios_Tema3_parte_final.pdf}
+\includepdf[pages=-]{docs/Tema_3-1_ejercicios_TALF.pdf}
+\includepdf[pages=-]{docs/Tema_3-2_ejercicios_TALF.pdf}
+\includepdf[pages=-]{docs/Tema_3-3_ejercicios_TALF.pdf}
+
+\part{TEMA 4. Gramáticas y Lenguajes Formales}
+\includepdf[pages=-]{docs/Tema4_TALF.pdf}
+\includepdf[pages=-]{docs/Ejercicio_4_hoja_1.pdf}
+\includepdf[pages=-]{docs/SOLUCION_EJERCICIO_FNG.pdf}
+\includepdf[pages=-]{docs/T4P2E3b.pdf}
+\includepdf[pages=-]{docs/Tema_4-1_ejercicios_TALF.pdf}
+\includepdf[pages=-]{docs/Tema_4-2_ejercicios_TALF.pdf}
+\includepdf[pages=-]{docs/Tipos_Gram.pdf}
+
+\part{TEMA 5. Expresiones Regulares}
+\includepdf[pages=-]{docs/Tema5_TALF_corregido.pdf}
+\includepdf[pages=-]{docs/Tema5_TALF.pdf}
+\includepdf[pages=-]{docs/R0_1.pdf}
+\includepdf[pages=-]{docs/Tema_5_ejercicios_TALF.pdf}
+
+\part{TEMA 6. Autómatas a Pila}
+\includepdf[pages=-]{docs/Tema6_TALF.pdf}
+\includepdf[pages=-]{docs/Tema_6_ejercicios_TALF.pdf}
+\includepdf[pages=-]{docs/AP_Algoritmos_2019-20.pdf}
+
+\part{TEMA 7. Maquina de Turing}
+\includepdf[pages=-]{docs/Tema7_TALF_OJO_MODIFICADO.pdf}
+\includepdf[pages=-]{docs/Tema_7_ejercicios_TALF.pdf}
+\includepdf[pages=-]{docs/Unit7-TALF19-20(exercises).pdf}
+
+\part{TEMA 8. Complejidad Computacional}
+\includepdf[pages=-]{docs/Tema8_TALF.pdf}
+
+\part{Ejercicios resueltos}
+\includepdf[pages=-]{docs/ejercicios_Tema3_UC3M_TALF-SANCHIS-LEDEZMA-IGLESIAS-GARCIA-ALONSO.pdf}
+\includepdf[pages=-]{docs/ejercicios_Tema4_UC3M_TALF-SANCHIS-LEDEZMA-IGLESIAS-GARCIA-ALONSO.pdf}
+\includepdf[pages=-]{docs/ejercicios_Tema5_UC3M_TALF-SANCHIS-LEDEZMA-IGLESIAS-GARCIA-ALONSO.pdf}
+
+\part{Prácticas}
+\includepdf[pages=-]{docs/practica.pdf}
+\includepdf[pages=-]{docs/memoriaS2.pdf}
+\includepdf[pages=-]{docs/manual_Completo_JFLAP_AulaGlobal.pdf}
+\includepdf[pages=-]{docs/MemoriaS4.pdf}
+\includepdf[pages=-]{docs/PracticaTALF_19-20_Enunciado.pdf}
+\includepdf[pages=-]{docs/MemoriaF.pdf}
+\includepdf[pages=-]{docs/Practica_final_TALF_a_mano.pdf}
+\includepdf[pages=-]{docs/manual_Completo_JFLAP_AulaGlobal.pdf}
+\includepdf[pages=-]{docs/manualJFLAP_1.pdf}
+
+\part{Exámenes}
+\includepdf[pages=-]{docs/EC3_TipoM1_Sol_PUB.pdf}
+\includepdf[pages=-]{docs/Patatinas_MananaV4Sol_problemas.pdf}
+\includepdf[pages=-]{docs/SolEC2_Manana.pdf}
+\includepdf[pages=-]{docs/Soluciones_TestEC1_M81.pdf}
+\includepdf[pages=-]{docs/EC1-UC3M_TALF.pdf}
+\includepdf[pages=-]{docs/EC2_UC3M_TALF-SANCHIS-LEDEZMA-IGLESIAS-GARCIA-ALONSO.pdf}
+\includepdf[pages=-]{docs/EC3_UC3M_TALF-SANCHIS-LEDEZMA-IGLESIAS-GARCIA-ALONSO.pdf}
+\includepdf[pages=-]{docs/EXAMEN1_UC3M_TALF-SANCHIS-LEDEZMA-IGLESIAS-GARCIA-ALONSO.pdf}
+\includepdf[pages=-]{docs/SOL_EC1_UC3M_TALF-SANCHIS-LEDEZMA-IGLESIAS-GARCIA-ALONSO.pdf}
+\includepdf[pages=-]{docs/SOL_EC2_UC3M_TALF-SANCHIS-LEDEZMA-IGLESIAS-GARCIA-ALONSO.pdf}
+\includepdf[pages=-]{docs/SOL_EC3_UC3M_TALF-SANCHIS-LEDEZMA-IGLESIAS-GARCIA-ALONSO.pdf}
+\includepdf[pages=-]{docs/SOL_EXAMEN1_UC3M_TALF-SANCHIS-LEDEZMA-IGLESIAS-GARCIA-ALONSO.pdf}
+
+\part{Recursos}
+\includepdf[pages=-]{docs/Hoja_de_algoritmos_para_el_examen_de_TALF_F.pdf}
+
+\end{document}		
