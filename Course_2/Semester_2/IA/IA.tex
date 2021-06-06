@@ -1,0 +1,1438 @@
+\documentclass[12pt, twoside, openright]{report} %fuente a 12pt, formato doble pagina y chapter a la derecha
+\raggedbottom % No ajustar el contenido con un salto de pagina
+
+% MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
+\usepackage[
+a4paper,
+vmargin=2.5cm,
+hmargin=3cm
+]{geometry}
+
+% INTERLINEADO: Estrecho (6 ptos./interlineado 1,15) o Moderado (6 ptos./interlineado 1,5)
+\renewcommand{\baselinestretch}{1.15}
+\parskip=6pt
+
+% DEFINICIÓN DE COLORES para portada y listados de código
+\usepackage[table]{xcolor}
+\definecolor{azulUC3M}{RGB}{0,0,102}
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+
+% Soporte para GENERAR PDF/A
+\usepackage[a-1b]{pdfx}
+
+% ENLACES
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,
+	linkcolor=black, % enlaces a partes del documento (p.e. índice) en color negro
+	urlcolor=blue} % enlaces a recursos fuera del documento en azul
+
+% Añadir pdfs como partes del documento
+\usepackage{pdfpages}
+
+% Quitar la indentación de principio de los parrafos
+\setlength{\parindent}{0em}
+
+% EXPRESIONES MATEMATICAS
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+
+\usepackage{txfonts} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Insertar graficas y fotos
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\usepackage[spanish, es-tabla]{babel} 
+\usepackage[babel, spanish=spanish]{csquotes}
+\AtBeginEnvironment{quote}{\small}
+
+% diseño de PIE DE PÁGINA
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[LE,RO]{\thepage}
+\fancypagestyle{plain}{\pagestyle{fancy}}
+
+% DISEÑO DE LOS TÍTULOS de las partes del trabajo (capítulos y epígrafes o subcapítulos)
+\usepackage{titlesec}
+\usepackage{titletoc}
+\titleformat{\chapter}[block]
+{\large\bfseries\filcenter}
+{\thechapter.}
+{5pt}
+{\MakeUppercase}
+{}
+\titlespacing{\chapter}{0pt}{0pt}{*3}
+\titlecontents{chapter}
+[0pt]                                               
+{}
+{\contentsmargin{0pt}\thecontentslabel.\enspace\uppercase}
+{\contentsmargin{0pt}\uppercase}                        
+{\titlerule*[.7pc]{.}\contentspage}                 
+
+\titleformat{\section}
+{\bfseries}
+{\thesection.}
+{5pt}
+{}
+\titlecontents{section}
+[5pt]                                               
+{}
+{\contentsmargin{0pt}\thecontentslabel.\enspace}
+{\contentsmargin{0pt}}
+{\titlerule*[.7pc]{.}\contentspage}
+
+\titleformat{\subsection}
+{\normalsize\bfseries}
+{\thesubsection.}
+{5pt}
+{}
+\titlecontents{subsection}
+[10pt]                                               
+{}
+{\contentsmargin{0pt}                          
+	\thecontentslabel.\enspace}
+{\contentsmargin{0pt}}                        
+{\titlerule*[.7pc]{.}\contentspage}  
+
+
+% DISEÑO DE TABLAS.
+\usepackage{multirow} % permite combinar celdas 
+\usepackage{caption} % para personalizar el título de tablas y figuras
+\usepackage{floatrow} % utilizamos este paquete y sus macros \ttabbox y \ffigbox para alinear los nombres de tablas y figuras de acuerdo con el estilo definido. Para su uso ver archivo de ejemplo 
+\usepackage{array} % con este paquete podemos definir en la siguiente línea un nuevo tipo de columna para tablas: ancho personalizado y contenido centrado
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\DeclareCaptionFormat{upper}{#1#2\uppercase{#3}\par}
+
+% Diseño de tabla para ingeniería
+\captionsetup[table]{
+	format=hang,
+	name=Tabla,
+	justification=centering,
+	labelsep=colon,
+	width=.75\linewidth,
+	labelfont=small,
+	font=small,
+}
+
+% DISEÑO DE FIGURAS.
+\usepackage{graphicx}
+\graphicspath{{img/}} %ruta a la carpeta de imágenes
+
+% Diseño de figuras para ingeniería
+\captionsetup[figure]{
+	format=hang,
+	name=Fig.,
+	singlelinecheck=off,
+	labelsep=colon,
+	labelfont=small,
+	font=small		
+}
+
+% NOTAS A PIE DE PÁGINA
+\usepackage{chngcntr} %para numeración continua de las notas al pie
+\counterwithout{footnote}{chapter}
+
+% LISTADOS DE CÓDIGO
+% soporte y estilo para listados de código. Más información en https://es.wikibooks.org/wiki/Manual_de_LaTeX/Listados_de_código/Listados_con_listings
+\usepackage{listings}
+
+% definimos un estilo de listings
+\lstdefinestyle{estilo}{ frame=Ltb,
+	framerule=0pt,
+	aboveskip=0.5cm,
+	framextopmargin=3pt,
+	framexbottommargin=3pt,
+	framexleftmargin=0.4cm,
+	framesep=0pt,
+	rulesep=.4pt,
+	backgroundcolor=\color{gray97},
+	rulesepcolor=\color{black},
+	%
+	basicstyle=\ttfamily\footnotesize,
+	keywordstyle=\bfseries,
+	stringstyle=\ttfamily,
+	showstringspaces = false,
+	commentstyle=\color{gray45},     
+	%
+	numbers=left,
+	numbersep=15pt,
+	numberstyle=\tiny,
+	numberfirstline = false,
+	breaklines=true,
+	xleftmargin=\parindent
+}
+
+\captionsetup[lstlisting]{font=small, labelsep=period}
+% fijamos el estilo a utilizar 
+\lstset{style=estilo}
+\renewcommand{\lstlistingname}{\uppercase{Código}}
+
+\pgfplotsset{compat=1.17} 
+%-------------
+%	DOCUMENTO
+%-------------
+
+\begin{document}
+\pagenumbering{roman} % Se utilizan cifras romanas en la numeración de las páginas previas al cuerpo del trabajo
+	
+%----------
+%	PORTADA
+%----------	
+\begin{titlepage}
+	\begin{sffamily}
+	\color{azulUC3M}
+	\begin{center}
+		\begin{figure}[H] %incluimos el logotipo de la Universidad
+			\makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
+		\end{figure}
+		\vspace{2.5cm}
+		\begin{Large}
+			Grado en Ingeniería Informática\\			
+			2019-2020\\
+			\vspace{2cm}		
+			\textsl{Apuntes}\\
+			\bigskip
+		\end{Large}
+		 	{\Huge Inteligencia Artificial}\\
+		 	\vspace*{0.5cm}
+	 		\rule{10.5cm}{0.1mm}\\
+			\vspace*{0.9cm}
+			{\LARGE Jorge Rodríguez Fraile\footnote{\href{mailto:100405951@alumnos.uc3m.es}{Universidad: 100405951@alumnos.uc3m.es}  |  \href{mailto:jrf1616@gmail.com}{Personal: jrf1616@gmail.com}}}\\ 
+			\vspace*{1cm}
+	\end{center}
+	\vfill
+	\color{black}
+		\includegraphics[width=4.2cm]{img/creativecommons.png}\\
+		Esta obra se encuentra sujeta a la licencia Creative Commons\\ \textbf{Reconocimiento - No Comercial - Sin Obra Derivada}
+	\end{sffamily}
+\end{titlepage}
+
+%----------
+%	ÍNDICES
+%----------	
+
+%--
+% Índice general
+%-
+\tableofcontents
+\thispagestyle{fancy}
+
+%----------
+%	TRABAJO
+%----------	
+
+\pagenumbering{arabic} % numeración con múmeros arábigos para el resto de la publicación	
+
+
+%----------
+%	COMENZAR A ESCRIBIR AQUI
+%----------	
+
+
+\part{Información}
+\includepdf[pages=-]{docs/Cronograma-IA-2020-alumnos.pdf}
+\includepdf[pages=-]{docs/presentacion.pdf}
+
+\part{Resúmenes}
+\chapter{Tema 2: Sistemas de producción.}
+
+
+  La aplicación de reglas genera conocimiento nuevo, que lleva a otras
+  reglas.
+
+ 
+  \textbf{Componentes:}
+  
+
+  \begin{itemize}
+  \item \textbf{Base de Hechos:} Hechos que representan el problema.
+    
+
+    \begin{itemize}
+    \item Son afirmaciones atómicas, referidas a términos constantes.
+      
+    \item Si algo no está definido en la BH es falso, Mundo cerrado.
+      
+    \item Representan hechos simples, objetos, lógica, etc.
+      
+    \item Se pueden añadir, eliminar y modificar hechos.
+      
+    \end{itemize}
+  \item \textbf{Base de Reglas:} Reglas que representan el conocimiento para
+    resolver el problema. SI condiciones ENTONCES acciones
+    
+
+    \begin{itemize}
+    \item \textbf{Condiciones}:
+      
+
+      \begin{itemize}
+      \item Solo existe la conjunción(y), si se quiere hacer un `o' se hace
+        una regla para cada uno. Si se quiere hacer un if, se hacen 2
+        reglas, una de if y otra de else.
+        
+      \item Las condiciones son sobre hechos de la BH.
+        
+      \item Contienen variables y constantes definidas en los hechos.
+        
+      \end{itemize}
+    \item \textbf{Acciones}:
+      
+
+      \begin{itemize}
+      \item Modifican la BH, añadiendo, modificando o borrando.
+        
+      \item Operaciones de E/S.
+        
+      \end{itemize}
+    \end{itemize}
+  \item \textbf{Motor de Inferencia:} Responsable de la ejecución de reglas.
+    
+
+    \begin{itemize}
+    \item \textbf{Tipos de inferencia}:
+      
+
+      \begin{itemize}
+      \item \textbf{Encadenamiento hacia delante(las que podemos completar
+        ya):} Se van mirando las reglas y se comprueba de cuáles de
+        ellas tenemos los antecedentes, y se ejecuta para ver si su
+        resultado nos permite alcanzar a ejecutar una regla nueva. Se
+        utiliza cuando hay pocos datos iniciales y muchas posibles
+        conclusiones. Desventaja: No se centra en las metas. Y hay más
+        comparaciones.
+        \pagebreak
+      \item \textbf{Encadenamiento hacia atrás(queremos completar y buscamos
+        los hechos):} Se fija una submeta, que es obtener un determinado
+        resultado de una regla. Observando sus antecedentes vemos que
+        hechos tenemos, los que nos faltan se convierten en otra
+        submeta, seguiremos este proceso hasta que encontremos una regla
+        de la que tenemos todo y podamos alcanzar a obtener el resultado
+        de la primera submeta, volviendo hacia atrás. Se utiliza cuando
+        hay muchos datos, pero pocos relevantes. Desventaja: Hay que
+        gestionar todas la metas y submetas, y no conocemos el proceso
+        correcto hasta el final.
+        
+      \end{itemize}
+    \item \textbf{Fases}:
+      
+
+      \begin{itemize}
+      \item \textbf{Reducción (opcional)}
+        
+      \item \textbf{Equiparación:} Observar las reglas de las que se cumple
+        el antecedente, con la BH actual, y estas reglas se añaden al
+        Conjunto Conflicto. Puede una misma regla estar varias veces en
+        el CC, si contiene distintos valores. CC=\{R1, R2(Mario),
+        R2(José)\}
+        
+      \item \textbf{Resolución del conjunto conflicto:} Consiste en elegir
+        la estrategia de ejecución de las reglas del Conjunto Conflicto.
+        Para evitar bucles, una instancia se ejecuta una sola vez, se
+        aplica el Principio de refracción, excepto que haya salido y
+        vuelto a entrar.
+        
+
+        \begin{itemize}
+        \item Estrategia por \textbf{profundidad}(la más nueva, LIFO): Las
+          últimas en entrar al conjunto son las primeras en ejecutarse.
+          
+        \item Estrategia por amplitud(la más antigua, FIFO): Las primeras en
+          entrar son las primeras en ser ejecutadas.
+          
+        \end{itemize}
+      \item \textbf{Ejecución:} Se ejecutan las reglas del Conjunto
+        Conflicto según la estrategia de resolución, y los resultados se
+        van añadiendo a la Base de Hechos.
+        
+
+        \begin{itemize}
+        \item Añadir: Assert o + Eliminar\textbf{:} Retract o - Modificar:
+          Modify
+          
+        \end{itemize}
+      \end{itemize}
+    \item El ciclo se repite tantas veces como para vaciar el Conjunto
+      Conflicto o hasta una acción de parar.
+      
+    \end{itemize}
+  \end{itemize}
+
+ 
+  \textbf{Herramientas:} 
+  
+  Prolog (resultado:-condiciones) y CLIPS (Mirar
+  estructura en diapositivas).
+  
+
+ \pagebreak
+  \textbf{Resumen representación en el espacio de estados:}
+  
+
+  \begin{itemize}
+  \item Identificar el estado inicial y los posibles estados.
+    
+  \item Identificar los operadores para pasar de un estado a otro.
+    
+  \item Ver conexiones entre los estados.
+    
+  \item Identificar los estados finales, para saber cuando parar.
+    
+  \item Identificar el número de acciones ejecutadas, el coste.
+    
+  \item Identificar las posibles soluciones desde un estado inicial a un
+    estado final, que resuelva el problema.
+    
+  \item Puede haber prioridad entre las reglas.
+    
+  \item Hay que tratar de hacer los operadores lo más genéricos posible para
+    que sean flexibles.
+    
+  \item Describir solo las que sean necesarias, pero no comprimidas, pueden
+    estar desglosadas.
+    
+  \end{itemize}
+
+
+\chapter{Tema 3: Búsqueda}
+
+
+  Son aquello problemas en los que partido de un estado inicial, por el
+  que comenzaremos, y debemos llegar mediante una seria de operaciones a
+  un determinado estado, el estado final. Es importante antes de
+  comenzar un problema de búsqueda conocer cuáles son los estados
+  posibles, y entre ellos debe estar el estado inicial y el final. La
+  transición entre estos estados se realiza mediante una serie de
+  operaciones. Se pueden representar como un grafo, en el que la raíz es
+  el estado inicial y de el cuelgan todos los estados resultado de
+  aplicar las operaciones. El número de estados posibles aumenta
+  exponencialmente cuando varía el número de datos.
+
+  \textbf{Lista abierta}: Lista de todos los nodos que aún no hemos
+  explorado.
+
+  \textbf{Parámetros importantes}:
+
+  \begin{itemize}
+  \item \textbf{Factor de ramificación, b:} Numero de posibles nodos que
+    pueden derivar de otro, posibles sucesores de un nodo. El factor de
+    ramificación medio es la suma de todos los factores de todos lo
+    estados divididos del número de estados. Ojo tener en cuenta
+    retroceso en el árbol.
+    
+  \item \textbf{Profundidad del árbol de búsqueda, d}: Cuantos operadores
+    tenemos que aplicar para llegar a la solución, solo se puede
+    calcular tras encontrarla, pero no antes.
+    
+  \end{itemize}
+
+  \textbf{Búsqueda no informada}: No tenemos información de donde esta
+  la solución, solo sabemos cuál es, por lo que tenemos que seguir un
+  proceso mecánico lógico que recorra todos los estados. No tienen pesos
+  las ramas, por lo que elegir una u otra es igual si llega a la
+  solución.
+
+  \begin{itemize}
+  \item \textbf{Búsqueda en amplitud}: Sigue el orden de un FIFO, el primero
+    que entra es el primero en salir se ejecutan en orden de entrada,
+    una cola. Si un estado vuelve a aparecer no lo ponemos, porque ya
+    esta contemplado. Este método llega al estado final por medio de
+    menos operadores y eso es mejor, es la solución óptima. Como no hay
+    pesos en las ramas cuando aparece la solución en una rama hemos
+    acabado.
+    
+
+    \begin{itemize}
+    \item Completitud(hay solución y el factor de ramificación es finito en
+      cada nodo), admisibilidad (si todos los nodos tienen el mismo
+      coste, encuentra la solución óptima), eficiencia y consumo de
+      memoria exponencial.
+      
+    \end{itemize}
+\pagebreak
+  \item \textbf{Búsqueda en profundidad:} Sigue el orden de un LIFO. El
+    último en entrar será el primero en ejecutar, una pila. Puede
+    alcanzar la solución en menor tiempo, pero posiblemente lo hará
+    mediante más operaciones. Se puede poner un límite de profundidad de
+    las ramas, para que no se llegue a la solución con tantas
+    operaciones. No se ponen estados que ya hayan aparecido. Recorre una
+    rama hasta que no puede avanzar más, entonces retrocede hasta que
+    pueda cansar por una rama.
+    
+
+    \begin{itemize}
+    \item Requiere backtracking(cuando retrocede al llegar al límite de
+      profundidad, no encuentra soluciones en esa rama o solo aparecen
+      duplicados), completitud (no asegura encontrar la solución, aunque
+      la haya), admisibilidad (no asegura que sea la solución óptima) y
+      eficiencia(cuando la meta está lejos del estado inicial o cuando
+      hay problemas de memoria).
+      
+    \end{itemize}
+  \item \textbf{Complejidad de amplitud y profundidad:}
+    
+
+    \begin{itemize}
+    \item Amplitud: Temporal y espacial exponencial O(b\^{}d)
+      
+    \item Profundidad: Temporal exponencial O(b\^{}d) y espacial lineal
+      O(b).
+      
+    \end{itemize}
+  \item \textbf{Búsqueda de coste no uniforme}: Cuando aparecen costes en
+    las transiciones. Se buscará el camino a la solución más barato en
+    costes.
+    
+
+    \begin{itemize}
+    \item \textbf{Dijkstra}: Amplitud pero ordenado ascendente. Consiste en
+      ir escogiendo aquellas ramas que menor coste tengas, se ordena la
+      lista abierta de menor a mayor y FIFO, pero si hay un estado
+      repetido hay que conspirar su coste para ver si es más barato.
+      Cuando vamos avanzamos hay que ir arrastrando el coste acumulado
+      de las ramas ya recorridas. Es como recorrer en profundidad pero
+      escogiendo el más barato. Termina cuando hemos comprobado que la
+      solución encontrada es la más óptima.
+      
+    \item \textbf{Ramificación y acotación:} En profundidad, seguimos una
+      rama cogiendo el que menos coste hasta una meta, y termina cuando
+      no encontramos otra rama con menor coste que la escogida, ponemos
+      el coste de esa como límite de coste de la rama, ya que si lo
+      supera será mejor la anterior, pero si la encuentra esa es la
+      solución.
+      
+    \end{itemize}
+
+	\pagebreak
+  \item \textbf{Pasos a seguir}:
+    
+
+    \begin{itemize}
+    \item Formalizar el problema:
+      
+
+      \begin{itemize}
+      \item Definir los posibles estados, además cuál será el inicial y el
+        final o meta.
+        
+      \item Operaciones que se pueden realizar en los estados.
+        
+      \end{itemize}
+    \item Estimar la complejidad, el número de estados diferentes del
+      problema.
+      
+    \item Algoritmo de búsqueda:
+      
+
+      \begin{itemize}
+      \item Orden al generar nodos.
+        
+      \item Lista abierta, nodos generados y nodos expandidos.
+        
+      \item Conocer las propiedades del algoritmo: Completitud,
+        admisibilidad, complejidad temporal y espacial.
+        
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+
+  \textbf{Búsqueda heurística:} Se tiene conocimiento parcial sobre un
+  problema que nos permite resolverlo de una manera más o menos
+  eficiente. Si se tiene el conocimiento perfecto, se puede desarrollar
+  un algoritmo exacto, pero si no se tiene conocimiento se hará una
+  búsqueda no informada.
+
+  \begin{itemize}
+  \item Hay que hallar una función heurística h(n), que permita hallar el
+    coste estimado desde el nodo n hasta un nodo objetivo, y esta
+    devuelve un valor real positivo. Se descubre resolviendo modelos
+    simplificados del problema real, simplificando mecánicas como
+    restricciones, pero no el propio problema. Es el coste óptimo del
+    problema relajado. Ejem: Distancias de Manhattan, para problemas con
+    un tablero con coordenadas,
+    h(n)=\textbar x-xi\textbar+\textbar y-yi\textbar, la suma de
+    distancias.
+    
+  \item \textbf{Búsqueda Escalada (Hill Climbing)}: Básicamente buscando el
+    camino que genera menores h, solo fijándonos en la h y sin acumular,
+    hasta que no se pueda encontrar uno más bajo que el anterior, o
+    encuentre el final. Consiste en coger un nodo de la lista abierta y
+    obtener sus sucesores, calculamos la función heurística de cada uno,
+    y nos quedamos en la lista abierta solo con aquel que tiene menor
+    coste(no se acumulan valore, es el puro coste heurístico) y ese
+    coste además debe ser menor que el del padre. No hay backtracking,
+    por lo que si ese único nodo que usamos no puede avanzar, hemos
+    terminado. No se analizan los nodos repetidos, ya fueron
+    descartados. En cuanto un nodo sucesor sea final, el proceso
+    termina.
+    
+
+    \begin{itemize}
+    \item No completo (NO, ya que no siempre encuentra la solución), no
+      admisible(NO, si no encuentra siempre la solución no será
+      admisible) y eficiencia (es rápido y útil)
+      
+    \item Posibles soluciones: Poder hacer backtracking, avanzar por un par
+      de ramas a la vez, reinicio aleatorio o que siga avanzando aunque
+      el sucesor tenga un mayor coste.
+      
+    \end{itemize}
+  \item \textbf{Búsqueda Mejor Primero}: Básicamente ir calculando para cada
+    sucesor la suma del h propio y el coste en llegar (OJO, pero sin
+    tener en cuenta los h anteriores, es la suma de transiciones pura),
+    e ir avanzando por el que menor suma tiene. Consiste en ir cogiendo
+    de la lista abierta el nodo de menor coste y obtener sus sucesores,
+    de los que calculamos su coste que es la suma de la función
+    heurística de ese nodo y el coste desde el inicio hasta llegar a ese
+    nodo, y ordenamos la lista abierta en orden ascendente en coste,
+    pero no desechamos ningún nodo. Este algoritmo siempre encuentra la
+    solución y es la más óptima. Los nodos recorridos pasan a la lista
+    cerrada, que servirá para ver si un nodo repetido lo hemos
+    encontrado con menor coste, por lo que se convertiría en mejor
+    camino. Si el nodo final es escogido termina, pero no solo si
+    aparece como un sucesor. f(n)=g(n)+h(n) El coste total es la suma
+    del coste desde el inicio al nodo n y el coste desde n hasta el nodo
+    final.
+    
+
+    \begin{itemize}
+    \item Al final se pueden calcular los valores reales, que se indican con
+      un *.
+      
+    \item Completitud (si existe solución la encuentra), admisibilidad
+      (encuentra la solución óptima, si: sucesores finitos, los costes
+      son mayores que 1 y h(n) es admisible, menor que el h*(n)) y
+      complejidad exponencial.
+      
+    \item Cuando mayor h(n) mejor informada esta la función heurística y
+      menor numero de nodos sucesores aparecen.
+      
+    \end{itemize}
+  \end{itemize}
+
+
+\chapter{Tema 4: Redes Bayesianas}
+
+
+  \textbf{Razonamiento Probabilístico:}
+
+  \textbf{Incertidumbre}: Confianza que tenemos de un suceso.
+
+  \begin{itemize}
+  \item Se expresa como una probabilidad, que es una medida de:
+    
+
+    \begin{itemize}
+    \item Proporción de veces en que algo es cierto.
+      
+    \item Grado de creencia en que algo es cierto.
+      
+    \end{itemize}
+  \item \textbf{Variable aleatoria}: Que pueden tomar valores en un dominio,
+    el valor asociado es desconocido, pero podemos saber la probabilidad
+    de cada valor posible.
+    
+  \item \textbf{Espacio muestral $\Omega$:} Todos los posibles resultados de un
+    experimento aleatorio.
+    
+  \item \textbf{Evento}: Subconjunto del espacio muestral, hay varios.
+    
+  \item \textbf{Evento atómico:} Evento de un único elemento y define un
+    único estado.
+    
+  \item \textbf{Distribución de probabilidad}: Asigna a cada evento un valor
+    que representa la probabilidad de que ocurra ese evento. Para hallar
+    la probabilidad debemos tener datos de e. Se puede expresar como una
+    vector formado por todas las probabilidades. P(e)
+    
+
+    \begin{itemize}
+    \item Toma valores entre 0 y 1, incluidos.
+      
+    \item La suma de todas las probabilidades del evento es 1.
+      
+    \end{itemize}
+  \item \textbf{Probabilidad de un evento no atómico:} Suma de las
+    probabilidades de todos los eventos atómicos que lo componen, se
+    suman los posibles.
+    
+
+    \begin{itemize}
+    \item \textbf{P(A)=$\Sigma$P(e)}
+      
+    \end{itemize}
+  \item \textbf{Teorema de la probabilidad total}: La suma de las
+    probabilidades que tiene de que ocurra A condicionando con otro
+    evento, por la probabilidad de ese evento. \textbf{P(A)=$\Sigma$P(A, B1,B2,
+    ...)}
+    
+  \item \textbf{Regla del producto:} \textbf{P(A/B)=
+    P(A, B)/P(B)=P(AnB)/P(B)}
+    \pagebreak
+  \item \textbf{Probabilidad a posteriori(condicional)}: Sobre una
+    observación, tenemos evidencias. Esa evidencia modifica el
+    conocimiento sobre el dominio.
+    
+
+    \begin{itemize}
+    \item \textbf{P(A\textbar B)=P(AnB)/P(B)=$\alpha$P(BnA)}
+      
+    \item \textbf{Regla de la cadena: P(AnB)=P(A\textbar B)P(B)}
+      
+    \item \textbf{Comparar probabilidades condicionadas:} Cuando la B es la
+      misma, pero la A cambia, la suma de ambas probabilidades debe dar
+      1, por lo que dejamos como incógnita \textbf{$\alpha$=1/P(B)} que es la
+      \textbf{constante de normalización}. El que mayor x tenga es más
+      probable siendo x el término que acompaña a $\alpha$.
+      
+    \item $\alpha$ permite también hallar P(B) cuando no se nos da y conocemos las
+      condicionadas.
+      
+    \end{itemize}
+  \item \textbf{Probabilidad a priori:} Probabilidad que algo ocurra cuando
+    no tenemos información.
+    
+  \item \textbf{Probabilidad conjunta:} Probabilidad de un conjunto de
+    variables.
+    
+
+    \begin{itemize}
+    \item Se puede representar de manera tabular, en una tabla, pero en
+      problemas reales no es viable, ya que hay ciento o miles de
+      variables. Hay que tener en cuenta el coste y tiempo de respuesta.
+      
+    \end{itemize}
+  \item \textbf{Teorema de Bayes:} Se pueden calcular unas condicionales a
+    través de otras.
+    
+
+    \begin{itemize}
+    \item \textbf{P(A/B)=(P(B/A)P(A))/P(B)=$\alpha$P(B/A)P(A)}
+      
+    \end{itemize}
+  \item \textbf{Independencia}: A y B lo son si y solo si la ocurrencia de
+    uno de ellos no afecta a la ocurrencia del otro.
+    
+
+    \begin{itemize}
+    \item \textbf{P(A\textbar B)=P(A)} La probabilidad de A no se ve
+      afectada por B.
+      
+    \item \textbf{P(A, B)=P(A)P(B)}
+      
+    \item \textbf{Reducción de tamaño de distribución:} Eso implica
+      algoritmo más eficiente y menos datos a especificar.
+      
+    \end{itemize}
+  \item \textbf{Inferencia}: Calcular la probabilidad de eventos
+    (probabilidad a posteriori) dada cierta evidencia. Se usa para:
+    
+
+    \begin{itemize}
+    \item \textbf{Predicción.}
+      
+    \item \textbf{Diagnosis.}
+      
+    \item \textbf{Clasificación.}
+      
+    \item \textbf{Toma de decisiones:} Elegir acciones más útiles.
+      
+    \end{itemize}
+  \end{itemize}
+
+ \pagebreak
+  \textbf{Redes Bayesianas:}
+  
+
+  \begin{itemize}
+  \item \textbf{Independencia condicional:} Cuando hay relaciones entre
+    varias variables y están relacionadas, pero por medio de otra, que
+    no es causa directa. Hay un intermediario, por lo que conociéndolo
+    depende del intermediario, no del que está alejado un nodo.
+    
+  \end{itemize}
+
+  
+P(X,Y\textbar Z)=P(Y\textbar Z)P(X\textbar Z) y también P(X\textbar Y,
+Z)=P(X\textbar Z)
+
+Nos permite reducir el número de parámetros, normalmente de exp. a
+lineal.
+
+En las redes bayesianas se asume que hay variables ind.
+condicionalmente.
+
+
+
+  \textbf{Red Bayesianas:} Es un Grafo Acíclico Dirigido (DAG), en la
+  que los nodos son las variables, los arcos indican causa directa. Cada
+  nodo tiene una tabla de probabilidad condicional (CPT), indica la
+  influencia de los nodos padre sobre el. Cuando no tiene es la
+  probabilidad a priori.
+
+  
+  \begin{itemize}
+  \item Se puede expresar de forma compacta como la probabilidad de todos
+    separados por comas, distribución de probabilidad conjunta, gracias
+    a que se asume independencia condicional y después podemos
+    factorizarla.
+    
+  \item Es ir sacando términos, así:
+    
+
+    \begin{itemize}
+    \item $P(A, B, C)= P(A\textbar B,C)P(B,C)=...$
+     $$P(X_1, ..., X_n)=\prod^n_{i=1} P(X_i/Padres(X_i))$$
+      
+    \end{itemize}
+  \item La CPT tendrá $2^a$ filas en un nodo con a padres. Se pone la
+    probabilidad de que sea true, el propio nodo, ya que de que sea
+    false es la inversa 1-P()
+    
+  \item Complejidad $O(n\cdot 2^b)$ n variables y b padres.
+    
+  \end{itemize}
+
+ 
+  \textbf{Causalidad vs. Correlación:} Que numéricamente estén
+  relacionados, no quiere decir que existan una relación directa, pueden
+  existir variables intermedias. Fijarse si esto ocurre.
+  
+
+  \begin{itemize}
+  \item Correlación no implica causalidad, pero Causalidad implica
+    correlación.
+    
+  \end{itemize}
+
+ 
+  \textbf{Inferencia}: Calcular la probabilidad a posteriori de una
+  variable dada cierta evidencia.
+  
+
+  \begin{itemize}
+  \item Hay que \textbf{tener en cuenta}: La variable pregunta, las
+    variables evidencia y las ocultas.
+    \pagebreak
+  \item \textbf{Inferencia exacta por enumeración}:
+    
+
+    \begin{itemize}
+    \item 1. Se aplica la regla del producto. Donde $\alpha$=1/(lo de la derecha) o
+      1/(suma $\alpha$P's)
+      
+
+      \begin{itemize}
+      \item \textbf{P(A\textbar B)=$\alpha$P(A, B).}
+        
+      \end{itemize}
+    \item 2. Después aplicamos la regla de la probabilidad total, OJO con
+      los sumatorios y poder sacar variables para simplificar o que sume
+      1. En general las variables que no son ancestros de variables
+      pregunta o variables evidencia son irrelevantes.
+      
+
+      \begin{itemize}
+      \item \textbf{$\alpha$P(A,B)=$\alpha$$\Sigma$ P(A, B, C).}
+        
+      \end{itemize}
+    \item 3. Lo de dentro del sumatorio se factoriza y operamos.
+      
+
+      \begin{itemize}
+      \item Las evidencias tendrá el valor fijo, pero las ocultas se
+        contemplan con el sumatorio. Añade en forma de sumatorio las
+        variables ocultas. Cuando no se indica si la variable pregunta
+        es true o false, se hallan ambas posibilidades por separado,
+        esto a su vez nos permite hallar $\alpha$, suman 1 ambas prob.
+        
+      \end{itemize}
+    \item El problema de este método son la variable ocultas que tienen
+      complejidad exponencial.
+      
+    \item Es eficiente para poliarboles, que como mucho haya un arco entre
+      cada par de nodos. Esta estructura da lugar a una complejidad
+      lineal.
+      
+    \item No es eficiente cuando la estructura de la red no es un poliarbol,
+      pasa de ser complejidad lineal a ser exponencial. En estos casos
+      se usa la inferencia aproximada.
+      
+    \end{itemize}
+  \item \textbf{Inferencia aproximada}: Se hace mediante estimaciones, para
+    ello se hace un muestreo de la red Bayesiana, comenzando desde
+    padres hasta los hijos. Muestrear, quiere decir que siguiendo la
+    distribución de probabilidad sacamos un número aleatorio. Por
+    ejemplo P(Nublado)=(0.5, 0.5) Sacamos un numero entre 0 y 1, si cae
+    en la parte de la izquierda es true, si no false. 0-0.5 true y 0.5-1
+    false.
+    
+
+    \begin{itemize}
+    \item De esta manera sacamos que valor tiene cada variable y podemos
+      centrarnos en ese caso concreto, y hallar su probabilidad como
+      haríamos en el caso anterior.
+      
+    \item \textbf{Muestreo directo:} La probabilidad de un evento se estima
+      como el numero de casos del evento generados por muestreo dividido
+      entre el numero total de casos muéstrales.
+      
+	  $$P(x_1, x_2, ..., x_n) \simeq \frac{\#casos(x_1, x_2, ..., x_n))}{\#total Casos}$$
+	  $$P(X/e) = \frac{\#casos(X, e))}{\#casos(e)}$$
+
+    \end{itemize}
+  \end{itemize}
+
+ 
+  \textbf{Clasificador \emph{Naïve Bayes}}: Caso especial de red
+  bayesiana con una estructura en la que de un nodo cuelgan el resto. El
+  nodo raíz es del que deseo conocer la probabilidad, y los hijos son
+  los atributos y son independientes entre ellos.
+  $$p(c_i/a_1 ... a_n)= \frac{P(a_1 ... a_n / c_i)p(c_i)}{p(a_1 ... a_n)} \rightarrow p(c_i/a_1 ... a_n)= \alpha p(C= c_i) \prod_k P(A_k = a_k / C= c_i)$$
+  \begin{itemize}
+  \item \textbf{Se puede resolver con} Bayes normal o mediante los métodos
+    de inferencia.
+    
+  \end{itemize}
+
+  
+
+
+  \textbf{Razonamiento Probabilístico en el Tiempo:}
+
+  
+  \begin{itemize}
+  \item Hasta el momento hemos contemplado solo mundos estaticos, pero ahora
+    consideramos el paso del tiempo. Cuando el mundo es no determinista,
+    que hay varias posibles decisiones en cada paso, se emplea el
+    procesos de decisión de Markov.
+    
+  \item \textbf{Modelos de Markov:} Se representa con un grafo la
+    probabilidad de las transiciones, estando en un tiempo t y yendo a
+    t+1, el momento siguiente. El estado actual determina la
+    distribución de probabilidad del estado siguiente. El momento
+    inicial será $E_0$.
+    
+
+    \begin{itemize}
+    \item \textbf{Hipótesis de Markov:} Se asume que el estado actual solo
+      depende del anterior, es condicionalmente independiente de los que
+      no son el inmediato anterior.
+
+	  $$P(E_{t+1}=s1 / E_t =s2)$$
+      
+    \item Se puede representar como una red bayesiana, en la que los estado
+      que no dependen de otros tienen su probabilidad a priori y las que
+      dependen de otro su tabla de probabilidad condicionada.
+      
+    \item \textbf{Calcular la probabilidad:} Se hace como inferencia exacta.
+      Lo primero es hacer la regla del producto, después hacer la
+      probabilidad total con sumandos y finalmente factorizar. Pero esta
+      opción es muy pesada ya que hay que considerar todos los posibles
+      caminos anteriores.
+
+	  $$P(E_t = s_j)= \Sigma_{\textit{Todos los caminos que acaban en el estado} P(E_0, E_1, ..., E_t = s_j)}$$
+      
+    \item \textbf{Programación dinámica:} Es una técnica/truco, que consiste
+      en hacer una definición recursiva en función del instante
+      anterior. Se comienza desde el final, y se van llamando unas a
+      otras hasta el inicial. Algoritmo de Simulación hacia delante, que
+      tiene complejidad lineal para un tiempo t.
+
+	  $$\forall j, P(E_{t+1}=s_j) = \Sigma^N_{i=1} P(E_{t+1}=s_j/E_t=s_i)P(E_t = s_i)$$
+      
+    \item \textbf{Distribuciones estacionarias:} Normalmente solo podemos
+      predecir a corto plazo, a medida que nos alejamos de los datos
+      iniciales menos sabemos, llegando en el infinito a ser
+      equiprobable y no nos permite decantarnos por ninguna.
+      
+
+      \begin{itemize}
+      \item La incertidumbre se acumula, hasta que no sabremos cual es el
+        estado.
+        
+      \item Para la mayoría de las cadenas la distribución al final es
+        independiente de la inicial, la distribución al final es igual
+        si empezamos con $P(X_0=lluvia)=1$
+        
+      \end{itemize}
+    \end{itemize}
+  \item \textbf{Modelos de Markov Ocultos (HMMs):} Hay variables
+    observables, evidencias, que determinan el estado. Tiene forma de
+    red bayesiana en el que las observaciones cuelgan del estado y solo
+    dependen del estado actual. Cada estado depende del inmediato
+    anterior.
+    
+
+    \begin{itemize}
+    \item \textbf{Se asume:}
+      
+
+      \begin{itemize}
+      \item Es un proceso estacionario.
+        
+      \item Se cumple la hipotesis de Markov.
+        
+      \item Las observaciones en t solo dependen del estado en t. P(O/E)
+        
+      \end{itemize}
+    \item \textbf{Se define por:}
+      
+
+      \begin{itemize}
+      \item Conjunto de estados y de observaciones.
+        
+      \item La probabilidad a priori, aquel que no depende del anterior.
+        $P(E_0)$
+        
+      \item El modelo de transiciones. $P(E_1/E_0)$
+        
+      \item El modelo de observaciones. $P(O_1/E_1)$
+        
+      \end{itemize}
+    \item La probabilidad de las transiciones se representan en la tabla de
+      probabilidad condicionada.
+      
+    \item \textbf{Inferencia en HMMs:}
+      
+
+      \begin{itemize}
+      \item Se puede resolver por definición recursiva.
+        
+      \item La forma mas eficiente es por programación dinámica, pero no la
+        veremos.
+        
+      \item Nosotros las resolveremos mediante inferencia exacta en redes
+        Bayesianas, a pesar de que es menos eficiente.
+        
+      \item \textbf{Se factoriza como:} 
+	  
+	  $P(E_0, ..., E_t, O_0, ..., O_t) = P(O_0/E_0)P(E_0) \prod^T_{t=1} P(E_t/ E_{t-1})P(O_t/E_t)$
+        
+      \end{itemize}
+    \end{itemize}
+
+	\pagebreak
+  \item Tareas típicas de Inferencia:
+    
+
+    \begin{itemize}
+    \item \textbf{Problema de Evaluación}: Calcular la probabilidad de una
+      secuencia de observaciones.
+      
+    \item \textbf{Problema de Decodificacion}: Dada una secuencia de
+      observaciones, determinar cual es la secuencia de estados
+      correspondiente que explica mejor esas observaciones.
+      
+    \item \textbf{Problema de Filtrado:} Distribución de probabilidad del
+      estado actual dada cierta evidencia histórica, desde t hacia
+      atrás.
+      
+    \item \textbf{Problema de Predicción:} Probabilidad de estados futuros
+      dada evidencia.
+      
+    \end{itemize}
+  \item \textbf{Procesos de Decisiones de Markov (MDPs)}:
+    
+
+    \begin{itemize}
+    \item Se toma una decision en cada instante. El caso general es que sean
+      acciones no deterministas, hay varias posibilidades en cada caso y
+      cada una de ellas tiene un probabilidad y debemos decidir cuál
+      tomamos.
+      
+    \item Las \textbf{probabilidades de transicion} dependen de las
+      acciones.
+      
+	  $$P(S_{t+1} = s' / S_t = s, A_t = a)= P(s'/s, a)$$
+    \item Hay un \textbf{refuerzo o un coste}, indica como de bueno o malo
+      es esa transición, por cada par de estado-accion:
+
+	  $$R(S_t = s, A_t = a) = R(s, a)$$
+      
+    \item Se define como una tupla \textbf{\textless S, A, P,
+      R\textgreater:}
+      
+
+      \begin{itemize}
+      \item \textbf{S}, estados.
+        
+      \item \textbf{A}, acciones.
+        
+      \item \textbf{P}, probabilidades P(s'/ s, a). Cada estado tiene una
+        probabilidad para cada accion con sus estados contiguos.
+        
+      \item \textbf{R}, refuerzos o costes R(s, a).
+        
+      \end{itemize}
+    \item El objectivo es determinar que accion ejecutar en cada estado para
+      maximizar el refuerzo o minimizar el coste.
+      
+    \item Al no ser determinista hay \textbf{dos opciones:}
+      
+
+      \begin{itemize}
+      \item \textbf{Politica} (Acciones estocásticas): Se determinada para
+        cada estado un accion determinada.
+        
+
+        \begin{itemize}
+        \item Es un mapeo completo de estados a acciones, pero no es una
+          secuencia de acciones. Aunque haya un fallo en la ejecucion el
+          agente puede seguir.
+          
+        \item Maximiza el refuerzo esperado o minimiza el coste esperado en
+          lugar de alcanzar un estado meta.
+          
+        \item Para cada MDP existe una politica optima.
+          
+        \item Determina que hacer independientemente del efecto de cualquier
+          accion en cualquier instante de tiempo.
+          
+        \end{itemize}
+      \item \textbf{Replanificar}: Se vuelve a planificar cuando sale del
+        anterior, de esta manera cada estado tiene en cuenta el
+        anterior.
+        
+      \end{itemize}
+    \item \textbf{Accion estocástica}: Consigue el efecto deseado con
+      probabilidad p.
+      
+    \item Para el caso de \textbf{minimizar coste:}
+      
+
+      \begin{itemize}
+      \item \textbf{Politica optima $\pi$*}: mínimo coste esperado.
+        
+
+        \begin{itemize}
+        \item \textbf{Acciones deterministas}: Si la accion a lleva al
+          estado s', el coste es:
+          
+
+         
+		  
+            \textbf{C(a) + costeDesde(s')}
+          
+			
+        \item \textbf{Acciones no deterministas}: Si la accion a tiene
+          efectos probabilisticos, el coste esperado es:
+          
+
+          
+		  
+            \textbf{C(a) + $\Sigma$sub(s') P(s'\textbar{} s, a) *
+            costeDesde(s')}
+          
+			
+        \end{itemize}
+      \end{itemize}
+    \item \textbf{Funcion de valor:} coste esperado de un estado.
+      
+
+      \begin{itemize}
+      \item \textbf{V(s):} coste esperado de alcanzar la meta desde s.
+        
+      \item \textbf{Busqueda}: Coste del camino optimo desde s. Se puede
+        usar como heuristica, y es la heurística perfecta h*(s)
+        
+      \item \textbf{MDP}: Coste esperado de la estrategia optima para
+        alcanzar la meta desde s. Conociendo V(s) podemos calcular una
+        politica optima $\pi$*.
+        
+      \end{itemize}
+    \item \textbf{Calcular V(s).}
+      
+
+      \begin{itemize}
+      \item \textbf{Ecuaciones de Bellman}. Acciones deterministas (Es
+        programación dinámica, recursividad)
+        
+
+        \begin{itemize}
+        \item Si s es un estado meta, V(s) = 0. Es sumidero. Inicialmente
+          todos están a 0.
+          
+        \item En el resto de casos, donde s' es el estado resultado de
+          aplicar a en s:
+          
+		  $$V(s) = \min_{a\in A(s)} [c(a)+V(s')]$$
+
+        \end{itemize}
+      \item \textbf{Ecuaciones de Bellman}. Acciones no deterministas.
+        
+
+        \begin{itemize}
+        \item Dominios estocasticos, apartir de la accion a: $c(a) + \Sigma_{s'\in S} P_a (s'/s)V(s')$
+          
+        \item Entonces, el estado meta V(s)=0 para costes y en el resto de
+          casos:
+
+		  $$V(s)_{i+1}= R(s)+ \max_{a\in A(s)} [\gamma \Sigma_{s'\in S} P_a(s'/s) V(s')]$$
+          
+        \item \textbf{Politica optima}: Consiste en elegir las accione que
+          han generado el mínimo.
+          $$\pi^*(s)= \arg \max_{a} [\gamma \Sigma_{s'\in S} P_a(s'/s) V^*(s')]$$
+
+		  \pagebreak
+        \item \textbf{Resolviendo las ecuaciones de Bellman:}
+          
+
+          
+		  
+            \textbf{Algoritmo de Iteración de Valor:}
+
+			
+            
+			
+              El V(s) de los finales es 0 para costes y el refuerzo si
+              hay refuerzos.
+             
+			  
+              Inicialmente todos se ponen a 0.
+             
+			  
+              Se hacen tantas rondas como sean necesarias para que los
+              valores de V(s) se estabilicen entre rondas. Y cada ronda
+              calcula V(s) para cada estado.
+              
+			  
+              Termina cuando alcanza un punto fijo, cuando los valores
+              no cambian en dos iteraciones sucesivas. Se estabiliza.
+            
+			  
+        \end{itemize}
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+
+ 
+  \textbf{Lógica Borrosa:}
+  
+
+  \begin{itemize}
+  \item Los conceptos no son ciertos o falsos de forma clara, a diferencia
+    de la lógica clásica en la que los valores solo son true o false. Se
+    emplean conceptos y modificadores que son difusos.
+    
+  \item \textbf{Representación:}
+    
+
+    \begin{itemize}
+    \item Conjunto borroso.
+      
+    \item \textbf{Función de pertenencia:} Indica en que medida un elemento
+      pertenece al conjunto borroso. Valores en el rango {[}0, 1{]}, en
+      el que 0 representa absolutamente falso y 1 absolutamente
+      verdadero.
+      
+    \end{itemize}
+  \item \textbf{Lógica borrosa vs. probabilidad:}
+    
+
+    \begin{itemize}
+    \item \textbf{Probabilidad}: Lo hechos ocurren o no. Expresan
+      conocimiento parcial.
+      
+    \item \textbf{Lógica borrosa}: Conceptos vagos, inciertos. Expresa grado
+      de verdad parcial.
+      
+    \end{itemize}
+  \item \textbf{Sistema de reglas borrosas:}
+    
+
+    \begin{itemize}
+    \item Descripción del problema, las reglas que aparecen.
+      
+    \item Definir los términos borrosos de las reglas, mediante su función
+      de pertenencia.
+      
+
+      \begin{itemize}
+      \item \textbf{Variables}: Expresan cualidades.
+        
+      \item \textbf{Valores}: Las variables toman valores de un dominio
+        discreto. Los límites entre los valores son borrosos.
+        
+      \item \textbf{Tipos}: Sigmoide(la S), Gausiana (n), triangular y
+        trapezoidal. Las dos últimas son las que utilizaremos nosotros.
+        
+      \item \textbf{Modificadores}: Operan sobre la función de pertenencia.
+        ², ³...
+        
+      \end{itemize}
+	  \pagebreak
+    \item \textbf{Combinar términos:}
+      
+
+      \begin{itemize}
+      \item \textbf{Conjunción}: Intersección. El menor de ambas para cada
+        x. MIN
+        
+      \item \textbf{Disyunción}: Unión. El máximo en cada x de las
+        funciones. MAX
+        
+      \item \textbf{Negación}: Los valores inversos de cada x. 1-valor
+        
+      \end{itemize}
+    \item \textbf{Combinar reglas}, para generar una salida única. (Varias
+      son parcialmente cercas)
+      
+
+      \begin{itemize}
+      \item p-\textgreater q p es cierto en un grado, entonces q también es
+        cierto en un grado.
+        
+      \end{itemize}
+    \end{itemize}
+  \item \textbf{Sistema de reglas borrosas:}
+    
+
+    \begin{itemize}
+    \item Entrada datos nítida.
+      
+    \item Borrosificar el dato nítido.
+      
+    \item Base conocimiento, reglas borrosas.
+      
+    \item Desborrosificar, pasar a un valor nítido.
+      
+    \item Salida dato.
+      
+    \end{itemize}
+  \item \textbf{Inferencia con reglas borrosas:} 4 pasos.
+    
+
+    \begin{itemize}
+    \item \textbf{Método de Mandami}: es el método típico de inferencia
+      borrosa.
+      
+
+      \begin{itemize}
+      \item \textbf{Borrosificar las entradas:}
+        
+
+        \begin{itemize}
+        \item Determinar en que grado la entrada nítida pertenece a los
+          conjuntos borrosos, para cada valor que puede tomar la
+          variable.
+          
+        \end{itemize}
+      \item \textbf{Evaluación de reglas:}
+        
+
+        \begin{itemize}
+        \item En que medida las entradas borrosificadas verifican los
+          antecedentes de la regla, se evalúan todas la reglas. AND es
+          intersección, OR es unión y NOT la inversa. Si es un solo
+          valor se coge directamente el grado de la entrada.
+          
+        \item Se obtiene la \textbf{Similitud}, que es el mayor grado que
+          puede obtener el consecuente.
+          
+        \item \textbf{El consecuente}, resultado de cortar la función de
+          pertenencia del consecuente al nivel que marca la similitud
+          del antecedente.
+          
+        \end{itemize}
+      \item \textbf{Agregación de los consecuentes:}
+        
+
+        \begin{itemize}
+        \item Unificación de las salidas de todas las reglas tras evaluarlas
+          en un solo conjunto borroso. Nosotros hacemos el MAX para cada
+          x, unión.
+          
+        \end{itemize}
+      \item \textbf{Desborrosificar el resultado:}
+        
+
+        \begin{itemize}
+        \item Convertir el resultado en un valor nítido, el más común es
+          centro de gravedad o centro de del área.
+          
+        \end{itemize}
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+
+\includepdf[pages=-]{docs/Tema_5_Aprendizaje_Automatico_IA.pdf}
+\includepdf[pages=-]{docs/Tema_6_Tecnicas_Bioinspiradas_IA.pdf}
+\includepdf[pages=-]{docs/Tema_7_Robotica_IA.pdf}
+
+\part{Teoría}
+\includepdf[pages=-]{docs/Presentacion_1_IA.pdf}
+\includepdf[pages=-]{docs/Presentacion_3.1_IA.pdf}
+\includepdf[pages=-]{docs/Presentacion_4.1_Razonamiento_probabilistico_IA.pdf}
+\includepdf[pages=-]{docs/Presentacion_4.3_Modelo_de_Markov_Corregido_IA.pdf}
+\includepdf[pages=-]{docs/Presentacion_4.3_Modelo_de_Markov_IA.pdf}
+\includepdf[pages=-]{docs/Presentacion_4.4_Logica_Borrosa_IA.pdf}
+
+\part{Ejercicios}
+\includepdf[pages=-]{docs/Ejer_clase_5_feb_2020_12_34_33.pdf}
+\includepdf[pages=-]{docs/Tema_2_-_Ejercicios_2_IA.pdf}
+\includepdf[pages=-]{docs/Tema_2_-_Soluciones_Ejercicios_1_IA.pdf}
+\includepdf[pages=-]{docs/Tema_2_-_Soluciones_Ejercicios_2_IA.pdf}
+\includepdf[pages=-]{docs/Tema_3_-_Ejercicios_1_IA.pdf}
+\includepdf[pages=-]{docs/Tema_4.1_-_Razonamiento_Bayesiano_IA.pdf}
+\includepdf[pages=-]{docs/Tema_4.1_-_Soluciones_Razonamiento_Bayesiano_IA.pdf}
+\includepdf[pages=-]{docs/Tema_4.2_-_Redes_Bayesianas_IA.pdf}
+\includepdf[pages=-]{docs/Tema_4.2_-_Soluciones_Redes_Bayesianas_IA.pdf}
+\includepdf[pages=-]{docs/Tema_4.3.1_-_Modelos_Markov_IA.pdf}
+\includepdf[pages=-]{docs/Tema_4.3.1_-_Soluciones_Modelos_Markov_IA.pdf}
+\includepdf[pages=-]{docs/Tema_4.3.2_-_Procesos_Markov_IA.pdf}
+\includepdf[pages=-]{docs/Tema_4.3.2_-_Soluciones_Procesos_Markov_IA.pdf}
+\includepdf[pages=-]{docs/Tema_4.4_-_Logica_Borrosa_IA.pdf}
+\includepdf[pages=-]{docs/Tema_4.4_-_Soluciones_Logica_Borrosa_IA.pdf}
+
+\part{Exámenes}
+\includepdf[pages=-]{docs/_Parcial_2_2014_IA.pdf}
+\includepdf[pages=-]{docs/ex2-ex-2014.pdf}
+\includepdf[pages=-]{docs/examen_ia_junio_extra_ejercicio.pdf}
+\includepdf[pages=-]{docs/Extraordinario_2013_2_IA.pdf}
+\includepdf[pages=-]{docs/Extraordinario_2013_IA.pdf}
+\includepdf[pages=-]{docs/Extraordinario_2014_IA.pdf}
+\includepdf[pages=-]{docs/ia-en-bn-mm-fuzzy-15.pdf}
+\includepdf[pages=-]{docs/Ordinario_2013_IA.pdf}
+\includepdf[pages=-]{docs/Ordinario_2015_IA.pdf}
+\includepdf[pages=-]{docs/Ordinario_2016_IA.pdf}
+\includepdf[pages=-]{docs/Ordinario_2018_IA.pdf}
+\includepdf[pages=-]{docs/Ordinario_Ingles_2015_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_1_2013_82_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_1_2013_83_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_1_2014_81_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_1_2014_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_1_2015_81_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_1_2015_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_1_2016_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_1_2017_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_1_2019_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_2_2013_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_2_2014_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_2_2015_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_2_2015_Solucion_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_2_2016_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_2_2017_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_2_2017_Solucion_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_2_2018_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_2_2019_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_2_2020_IA.pdf}
+\includepdf[pages=-]{docs/Parcial_2_Mix_IA.pdf}
+\includepdf[pages=-]{docs/Partial_1_2014_IA.pdf}
+\includepdf[pages=-]{docs/Partial_1_2015_IA.pdf}
+\includepdf[pages=-]{docs/Partial_1_2015_Solution_IA.pdf}
+\includepdf[pages=-]{docs/Partial_1_2019_IA.pdf}
+\includepdf[pages=-]{docs/Partial_2_2014_IA.pdf}
+\includepdf[pages=-]{docs/Partial_2_2015_IA.pdf}
+
+\part{Practica Individual}
+\includepdf[pages=-]{docs/instalacion.pdf}
+\includepdf[pages=-]{docs/Practica_Individual_Final_IA.pdf}
+\includepdf[pages=-]{docs/practicaIA-405951.pdf}
+
+\end{document}
