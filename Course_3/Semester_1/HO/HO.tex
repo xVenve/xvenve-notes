@@ -364,9 +364,9 @@ Reducido: Francisco Javier García Polo
 		  \item Para hallar una intersección: 
 		  \begin{itemize}
 			  \item Se hace un sistema con ambas
-			  ecuaciones de recta. Los valores obtenidos son las intersección.
+			  ecuaciones de recta. Los valores obtenidos son las intersecciones.
 			  \begin{eqnarray*}
-				\textit{Este es el metodo}\left\{\begin{matrix}
+				\textit{Este es el método}\left\{\begin{matrix}
 					\left\{\begin{matrix}
 					-2x+y=-8\\ 
 					-x+6y=18
@@ -487,9 +487,9 @@ Reducido: Francisco Javier García Polo
 	\begin{itemize}
 		\item Cuando la solución óptima no es única.
 		\item Se detecta
-		con el método de resolución grafica si la curva de
+		con el método de resolución gráfica si la curva de
 		isobeneficio/isocoste es paralela o idéntica a una de las
-		restricciones cuyos puntos extremos son soluciones optimas.
+		restricciones cuyos puntos extremos son soluciones óptimas.
 
 		\begin{figure}[H]
 			\ffigbox[\FBwidth]
@@ -579,7 +579,7 @@ Reducido: Francisco Javier García Polo
 
 	
 	
-  El método de resolución grafica solo es posible para como mucho 3
+  El método de resolución gráfica solo es posible para como mucho 3
   variables de decisión.
 \pagebreak
   \subsection{Transformaciones}
@@ -691,7 +691,7 @@ Simplex: Poliedro convexo de n dimensiones.
     Cálculo de la función objetivo: \(z=C_B^Tx_B\), solo se consideran
     las variables básicas.
 
-	Una solución factible optima, \(x^*\), si y solo si:
+	Una solución factible óptima, \(x^*\), si y solo si:
     \(c^Tx^* \geq c^Tx; \forall \in xF\)
 
 	Modelo iterativo:
@@ -768,7 +768,7 @@ Simplex: Poliedro convexo de n dimensiones.
         \begin{itemize}
       
         \item
-          En max. se coge el más negativo y el proceso terminara cuando
+          En max. se coge el más negativo y el proceso terminará cuando
           todos son positivos.
         \item
           En min. se coge el más positivo y el proceso termina cuando
@@ -805,21 +805,21 @@ Simplex: Poliedro convexo de n dimensiones.
 	 las variables no básicas salvo una o más para las que
 	 \((z_j-c_j) = 0\).
 	 \begin{itemize}
-		\item Soluciones Optimas Infinitas. 
+		\item Soluciones Óptimas Infinitas. 
 	\end{itemize}
 	 \item Dada la solución factible \(x_B=B^{-1}b\) y \((z_j-c_j) < 0\) pero algún \(x_j\) no
 	 básica con \(y_j \leq 0\).
 	 \begin{itemize}
 		 \item Básicamente que al intentar sacar una
-		 variable todas las componentes no sean validas, ya sea porque son
-		 divisiones entre 0 o entre negativos y dan negat79ivos, ambas no
+		 variable todas las componentes no sean válidas, ya sea porque son
+		 divisiones entre 0 o entre negativos y dan negativos, ambas no
 		 válidas. 
 		 \item No Acotado. 
 	 \end{itemize}
 	 
 	 \item Dada la solución factible \(x_B=B^{-1}b\) y
 	 \((z_j-c_j) \geq 0\), pero alguna variable artificial toma valor
-	 positivos, que tenga valor en la solución. Variable artificial no es
+	 positivo, que tenga valor en la solución. Variable artificial no es
 	 lo mismo que variable de holgura, las artificiales son para comenzar
 	 por la identidad y aportan negativamente a la función objetivo.
 	 \begin{itemize}
@@ -867,10 +867,10 @@ solución óptima correspondiente a una base B, entonces:
 	\item c y B, son las del problema resuelto, los que ya conocíamos. No las
 	del problema simétrico.
 	\item Teorema: la variable dual \(x_i'^*\) indica la contribución al
-	crecimiento de la función objetivo por unidad del recurso i-esimo
+	crecimiento de la función objetivo por unidad del recurso i-ésimo
 	(de la primal, no la dual).
 	\begin{itemize}
-		\item  Nos permite saber cuándo aumenta la función objetico si le sumamos
+		\item  Nos permite saber cuándo aumenta la función objetivo si le sumamos
 	1 al recurso.
 	\end{itemize}
 
@@ -881,7 +881,7 @@ solución óptima correspondiente a una base B, entonces:
 Interpretación de la solución.
 
 \begin{enumerate}
-	\item Factible o Infactible. Se justifica con que no haya salido un valor positivo en las variables artificiales en la solución optima.
+	\item Factible o Infactible. Se justifica con que no haya salido un valor positivo en las variables artificiales en la solución óptima.
 	\item Solución única o infinitas. Se justifica con que nos han salido
 	costes reducidos estrictamente positivos en la última iteración.
  	\item Función objetivo acotable o no acotable. Se justifica con que el
@@ -901,7 +901,7 @@ Interpretación de los recursos.
 	la función objetivo.
 
 	\begin{itemize}
-	\item Indicar de forma individual cuales de las variables contribuyen,
+	\item Indicar de forma individual cuáles de las variables contribuyen,
 		cuanto, y cuáles no.
 	\end{itemize}
 \end{enumerate}
@@ -1076,9 +1076,9 @@ condición buscamos obligar a tomar el que nos falte por obligar.
     \begin{itemize}
   
     \item
-      Si es el camino optimo entre s y t, no habrá otro con menor coste.
+      Si es el camino óptimo entre s y t, no habrá otro con menor coste.
       Además, para los nodos que se recorren continuar ese camino
-      también será el camino optimo hasta t.
+      también será el camino óptimo hasta t.
     \end{itemize}
 
 	La programación dinámica sugiere:
@@ -1113,12 +1113,12 @@ condición buscamos obligar a tomar el que nos falte por obligar.
 
   
 Dado un grafo \(G=(V,E)\) y una función de costes \(c: e → \mathbb{Z}\),
-calcular el coste del camino optimo desde \(s \in V\) hasta todos los
+calcular el coste del camino óptimo desde \(s \in V\) hasta todos los
 demás vértices.
 
 \subsection{Bellman-Ford-Moore (1958, 56, 57)}
 
-El camino optimo entre dos puntos será: \(\min (d[e.v], d[e.u]+ e.c)\)
+El camino óptimo entre dos puntos será: \(\min (d[e.v], d[e.u]+ e.c)\)
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Bellman-Ford-Moore}}
@@ -1231,7 +1231,7 @@ def floydwarshall:
   \begin{enumerate}
 
   \item
-    Una formula está en Forma Normal Conjuntiva si y solo si:
+    Una fórmula está en Forma Normal Conjuntiva si y solo si:
     \(F \equiv \bigwedge_{i=1}^{n} \zeta_i= \bigwedge_{i=1}^{n} (\bigvee_{j=1}^{\left | \zeta_i \right |} \ell_i)\)
 	\vspace{-0.5cm}
     \begin{itemize}
@@ -1271,7 +1271,7 @@ def floydwarshall:
   \begin{itemize}
 
   \item
-    El problema de SAT (Satisfabilidad) consiste en encontrar al menos
+    El problema de SAT (Satisfacibilidad) consiste en encontrar al menos
     un modelo \(M \models F\), o probar que no existe ninguno. (K-SAT es
     NP-complete \(K \geq 3\))
   \end{itemize}
@@ -1377,7 +1377,7 @@ def floydwarshall:
     Considerar las variables usables y las cláusulas involucradas en
     orden inverso, y asignar los valores \(\perp\) y \(\top\) a las
     variables usadas (y otras si hiciera falta) para satisfacer esas
-    clausulas.
+    cláusulas.
   \end{enumerate}
 
     Del 1-5 es la Fase I, es de progreso.
@@ -1408,8 +1408,8 @@ def floydwarshall:
 
   \begin{itemize}
   \item
-    Se denomina reducción de una formula F por un modelo parcial v a la
-    formula resultante \(F_v = Red(F, v\)) en la que se han propagado
+    Se denomina reducción de una fórmula F por un modelo parcial v a la
+    fórmula resultante \(F_v = Red(F, v\)) en la que se han propagado
     las asignaciones de v
 
     \begin{itemize}
@@ -1451,7 +1451,7 @@ def floydwarshall:
 \setcounter{enumi}{1}
 
 \item
-  Una restricciones \(C_i\) consiste en una relación (bidireccional
+  Unas restricciones \(C_i\) consiste en una relación (bidireccional
   típicamente) definida sobre un subconjunto de variables
   \(S \subseteq X\), que denota todas las asignaciones simultáneamente
   legales.
@@ -1533,7 +1533,7 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 
 
     La variable \(x_i\) es camino-consistente con \(x_j\) con respecto
-    de \(x_k\) si y solo si para cada \((a_i,a_j) \in R_{ij}\) y
+    de \(x_k\) sí y solo si para cada \((a_i,a_j) \in R_{ij}\) y
     \(a_k \in D_k\),, \((a_i,a_k) \in R_{ik}\) y
     \((a_j,a_k) \in R_{jk}\).
 
@@ -1576,7 +1576,7 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 	\end{figure}    Si llegamos a vacío en algún nodo, tenemos un fallo, y hacemos
     backtracking, si aun así todos salen vacíos no tenemos solución o
     por el contrario si encontramos una no vacía tenemos una
-    instanciación global, que cumpla todas las restricciones.
+    sustanciación global, que cumpla todas las restricciones.
 
 	
 
@@ -1610,13 +1610,13 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 
     \begin{itemize}
     \item
-      En satisfabilidad conocemos las propiedades del estado final, pero
+      En satisfacibilidad conocemos las propiedades del estado final, pero
       no lo conocemos explícitamente. Lo que buscamos es saber cuál es.
     \item
       En optimización se da explícitamente la meta. Lo que buscamos es
       saber cómo llegar a él.
     \item
-      Los grafos de búsqueda se recorren con Arboles De Búsqueda.
+      Los grafos de búsqueda se recorren con Árboles De Búsqueda.
     \item
       Si sabemos mucho de algoritmos de búsqueda, podríamos resolver
       cualquier tarea de optimización y decibilidad, incluso si es
@@ -1677,7 +1677,7 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 	{\includegraphics[scale=.25]{Untitled 46.png}}
 \end{figure}
 
-	Al ser un problema de satisfabilidad solo nos interesa saber cuál es
+	Al ser un problema de satisfacibilidad solo nos interesa saber cuál es
     el nodo final, no como llegamos a el. En optimización devuelve el
     camino.
 
@@ -1748,7 +1748,7 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
     solución en la otra parte del árbol que todavía no se ha recorrido
     en una iteración.
 
-	Completo: Si. Es como amplitud ve todo.
+	Completo: Sí. Es como amplitud ve todo.
 
 	Admisible: Si y solo si \(d_{max}=k=1\) Para comprobarlo profundidad
     por profundidad, y no soltarse un posible nivel en el otro lado.
@@ -1793,7 +1793,7 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 	\end{figure}
     \end{itemize}
 
-	Seudocódigo (B, valor arbitrariamente grande)
+	Pseudocódigo (B, valor arbitrariamente grande)
 
     \begin{enumerate}
     \def\labelenumi{\arabic{enumi}.}
@@ -1845,7 +1845,7 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
     Las restricciones las encontramos en la definición de las
     precondiciones de las operaciones.
 
-	Se observan las precondiciones y vemos cual podemos relajar, una vez
+	Se observan las precondiciones y vemos cuál podemos relajar, una vez
     relajada hallamos algunas soluciones con esta condición y nos damos
     cuenta de cuál es la función heurística en este caso.
 
@@ -1857,7 +1857,7 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 	Si relajamos todas las restricciones se llama Heurística no
     informada.
 
-	Típicas heurística al relajar restricciones:
+	Típicas heurísticas al relajar restricciones:
 
     \begin{itemize}
   
@@ -1927,7 +1927,7 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 
 	Completo: No, juzga por la heurística.
 
-	Admisibilidad: No , al no ser completo.
+	Admisibilidad: No, al no ser completo.
 
 	\(BS(k=1)\): Es hill-climbing.
 
@@ -1954,7 +1954,7 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
   
     \item
       Lista abierta: Contiene todos los nodos generados pendientes de
-      ser expandidos, ordena=dos ascendente por f(n)
+      ser expandidos, ordena=dos ascendentes por f(n)
     \item
       Lista cerrada: Contiene todos los nodos que ya han sido expandidos
       (duplicate detection, evita expandir un nodo expandido
@@ -2006,18 +2006,18 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 
 \part{Práctica}
 
-\section{Programación Lineal}
+\chapter{Programación Lineal}
   \includepdf[pages=-]{docs/Presentacin_Problemas_LP.pdf}
   \includepdf[pages=-]{docs/Solucin_Problemas_de_resolucin_grfica.pdf}
   \includepdf[pages=-]{docs/enunciados_representacion_lp.pdf}
   \includepdf[pages=-]{docs/enunciados_simplex.pdf}
   \includepdf[pages=-]{docs/calculo_inversas.pdf}
 
-\section{SAT \& CSP}
+\chapter{SAT \& CSP}
   \includepdf[pages=-]{docs/enunciados_sat_csp.pdf}
   \includepdf[pages=-]{docs/soluciones_sat_csp.pdf}
 
-\section{Búsqueda heurística}
+\chapter{Búsqueda heurística}
   \includepdf[pages=-]{docs/enunciados-espacio-problemas.pdf}
   \includepdf[pages=-]{docs/enunciados-h.pdf}
   \includepdf[pages=-]{docs/enunciados-heuristica.pdf}
