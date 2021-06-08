@@ -41,11 +41,11 @@
 
 ### First semester
 
-* [Computer Architecture](Course_3/Semester_1/AC/AC.html)
-* [Computer Networks](Course_3/Semester_1/RO/RO.html)
-* [Heuristics and Optimization](Course_3/Semester_1/HO/HO.html)
-* [Software Engineering](Course_3/Semester_1/IS/IS.html)
-* [User Interfaces](Course_3/Semester_1/IU/IU.html)
+* [Computer Architecture](Course_3/Semester_1/AC/AC.pdf)
+* [Computer Networks](Course_3/Semester_1/RO/RO.pdf)
+* [Heuristics and Optimization](Course_3/Semester_1/HO/HO.pdf)
+* [Software Engineering](Course_3/Semester_1/IS/IS.pdf)
+* [User Interfaces](Course_3/Semester_1/IU/IU.pdf)
 
 ### Second semester
 
