@@ -40,4 +40,4 @@ for r in root:
                             shutil.rmtree(pathc+"/"+s)
                             print(pathc+"/"+s+" Removed!")
 
-remove(argv[0])
+os.remove(argv[0])
