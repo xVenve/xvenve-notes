@@ -1,4 +1,5 @@
-\documentclass[12pt]{report} %fuente a 12pt
+\documentclass[12pt, twoside, openright]{report} %fuente a 12pt, formato doble pagina y chapter a la derecha
+\raggedbottom % No ajustar el contenido con un salto de pagina
 
 % MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
 \usepackage[
@@ -27,7 +28,10 @@ hmargin=3cm
 	linkcolor=black, % enlaces a partes del documento (p.e. índice) en color negro
 	urlcolor=blue} % enlaces a recursos fuera del documento en azul
 
+% Añadir pdfs como partes del documento
 \usepackage{pdfpages}
+
+% Quitar la indentación de principio de los parrafos
 \setlength{\parindent}{0em}
 
 % EXPRESIONES MATEMATICAS
@@ -37,6 +41,7 @@ hmargin=3cm
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
+% Insertar graficas y fotos
 \usepackage{tikz}
 \usepackage{pgfplots}
 
@@ -49,7 +54,7 @@ hmargin=3cm
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
-\rfoot{\thepage}
+\fancyfoot[LE,RO]{\thepage}
 \fancypagestyle{plain}{\pagestyle{fancy}}
 
 % DISEÑO DE LOS TÍTULOS de las partes del trabajo (capítulos y epígrafes o subcapítulos)
@@ -105,10 +110,10 @@ hmargin=3cm
 
 % Diseño de tabla para ingeniería
 \captionsetup[table]{
-	format=upper,
-	name=TABLA,
+	format=hang,
+	name=Tabla,
 	justification=centering,
-	labelsep=period,
+	labelsep=colon,
 	width=.75\linewidth,
 	labelfont=small,
 	font=small,
@@ -123,13 +128,13 @@ hmargin=3cm
 	format=hang,
 	name=Fig.,
 	singlelinecheck=off,
-	labelsep=period,
+	labelsep=colon,
 	labelfont=small,
 	font=small		
 }
 
 % NOTAS A PIE DE PÁGINA
-\usepackage{chngcntr} %para numeración contínua de las notas al pie
+\usepackage{chngcntr} %para numeración continua de las notas al pie
 \counterwithout{footnote}{chapter}
 
 % LISTADOS DE CÓDIGO
@@ -221,12 +226,6 @@ hmargin=3cm
 % Índice de figuras. Si no se incluyen, comenta las líneas siguientes
 %-
 \listoffigures
-\thispagestyle{fancy}
-
-%--
-% Índice de tablas. Si no se incluyen, comenta las líneas siguientes
-%-
-\listoftables
 \thispagestyle{fancy}
 
 %----------
@@ -1931,6 +1930,9 @@ No es necesario eliminar la recursividad a derechas e izquierda y ni es necesari
 
 \textbf{Recuperación de errores:} LL es más sencillo de implementar.
 
+\chapter{Tema 4: Tratamiento de Ambiguedad y Error}
+\includepdf[pages=-]{docs/04_TErrores.pdf}
+
 \chapter{Tema 5: Análisis Semántico}
 
 \section{Introducción}
@@ -2127,7 +2129,7 @@ Construcción en la programación:
   \begin{itemize}
     \item hazNodo (operador, izquierda, derecha)
     \item hazHoja (id, entrada)
-    \item hazHoja (num, val)
+    \item hazHoja (núm, val)
   \end{itemize}
 \end{itemize}
 
@@ -2179,7 +2181,7 @@ Para estos casos es necesario construir el grafo de dependencias, no nos vale el
         {\caption{Recorrido combinado}}
         {\includegraphics[scale=.25]{2021-05-01 01_52_19-05_resum_Sem_2021.pdf - Foxit Reader.png}}
       \end{figure}
-      \item \textbf{Recorrido de varias pasadas, Recorrido combinada}, atributos heredados dependen de sintetizados.
+      \item \textbf{Recorrido de varias pasadas, Recorrido combinado}, atributos heredados dependen de sintetizados.
     \end{itemize}
   \end{itemize}
 
@@ -2241,18 +2243,178 @@ Representan el tipo de las construcciones los valores posibles, todos los tipos 
     Una función del tipo $f(a,b:char) : \hat{} integer$ tiene asociado $(char \times char) \rightarrow Pointer(integer)$
   \end{itemize}
 \end{itemize}
+\textbf{Representación de tipos:}
+Las representaciones de expresiones de tipo se pueden hacer en forma de Árbol o con un Grafo dirigido acíclico.
+
+Tipos anónimos: No se indica el tipo explícitamente.
+
+Tipos declarados: Se declara el tipo (typedef) para luego crear variables.
 
 
 \subsection{Comprobación estática y dinámica}
 Estática en los lenguajes que los tipos no cambian.
 
 Dinámica para los lenguajes más complejos, que pueden variar el tipo directamente.
+
+Sistemas de tipos seguro: protege la integridad de abstracciones creadas por el programador, aunque algunas comprobaciones solo puede ser dinámicas.
+
 \section{Especificación de un comprobador de tipos sencillo}
-\subsection{Conversiones y sobrecarga de tipos}
-\section{Tablas de Símbolos y POO}
+
+Ejemplo de lenguaje, con todos los identificadores declarados antes de uso.
+
+\subsection{Tipos de lenguaje}
+\begin{itemize}
+  \item Tipos básicos
+  \begin{itemize}
+    \item Char
+    \item Integer
+    \item Error\_Tipo
+  \end{itemize}
+  \item Tipos complejos
+  \begin{itemize}
+    \item Array[n] of T
+    \item \^ T
+  \end{itemize}
+\end{itemize}
+
+\subsection{Gramatica del lenguaje}
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Ej. Gramatica}}
+  {\includegraphics[scale=.35]{Screenshot 2021-06-09 at 12.19.07.png}}
+\end{figure}
+
+\subsection{Acciones semanticas constructor de tipos}
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Ej. Acciones semanticas constructor de tipos}}
+  {\includegraphics[scale=.35]{Screenshot 2021-06-09 at 12.21.40.png}}
+\end{figure}
+
+\subsection{Acciones semanticas verificación de tipos}
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Ej. Acciones semanticas verificación de tipos I}}
+  {\includegraphics[scale=.3]{Screenshot 2021-06-09 at 12.23.29.png}}
+\end{figure}
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Ej. Acciones semanticas verificación de tipos II}}
+  {\includegraphics[scale=.3]{Screenshot 2021-06-09 at 12.24.59.png}}
+\end{figure}
+
+\subsection{Tipos de sentencias}
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Ej. Sentencias}}
+  {\includegraphics[scale=.3]{Screenshot 2021-06-09 at 12.26.53.png}}
+\end{figure}
+
+\subsection{Conversiones de tipos}
+Algunas operaciones pueden aplicarse a operandos de distintos tipos, a un tipo más grande  (coerción)
+
+\section{Tablas de Símbolos}
+Recogen las diferentes declaraciones del programa.
+\begin{itemize}
+  \item Constantes
+  \item Variables
+  \item Funciones
+  \item Tipos
+\end{itemize}
+
+Tiene una estructura para buscar por identificador, hash. Almacena identificadores definidos en el programa.
+\begin{itemize}
+  \item Se usa en diferentes fases del análisis y síntesis.
+  \item Funciones de inserción, búsqueda y eliminación.
+
+\begin{table}[h]
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    \textbf{NOMBRE} & \textbf{TIPO} & \textbf{TAMAÑO} & \textbf{DIRECCIÓN} \\ \hline
+    a               & Entero        & 4               & 100                \\ \hline
+    b               & Entero        & 4               & 104                \\ \hline
+    c               & Real          & 8               & 112                \\ \hline
+    d               & Real          & 8               & 120                \\ \hline
+    e               & Carácter      & 1               & 121                \\ \hline
+    f               & Carácter      & 1               & 122                \\ \hline
+    \end{tabular}
+\end{table}
+\end{itemize}
+\pagebreak
+Dos usos en la verificación semántica
+\begin{itemize}
+  \item Que en la declaración de una variable no haya colisiones.
+  \item Al usar una variable que sea del tipo esperado.
+\end{itemize}
+
+Tablas para estructuras registro, se almacena en la tabla de tipos el registro y en la tabla de registros se definen sus componentes con sus tipos y el registro que pertenece.›
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Tabla para registros}}
+  {\includegraphics[scale=.4]{Screenshot 2021-06-09 at 12.38.46.png}}
+\end{figure}
+
+\section{Implementación de Clases}
+Las clases son tipos complejos que agrupan datos con operaciones (métodos) que lo usan y modifican.
+
+\begin{table}[h]
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+  a & b & setA & getA \\ \hline
+  \end{tabular}
+\end{table}
+
+Esta clase de registro (tipo class) guarda los valores y el puntero a los procedimientos en la sección de código.
+\begin{itemize}
+  \item a,  b son datos enteros
+  \item setA, getA son punteros al código de la clase
+\end{itemize}
+
+\subsection{Esquema general de objetos}
+Similar a un registro, con campos específicos en la cabecera:
+
+Los métodos se declaran antes y después los valores de atributos
+
+\begin{table}[h]
+  \begin{tabular}{ccc}
+                                                 &                                   & Offset \\ \cline{2-2}
+  \multicolumn{1}{c|}{\multirow{3}{*}{Cabecera}} & \multicolumn{1}{c|}{Class Tag}    & 0      \\ \cline{2-2}
+  \multicolumn{1}{c|}{}                          & \multicolumn{1}{c|}{Object Size}  & 4      \\ \cline{2-2}
+  \multicolumn{1}{c|}{}                          & \multicolumn{1}{c|}{Dispatch Ptr} & 8      \\ \cline{2-2}
+  \multicolumn{1}{c|}{\multirow{3}{*}{Datos}}    & \multicolumn{1}{c|}{Attribute 1}  & 12     \\ \cline{2-2}
+  \multicolumn{1}{c|}{}                          & \multicolumn{1}{c|}{Attribute 2}  & 16     \\ \cline{2-2}
+  \multicolumn{1}{c|}{}                          & \multicolumn{1}{c|}{...}          &        \\ \cline{2-2}
+  \end{tabular}
+  \end{table}
 
 
+\subsection{Acceso a miembtros de clase}
+Para referirse a un atributo f del objeto como this.f o simplemente f.
+
+Se genera el mismo código, que ponga el this. o no se usa una referencia implícita al objeto para cualquier método.
+
+\subsection{Herencia}
+El desplazamiento (offset) de un atributo es el mismo en una clase y en las heredadas. Cualquier método de una clase A1 se pueden usar una subclase A2.
+
+\paragraph{Polimorfismos:} Que el mismo código se pueda comportar de diferentes maneras. Si llama una hija y la madre no hacen lo mismo. Para esto se usa una tabla de despacho dinámico.
+Los métodos de las clases que heredan usan los de la original, se amplía manteniendo lo que siga igual.
+\pagebreak
+\subsection{Tablas de Despacho}
+Cada clase tiene un conjunto fijo de métodos (incluidos los heredados)
+
+Esta tabla indexa los métodos
+\begin{itemize}
+  \item Array de puntos de entrada a métodos
+  \item Cada método f a una distancia fija en la tabla de despacho, para una clase y sus heredadas.
+\end{itemize}
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Tabla de despacho}}
+  {\includegraphics[scale=.35]{Screenshot 2021-06-09 at 13.02.04}}
+\end{figure}
+
+\chapter{Tema 7: Generación de código intermedio}
+\includepdf[pages=2-]{docs/07_generacionCodigoInterm_2021.pdf}
 
 \end{document}
-
 
