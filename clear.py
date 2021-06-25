@@ -5,7 +5,7 @@ from sys import argv
 root = os.listdir(".")
 
 for r in root:
-    if r.find(".") != 0:
+    if r != ".git":
         if r.find("Course") == -1 and r != "clear.py":
             if os.path.isfile(r) or os.path.islink(r):
                 os.remove(r)
