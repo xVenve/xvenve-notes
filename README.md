@@ -1,4 +1,4 @@
-# Notes
+# Notes ![GitHub repo size](https://img.shields.io/github/repo-size/xVenve/xvenve-notes)
 
 ## First course
 
