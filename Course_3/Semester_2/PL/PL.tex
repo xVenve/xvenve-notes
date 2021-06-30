@@ -30,6 +30,7 @@ hmargin=3cm
 
 % Añadir pdfs como partes del documento
 \usepackage{pdfpages}
+\usepackage{multicol}
 
 % Quitar la indentación de principio de los parrafos
 \setlength{\parindent}{0em}
@@ -361,7 +362,64 @@ nuestro enemigo.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Ejemplo Precedencia}}
-	{\includegraphics[scale=.4]{Untitled.png}}
+	{\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+  \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+  %uncomment if require: \path (0,161); %set diagram left start at 0, and has height of 161
+  
+  %Straight Lines [id:da45072977805155023] 
+  \draw    (225,95) -- (225,110) ;
+  %Straight Lines [id:da2749727219932785] 
+  \draw    (250,95) -- (250,110) ;
+  %Straight Lines [id:da8716593878972485] 
+  \draw    (270,65) -- (270,110) ;
+  %Straight Lines [id:da4949071295340721] 
+  \draw    (250,65) -- (250,75) ;
+  %Straight Lines [id:da021799402318489314] 
+  \draw    (260,35) -- (260,45) ;
+  %Straight Lines [id:da16431659853465352] 
+  \draw    (340,95) -- (340,110) ;
+  %Straight Lines [id:da9657613545307073] 
+  \draw    (361,95) -- (361,110) ;
+  %Straight Lines [id:da43212636732503995] 
+  \draw    (320,65) -- (320,110) ;
+  %Straight Lines [id:da3961826548029601] 
+  \draw    (340,65) -- (340,75) ;
+  %Straight Lines [id:da6475380278259601] 
+  \draw    (330,35) -- (330,45) ;
+  %Shape: Brace [id:dp2548873557192568] 
+  \draw   (372.25,130.08) .. controls (376.92,130.07) and (379.25,127.74) .. (379.24,123.07) -- (379.18,88.66) .. controls (379.17,81.99) and (381.5,78.65) .. (386.17,78.64) .. controls (381.5,78.65) and (379.16,75.33) .. (379.15,68.66)(379.16,71.66) -- (379.1,34.24) .. controls (379.09,29.57) and (376.76,27.24) .. (372.09,27.25) ;
+  
+  % Text Node
+  \draw (194,0) node [anchor=north west][inner sep=0.75pt]   [align=left] {Se hace desde lo último derivando hacia arriba};
+  % Text Node
+  \draw (392.75,57) node [anchor=north west][inner sep=0.75pt]   [align=left] {Ambigüedad\\(enemigo)};
+  % Text Node
+  \draw (325,22.4) node [anchor=north west][inner sep=0.75pt]    {$e$};
+  % Text Node
+  \draw (336,77.4) node [anchor=north west][inner sep=0.75pt]    {$e\cdot e$};
+  % Text Node
+  \draw (312,47.4) node [anchor=north west][inner sep=0.75pt]    {$e+e$};
+  % Text Node
+  \draw (314,112.4) node [anchor=north west][inner sep=0.75pt]    {$1$};
+  % Text Node
+  \draw (335,112.4) node [anchor=north west][inner sep=0.75pt]    {$2$};
+  % Text Node
+  \draw (356,112.4) node [anchor=north west][inner sep=0.75pt]    {$3$};
+  % Text Node
+  \draw (256,22.4) node [anchor=north west][inner sep=0.75pt]    {$e$};
+  % Text Node
+  \draw (247,47.4) node [anchor=north west][inner sep=0.75pt]    {$e\cdot e$};
+  % Text Node
+  \draw (221,77.4) node [anchor=north west][inner sep=0.75pt]    {$e+e$};
+  % Text Node
+  \draw (220,112.4) node [anchor=north west][inner sep=0.75pt]    {$1$};
+  % Text Node
+  \draw (245,112.4) node [anchor=north west][inner sep=0.75pt]    {$2$};
+  % Text Node
+  \draw (265,112.4) node [anchor=north west][inner sep=0.75pt]    {$3$};
+\end{tikzpicture}
+}
 \end{figure}
 
 \textbf{Dangling Else}: Sobre a quién pertenece el else, en C el else
@@ -1407,12 +1465,63 @@ izquierdas}. La recursividad a izquierdas hay que evitarla desde el
 principio, pero la factorización si se produce no es un gran problema es
 fácil de resolverla.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama Análisis Sintáctico}}
-	{\includegraphics[scale=.4]{image-20210312125711682.png}
-	\includegraphics[scale=.2]{image-20210312125654582.png}}
-\end{figure}
+\begin{multicols}{2}
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{l}
+        $S \rightarrow var = E$         \\
+        $E \rightarrow O E'$            \\
+        $E' \rightarrow \lambda | op E$ \\
+        $O \rightarrow var | num$      
+    \end{tabular}
+    \caption{Gramatica para Análisis Sintáctico}
+    \end{table}
+    
+    \columnbreak
+    
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+        %uncomment if require: \path (0,203); %set diagram left start at 0, and has height of 203
+        
+        %Flowchart: Connector [id:dp1982303226214901] 
+        \draw   (318,24.5) .. controls (318,16.49) and (324.27,10) .. (332,10) .. controls (339.73,10) and (346,16.49) .. (346,24.5) .. controls (346,32.51) and (339.73,39) .. (332,39) .. controls (324.27,39) and (318,32.51) .. (318,24.5) -- cycle ;
+        
+        %Straight Lines [id:da8394180713642054] 
+        \draw    (332,39) -- (302,69) ;
+        %Straight Lines [id:da763913616535143] 
+        \draw    (332,39) -- (332,69) ;
+        %Straight Lines [id:da46188120699320967] 
+        \draw    (332,39) -- (362,69) ;
+        %Straight Lines [id:da09823187282004309] 
+        \draw    (362,89) -- (332,119) ;
+        %Straight Lines [id:da8988050860357433] 
+        \draw    (392,119) -- (362,89) ;
+        %Straight Lines [id:da006191610664388225] 
+        \draw    (332,139) -- (332,159) ;
+        %Straight Lines [id:da6073536262668413] 
+        \draw    (392,139) -- (392,159) ;
+        
+        % Text Node
+        \draw (326,16) node [anchor=north west][inner sep=0.75pt]   [align=left] {S};
+        % Text Node
+        \draw (291,70) node [anchor=north west][inner sep=0.75pt]   [align=left] {var};
+        % Text Node
+        \draw (327,72) node [anchor=north west][inner sep=0.75pt]   [align=left] {=};
+        % Text Node
+        \draw (356,70) node [anchor=north west][inner sep=0.75pt]   [align=left] {E};
+        % Text Node
+        \draw (325,121) node [anchor=north west][inner sep=0.75pt]   [align=left] {O};
+        % Text Node
+        \draw (386,120) node [anchor=north west][inner sep=0.75pt]   [align=left] {E'};
+        % Text Node
+        \draw (319,161) node [anchor=north west][inner sep=0.75pt]   [align=left] {num};
+        % Text Node
+        \draw (386,161) node [anchor=north west][inner sep=0.75pt]    {$\lambda $};
+    \end{tikzpicture}
+    
+\end{multicols}
+
+$$S \rightarrow var = E \rightarrow var = O E'\rightarrow var = num E' \rightarrow var = num$$
+
 
 En los casos que se tienen varias reglas de producción entre las que
 elegir usará el conjunto primero del terminar más a la izquierda.
@@ -1665,55 +1774,199 @@ La idea general es:
 
 \subsubsection{Ejemplo completo}
 
+\begin{table}[H]
+  \begin{tabular}{ll}
+  $S \rightarrow A S'$      & $E' \rightarrow op E$     \\ 
+  $S' \rightarrow S$        & $E' \rightarrow \lambda$  \\ 
+  $S' \rightarrow \lambda$  & $O \rightarrow num$       \\ 
+  $A\rightarrow id = E$     & $O \rightarrow id$        \\ 
+  $E \rightarrow O E'$      & $O \rightarrow fun ( E )$ \\ 
+  \end{tabular}
+\caption{Gramatica ejemplo}
+\end{table}
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
 \item
   Calcular Conjuntos Primeros.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|}
+    \textbf{}   & \textbf{Primero}        \\ \hline
+    \textbf{S}  & $\{ id \}$              \\ \hline
+    \textbf{S'} & $\{ id, \lambda \}$     \\ \hline
+    \textbf{A}  & $\{ id \}$              \\ \hline
+    \textbf{E}  & $\{ num, id, fun \}$    \\ \hline
+    \textbf{E'} & $\{ op, \lambda \}$     \\ \hline
+    \textbf{O}  & $\{ num, id, fun \}$    \\ \hline
+    \end{tabular}
+    \caption{Ejem. Conjuntos Primeros}
+\end{table}
+
 \item
   Calcular Conjuntos Siguientes.
+
+\begin{multicols}{2}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c|}
+    \textbf{}   & \textbf{Siguiente} \\ \hline
+    \textbf{S}  & $\{ \$ \}$         \\ \hline
+    \textbf{S'} & $\{ \$ \}$         \\ \hline
+    \textbf{A}  & $\{ id, \$ \}$     \\ \hline
+    \textbf{E}  & $\{ id, \$, ) \}$  \\ \hline
+    \textbf{E'} & $\{ id, \$, ) \}$  \\ \hline
+    \textbf{O}  & $\{ op, id, \$ \}$ \\ \hline
+    \end{tabular}
+    \caption{Ejem. Conjuntos Siguientes}
+\end{table}
+
+\begin{align*}
+  &A \rightarrow \alpha B \beta\\
+  &\textit{1) } S(B) = S(B) \cup P(\beta) - \{ \lambda\} \\
+  &\textit{2) Si } \lambda \in P(\beta) \Rightarrow \\
+  &S(B) = S(B) \cup S(A)
+\end{align*}
+
+\columnbreak
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l}
+    $\boldsymbol{S \rightarrow A S'}$        \\
+    $S(A) = S(A) \cup P(S') - \{ \lambda\}$  \\
+    $S(A) = S(A) \cup S(S)$                  \\
+    $S(S') = S(S') \cup S(S)$                \\
+    $\boldsymbol{S' \rightarrow S}$          \\
+    $S(S) = S(S) \cup S(S')$                 \\
+    $\boldsymbol{A\rightarrow id = E}$       \\
+    $S(E) = S(E) \cup S(A)$                  \\
+    $\boldsymbol{E \rightarrow O E'}$        \\
+    $S(O) = S(O) \cup P(E') - \{ \lambda\}$  \\
+    $S(O) = S(O) \cup S(E)$                  \\
+    $S(E') = S(E') \cup S(E)$                \\
+    $\boldsymbol{E' \rightarrow op E}$       \\
+    $S(E) = S(E) \cup S(E')$                 \\
+    $\boldsymbol{O \rightarrow fun ( E )}$   \\
+    $S(E) = S(E) \cup P(")") - \{ \lambda\}$
+    \end{tabular}
+\end{table}
+\end{multicols}
+\pagebreak
 \item
   Calcular Conjuntos de Predicción.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Calculo de Conj. Primero, Siguiente y Predicción}}
-	{\includegraphics[scale=.12]{image-20210320110844879.png}}
-\end{figure}
+  \begin{multicols}{2}
+\begin{table}[H]
+\centering
+\begin{tabular}{l|c}
+                          & \textbf{Predicción}  \\ \hline
+$S \rightarrow A S'$      & $\{ id \}$           \\ \hline
+$S' \rightarrow S$        & $\{ id \}$           \\ \hline
+$S' \rightarrow \lambda$  & $\{ \$ \}$           \\ \hline
+$A\rightarrow id = E$     & $\{ id \}$           \\ \hline
+$E \rightarrow O E'$      & $\{ num, id, fun \}$ \\ \hline
+$E' \rightarrow op E$     & $\{ op \}$           \\ \hline
+$E' \rightarrow \lambda$  & $\{ id, \$, )\}$     \\ \hline
+$O \rightarrow num$       & $\{ num \}$          \\ \hline
+$O \rightarrow id$        & $\{ id \}$           \\ \hline
+$O \rightarrow fun ( E )$ & $\{ fun \}$          \\ \hline
+\end{tabular}
+\caption{Ejem. Conjuntos de Predicción}
+\end{table}
+\columnbreak
+\begin{align*}
+  &A \rightarrow \alpha \\
+  &\textit{Si } \lambda \notin P(\alpha) \Rightarrow \textit{Pred} = P(\alpha) \\
+  &\textit{Si } \lambda \in P(\alpha) \Rightarrow \textit{Pred} = P(\alpha) - \{\alpha\} \cup S(A)
+\end{align*}
+\end{multicols}
 
-\item
-  Comprobación de las Condiciones de
-  LL(1)
-  
-  \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Comprobación de Condiciones LL(1)}}
-	{\includegraphics[scale=.17]{image-20210320110940170.png}}
-\end{figure}
+\item Comprobación de las Condiciones de LL(1)
 
-\pagebreak
+Condiciones de LL(1)
+$$\left. PP
+\begin{matrix}
+S' 
+\begin{cases}
+S' \rightarrow S & \{ id \} \\
+S' \rightarrow \lambda & \{ \lambda \}
+\end{cases} \\ 
+E' 
+\begin{cases}
+E' \rightarrow op E & \{ op \} \\
+E' \rightarrow \lambda & \{ \lambda \}
+\end{cases} 
+\end{matrix}
+\right|
+PS
+\begin{matrix}
+S' 
+\begin{cases}
+S' \rightarrow S & \{ id \} \\
+S' \rightarrow \lambda & \{ \$ \}
+\end{cases} \\ 
+E' 
+\begin{cases}
+E' \rightarrow op E & \{ op \} \\
+E' \rightarrow \lambda & \{ id, \$, ) \}
+\end{cases}  
+\end{matrix}
+$$
+
 \item
   Tabla de Conjuntos de Predicción
 
-
-  \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Construcción de Tabla de Conjuntos de Predicción}}
-	{\includegraphics[scale=.2]{image-20210320111419566.png}}
-\end{figure}
-
+\begin{table}[H]
+  \centering
+  \begin{tabular}{c|c|c|c|c|c|c|c|c|}
+              & \textbf{id} & \textbf{=} & \textbf{op} & \textbf{num} & \textbf{fun} & \textbf{(} & \textbf{)} & \textbf{\$} \\ \hline
+  \textbf{S}  & 1           &            &             &              &              &            &            &             \\ \hline
+  \textbf{S'} & 2           &            &             &              &              &            &            & 3           \\ \hline
+  \textbf{A}  & 4           &            &             &              &              &            &            &             \\ \hline
+  \textbf{E}  & 5           &            &             & 5            & 5            &            &            &             \\ \hline
+  \textbf{E'} & 7           &            & 6           &              &              &            & 7          & 7           \\ \hline
+  \textbf{O}  & 9           &            &             & 8            & 10           &            &            &             \\ \hline
+  \end{tabular}
+  \caption{Ejem. Tabla de Conjuntos de Predicción}
+  \end{table}
+\pagebreak
 \item
   Prueba de lectura de secuencia de entrada (falta que se vaya) y los
   NT que quedan se van con el \$)
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Prueba de lectura de secuencias ASI}}
-	{\includegraphics[scale=.23]{image-20210320111752355.png}}
-\end{figure}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{r|l}
+    id = fun ( num op id ) \$ & S \$               \\
+    id = fun ( num op id ) \$ & A S' \$            \\
+    id = fun ( num op id ) \$ & id = E S' \$       \\
+    = fun ( num op id ) \$    & = E S' \$          \\
+    fun ( num op id ) \$      & E S' \$            \\
+    fun ( num op id ) \$      & O E' S' \$         \\
+    fun ( num op id ) \$      & fun ( E ) E' S' \$ \\
+    ( num op id ) \$          & ( E ) E' S' \$     \\
+    num op id ) \$            & E ) E' S' \$       \\
+    num op id ) \$            & O E' ) E' S' \$    \\
+    num op id ) \$            & num E' ) E' S' \$  \\
+    op id ) \$                & E' ) E' S' \$      \\
+    op id ) \$                & op E ) E' S' \$    \\
+    id ) \$                   & E ) E' S' \$       \\
+    id ) \$                   & O E' ) E' S' \$    \\
+    id ) \$                   & id E' ) E' S' \$   \\
+    ) \$                      & E' ) E' S' \$      \\
+    ) \$                      & ) E' S' \$         \\
+    \$                        & E' S' \$           \\
+    \$                        & S' \$              \\
+    \$                        & \$
+    \end{tabular}
+    \caption{Prueba de lectura de secuencias ASI}
+  \end{table}
   
 \end{enumerate}
-
+\pagebreak
 \section{Análisis Sintáctico Ascendente}
 
 Una secuencia de tokens x pertenece al lenguaje definido por G si genera una secuencia válida del lenguaje. Se van aplicando reglas de producción que generan un árbol sintáctico.
@@ -1826,12 +2079,66 @@ El analizador LR(0) es un Autómata a Pila Determinista, los estados del analiza
 \end{enumerate}
 
 Ejemplo: 
-\begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Generar Conjunto Canónico LR(0)}}
-  {\includegraphics[scale=.3]{2021-03-26 19_23_58-ASintactico.pdf - Foxit Reader.png}}
-\end{figure}
-\pagebreak
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l}
+  $S' \rightarrow S$     \\
+  $S \rightarrow T$      \\
+  $S \rightarrow S \textit{op} T$ \\
+  $T \rightarrow \textit{num}$    \\
+  $T \rightarrow ( S )$ 
+  \end{tabular}
+  \end{table}
+  
+  \begin{enumerate}
+  \item Ampliamos: $S' \rightarrow S$
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{l}
+    $S' \rightarrow S$     \\
+    $S' \rightarrow S$     \\
+    $S \rightarrow T$      \\
+    $S \rightarrow S \textit{op} T$ \\
+    $T \rightarrow \textit{num}$    \\
+    $T \rightarrow ( S )$ 
+    \end{tabular}
+    \end{table}
+  \item Hacer el cierre de la ampliación del axioma
+  \begin{flalign*}
+          E_0:& S' \rightarrow \cdot S \\
+          &S \rightarrow \cdot T \\
+          &S \rightarrow \cdot S \textit{op} T \\
+          &T \cdot \rightarrow \textit{num} \\
+          &T \cdot \rightarrow ( S ) \\
+        \end{flalign*}
+  \item Hacer Ir\_a para $\Sigma = \{S, T, \textit{op}, \textit{num}, (, )\}$, no hace falta hacer todos, solo tiene sentido para aquellos que tienen un punto a la izquierda. Un estado por cada Ir\_a que se puede hacer desde $E_0$
+  \begin{multicols}{2}
+  \begin{flalign*}
+          E_1:& S' \rightarrow S \cdot \\
+          &S \rightarrow S \cdot \textit{op} T \\
+          E_2:& S \rightarrow T \cdot \\
+          E_3:& T \rightarrow \textit{num} \cdot \\
+          E_4:& T \rightarrow ( \cdot S ) \\
+          &S \rightarrow \cdot T \\
+          &S \rightarrow \cdot S \textit{op} T \\
+          &T \rightarrow \cdot \textit{num} \\
+          &T \rightarrow \cdot ( S ) \\
+  \end{flalign*}
+  \columnbreak
+  
+  \begin{flalign*}
+          E_5:& S \rightarrow S \textit{op} \cdot T \\
+          &T \rightarrow \cdot \textit{num} \\
+          &T \rightarrow \cdot ( S ) \\
+          E_6:& T \rightarrow  ( S \cdot ) \\
+          &S \rightarrow S \cdot \textit{op} T \\
+          E_7:& S \rightarrow S \textit{op} T \cdot \\
+          E_8:& T \rightarrow  ( S ) \cdot \\
+  \end{flalign*}
+  \end{multicols}
+  
+  \end{enumerate}
+
 \textbf{Asociar acciones a los ítems de los estados:}
 \begin{itemize}
   \item $\forall I_k = \{ A \rightarrow \alpha \cdot x \beta\} I_k \in E_j \space y \space x\in \sum_T, Accion(E_j, x)=Desplazar E_n, E_n = Ir\_a(E_j,x)$
@@ -1841,11 +2148,25 @@ Ejemplo:
 \end{itemize}
 
 Ejemplo: 
-\begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Analizador LR(0)}}
-  {\includegraphics[scale=.35]{2021-03-26 19_51_21-ASintactico.pdf - Foxit Reader.png}}
-\end{figure}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{c|c|c|c|c|c|c|c|c|}
+  \cline{2-9}
+  \multirow{2}{*}{}                & \multirow{2}{*}{\textbf{Acción}} & \multicolumn{5}{c|}{\textbf{Entrada}}                              & \multicolumn{2}{c|}{\textbf{Ir\_a}} \\ \cline{3-9} 
+                                   &                                  & \textbf{(} & \textbf{num} & \textbf{)} & \textbf{op} & \textbf{\$} & \textbf{S}       & \textbf{T}       \\ \hline
+  \multicolumn{1}{|c|}{\textbf{0}} & Desplazar                        & 4          & 3            &            &             &             & 1                & 2                \\ \hline
+  \multicolumn{1}{|c|}{\textbf{1}} & Desplazar                        &            &              &            & 5           & ACP         &                  &                  \\ \hline
+  \multicolumn{1}{|c|}{\textbf{2}} & Reducir                          & \multicolumn{5}{c|}{$S \rightarrow T$}                             &                  &                  \\ \hline
+  \multicolumn{1}{|c|}{\textbf{3}} & Reducir                          & \multicolumn{5}{c|}{$T \rightarrow ( S )$}                         &                  &                  \\ \hline
+  \multicolumn{1}{|c|}{\textbf{4}} & Desplazar                        & 4          & 3            &            &             &             & 6                & 2                \\ \hline
+  \multicolumn{1}{|c|}{\textbf{5}} & Desplazar                        & 4          & 3            &            &             &             &                  & 7                \\ \hline
+  \multicolumn{1}{|c|}{\textbf{6}} & Desplazar                        &            &              &            &             &             &                  &                  \\ \hline
+  \multicolumn{1}{|c|}{\textbf{7}} & Reducir                          & \multicolumn{5}{c|}{$S \rightarrow S \textit{op} T$}               &                  &                  \\ \hline
+  \multicolumn{1}{|c|}{\textbf{8}} & Reducir                          & \multicolumn{5}{c|}{$T \rightarrow ( S )$}                         &                  &                  \\ \hline
+  \end{tabular}
+  \caption{Analizador LR(0)}
+  \end{table}
 
 LR(0) toma la decisión de desplazar o reducir SIN depender del token de entrada, solo del estado, pero si del estado al que transita.
 
@@ -2407,12 +2728,77 @@ Esta tabla indexa los métodos
   \item Array de puntos de entrada a métodos
   \item Cada método f a una distancia fija en la tabla de despacho, para una clase y sus heredadas.
 \end{itemize}
-\begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Tabla de despacho}}
-  {\includegraphics[scale=.35]{Screenshot 2021-06-09 at 13.02.04}}
-\end{figure}
 
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ccccccccccccccccc}
+                                  & \textbf{a}              & \textbf{b}              & \textbf{c}              & \textbf{d}              & \textbf{e}                                     & \textbf{f}                                     & \textbf{g}                                     & \textbf{h}                                     & \textbf{i}                                     & \textbf{j}                                     & \textbf{k}                                     & \textbf{l}                                     & \textbf{m}                                     & \textbf{n}                                     & \textbf{o}                                     & \textbf{p}                                     \\ \cline{2-17} 
+  \multicolumn{1}{c|}{\textbf{A}} & \multicolumn{1}{c|}{01} & \multicolumn{1}{c|}{02} & \multicolumn{1}{c|}{03} & \multicolumn{1}{c|}{04} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} \\ \cline{2-17} 
+  \multicolumn{1}{c|}{\textbf{B}} & \multicolumn{1}{c|}{01} & \multicolumn{1}{c|}{09} & \multicolumn{1}{c|}{03} & \multicolumn{1}{c|}{04} & \multicolumn{1}{c|}{06}                        & \multicolumn{1}{c|}{07}                        & \multicolumn{1}{c|}{08}                        & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} \\ \cline{2-17} 
+  \multicolumn{1}{c|}{\textbf{C}} & \multicolumn{1}{c|}{01} & \multicolumn{1}{c|}{09} & \multicolumn{1}{c|}{03} & \multicolumn{1}{c|}{04} & \multicolumn{1}{c|}{10}                        & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{11}                        & \multicolumn{1}{c|}{12}                        & \multicolumn{1}{c|}{13}                        & \multicolumn{1}{c|}{14}                        & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} \\ \cline{2-17} 
+  \multicolumn{1}{c|}{\textbf{D}} & \multicolumn{1}{c|}{15} & \multicolumn{1}{c|}{09} & \multicolumn{1}{c|}{26} & \multicolumn{1}{c|}{04} & \multicolumn{1}{c|}{10}                        & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{11}                        & \multicolumn{1}{c|}{12}                        & \multicolumn{1}{c|}{17}                        & \multicolumn{1}{c|}{18}                        & \multicolumn{1}{c|}{19}                        & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} \\ \cline{2-17} 
+  \multicolumn{1}{c|}{\textbf{E}} & \multicolumn{1}{c|}{01} & \multicolumn{1}{c|}{09} & \multicolumn{1}{c|}{03} & \multicolumn{1}{c|}{04} & \multicolumn{1}{c|}{10}                        & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{11}                        & \multicolumn{1}{c|}{20}                        & \multicolumn{1}{c|}{21}                        & \multicolumn{1}{c|}{22}                        & \multicolumn{1}{c|}{23}                        & \multicolumn{1}{c|}{24}                        & \multicolumn{1}{c|}{25}                        & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} \\ \cline{2-17} 
+  \multicolumn{1}{c|}{\textbf{F}} & \multicolumn{1}{c|}{01} & \multicolumn{1}{c|}{09} & \multicolumn{1}{c|}{03} & \multicolumn{1}{c|}{04} & \multicolumn{1}{c|}{10}                        & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{11}                        & \multicolumn{1}{c|}{12}                        & \multicolumn{1}{c|}{13}                        & \multicolumn{1}{c|}{14}                        & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0} & \multicolumn{1}{c|}{26}                        & \multicolumn{1}{c|}{27}                        \\ \cline{2-17} 
+  \end{tabular}
+  \caption{Tabla de despacho}
+  \end{table}
+    
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+    %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+    %Flowchart: Connector [id:dp8263106487253196] 
+    \draw   (265,29.5) .. controls (265,23.98) and (269.48,19.5) .. (275,19.5) .. controls (280.52,19.5) and (285,23.98) .. (285,29.5) .. controls (285,35.02) and (280.52,39.5) .. (275,39.5) .. controls (269.48,39.5) and (265,35.02) .. (265,29.5) -- cycle ;
+    %Flowchart: Connector [id:dp9156282731650551] 
+    \draw   (230,69.5) .. controls (230,63.98) and (234.48,59.5) .. (240,59.5) .. controls (245.52,59.5) and (250,63.98) .. (250,69.5) .. controls (250,75.02) and (245.52,79.5) .. (240,79.5) .. controls (234.48,79.5) and (230,75.02) .. (230,69.5) -- cycle ;
+    %Flowchart: Connector [id:dp44148600683534744] 
+    \draw   (190,110.5) .. controls (190,104.98) and (194.48,100.5) .. (200,100.5) .. controls (205.52,100.5) and (210,104.98) .. (210,110.5) .. controls (210,116.02) and (205.52,120.5) .. (200,120.5) .. controls (194.48,120.5) and (190,116.02) .. (190,110.5) -- cycle ;
+    %Flowchart: Connector [id:dp013202394940729612] 
+    \draw   (300,69.5) .. controls (300,63.98) and (304.48,59.5) .. (310,59.5) .. controls (315.52,59.5) and (320,63.98) .. (320,69.5) .. controls (320,75.02) and (315.52,79.5) .. (310,79.5) .. controls (304.48,79.5) and (300,75.02) .. (300,69.5) -- cycle ;
+    %Flowchart: Connector [id:dp35188985703112063] 
+    \draw   (230,110.5) .. controls (230,104.98) and (234.48,100.5) .. (240,100.5) .. controls (245.52,100.5) and (250,104.98) .. (250,110.5) .. controls (250,116.02) and (245.52,120.5) .. (240,120.5) .. controls (234.48,120.5) and (230,116.02) .. (230,110.5) -- cycle ;
+    %Flowchart: Connector [id:dp4241310610084512] 
+    \draw   (270,110.5) .. controls (270,104.98) and (274.48,100.5) .. (280,100.5) .. controls (285.52,100.5) and (290,104.98) .. (290,110.5) .. controls (290,116.02) and (285.52,120.5) .. (280,120.5) .. controls (274.48,120.5) and (270,116.02) .. (270,110.5) -- cycle ;
+    
+    % Text Node
+    \draw (234,61) node [anchor=north west][inner sep=0.75pt]   [align=left] {C};
+    % Text Node
+    \draw (304,61) node [anchor=north west][inner sep=0.75pt]   [align=left] {B};
+    % Text Node
+    \draw (194,102) node [anchor=north west][inner sep=0.75pt]   [align=left] {D};
+    % Text Node
+    \draw (234,102) node [anchor=north west][inner sep=0.75pt]   [align=left] {E};
+    % Text Node
+    \draw (274,102) node [anchor=north west][inner sep=0.75pt]   [align=left] {F};
+    % Text Node
+    \draw (269,21) node [anchor=north west][inner sep=0.75pt]   [align=left] {A};
+    % Text Node
+    \draw (291,22) node [anchor=north west][inner sep=0.75pt]   [align=left] {abcd};
+    % Text Node
+    \draw (188,62) node [anchor=north west][inner sep=0.75pt]   [align=left] {behijk};
+    % Text Node
+    \draw (321,62) node [anchor=north west][inner sep=0.75pt]   [align=left] {befg};
+    % Text Node
+    \draw (187,122) node [anchor=north west][inner sep=0.75pt]   [align=left] {acjkl};
+    % Text Node
+    \draw (221,122) node [anchor=north west][inner sep=0.75pt]   [align=left] {ijklmn};
+    % Text Node
+    \draw (270,122) node [anchor=north west][inner sep=0.75pt]   [align=left] {op};
+    % Connection
+    \draw    (231,79.24) -- (210,100.76) ;
+    % Connection
+    \draw    (240.35,82) -- (240.15,98) ;
+    % Connection
+    \draw    (250,79.49) -- (271,101.56) ;
+    % Connection
+    \draw    (266,39.93) -- (250,58.49) ;
+    % Connection
+    \draw    (284,39.79) -- (301,59.21) ;
+    
+    \end{tikzpicture}
+  
+\end{figure}
+  
 \chapter{Tema 7: Generación de código intermedio}
 \includepdf[pages=2-]{docs/07_generacionCodigoInterm_2021.pdf}
 
