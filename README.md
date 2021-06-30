@@ -4,53 +4,53 @@
 
 ### First semester
 
-* [Calculus](Course_1/Semester_1/C/C.pdf)
-* [Information Skills](Course_1/Semester_1/TBUI/TBUI.pdf)
-* [Linear Algebra](Course_1/Semester_1/AL/AL.pdf)
-* [Physics](Course_1/Semester_1/F/F.pdf)
-* [Programming](Course_1/Semester_1/P/P.pdf)
-* [Writing and Communication Skills](Course_1/Semester_1/TEOYE/TEOYE.pdf)
+* [Calculus](https://drive.google.com/open?id=1TQKFL2ATf0EJ06FmWNSa5IZdWFZl9ozp)
+* [Information Skills](https://drive.google.com/open?id=1I51-WAALzgssUFq-iTlHtIyJOwCcWS2_)
+* [Linear Algebra](https://drive.google.com/open?id=1LkjzqheO80HzOPtw6D9tGk0Qj2nIFtj9)
+* [Physics](https://drive.google.com/open?id=13j_iSdgINqRevhWc-dGdcdrY9vZSQC8I)
+* [Programming](https://drive.google.com/open?id=1D1COQhArmPs-S7fRMP7hoNgNKFGUyu4X)
+* [Writing and Communication Skills](https://drive.google.com/open?id=1spUgqwDLk3Qv5iU_6Qy9luAr5knnIjN2)
 
 ### Second semester
 
-* [Algorithms and Data Structures](Course_1/Semester_2/EDA/EDA.pdf)
-* [Computer Technology](Course_1/Semester_2/TC/TC.pdf)
-* [Discrete Mathematics](Course_1/Semester_2/MD/MD.pdf)
-* [Logic](Course_1/Semester_2/L/L.pdf)
-* [Principles of Computer Engineering](Course_1/Semester_2/PF/PF.pdf)
+* [Algorithms and Data Structures](https://drive.google.com/open?id=1RPOO49HhOmGtSlWOi5idMgkrHh-YcbbD)
+* [Computer Technology](https://drive.google.com/open?id=1sbEPzvDjBJQMh5648WEQXTo9vwKmbHYm)
+* [Discrete Mathematics](https://drive.google.com/open?id=1s0ZsXRj35yJr9GuwLUthzEJZzUwkU9wz)
+* [Logic](https://drive.google.com/open?id=1rII-OBUpSD30DarAyaJA5dv2aspADAlv)
+* [Principles of Computer Engineering](https://drive.google.com/open?id=1LH8rix6VRvBquPQMyTwLco06qRH0GIyp)
 
 ## Second course
 
 ### First semester
 
-* [Applied Differential Calculus](Course_2/Semester_1/CDA/CDA.pdf)
-* [Automata and Formal Language Theory](Course_2/Semester_1/TALF/TALF.pdf)
-* [Computer Structure](Course_2/Semester_1/EC/EC.pdf)
-* [Introduction to Business Management](Course_2/Semester_1/FGE/FGE.pdf)
-* [Statistics](Course_2/Semester_1/E/E.pdf)
+* [Applied Differential Calculus](https://drive.google.com/open?id=1yEiZDJqzhpGEsUR0f2PolrV3hYaYPOhQ)
+* [Automata and Formal Language Theory](https://drive.google.com/open?id=1KYea11qf7MYggpRvnY3I-wYBOug5cq9b)
+* [Computer Structure](https://drive.google.com/open?id=1mAQU_lhNbVO7m6QsqlxitXxnWvy_48Dc)
+* [Introduction to Business Management](https://drive.google.com/open?id=1eHyeq7ysfzMJI3tzZa2ZOQO4V8_26R-B)
+* [Statistics](https://drive.google.com/open?id=1yLsNkVYTf-7-Jb53MuKddauTBFirnecv)
 
 ### Second semester
 
-* [Artificial Intelligence](Course_2/Semester_2/IA/IA.pdf)
-* [Cryptography and Computer Security](Course_2/Semester_2/CSI/CSI.pdf)
-* [Files and Databases](Course_2/Semester_2/FBD/FBD.pdf)
-* [Operating Systems](Course_2/Semester_2/SO/SO.pdf)
-* [Principles of Software Development](Course_2/Semester_2/PDS/PDS.pdf)
+* [Artificial Intelligence](https://drive.google.com/open?id=18NV-IicQL8qcUdA1bp9LTBLK_5_4ZjUz)
+* [Cryptography and Computer Security](https://drive.google.com/open?id=1V38aXnJk_CEuRToEvne4Axu3GlfZmmEM)
+* [Files and Databases](https://drive.google.com/open?id=1ZQV3z_a-cxr4ZxhuoFO2BNqEfgmisVZi)
+* [Operating Systems](https://drive.google.com/open?id=1hZt3DlhU8gPQ69jz9cdN6YHxB9Wea6o8)
+* [Principles of Software Development](https://drive.google.com/open?id=13g6yBNDkaJTY_p6RfWGHEZi2dNmhNqgg)
 
 ## Third course
 
 ### First semester
 
-* [Computer Architecture](Course_3/Semester_1/AC/AC.pdf)
-* [Computer Networks](Course_3/Semester_1/RO/RO.pdf)
-* [Heuristics and Optimization](Course_3/Semester_1/HO/HO.pdf)
-* [Software Engineering](Course_3/Semester_1/IS/IS.pdf)
-* [User Interfaces](Course_3/Semester_1/IU/IU.pdf)
+* [Computer Architecture](https://drive.google.com/open?id=1yEiZDJqzhpGEsUR0f2PolrV3hYaYPOhQ)
+* [Computer Networks](https://drive.google.com/open?id=1WyumzCKn78smXsLlP_W59teOSs4IsUUv)
+* [Heuristics and Optimization](https://drive.google.com/open?id=1WrgpRJmlNh2QCw7Y-iKGiVJ0lOGxz3GY)
+* [Software Engineering](https://drive.google.com/open?id=1-twSWTL8mQz514XIEhZ7Sa-cwy_BB3rE)
+* [User Interfaces](https://drive.google.com/open?id=1F4n4yI0TsI_PNJTLSfL30hdwbnxqOg5_)
 
 ### Second semester
 
-* [Compilers](Course_3/Semester_2/PL/PL.pdf)
-* [Design of Interactive Systems](Course_3/Semester_2/DSI/DSI.pdf)
-* [Machine Learning](Course_3/Semester_2/AA/AA.pdf)
-* [Operating Systems Design](Course_3/Semester_2/DSO/DSO.pdf)
-* [Software Development Projects Management](Course_3/Semester_2/DPDS/DPDS.pdf)
+* [Compilers](https://drive.google.com/open?id=1lDcaELxqpAbj-0HN_VRMR_ms-rdFPazf)
+* [Design of Interactive Systems](https://drive.google.com/open?id=1k7B4S_Dka2UMwMuVsKRoVONfBRL_aPHF)
+* [Machine Learning](https://drive.google.com/file/d/1vWaFu8clxDaJEyYwbN5Gyz_urlBAfZek)
+* [Operating Systems Design](https://drive.google.com/open?id=1UQKRY6aBhSCIEq5xgZvI9r4SUT6L09NO)
+* [Software Development Projects Management](https://drive.google.com/open?id=1vkLZzg83SIzFWm_TpkVxiceRaSguKe61)
