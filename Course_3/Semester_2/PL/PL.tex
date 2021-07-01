@@ -504,11 +504,13 @@ retrocede.
   símbolo.
 \end{itemize}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Algoritmo de Factorización a Izquierdas}}
-	{\includegraphics[scale=.3]{Untitled 1.png}}
-\end{figure}
+P: $A \rightarrow \beta \cdot \alpha_1 | \beta \cdot \alpha_2$ Hay una estructura comun
+
+\begin{enumerate}
+  \item $\Sigma_N = \Sigma_N \cup \{ A'\}$ Nuevo no terminal
+  \item $B = (B - P)$ Se quitan las reglas
+  \item $B' = B \cup \{ A \rightarrow \beta \cdot A',{ } A' \rightarrow \alpha_1 | \alpha_2 \}$
+\end{enumerate}
 
 \textbf{Eliminar recursividad por la izquierda}
 
@@ -524,11 +526,12 @@ retrocede.
   que era recursivo a izquierda, pero en recursividad a la derecha.
 \end{itemize}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Algoritmo de Eliminación de recursividad a Izquierdas}}
-	{\includegraphics[scale=.4]{Untitled 2.png}}
-\end{figure}
+$\forall P \subseteq B | P = (A \rightarrow A \cdot \alpha | B)$
+\begin{enumerate}
+  \item $\Sigma_N = \Sigma_N \cup \{ A'\}$
+  \item $B = (B - P)$ 
+  \item $B' = B \cup \{ A \rightarrow \beta \cdot A',{ } A' \rightarrow \alpha \cdot A' | \lambda \}$
+\end{enumerate}
 
 \section{Autómata Finito Determinista}
 
@@ -550,12 +553,80 @@ retrocede.
   voy a un estado.
 \end{itemize}
 
+\begin{multicols}{2}
+\begin{table}[H]
+\centering
+\begin{tabular}{r|c|c|}
+\cline{2-3}
+\multicolumn{1}{l|}{}                                & \textbf{a} & \textbf{b} \\ \hline
+\multicolumn{1}{|r|}{$\boldsymbol{\rightarrow q_0}$} & $q_1$      & $q_2$      \\
+\multicolumn{1}{|r|}{$\boldsymbol{q_1}$}             & $q_1$      & $q_0$      \\
+\multicolumn{1}{|r|}{$\boldsymbol{*q_2}$}            & $q_1$      & $q_2$      \\ \hline
+\end{tabular}
+\caption{Tabla de transiciones}
+\end{table}
+
+\columnbreak
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Diagrama AFD}}
-	{\includegraphics[scale=.25]{Untitled 3.png}}
-\end{figure}
+	{\caption{Diagrama de transiciones}}
+	{\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Flowchart: Connector [id:dp07993535049485034] 
+\draw   (271,66) .. controls (271,57.72) and (277.49,51) .. (285.5,51) .. controls (293.51,51) and (300,57.72) .. (300,66) .. controls (300,74.28) and (293.51,81) .. (285.5,81) .. controls (277.49,81) and (271,74.28) .. (271,66) -- cycle ;
+%Flowchart: Connector [id:dp7169760176687654] 
+\draw   (310.75,139.5) .. controls (310.75,131.22) and (317.24,124.5) .. (325.25,124.5) .. controls (333.26,124.5) and (339.75,131.22) .. (339.75,139.5) .. controls (339.75,147.78) and (333.26,154.5) .. (325.25,154.5) .. controls (317.24,154.5) and (310.75,147.78) .. (310.75,139.5) -- cycle ;
+%Flowchart: Connector [id:dp3068425266497352] 
+\draw   (381,57) .. controls (381,48.72) and (387.49,42) .. (395.5,42) .. controls (403.51,42) and (410,48.72) .. (410,57) .. controls (410,65.28) and (403.51,72) .. (395.5,72) .. controls (387.49,72) and (381,65.28) .. (381,57) -- cycle ;
+%Flowchart: Connector [id:dp3953211758173052] 
+\draw   (309,139.5) .. controls (309,130.39) and (316.28,123) .. (325.25,123) .. controls (334.22,123) and (341.5,130.39) .. (341.5,139.5) .. controls (341.5,148.61) and (334.22,156) .. (325.25,156) .. controls (316.28,156) and (309,148.61) .. (309,139.5) -- cycle ;
+%Straight Lines [id:da011534921262301268] 
+\draw    (249,66) -- (268,66) ;
+\draw [shift={(271,66)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+%Curve Lines [id:da9910642337450042] 
+\draw    (404,42) .. controls (432.52,32.11) and (445.42,49.87) .. (416.78,56.43) ;
+\draw [shift={(414,57)}, rotate = 349.44] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+%Curve Lines [id:da062406182328217374] 
+\draw    (342,147) .. controls (367.81,163.15) and (327.25,210.74) .. (324.12,161.33) ;
+\draw [shift={(324,159)}, rotate = 447.85] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+
+% Text Node
+\draw (279,56.4) node [anchor=north west][inner sep=0.75pt]    {$q_{0}$};
+% Text Node
+\draw (387,46.4) node [anchor=north west][inner sep=0.75pt]    {$q_{1}$};
+% Text Node
+\draw (316,127.4) node [anchor=north west][inner sep=0.75pt]    {$q_{2}$};
+% Text Node
+\draw (309,20) node [anchor=north west][inner sep=0.75pt]   [align=left] {a};
+% Text Node
+\draw (334,71) node [anchor=north west][inner sep=0.75pt]   [align=left] {b};
+% Text Node
+\draw (276,110) node [anchor=north west][inner sep=0.75pt]   [align=left] {b};
+% Text Node
+\draw (372,101) node [anchor=north west][inner sep=0.75pt]   [align=left] {a};
+% Text Node
+\draw (438,32) node [anchor=north west][inner sep=0.75pt]   [align=left] {a};
+% Text Node
+\draw (355,152) node [anchor=north west][inner sep=0.75pt]   [align=left] {b};
+% Connection
+\draw    (297.31,52) .. controls (323.41,28.89) and (351.54,25.86) .. (381.68,42.91) ;
+\draw [shift={(384,44.26)}, rotate = 210.87] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+% Connection
+\draw    (385.69,68) .. controls (359.59,91.11) and (331.46,94.14) .. (301.32,77.09) ;
+\draw [shift={(299,75.74)}, rotate = 390.87] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+% Connection
+\draw    (285.11,78) .. controls (278.09,103.09) and (286.5,120.35) .. (310.34,129.78) ;
+\draw [shift={(313,130.78)}, rotate = 199.55] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+% Connection
+\draw    (336,133.43) .. controls (390.21,122.75) and (411.62,101.75) .. (400.24,70.43) ;
+\draw [shift={(399.3,68)}, rotate = 427.69] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+
+\end{tikzpicture}}
+\end{figure}
+\end{multicols}
 Extensión a palabras: Recibe una palabra y va cogiendo los símbolos de
 entrada, y aplicando reglas sucesivas. Palabras que partiendo del
 inicial nos permite llegar a uno final.
@@ -584,12 +655,6 @@ medio de AFND.
   En este caso se permite transicionar sin recibir símbolo, lambda,
   además, varias transiciones para un mismo símbolo en un mismo estado.
 \end{itemize}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama AFND}}
-	{\includegraphics[scale=.4]{Untitled 4.png}}
-\end{figure}
 
 Para cualquier AFD existe uno no determinista equivalente.
 
@@ -628,7 +693,7 @@ de entrada, está vacía, termina.
 
 
 \section{Expresiones Regulares G3}
-
+\begin{multicols}{2}
 \textbf{Definición:}
 
 \begin{itemize}
@@ -645,7 +710,7 @@ de entrada, está vacía, termina.
 \item
   \(\alpha ^*\) es una ER, la clausura.
 \end{itemize}
-
+\columnbreak
 \textbf{ER útiles:}
 
 \begin{itemize}
@@ -659,18 +724,58 @@ de entrada, está vacía, termina.
 \item
   \([a-z] = a|b|...|z\)
 \end{itemize}
+\end{multicols}
 
 Dos EERR son equivalentes si describen el mismo lenguaje.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Reglas de EERR}}
-	{\includegraphics[scale=.15]{Untitled 5.png}
-	\includegraphics[scale=.25]{Untitled 6.png}}
-	{\includegraphics[scale=.3]{Untitled 7.png}}
-\end{figure}
+\textbf{Lenguaje asociado a una ER}
+\begin{itemize}
+  \item si $\alpha = \emptyset, L(\alpha) = \emptyset$
+  \item si $\alpha = \lambda , L(\alpha) = \lambda$
+  \item si $\alpha = a | a \in \Sigma, L(\alpha) = \{a\}$
+  \item si $\alpha$ y $\beta$ son EERR $\Rightarrow L(\alpha+\beta)= L(\alpha) \cup L(\beta)$ 
+  \item si $\alpha$ y $\beta$ son EERR $\Rightarrow L(\alpha\cdot\beta)= L(\alpha) \cdot L(\beta)$ 
+  \item si $\alpha^*$ es una ER $\Rightarrow L(\alpha^*)= L(\alpha)^*$ 
+\end{itemize}
 
-Inferencia: Si X=AX+B entonces X=A*B
+\textbf{Propiedades}
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $(\alpha+\beta)+\sigma = \alpha + (\beta + \sigma)$
+  \item $\alpha + \beta = \beta + \alpha$
+  \item $(\alpha \cdot \beta)\cdot\sigma = \alpha \cdot (\beta\cdot\sigma)$
+  \item $\alpha \cdot (\beta +\sigma) = (\alpha \cdot \beta) + (\alpha \cdot \sigma)$
+  
+  $(\beta +\sigma) \cdot \alpha  = (\beta \cdot \alpha) + (\sigma \cdot \alpha)$
+  \item $\alpha \cdot \lambda = \lambda \cdot \alpha = \alpha$
+  \item $\alpha + \phi = \phi + \alpha = \alpha$
+  \item $\lambda^* = \lambda$
+  \item $\alpha \cdot \phi = \phi \cdot \alpha= \phi$
+  \item $\phi^* = \lambda$
+  \item $\alpha^* \cdot \alpha^* = \alpha^*$
+  \item $\alpha \cdot \alpha^* = \alpha^* \cdot \alpha$
+  \columnbreak
+  \item $(\alpha^*)^*=\alpha^*$
+  \item $\alpha^* = \lambda + \alpha + \alpha^2 + ... + \alpha^n + \alpha^{n+1} \cdot \alpha^*$
+  \item $\alpha^* = \lambda + \alpha \cdot \alpha^*$
+  \item $\alpha^* = (\lambda + \alpha)n-1 + \alpha n \cdot \alpha^*$
+  \item Sea $f$ una función, $f: E_{\Sigma^n} \rightarrow E_\Sigma$ se verifica: 
+  
+  $f(\alpha, \beta, ..., \sigma) + (\alpha + \beta + ... + \sigma)^* = (\alpha + \beta + ... + \sigma)^*$
+
+  \item Sea $f$ una función, $f: E_{\Sigma^n} \rightarrow E_\Sigma$ se verifica: 
+  
+  $(f(\alpha^*, \beta^*, ..., \sigma^*))^* = (\alpha + \beta + ... + \sigma)^*$
+
+  \item $(\alpha^* + \beta^*)^* = (\alpha^* \cdot \beta^*)^* = (\alpha + \beta)^*$ (IMPORTANTE)
+  \item $(\alpha \cdot \beta)^*\cdot \alpha = \alpha \cdot (\beta \cdot \alpha)^*$
+  \item $(\alpha^* \cdot \beta)^*\cdot \alpha^* =(\alpha + \beta)^*$  
+  \item $(\alpha^* \cdot \beta)^*\cdot \alpha^* = \lambda + (\alpha + \beta)^*\cdot \beta$
+  \item Regla de Inferencia: 
+  
+  Si $X=AX+B$ entonces $X=A^*B$
+\end{enumerate}
+\end{multicols}
 
 \chapter{Tema 1: Introducción}
 
@@ -682,7 +787,59 @@ se genera el programa objeto cuando no hay errores.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Diagrama tipos de programación}}
-	{\includegraphics[scale=.25]{Untitled 8.png}}
+	{\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Left Arrow [id:dp1857161983900779] 
+\draw   (210,75) -- (242,65) -- (242,70) -- (290,70) -- (290,80) -- (242,80) -- (242,85) -- cycle ;
+%Left Arrow [id:dp7925392290496789] 
+\draw   (410,75) -- (442,65) -- (442,70) -- (490,70) -- (490,80) -- (442,80) -- (442,85) -- cycle ;
+
+% Text Node
+\draw    (498,48) -- (602,48) -- (602,102) -- (498,102) -- cycle  ;
+\draw (550,75) node   [align=left] {\begin{minipage}[lt]{68pt}\setlength\topsep{0pt}
+\begin{center}
+Lenguaje de alto Nivel
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw    (298,48) -- (402,48) -- (402,102) -- (298,102) -- cycle  ;
+\draw (350,75) node   [align=left] {\begin{minipage}[lt]{68pt}\setlength\topsep{0pt}
+\begin{center}
+Lenguaje\\Ensamblador
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw    (98,48) -- (202,48) -- (202,102) -- (98,102) -- cycle  ;
+\draw (150,75) node   [align=left] {\begin{minipage}[lt]{68pt}\setlength\topsep{0pt}
+\begin{center}
+Codigo\\Máquina
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw    (450, 25) circle [x radius= 70.71, y radius= 21.21]   ;
+\draw (450,25) node   [align=left] {\begin{minipage}[lt]{68pt}\setlength\topsep{0pt}
+\begin{center}
+Compilador
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw    (250, 25) circle [x radius= 70.71, y radius= 21.21]   ;
+\draw (250,25) node   [align=left] {\begin{minipage}[lt]{68pt}\setlength\topsep{0pt}
+\begin{center}
+Ensamblador
+\end{center}
+
+\end{minipage}};
+
+
+\end{tikzpicture}}
 \end{figure}
 
 \textbf{Programa fuente → Compilador → Programa objeto/Mensajes de
@@ -734,7 +891,7 @@ Los primeros traducían fórmulas aritméticas a código máquina.
     \end{itemize}
   \end{itemize}
 \end{itemize}
-
+\pagebreak
 \textbf{Aplicación}:
 
 \begin{itemize}
@@ -792,21 +949,19 @@ lenguaje (Gramática) y genera un compilador para ese lenguaje.
 
 \section{Compilación}
 
+
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Esquema de Compilación}}
-	{\includegraphics[scale=.15]{Untitled 9.png}
-	\includegraphics[scale=.15]{Untitled 10.png}}
+	{\def\svgwidth{.8\textwidth}
+  \input{./img/procesoCompilador.eps_tex}}
 \end{figure}
 
-
-
 Antes del pasar al compilador se pasa al \textbf{preprocesador que hace muchas funciones}, entre ellas, sustituir las constantes por su valor y quita los comentarios. Cuando termina pasa el programa fuente al compilador.
-
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Diagrama de Fases de un Compilador}}
-	{\includegraphics[scale=.27]{Untitled 11.png}}
+	{\input{./img/fasesCompilador.eps_tex}}
 \end{figure}
 
 \textbf{Análisis}: Parte que solo depende de la estructura del lenguaje, no de la arquitectura de la máquina.
@@ -818,7 +973,8 @@ Antes del pasar al compilador se pasa al \textbf{preprocesador que hace muchas f
     \begin{figure}[H]
       \ffigbox[\FBwidth]
       {\caption{Diagrama Analizador Léxico}}
-      {\includegraphics[scale=.25]{Untitled 12.png}}
+      {\def\svgwidth{.8\textwidth}
+      \input{./img/DAL.eps_tex}}
     \end{figure}
     
   \item \textbf{Analizador sintáctico:} Agrupa los componentes léxicos en frases
@@ -836,7 +992,8 @@ Antes del pasar al compilador se pasa al \textbf{preprocesador que hace muchas f
     \begin{figure}[H]
       \ffigbox[\FBwidth]
       {\caption{Diagrama Analizador Sintáctico}}
-      {\includegraphics[scale=.25]{Untitled 13.png}}
+      {\def\svgwidth{.8\textwidth}
+      \input{./img/DAS.eps_tex}}
     \end{figure}
   \pagebreak
   \item \textbf{Analizador semántico:} Busca errores semánticos, reúne información de tipos, identifica operadores y operandos.
@@ -859,21 +1016,11 @@ Antes del pasar al compilador se pasa al \textbf{preprocesador que hace muchas f
   código no se ve la jerarquía. Por ejemplo: Primero se tienen que hacer
   las operaciones antes de asignar el valor.
   
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{Diagrama Generador de código}}
-    {\includegraphics[scale=.25]{Untitled 14.png}}
-  \end{figure}
+  El recorrido es importante ya que al generar codigo no se ve la jerarquia.
   
   \item \textbf{Optimizador:} Trata de darse cuenta de subárboles comunes para
   no repetir operaciones en las que no cambian variables. En vez de volver
   a poner esa estructura apunta a ella.
-  
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{Diagrama Optimizador}}
-    {\includegraphics[scale=.3]{Untitled 15.png}}
-  \end{figure}
   
   \item \textbf{Generador de código:} El uso de código intermedio reduce la
   complejidad del desarrollo de compiladores. m front ends y n back-ends
@@ -890,7 +1037,7 @@ errores de cada parte.
 dependen del lenguaje intermedio. Optimización de código, generación de
 código, operaciones con la tabla de símbolos.
 
-
+\pagebreak
 \section{Diagramas de Tombstone}
 
 Conjunto de piezas de puzzle útiles para razonar acerca de los
@@ -902,57 +1049,19 @@ formación.
 La máquina y el lenguaje deben coincidir.
 
 \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama Tombstone Programas y Máquinas}}
-	{\includegraphics[scale=.17]{Untitled 16.png}
-	\includegraphics[scale=.17]{Untitled 17.png}}
-\end{figure}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama Tombstone Interpretes y Compiladores}}
-	{\includegraphics[scale=.2]{Untitled 18.png}
-	\includegraphics[scale=.13]{Untitled 19.png}}
-\end{figure}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama Maquinas Abstractas e Intérpretes}}
-	{\includegraphics[scale=.2]{Untitled 20.png}
-	\includegraphics[scale=.2]{Untitled 21.png}}
-\end{figure}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Obtener un compilador rápido}}
-	{\includegraphics[scale=.15]{Untitled 22.png}
-	\includegraphics[scale=.15]{Untitled 23.png}}
-\end{figure}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Full Bootstrapping}}
-	{\includegraphics[scale=.2]{Untitled 24.png}}
-\end{figure}
-
-\begin{itemize}
-	\item
-	  Ejemplos:
-\end{itemize}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo Full Bootstrapping}}
-	{\includegraphics[scale=.2]{Untitled 25.png}}
-	{\includegraphics[scale=.2]{Untitled 26.png}}
+  \ffigbox[\FBwidth]
+  {\caption{Diagrama Tombstone Programas y Máquinas}}
+  {\def\svgwidth{.8\textwidth}
+  \input{./img/tombstone.eps_tex}}
 \end{figure}
 
 \chapter{Tema 2: Análisis Léxico}
 
 \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama AL}}
-	{\includegraphics[scale=.25]{Untitled 27.png}}
+  \ffigbox[\FBwidth]
+  {\caption{Diagrama AL}}
+  {\def\svgwidth{.8\textwidth}
+  \input{./img/DAL2.eps_tex}}
 \end{figure}
 
 \section{Funciones del Análisis Léxico}
@@ -1052,10 +1161,10 @@ En muchos lenguajes hay palabras claves (reservadas) para las que no se puede de
 \end{itemize}
 
 \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagramas A. Lexico}}
-	{\includegraphics[scale=.2]{Untitled 28.png}
-	\includegraphics[scale=.2]{Untitled 29.png}}
+  \ffigbox[\FBwidth]
+  {\caption{Diagramas A. Lexico}}
+  {\def\svgwidth{.9\textwidth}
+  \input{./img/DTransiciones.eps_tex}}
 \end{figure}
 
 Un AF no devuelve el token, se usa otra cosa para que nos dé el token
@@ -1085,12 +1194,6 @@ Esto quiere decir que aquellos estados que son terminales y pueden
 transitar a otro estado tengan una transición para otro tipo de carácter
 que hace que salga como final.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo de Diagrama de Transiciones}}
-	{\includegraphics[scale=.25]{Untitled 30.png}}
-\end{figure}
-
 \section{Construcción de un AFD para AL}
 
 Normalmente se parte de representación de las reglas de tokens con
@@ -1111,9 +1214,10 @@ expresiones regulares.
 \section{Tabla de Transiciones de DT}
 
 \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama Tabla de Transiciones}}
-	{\includegraphics[scale=.25]{Untitled 31.png}}
+  \ffigbox[\FBwidth]
+  {\caption{Diagrama Tabla de Transiciones}}
+  {\def\svgwidth{.9\textwidth}
+  \input{./img/DTransiciones2.eps_tex}}
 \end{figure}
 
 \section{Autómata programado}
@@ -1122,11 +1226,22 @@ Es la manera de programar un Analizador Léxico.
 
 Representa directamente con un programa al DT en cuestión.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama Optimizador}}
-	{\includegraphics[scale=.3]{Untitled 32.png}}
-\end{figure}
+\begin{lstlisting}[language=C]
+estado := 1 # El inicial es el estado 1
+while estado<>6 do
+  Leecar {devuelve en car el siguiente carater leido}
+  case estado of
+    1: if car="a" then estado:=2 else
+       if car="d" then esatdo:=5 else error
+    2: if car="c" then estado:=3 else
+       if car="b" then estado:=2 else error
+    3: if car="a" then estado:=4 else error
+    4: if car="$" then estado:=6 else error
+    5: if car="d" then estado:=3 else error
+    3: error
+  end case
+end while
+\end{lstlisting}
 
 \section{Implementación de un AL}
 
@@ -1184,11 +1299,15 @@ Representa directamente con un programa al DT en cuestión.
   \textbf{Puntero de búsqueda}: El último carácter leído.
 \end{itemize}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama punteros AL}}
-	{\includegraphics[scale=.3]{Untitled 33.png}}
-\end{figure}
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccccccccccccccc}
+\hline
+\multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{m} & \multicolumn{1}{c|}{a} & \multicolumn{1}{c|}{t} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{{[}} & \multicolumn{1}{c|}{i} & \multicolumn{1}{c|}{n} & \multicolumn{1}{c|}{d} & \multicolumn{1}{c|}{{]}} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{=} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{} \\ \hline
+                       & pA                     &                        &                        & pB                     &                          &                        &                        &                        &                          &                       &                        &                       &                        &                        &                        &                      
+\end{tabular}
+\caption{Diagrama punteros AL}
+\end{table}
 
 \textbf{Funciones de lectura}: GetChar (avanza uno del avanzado y da el
 valor), Fail (Mueve el puntero avanzado de vuelta al aceptado),
@@ -1347,12 +1466,6 @@ Otro concepto importante es el de ``\textbf{palabra reservada}''
 
 
 \section{Introducción}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama Análisis Sintáctico}}
-	{\includegraphics[scale=.3]{image-20210312115053541.png}}
-\end{figure}
 
 Su función es comprobar que la secuencia de componentes léxicos es una
 secuencia del lenguaje y generar el árbol sintáctico (explicito o no)
@@ -1695,23 +1808,131 @@ de tokens es reconocida, entonces iría al analizador semántico.
 
 \subsubsection{Ejemplo:}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Descendente Recursivo: Gramática y Procedimiento Axioma}}
-	{\includegraphics[scale=.4]{2021-03-26 17_49_53-Ejercicio descendente recursivo.png}}
-\end{figure}
+\begin{table}[H]
+\centering
+\begin{tabular}{l|c}
+                          & \textbf{Predicción}  \\ \hline
+$S \rightarrow A S'$      & $\{ id \}$           \\ \hline
+$S' \rightarrow S$        & $\{ id \}$           \\ \hline
+$S' \rightarrow \lambda$  & $\{ \$ \}$           \\ \hline
+$A\rightarrow id = E$     & $\{ id \}$           \\ \hline
+$E \rightarrow O E'$      & $\{ num, id, fun \}$ \\ \hline
+$E' \rightarrow op E$     & $\{ op \}$           \\ \hline
+$E' \rightarrow \lambda$  & $\{ id, \$, )\}$     \\ \hline
+$O \rightarrow num$       & $\{ num \}$          \\ \hline
+$O \rightarrow id$        & $\{ id \}$           \\ \hline
+$O \rightarrow fun ( E )$ & $\{ fun \}$          \\ \hline
+\end{tabular}
+\caption{Descendente Recursivo: Gramática y Procedimiento Axioma}
+\end{table}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Descendente Recursivo: Procedimientos}}
-	{\includegraphics[scale=.5]{Untitled 102.png}}
-\end{figure}
+\begin{lstlisting}[language=C]
+main {
+  $ al final de la entrada
+  leer_tok()
+  S()
+  si tok_act = "$"
+    ACEPTAR
+  sino
+    ERROR
+}
+\end{lstlisting}
+\begin{lstlisting}[language=C]
+S {
+  A()
+  S'()
+}
+\end{lstlisting}
+\begin{lstlisting}[language=C]
+S' {
+  si tok_act = "id"
+    S()
+  sino
+    si tok_act = "$"
+    sino
+      ERROR 
+}
+\end{lstlisting}
+\pagebreak
+\begin{lstlisting}[language=C]
+A {
+  si tok_act = "id"
+    leer_tok()
+    si tok_act = "="
+      leer_tok()
+      E()
+    sino
+      ERROR
+  sino
+    ERROR
+}
+\end{lstlisting}
+\begin{lstlisting}[language=C]
+E {
+  O()
+  E'()
+}
+\end{lstlisting}
+\begin{lstlisting}[language=C]
+E' {
+  si tok_act = "op"
+    leer_tok()
+    E()
+  sino
+    si tok_act = "id" | "$" | ")"
+    sino
+      ERROR
+}
+\end{lstlisting}
+\begin{lstlisting}[language=C]
+O {
+  si tok_act = "num"
+    leer_tok()
+  sino
+    si tok_act = "id"
+      leer_tok()
+    sino
+      si tok_act = "fun"
+        leer_tok()
+        si tok_act = "("
+          leer_tok()
+          E()
+          si tok_act() = ")"
+            leer_tok()
+          sino
+            ERROR
+        sino
+          ERROR
+}
+\end{lstlisting}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Descendente Recursivo: Reconocimiento secuencia}}
-	{\includegraphics[scale=.7]{2021-03-26 17_50_51-Ejercicio descendente recursivo.png}}
-\end{figure}
+\begin{table}[H]
+\centering
+\begin{tabular}{r|l}
+id = fun ( num op id ) \$ & S                 \\
+= fun ( num op id ) \$    & A S               \\
+fun ( num op id ) \$      & E A S             \\
+( num op id ) \$          & O E A S           \\
+num op id ) \$            & E O E A S         \\
+op id ) \$                & O E O E A S       \\
+op id ) \$                & E O E A S         \\
+id ) \$                   & E' E O E A S      \\
+id ) \$                   & E E' E O E A S    \\
+) \$                      & O E E' E O E A S  \\
+) \$                      & E E' E O E A S    \\
+) \$                      & E' E E'E O E A S  \\
+) \$                      & E E'E O E A S     \\
+) \$                      & E' E E' E O E A S \\
+) \$                      & E E' E O E A S    \\
+\$                        & O E A S           \\
+\$                        & E A S             \\
+\$                        & S                 \\
+\$                        & S' S              \\
+\$                        & S                 \\
+                          & ACEPTAR          
+\end{tabular}
+\caption{Descendente Recursivo: Reconocimiento secuencia}
+\end{table}
 
 \pagebreak
 
@@ -2406,7 +2627,8 @@ Nos permite representar interdependencias entre atributos heredados y sintetizad
 \begin{figure}[H]
   \ffigbox[\FBwidth]
   {\caption{Grafo de dependencia}}
-  {\includegraphics[scale=.25]{2021-05-01 01_15_15-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+  {\def\svgwidth{.9\textwidth}
+  \input{./img/grafoDependencias.eps_tex}}
 \end{figure}
 
 \textbf{Creación:} Cada una de las reglas de producción $A \rightarrow X_1 ... X_n$ representan una parte del grafo, de tal manera que la unión de todas es el grafo completo.
@@ -2518,7 +2740,7 @@ En la gramática atribuida es sencillo, pero no siempre es así y para los tipos
 \begin{figure}[H]
   \ffigbox[\FBwidth]
   {\caption{Ejemplo Comprobación de Tipos}}
-  {\includegraphics[scale=.25]{2021-05-01 02_14_46-06_resum_Tipos_2021.pdf - Foxit Reader.png}}
+  {\includegraphics[scale=.25]{2021-05-01 02_14_46-06_resum_Tipos_2021.pdf - Foxit Reader.jpg}}
 \end{figure}
 
 Un lenguaje \textbf{especifica que operaciones son válidas para cada tipo}, mediante la formalización de reglas semánticas de verificación.
@@ -2706,7 +2928,7 @@ Los métodos se declaran antes y después los valores de atributos
   \multicolumn{1}{c|}{}                          & \multicolumn{1}{c|}{Attribute 2}  & 16     \\ \cline{2-2}
   \multicolumn{1}{c|}{}                          & \multicolumn{1}{c|}{...}          &        \\ \cline{2-2}
   \end{tabular}
-  \end{table}
+\end{table}
 
 
 \subsection{Acceso a miembtros de clase}

@@ -1,0 +1,84 @@
+%% Creator: Inkscape 1.1 (c68e22c387, 2021-05-23), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'DTransiciones.eps' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{443.44433041bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.37332018)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength]{DTransiciones.eps}}%
+    \put(0.01676532,0.34004405){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}identificador:\end{tabular}}}}%
+    \put(0.01676532,0.15812719){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}número entero:\end{tabular}}}}%
+    \put(0.11761225,0.2463457){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}%
+    \put(0.15267866,0.25572681){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}letra\end{tabular}}}}%
+    \put(0.279707,0.29744569){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}letra\end{tabular}}}}%
+    \put(0.28759977,0.19240432){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}dígito\end{tabular}}}}%
+    \put(0.22888834,0.24430115){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1\end{tabular}}}}%
+    \put(0.32413197,0.00974329){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}dígito\end{tabular}}}}%
+    \put(0.27379871,0.06720259){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2\end{tabular}}}}%
+    \put(0.16794552,0.05087585){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}dígito\end{tabular}}}}%
+    \put(0.11928101,0.0674732){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}%
+    \put(0.19148849,0.11825747){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1\end{tabular}}}}%
+    \put(0.23866465,0.10147972){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}dígito\end{tabular}}}}%
+    \put(0.12067915,0.11077063){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}+, -\end{tabular}}}}%
+    \put(0.51042335,0.33532995){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\Sigma=\{a,b\}, L=\{ab^nc\} \cup \{ab^n\}$\end{tabular}}}}%
+    \put(0.50705891,0.15341309){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\Sigma=\{0,1,…,9\}, L=\textit{números sin signo}$\end{tabular}}}}%
+    \put(0.60125775,0.24828408){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}%
+    \put(0.64124022,0.25423747){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}a\end{tabular}}}}%
+    \put(0.74418436,0.29879774){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}b\end{tabular}}}}%
+    \put(0.70370578,0.24812622){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1\end{tabular}}}}%
+    \put(0.7482435,0.25423747){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}c\end{tabular}}}}%
+    \put(0.80874715,0.24812622){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2\end{tabular}}}}%
+    \put(0.60184407,0.05091996){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}%
+    \put(0.64861431,0.06952433){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}[0-9]\end{tabular}}}}%
+    \put(0.72217601,0.05570309){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1\end{tabular}}}}%
+    \put(0.79532945,0.08224294){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}[0-9]\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
