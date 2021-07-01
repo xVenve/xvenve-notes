@@ -1,0 +1,91 @@
+%% Creator: Inkscape 1.1 (c68e22c387, 2021-05-23), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'ASA.eps' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{458.95848552bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.80511569)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength]{ASA.eps}}%
+    \put(0.01538512,0.72275086){\color[rgb]{0.4,0,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Árbol de sintaxis abstracta\end{tabular}}}}%
+    \put(0.0982815,0.62750148){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Árboles sintácticos (parse tree)\end{tabular}}}}%
+    \put(0.0982815,0.24070729){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Árboles de sintaxis abstractos (sintax tree)\end{tabular}}}}%
+    \put(0.36066817,0.57958973){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{E}\end{tabular}}}}%
+    \put(0.36292767,0.50456446){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{+}\end{tabular}}}}%
+    \put(0.23682366,0.50384218){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{E}\end{tabular}}}}%
+    \put(0.41778446,0.50456446){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{E}\end{tabular}}}}%
+    \put(0.20313542,0.42922432){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{n}\textbf{u}\textbf{m}\end{tabular}}}}%
+    \put(0.41756224,0.42837237){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{*}\end{tabular}}}}%
+    \put(0.292162,0.42837237){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{E}\end{tabular}}}}%
+    \put(0.47312278,0.42907617){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{E}\end{tabular}}}}%
+    \put(0.43839744,0.35373598){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{n}\textbf{u}\textbf{m}\end{tabular}}}}%
+    \put(0.26358534,0.35351375){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{n}\textbf{u}\textbf{m}\end{tabular}}}}%
+    \put(0.8068382,0.57936751){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{S}\end{tabular}}}}%
+    \put(0.7882624,0.5028606){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{t}\textbf{h}\textbf{e}\textbf{n}\end{tabular}}}}%
+    \put(0.68299362,0.49900841){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{i}\textbf{f}\end{tabular}}}}%
+    \put(0.74518448,0.49552658){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{B}\end{tabular}}}}%
+    \put(0.86212096,0.49530436){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{S}\end{tabular}}}}%
+    \put(0.89684629,0.50263833){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{e}\textbf{l}\textbf{s}\textbf{e}\end{tabular}}}}%
+    \put(0.96653774,0.49504505){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{S}\end{tabular}}}}%
+    \put(0.34838931,0.16257061){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{+}\end{tabular}}}}%
+    \put(0.41595098,0.0831412){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{*}\end{tabular}}}}%
+    \put(0.22211863,0.08491908){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{n}\textbf{u}\textbf{m}\end{tabular}}}}%
+    \put(0.45319507,0.01149027){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{n}\textbf{u}\textbf{m}\end{tabular}}}}%
+    \put(0.27838297,0.01126805){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{n}\textbf{u}\textbf{m}\end{tabular}}}}%
+    \put(0.75700028,0.16225575){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{i}\textbf{f}\end{tabular}}}}%
+    \put(0.77477973,0.16225575){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{-}\end{tabular}}}}%
+    \put(0.78589183,0.16225575){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{t}\textbf{h}\textbf{e}\textbf{n}\end{tabular}}}}%
+    \put(0.84545272,0.16225575){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{-}\end{tabular}}}}%
+    \put(0.85656491,0.16225575){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{e}\textbf{l}\textbf{s}\textbf{e}\end{tabular}}}}%
+    \put(0.74331386,0.07851853){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{B}\end{tabular}}}}%
+    \put(0.86026891,0.07825182){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{S}\end{tabular}}}}%
+    \put(0.96466722,0.0780296){\color[rgb]{0.25098039,0.27058824,0.54901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{S}\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

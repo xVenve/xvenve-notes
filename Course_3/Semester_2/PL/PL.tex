@@ -229,9 +229,15 @@ hmargin=3cm
 \listoffigures
 \thispagestyle{fancy}
 
+%--
+% Índice de tablas. Si no se incluyen, comenta las líneas siguientes
+%-
+\listoftables
+\thispagestyle{fancy}
+
 %----------
 %	TRABAJO
-%----------	
+%----------		
 \clearpage
 \pagenumbering{arabic} % numeración con números arábigos para el resto de la publicación	
 
@@ -1365,15 +1371,8 @@ usando patrones para las palabras reservadas.
 \textbf{Criterio}: Se utilizan heurística para dar prioridad al token
 que concuerda con \textbf{el lexema más largo}.
 
-\textbf{En el caso de que arios tokens tengan la misma longitud} se asocia al que
-esté \textbf{en primer lugar}.
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama Prioridad de los tokens}}
-	{\includegraphics[scale=.3]{image-20210305191616426.png}
-	\includegraphics[scale=.3]{image-20210305191651759.png}}
-\end{figure}
+\textbf{En el caso de que varios tokens tengan la misma longitud} se asocia al que
+esté \textbf{en primer lugar}. Se definen por orden de prioridad.
 
 \section{AL y Lenguajes de Programación}
 
@@ -1435,32 +1434,60 @@ Otro concepto importante es el de ``\textbf{palabra reservada}''
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Ejemplo de crear un AL y ASI I}}
-	{\includegraphics[scale=.2]{image-20210305192603381.png}}
+	{\def\svgwidth{.8\textwidth}
+  \input{./img/EjRed.eps_tex}}
 \end{figure}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo de crear un AL y ASI II}}
-	{\includegraphics[scale=.3]{image-20210305192620642.png}}
-\end{figure}
+\begin{multicols}{2}
+\begin{table}[H]
+\centering
+  \begin{tabular}{c|l|c}
+  \textbf{Mensaje} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Elementos\\ Información\end{tabular}}} & \textbf{Obl.}                                 \\ \hline
+  Setup            & \begin{tabular}[c]{@{}l@{}}EIsetup\\ \hline EIsentido\\ \hline EIorigen\\ \hline EIdestino\end{tabular}               & \begin{tabular}[c]{@{}c@{}}X\\ \hline X\\ \hline \\ \hline X\end{tabular} \\ \hline
+  SetupACK         & \begin{tabular}[c]{@{}l@{}}EIsetupACK\\ \hline EIsentido\end{tabular}                                   & \begin{tabular}[c]{@{}c@{}}X\\ \hline X\end{tabular}        \\ \hline
+  Connect          & \begin{tabular}[c]{@{}l@{}}EIconnect\\ \hline EIsentido\end{tabular}                                    & \begin{tabular}[c]{@{}c@{}}X\\ \hline X\end{tabular}        \\ \hline
+  ConnectACK       & \begin{tabular}[c]{@{}l@{}}EIconnectACK\\ \hline EIsentido\end{tabular}                                 & \begin{tabular}[c]{@{}c@{}}X\\ \hline X\end{tabular}        \\ \hline
+  \end{tabular}
+\end{table}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo de crear un AL y ASI III}}
-	{\includegraphics[scale=.2]{image-20210305192648153.png}}
-\end{figure}
+\columnbreak
+\begin{table}[H]
+\centering
+\begin{tabular}{l|c|c}
+& \textbf{Campo 1} & \textbf{Campo 2}                                                                                    \\ \hline
+\textbf{EIsetup}      & ''A''              & [A-Z, a-z, 0-9]                                                               \\ \hline
+\textbf{EIsetupACK}      & ''B''              & [A-Z, a-z, 0-9]                                                               \\ \hline
+\textbf{EIconnect}    & ''C''              & [A-Z, a-z, 0-9]                                                               \\ \hline
+\textbf{EIconnectACK} & ''D''              & [A-Z, a-z, 0-9]                                                               \\ \hline
+\textbf{EIsentido}    & ''E''              & \begin{tabular}[c]{@{}c@{}}0 $A \rightarrow B$\\ 1 $B \rightarrow A$\end{tabular} \\ \hline
+\textbf{EIorigen}     & ''F''              & [0-9]$^3$                                                                     \\ \hline
+\textbf{EIdestino}    & ''G''              & [0-9]$^3$                                                                     \\ \hline
+\end{tabular}
+\end{table}
+  
+\end{multicols}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo de crear un AL y ASI IV}}
-	{\includegraphics[scale=.25]{image-20210305192718592.png}}
-\end{figure}
+\subsection{Preguntas}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo de crear un AL y ASI V}}
-	{\includegraphics[scale=.3]{image-20210305192731385.png}}
-\end{figure}
+\begin{enumerate}
+  \item Definir formalmente el Analizador lexico cuyos tokens era los elementos de información.
+
+  $\Sigma_T = $ \{EIsetup, EIsetupACK, EIconnect, EIconnectACK, EIorigen, EIdestino, EIsentido\}
+
+  \input{./img/EjRed.tex}
+
+  \item Gramatica que utiliza el analizador de red para analizar los mensajes validos
+
+  M ::= SetupM | SetupACKM | ConnectM | ConnectACKM | $\lambda$
+
+  Setup ::= EIsetup EIsentido EIorigen EIdestino | EIsetup EIsentido EIdestino
+
+  SetupACK ::= EIsetupACK EIsentido
+
+  Connect ::= EIconnect EIsentido
+
+  ConnectACK ::= EIconnectACK EIsentido
+\end{enumerate}
 
 \chapter{Tema 3: Análisis Sintáctico}
 
@@ -2219,11 +2246,12 @@ Un prefijo de un prefijo viable también es un prefijo viable.
 
 La estrategia es construir un autómata que reconozca los prefijos viables de la gramática, el autómata LR(0) los reconoce.
 \vspace{-10px}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Prefijos viables}}
-	{\includegraphics[scale=.4]{2021-03-26 18_27_20-ASintactico.pdf - Foxit Reader.png}}
-\end{figure}
+$$\begin{cases}
+E \rightarrow E+M | M\\
+M \rightarrow M*T | T\\
+T \rightarrow \textit{int}
+\end{cases}
+\textit{Respuesta: int, T, M*, M*T, E, E+, E+M}$$
   
 \subsection{Análisis LR}
 Para algunas gramáticas independientes de contexto, LR(k), se puede construir un autómata a pila determinista.
@@ -2241,9 +2269,10 @@ Tipos de analizadores:
 En cuanto a que gramáticas pueden representas: $G2>LR>LALR>SLR$
 
 \begin{figure}[H]
-	\ffigbox[\FBwidth]
+  \ffigbox[\FBwidth]
 	{\caption{Comparación de grámaticas}}
-	{\includegraphics[scale=.57]{2021-04-13 15_35_24-ASintactico.pdf - Foxit Reader.png}}
+  {\def\svgwidth{.9\textwidth}
+  \input{./img/CompGra.pdf_tex}}
 \end{figure}
 
 \subsection{Análisis Sintáctico LR(1)}
@@ -2279,12 +2308,6 @@ Cuando el axioma tenga varias producciones, se amplía la gramática, haciendo q
   
   Hace el cierre de pasar el punto al otro lado de Símbolo, que se pasa como parámetro. Es vacío cuando no hay ningún item que tenga el punto a su izquierda.
 \end{itemize}
-\begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Cierre(ítems) e Ir$\_$a(ítems, Símbolo)}}
-  {\includegraphics[scale=.4]{2021-03-26 19_10_20-ASintactico.pdf - Foxit Reader.png}
-  \includegraphics[scale=.4]{2021-03-26 19_14_19-ASintactico.pdf - Foxit Reader.png}}
-\end{figure}
 
 El analizador LR(0) es un Autómata a Pila Determinista, los estados del analizador son conjuntos de ítems.
 
@@ -2335,7 +2358,7 @@ Ejemplo:
   \item Hacer Ir\_a para $\Sigma = \{S, T, \textit{op}, \textit{num}, (, )\}$, no hace falta hacer todos, solo tiene sentido para aquellos que tienen un punto a la izquierda. Un estado por cada Ir\_a que se puede hacer desde $E_0$
   \begin{multicols}{2}
   \begin{flalign*}
-          E_1:& S' \rightarrow S \cdot \\
+          E_1:& S' \rightarrow \cdot S  \\
           &S \rightarrow S \cdot \textit{op} T \\
           E_2:& S \rightarrow T \cdot \\
           E_3:& T \rightarrow \textit{num} \cdot \\
@@ -2453,13 +2476,83 @@ No es necesario eliminar la recursividad a derechas e izquierda y ni es necesari
   Entonces $Siguiente(A) \cap Siguiente(B)$
 \end{itemize}
 
-\includepdf[pages=78]{docs/ASintactico.pdf}
+\begin{table}[H]
+\centering
+\begin{tabular}{l}
+0) S' $\rightarrow$ S       \\
+1) S' $\rightarrow$ var = E \\
+2) E $\rightarrow$ O        \\
+3) E $\rightarrow$ O op E   \\
+4) O $\rightarrow$ var      \\
+5) O $\rightarrow$ num
+\end{tabular}
+\end{table}
 
-\begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Ejemplo analizador SLR(1)}}
-  {\includegraphics[scale=.5]{2021-04-13 14_59_35-ASintactico.pdf - Foxit Reader.png}}
-\end{figure}
+\begin{multicols}{2}
+\begin{flalign*}
+E_0:& S' \rightarrow \cdot S \\
+&S \rightarrow \cdot \textit{var} = E \\
+E_1:& S' \rightarrow S \cdot \\
+E_2:& S \rightarrow \textit{var} \cdot = E \\
+E_3:& S \rightarrow \textit{var} = \cdot E \\
+&E \rightarrow \cdot O \\
+&E \rightarrow \cdot O \textit{op} E \\
+&O \rightarrow \cdot \textit{var} \\
+&O \rightarrow \cdot \textit{num} \\
+E_4:& S \rightarrow \textit{var} = E \cdot \\
+\end{flalign*}
+
+\columnbreak
+
+\begin{flalign*}
+E_5:& E \rightarrow O \cdot \\
+&E \rightarrow O \cdot \textit{op} E \\
+E_6:&O \rightarrow \textit{var} \cdot \\
+E_7:&O \rightarrow \textit{num} \cdot \\
+E_8:&E \rightarrow O \textit{op} \cdot E \\
+&E \rightarrow \cdot O \\
+&E \rightarrow \cdot O \textit{op} E \\
+&O \rightarrow \cdot \textit{var} \\
+&O \rightarrow \cdot \textit{num} \\
+E_9:&E \rightarrow O \textit{op} E \cdot \\
+\end{flalign*}
+\end{multicols}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|l|l|l|l|l||l|l|l}
+                   & \textbf{var} & \textbf{=} & \textbf{op} & \textbf{num} & \textbf{\$} & \textbf{S} & \textbf{E} & \textbf{O} \\ \hline
+$\boldsymbol{E_0}$ & D$E_2$       &            &             &              &             & $E_1$      &            &            \\ \hline
+$\boldsymbol{E_1}$ &              &            &             &              & ACP         &            &            &            \\ \hline
+$\boldsymbol{E_2}$ &              & D$E_3$     &             &              &             &            &            &            \\ \hline
+$\boldsymbol{E_3}$ & D$E_6$       & $E_7$      &             &              &             &            & $E_4$      & $E_5$      \\ \hline
+$\boldsymbol{E_4}$ &              &            &             &              & R1          &            &            &            \\ \hline
+$\boldsymbol{E_5}$ &              &            & E$E_8$      &              & R2          &            &            &            \\ \hline
+$\boldsymbol{E_6}$ &              &            & R4          &              & R4          &            &            &            \\ \hline
+$\boldsymbol{E_7}$ &              &            & R5          &              & R5          &            &            &            \\ \hline
+$\boldsymbol{E_8}$ & E$E_6$       &            &             & D$E_7$       &             &            & $E_9$      & $E_5$      \\ \hline
+$\boldsymbol{E_9}$ &              &            &             &              & R3          &            &            &           
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{r|l}
+var = var op num \$ & $E_0$ \$                                                      \\
+= var op num \$     & $E_2$ var $E_0$ \$                                            \\
+var op num \$       & $E_3$ = $E_2$ var $E_0$ \$                                    \\
+op num \$           & $E_6$ var $E_3$ = $E_2$ var $E_0$ \$                          \\
+op num \$           & $E_5$ O $E_3$ = $E_2$ var $E_0$ \$                            \\
+num \$              & $E_8$ op $E_5$ O $E_3$ = $E_2$ var $E_0$ \$                   \\
+\$                  & $E_7$ num $E_8$ op $E_5$ O $E_3$ = $E_2$ var $E_0$ \$         \\
+\$                  & $E_5$ O $E_8$ op $E_5$ O $E_3$ = $E_2$ var $E_0$ \$           \\
+\$                  & $E_9$ E $E_8$ op $E_5$ O $E_3$ = $E_2$ var $E_0$ \$           \\
+\$                  & $E_4$ E $E_3$ = $E_2$ var $E_0$ \$                            \\
+\$                  & $E_1$ S $E_0$ \$                                              \\
+                    & ACEPTAR                                                                
+\end{tabular}
+\caption{Ejemplo analizador SLR(1)}
+\end{table}
 
 \subsection{Comparación LL vs LR}
 \textbf{Simplicidad:} LL es más fácil de construir y completar.
@@ -2473,7 +2566,7 @@ No es necesario eliminar la recursividad a derechas e izquierda y ni es necesari
 \textbf{Recuperación de errores:} LL es más sencillo de implementar.
 
 \chapter{Tema 4: Tratamiento de Ambiguedad y Error}
-\includepdf[pages=-]{docs/04_TErrores.pdf}
+\href{https://drive.google.com/file/d/1xgCmnxDenXLdIxIktFYvFipNePjZTVyG}{Acceso en Drive a las diapositivas}
 
 \chapter{Tema 5: Análisis Semántico}
 
@@ -2515,12 +2608,20 @@ Se pueden construir Árboles adornados o decorados, donde se muestra la relació
 \textbf{Existen diferentes Especificaciones:}
 \begin{itemize}
   \item \textbf{DDS - Definición dirigida por la sintaxis}, acciones tras cada producción (sin orden específico).
-  
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{Ejemplo DDS}}
-    {\includegraphics[scale=.3]{2021-04-21 10_49_57-05_resum_Sem_2021.pdf - Foxit Reader.png}}
-  \end{figure}
+
+  \begin{table}[H]
+  \centering
+  \begin{tabular}{|l|l|}
+  \hline
+  \textbf{producción} & \textbf{Acciones semánticas}                         \\ \hline
+  S ::= T id L ;      & S.cod = ''var'' || id.cod || L.cod || '':'' || T.cod \\ \hline
+  L ::= , id L        & $L_0$.cod = '','' || id.cod || $L_1$.cod             \\ \hline
+  L ::= $\lambda$     & L.cod = ''''                                         \\ \hline
+  T ::= float         & T.cod = ''real''                                     \\ \hline
+  T ::= int           & F.cod = ''int''                                      \\ \hline
+  \end{tabular}
+  \caption{Ejemplo DDS}
+  \end{table}
 
   \item \textbf{EDT - Esquema de Traducción}, las acciones semánticas se intercalan con los símbolos de la producción, indicando el orden de ejecución de las acciones semánticas. Es una notación para hacer un traductor. Tiene dos tipos:
   \begin{itemize}
@@ -2532,12 +2633,6 @@ Se pueden construir Árboles adornados o decorados, donde se muestra la relació
       \item Para calcular el No Terminal izquierdo DEBE haberse calculado previamente todos los atributos de los símbolos que participen.
     \end{itemize}
   \end{itemize}
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{Ejemplo EDT}}
-    {\includegraphics[scale=.3]{2021-04-21 11_14_06-05_resum_Sem_2021.pdf - Foxit Reader.png}
-    \includegraphics[scale=.24]{2021-04-21 11_14_40-05_resum_Sem_2021.pdf - Foxit Reader.png}}
-  \end{figure}
 \end{itemize}
 
 Una gramática atribuida GA es \textbf{completa} si, para todo atributo de toda regla hay una acción semántica asociada para calcularlo.
@@ -2555,22 +2650,17 @@ En el caso de buscar que esté bien definido es más fácil buscar un fallo (par
 
 \section{Tipos de atributos y gramáticas}
 \subsection{Atributos heredados y sintetizados}
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Tablas para registros}}
+  {\def\svgwidth{.9\textwidth}
+  \input{./img/tiposAtributos.eps_tex}}
+\end{figure}
 \textbf{Dos tipos de atributos:}
 \begin{itemize}
   \item \textbf{Sintetizados:} El valor de un nodo (parte izquierda) depende solo de los valores de los nodos hijos (parte derecha). Se hace de abajo hacia arriba.
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{A. sintetizado}}
-    {\includegraphics[scale=.3]{2021-04-21 10_46_33-05_resum_Sem_2021.pdf - Foxit Reader.png}}
-  \end{figure}
 
   \item \textbf{Heredados:} Los valores se pasan a niveles inferiores del árbol, el valor depende de los hermanos y del padre (como un sumidero de datos).
-  
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{A. heredado}}
-    {\includegraphics[scale=.3]{2021-04-21 10_47_58-05_resum_Sem_2021.pdf - Foxit Reader.png}}
-  \end{figure}
 
 \end{itemize}
 Los atributos mantienen su tipo en toda la gramática, y los tokens (símbolos terminales) solo tienen atributos sintetizados.
@@ -2649,9 +2739,10 @@ Se usa para los casos en los que la gramática no se puede evaluar durante el an
 Evaluación en varias pasadas: Se construye el árbol explícitamente y se evalúa en función del orden de recorrido.
 
 \begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Árbol Sintáctico Abstracto}}
-  {\includegraphics[scale=.25]{2021-05-01 01_21_28-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+	\ffigbox[\FBwidth]
+	{\caption{Árbol Sintáctico Abstracto}}
+	{\def\svgwidth{.8\textwidth}
+  \input{./img/ASA.eps_tex}}
 \end{figure}
 
 El Árbol sintáctico abstracto es una estructura de datos que condensa un árbol de análisis sintáctico. 
@@ -2661,11 +2752,6 @@ El Árbol sintáctico abstracto es una estructura de datos que condensa un árbo
 \end{itemize}
 
 Construcción en la programación:
-\begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Árbol de sintaxis abstracta}}
-  {\includegraphics[scale=.25]{2021-05-01 01_30_29-05_resum_Sem_2021.pdf - Foxit Reader.png}}
-\end{figure}
 \begin{itemize}
   \item Un nodo para cada operador y cada operando.
   \item Un nodo almacena su tipo y su valor si es un operando, en caso de ser un operador en vez de valor almacena el puntero a los operadores. Los punteros y tipo son atributos sintetizados
@@ -2686,9 +2772,10 @@ Una vez calculado el heredado se puede pasar al sintetizado.
 
 \textbf{Complejidad de la evaluación}
 \begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Complejidad de la evaluación}}
-  {\includegraphics[scale=.25]{2021-05-01 01_46_28-05_resum_Sem_2021.pdf - Foxit Reader.png}}
+	\ffigbox[\FBwidth]
+	{\caption{Complejidad de la evaluación}}
+	{\def\svgwidth{.7\textwidth}
+  \input{./img/ComplEva.eps_tex}}
 \end{figure}
 \begin{itemize}
   \item S-atribuida, Gramáticas atribuidas, va hacia arriba. Calculamos lo de los hijos y lo pasamos hacia arriba.
@@ -2705,28 +2792,20 @@ Para estos casos es necesario construir el grafo de dependencias, no nos vale el
     \item \textbf{Caso que no necesita un árbol de atributos:} Gramáticas S-A y L-A, las de una pasada.
     \item \textbf{Sobre el árbol de atributos:} Los 3 primeros se puede hacer de una sola pasada por el árbol en las que se calculan los atributos.
     \begin{itemize}
-      \item \textbf{Recorrido post-orden}, depende solo de atributos sintetizados.
-      \begin{figure}[H]
-        \ffigbox[\FBwidth]
-        {\caption{Recorrido post-orden}}
-        {\includegraphics[scale=.25]{2021-05-01 01_50_04-05_resum_Sem_2021.pdf - Foxit Reader.png}}
-      \end{figure}
+      \item \textbf{Recorrido post-orden}, depende solo de atributos sintetizados.    
       \item \textbf{Recorrido pre-orden}, aparecen atributos heredados, el caso de las Gramáticas L-A.
-      \begin{figure}[H]
-        \ffigbox[\FBwidth]
-        {\caption{Recorrido pre-orden}}
-        {\includegraphics[scale=.25]{2021-05-01 01_51_44-05_resum_Sem_2021.pdf - Foxit Reader.png}}
-      \end{figure}
-      \pagebreak
       \item \textbf{Recorrido combinado}, atributos sintetizados dependen de heredados.
-      \begin{figure}[H]
-        \ffigbox[\FBwidth]
-        {\caption{Recorrido combinado}}
-        {\includegraphics[scale=.25]{2021-05-01 01_52_19-05_resum_Sem_2021.pdf - Foxit Reader.png}}
-      \end{figure}
       \item \textbf{Recorrido de varias pasadas, Recorrido combinado}, atributos heredados dependen de sintetizados.
     \end{itemize}
   \end{itemize}
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Recorridos grados de dependencias}}
+	{\centering 
+    \def\svgwidth{1.1\textwidth}
+    \input{./img/Recorrido.pdf_tex}}
+\end{figure}
 
 \chapter{Tema 6: Comprobación de Tipos}
 \section{Introducción}
@@ -2737,11 +2816,24 @@ Comprueba que el tipo de una construcción tenga sentido en su contexto según e
 Se encuentra tras la construcción del TSA (árbol sintáctico abstracto). ??
 
 En la gramática atribuida es sencillo, pero no siempre es así y para los tipos más complejos se usan tablas.
-\begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Ejemplo Comprobación de Tipos}}
-  {\includegraphics[scale=.25]{2021-05-01 02_14_46-06_resum_Tipos_2021.pdf - Foxit Reader.jpg}}
-\end{figure}
+
+\subsection{Ejemplo Comprobación de Tipos}
+Es una aplicación de evaluación de gramática atribuida
+
+No siempre es tan sencillo: f(*v[i+j]);
+\begin{itemize}
+  \item Las variables i y j han de estar declaradas, tener definas en su tipo
+la operación suma
+  \item y calcular (inferir) el tipo de dicha operación
+  \item Respecto al tipo calculado, deberá ser entero o convertible
+implícitamente (promocionable) a entero, puesto que en C los
+índices de un array han de ser enteros
+  \item La variable v deberá estar declarada y poseer como tipo un array o
+puntero (en C el operador [] se puede aplicar a punteros) de
+punteros a otro tipo T
+  \item La función f tendrá que haber sido declarada previamente y poseer
+un único parámetro de tipo T o promocionable a un tipo T
+\end{itemize}
 
 Un lenguaje \textbf{especifica que operaciones son válidas para cada tipo}, mediante la formalización de reglas semánticas de verificación.
 
@@ -2821,37 +2913,106 @@ Ejemplo de lenguaje, con todos los identificadores declarados antes de uso.
 \end{itemize}
 
 \subsection{Gramatica del lenguaje}
-\begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Ej. Gramatica}}
-  {\includegraphics[scale=.35]{Screenshot 2021-06-09 at 12.19.07.png}}
-\end{figure}
+
+\begin{table}[H]
+\begin{tabular}{l}
+P $\rightarrow$ Ds E \\
+Ds $\rightarrow$ D ; Ds | $\lambda$ \\
+D $\rightarrow$ id : T\\
+T $\rightarrow$ char | integer | array [num] of T | $\hat{}$ T \\
+E $\rightarrow$ literal | num | id | E mod E | E [E] | E $\hat{}$
+\end{tabular}
+\caption{Ej. Gramatica}
+\end{table}
 
 \subsection{Acciones semanticas constructor de tipos}
-\begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Ej. Acciones semanticas constructor de tipos}}
-  {\includegraphics[scale=.35]{Screenshot 2021-06-09 at 12.21.40.png}}
-\end{figure}
+\begin{table}[H]
+\begin{tabular}{ll}
+P $\rightarrow$ Ds E \\
+Ds $\rightarrow$ D ; Ds \\
+Ds $\rightarrow$ $\lambda$ \\
+D $\rightarrow$ id : T & \{ añadeTipo (id.entrada, T.tipo) \} \\
+T $\rightarrow$ char & \{ T.tipo ::= char \} \\
+T $\rightarrow$ integer & \{ T.tipo ::= integer \} \\
+T $\rightarrow$  $\hat{}$ T & \{ T$_0$.tipo ::= pointer (T$_1$.tipo) \} \\
+T $\rightarrow$ array [num] of T & \{ T$_0$.tipo ::= array(1..num.val, T$_1$.tipo) \} \\
+\end{tabular}
+\caption{Ej. Acciones semanticas constructor de tipos}
+\end{table}
 
 \subsection{Acciones semanticas verificación de tipos}
-\begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Ej. Acciones semanticas verificación de tipos I}}
-  {\includegraphics[scale=.3]{Screenshot 2021-06-09 at 12.23.29.png}}
-\end{figure}
-\begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Ej. Acciones semanticas verificación de tipos II}}
-  {\includegraphics[scale=.3]{Screenshot 2021-06-09 at 12.24.59.png}}
-\end{figure}
+Constantes
+\begin{table}[H]
+\begin{tabular}{ll}
+E $\rightarrow$ literal & \{ E.tipo ::= Char \} \\
+E $\rightarrow$ num & \{ E.tipo ::= Integer \} \\
+\end{tabular}
+\end{table}
+
+Identificadores
+\begin{table}[H]
+\begin{tabular}{ll}
+E $\rightarrow$ id& \{ E.tipo ::= buscaTipo(id.entrada) \} \\
+\end{tabular}
+\end{table}
+
+Operadores
+\begin{table}[H]
+\begin{tabular}{ll}
+E $\rightarrow$ E mod E & 
+\textbf{ } \begin{lstlisting}[language=C]
+{ if (E1.tipo = Integer) and
+     (E2.tipo = Integer)
+        E0.tipo = Integer
+  else E0.tipo = Error_Tipo }
+\end{lstlisting} \\
+\end{tabular}
+\end{table}
+
+Array
+\begin{table}[H]
+\begin{tabular}{ll}
+E $\rightarrow$ E[E] & 
+\textbf{ } \begin{lstlisting}[language=C]
+{ if (E2.tipo = Integer) and
+     (E1.tipo = array(s, t) ->)
+        E0.tipo = t
+  else E0.tipo = Error_Tipo }
+\end{lstlisting} \\
+\end{tabular}
+\end{table}
+
+Punteros
+\begin{table}[H]
+\begin{tabular}{ll}
+E $\rightarrow$ E $\hat{}$ & 
+\textbf{ } \begin{lstlisting}[language=C]
+{ if (E1.tipo = pointer(t))
+        E0.tipo = t
+  else E0.tipo = Error_Tipo }
+\end{lstlisting} \\
+\end{tabular}
+\end{table}
 
 \subsection{Tipos de sentencias}
-\begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Ej. Sentencias}}
-  {\includegraphics[scale=.3]{Screenshot 2021-06-09 at 12.26.53.png}}
-\end{figure}
+Ampliar G para permitir declaración de funciones
+\begin{table}[H]
+\begin{tabular}{ll}
+T $\rightarrow$ T '$\rightarrow$' T & \{ T$_0$.tipo = T$_1$.tipo $\rightarrow$ T$_2$.tipo \} \\
+\end{tabular}
+\end{table}
+
+Llamada a la función, con parámetros
+\begin{table}[H]
+\begin{tabular}{ll}
+E $\rightarrow$ E ( E ) & 
+\textbf{ } \begin{lstlisting}[language=C]
+{ if (E2.tipo = s) and (E1.tipo = s->t)
+        then E0.tipo = t
+  else E0.tipo = Error_Tipo }
+\end{lstlisting} \\
+\end{tabular}
+\end{table}
 
 \subsection{Conversiones de tipos}
 Algunas operaciones pueden aplicarse a operandos de distintos tipos, a un tipo más grande  (coerción)
@@ -2893,8 +3054,9 @@ Dos usos en la verificación semántica
 Tablas para estructuras registro, se almacena en la tabla de tipos el registro y en la tabla de registros se definen sus componentes con sus tipos y el registro que pertenece.›
 \begin{figure}[H]
   \ffigbox[\FBwidth]
-  {\caption{Tabla para registros}}
-  {\includegraphics[scale=.4]{Screenshot 2021-06-09 at 12.38.46.png}}
+  {\caption{Tablas para registros}}
+  {\def\svgwidth{.9\textwidth}
+  \input{./img/tablaRegistro.eps_tex}}
 \end{figure}
 
 \section{Implementación de Clases}
@@ -3022,7 +3184,6 @@ Esta tabla indexa los métodos
 \end{figure}
   
 \chapter{Tema 7: Generación de código intermedio}
-\includepdf[pages=2-]{docs/07_generacionCodigoInterm_2021.pdf}
-
+\href{https://drive.google.com/file/d/1Goyza5nuDCrGsduROwLEsG9dttk4SXsC}{Acceso en Drive a las diapositivas}
 \end{document}
 

@@ -1,0 +1,145 @@
+%% Creator: Inkscape 1.1 (c68e22c387, 2021-05-23), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Recorrido.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{577.12267297bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.48219176)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Recorrido.pdf}}%
+    \put(0.10166846,0.45124789){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}D\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Recorrido.pdf}}%
+    \put(0.17573707,0.27700855){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l},\end{tabular}}}}%
+    \put(0.00585503,0.36670375){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}T\end{tabular}}}}%
+    \put(0.01023523,0.34395075){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}T.tipo=r\end{tabular}}}}%
+    \put(0.18787668,0.36605067){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l};\end{tabular}}}}%
+    \put(0.10454696,0.2731848){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}L\end{tabular}}}}%
+    \put(0.09516061,0.2504318){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}L.her=r\end{tabular}}}}%
+    \put(0.00440535,0.2735956){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}float\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Recorrido.pdf}}%
+    \put(0.10434882,0.36670375){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}L\end{tabular}}}}%
+    \put(0.09033186,0.34395075){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}L.her=r\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Recorrido.pdf}}%
+    \put(0.23904261,0.2735956){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}id\end{tabular}}}}%
+    \put(0.20625302,0.25488759){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}añadeTipo(c,real)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{Recorrido.pdf}}%
+    \put(0.17573707,0.18377401){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l},\end{tabular}}}}%
+    \put(0.10454696,0.17995022){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}L\end{tabular}}}}%
+    \put(0.09516061,0.15719727){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F.val=3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{Recorrido.pdf}}%
+    \put(0.23904261,0.18036106){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}id\end{tabular}}}}%
+    \put(0.20625302,0.16162144){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}añadeTipo(b,real)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{Recorrido.pdf}}%
+    \put(0.09561954,0.08393479){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}id\end{tabular}}}}%
+    \put(0.06282997,0.06522677){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}añadeTipo(a,real)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{Recorrido.pdf}}%
+    \put(0.16777951,0.44505405){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}float a,b,c;\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{Recorrido.pdf}}%
+    \put(0.03428303,0.00843017){\color[rgb]{0.4,0,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}pre-orden\end{tabular}}}}%
+    \put(0.388771,0.007407){\color[rgb]{0.4,0,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}post-orden\end{tabular}}}}%
+    \put(0.44925876,0.45125847){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}E\end{tabular}}}}%
+    \put(0.44120217,0.43039065){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}E.val=31\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{Recorrido.pdf}}%
+    \put(0.58076001,0.20594179){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}num=\end{tabular}}}}%
+    \put(0.61846485,0.20594179){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3\end{tabular}}}}%
+    \put(0.44936611,0.36284082){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}+\end{tabular}}}}%
+    \put(0.53566999,0.28276044){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}*\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{Recorrido.pdf}}%
+    \put(0.37507552,0.37371903){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}E\end{tabular}}}}%
+    \put(0.3669922,0.3528319){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}E.val=7\end{tabular}}}}%
+    \put(0.46180912,0.29627628){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}T\end{tabular}}}}%
+    \put(0.4540748,0.27540838){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}T.val=8\end{tabular}}}}%
+    \put(0.52293166,0.3730911){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}T\end{tabular}}}}%
+    \put(0.51517046,0.35222336){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}T.val=24\end{tabular}}}}%
+    \put(0.45933834,0.21148137){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F\end{tabular}}}}%
+    \put(0.4512819,0.1906155){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F.val=8\end{tabular}}}}%
+    \put(0.60347061,0.29374508){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F\end{tabular}}}}%
+    \put(0.59541395,0.27287726){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F.val=3\end{tabular}}}}%
+    \put(0.44736984,0.12295743){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}num=\end{tabular}}}}%
+    \put(0.48507457,0.12295743){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}8\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{Recorrido.pdf}}%
+    \put(0.37350908,0.2955613){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}T\end{tabular}}}}%
+    \put(0.36577469,0.27469348){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}T.val=7\end{tabular}}}}%
+    \put(0.37103823,0.21185821){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F\end{tabular}}}}%
+    \put(0.36298171,0.1909865){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F.val=7\end{tabular}}}}%
+    \put(0.3590698,0.12330515){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}num=\end{tabular}}}}%
+    \put(0.3967746,0.12330515){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}7\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{Recorrido.pdf}}%
+    \put(0.55736911,0.43868947){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}7+8*3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{Recorrido.pdf}}%
+    \put(0.70899317,0.0072985){\color[rgb]{0.4,0,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}combinado\end{tabular}}}}%
+    \put(0.87022388,0.45237167){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}E\end{tabular}}}}%
+    \put(0.88267425,0.43079768){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}v=141\end{tabular}}}}%
+    \put(0.87648578,0.2428143){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}5\end{tabular}}}}%
+    \put(0.87080233,0.37732216){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}N\end{tabular}}}}%
+    \put(0.87080233,0.35574816){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}v=17*8+5\end{tabular}}}}%
+    \put(0.87377717,0.29565062){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}D\end{tabular}}}}%
+    \put(0.89856776,0.27407662){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}v=5\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{Recorrido.pdf}}%
+    \put(0.96497903,0.37657306){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}base\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{Recorrido.pdf}}%
+    \put(0.72507032,0.15230341){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}D\end{tabular}}}}%
+    \put(0.72914702,0.13070547){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}v=2\end{tabular}}}}%
+    \put(0.7243725,0.10647067){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2\end{tabular}}}}%
+    \put(0.7915367,0.30039489){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}N\end{tabular}}}}%
+    \put(0.79561334,0.27882091){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}v=2*8+1\end{tabular}}}}%
+    \put(0.78780894,0.21122239){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}D\end{tabular}}}}%
+    \put(0.79607244,0.18964841){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}v=1\end{tabular}}}}%
+    \put(0.72306872,0.21312011){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}N\end{tabular}}}}%
+    \put(0.73133222,0.19151615){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}v=2\end{tabular}}}}%
+    \put(0.9777141,0.33611183){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}o\end{tabular}}}}%
+    \put(0.79175702,0.16040366){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{Recorrido.pdf}}%
+    \put(0.82379195,0.37408605){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}b=8\end{tabular}}}}%
+    \put(0.74515069,0.29888672){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}b=8\end{tabular}}}}%
+    \put(0.6809798,0.20262277){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}b=8\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{Recorrido.pdf}}%
+  \end{picture}%
+\endgroup%
