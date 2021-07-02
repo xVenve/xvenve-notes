@@ -235,12 +235,6 @@ hmargin=3cm
 
 
 
-\part{Información}
-\includepdf[pages=-]{docs/218.13881.pdf}
-
-\part{Resúmenes}
-
-
   \chapter{Tema 1: Introducción a las BB. DD}
 
   \begin{enumerate}
@@ -1728,11 +1722,11 @@ autorización. La Seguridad).
           
 
          
-            Notación: (elemento)* desde 0 hasta N elementos.
+            Notación: $(elemento)^*$ desde 0 hasta N elementos.
 
 			\item
             
-            Notación: (elemento)\^{}+ desde 1 hasta N elementos.
+            Notación: $(elemento)^+$ desde 1 hasta N elementos.
             
           \end{itemize}
         \end{itemize}
@@ -1947,7 +1941,7 @@ autorización. La Seguridad).
             
 			
               \textbf{Coincidencia k}: Tasa media de registros que toman
-              un determinado valor. k=r/ \#valores. r numero de
+              un determinado valor. $k=\frac{r}{\#valores}$. r numero de
               registros del fichero, que lo toman.
               
 			  
@@ -2204,7 +2198,7 @@ autorización. La Seguridad).
 
            
 			
-              Coste: Selección + k + k
+              $Coste: Selección + k + k$
               
 			  
         
@@ -2220,7 +2214,7 @@ autorización. La Seguridad).
 
         
 		  
-            Coste: (N+1)/2 en no consecutiva y (n+1)/2 en consecutiva.
+            $Coste: (N+1)/2$ en no consecutiva y $(n+1)/2$ en consecutiva.
            
 			
             \underline{N numero de cubos} y \underline{n numero de
@@ -2339,7 +2333,7 @@ autorización. La Seguridad).
 
          
 		  
-            Coste: log2(x+1) +1
+            $Coste: log_2(x+1) +1$
             
 			
         \item \textbf{Borrado:} Se mantienen las dos posibilidades, hacer
@@ -2349,7 +2343,7 @@ autorización. La Seguridad).
 
          
 		  
-            Coste: selección + k/Tc accesos. Tc tamaño del cubo. Es
+            $Coste: selección + k/T_c \; accesos$. Tc tamaño del cubo. Es
             encontrarlo y después todos los accesos a cubos para los k
             registros.
          
@@ -2633,13 +2627,13 @@ autorización. La Seguridad).
 
             
 			
-              $2^b+Ndesb.$ Accesos. b, numero de bits de la dir. que
+              $2^b+N_{desb}.$ Accesos. b, numero de bits de la dir. que
               desconocemos.
               
 			  
           \item
             
-            \textbf{Otras consultas}: full scan= N + Ndesb.
+            \textbf{Otras consultas}: $full scan= N + N_{desb}$.
             
           \end{itemize}
         \end{itemize}
@@ -2684,11 +2678,11 @@ autorización. La Seguridad).
         
 
         \begin{itemize}
-        \item \textbf{Sondeo lineal:} dir'= dir+1
+        \item \textbf{Sondeo lineal:} $dir'= dir+1$
           
-        \item \textbf{Rehashing}: dir'= dir+k
+        \item \textbf{Rehashing}: $dir'= dir+k$
           
-        \item \textbf{Doble hash}: dir'=f(CD)
+        \item \textbf{Doble hash}: $dir'=f(CD)$
           
         \end{itemize}
 
@@ -2868,10 +2862,9 @@ autorización. La Seguridad).
     
 
     \begin{itemize}
-    \item Entrada de \textbf{índice primario}: clave * puntero\_externo
+    \item Entrada de \textbf{índice primario}: $clave * puntero\_externo$
       
-    \item Entrada de \textbf{índice secundario}: clave * long\_lista *
-      (puntero\_externo)\^{}long\_lista.
+    \item Entrada de \textbf{índice secundario}: $clave * long\_lista * (puntero\_externo)^{long\_lista}$.
       
     \item El número de entradas es igual a la cardinalidad del dominio(CI).
       
@@ -2886,8 +2879,8 @@ autorización. La Seguridad).
     
 
     \begin{itemize}
-    \item \textbf{Primario}: La clave de indización es identificativa. 1
-      entrada - 1 clave - 1 registro. Filtrado máximo.
+    \item \textbf{Primario}: La clave de indización es identificativa. 
+    1 entrada - 1 clave - 1 registro. Filtrado máximo.
       
     \item \textbf{Secundario}: La clave de indización es no identificativa.
       N registros - 1 clave - 1 entrada. Filtra menos.
@@ -2930,7 +2923,7 @@ autorización. La Seguridad).
     \item \textbf{Localización por varios índices:} Suma del acceso a cada
       índice.
       
-    \item \textbf{Recuperación}: acceso\_indice + acceso\_datos.
+    \item \textbf{Recuperación}: $acceso\_indice + acceso\_datos$.
       
     \item \textbf{Actualización}:
       
@@ -2939,7 +2932,7 @@ autorización. La Seguridad).
       \item \textbf{Inserciones}: Inserción de entradas. \textbf{Coste =
         acc\_indice + 1.}
         
-      \item \textbf{Borrados}: Coste = acc\_indice + 1
+      \item \textbf{Borrados}: $Coste = acc\_indice + 1$
         
 
         \begin{itemize}
@@ -2955,10 +2948,10 @@ autorización. La Seguridad).
 
         \begin{itemize}
         \item \textbf{CI}: Suele implicar borrado + reinserción de entrada.
-          2*acc\_ind + 2
+          $2*acc\_ind + 2$
           
         \item \textbf{CD/CO}: Cambia ubicación reg., cambia puntero.
-          acc\_indice + 1
+          $acc\_indice + 1$
           
         \end{itemize}
       \end{itemize}
@@ -3156,11 +3149,10 @@ autorización. La Seguridad).
     \item \textbf{Recuperar una entrada}: \#accesos = \#niveles.
       
     \item \textbf{Recuperar un registro aleatorio}, se recuperan la entrada
-      y tantos cubos de datos como punteros tenga la entrada. Coste=
-      (n-1)*Tnodo + c*Ecubo.
+      y tantos cubos de datos como punteros tenga la entrada. $Coste= (n-1)*T_{nodo} + c*E_{cubo}$.
       
     \item El \textbf{coste de cualquier actualización sobre el índice}, es
-      el coste de localización más un acceso de escritura: (n-1) +1 = n
+      el coste de localización más un acceso de escritura: $(n-1) +1 = n$
       
     \item El \textbf{coste extra de una partición} es de dos accesos de
       escritura.
@@ -3190,7 +3182,7 @@ autorización. La Seguridad).
   \end{itemize}
 
   
-  \textbf{Indización en Árboles B*:} Pretende aumentar la densidad.
+  \textbf{Indización en Árboles $B^*$:} Pretende aumentar la densidad.
   
 
   \begin{itemize}
@@ -3228,10 +3220,10 @@ autorización. La Seguridad).
 
     \begin{itemize}
     \item Todos los nodos menos el raíz garantizan una ocupación mínima:
-      kmin = floor(2k/3)
+      $k_{min} = \lfloor \frac{2k}{3} \rfloor$
       
-    \item Los nodos intermedios cuentan con (2k/3) +1 descendientes: mmin =
-      floor((2m+1)/3)
+    \item Los nodos intermedios cuentan con $(2k/3) +1$ descendientes: 
+    $m_{min} = \lfloor \frac{2m+1}{3} \rfloor$
       
     \end{itemize}
   \item \textbf{Cálculo de costes:} Saberlo como teoría, pero no como
@@ -3249,7 +3241,7 @@ autorización. La Seguridad).
   \end{itemize}
 
   
-  \textbf{Indización en Árboles B\^{}+:} Coste proporcional a la
+  \textbf{Indización en Árboles $B^+$:} Coste proporcional a la
   profundidad, crecer en amplitud, aumenta el número de hijos por nodo,
   aumenta el orden.
   
@@ -3288,19 +3280,18 @@ autorización. La Seguridad).
     \item \textbf{Ocupación máxima (k) de los nodos hoja:} Si los tamaños de
       los punteros internos y externos son distintos.
       
-    \item \textbf{Ocupación mínima de las hojas será}: kmin = floor(k+1/2)
+    \item \textbf{Ocupación mínima de las hojas será}: $k_{min} = \lfloor \frac{k+1}{2} \rfloor$
       
-    \item \textbf{Ocupación mínima de los nodos intermedios será:} mmin =
-      floor(m+1/2)
+    \item \textbf{Ocupación mínima de los nodos intermedios será:} $m_{min} = \lfloor \frac{m+1}{2} \rfloor$
       
     \item \textbf{Cálculo del numero de niveles:}
       
 
       \begin{itemize}
-      \item numero de hojas= floor(e/kmin) tal que e=numero total de
+      \item $\textit{numero de hojas}= \lfloor \frac{e}{k_{min}} \rfloor$ tal que e=numero total de
         entradas.
         
-      \item numero de nodos(n-1) = floor(nodosNiveln/mmin)
+      \item numero de $nodos(n-1) = \lfloor \frac{\textit{nodos Nivel n}}{m_{min}} \rfloor$
         
       \item Cuando llega un nivel con un solo nodo, es la raíz nivel 1.
         
@@ -3411,9 +3402,9 @@ autorización. La Seguridad).
 
       \begin{itemize}
       \item \textbf{Listas invertidas no ordenada}s: El máximo es n, y el
-        medio (n+1)/2.
+        medio $\frac{(n+1)}{2}$.
         
-      \item \textbf{Listas invertidas ordenadas}: log2(n+1)
+      \item \textbf{Listas invertidas ordenadas}: $\log_2(n+1)$
         
       \item \textbf{Esquema de bits}: n.
         
@@ -3424,7 +3415,7 @@ autorización. La Seguridad).
       
 
       \begin{itemize}
-      \item \textbf{Esquema de bits con puntero implícito}: min(n, r)
+      \item \textbf{Esquema de bits con puntero implícito}: $\min(n, r)$
         
       \item \textbf{Cualquier otro caso}: n.
         
@@ -3434,93 +3425,5 @@ autorización. La Seguridad).
 
 \includepdf[pages=-]{docs/Tema_8_FBD.pdf}
 \includepdf[pages=-]{docs/Tema_9_FBD.pdf}
-
-\part{Teoría}
-\includepdf[pages=-]{docs/ConsultasEnSQL.pdf}
-\includepdf[pages=-]{docs/Practica_1_FBD.pdf}
-\includepdf[pages=-]{docs/Presentacion_0_FBD.pdf}
-\includepdf[pages=-]{docs/Presentacion_1_FBD.pdf}
-\includepdf[pages=-]{docs/Presentacion_2_Clase_FBD.pdf}
-\includepdf[pages=-]{docs/Presentacion_2_FBD.pdf}
-\includepdf[pages=-]{docs/Presentacion_3_clase_FBD.pdf}
-\includepdf[pages=-]{docs/Presentacion_3_FBD.pdf}
-\includepdf[pages=-]{docs/Presentacion_4_FBD.pdf}
-\includepdf[pages=-]{docs/Presentacion_5_FBD.pdf}
-\includepdf[pages=-]{docs/Presentacion_6_FBD.pdf}
-\includepdf[pages=-]{docs/Presentacion_7_FBD.pdf}
-
-\part{Ejercicios}
-\includepdf[pages=-]{docs/ff1.pdf}
-\includepdf[pages=-]{docs/ff3.pdf}
-\includepdf[pages=-]{docs/ff4.pdf}
-\includepdf[pages=-]{docs/ff5.pdf}
-\includepdf[pages=-]{docs/ff6.pdf}
-\includepdf[pages=-]{docs/repaso_3.pdf}
-\includepdf[pages=-]{docs/Repaso_28-5.pdf}
-\includepdf[pages=-]{docs/repaso1_sol.pdf}
-\includepdf[pages=-]{docs/repaso1.pdf}
-\includepdf[pages=-]{docs/ConsultasEnSQL.pdf}
-\includepdf[pages=-]{docs/Descripcion_datos_practica_1_FBD.pdf}
-\includepdf[pages=-]{docs/Ejercicio_Ficheros_1_FBD.pdf}
-\includepdf[pages=-]{docs/Ejercicio_Ficheros_1_Solucion_FBD.pdf}
-\includepdf[pages=-]{docs/Ejercicio_Ficheros_2_FBD.pdf}
-\includepdf[pages=-]{docs/Ejercicio_Ficheros_2_Solucion_FBD.pdf}
-\includepdf[pages=-]{docs/Ejercicio_Ficheros_3_FBD.pdf}
-\includepdf[pages=-]{docs/Ejercicio_Ficheros_3_Solucion_FBD.pdf}
-\includepdf[pages=-]{docs/Ejercicio_Ficheros_4_FBD.pdf}
-\includepdf[pages=-]{docs/Ejercicio_Ficheros_5_FBD.pdf}
-\includepdf[pages=-]{docs/Ejercicio_Ficheros_6_FBD.pdf}
-\includepdf[pages=-]{docs/Ejercicios_Tema_3_y_Extras_del_Cafe.pdf}
-\includepdf[pages=-]{docs/Enunciado_Practica_1_FBD.pdf}
-\includepdf[pages=-]{docs/GI_FFBBDD_tema3P_sol.pdf}
-\includepdf[pages=-]{docs/GI_FFBBDD_ejercicio_5_sol_completa.pdf}
-\includepdf[pages=-]{docs/GI_FFBBDD_ejercicio_ficheros_extra_solucion.pdf}
-\includepdf[pages=-]{docs/Laboratorio_2_FBD.pdf}
-\includepdf[pages=-]{docs/Modelo_Racional_1.pdf}
-\includepdf[pages=-]{docs/Modelo_Racional_2.pdf}
-\includepdf[pages=-]{docs/Modelo_Racional_3.pdf}
-\includepdf[pages=-]{docs/Modelo_Racional_4.pdf}
-\includepdf[pages=-]{docs/Modelo_Racional_6.pdf}
-\includepdf[pages=-]{docs/Modelo_Racional_7.pdf}
-\includepdf[pages=-]{docs/Modelo_Racional_8.pdf}
-\includepdf[pages=-]{docs/repaso1.pdf}
-\includepdf[pages=-]{docs/R1.pdf}
-\includepdf[pages=-]{docs/R2esp.pdf}
-\includepdf[pages=-]{docs/R4esp.pdf}
-\includepdf[pages=-]{docs/R7esp.pdf}
-\includepdf[pages=-]{docs/R8esp.pdf}
-\includepdf[pages=-]{docs/Repaso_28-5.pdf}
-
-\part{Práctica 1}
-\includepdf[pages=-]{docs/100405834_100405951.pdf}
-\includepdf[pages=-]{docs/2019-20-Enunciado_practica_1_comp.pdf}
-\includepdf[pages=-]{docs/100405834_100405951.pdf}
-\includepdf[pages=-]{docs/GI_FFBBDD_lab_I.pdf}
-\includepdf[pages=-]{docs/GI_FFBBDD_lab_II.pdf}
-\includepdf[pages=-]{docs/pract_sol.pdf}
-\includepdf[pages=-]{docs/practica_1_2020.pdf}
-
-\part{Práctica 2}
-\includepdf[pages=-]{docs/FSDB_plantillaMemoria2.pdf}
-\includepdf[pages=-]{docs/341ctica_2_def.pdf}
-\includepdf[pages=-]{docs/ffesp.pdf}
-\includepdf[pages=-]{docs/FSDB_Memoria2_100405951_100405834.pdf}
-
-\part{Práctica 3}
-\includepdf[pages=-]{docs/FSDB_Memoria_100405834_100405951.pdf}
-\includepdf[pages=-]{docs/enunciado_P3_2020_esp.pdf}
-\includepdf[pages=-]{docs/GI_FFBBDD_LW_IV.pdf}
-\includepdf[pages=-]{docs/OPERATION_and_OPTIONS_Values_Produced_by_EXPLAIN_PLAN.pdf}
-
-\part{Exámenes}
-\includepdf[pages=-]{docs/100405951Ficheros1.pdf}
-\includepdf[pages=-]{docs/ejercicio_2_2.pdf}
-\includepdf[pages=-]{docs/100405951DisenoRelacional1.pdf}
-\includepdf[pages=-]{docs/100405951DisenoRelacional2.pdf}
-\includepdf[pages=-]{docs/100405951Ficheros.pdf}
-\includepdf[pages=-]{docs/ej2_1.pdf}
-\includepdf[pages=-]{docs/ejercicio_2_2.pdf}
-\includepdf[pages=-]{docs/100405951DiseoRelacional1.pdf}
-\includepdf[pages=-]{docs/100405951DisenoRelacional2.pdf}
 
 \end{document}
