@@ -233,29 +233,21 @@ hmargin=3cm
 %	COMENZAR A ESCRIBIR AQUI
 %----------	
 
-\part{Práctica}
-\includepdf[pages=-]{docs/Ejercicios_hechos_CDA.pdf}
-
-\part{Exámenes}
-\includepdf[pages=-]{docs/mag_81_82_cda_eval_cont_nov_11_2019_soluciones.pdf}
-\includepdf[pages=-]{docs/Tabla_de_Transformada_de_Laplace.pdf}
-\includepdf[pages=-]{docs/Parcial_19-20_CDA.pdf}
-\includepdf[pages=-]{docs/Parcial_18-19.pdf}
-\includepdf[pages=-]{docs/Parcial_15-16.pdf}
-\includepdf[pages=-]{docs/Ordinario_17-18.pdf}
-\includepdf[pages=-]{docs/Ordinario_15-16.pdf}
-\includepdf[pages=-]{docs/Ordinario_14-15.pdf}
-\includepdf[pages=-]{docs/Ordinario_14-15_CDA.pdf}
-\includepdf[pages=-]{docs/Ordinario_13-14.pdf}
-\includepdf[pages=-]{docs/Ordinario_12-13_Soluciones_CDA.pdf}
-\includepdf[pages=-]{docs/Ordinario_12-13_CDA.pdf}
-\includepdf[pages=-]{docs/Junio_18-19.pdf}
-\includepdf[pages=-]{docs/Extraordinario_17-18.pdf}
-\includepdf[pages=-]{docs/Extraordinario_16-17.pdf}
-\includepdf[pages=-]{docs/Extraordinario_15-16.pdf}
-\includepdf[pages=-]{docs/Extraordinario_14-15.pdf}
-\includepdf[pages=-]{docs/Extraordinario_13-14.pdf}
-\includepdf[pages=-]{docs/Extraordinario_12-13.pdf}
-\includepdf[pages=-]{docs/Enero_18-19.pdf}
+\part{Teoria}
+\chapter{Tabla: Transformada de Laplace}
+\begin{enumerate}
+	\item $\mathcal{L}\{f(t)=1\}=F(s)=\frac{1}{s}, \quad s>0$
+	\item $\mathcal{L}\left\{f(t)=e^{\text {at }}\right\}=F(s)=\frac{1}{s-a}, \quad s>a$
+	\item $\mathcal{L}\left\{f(t)=t^{n}\right\}=F(s)=\frac{n !}{s^{n+1}}, \quad s>0 ; n=1,2,3, \cdots$
+	\item $\mathcal{L}\{f(t)=\operatorname{sen}(a t)\}=F(s)=\frac{a}{s^{2}+a^{2}}, \quad s>0$
+	\item $\mathcal{L}\{f(t)=\cos (a t)\}=F(s)=\frac{s}{s^{2}+a^{2}}, \quad s>0$
+	\item $\mathcal{L}\left\{f(t)=e^{a t} \operatorname{sen}(b t)\right\}=F(s)=\frac{b}{(s-a)^{2}+b^{2}}, \quad s>a$
+	\item $\mathcal{L}\left\{f(t)=e^{a t} \cos (b t)\right\}=F(s)=\frac{s-a}{(s-a)^{2}+b^{2}}, \quad s>a$
+	\item $\mathcal{L}\left\{f(t)=t^{n} e^{a t}\right\}=F(s)=\frac{n !}{(s-a)^{n+1}}, \quad s>a ; n=1,2,3, \cdots$
+	\item $\mathcal{L}\{f(t)=\operatorname{senh}(a t)\}=F(s)=\frac{a}{s^{2}-a^{2}}, \quad s>|a|$
+	\item $\mathcal{L}\{f(t)=\cosh (a t)\}=F(s)=\frac{s}{s^{2}-a^{2}}, \quad s>|a|$
+	\item $\left.\mathcal{L}\left\{(f * g)(t)=\int_{0}^{t} f(t-\alpha) g(\alpha) \mathrm{d} \alpha\right\}=\int_{0}^{t} f(\alpha) g(t-\alpha) \mathrm{d} \alpha\right\}=\mathcal{L}\{f(t)\} \mathcal{L}\{g(t)\}$
+	\item $\mathcal{L}\left\{f^{(n}(t)\right\}=s^{n} F(s)-s^{n-1} f(0)-s^{(n-2)} f^{\prime}(0)-\cdots-f^{(n-1}(0) ; \quad F(s)=\mathcal{L}\{f(t)\}$	
+\end{enumerate}
 
 \end{document}
