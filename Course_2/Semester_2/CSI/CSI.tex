@@ -396,41 +396,41 @@ hmargin=3cm
     \item Ejem: mcd de 1547 y 560, poner el mayor igualado al menor por un
       entero, más resto.
       
-    \item 1547 = 2 · 560 + 427
+    \item $1547 = 2 · 560 + 427$
       
-    \item 560 = 1 · 427 + 133
+    \item $560 = 1 · 427 + 133$
       
-    \item 427 = 3 · 133 + 28
+    \item $427 = 3 · 133 + 28$
       
-    \item 133 = 4 · 28 + 21
+    \item $133 = 4 · 28 + 21$
       
-    \item 28 = 1 · 21 + 7
+    \item $28 = 1 · 21 + 7$
       
-    \item 21 = 3 · 7 + 0
+    \item $21 = 3 · 7 + 0$
       
-    \item m.c.d.(1547,560) = 7
+    \item $mcd(1547,560) = 7$
       
     \item Ejem: cálculo de inverso de 23x mod 25, ir dejando el resto 1
       mediante todas las ecuaciones y el inverso será el que acompaña al
       23.
       
-    \item 25=1·23+2
+    \item $25=1·23+2$
       
-    \item 23=11·2+1
+    \item $23=11·2+1$
       
-    \item 11=11·1+0
+    \item $11=11·1+0$
       
-    \item mcd(25, 23)= 1 Coprimos podemos hallar el inverso.
+    \item $mcd(25, 23)= 1$ Coprimos podemos hallar el inverso.
       
     \end{itemize}
   \item \textbf{ax=b mod. n} debe cumplirse mcd(a, n)\textbar b:
     
 
     \begin{itemize}
-    \item Si mcd(a, n)= 1, hay una solución. Se resuelve el inverso de a y
+    \item Si $mcd(a, n)= 1$, hay una solución. Se resuelve el inverso de a y
       se multiplica por b.
       
-    \item Si mcd(a, n)=m!=1, hay m soluciones. Se simplifica la expresión y
+    \item Si $mcd(a, n)=m!=1$, hay m soluciones. Se simplifica la expresión y
       se resuelve como el anterior, con la diferencia de que las
       soluciones serán con el módulo original y se harán crearan el
       resto de soluciones sumando el módulo del simplificado.
@@ -442,42 +442,39 @@ hmargin=3cm
       las soluciones x.
       
     \end{itemize}
-  \item \textbf{Cuerpos de Galois CG(p):} Sea Zp=\{0, 1, 2,..., p-1\} siendo
-    p primo. Zp es un cuerpo finito denominado Cuerpo de Galois CG(p).
-    Zp=CG(p)
+  \item \textbf{Cuerpos de Galois CG(p):} Sea $Z_p=\{0, 1, 2,..., p-1\}$ siendo
+    p primo. $Z_p$ es un cuerpo finito denominado Cuerpo de Galois CG(p).
+    $Z_p=CG(p)$
     
 
     \begin{itemize}
     \item Zp es un cuerpo respecto a la suma y la multiplicación.
       
-    \item Hay p elementos en GC(p).
+    \item Hay p elementos en $GC(p)$.
       
     \end{itemize}
   \item \textbf{Cuerpos de Galois $CG(q^n)$:} Está formado por los
     polinomios de grado n-1 o menor. Si al operar obtenemos un polinomio
     de grado n o mayor, se reduce módulo de un polinomio p(x), que nos
-    lo dan y normalmente es: $\boldsymbol{p(x)=x^n+x+1}$ para n= 1, 3, 4,
-    6, 7, 9, 15, 22, 28, 30, 46,...
+    lo dan y normalmente es: $\boldsymbol{p(x)=x^n+x+1}$ para $n= 1, 3, 4, 6, 7, 9, 15, 22, 28, 30, 46,...$
     
 
     \begin{itemize}
-    \item Existen $q^n$ polinomios en $CG(q^n)$. Ejem: CG(2³) 0, x, x², 1,
-      x+1, x²+1, x²+x+1, x²+x.
+    \item Existen $q^n$ polinomios en $CG(q^n)$. Ejem: $CG(2³) 0, x, x², 1, x+1, x²+1, x²+x+1, x²+x$
       
     \item Hay $q^n -1$ elementos coprimos con $p(x)$, la identidad de Euler
-      de p(x).
+      de $p(x)$.
       
     \item Operaciones:
       
 
       \begin{itemize}
-      \item \textbf{Suma y resta:} c(x)=a(x)+-b(x) mod p(x) consiste en
+      \item \textbf{Suma y resta:} $c(x)=a(x)+-b(x) \mod p(x)$ consiste en
         sumar/restar a y b.
         
-      \item \textbf{Multiplicación}: c(x)=a(x)*b(x) mod p(x)
+      \item \textbf{Multiplicación}: $c(x)=a(x)*b(x) \mod p(x)$
         
-      \item \textbf{Dividir(inverso multiplicativo):} u(x)*s(x)=v(x) mod
-        p(x)
+      \item \textbf{Dividir(inverso multiplicativo):} $u(x)*s(x)=v(x) \mod p(x)$
         
 
         \begin{itemize}
@@ -492,8 +489,7 @@ hmargin=3cm
     
 
     \begin{itemize}
-    \item Ejm: CG(2³) 0 (0 0 0), x (0 1 0), x² (1 0 0), 1 (0 0 1), x+1 (0 1
-      1), x²+1 (1 0 1), x²+x+1 (1 1 1), x²+x (1 1 0).
+    \item Ejm: $CG(2³) 0 (0 0 0), x (0 1 0), x² (1 0 0), 1 (0 0 1), x+1 (0 1 1), x²+1 (1 0 1), x²+x+1 (1 1 1), x²+x (1 1 0)$.
       
     \item Operaciones:
       
@@ -510,7 +506,7 @@ hmargin=3cm
       \item \textbf{Multiplicación:} Es la operación lógica AND, es
         multiplicar los números y sumar con XOR. Si se sobre pasa el
         grado de p(x), se reduce a mod p(x) o podemos hacerlo dividiendo
-        y cogiendo el resto. 100*100=10000 Habría que dividirlo, ya que
+        y cogiendo el resto. $100*100=10000$ Habría que dividirlo, ya que
         sobre pasa el grado 3.
         
       \item \textbf{División:} Es hallar el inverso multiplicativo,
@@ -562,7 +558,8 @@ hmargin=3cm
   \end{itemize}
 
   
-\chapter{Tema 2: Introducción a la Criptografía.}
+\chapter{Tema 2: Criptografía}
+\section{Introducción a la Criptografía}
 
   Se hace uso de una clave y un algoritmo de cifrado. Si la misma clave
   sirve para cifrar y descifrar es un cifrado simétrico.
@@ -579,13 +576,13 @@ hmargin=3cm
     
     \begin{itemize}
     \item \textbf{Espacio de mensajes:} Mensajes en claro, que no han sigo
-      transformados. M=\{m1,m2,...\}
+      transformados. $M=\{m1,m2,...\}$
       
     \item \textbf{Espacio de cifrados:} Mensajes que ya han sido
-      transformados. C=\{c1,c2,...\}.
+      transformados. $C=\{c1,c2,...\}$.
       
     \item \textbf{Espacio de claves}: Sirve para configurar el algoritmo de
-      cifrado/descifrado. K=\{k1,k1,\ldots\}
+      cifrado/descifrado. $K=\{k1,k1,\ldots\}$
       
     \end{itemize}
   \item Las transformaciones pueden ser:
@@ -712,17 +709,17 @@ hmargin=3cm
     \begin{itemize}
     \item Sea la fuente de mensajes M: $H(M)=-\Sigma_i p(m_i) \log_2 p(m_i)$ bits
       
-    \item H(M)=0 cuando p(mi)=1, ya que no aporta información si siempre
+    \item $H(M)=0$ cuando $p(m_i)=1$, ya que no aporta información si siempre
       aparece.
       
-    \item H(M)=máxima=log2 n cuando p(mi)=1/n.
+    \item $H(M)=máxima=log_2 n$ cuando $p(m_i)=1/n$.
       
     \end{itemize}
   \item \textbf{Entropía condicionada:} Cuando existe alguna relación entre
     las apariciones de dos mensajes consecutivos de distinta fuente, la
     presencia del primero disminuye la incertidumbre del segundo.
     Conocer el primero me facilita encontrar el segundo. Los métodos
-    tratan de maximizar H(M\textbar N) para poder relacionar el conjunto
+    tratan de maximizar $H(M| N)$ para poder relacionar el conjunto
     de textos claros M y el de textos cifrados N.
  
     \begin{itemize}
@@ -838,7 +835,7 @@ hmargin=3cm
   \end{itemize}
 
   \pagebreak
-  \textbf{2.2 Métodos Criptográficos clásicos:}
+  \section{Métodos Criptográficos clásicos:}
   
 
   \begin{itemize}
@@ -877,7 +874,7 @@ hmargin=3cm
       equivalente consiste en el número de la letra multiplicada por un
       valor, sumándole otro y todo eso módulo del numero de letras del
       alfabeto. Se usa el módulo de ese valor para conocer que letra
-      corresponde en la codificación. E(m)=(am+b) mod n, la a es la
+      corresponde en la codificación. $E(m)=(am+b) \mod n$, la a es la
       constante de decimación, la b la constante de desplazamiento (a y
       b forman la clave y deben ser coprimos) y n el número de letras
       del alfabeto. Para descifrar consiste en invertir el proceso, se
@@ -890,12 +887,12 @@ hmargin=3cm
         
 
         \begin{itemize}
-        \item Cifrador Cesar, E(m)=(m+3) mod n
+        \item Cifrador Cesar, $E(m)=(m+3) \mod n$
           
         \end{itemize}
-      \item \underline{Cifrador por decimación pura}, E(m)=(am) mod n
+      \item \underline{Cifrador por decimación pura}, $E(m)=(am) \mod n$
         
-      \item \underline{Cifrador por sustitución afín}, E(m)=(am+b) mod n
+      \item \underline{Cifrador por sustitución afín}, $E(m)=(am+b) \mod n$
         
       \end{itemize}
     \item \textbf{Monoalfabeto poligráfica}: Sustitución n (n\textgreater=2)
@@ -999,7 +996,7 @@ hmargin=3cm
       
 
       \begin{itemize}
-      \item Codificar: E(x)=(x+n) mod m. Descodificar: D(x)=(x-n) mod m
+      \item Codificar: $E(x)=(x+n)$ mod m. Descodificar: $D(x)=(x-n)$ mod m
         
       \end{itemize}
     \item \textbf{Romper el Cifrado de Sustitución Monoalfabeto:} Para no
@@ -1015,7 +1012,7 @@ hmargin=3cm
       
 
       \begin{itemize}
-      \item E(m)=(am+b) mod n
+      \item $E(m)=(am+b) \mod n$
         
       \item Algunas técnicas para dificultarlo son: Cadenas suficientemente
         cortas, evitar emplear las letras más frecuentes o evitar
@@ -1053,7 +1050,7 @@ hmargin=3cm
   \end{itemize}
 
   
-  \textbf{2.3 Criptosistemas simétricos:} El mensaje se descompone en
+  \section{Criptosistemas simétricos:} El mensaje se descompone en
   bloques de símbolos de igual longitud, y todos los bloques se cifran
   con la misma clave, y el proceso inverso descifra.
   
@@ -1513,161 +1510,10 @@ hmargin=3cm
     \end{itemize}
   \end{itemize}
 
-  \begin{itemize}
-  \item \textbf{2.5 Cifradores Asimétricos:} Hay dos claves, una pública
-    (cifrar) y otra secreta (descifrar). El que envía el mensaje lo
-    cifra con la clave pública de receptor, para que solo el receptor
-    pueda descifrarlo, que es el que conoce la clave privada. Surge del
-    problema de acordar una clave sobre un canal inseguro, ya que de
-    esta manera tu clave secreta no es conocida y lo que te cifran con
-    la privada solo lo puedes descifrar tú.
-    
 
-    \begin{itemize}
-    \item La seguridad es del tipo seguridad computacional, que es posible
-      en la teoría, pero en la práctica llevaría tanto tiempo o coste
-      que no merece la pena.
-      
-    \item Más lento en comparación con los criptosistemas simétricos.
-      
-    \end{itemize}
-
-    \begin{itemize}
-    \item \textbf{Distribución de claves secreta} mediante criptografía
-      simétrica: Hay muchas posibilidades
-      
-
-      \begin{itemize}
-      \item Entrega física de la clave.
-        
-      \item Una tercera persona crea la contraseña y se la entrega a ambos.
-        
-      \item Si se ha comunicado previamente pasarse la nueva por ese medio.
-        
-      \end{itemize}
-    \item \textbf{Jerarquías de KDC (Key Distribution Center)}: Distribuye
-      claves de sesión para cada par de usuarios, son temporales y se
-      usan para una sesión y se descartan. Cada usuario tiene una clave
-      maestra para poder recibir las claves de sesión, y si hay n
-      participantes debe haber n*(n-1)/2 claves temporales.
-      
-    \item \textbf{Intercambio de claves DH (Diffie-Hellman):} Hay dos
-      sujetos A y B.
-      
-
-      \begin{itemize}
-      \item A necesita escoger un numero \underline{primo} p y otro
-        \underline{generador} g que es la base, ambos públicos, y por
-        último un numero aleatorio a, que no se compartirá. Además
-        genera $g^a \mod p=A$. \textbf{A envía a B: g, p, A}
-        
-
-        \begin{itemize}
-        \item \textbf{p primo de 300 dígitos decimales y g de entre 2 y 5. a
-          es secreto.}
-          
-        \end{itemize}
-      \item B recibe lo de A, también escoge un numero aleatorio b y genera
-        $B=g^b$ mod p que se lo enviará a A. \textbf{B envía a A: B}
-        
-
-        \begin{itemize}
-        \item Hallar a desde A o b desde B es inviable o determinar la K con
-          A o B.
-          
-        \end{itemize}
-      \item Ahora pueden generar la clave: Ambos con la letra mayúscula que
-        reciben, el resultado de la base elevada a su exponente secreto,
-        elevan la letra recibida a su exponente secreto con módulo p.
-        \textbf{Clave en A: $K=B^a$ mod p}. \textbf{Clave en B: $K= A^b \mod
-        p$.}
-        
-
-        \begin{itemize}
-        \item \textbf{No se garantiza la autenticación.}
-          
-        \item Permite ataque de hombre interpuesto (man in the middle), una
-          persona en medio que hace como intermediario, hace la función
-          de B para A y la de A para B.
-          
-        \end{itemize}
-      \end{itemize}
-    \item \textbf{RSA}: Conocido algoritmo efectivo de clave pública.
-      Funcionamiento para una parte:
-      
-
-      \begin{itemize}
-      \item Se eligen dos números primos muy grandes, no públicos. p y q.
-        
-      \item Se obtiene $n=p\cdot q$, la n si será pública.
-        
-      \item Se halla la identidad de Euler de n, que para el creador es
-        sencillo conoce los dos primos. Será la multiplicación de $p-1$. y
-        $q-1$. $\phi(n) = \phi(p)\cdot\phi(q)$
-        
-      \item Se escoge un numero e, tal que sea positivo y sea coprimo con
-        $\phi (n)$. $mcd(e, \phi(n)=1)$
-        
-      \item Y la d será el inverso del módulo identidad de Euler de n.
-        $ed = 1 \mod \phi (n)$
-        
-
-        \begin{itemize}
-        \item \textbf{Clave pública de A: e, n}
-          
-        \item \textbf{Clave privada de A: d, n}
-          
-        \end{itemize}
-      \end{itemize}
-    \end{itemize}
-  \end{itemize}
 
   
-\textbf{Cifrar: $C=M^e \mod n$}
-
-\textbf{Descifrar: $M=C^d \mod n$}
-
-  
-  Su seguridad se basa en la factorización de números grandes, la
-  dificultad de hallar g y p. Y es de complejidad muy elevada.
-  
-
-  
-  \textbf{ElGamal}: El algoritmo de cifrado es distinto que el de firma.
-  
-
-  \begin{itemize}
-  \item \textbf{Algoritmo de cifrado}: x es privada e y es pública.
-    
-
-    \begin{itemize}
-    \item \textbf{Cifrar} el mensaje M por parte de A:
-      
-
-      \begin{itemize}
-      \item Elegir una k entre 1\textless=k\textless=p
-        
-      \item La clave de sesión será: $K=y^k mod p$ Es privada para A. p
-        primo y g generador.
-        
-      \item Al B se le envía $C_1 = g^k mod p$ y $C_2 = M K mod p$
-        
-      \end{itemize}
-    \item \textbf{Descifrar} el criptograma C por parte de B:
-      
-
-      \begin{itemize}
-      \item La clave de sesión será: $K=C_1^x mod p$ Se halla la misma que A
-        
-      \item El mensaje recuperado: $M=C_2 K^{-1} mod p$ Para revertir su
-        efecto se hace el inverso.
-        
-      \end{itemize}
-    \end{itemize}
-  \end{itemize}
-
-  
-  \textbf{2.6 Funciones Resumen y MAC}
+  \section{Funciones Resumen y MAC}
   
 
   \begin{itemize}
@@ -1884,8 +1730,161 @@ hmargin=3cm
     \end{itemize}
   \end{itemize}
 
+  \section{Cifradores asimétricos y Distribución de claves}
+  \begin{itemize}
+  \item \subsection{Cifradores Asimétricos:} Hay dos claves, una pública
+    (cifrar) y otra secreta (descifrar). El que envía el mensaje lo
+    cifra con la clave pública de receptor, para que solo el receptor
+    pueda descifrarlo, que es el que conoce la clave privada. Surge del
+    problema de acordar una clave sobre un canal inseguro, ya que de
+    esta manera tu clave secreta no es conocida y lo que te cifran con
+    la privada solo lo puedes descifrar tú.
+    
+
+    \begin{itemize}
+    \item La seguridad es del tipo seguridad computacional, que es posible
+      en la teoría, pero en la práctica llevaría tanto tiempo o coste
+      que no merece la pena.
+      
+    \item Más lento en comparación con los criptosistemas simétricos.
+      
+    \end{itemize}
+
+    \begin{itemize}
+    \item \textbf{Distribución de claves secreta} mediante criptografía
+      simétrica: Hay muchas posibilidades
+      
+
+      \begin{itemize}
+      \item Entrega física de la clave.
+        
+      \item Una tercera persona crea la contraseña y se la entrega a ambos.
+        
+      \item Si se ha comunicado previamente pasarse la nueva por ese medio.
+        
+      \end{itemize}
+    \item \textbf{Jerarquías de KDC (Key Distribution Center)}: Distribuye
+      claves de sesión para cada par de usuarios, son temporales y se
+      usan para una sesión y se descartan. Cada usuario tiene una clave
+      maestra para poder recibir las claves de sesión, y si hay n
+      participantes debe haber n*(n-1)/2 claves temporales.
+      
+    \item \textbf{Intercambio de claves DH (Diffie-Hellman):} Hay dos
+      sujetos A y B.
+      
+
+      \begin{itemize}
+      \item A necesita escoger un numero \underline{primo} p y otro
+        \underline{generador} g que es la base, ambos públicos, y por
+        último un numero aleatorio a, que no se compartirá. Además
+        genera $g^a \mod p=A$. \textbf{A envía a B: g, p, A}
+        
+
+        \begin{itemize}
+        \item \textbf{p primo de 300 dígitos decimales y g de entre 2 y 5. a
+          es secreto.}
+          
+        \end{itemize}
+      \item B recibe lo de A, también escoge un numero aleatorio b y genera
+        $B=g^b$ mod p que se lo enviará a A. \textbf{B envía a A: B}
+        
+
+        \begin{itemize}
+        \item Hallar a desde A o b desde B es inviable o determinar la K con
+          A o B.
+          
+        \end{itemize}
+      \item Ahora pueden generar la clave: Ambos con la letra mayúscula que
+        reciben, el resultado de la base elevada a su exponente secreto,
+        elevan la letra recibida a su exponente secreto con módulo p.
+        \textbf{Clave en A: $K=B^a$ mod p}. \textbf{Clave en B: $K= A^b \mod
+        p$.}
+        
+
+        \begin{itemize}
+        \item \textbf{No se garantiza la autenticación.}
+          
+        \item Permite ataque de hombre interpuesto (man in the middle), una
+          persona en medio que hace como intermediario, hace la función
+          de B para A y la de A para B.
+          
+        \end{itemize}
+      \end{itemize}
+    \item \textbf{RSA}: Conocido algoritmo efectivo de clave pública.
+      Funcionamiento para una parte:
+      
+
+      \begin{itemize}
+      \item Se eligen dos números primos muy grandes, no públicos. p y q.
+        
+      \item Se obtiene $n=p\cdot q$, la n si será pública.
+        
+      \item Se halla la identidad de Euler de n, que para el creador es
+        sencillo conoce los dos primos. Será la multiplicación de $p-1$. y
+        $q-1$. $\phi(n) = \phi(p)\cdot\phi(q)$
+        
+      \item Se escoge un numero e, tal que sea positivo y sea coprimo con
+        $\phi (n)$. $mcd(e, \phi(n)=1)$
+        
+      \item Y la d será el inverso del módulo identidad de Euler de n.
+        $ed = 1 \mod \phi (n)$
+        
+
+        \begin{itemize}
+        \item \textbf{Clave pública de A: e, n}
+          
+        \item \textbf{Clave privada de A: d, n}
+          
+        \end{itemize}
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+
   
-  \textbf{2.7 Firma Digital y PKI (Interfaz de Clave Pública)}
+\textbf{Cifrar: $C=M^e \mod n$}
+
+\textbf{Descifrar: $M=C^d \mod n$}
+
+  
+  Su seguridad se basa en la factorización de números grandes, la
+  dificultad de hallar g y p. Y es de complejidad muy elevada.
+  
+
+  
+  \textbf{ElGamal}: El algoritmo de cifrado es distinto que el de firma.
+  
+
+  \begin{itemize}
+  \item \textbf{Algoritmo de cifrado}: x es privada e y es pública.
+    
+
+    \begin{itemize}
+    \item \textbf{Cifrar} el mensaje M por parte de A:
+      
+
+      \begin{itemize}
+      \item Elegir una k entre 1\textless=k\textless=p
+        
+      \item La clave de sesión será: $K=y^k mod p$ Es privada para A. p
+        primo y g generador.
+        
+      \item Al B se le envía $C_1 = g^k mod p$ y $C_2 = M K mod p$
+        
+      \end{itemize}
+    \item \textbf{Descifrar} el criptograma C por parte de B:
+      
+
+      \begin{itemize}
+      \item La clave de sesión será: $K=C_1^x mod p$ Se halla la misma que A
+        
+      \item El mensaje recuperado: $M=C_2 K^{-1} mod p$ Para revertir su
+        efecto se hace el inverso.
+        
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+  
+  \section{Firma Digital y PKI (Interfaz de Clave Pública)}
   
 
   \begin{itemize}
@@ -2076,7 +2075,7 @@ hmargin=3cm
     \end{itemize}
 
   
-  \textbf{2.5 Distribución de claves:}
+  \subsection{Distribución de claves:}
   
 
   \begin{itemize}
@@ -2216,7 +2215,7 @@ hmargin=3cm
   \end{itemize}
 
   
-  \textbf{2.6 Infraestructura de Clave Pública}
+  \subsection{Infraestructura de Clave Pública}
   
 
   \begin{itemize}
@@ -2320,7 +2319,9 @@ hmargin=3cm
     
   \end{itemize}
 
-\includepdf[pages=-]{docs/Tema_2.6_Infraestructura_de_Clave_Publica.pdf}
-\includepdf[pages=-]{docs/Tema_2.7_Autenticacion_de_Usuarios.pdf}
+\href{https://drive.google.com/file/d/1HCPXUgQZdJhzb-RSoEQ4a3lpcr0BL7Wh}{Acceso en Drive a la continuación}
+
+\section{Autenticacion de Usuarios}
+\href{https://drive.google.com/file/d/1LeW4zDzfHuWrtOJt_1oKhUiT8p8w9eY0}{Acceso en Drive a las diapositivas}
 
 \end{document}
