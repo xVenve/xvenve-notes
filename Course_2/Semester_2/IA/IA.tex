@@ -234,11 +234,6 @@ hmargin=3cm
 %----------	
 
 
-\part{Información}
-\includepdf[pages=-]{docs/Cronograma-IA-2020-alumnos.pdf}
-\includepdf[pages=-]{docs/presentacion.pdf}
-
-\part{Resúmenes}
 \chapter{Tema 2: Sistemas de producción.}
 
 
@@ -478,9 +473,9 @@ hmargin=3cm
     
 
     \begin{itemize}
-    \item Amplitud: Temporal y espacial exponencial O(b\^{}d)
+    \item Amplitud: Temporal y espacial exponencial $O(b^d)$
       
-    \item Profundidad: Temporal exponencial O(b\^{}d) y espacial lineal
+    \item Profundidad: Temporal exponencial $O(b^d)$ y espacial lineal
       O(b).
       
     \end{itemize}
@@ -555,7 +550,7 @@ hmargin=3cm
     restricciones, pero no el propio problema. Es el coste óptimo del
     problema relajado. Ejem: Distancias de Manhattan, para problemas con
     un tablero con coordenadas,
-    h(n)=\textbar x-xi\textbar+\textbar y-yi\textbar, la suma de
+    $h(n)=| x-x_i|+| y-y_i|$, la suma de
     distancias.
     
   \item \textbf{Búsqueda Escalada (Hill Climbing)}: Básicamente buscando el
@@ -595,7 +590,7 @@ hmargin=3cm
     cerrada, que servirá para ver si un nodo repetido lo hemos
     encontrado con menor coste, por lo que se convertiría en mejor
     camino. Si el nodo final es escogido termina, pero no solo si
-    aparece como un sucesor. f(n)=g(n)+h(n) El coste total es la suma
+    aparece como un sucesor. $f(n)=g(n)+h(n)$ El coste total es la suma
     del coste desde el inicio al nodo n y el coste desde n hasta el nodo
     final.
     
@@ -606,10 +601,10 @@ hmargin=3cm
       
     \item Completitud (si existe solución la encuentra), admisibilidad
       (encuentra la solución óptima, si: sucesores finitos, los costes
-      son mayores que 1 y h(n) es admisible, menor que el h*(n)) y
+      son mayores que 1 y $h(n)$ es admisible, menor que el $h^*(n)$) y
       complejidad exponencial.
       
-    \item Cuando mayor h(n) mejor informada esta la función heurística y
+    \item Cuando mayor $h(n)$ mejor informada esta la función heurística y
       menor numero de nodos sucesores aparecen.
       
     \end{itemize}
@@ -648,7 +643,7 @@ hmargin=3cm
   \item \textbf{Distribución de probabilidad}: Asigna a cada evento un valor
     que representa la probabilidad de que ocurra ese evento. Para hallar
     la probabilidad debemos tener datos de e. Se puede expresar como una
-    vector formado por todas las probabilidades. P(e)
+    vector formado por todas las probabilidades. $P(e)$
     
 
     \begin{itemize}
@@ -663,16 +658,14 @@ hmargin=3cm
     
 
     \begin{itemize}
-    \item \textbf{P(A)=$\Sigma$P(e)}
+    \item \textbf{$P(A)=\Sigma P(e)$}
       
     \end{itemize}
   \item \textbf{Teorema de la probabilidad total}: La suma de las
     probabilidades que tiene de que ocurra A condicionando con otro
-    evento, por la probabilidad de ese evento. \textbf{P(A)=$\Sigma$P(A, B1,B2,
-    ...)}
+    evento, por la probabilidad de ese evento. \textbf{$P(A)=\Sigma P(A, B1,B2,...)$}
     
-  \item \textbf{Regla del producto:} \textbf{P(A/B)=
-    P(A, B)/P(B)=P(AnB)/P(B)}
+  \item \textbf{Regla del producto:} $P(A/B)= P(A, B)/P(B)=P(A \cap B)/P(B)$
     \pagebreak
   \item \textbf{Probabilidad a posteriori(condicional)}: Sobre una
     observación, tenemos evidencias. Esa evidencia modifica el
@@ -680,17 +673,17 @@ hmargin=3cm
     
 
     \begin{itemize}
-    \item \textbf{P(A\textbar B)=P(AnB)/P(B)=$\alpha$P(BnA)}
+    \item \textbf{$P(A| B)=P(A \cap B)/P(B)=\alpha P(B \cap A)$}
       
-    \item \textbf{Regla de la cadena: P(AnB)=P(A\textbar B)P(B)}
+    \item \textbf{Regla de la cadena: $P(A \cap B)=P(A| B)P(B)$}
       
     \item \textbf{Comparar probabilidades condicionadas:} Cuando la B es la
       misma, pero la A cambia, la suma de ambas probabilidades debe dar
-      1, por lo que dejamos como incógnita \textbf{$\alpha$=1/P(B)} que es la
+      1, por lo que dejamos como incógnita $\boldsymbol{\alpha=1/P(B)}$ que es la
       \textbf{constante de normalización}. El que mayor x tenga es más
       probable siendo x el término que acompaña a $\alpha$.
       
-    \item $\alpha$ permite también hallar P(B) cuando no se nos da y conocemos las
+    \item $\alpha$ permite también hallar $P(B)$ cuando no se nos da y conocemos las
       condicionadas.
       
     \end{itemize}
@@ -712,7 +705,7 @@ hmargin=3cm
     
 
     \begin{itemize}
-    \item \textbf{P(A/B)=(P(B/A)P(A))/P(B)=$\alpha$P(B/A)P(A)}
+    \item \textbf{$P(A/B)=(P(B/A)P(A))/P(B)=\alpha P(B/A)P(A)$}
       
     \end{itemize}
   \item \textbf{Independencia}: A y B lo son si y solo si la ocurrencia de
@@ -720,10 +713,10 @@ hmargin=3cm
     
 
     \begin{itemize}
-    \item \textbf{P(A\textbar B)=P(A)} La probabilidad de A no se ve
+    \item $\boldsymbol{P(A| B)=P(A)}$ La probabilidad de A no se ve
       afectada por B.
       
-    \item \textbf{P(A, B)=P(A)P(B)}
+    \item $\boldsymbol{P(A, B)=P(A)P(B)}$
       
     \item \textbf{Reducción de tamaño de distribución:} Eso implica
       algoritmo más eficiente y menos datos a especificar.
@@ -758,8 +751,7 @@ hmargin=3cm
   \end{itemize}
 
   
-P(X,Y\textbar Z)=P(Y\textbar Z)P(X\textbar Z) y también P(X\textbar Y,
-Z)=P(X\textbar Z)
+$P(X,Y| Z)=P(Y| Z)P(X| Z)$ y también $P(X| Y,Z)=P(X| Z)$
 
 Nos permite reducir el número de parámetros, normalmente de exp. a
 lineal.
@@ -786,7 +778,7 @@ condicionalmente.
     
 
     \begin{itemize}
-    \item $P(A, B, C)= P(A\textbar B,C)P(B,C)=...$
+    \item $P(A, B, C)= P(A| B,C)P(B,C)=...$
      $$P(X_1, ..., X_n)=\prod^n_{i=1} P(X_i/Padres(X_i))$$
       
     \end{itemize}
@@ -823,12 +815,12 @@ condicionalmente.
     
 
     \begin{itemize}
-    \item 1. Se aplica la regla del producto. Donde $\alpha$=1/(lo de la derecha) o
-      1/(suma $\alpha$P's)
+    \item 1. Se aplica la regla del producto. Donde $\alpha=\frac{1}{\textit{lo de la derecha}}$ o
+      $\frac{1}{\Sigma_s \alpha P_s} $
       
 
       \begin{itemize}
-      \item \textbf{P(A\textbar B)=$\alpha$P(A, B).}
+      \item \textbf{$P(A| B)=\alpha P(A, B)$.}
         
       \end{itemize}
     \item 2. Después aplicamos la regla de la probabilidad total, OJO con
@@ -838,7 +830,7 @@ condicionalmente.
       
 
       \begin{itemize}
-      \item \textbf{$\alpha$P(A,B)=$\alpha$$\Sigma$ P(A, B, C).}
+      \item \textbf{$\alpha P(A,B)=\alpha \Sigma P(A, B, C)$.}
         
       \end{itemize}
     \item 3. Lo de dentro del sumatorio se factoriza y operamos.
@@ -868,8 +860,8 @@ condicionalmente.
     ello se hace un muestreo de la red Bayesiana, comenzando desde
     padres hasta los hijos. Muestrear, quiere decir que siguiendo la
     distribución de probabilidad sacamos un número aleatorio. Por
-    ejemplo P(Nublado)=(0.5, 0.5) Sacamos un numero entre 0 y 1, si cae
-    en la parte de la izquierda es true, si no false. 0-0.5 true y 0.5-1
+    ejemplo $P(Nublado)=(0.5, 0.5)$ Sacamos un numero entre 0 y 1, si cae
+    en la parte de la izquierda es true, si no false. $0-0.5$ true y $0.5-1$
     false.
     
 
@@ -1126,7 +1118,7 @@ condicionalmente.
 
           
 		  
-            \textbf{C(a) + $\Sigma$sub(s') P(s'\textbar{} s, a) *
+            \textbf{C(a) + $\Sigma$sub(s') P(s'|{} s, a) *
             costeDesde(s')}
           
 			
@@ -1139,11 +1131,11 @@ condicionalmente.
       \item \textbf{V(s):} coste esperado de alcanzar la meta desde s.
         
       \item \textbf{Busqueda}: Coste del camino optimo desde s. Se puede
-        usar como heuristica, y es la heurística perfecta h*(s)
+        usar como heuristica, y es la heurística perfecta $h^*(s)$
         
       \item \textbf{MDP}: Coste esperado de la estrategia optima para
         alcanzar la meta desde s. Conociendo V(s) podemos calcular una
-        politica optima $\pi$*.
+        politica optima $\pi^*$.
         
       \end{itemize}
     \item \textbf{Calcular V(s).}
@@ -1155,7 +1147,7 @@ condicionalmente.
         
 
         \begin{itemize}
-        \item Si s es un estado meta, V(s) = 0. Es sumidero. Inicialmente
+        \item Si s es un estado meta, $V(s) = 0$. Es sumidero. Inicialmente
           todos están a 0.
           
         \item En el resto de casos, donde s' es el estado resultado de
@@ -1170,7 +1162,7 @@ condicionalmente.
         \begin{itemize}
         \item Dominios estocasticos, apartir de la accion a: $c(a) + \Sigma_{s'\in S} P_a (s'/s)V(s')$
           
-        \item Entonces, el estado meta V(s)=0 para costes y en el resto de
+        \item Entonces, el estado meta $V(s)=0$ para costes y en el resto de
           casos:
 
 		  $$V(s)_{i+1}= R(s)+ \max_{a\in A(s)} [\gamma \Sigma_{s'\in S} P_a(s'/s) V(s')]$$
@@ -1190,7 +1182,7 @@ condicionalmente.
 			
             
 			
-              El V(s) de los finales es 0 para costes y el refuerzo si
+              El $V(s)$ de los finales es 0 para costes y el refuerzo si
               hay refuerzos.
              
 			  
@@ -1198,8 +1190,8 @@ condicionalmente.
              
 			  
               Se hacen tantas rondas como sean necesarias para que los
-              valores de V(s) se estabilicen entre rondas. Y cada ronda
-              calcula V(s) para cada estado.
+              valores de $V(s)$ se estabilicen entre rondas. Y cada ronda
+              calcula $V(s)$ para cada estado.
               
 			  
               Termina cuando alcanza un punto fijo, cuando los valores
@@ -1365,74 +1357,5 @@ condicionalmente.
 \includepdf[pages=-]{docs/Tema_6_Tecnicas_Bioinspiradas_IA.pdf}
 \includepdf[pages=-]{docs/Tema_7_Robotica_IA.pdf}
 
-\part{Teoría}
-\includepdf[pages=-]{docs/Presentacion_1_IA.pdf}
-\includepdf[pages=-]{docs/Presentacion_3.1_IA.pdf}
-\includepdf[pages=-]{docs/Presentacion_4.1_Razonamiento_probabilistico_IA.pdf}
-\includepdf[pages=-]{docs/Presentacion_4.3_Modelo_de_Markov_Corregido_IA.pdf}
-\includepdf[pages=-]{docs/Presentacion_4.3_Modelo_de_Markov_IA.pdf}
-\includepdf[pages=-]{docs/Presentacion_4.4_Logica_Borrosa_IA.pdf}
-
-\part{Ejercicios}
-\includepdf[pages=-]{docs/Ejer_clase_5_feb_2020_12_34_33.pdf}
-\includepdf[pages=-]{docs/Tema_2_-_Ejercicios_2_IA.pdf}
-\includepdf[pages=-]{docs/Tema_2_-_Soluciones_Ejercicios_1_IA.pdf}
-\includepdf[pages=-]{docs/Tema_2_-_Soluciones_Ejercicios_2_IA.pdf}
-\includepdf[pages=-]{docs/Tema_3_-_Ejercicios_1_IA.pdf}
-\includepdf[pages=-]{docs/Tema_4.1_-_Razonamiento_Bayesiano_IA.pdf}
-\includepdf[pages=-]{docs/Tema_4.1_-_Soluciones_Razonamiento_Bayesiano_IA.pdf}
-\includepdf[pages=-]{docs/Tema_4.2_-_Redes_Bayesianas_IA.pdf}
-\includepdf[pages=-]{docs/Tema_4.2_-_Soluciones_Redes_Bayesianas_IA.pdf}
-\includepdf[pages=-]{docs/Tema_4.3.1_-_Modelos_Markov_IA.pdf}
-\includepdf[pages=-]{docs/Tema_4.3.1_-_Soluciones_Modelos_Markov_IA.pdf}
-\includepdf[pages=-]{docs/Tema_4.3.2_-_Procesos_Markov_IA.pdf}
-\includepdf[pages=-]{docs/Tema_4.3.2_-_Soluciones_Procesos_Markov_IA.pdf}
-\includepdf[pages=-]{docs/Tema_4.4_-_Logica_Borrosa_IA.pdf}
-\includepdf[pages=-]{docs/Tema_4.4_-_Soluciones_Logica_Borrosa_IA.pdf}
-
-\part{Exámenes}
-\includepdf[pages=-]{docs/_Parcial_2_2014_IA.pdf}
-\includepdf[pages=-]{docs/ex2-ex-2014.pdf}
-\includepdf[pages=-]{docs/examen_ia_junio_extra_ejercicio.pdf}
-\includepdf[pages=-]{docs/Extraordinario_2013_2_IA.pdf}
-\includepdf[pages=-]{docs/Extraordinario_2013_IA.pdf}
-\includepdf[pages=-]{docs/Extraordinario_2014_IA.pdf}
-\includepdf[pages=-]{docs/ia-en-bn-mm-fuzzy-15.pdf}
-\includepdf[pages=-]{docs/Ordinario_2013_IA.pdf}
-\includepdf[pages=-]{docs/Ordinario_2015_IA.pdf}
-\includepdf[pages=-]{docs/Ordinario_2016_IA.pdf}
-\includepdf[pages=-]{docs/Ordinario_2018_IA.pdf}
-\includepdf[pages=-]{docs/Ordinario_Ingles_2015_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_1_2013_82_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_1_2013_83_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_1_2014_81_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_1_2014_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_1_2015_81_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_1_2015_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_1_2016_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_1_2017_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_1_2019_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_2_2013_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_2_2014_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_2_2015_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_2_2015_Solucion_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_2_2016_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_2_2017_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_2_2017_Solucion_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_2_2018_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_2_2019_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_2_2020_IA.pdf}
-\includepdf[pages=-]{docs/Parcial_2_Mix_IA.pdf}
-\includepdf[pages=-]{docs/Partial_1_2014_IA.pdf}
-\includepdf[pages=-]{docs/Partial_1_2015_IA.pdf}
-\includepdf[pages=-]{docs/Partial_1_2015_Solution_IA.pdf}
-\includepdf[pages=-]{docs/Partial_1_2019_IA.pdf}
-\includepdf[pages=-]{docs/Partial_2_2014_IA.pdf}
-\includepdf[pages=-]{docs/Partial_2_2015_IA.pdf}
-
-\part{Practica Individual}
-\includepdf[pages=-]{docs/instalacion.pdf}
-\includepdf[pages=-]{docs/Practica_Individual_Final_IA.pdf}
-\includepdf[pages=-]{docs/practicaIA-405951.pdf}
 
 \end{document}
