@@ -234,14 +234,6 @@ hmargin=3cm
 %----------	
 
 
-\part{Información}
-\includepdf[pages=-]{docs/Planificacion_CSI_COVID_ES.pdf}
-\includepdf[pages=-]{docs/PlanificacionDocenteCSI1920_version2020.enero.13.ALUMNOS-ES.pdf}
-\includepdf[pages=-]{docs/GuiaEvaluacionCSI-1920.pdf}
-\includepdf[pages=-]{docs/GuiaAsignatura_1920_14.01.2020_ES.pdf}
-\includepdf[pages=-]{docs/Evaluacion_CSI_COVID_ES.pdf}
-
-\part{Resumenes}
 \chapter{Tema 1: Fundamentos Matemáticos}
 
   \textbf{Estructuras}: Sea a, b $\in$ Z, Z tiene estructura de:
@@ -286,7 +278,7 @@ hmargin=3cm
     conmutativa.
     
   \item \textbf{Anillo de División} si cumple las de anillo y además:
-    Inverso, a*a\^{}1=1
+    Inverso, $a*a^1=1$
     
   \item \textbf{Cuerpo}: Anillo de División Conmutativo.
     
@@ -360,7 +352,7 @@ hmargin=3cm
   
   \textbf{Cálculo de Inversos:} El m.c.d de a y n debe ser 1, para que
   sean \underline{coprimos}(el único divisor que tiene en común es el
-  1). \textbf{a\^{}(-1)*a=1. a*x=1 mod n. x=a\^{}(-1) mod n}
+  1). $\boldsymbol{a^{-1*} a=1. a^*x=1 \mod n. x=a^{-1} \mod n}$
   
 
   \begin{itemize}
@@ -464,7 +456,7 @@ hmargin=3cm
   \item \textbf{Cuerpos de Galois $CG(q^n)$:} Está formado por los
     polinomios de grado n-1 o menor. Si al operar obtenemos un polinomio
     de grado n o mayor, se reduce módulo de un polinomio p(x), que nos
-    lo dan y normalmente es: \textbf{p(x)=x\^{}n+x+1} para n= 1, 3, 4,
+    lo dan y normalmente es: $\boldsymbol{p(x)=x^n+x+1}$ para n= 1, 3, 4,
     6, 7, 9, 15, 22, 28, 30, 46,...
     
 
@@ -472,7 +464,7 @@ hmargin=3cm
     \item Existen $q^n$ polinomios en $CG(q^n)$. Ejem: CG(2³) 0, x, x², 1,
       x+1, x²+1, x²+x+1, x²+x.
       
-    \item Hay q\^{}n -1 elementos coprimos con p(x), la identidad de Euler
+    \item Hay $q^n -1$ elementos coprimos con $p(x)$, la identidad de Euler
       de p(x).
       
     \item Operaciones:
@@ -489,14 +481,13 @@ hmargin=3cm
         
 
         \begin{itemize}
-        \item s(x)\^{}(-1) mod p(x) = s(x)\^{}($\phi$(p(x)) -1) mod p(x) =
-          s(x)\^{}(q\^{}n -2) mod p(x)
+        \item $s(x)^{-1} \mod p(x) = s(x)^{\phi(p(x)} -1) \mod p(x) = s(x)^{q^n -2} mod p(x)$
           
         \end{itemize}
       \end{itemize}
     \end{itemize}
-  \item \textbf{Cuerpos de Galois CG(2\^{}n):} Se representa mediante los
-    coeficientes 0 y 1. El número de elementos del cuerpo es 2\^{}n. Se
+  \item \textbf{Cuerpos de Galois $CG(2^n)$:} Se representa mediante los
+    coeficientes 0 y 1. El número de elementos del cuerpo es $2^n$. Se
     emplean n bits para representar un elemento.
     
 
@@ -513,7 +504,7 @@ hmargin=3cm
         
 
         \begin{itemize}
-        \item 101+111=010. 110-011=101. Es sumar sin acarreo.
+        \item $101+111=010$. $110-011=101$. Es sumar sin acarreo.
           
         \end{itemize}
       \item \textbf{Multiplicación:} Es la operación lógica AND, es
@@ -523,7 +514,7 @@ hmargin=3cm
         sobre pasa el grado 3.
         
       \item \textbf{División:} Es hallar el inverso multiplicativo,
-        a\^{}(-1)=a\^{}(a\^{}n -2) mod p(x), vamos separando términos y
+        $a^{-1}=a^{a^n -2} \mod p(x)$, vamos separando términos y
         operador hasta reducirlo. También se puede hacer dividiendo
         normal, buscando que tenga el mismo grado y restando con XOR.
         
@@ -826,9 +817,9 @@ hmargin=3cm
       
 
       \begin{itemize}
-      \item \textbf{Exponencial}: O(c\^{}x)
+      \item \textbf{Exponencial}: $O(c^x)$
         
-      \item \textbf{Factorial}: O(n!)
+      \item \textbf{Factorial}: $O(n!)$
         
       \end{itemize}
     \end{itemize}
@@ -890,8 +881,8 @@ hmargin=3cm
       constante de decimación, la b la constante de desplazamiento (a y
       b forman la clave y deben ser coprimos) y n el número de letras
       del alfabeto. Para descifrar consiste en invertir el proceso, se
-      despeja la expresión modular. E(m)=7m+3 mod 27=n
-      D(n)=(n-3)7\^{}(-1) mod 27
+      despeja la expresión modular. $E(m)=7m+3 \mod 27=n$
+      $D(n)=(n-3)7^{(-1)} \mod 27$
       
 
       \begin{itemize}
@@ -942,8 +933,7 @@ hmargin=3cm
 
       \begin{itemize}
       \item Hay 27 alfabetos, uno para cada letra, que comienza desde esa
-        letra. Ejem: Alfabeto de C E(mj) = (mj+k\^{}sub(j mód m)) mód.
-        27
+        letra. Ejem: Alfabeto de C $E(m_j) = (m_j+k_{j \mod m}) \mod 27$
         
       \item \textbf{Con clave:} Lo que equivale a colocar bajo la cadena
         original la clave tantas veces como para cubrirla entera. Y lo
@@ -1032,9 +1022,8 @@ hmargin=3cm
         terminaciones que se repiten con frecuencia en las palabras.
         
       \end{itemize}
-    \item \textbf{Romper el Cifrado de Sustitución Polialfabeto:}
-      \underline{Método de Kasiski} e \underline{Índice de
-      Coincidencia.} Consiste en ir calculando el IC de subcadenas de la
+    \item \textbf{Romper el Cifrado de Sustitución Polialfabeto: Método de Kasiski e Índice de Coincidencia.} 
+      Consiste en ir calculando el IC de subcadenas de la
       cifrada, estas subcadenas se originan de ir saltándose x letras,
       pero crear tantas cadenas como se pueda con ese tipo de salto.
       Aquellas subcadenas que tengan un IC similar al de un lenguaje
@@ -1186,7 +1175,7 @@ hmargin=3cm
       
     \end{itemize}
   \item \textbf{Counter(CTR):} Utiliza un contador del tamaño de bloque(n),
-    se inicializa con un nonce y se le suma 1 mod 2\^{}n en cada bloque,
+    se inicializa con un nonce y se le suma 1 mod $2^n$ en cada bloque,
     se descartan los bits sobrantes. Se puede pasar de cifrado en bloque
     a uno de flujo. Es muy usado por su simplicidad.
     
@@ -1634,9 +1623,9 @@ hmargin=3cm
   \end{itemize}
 
   
-\textbf{Cifrar: C=M\^{}e mod n}
+\textbf{Cifrar: $C=M^e \mod n$}
 
-\textbf{Descifrar: M=C\^{}d mod n}
+\textbf{Descifrar: $M=C^d \mod n$}
 
   
   Su seguridad se basa en la factorización de números grandes, la
@@ -1765,11 +1754,11 @@ hmargin=3cm
       
 
       \begin{itemize}
-      \item \textbf{Ataque de preimagen:} 1/2\^{}n
+      \item \textbf{Ataque de preimagen:} $1/2^n$
         
-      \item \textbf{Ataque de segunda preimagen:} 1/2\^{}n
+      \item \textbf{Ataque de segunda preimagen:} $1/2^n$
         
-      \item \textbf{Ataque de colisión:} 1/2\^{}(n/2) (Ataque del
+      \item \textbf{Ataque de colisión:} $1/2^{(n/2)}$ (Ataque del
         cumpleaños, p\textgreater=50\%)
         
       \end{itemize}
@@ -1835,7 +1824,7 @@ hmargin=3cm
         unos pocos.
         
       \item En caso de que el mensaje incluya un numero de secuencia, se
-        \underline{evitan ataques por replicación.}
+        evitan ataques por replicación.
         
       \item \textbf{\underline{NO tiene que ser invertible.}}
         
@@ -1852,10 +1841,10 @@ hmargin=3cm
           
         \item MAC(K, M) debe estar uniformemente distribuido, de forma que la
           probabilidad de encontrar dos mensajes M y M' cuyos valores
-          MAC coincidan es 1/2\^{}n
+          MAC coincidan es $1/2^n$
           
         \item Sea M' un mensaje resultante de aplicar una transformación a
-          M{[}M'= f(M){]}. En ese caso la probabilidad es 1/2\^{}n
+         $ M[M'= f(M)]$. En ese caso la probabilidad es $1/2^n$
           
         \end{itemize}
       \item \textbf{Ataques a funciones MAC:}
@@ -1869,10 +1858,10 @@ hmargin=3cm
           
 		  
             Por fuerza bruta la complejidad viene dada porque es más
-            fácil, si hallar la clave 1/2\^{}k o el valor MAC 1/2\^{}n.
+            fácil, si hallar la clave $1/2^k$ o el valor MAC $1/2^n$.
           
 			
-            \textbf{\underline{Min(1/2\^{}k, 1/2\^{}n)}}
+            \textbf{\underline{$\min(1/2^k, 1/2^n)$}}
          
 			
             Por criptoanálisis, deben existir vulnerabilidades en el
@@ -2333,108 +2322,5 @@ hmargin=3cm
 
 \includepdf[pages=-]{docs/Tema_2.6_Infraestructura_de_Clave_Publica.pdf}
 \includepdf[pages=-]{docs/Tema_2.7_Autenticacion_de_Usuarios.pdf}
-\includepdf[pages=-]{docs/Cifradores_de_bloque_SPI.pdf}
-
-\part{Teoría}
-\includepdf[pages=-]{docs/Presentacion_1.1_Cuerpos_de_Galois.pdf}
-\includepdf[pages=-]{docs/Presentacion_1.2_Fundamentos_matematicos.pdf}
-\includepdf[pages=-]{docs/Presentacion_2_(Audio).pdf}
-\includepdf[pages=-]{docs/Presentacion_2.1_Introduccion_a_los_criptosistemas.pdf}
-\includepdf[pages=-]{docs/Presentacion_2.2_Criptografia_clasica.pdf}
-\includepdf[pages=-]{docs/Presentacion_2.3.1_Cifradores_Bloque_y_Flujo.pdf}
-\includepdf[pages=-]{docs/Presentacion_2.3.2_Cifradores_Bloque_y_Flujo.pdf}
-\includepdf[pages=-]{docs/Presentacion_2.3.3_Cifradores_Bloque_y_Flujo.pdf}
-\includepdf[pages=-]{docs/Presentacion_2.4_Anexo_Resumen_Funciones_HASH.pdf}
-\includepdf[pages=-]{docs/Presentacion_2.4_Funciones_Resumen_y_MAC.pdf}
-\includepdf[pages=-]{docs/Presentacion_2.5.1_Cifradores_Asimetricos.pdf}
-\includepdf[pages=-]{docs/Presentacion_2.5.1_Trasparencia_18.pdf}
-\includepdf[pages=-]{docs/Presentacion_2.5.2_Distribucion_Claves.pdf}
-\includepdf[pages=-]{docs/Presentacion_2.6_Firma_Digital.pdf}
-
-\part{Ejercicios}
-\includepdf[pages=-]{docs/CSI1617-es_Firma_Digital_y_PKI_Enunciados.pdf}
-\includepdf[pages=-]{docs/Ejercicios_Examen.pdf}
-\includepdf[pages=-]{docs/Enunciados_Lab_cryptool_soluciones.pdf}
-\includepdf[pages=-]{docs/Enunciados_Lab_ENT_soluciones.pdf}
-\includepdf[pages=-]{docs/Enunciados_Lab_JAVA_soluciones.pdf}
-\includepdf[pages=-]{docs/Enunciados_Lab_OpenSSL_soluciones.pdf}
-\includepdf[pages=-]{docs/Prob_2_ES_Enunciado.pdf}
-\includepdf[pages=-]{docs/Prob_3_ES_Enunciado.pdf}
-\includepdf[pages=-]{docs/Problema_PKI_adicional_ES_-_Enunciados.pdf}
-\includepdf[pages=-]{docs/Problemas_1.1_Fundamentos_matematicos.pdf}
-\includepdf[pages=-]{docs/Problemas_1.1_Soluciones_Fundamentos_matematicos.pdf}
-\includepdf[pages=-]{docs/Problemas_1.2_Cuerpos_Galois.pdf}
-\includepdf[pages=-]{docs/Problemas_1.2_Soluciones_Cuerpos_Galois.pdf}
-\includepdf[pages=-]{docs/Problemas_2.2_Criptografia_clasica.pdf}
-\includepdf[pages=-]{docs/Problemas_2.3_Cifrado_flujo.pdf}
-\includepdf[pages=-]{docs/Problemas_2.3_Cifrado_simetrico.pdf}
-\includepdf[pages=-]{docs/Problemas_2.3.1_Soluciones_Cifrado_simetrico.pdf}
-\includepdf[pages=-]{docs/Problemas_2.3.2_Soluciones_Cifrado_simetrico.pdf}
-\includepdf[pages=-]{docs/Problemas_2.5_Cifrado_Asimetrico.pdf}
-\includepdf[pages=-]{docs/Problemas_2.5_Distribucion_Claves.pdf}
-\includepdf[pages=-]{docs/Problemas_2.5_Soluciones_Cifrado_Asimetrico.pdf}
-\includepdf[pages=-]{docs/Problemas_2.5_Soluciones_Distribucion_Claves.pdf}
-\includepdf[pages=-]{docs/Problemas_2.7_Firma_Digital_Soluciones.pdf}
-\includepdf[pages=-]{docs/Problemas_2.7_Firma_Digital_y_PKI.pdf}
-\includepdf[pages=-]{docs/Problemas_2.7_PKI_Soluciones.pdf}
-
-\part{ractica final}
-\includepdf[pages=-]{docs/EXAMEN_ES.pdf}
-\includepdf[pages=-]{docs/MemoriaCSI.Grupo16.pdf}
-
-\part{Exámenes}
-\includepdf[pages=-]{docs/ExamenCSI.pdf}
-\includepdf[pages=-]{docs/TEST_L13_autenti_sol.pdf}
-\includepdf[pages=-]{docs/TEST_L12_InfraestructurasClavePublica_soluciones.pdf}
-\includepdf[pages=-]{docs/TEST_L11_EsquemasFirmaDigital_soluciones.pdf}
-\includepdf[pages=-]{docs/TEST_L10_MAC_sol.pdf}
-\includepdf[pages=-]{docs/TEST_L8_DistribucionEstablecimientoClave_soluciones.pdf}
-\includepdf[pages=-]{docs/TEST_L6_cifrado_flujo_sol.pdf}
-\includepdf[pages=-]{docs/TEST_L5_cifrado_simetrico_sol.pdf}
-\includepdf[pages=-]{docs/TEST_L4_criptoClasica_sol.pdf}
-\includepdf[pages=-]{docs/TEST_L2_L3-IntroCripto_y_ConceptoRela-FundamenMate_sol.pdf}
-\includepdf[pages=-]{docs/TEST_L1-FundamenMate_sol.pdf}
-\includepdf[pages=-]{docs/TEST__L9_fun_resum_sol.pdf}
-\includepdf[pages=-]{docs/ExamenFinalMayo2014conPortada.pdf}
-\includepdf[pages=-]{docs/ExamenFinalMayo2013conPortada.pdf}
-\includepdf[pages=-]{docs/TEST_L7_CriptosistemasAsimetricos_soluciones.pdf}
-\includepdf[pages=-]{docs/Prob_3_ES_Enunciado.pdf}
-\includepdf[pages=-]{docs/Prob_2_ES_Enunciado.pdf}
-\includepdf[pages=-]{docs/Prob_1_ES_Enunciado.pdf}
-\includepdf[pages=-]{docs/Ejercicios_L12_Infraestructuras_Clave_Publica_Soluciones.pdf}
-\includepdf[pages=-]{docs/Ejercicios_L11_Esquemas_firma_digital_Soluciones.pdf}
-\includepdf[pages=-]{docs/Ejercicios_L8_Distribucion_establecimiento_clave_Soluciones.pdf}
-\includepdf[pages=-]{docs/Ejercicios_L7_Criptosistemas_asimetricos_Soluciones.pdf}
-\includepdf[pages=-]{docs/Ejercicios_L6_sol.pdf}
-\includepdf[pages=-]{docs/Ejercicios_L5_Soluciones.pdf}
-\includepdf[pages=-]{docs/Ejercicios_L4_sol.pdf}
-\includepdf[pages=-]{docs/Ejercicios_L1_sol.pdf}
-\includepdf[pages=-]{docs/EjercicioAdicionalExamenEnunciado.pdf}
-
-\part{Lab 1}
-\includepdf[pages=-]{docs/CrypToolENT.pdf}
-\includepdf[pages=-]{docs/Enunciados_Lab_cryptool_1920.pdf}
-\includepdf[pages=-]{docs/Enunciados_Lab_ENT_1920.pdf}
-
-\part{Lab 2}
-\includepdf[pages=-]{docs/BouncyCastle.pdf}
-\includepdf[pages=-]{docs/LAB2_Enunciado-19_20.pdf}
-
-\part{Lab 3}
-\includepdf[pages=-]{docs/OpenSSL.pdf}
-\includepdf[pages=-]{docs/CSI1920-es_OpenSSL_-_enunciados.pdf}
-
-\part{Practicas}
-\includepdf[pages=-]{docs/Enunciados_Lab_cryptool_soluciones.pdf}
-\includepdf[pages=-]{docs/Enunciados_Lab_cryptool.pdf}
-\includepdf[pages=-]{docs/Enunciados_Lab_ENT_soluciones.pdf}
-\includepdf[pages=-]{docs/Enunciados_Lab_ENT.pdf}
-\includepdf[pages=-]{docs/Enunciados_Lab_JAVA_soluciones.pdf}
-\includepdf[pages=-]{docs/Enunciados_Lab_JAVA.pdf}
-\includepdf[pages=-]{docs/Enunciados_Lab_OpenSSL_soluciones.pdf}
-\includepdf[pages=-]{docs/Enunciados_Lab_OpenSSL.pdf}
-
-\part{Recursos}
-\includepdf[pages=-]{docs/Stallings_Cryptography_and_Network_Security.pdf}
 
 \end{document}
