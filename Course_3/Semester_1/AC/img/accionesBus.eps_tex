@@ -1,0 +1,77 @@
+%% Creator: Inkscape 1.1 (c68e22c387, 2021-05-23), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'accionesBus.eps' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{589.7700128bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.51361997)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength]{accionesBus.eps}}%
+    \put(0.46647528,0.43801628){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Inválido(I)\end{tabular}}}}%
+    \put(0.66386128,0.2220748){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Compartido(S)\end{tabular}}}}%
+    \put(0.23484123,0.22316741){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Modifcado(M)\end{tabular}}}}%
+    \put(0.88664663,0.22057046){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Acierto lectura\end{tabular}}}}%
+    \put(0.02038981,0.22166307){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Acierto lectura\end{tabular}}}}%
+    \put(0.586148,0.37875122){\color[rgb]{0,0,0}\rotatebox{-45}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Fallo lectura\end{tabular}}}}}%
+    \put(0.54730979,0.36825832){\color[rgb]{0,0,0}\rotatebox{-45}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Bus: Fallo lectura\end{tabular}}}}}%
+    \put(0.67611047,0.4224581){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Fallo lectura\end{tabular}}}}%
+    \put(0.65606503,0.3912588){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Bus: Fallo lectura\end{tabular}}}}%
+    \put(0.45994032,0.23855969){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Fallo lectura\end{tabular}}}}%
+    \put(0.37628637,0.20328207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Escribir bloque/Bus: Fallo lectura\end{tabular}}}}%
+    \put(0.44356984,0.13215757){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Acierto escritura\end{tabular}}}}%
+    \put(0.44091008,0.09687995){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Bus: Invalidación\end{tabular}}}}%
+    \put(0.00589266,0.20422008){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Acierto escritura\end{tabular}}}}%
+    \put(0.35602928,0.30852048){\color[rgb]{0,0,0}\rotatebox{45}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Fallo escritura\end{tabular}}}}}%
+    \put(0.36652267,0.26967939){\color[rgb]{0,0,0}\rotatebox{45}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Bus: Fallo escritura\end{tabular}}}}}%
+    \put(0.45241568,0.05122351){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Fallo escritura\end{tabular}}}}%
+    \put(0.43237307,0.01633781){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Bus: Fallo escritura\end{tabular}}}}%
+    \put(0.23807012,0.3890481){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize Fallo escritura\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

@@ -268,14 +268,11 @@ Core Guidelines}
 \href{https://www.youtube.com/playlist?list=PLLX-Q6B8xqZ8n8bwjGdzBJ25X2utwnoEG}{Introduction
 to OpenMP - Tim Mattson (Intel)}
 
+\chapter{Módulo 1: Introducción al Diseño de Computadores}
 
-\part{Teoría}
+\section{¿Qué es la arquitectura de computadores?}
 
-  \chapter{Módulo 1: Introducción al Diseño de Computadores}
-
-  \section{¿Qué es la arquitectura de computadores?}
-
-  \begin{itemize}
+\begin{itemize}
   
   \item
     Son los atributos de un sistema que puede ver el programador, y
@@ -299,11 +296,7 @@ to OpenMP - Tim Mattson (Intel)}
   \section{La ley de Moore:}
 
   Más que una ley es una observación empírica
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{Diagrama Ley de Moore}}
-    {\includegraphics[scale=.2]{Untitled.png}}
-  \end{figure}
+  
   \begin{itemize}
   \item
     El número de transistores por chip se duplica cada N meses, donde N
@@ -315,13 +308,6 @@ to OpenMP - Tim Mattson (Intel)}
     Aunque han aumentado los transistores no quiere decir que sea más
     rápido cada uno de ellos, ya que se llega un punto en el que no
     puede dar más potencia debido al problema de la temperatura.
-  \item
-    Evolución del rendimiento:
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Evolución del del rendimiento}}
-      {\includegraphics[scale=.35]{Untitled 1.png}}
-    \end{figure}
   \end{itemize}
 
   \section{RISC:}
@@ -344,7 +330,7 @@ to OpenMP - Tim Mattson (Intel)}
   \item
     El rendimiento crecía 52\% al año hasta el 2003.
   \end{itemize}
-\pagebreak
+
   \section{Perspectiva histórica:}
 
   \subsection{Primera revolución (70's): El microprocesador}
@@ -352,11 +338,29 @@ to OpenMP - Tim Mattson (Intel)}
     \begin{itemize}
     \item
       Primer microprocesador.
-      \begin{figure}[H]
-        \ffigbox[\FBwidth]
-        {\caption{Primer microprocesador}}
-        {\includegraphics[scale=.25]{Untitled 2.png}}
-      \end{figure}
+
+      Intel 4004 (1971).
+      \begin{itemize}
+        \item Dominio de aplicación: Calculadoras.
+        \item Tecnología: 10,000 nm.
+        \item Datos:
+
+2300 transistores.
+
+13 mm2.
+
+108 KHz.
+
+12 Voltios.
+
+        \item Características:
+
+Datos de 4 bits.
+
+Camino de datos en un ciclo.
+
+      \end{itemize}
+
     \item
       Fue posible al poder poner suficientes transistores, 25000, en un
       único chip para un procesador de 16 bits.
@@ -370,7 +374,7 @@ to OpenMP - Tim Mattson (Intel)}
       Se mejoraron las supercomputadoras como agregación de muchas
       placas con procesadores estándar.
     \end{itemize}
-  
+  \pagebreak
     \subsection{Segunda revolución (80's): Paralelismo a nivel de instrucción}
 
     \begin{itemize}
@@ -406,12 +410,38 @@ to OpenMP - Tim Mattson (Intel)}
       \end{itemize}
     \item
       Culminación de procesadores de un núcleo.
-      \begin{figure}[H]
-        \ffigbox[\FBwidth]
-        {\caption{Culminación de procesadores de un núcleo}}
-        {\includegraphics[scale=.25]{Untitled 3.png}}
-      \end{figure}
-    \end{itemize}
+
+      Intel Pentium 4 (2003).
+
+      Dominio de aplicación: Escritorio/Servidor.
+
+      Tecnología: 90 nm (1/100x).
+      \begin{itemize}
+        \item Datos:
+
+      55M transistores (20,000x).
+
+      101 mm2 (10x).
+
+      3.4 GHz (10,000x).
+
+      1.2 Volts (1/10x).
+
+        \item Características:
+        
+      Datos de 32/64 bits (16x).
+
+      Segmentación en 22 etapas (más tarde 31).
+
+      3-4 instrucciones por ciclo (superescalar).
+
+      Dos niveles de caché en chip.
+
+      Paralelismo de datos (SIMD).
+
+      Hyper-threading.
+      \end{itemize}
+ \end{itemize}
     
     \subsection{Tercera revolución: Paralelismo de datos y de hilos}
 
@@ -440,15 +470,40 @@ to OpenMP - Tim Mattson (Intel)}
       \item
         Soporte general para aplicaciones.
       \end{itemize}
-    \pagebreak
-    \item Procesadores multi-core.
-      \begin{figure}[H]
-        \ffigbox[\FBwidth]
-        {\caption{Procesadores multi-core}}
-        {\includegraphics[scale=.25]{Untitled 4.png}}
-      \end{figure}
-    \end{itemize}
 
+      \item Procesadores multi-core.
+      \begin{itemize}
+        \item Intel Core i7 (2009)
+          Dominio de aplicación: Escritorio / Servidor.
+
+          Tecnología: 45 nm (1/2x).
+
+        \item Datos
+
+          774M transistores (12x).
+
+          296 mm2 (3x).
+
+          3.2 GHz – 3.6 GHz (1x).
+
+          0.7 – 1.4 Voltios (1x).
+
+        \item Caracteristicas
+
+          Datos de 128 bits (2x).
+
+          Segmentación de 14 etapas (0.5x).
+
+          4 instrucciones por ciclo (1x).
+
+          Tres niveles de caché en chip.
+
+          SIMD, hyper-threading
+
+          4 cores (4x)
+      \end{itemize}
+    \end{itemize}
+\vspace{-.5cm}
   \section{Tendencias arquitectónicas}
 
   \begin{itemize}
@@ -478,7 +533,7 @@ to OpenMP - Tim Mattson (Intel)}
       Paralelismo a nivel de petición -- RLP
     \end{itemize}
   \end{itemize}
-
+\vspace{-.5cm}
   \section{Paralelismo}
 
   \begin{itemize}
@@ -503,8 +558,8 @@ to OpenMP - Tim Mattson (Intel)}
         con una aproximación secuencial.
       \end{itemize}
     \end{itemize}
-    \pagebreak
-  \item
+
+    \item
     Aparece como principal mecanismo de diseño de computadores, contra
     las restricciones de coste y consumo de energía.
   \item
@@ -618,6 +673,8 @@ to OpenMP - Tim Mattson (Intel)}
         Rendimiento de gráficos.
       \end{itemize}
     \end{itemize}
+        \pagebreak
+
     \subsubsection{Servidores}
 
     \begin{itemize}
@@ -652,7 +709,6 @@ to OpenMP - Tim Mattson (Intel)}
         Energía, ya que suponen un gran gasto en electricidad.
       \end{itemize}
     \end{itemize}
-    \pagebreak
     \subsubsection{Clusters / Computadores a Escala de Almacén - Warehouse Scale Computers (WSC)}
 
     \begin{itemize}
@@ -725,8 +781,8 @@ to OpenMP - Tim Mattson (Intel)}
         específica.
       \end{itemize}
     \end{itemize}
-  \pagebreak
-  \subsection{Mainframe}
+
+    \subsection{Mainframe}
 
   Tipo de computador hasta los 70 de gran escala que usaban las
   compañías para el back office. Estaban muy optimizados para
@@ -740,24 +796,14 @@ to OpenMP - Tim Mattson (Intel)}
   
   \item
     SISD - Single Instruction Single Data Stream: Una sola instrucción
-    sobre un único dato.
+    sobre un único dato. Monoprocesador
 
-    \begin{itemize}
-    
-    \item
-      Monoprocesador
-    \end{itemize}
-  \item
+      \item
     SIMD -- Single Instruction Multiple Data Stream: Una única
-    instrucción sobre varios datos.
-
-    \begin{itemize}
-    
-    \item
-      Alternativas: Procesadores vectoriales, extensiones multimedia y
+    instrucción sobre varios datos. Alternativas: Procesadores vectoriales, extensiones multimedia y
       GPU.
-    \end{itemize}
-  \item
+
+      \item
     MISD -- Multiple Instruction Single Data: No se conocen
     implementaciones comerciales. Nunca se ha construido.
   \item
@@ -863,14 +909,7 @@ to OpenMP - Tim Mattson (Intel)}
   \item
     El ancho de banda ha aumentado mucho con respecto a la latencia.
 
-   
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Ancho de banda vs. Latencia}}
-      {\includegraphics[scale=.4]{Untitled 5.png}}
-    \end{figure}
   \end{itemize}
-
   \section{Tendencias en potencia y energía}
 
   \begin{itemize}
@@ -913,7 +952,6 @@ to OpenMP - Tim Mattson (Intel)}
       \item
         f: frecuencia
       \end{itemize}
-      \pagebreak
     \item
     La evolución ha estado dominada por el incremento de número de
     transistores e incremento de frecuencia, lo que ha incrementado la
@@ -982,21 +1020,18 @@ to OpenMP - Tim Mattson (Intel)}
     Dado: Cada uno de los circuitos -chips impresos sobre la oblea.
   \item
     Oblea: Material semiconductor donde se imprimen los circuitos.
-\pagebreak
-    \begin{itemize}
-    \item
-      Coste
 
-      \begin{figure}[H]
-        \ffigbox[\FBwidth]
-        {\caption{Costes por chip}}
-        {\includegraphics[scale=.35]{Untitled 6.png}}
-      \end{figure}
+    \begin{itemize}
+    \item Coste
+
+    \begin{flalign*}
+      &\textit{Coste}_{IC} = \frac{\textit{Coste}_{dado}+\textit{Coste}_{pruebas}+\textit{Coste}_{empaquetado}}{\textit{Rendimiento}}& \\
+      &\textit{Coste}_{dado} = \frac{\textit{Coste}_oblea}{\textit{Dados}_{oblea}\times\textit{Rendimiento}}& \\
+      &\textit{Dados}_{obleas} = \frac{\pi \times \left( \frac {diametro} 2 \right)^2}{\textit{area}} - \frac{\pi \times \textit{diametro}}{\sqrt{2\times\textit{area}}}&
+    \end{flalign*}
+    
     \end{itemize}
   \end{itemize}
-
-
-  
 
 
  \section{Evaluación del rendimiento}
@@ -1104,7 +1139,8 @@ to OpenMP - Tim Mattson (Intel)}
       \begin{figure}[H]
         \ffigbox[\FBwidth]
         {\caption{Procesadores vs. Speedup}}
-        {\includegraphics[scale=.26]{Untitled 7.png}}
+        {\def\svgwidth{.7\textwidth}
+         \input{./img/speedupvsprocesadores.eps_tex}}
       \end{figure}
     \end{itemize}
   \item
@@ -1219,7 +1255,8 @@ to OpenMP - Tim Mattson (Intel)}
     \begin{figure}[H]
       \ffigbox[\FBwidth]
       {\caption{Etapas de la Pipeline}}
-      {\includegraphics[scale=.3]{Untitled 8.png}}
+      {\def\svgwidth{1.1\textwidth}
+        \input{./img/etapasMIPS.eps_tex}}
     \end{figure}
     \begin{itemize}
     
@@ -1479,15 +1516,19 @@ Provocan una reducción del rendimiento.
   00 01 No tomado. 10 11 Tomado
   
   Cuando acierta gana confianza, cuando falla pierde confianza y si falla dos veces seguidas cambia.
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{Predicción dinamica}}
-    {\includegraphics[scale=.4]{Untitled 9.png}}
-  \end{figure}
 
   Funciona esta predicción gracias a la regularidad de los bucles y estructuras de datos.
 
   Fallan menos que la predicción estática.
+  
+  \begin{figure}[H]
+    \ffigbox[\FBwidth]
+    {\caption{Predicción dinamica}}
+    {\def\svgwidth{.8\textwidth}
+  \input{./img/predDinam.eps_tex}}
+  \end{figure}
+
+  
 \end{itemize}
     
 \end{itemize}
@@ -1505,7 +1546,8 @@ Provocan una reducción del rendimiento.
     \begin{figure}[H]
       \ffigbox[\FBwidth]
       {\caption{Operaciones multiciclo}}
-      {\includegraphics[scale=.4]{Untitled 10.png}}
+      {\def\svgwidth{.8\textwidth}
+  \input{./img/opMulticiclo.eps_tex}}
     \end{figure}
   
   \end{itemize}
@@ -1564,17 +1606,29 @@ Instrucción}
   \end{itemize}
       
 \end{itemize}
-    
+    \pagebreak
 
 \item Límites del ILP 
 
-Procesador ideal
+Para estudiar el ILP máximo se modela el procesador
+ideal.
+\begin{itemize}
+  \item Procesador ideal:
+\begin{itemize}
+  \item Renombrado de registros infinito: Se pueden evitar
+todos los riesgos WAR y WAW.
+  \item Predicción de bifurcación perfecta: Todos las
+predicciones de bifurcaciones condicionales dan acierto.
+  \item Predicción perfecta de saltos: Todos los saltos
+(incluyendo retornos) se predicen correctamente.
+  \item Análisis perfecto de alias de direcciones de memoria:
+  Se puede mover un load antes de un store si la dirección
+no es idéntica.
+  \item Cachés perfectas: Todos los acceso a caché requieren un
+ciclo de reloj (siempre hay acierto, nunca falla).
+\end{itemize}
+\end{itemize}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Límites del ILP}}
-	{\includegraphics[scale=.3]{Untitled 11.png}}
-\end{figure}
 
   \begin{itemize}
   \item Más ILP implica más lógica de control, más silicio.
@@ -1625,6 +1679,7 @@ Procesador ideal
           Predicción por turnos.
         \end{itemize}
       \end{itemize}
+      \pagebreak
   \item Planificación dinámica
 
     \begin{itemize}
@@ -1914,7 +1969,7 @@ Procesador ideal
     
     \end{itemize}
   \end{itemize}
-\newpage
+
   \section{Técnicas de emisión múltiple}
 
   \begin{itemize}
@@ -1980,6 +2035,7 @@ Procesador ideal
           especulación.
         \end{itemize}
       \end{itemize}
+      \pagebreak
     \item
       Procesadores VLIW -- Palabra de Instrucción Muy Larga.
 
@@ -2088,7 +2144,8 @@ Procesador ideal
               \begin{figure}[H]
                 \ffigbox[\FBwidth]
                 {\caption{Paralelismo a nivel de Hilos}}
-                {\includegraphics[scale=.3]{Untitled 12.png}}
+                {\def\svgwidth{.8\textwidth}
+                  \input{./img/parHilo.pdf_tex}}
               \end{figure}
               \item Grano fino: Alterna cada ciclo de hilo, saltado las detenciones.
               \begin{itemize}
@@ -2174,11 +2231,31 @@ Procesador ideal
     ejecución es el tiempo en acceder a memoria.
   
     \section{Efecto multi-core}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Efecto multi-core}}
-      {\includegraphics[scale=.4]{Untitled 13.png}}
-    \end{figure}
+    \begin{itemize}
+      \item Intel Core i7 6700.
+      \begin{itemize}
+        \item 2 accesos a datos de 64 bits por ciclo.
+        \item 4 cores, $4.2 \; GHz \rightarrow 32.8 \times 10^9$ referencias/seg
+        \item Demanda instrucciones: $12.8 \times 10^9$ de 128 bits.
+        \item Pico de ancho de banda: $524.8 \; GB/s + 204.8 \; GB/s \simeq 700 \; GB/s$
+      \end{itemize}
+
+
+      \item Memoria SDRAM.
+      \begin{itemize}
+        \item DDR2 (2003): $3.2\; GB/seg - 8.5\; GB/seg$
+        \item DDR3 (2007): $8.53\; GB/seg - 18\; GB/seg$
+        \item DDR4 (2014): $17.06\; GB/seg - 25.6\; GB/seg$
+      \end{itemize}
+
+
+      \item Soluciones:
+
+Memoria multipuerta (varios canales de comunicación con el procesador), cachés segmentadas, cachés
+multinivel, cachés por core, separación instrucciones y
+datos.
+    \end{itemize}
+
   \section{Principio de localidad}
      Es una propiedad de los algoritmos, no del
     hardware, pero lo aprovecha. Los programas acceden una porción
@@ -2203,11 +2280,30 @@ Procesador ideal
       \end{itemize}
     \end{itemize}
   \section{Situación (2018)}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Situación 2018 memorias}}
-      {\includegraphics[scale=.35]{Untitled 14.png}}
-    \end{figure}
+  \begin{itemize}
+    \item Caché $\rightarrow$ SRAM CMOS en chip. Volatil
+    \begin{itemize}
+      \item Tiempo de acceso: 0.5 ns – 1.0 ns.
+      \item Tamaño típico: 32KiB – 8 MiB (Relativamente pequeña, pero la hace rapido)
+      \item Ancho de banda: 20,000 MiB/s – 50,000 MiB/s
+    \end{itemize}
+
+    \item Memoria principal $\rightarrow$ DRAM CMOS. Volatil (Mas barato)
+    \begin{itemize}
+      \item Tiempo de acceso: 30ns – 150 ns
+      \item Typical size: < 1 TB (Mayor capacidad)
+      \item Bandwidth: 10,000 MiB/s – 30,000 MiB/s (Mas lenta que SRAM)
+    \end{itemize}
+
+    \item Disco $\rightarrow$ Disco magético/FLASH. Almacenamiento secundario, no volatil
+    \begin{itemize}
+      \item Tiempo de acceso: 5, 000, 000 ns – 20, 000, 000 ns.
+      \item Typical size: > 1 TB Gran capacidad
+      \item Bandwidth: 100 MiB/s – 1,000 MiB/s Mas lento
+    \end{itemize}
+ 
+  \end{itemize}
+
     \pagebreak
   \section{Jerarquía de memoria}
 
@@ -2380,12 +2476,32 @@ Procesador ideal
           Post-escritura -- write-back: Solo escribe cuando van a ser
           expulsado de caché. Problema de propagación y serialización.
           Más complejo.
-
-          \begin{figure}[H]
-          \ffigbox[\FBwidth]
-          {\caption{Estrategias de escritura}}
-          {\includegraphics[scale=.3]{Untitled 15.png}}
-        \end{figure}
+        
+        \end{itemize}
+        ¿Donde se escribe?:
+        \begin{itemize}
+          \item write-trhough: En bloque de caché y siguiente nivel de memoria.
+          \item write-back: Solamente en bloque de caché.
+        \end{itemize}
+        ¿Qué ocurre cuándo bloque sale de caché?:
+        \begin{itemize}
+          \item write-trhough: Nada más.
+          \item write-back: Se actualiza siguiente nivel de memoria.
+        \end{itemize}
+        Depuración:
+        \begin{itemize}
+          \item write-trhough: Fácil.
+          \item write-back: Difícil.
+        \end{itemize}
+        Fallo provoca escritura:
+        \begin{itemize}
+          \item write-trhough: No.
+          \item write-back: Si.
+        \end{itemize}
+        Escritura repetida va al siguiente nivel:
+        \begin{itemize}
+          \item write-trhough: Si.
+          \item write-back: No.
         \end{itemize}
       \end{itemize}
     \item
@@ -2420,17 +2536,40 @@ Procesador ideal
       más tarde lo del buffer a la memoria principal.
     \end{itemize}
   \section{Tasa de fallos global y local}
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{Tasa de fallos global y local}}
-    {\includegraphics[scale=.4]{Untitled 16.png}}
-  \end{figure}
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{Tasa de fallos global y local}}
-    {\includegraphics[scale=.4]{Untitled 17.png}}
-  \end{figure}
-  \section{Optimizaciones básica de cache:}
+Tasa de fallos local:
+\begin{itemize}
+  \item Fallos en un nivel de la caché con respecto a accesos a
+ese nivel de caché.
+  \item Tasa de fallos en $L1 \rightarrow m(L1)$
+  \item Tasa de fallos en $L2 \rightarrow m(L2)$
+\end{itemize}
+
+
+Tasa de fallos global:
+\begin{itemize}
+  \item Fallos en un nivel de caché con respecto a todos los
+accesos a memoria.
+  \item Tasa de fallos en $L1 \rightarrow m(L1)$
+  \item Tasa de fallos en $L2 \rightarrow m(L1) \times m(L2)$
+\end{itemize}
+
+
+Tiempo medio de acceso: $t_{acierto}+t_{fallo}\cdot \textit{tasa fallo}$
+\begin{flalign*}
+  &t_a (L1) + m(L1) \times t_f (L1) =& \\
+  &t_a(L1) + m(L1) \times (t_a(L2) + m(L2) \times t_f (L2))&
+\end{flalign*}
+1 nivel.
+
+$t = t_h(L1) + m_{L1} \times t_p(L1)$
+
+2 niveles.
+
+$t = t_h(L1) + m_{L1} \times (t_h(L2) + m_{L2} \times t_p(L2))$
+
+3 niveles.
+
+$t = t_h(L1)+m_{L1}\times(t_h(L2) + m_{L2} \times (t_h(L3) + m_{L3} \times t_p(L3)))$
 
   Dirigidas a mejorar la velocidad de acceso.
 
@@ -2889,38 +3028,104 @@ Procesador ideal
     \end{itemize}
     \pagebreak
   \subsection{Resumen}
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{Optimizaciones avanzadas I}}
-    {\includegraphics[scale=.35]{Untitled 23.png}}
-  \end{figure}
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{Optimizaciones avanzadas II}}
-    {\includegraphics[scale=.3]{Untitled 24.png}}
-  \end{figure} 
-  \begin{figure}[H]
-    \ffigbox[\FBwidth]
-    {\caption{Optimizaciones avanzadas III}}
-    {\includegraphics[scale=.3]{Untitled 25.png}}
-  \end{figure}
+  \begin{itemize}
+    \item Cachés pequeñas y simples:
+
+Mejora: Tiempo de acierto.
+
+Empeora: Tasa de fallos.
+
+Complejidad: Muy baja.
+
+Observación: Ampliamente usada.
+
+    \item Predicción de vía:
+
+Mejora: Tiempo de acierto.
+
+Complejidad: Baja.
+
+Observación: Usada en Pentium 4.
+
+    \item Acceso segmentado a la caché:
+
+Mejora: Tiempo de acierto.
+
+Empeora: Ancho de banda.
+
+Complejidad: Baja.
+
+Observación: Ampliamente usada.
+
+    \item Cachés no bloqueantes:
+
+Mejora: Ancho de banda y penalización por fallo.
+
+Complejidad: Muy alta.
+
+Observación: Ampliamente usada.
+
+    \item Cachés multi-banco:
+
+Mejora: Ancho de banda.
+
+Complejidad: Baja.
+
+Observación: Usada en L2 de Intel i7 y Cortex A8.
+
+    \item Palabra crítica primero y reinicio temprano:
+
+Mejora: Penalización por fallo.
+
+Complejidad: Alta
+
+Observación: Ampliamente usada.
+
+    \item Mezclas en búfer de escritura:
+
+Mejora: Penalización por fallo.
+
+Complejidad: Baja.
+
+Observación: Ampliamente usada.
+
+    \item Optimizaciones del compilador:
+
+Mejora: Tasa de fallos.
+
+Complejidad: Baja para HW.
+
+Observación: El desafío está en el software.
+
+    \item Lectura adelantada hardware:
+
+Mejora: Penalización por fallo y tasa de fallos.
+
+Complejidad: Muy alta.
+
+Observación: Más común para instrucciones que datos.
+  \end{itemize}
 
 
 \section{Memoria virtual}
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Memoria virtual}}
-	{\includegraphics[scale=.4]{Untitled 26.png}}
+	{\def\svgwidth{.8\textwidth}
+    \input{./img/memVirtual.eps_tex}}
 \end{figure}
 
 
     Surge al encontrar límites en la memoria que podemos tener.
 
+    La CPU realiza accesos a direcciones virtuales, hay un mecanismo que las tranforma en direcciones fisicas.
+
   \subsection{Direccionamiento físico}
   \begin{figure}[H]
     \ffigbox[\FBwidth]
     {\caption{Direccionamiento físico}}
-    {\includegraphics[scale=.4]{Untitled 27.png}}
+    {\def\svgwidth{.8\textwidth}
+      \input{./img/direcciFisico.eps_tex}}
   \end{figure}
   \begin{itemize}
     \item Todos los datos están en el mismo lugar, cualquier programa que ejecuta en la CPU puede acceder a cualquier dirección de memoria.
@@ -3025,7 +3230,6 @@ Procesador ideal
         El tamaño de memoria virtual es dependiente de la longitud de
         dirección.
       \end{itemize}
-      \pagebreak
     \item
       Parámetros:
 
@@ -3033,14 +3237,23 @@ Procesador ideal
       \item
         La ventaja es una mucho mayor tasa de aciertos, pero cuando
         falla es mucho más lento que cache.
-        \begin{figure}[H]
-          \ffigbox[\FBwidth]
-          {\caption{Diferencias con cache}}
-          {\includegraphics[scale=.4]{Untitled 28.png}}
-        \end{figure}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|l}
+\cline{1-3}
+\multicolumn{1}{|c|}{\textbf{Parámetros}} & \multicolumn{1}{c|}{\textbf{Cache L1}} & \multicolumn{1}{c|}{\textbf{Memoria virtual}} &                           \\ \cline{1-3}
+Tamaño de bloque                          & 16 - 128 bytes                         & 4096 – 65, 536 bytes                          & Mayor capacidad           \\ \cline{1-3}
+Tiempo de acierto                         & 1 – 3 ciclos                           & 100 – 200 ciclos                              &                           \\ \cline{1-3}
+Penalización de fallos                    & 8 – 200 ciclos                         & $10^6$ – $10^7$ ciclos                              & \multirow{3}{*}{Muy alto} \\ \cline{1-3}
+Tiempo de acceso                          & 6 – 160 ciclos                         & 8 · $10^5$ – 8 · $10^6$ ciclos                      &                           \\ \cline{1-3}
+Tiempo de transferencia                   & 2 – 40 ciclos                          & 2 · $10^5$ – 2 · $10^6$ ciclos                      &                           \\ \cline{1-3}
+Tasa de fallos                            & 0.1\% – 10\%                           & 0.00001\% – 0.001\%                           & Muy bajo                  \\ \cline{1-3}
+\end{tabular}
+\caption{Diferencias con cache}
+\end{table}
+       La ventaja es una mucho mayor tasa de aciertos, pero cuando falla es mas lento que caché.
       \end{itemize}
     \end{itemize}
-
  \section{Políticas de memoria virtual}
 
   \begin{itemize}
@@ -3083,11 +3296,6 @@ Procesador ideal
       La tabla tiene la correspondencia entre Identificador de página e
       Identificador de marco de página.
 
-      \begin{figure}[H]
-        \ffigbox[\FBwidth]
-        {\caption{Identificación de página}}
-        {\includegraphics[scale=.65]{Untitled 29.png}}
-      \end{figure}
     \item
       Reducción de tiempo de traducción.
     \end{itemize}
@@ -3159,7 +3367,8 @@ Procesador ideal
     \begin{figure}[H]
       \ffigbox[\FBwidth]
       {\caption{Tabla de páginas}}
-      {\includegraphics[scale=.35]{Untitled 30.png}}
+      {\def\svgwidth{.9\textwidth}
+       \input{./img/tablaPginas.eps_tex}}
     \end{figure}
   \end{itemize}
   Se tiene un PTBR -- Registro Base a la Tabla de Página, donde se
@@ -3280,7 +3489,8 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{MMV}}
-	{\includegraphics[scale=.6]{Untitled 32.png}}
+	{\def\svgwidth{.7\textwidth}
+  \input{./img/MMV.eps_tex}}
 \end{figure}
   
 
@@ -3359,7 +3569,8 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
       \begin{figure}[H]
         \ffigbox[\FBwidth]
         {\caption{MMV: Aislamiento}}
-        {\includegraphics[scale=.3]{Untitled 33.png}}
+        {\def\svgwidth{.7\textwidth}
+         \input{./img/MMVAis.eps_tex}}
       \end{figure}
     \item
       Consolidación: Dos máquinas físicas separadas con su propia
@@ -3369,14 +3580,16 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
       \begin{figure}[H]
         \ffigbox[\FBwidth]
         {\caption{MMV: Consolidación}}
-        {\includegraphics[scale=.3]{Untitled 34.png}}
+        {\def\svgwidth{.7\textwidth}
+         \input{./img/MMVCons.eps_tex}}
       \end{figure}
     \item
       Migración: Mover de una máquina a otra.
       \begin{figure}[H]
         \ffigbox[\FBwidth]
         {\caption{MMV: Migración}}
-        {\includegraphics[scale=.3]{Untitled 35.png}}
+        {\def\svgwidth{.7\textwidth}
+         \input{./img/MMVMigra.eps_tex}}
       \end{figure}
     \end{itemize}
 
@@ -3500,64 +3713,171 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
     \end{itemize}
   \item
     Impacto sobre memoria virtual
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Impacto sobre memoria virtual}}
-      {\includegraphics[scale=.3]{Untitled 36.png}}
-    \end{figure}
+
+   Cada huésped gestiona memoria virtual.
+\begin{itemize}
+  \item ¿Virtualización de memoria virtual?
+
+\end{itemize}
+VMM distingue entre memoria real y memoria física.
+\begin{itemize}
+  \item Memoria real: Nivel intermedio entre memoria virtual y memoria física.
+  \item Huésped (entre Virtual - Real): Correspondencia entre memoria virtual y real.
+  \item MMV (entre Real - Fisica): Correspondencia entre memoria real y física.
+\end{itemize}
+Para reducir los niveles de indirección MMV mantiene una
+tabla de páginas en la sombra.
+\begin{itemize}
+  \item Correspondencia entre memoria virtual y física, sin pasar por la real.
+  \item MMV tiene que capturar cambios de tabla de páginas y puntero a tabla de páginas.
+\end{itemize}
+
   \item
     Soporte ISA para virtualización de memoria virtual
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Soporte ISA}}
-      {\includegraphics[scale=.4]{Untitled 37.png}}
-    \end{figure}
-  \item
-    Impacto de entrada/salida
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Impacto de entrada/salida}}
-      {\includegraphics[scale=.4]{Untitled 38.png}}
-    \end{figure}
+    
+    IBM 370 incorpora nivel adicional de indirección
+gestionado por MMV.
+\begin{itemize}
+  \item Elimina la necesidad de tabla de páginas en la sombra.
+\end{itemize}
+
+Virtualización de TLB
+\begin{itemize}
+  \item MMV gestiona la TLB y mantiene copias de la TLB de cada
+huésped.
+  \item Accesos a TLB generan trap.
+  \item TLB con identificadores de procesos simplifican la gestión
+  \begin{itemize}
+    \item Permite entradas de múltiples MV y del VMM
+simultáneamente
   \end{itemize}
+\end{itemize}
+  \item Impacto de entrada/salida
+
+  Parte más compleja de virtualización.
+  \begin{itemize}
+    \item Número creciente de dispositivos de E/S.
+    \item Diversidad creciente de tipos de dispositivos de E/S.
+    \item Compartición de dispositivos entre MV.
+    \item Soporte de gran variedad de drivers.
+  \end{itemize}
+
+
+Se deja parte general del driver en huésped.
+\begin{itemize}
+    \item Parte específica en MMV.
+  \end{itemize}
+
+Método dependiente del dispositivo.
+\begin{itemize}
+    \item Discos: Particionados por MMV para crear discos
+virtuales.
+    \item Interfaces de red: Multiplexados en el tiempo.
+
+MMV gestiona direcciones de red virtuales.
+  \end{itemize}
+
+
+\end{itemize}
+
 \pagebreak
 \section{Tecnologías de virtualización}
 
   \begin{itemize}
   \item
     Virtualización impura
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Virtualización impura}}
-      {\includegraphics[scale=.4]{Untitled 39.png}}
-    \end{figure}
+
+    Solución para arquitecturas no virtualizables y para
+reducir problemas de rendimiento:
+
+Enfoques:
+\begin{itemize}
+  \item Paravirtualización: Portar el código de SO huésped a ISA
+modificado.
+\begin{itemize}
+  \item Esfuerzo de desarrollo.
+  \item Necesidad de repetir para cada SO.
+  \item Disponibilidad de código fuente.
+  \item Se sustituyen las operaciones que hacen trap por una subrutina, se necesita
+\end{itemize}
+
+  \item Traducción binaria: Sustituir instrucciones no
+virtualizables por código de emulación o llamada a MMV.
+\begin{itemize}
+  \item No requiere código fuente.
+  \item Algunas emulaciones posibles en espacio de usuario.
+  \item Se sustituye antes de ejecutarse
+\end{itemize}
+
+\end{itemize}
+
   \item
     Tecnologías ISA
     \begin{figure}[H]
       \ffigbox[\FBwidth]
-      {\caption{Tecnologías ISA I}}
-      {\includegraphics[scale=.4]{Untitled 40.png}}
+      {\caption{Tecnologías IVT}}
+      {\def\svgwidth{.9\textwidth}
+  \input{./img/IVT.eps_tex}}
     \end{figure}
     \begin{figure}[H]
       \ffigbox[\FBwidth]
-      {\caption{Tecnologías ISA II}}
-      {\includegraphics[scale=.4]{Untitled 41.png}}
+      {\caption{Tecnologías AMD}}
+      {\def\svgwidth{.9\textwidth}
+  \input{./img/AMD.eps_tex}}
     \end{figure}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Tecnologías ISA III}}
-      {\includegraphics[scale=.4]{Untitled 42.png}}
-    \end{figure}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Tecnologías ISA IV}}
-      {\includegraphics[scale=.4]{Untitled 43.png}}
-    \end{figure}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Tecnologías ISA V}}
-      {\includegraphics[scale=.4]{Untitled 44.png}}
-    \end{figure}
+    Modos de operación
+\begin{itemize}
+  \item VMX root:
+
+Totalmente privilegiado.
+
+Pensado para su uso por MMV.
+  \item VMX non-root:
+
+No privilegiado.
+
+Pensado para SW huésped.
+\end{itemize}
+
+Entrada y salida de máquinas virtuales
+\begin{itemize}
+  \item VM Entry:
+  \begin{itemize}
+    \item Transición de MMV a Huésped.
+    \item Entra en modo non-root.
+    \item Carga el estado del huésped.
+    \item VMLAUNCH instrucción usada en entrada inicial.
+    \item VMRESUME instrucción usada en llamadas siguientes. 
+  \end{itemize}
+  \item VM Exit:
+  \begin{itemize}
+    \item VMEXIT instrucción usada para pasar a MMV.
+    \item Entra en modo root.
+    \item Salva el estado del huésped.
+    \item Carga el estado de MMV.
+    \item Hay instrucciones y eventos que provocan VMEXIT.
+  \end{itemize}
+
+\end{itemize}
+\pagebreak
+Beneficios de tecnología VT
+\begin{itemize}
+  \item Reduce dependencia del SO.
+
+Elimina necesidad de traducción binaria.
+
+Facilita el soporte para SO antiguos
+  \item Mejora de robustez
+
+Elimina la necesidad de técnicas complejas
+
+MMV más pequeño y simple
+  \item Mejora de rendimiento
+
+Menos transiciones a MMV
+\end{itemize}
+
+
   \end{itemize}
 
   \chapter{Módulo 5 Introducción a los multiprocesadores}
@@ -3722,11 +4042,12 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
           \begin{figure}[H]
             \ffigbox[\FBwidth]
             {\caption{Uniform Memory Access}}
-            {\includegraphics[scale=.15]{Untitled 45.png}}
+            {\def\svgwidth{.6\textwidth}
+  \input{./img/UMA.eps_tex}}
           \end{figure}
         \end{itemize}
-        \pagebreak
-      \item DSM - Distributed Shared Memory:
+
+        \item DSM - Distributed Shared Memory:
       \begin{itemize}
         \item Memoria compartida distribuida.
         \item La memoria se distribuye entre los procesadores.
@@ -3737,7 +4058,8 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
         \begin{figure}[H]
           \ffigbox[\FBwidth]
           {\caption{Non Uniform Memory Access}}
-          {\includegraphics[scale=.15]{Untitled 46.png}}
+          {\def\svgwidth{.6\textwidth}
+  \input{./img/NUMA.eps_tex}}
         \end{figure}
       \end{itemize}
      \end{itemize}
@@ -3925,9 +4247,6 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
       \end{itemize}
 
 \subsubsection{Clases de protocolos de coherencia de cache:}
-
-   
-
       Basado en directorio:
 
       \begin{itemize}
@@ -3962,20 +4281,8 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
         determinar si tienen una copia del bloque.
       \end{itemize}
 
-      
-\subsection{Protocolo basado en directorio}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Protocolo basado en directorio I}}
-	{\includegraphics[scale=.3]{Untitled 47.png}}
-\end{figure}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Protocolo basado en directorio II}}
-	{\includegraphics[scale=.3]{Untitled 48.png}}
-\end{figure}
-\pagebreak
-\subsection{Protocolos de espionaje}
+
+      \subsection{Protocolos de espionaje}
 
 
 
@@ -4111,29 +4418,58 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
       \item
         I: El bloque ha sido invalidado.
       \end{itemize}
+      \pagebreak
     \item
       Acciones generadas por el procesador
-      \begin{figure}[H]
-        \ffigbox[\FBwidth]
-        {\caption{Acciones del procesador I}}
-        {\includegraphics[scale=.2]{Untitled 49.png}}
-      \end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|l|l|l}
+\multicolumn{1}{|c|}{\textbf{Petición}} & \multicolumn{1}{c|}{\textbf{Estado}} & \multicolumn{1}{c|}{\textbf{Acción}} & \multicolumn{1}{c|}{\textbf{Descripción}}                                                                                                     \\ \hline
+Acierto de lectura   & S $\rightarrow$ S           & Acierto         & Leer dato de caché local                                                                                                 \\ \hline
+Acierto de lectura   & M $\rightarrow$ M           & Acierto         & Leer dato de caché local                                                                                                 \\ \hline
+Fallo de lectura     & I $\rightarrow$ S           & Fallo           & Difundir fallo de lectura en bus.                                                                                        \\ \hline
+Fallo de lectura     & S $\rightarrow$ S           & Remplazo        & \begin{tabular}[c]{@{}l@{}}Fallo de conflicto de dirección.\\ Difundir fallo de lectura en bus.\end{tabular}             \\ \hline
+Fallo de lectura     & M $\rightarrow$ S           & Remplazo        & \begin{tabular}[c]{@{}l@{}}Fallo de conflicto de dirección.\\ Escribir bloque y difundir fallo de lectura.\end{tabular}  \\ \hline
+Acierto de escritura & M $\rightarrow$ M           & Acierto         & Escribir dato en caché local.                                                                                            \\ \hline
+Acierto de escritura & S $\rightarrow$ M           & Coherencia      & Invalidación en bus.                                                                                                     \\ \hline
+Fallo de escritura   & I $\rightarrow$ M           & Fallo           & Difundr fallo de escritura en bus.                                                                                       \\ \hline
+Fallo de escritura   & S $\rightarrow$ M           & Remplazo        & \begin{tabular}[c]{@{}l@{}}Fallo de conflicto de dirección.\\ Difundir fallo de escritura en bus.\end{tabular}           \\ \hline
+Fallo de escritura   & M $\rightarrow$ M           & Remplazo        & \begin{tabular}[c]{@{}l@{}}Fallo de conflicto de dirección.\\ Escribir bloque y difundir fallo de escritura\end{tabular} \\ \hline
+\end{tabular}
+\caption{Acciones del procesador}
+\end{table}
+      
+
       \begin{figure}[H]
         \ffigbox[\FBwidth]
         {\caption{Acciones del procesador II}}
-        {\includegraphics[scale=.2]{Untitled 50.png}}
+        {\def\svgwidth{.9\textwidth}
+  \input{./img/accionesProcesador.eps_tex}}
       \end{figure}
+      \pagebreak
     \item
       Acciones generadas por el bus
-      \begin{figure}[H]
-        \ffigbox[\FBwidth]
-        {\caption{Acciones del bus I}}
-        {\includegraphics[scale=.2]{Untitled 51.png}}
-      \end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|l|l|l}
+
+\multicolumn{1}{c|}{\textbf{Petición}} & \multicolumn{1}{c|}{\textbf{Estado}} & \multicolumn{1}{c|}{\textbf{Acción}} & \multicolumn{1}{c}{\textbf{Descripción}}                                                                                                   \\ \hline
+Fallo de lectura                        & S $\rightarrow$ S                                & –                                    & Memoria compartida sirve el fallo                                                                                                           \\ \hline
+Fallo de lectura                        & M $\rightarrow$ S                                & Coherencia                           & \begin{tabular}[c]{@{}l@{}}Intento de compartir dato.\\ Se coloca bloque en bus.\end{tabular}                                               \\ \hline
+Invalidar                               & S $\rightarrow$ I                                & Coherencia                           & \begin{tabular}[c]{@{}l@{}}Intento de escribir bloque compartido.\\ Invalidar el bloque.\end{tabular}                                       \\ \hline
+Fallo de escritura                      & S $\rightarrow$ I                                & Coherencia                           & \begin{tabular}[c]{@{}l@{}}Intento de escribir bloque compartido.\\ Invalidar el bloque.\end{tabular}                                       \\ \hline
+Fallo de escritura                      & M $\rightarrow$ I                                & Coherencia                           & \begin{tabular}[c]{@{}l@{}}Intento de escribir bloque que es.\\ exclusivo en algún sitio.\\ Se escribe (write-back) el bloque.\end{tabular} \\ \hline
+\end{tabular}
+\caption{Acciones del bus}
+\end{table}
+      
       \begin{figure}[H]
         \ffigbox[\FBwidth]
         {\caption{Acciones del bus II}}
-        {\includegraphics[scale=.2]{Untitled 52.png}}
+        {\def\svgwidth{.9\textwidth}
+  \input{./img/accionesBus.eps_tex}}
       \end{figure}
     \item
       Complejidad del protocolo MSI
@@ -4218,19 +4554,6 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
         mismo bloque.
       \end{itemize}
     \end{itemize}
-\pagebreak
-    Gráficas:
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Rendimiento en SMPs I}}
-      {\includegraphics[scale=.15]{Untitled 53.png}\includegraphics[scale=.13]{Untitled 54.png}}
-    \end{figure}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Rendimiento en SMPs II}}
-      {\includegraphics[scale=.13]{Untitled 55.png}\includegraphics[scale=.13]{Untitled 56.png}}
-    \end{figure}
-
     
 \section{Modelos de consistencia de memoria}
 
@@ -4267,7 +4590,8 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
       \begin{figure}[H]
         \ffigbox[\FBwidth]
         {\caption{Modelo de memoria}}
-        {\includegraphics[scale=.5]{Untitled 57.png}}
+        {\def\svgwidth{.8\textwidth}
+      \input{./img/modeloMemoria.eps_tex}}
       \end{figure}
     \end{itemize}
 
@@ -4310,19 +4634,11 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
     \end{itemize}
 
 \subsection{Consistencia secuencial}
-\begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{Consistencia secuencial}}
-  {\includegraphics[scale=.5]{Untitled 58.png}}
-\end{figure}
-
 
     Un sistema con varios procesadores es secuencialmente consistente
     si para cada posible ejecución las operaciones de memoria que
     genera son equivalentes a las de un programa secuencial en el que
     ponemos esas operaciones en algún orden.
-
-\pagebreak
 
     Restricciones de la consistencia secuencial
 
@@ -4345,13 +4661,14 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
       Básicamente no podemos hacer visibles valores que hayan tenido
     encuentra escrituras que todavía no son visibles para el resto.
 
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Atomicidad}}
-      {\includegraphics[scale=.38]{Untitled 59.png}}
-    \end{figure}
-    \end{itemize}
+   \begin{itemize}
+     \item Escrituras no atómicas: La escritura en b podría adelantar al bucle while y la
+lectura de a adelantaría la escritura.
 
+X=0.
+     \item Escrituras atómicas: Se preserva la consistencia secuencial.
+   \end{itemize}
+  \end{itemize}
     
 
   
@@ -4384,7 +4701,6 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
       Transformaciones por programadores o herramientas de refactoring
       también modifican la semántica del programa.
     \end{itemize}
-    \pagebreak
 
     Violación de consistencia secuencial
 
@@ -4453,14 +4769,24 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
     \item
       R→W, W→W.
     \end{itemize}
-\pagebreak
-    Ejemplo de modelo comercial, con la restricción que relajan.
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Modelos de consistencia}}
-      {\includegraphics[scale=.5]{Untitled 60.png}}
-    \end{figure}
 
+    Ejemplo de modelo comercial, con la restricción que relajan.
+\begin{table}[H]
+\centering
+\begin{tabular}{l|c|c|c|c}
+\textbf{Procesador} & \multicolumn{1}{l|}{R $\rightarrow$ R} & \multicolumn{1}{l|}{R $\rightarrow$ W} & \multicolumn{1}{l|}{W $\rightarrow$ R} & \multicolumn{1}{l}{W $\rightarrow$ W} \\ \hline
+Alpha               & X                          & X                          & X                          & X                          \\ \hline
+PA-RISC             & X                          & X                          & X                          & X                          \\ \hline
+POWER               & X                          & X                          & X                          & X                          \\ \hline
+SPARC               &                            &                            &                            & X                          \\ \hline
+x86                 &                            &                            &                            & X                          \\ \hline
+AMD64               &                            &                            &                            & X                          \\ \hline
+IA64                & X                          & X                          & X                          & X                          \\ \hline
+zSeries             &                            &                            &                            & X                          \\ \hline
+\end{tabular}
+\caption{Modelos de consistencia}
+\end{table}
+\pagebreak
     Lectura adelantada a escritura (W→R)
 
     \begin{itemize}
@@ -4545,7 +4871,7 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
         \end{itemize}
       \end{itemize}
     \end{itemize}
-
+\pagebreak
     Consistencia de liberación.
 
     \begin{itemize}
@@ -4586,8 +4912,8 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
         \end{itemize}
       \end{itemize}
     \end{itemize}
-\pagebreak
-\subsection{Caso de uso: Intel}
+
+    \subsection{Caso de uso: Intel}
 
 
     Modelo de consistencia
@@ -4800,63 +5126,12 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
       \end{itemize}
     \end{itemize}
 
-    Ejemplo:
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Ej. modelo de consistencia I}}
-      {\includegraphics[scale=.5]{Untitled 61.png}}
-    \end{figure}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Ej. modelo de consistencia II}}
-      {\includegraphics[scale=.5]{Untitled 62.png}}
-    \end{figure}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Ej. modelo de consistencia III}}
-      {\includegraphics[scale=.5]{Untitled 63.png}}
-    \end{figure}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Ej. modelo de consistencia IV}}
-      {\includegraphics[scale=.5]{Untitled 64.png}}
-    \end{figure}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Ej. modelo de consistencia V}}
-      {\includegraphics[scale=.5]{Untitled 65.png}}
-    \end{figure}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Ej. modelo de consistencia VI}}
-      {\includegraphics[scale=.5]{Untitled 66.png}}
-    \end{figure}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Ej. modelo de consistencia VII}}
-      {\includegraphics[scale=.5]{Untitled 67.png}}
-    \end{figure}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Ej. modelo de consistencia VIII}}
-      {\includegraphics[scale=.5]{Untitled 68.png}}
-    \end{figure}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Ej. modelo de consistencia IX}}
-      {\includegraphics[scale=.5]{Untitled 69.png}}
-    \end{figure}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Ej. modelo de consistencia X}}
-      {\includegraphics[scale=.5]{Untitled 70.png}}
-    \end{figure}
-    \begin{figure}[H]
-      \ffigbox[\FBwidth]
-      {\caption{Ej. modelo de consistencia XI}}
-      {\includegraphics[scale=.45]{Untitled 71.png}}
-    \end{figure}
-    \pagebreak
+    Las escrituras de cada procesador mantinen el orden para sí mismo.
+
+    Se mantiene el orden de cada proceso.
+
+    No se garantiza ningún orden entre procesos.
+
     Efectos del modelo
 \begin{itemize}
   \item Consistencia secuencial 
@@ -4866,6 +5141,7 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
   \item
     Store: xchg {[}mem{]}, reg
   \end{itemize}
+  \pagebreak
   \item
     Consistencia relajada
     \begin{itemize}
@@ -5255,8 +5531,8 @@ $$\frac{2^{32}}{2^{12}} \times 2^2 B = 2^22 B = 4 MB$$
         Modificar variable de espera de proceso.
       \end{itemize}
     \end{itemize}
-\pagebreak
-\subsection{Barreras}
+
+    \subsection{Barreras}
 
 Permite sincronizar varios procesos en algún punto.
 
@@ -5265,6 +5541,7 @@ Permite sincronizar varios procesos en algún punto.
     llegado.
 
     Se usan para sincronizar fases de un programa.
+\pagebreak
 
     Barreras centralizadas: Contador centralizado asociado a la
     barrera.
@@ -5296,54 +5573,20 @@ Permite sincronizar varios procesos en algún punto.
       de árbol.
     \end{itemize}
 
-    
-  
 \section{Memoria compartida distribuida}
-\includepdf[pages=-]{docs/es-m5-04-shdist-hout.pdf}
+\href{https://drive.google.com/file/d/1AWL1dUJmXv9hWbRNhzXvDSwOfp3kdKvT}{Acceso en Drive a las diapositivas}
 
-
-  \chapter{Módulo 6 Modelos de programación paralela y concurrente}
-
+\chapter{Módulo 6 Modelos de programación paralela y concurrente}
 \section{Introducción a C++}
-
-  \includepdf[pages=-]{docs/es-m6-00-Introduction_to_C_-_Computer_Architecture.pdf}
+\href{https://drive.google.com/file/d/16WyicNTcyCuIs7skhuuINuadUm4pd0zB}{Acceso en Drive a las diapositivas}
 
 \section{Programación concurrente en C++11}
-
-  \includepdf[pages=-]{docs/es-m6-01-openmp-hout.pdf}
+\href{https://drive.google.com/file/d/16GPhGhX0H2Lodr96h2EhhSjKW09-OaNz}{Acceso en Drive a las diapositivas}
 
 \section{Programación paralela con OpenMP}
-
-  \includepdf[pages=-]{docs/es-m6-02-cppconc-ocw.pdf}
+\href{https://drive.google.com/file/d/16T6CITaTrlgx8yCjz_-N2JN8bc5NS2Sc}{Acceso en Drive a las diapositivas}
 
 \section{Consistencia de memoria en C++}
-
-  \includepdf[pages=-]{docs/es-m6-03-atomics-hout.pdf}
-
-
-\part{Práctica}
-
-\chapter{Laboratorio 1}
-
-\includepdf[pages=-]{docs/es-m3-lab-2020.pdf}
-
-  \chapter{Laboratorio 2}
-
-
-  \includepdf[pages=-]{docs/es-m4-lab-2020.pdf}
-
-  \includepdf[pages=-]{docs/Memoria_Lab2.pdf}
-  \chapter{Laboratorio 3}
-
-
-  \includepdf[pages=-]{docs/es-m5-lab-atomics-2020.pdf}
-
-  \includepdf[pages=-]{docs/Memoria_Lab3.pdf}
-  \chapter{POpenMP}
-  
-
-  \includepdf[pages=-]{docs/MemoriaOpenMP.pdf}{MemoriaOpenMP.pdf}
-
-  \includepdf[pages=-]{docs/es-m6-lab-omp-img-2020.pdf}
+\href{https://drive.google.com/file/d/16Jh-MoiLHr5AXle2sYLMhbCXf1Djayb3}{Acceso en Drive a las diapositivas}
 
 \end{document}
