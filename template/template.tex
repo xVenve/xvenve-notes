@@ -316,7 +316,9 @@ hmargin=3cm
 			axis x line=center,
 			axis y line=center,
 		]
-		
+		\addplot[thick, domain=-1:10, smooth, color=purple]{-8+2*x};
+		\addplot[thick, domain=-1:10, smooth, color=blue]{(x+18)/6};
+		\addplot[thick, domain=-1:10, smooth, color=orange]{(x-2)/-2};
 		\addplot[color=blue, mark=*]
 			% coordinates {(1,1)(2,2)(3,3)(4,4)};
 			{x^2 - x + 4};
