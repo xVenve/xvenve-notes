@@ -658,12 +658,12 @@ hmargin=3cm
     
 
     \begin{itemize}
-    \item \textbf{$P(A)=\Sigma P(e)$}
+    \item \textbf{$P(A)=\sum\limits P(e)$}
       
     \end{itemize}
   \item \textbf{Teorema de la probabilidad total}: La suma de las
     probabilidades que tiene de que ocurra A condicionando con otro
-    evento, por la probabilidad de ese evento. \textbf{$P(A)=\Sigma P(A, B1,B2,...)$}
+    evento, por la probabilidad de ese evento. \textbf{$P(A)=\sum\limits P(A, B1,B2,...)$}
     
   \item \textbf{Regla del producto:} $P(A/B)= P(A, B)/P(B)=P(A \cap B)/P(B)$
     \pagebreak
@@ -816,7 +816,7 @@ condicionalmente.
 
     \begin{itemize}
     \item 1. Se aplica la regla del producto. Donde $\alpha=\frac{1}{\textit{lo de la derecha}}$ o
-      $\frac{1}{\Sigma_s \alpha P_s} $
+      $\frac{1}{\sum\limits_s \alpha P_s} $
       
 
       \begin{itemize}
@@ -830,7 +830,7 @@ condicionalmente.
       
 
       \begin{itemize}
-      \item \textbf{$\alpha P(A,B)=\alpha \Sigma P(A, B, C)$.}
+      \item \textbf{$\alpha P(A,B)=\alpha \sum\limits P(A, B, C)$.}
         
       \end{itemize}
     \item 3. Lo de dentro del sumatorio se factoriza y operamos.
@@ -928,7 +928,7 @@ condicionalmente.
       opción es muy pesada ya que hay que considerar todos los posibles
       caminos anteriores.
 
-	  $$P(E_t = s_j)= \Sigma_{\textit{Todos los caminos que acaban en el estado} P(E_0, E_1, ..., E_t = s_j)}$$
+	  $$P(E_t = s_j)= \sum\limits_{\textit{Todos los caminos que acaban en el estado} P(E_0, E_1, ..., E_t = s_j)}$$
       
     \item \textbf{Programación dinámica:} Es una técnica/truco, que consiste
       en hacer una definición recursiva en función del instante
@@ -936,7 +936,7 @@ condicionalmente.
       otras hasta el inicial. Algoritmo de Simulación hacia delante, que
       tiene complejidad lineal para un tiempo t.
 
-	  $$\forall j, P(E_{t+1}=s_j) = \Sigma^N_{i=1} P(E_{t+1}=s_j/E_t=s_i)P(E_t = s_i)$$
+	  $$\forall j, P(E_{t+1}=s_j) = \sum\limits^N_{i=1} P(E_{t+1}=s_j/E_t=s_i)P(E_t = s_i)$$
       
     \item \textbf{Distribuciones estacionarias:} Normalmente solo podemos
       predecir a corto plazo, a medida que nos alejamos de los datos
@@ -1118,7 +1118,7 @@ condicionalmente.
 
           
 		  
-            \textbf{C(a) + $\Sigma$sub(s') P(s'|{} s, a) *
+            \textbf{C(a) + $\sum\limits$sub(s') P(s'|{} s, a) *
             costeDesde(s')}
           
 			
@@ -1160,16 +1160,16 @@ condicionalmente.
         
 
         \begin{itemize}
-        \item Dominios estocasticos, apartir de la accion a: $c(a) + \Sigma_{s'\in S} P_a (s'/s)V(s')$
+        \item Dominios estocasticos, apartir de la accion a: $c(a) + \sum\limits_{s'\in S} P_a (s'/s)V(s')$
           
         \item Entonces, el estado meta $V(s)=0$ para costes y en el resto de
           casos:
 
-		  $$V(s)_{i+1}= R(s)+ \max_{a\in A(s)} [\gamma \Sigma_{s'\in S} P_a(s'/s) V(s')]$$
+		  $$V(s)_{i+1}= R(s)+ \max_{a\in A(s)} [\gamma \sum\limits_{s'\in S} P_a(s'/s) V(s')]$$
           
         \item \textbf{Politica optima}: Consiste en elegir las accione que
           han generado el mínimo.
-          $$\pi^*(s)= \arg \max_{a} [\gamma \Sigma_{s'\in S} P_a(s'/s) V^*(s')]$$
+          $$\pi^*(s)= \arg \max_{a} [\gamma \sum\limits_{s'\in S} P_a(s'/s) V^*(s')]$$
 
 		  \pagebreak
         \item \textbf{Resolviendo las ecuaciones de Bellman:}
