@@ -247,21 +247,9 @@ Magistral: Carlos Linares López
 Reducido: Francisco Javier García Polo
   \end{quote}
 
-\includepdf[pages=-]{docs/intro.pdf}
-
-\includepdf[pages=-]{docs/presentacion-es.pdf}
-
-\includepdf[pages=-]{docs/HyOG81.pdf}
 
 
-
-
-\part{Teoría}
-
-\includepdf[pages=-]{docs/introduccion.pdf}
-
-
-  \chapter{Tema 1 Programación Lineal}
+\chapter{Tema 1 Programación Lineal}
 
   \section{Programación Lineal}
 
@@ -436,17 +424,32 @@ Reducido: Francisco Javier García Polo
   \item La solución óptima es la última vez que la curva de
   isobeneficio toca la región factible.
   \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Representación PL}}
-	{\includegraphics[scale=.2]{Untitled 1.png}}
-\end{figure}
+			\ffigbox[\FBwidth]
+			{\caption{Representación PL}}
+			{\begin{tikzpicture}[scale=.8]
+				\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					legend pos=north west,
+					ymajorgrids=true,
+					xmajorgrids=true,
+					grid style=dashed,
+					axis lines=middle,
+					xmin=-1, xmax=7, ymin=-1, ymax=5,
+					axis x line=center,
+					axis y line=center,
+				]
+				\addplot[thick, domain=-1:10, smooth, color=purple]{-8+2*x};
+				\addplot[thick, domain=-1:10, smooth, color=blue]{(x+18)/6};
+				\addplot[thick, domain=-1:10, smooth, color=orange]{(x-2)/-2};
+				\addplot[thick, domain=-1:10, smooth, color=pink]{(9+2*x)/3};
+				\addplot[thick, domain=-1:10, smooth, color=pink]{(3+2*x)/3};
+				\addplot[thick, domain=-1:10, smooth, color=pink]{(2*x)/3};
+				\addplot[thick, domain=-1:10, smooth, color=pink]{x};
+				\end{axis}
+			\end{tikzpicture}}
+		\end{figure}
   \end{itemize}
-  Ejemplo
-  \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Representación Programación Lineal}}
-	{\includegraphics[scale=.3]{C96D1F11-207B-43BF-A121-0E3028966D13.jpeg}}
-\end{figure}
 
   \subsubsection{Región factible} 
   Es la intersección de las restricciones en forma de
@@ -513,7 +516,8 @@ Reducido: Francisco Javier García Polo
 			\end{tikzpicture}}
 		\end{figure}
 	\end{itemize}
-	
+	\pagebreak
+
     No acotado, faltan restricciones y hay soluciones infinitas
 	\begin{figure}[H]
 		\ffigbox[\FBwidth]
@@ -637,6 +641,7 @@ Simplex: Poliedro convexo de n dimensiones.
     \item
       Todos los recursos son no negativos.
   \end{enumerate}
+\pagebreak
 
     Algebraicamente:
 
@@ -644,7 +649,63 @@ Simplex: Poliedro convexo de n dimensiones.
 	\begin{figure}[H]
 		\ffigbox[\FBwidth]
 		{\caption{Representación Simplex}}
-		{\includegraphics[scale=.3]{Untitled 9.png}}
+		{
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,310); %set diagram left start at 0, and has height of 310
+
+%Shape: Rectangle [id:dp8027028035618593] 
+\draw   (200,100) -- (350,100) -- (350,170) -- (200,170) -- cycle ;
+%Straight Lines [id:da6323757019931138] 
+\draw    (300,100) -- (300,170) ;
+%Shape: Rectangle [id:dp12270154819774604] 
+\draw   (380,100) -- (410,100) -- (410,170) -- (380,170) -- cycle ;
+%Shape: Brace [id:dp7864677175701058] 
+\draw   (201.2,181) .. controls (201.24,185.67) and (203.59,187.98) .. (208.26,187.94) -- (265.96,187.48) .. controls (272.63,187.43) and (275.98,189.73) .. (276.01,194.4) .. controls (275.98,189.73) and (279.29,187.37) .. (285.96,187.32)(282.96,187.34) -- (343.66,186.86) .. controls (348.33,186.82) and (350.64,184.47) .. (350.6,179.8) ;
+%Shape: Brace [id:dp2214119405780277] 
+\draw   (190.2,100.2) .. controls (185.53,100.2) and (183.2,102.53) .. (183.2,107.2) -- (183.2,125) .. controls (183.2,131.67) and (180.87,135) .. (176.2,135) .. controls (180.87,135) and (183.2,138.33) .. (183.2,145)(183.2,142) -- (183.2,162.8) .. controls (183.2,167.47) and (185.53,169.8) .. (190.2,169.8) ;
+%Shape: Brace [id:dp3914378412087798] 
+\draw   (351.2,91.4) .. controls (351.17,86.73) and (348.82,84.42) .. (344.15,84.46) -- (335.55,84.52) .. controls (328.88,84.57) and (325.53,82.27) .. (325.49,77.6) .. controls (325.53,82.27) and (322.22,84.63) .. (315.55,84.68)(318.55,84.66) -- (306.95,84.75) .. controls (302.28,84.78) and (299.97,87.13) .. (300,91.8) ;
+
+% Text Node
+\draw (358,126.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {=};
+% Text Node
+\draw (389.5,126.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {b};
+% Text Node
+\draw (201,72) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle A_{mxn}$};
+% Text Node
+\draw (221,142) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle B_{mxm}$};
+% Text Node
+\draw (238.4,201) node [anchor=north west][inner sep=0.75pt]   [align=left] {n variables};
+% Text Node
+\draw (93,116) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{59.98pt}\setlength\topsep{0pt}
+\begin{center}
+m\\restricciones
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (311.6,52) node [anchor=north west][inner sep=0.75pt]   [align=left] {n-m};
+% Text Node
+\draw (201,102) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{32.2pt}\setlength\topsep{0pt}
+\begin{center}
+var.\\basica
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (301,102) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{33.34pt}\setlength\topsep{0pt}
+\begin{center}
+var. no\\basica
+\end{center}
+
+\end{minipage}};
+
+
+\end{tikzpicture}
+}
 	\end{figure}
 
 	Teorema George Dantzig: Dado una tarea de Programación lineal en forma
@@ -787,13 +848,7 @@ Simplex: Poliedro convexo de n dimensiones.
       \end{itemize}
     \end{itemize}
 \pagebreak
-	Proceso tabular:
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Simplex Tabular}}
-		{\includegraphics[scale=.3]{Untitled 11.png}}
-	\end{figure}
-
+	
   Casos de las distintas soluciones: 
  \begin{enumerate}
 	 \item Dada la solución factible
@@ -826,7 +881,7 @@ Simplex: Poliedro convexo de n dimensiones.
 		\item Infactible, región factible vacía.
 	\end{itemize} 	 
  \end{enumerate} 
-\pagebreak
+
 \subsection{Dualidad}
 
 Una tarea de Programación Lineal está en Forma Simétrica o Forma
@@ -856,11 +911,8 @@ es
 Si la tarea de Programación Lineal en Forma Simétrica tiene una
 solución óptima correspondiente a una base B, entonces:
 \(x'^*= c_B^TB^{-1}\)
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Dualidad}}
-	{\includegraphics[scale=.4]{Untitled 14.png}}
-\end{figure}
+
+$$x'^*=c^T_BB^{-1}=\left( \begin{matrix} -7 & 8 & 0 \end{matrix} \right) \left( \begin{matrix} 0 & \frac 1 4 & 0 \\ - \frac 1 2 & \frac 5 8 & 0 \\ - \frac 1 2 & \frac {23} 8 & 1 \end{matrix} \right) = \left( \begin{matrix} -4 & \frac {13} 4 & 0 \end{matrix} \right)$$
 
 \begin{itemize}
 
@@ -909,11 +961,11 @@ Interpretación de los recursos.
 \subsection{Modelización}
 
 \subsubsection{Problema de Transporte}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Problema de Transporte}}
-	{\includegraphics[scale=.25]{Untitled 15.png}}
-\end{figure}
+Dados m origenes y n destinos tal que:
+\begin{itemize*}
+  \item 
+\end{itemize*}
+
 \subsubsection{Problema de Asignación}
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
@@ -2003,48 +2055,5 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 	{\caption{Iterative-deepening A*}}
 	{\includegraphics[scale=.38]{Untitled 57.png}}
 \end{figure}
-
-\part{Práctica}
-
-\chapter{Programación Lineal}
-  \includepdf[pages=-]{docs/Presentacin_Problemas_LP.pdf}
-  \includepdf[pages=-]{docs/Solucin_Problemas_de_resolucin_grfica.pdf}
-  \includepdf[pages=-]{docs/enunciados_representacion_lp.pdf}
-  \includepdf[pages=-]{docs/enunciados_simplex.pdf}
-  \includepdf[pages=-]{docs/calculo_inversas.pdf}
-
-\chapter{SAT \& CSP}
-  \includepdf[pages=-]{docs/enunciados_sat_csp.pdf}
-  \includepdf[pages=-]{docs/soluciones_sat_csp.pdf}
-
-\chapter{Búsqueda heurística}
-  \includepdf[pages=-]{docs/enunciados-espacio-problemas.pdf}
-  \includepdf[pages=-]{docs/enunciados-h.pdf}
-  \includepdf[pages=-]{docs/enunciados-heuristica.pdf}
-  \includepdf[pages=-]{docs/enunciados-no-informada.pdf}
-  \includepdf[pages=-]{docs/soluciones-h.pdf}
-  \includepdf[pages=-]{docs/soluciones-heuristica.pdf}
-  \includepdf[pages=-]{docs/soluciones-no-informada.pdf}
-  \includepdf[pages=-]{docs/search.pdf}
-  \includepdf[pages=-]{docs/soluciones-espacio-problemas.pdf}
-
-\part{Exámenes}
-  \includepdf[pages=-]{docs/hyoene13.pdf}
-  \includepdf[pages=-]{docs/hyoene14.pdf}
-  \includepdf[pages=-]{docs/hyoene15.pdf}
-  \includepdf[pages=-]{docs/hyoene16.pdf}
-  \includepdf[pages=-]{docs/hyoene17.pdf}
-  \includepdf[pages=-]{docs/hyoene18.pdf}
-  \includepdf[pages=-]{docs/hyoene19.pdf}
-  \includepdf[pages=-]{docs/hyoene20.pdf}
-  \includepdf[pages=-]{docs/hyojul12.pdf}
-  \includepdf[pages=-]{docs/hyojun13.pdf}
-  \includepdf[pages=-]{docs/hyojun14-es.pdf}
-  \includepdf[pages=-]{docs/hyojun15.pdf}
-  \includepdf[pages=-]{docs/hyojun16.pdf}
-  \includepdf[pages=-]{docs/hyojun17.pdf}
-  \includepdf[pages=-]{docs/hyojun18.pdf}
-  \includepdf[pages=-]{docs/hyojun19.pdf}
-  \includepdf[pages=-]{docs/hyomay12.pdf}
 
 \end{document}
