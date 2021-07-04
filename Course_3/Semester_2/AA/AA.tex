@@ -2404,7 +2404,7 @@ En el que se realizan varios escenarios para ir mejorando la tabla Q, en cada un
 \begin{itemize}
   \item \textbf{$\epsilon-greedy$:} Ejecuta una acción aleatoria con probabilidad $\epsilon$ y la acción $\arg \max_a Q(s, a)$ con probabilidad $1-\epsilon$
   \item \textbf{Softmax:} A cada acción que se puede ejecutar en un estado se le asigna una probabilidad.
-  $$ P(a_i|s)= \frac{e^{Q(s, a_i)/\tau}} {\Sigma_{a_j \in A} e^{Q(s, a_j)/\tau}} $$
+  $$ P(a_i|s)= \frac{e^{Q(s, a_i)/\tau}} {\sum\limits_{a_j \in A} e^{Q(s, a_j)/\tau}} $$
   
   Se utiliza un parámetro llamado Temperatura $\tau$, si es alta la acción es equiprobable (exploración pura), si es media es más probabilidad la que tiene mayor $Q(s, a)$ y si es baja se sigue la política (exploración pura).
 
