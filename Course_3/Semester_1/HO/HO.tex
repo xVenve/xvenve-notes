@@ -30,6 +30,8 @@ hmargin=3cm
 
 % Añadir pdfs como partes del documento
 \usepackage{pdfpages}
+\usepackage{multicol}
+
 
 % Quitar la indentación de principio de los parrafos
 \setlength{\parindent}{0em}
@@ -591,7 +593,7 @@ Reducido: Francisco Javier García Polo
   
   Pasar inecuaciones de un tipo a otro (para Forma Canónica)
 
-  $$\begin{aligned}  &\sum_{j=1}^{n} a_{i j} x_{j} \geqslant b_{i} \triangleq -\sum_{j=1}^{n} a_{i j} x_{j}\leq -b_{i}  \end{aligned}$$
+  $$\begin{aligned}  &\sum\limits_{j=1}^{n} a_{i j} x_{j} \geqslant b_{i} \triangleq -\sum\limits_{j=1}^{n} a_{i j} x_{j}\leq -b_{i}  \end{aligned}$$
 
 	Transformar maximización en minimización y viceversa:
 
@@ -600,16 +602,16 @@ Reducido: Francisco Javier García Polo
 
   Quitar inecuación (para Forma Estándar)
 
-  $$\begin{aligned}  &\sum_{j=1}^{n} a_{i j} x_{j} \leqslant b_{i} \triangleq \sum_{j=1}^{n} a_{i j} x_{j}+s_{i}=b_{i}\\  &\sum_{j=1}^{n} a_{i j} x_{j} \geqslant b_{i} \triangleq \sum_{j=1}^{n} a_{i j} x_{j}-s_{i}=b_{i}  \end{aligned}s_i: \textit{variables de holgura. Son variables de decisión cuando}$$
+  $$\begin{aligned}  &\sum\limits_{j=1}^{n} a_{i j} x_{j} \leqslant b_{i} \triangleq \sum\limits_{j=1}^{n} a_{i j} x_{j}+s_{i}=b_{i}\\  &\sum\limits_{j=1}^{n} a_{i j} x_{j} \geqslant b_{i} \triangleq \sum\limits_{j=1}^{n} a_{i j} x_{j}-s_{i}=b_{i}  \end{aligned}s_i: \textit{variables de holgura. Son variables de decisión cuando}$$
   
   operamos.
 
   
 Poner inecuación a partir de igualdad:
 
-  \(\sum_{j=1}^{n} a_{i j} x_{j} = b_{i}\) es
-  \(\sum_{j=1}^{n} a_{i j} x_{j} \leqslant b_{i}\) y
-  \(\sum_{j=1}^{n} a_{i j} x_{j} \geq b_{i}= -\sum_{j=1}^{n} a_{i j} x_{j} \leqslant b_{i}\)
+  \(\sum\limits_{j=1}^{n} a_{i j} x_{j} = b_{i}\) es
+  \(\sum\limits_{j=1}^{n} a_{i j} x_{j} \leqslant b_{i}\) y
+  \(\sum\limits_{j=1}^{n} a_{i j} x_{j} \geq b_{i}= -\sum\limits_{j=1}^{n} a_{i j} x_{j} \leqslant b_{i}\)
 
   Si una variable de decisión \(x_i\) no está restringida se pone
   entonces como la diferencia de dos variables no negativas
@@ -734,18 +736,20 @@ var. no\\basica
     Tipos de soluciones:
 
     \begin{itemize}
-    \item
-      Definición 4
-	  \begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Definición 4}}
-		{\includegraphics[scale=.3]{Untitled 10.png}}
-	\end{figure}
-	  \begin{itemize}
+    \item  Definición 4
+
+  Un vector $\mathbf{x}_{\mathbf{B}}=\left\{x_{B 1}, x_{B 2}, \ldots, x_{B m}\right\}$ se denomina solución básica si satisface $\mathbf{B x}_{\mathbf{B}}=\mathbf{b}$, donde $\mathbf{B}_{m \times m}$ es una submatriz de $\mathbf{A}_{m \times n}$ y todas las $(n-m)$ variables de decisión que no están en la base son nulas. 
+  
+  Si además es factible, se denomina solución básica factible. Se dice que la base $\mathbf{B}_{m \times m}$, formada por las columnas $a_{i}$ de $\mathbf{A}$ asociadas con las variables básicas $x_{B i}$ es una base factible sí $\mathbf{B}^{-1} \mathbf{b} \geq 0$.
+  \begin{itemize}
+    \item Por lo tanto, $\mathbf{B}_{m \times m}$ debe ser no singular
+    \item Podría haber hasta $\left(\begin{array}{l}n \\ m\end{array}\right)$ soluciones básicas factibles
+    \item Típicamente se denotará $B=\left\{x_{B 1}, x_{B 2}, \ldots, x_{B m}\right\}$
+  \end{itemize}
+
 		  \item Un vector \(x\) que satisface \(Ax=b\) se llama Solución.
 		  \item Un vector \(x_B\) que satisface \(Bx_B=b\) se llama Solución Básica.
 		  \item Un vector \(x_B \geq 0\) que satisface \(Bx_B=b\) se llama Solución Básica Factible.
-	  \end{itemize}
     \end{itemize}
 
 	
@@ -961,28 +965,54 @@ Interpretación de los recursos.
 \subsection{Modelización}
 
 \subsubsection{Problema de Transporte}
-Dados m origenes y n destinos tal que:
-\begin{itemize*}
-  \item 
-\end{itemize*}
+Dados m orígenes y n destinos tal que:
+\begin{itemize}
+  \item[] $a_i$: capacidad del origen i, $1 \leq i \leq m$
+  \item[] $b_i$: demanda del destino j, $1 \leq j \leq m$
+  \item[] $c_{ij}$: coste unitario $i \rightarrow j$
+\end{itemize}
+Se modeliza con:
+\begin{flalign*}
+&x_{ij} \lessgtr \textit{el número de ítems de i a j}& \\
+&\min z = \sum\limits^m_{i=1} \sum\limits^n_{j=1} c_{ij}x_{ij}& \\
+&\sum\limits^n_{j=1} x_{ij} \leq a_i \; \; \; \textit{No sobrepasar la capacidad}& \\
+&\sum\limits^m_{i=1} x_{ij} \geq b_j \; \; \; \textit{Al menos superar demanda}& \\
+&x_{ij} \geq 0 \; \; \; \textit{A veces hay que restringir a que sean enteros}&
+\end{flalign*}
 
 \subsubsection{Problema de Asignación}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Problema de Asignación}}
-	{\includegraphics[scale=.25]{Untitled 16.png}}
-\end{figure}
+Dado m individuos a los que hay que asignar m tareas con $c_{ij}$ es el coste unitario de coste asignación $i \rightarrow j$
+
+Este ejemplo \#tarea = \#individuos
+
+Se modeliza:
+\begin{flalign*}
+&x_{ij}\begin{cases}
+0 & si \; i \nrightarrow j\\
+b & si \; i \rightarrow j
+\end{cases} & \\
+&\min z = \sum\limits^m_{i=1} \sum\limits^m_{j=1} c_{ij}x_{ij}& \\
+&\sum\limits^m_{j=1} x_{ij} = 1 \; \; \; \forall i = 1, ..., m& \\
+&\sum\limits^m_{i=1} x_{ij} = 1 \; \; \; \forall i = 1, ..., m& \\
+&x_{ij} \in \{0, 1\}&
+\end{flalign*}
+
 \subsubsection{Condicionales}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Condicionales}}
-	{\includegraphics[scale=.25]{Untitled 17.png}}
-\end{figure}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Condicionales}}
-	{\includegraphics[scale=.6]{Screenshot_2020-11-02_at_14.40.37.png}}
-\end{figure}
+\begin{lstlisting}[language=Python]
+if a=1
+  then b=1
+  else b=0
+\end{lstlisting}
+
+Tecnica de la M-Grande: Consiste en añadir una variable binaria, y además en usar una constante M arbitrariamente grande. Acotar la variable y otra restricción que ajuste todo.
+
+\begin{flalign*}
+&a \leq b + My& \\
+&a \geq b + 2y& \\
+&b + y =1& \\
+&y \in \{ 0, 1 \}& \\
+\end{flalign*}
+
 Lo primero es acotar la variable, $\leq$ y $\geq$.
 
 Después con una variable binaria y la arbitrariamente grande debemos
@@ -1001,13 +1031,12 @@ condición buscamos obligar a tomar el que nos falte por obligar.
   una o más variables de decisión tienen restricciones de integridad
   (\(x_j \in N^+_0)\), es NP-hard (Karp, 1972):
 
+  La colección de puntos, son enteros, los puntos rojos.
+
+  La Programación Lineal Entera es NP-hard (Karp, 1972)
 
   3 tipos:
-  \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Programación Lineal Entera}}
-	{\includegraphics[scale=.3]{Untitled 18.png}}
-\end{figure}
+
   \begin{itemize}
 	\item Programación Entera Pura: \(x_i \in N^+_0; \forall i\) Todas las
     variables están afectadas por una restricción de integridad. 
@@ -1023,7 +1052,7 @@ condición buscamos obligar a tomar el que nos falte por obligar.
       Programación Entera Mixta: Solo algunas variables de decisión
       tienen restricción de integridad.
   \end{itemize}
-\pagebreak
+
   \subsection{Ramificación y Acotación en profundidad}
 
   Relajamos el problema, ignorando las restricciones de integridad, y
@@ -1031,12 +1060,6 @@ condición buscamos obligar a tomar el que nos falte por obligar.
 
   Ramificamos una de las variables de decisión, creando dos
     subregiones factibles.
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Ramificación}}
-		{\includegraphics[scale=.25]{Untitled 19.png}}
-	\end{figure}
-	\vspace{-0.5cm}
 
   La solución óptima de las subregiones será peor o igual que la óptima
   relajada, \(z_S \leq z_F\).
@@ -1088,15 +1111,129 @@ condición buscamos obligar a tomar el que nos falte por obligar.
     \item
       Si todos los nodos son terminales, HALT, en otro caso, ir a 2.
     \end{enumerate}
+\pagebreak
 
 	Ejemplo:
 
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Ejemplo Programación Lineal Entera}}
-		{\includegraphics[scale=.32]{Untitled 20.png}}
-	\end{figure}
+\begin{flalign*}
+\max z = &4x_1+3x_2+2x_3& \\
+s.a. &5x_1-2x_2+3x_3<=10& \\
+&3x_1+3x_2-2x_3<=7& \\
+&-x_1+2x_2-x_3<=9& \\
+\end{flalign*}
 
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,701); %set diagram left start at 0, and has height of 701
+
+%Shape: Rectangle [id:dp9442620448860839] 
+\draw   (400,50) -- (600,50) -- (600,110) -- (400,110) -- cycle ;
+%Straight Lines [id:da15747262423174502] 
+\draw    (500,110) -- (600,160) ;
+%Straight Lines [id:da007768120489592745] 
+\draw    (400,160) -- (500,110) ;
+%Shape: Rectangle [id:dp9647830398971795] 
+\draw   (320,160) -- (470,160) -- (470,210) -- (320,210) -- cycle ;
+%Straight Lines [id:da29173162034937805] 
+\draw    (400,210) -- (500,260) ;
+%Straight Lines [id:da7620557535793135] 
+\draw    (300,260) -- (400,210) ;
+%Shape: Rectangle [id:dp89689152507722] 
+\draw   (420,260) -- (570,260) -- (570,310) -- (420,310) -- cycle ;
+%Shape: Rectangle [id:dp12305441175128462] 
+\draw   (220,260) -- (370,260) -- (370,310) -- (220,310) -- cycle ;
+%Straight Lines [id:da8389776446418404] 
+\draw    (300,310) -- (400,360) ;
+%Straight Lines [id:da6618058365785755] 
+\draw    (200,360) -- (300,310) ;
+%Shape: Rectangle [id:dp47081678621295353] 
+\draw   (120,360) -- (270,360) -- (270,410) -- (120,410) -- cycle ;
+%Straight Lines [id:da7595646031071146] 
+\draw    (200,410) -- (300,460) ;
+%Straight Lines [id:da23356472952864804] 
+\draw    (100,460) -- (200,410) ;
+%Shape: Rectangle [id:dp0650592285503444] 
+\draw   (20,460) -- (170,460) -- (170,510) -- (20,510) -- cycle ;
+
+% Text Node
+\draw (449.5,50.25) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\scriptsize Sol. relajado Simplex}};
+% Text Node
+\draw (410,62.98) node [anchor=north west][inner sep=0.75pt]    {$ \begin{array}{l}
+{\textstyle x\ \in F\ \ \ x^{*} =( 0,\ 8'2,\ 8'8)}\\
+{\textstyle \ \ \ \ \ \ \ \ \ \ \ \ \ z^{*} =42'2}
+\end{array}$};
+% Text Node
+\draw (323.5,165.9) node [anchor=north west][inner sep=0.75pt]    {$ \begin{array}{l}
+{\textstyle x^{*} =( 0'05,\ 8,\ 8'58)}\\
+{\textstyle z^{*} =41'36}
+\end{array}$};
+% Text Node
+\draw (423.5,265.9) node [anchor=north west][inner sep=0.75pt]    {$ \begin{array}{l}
+{\textstyle x^{*} =( 1,\ 4'4,\ 4'6)}\\
+{\textstyle \ \ z^{*} =26'4}
+\end{array}$};
+% Text Node
+\draw (223.5,265.9) node [anchor=north west][inner sep=0.75pt]    {$ \begin{array}{l}
+{\textstyle x^{*} =( 0'8,\ 8,\ 8'67)}\\
+{\textstyle \ z^{*} =41'33}
+\end{array}$};
+% Text Node
+\draw (123.5,365.9) node [anchor=north west][inner sep=0.75pt]    {$ \begin{array}{l}
+{\textstyle x^{*} =( 0,\ 7'68,\ 8)}\\
+{\textstyle z^{*} =39}
+\end{array}$};
+% Text Node
+\draw (567,161) node [anchor=north west][inner sep=0.75pt]   [align=left] {Infactible};
+% Text Node
+\draw (447.5,311) node [anchor=north west][inner sep=0.75pt]   [align=left] {Menor que 37};
+% Text Node
+\draw (23.5,465.9) node [anchor=north west][inner sep=0.75pt]    {$ \begin{array}{l}
+{\textstyle x^{*} =( 0,\ 7,\ 8)}\\
+{\textstyle \ z^{*} =37}
+\end{array}$};
+% Text Node
+\draw (367,362) node [anchor=north west][inner sep=0.75pt]   [align=left] {Infactible};
+% Text Node
+\draw (221,462) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{104.21pt}\setlength\topsep{0pt}
+\begin{center}
+Infactible,\\hacemos backtracking
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (381,122.4) node [anchor=north west][inner sep=0.75pt]    {$x_{2} \leq 8$};
+% Text Node
+\draw (571,122.4) node [anchor=north west][inner sep=0.75pt]    {$x_{2} \geq 9\ $};
+% Text Node
+\draw (574.5,180.4) node [anchor=north west][inner sep=0.75pt]    {$x\in F_{2}$};
+% Text Node
+\draw (421,190.4) node [anchor=north west][inner sep=0.75pt]    {$x\in F_{1}$};
+% Text Node
+\draw (471,222.4) node [anchor=north west][inner sep=0.75pt]    {$x_{1} \geq 1\ $};
+% Text Node
+\draw (287,222.4) node [anchor=north west][inner sep=0.75pt]    {$x_{1} \leq 0\ $};
+% Text Node
+\draw (316,290.4) node [anchor=north west][inner sep=0.75pt]    {$x\in F_{11}$};
+% Text Node
+\draw (516,290.4) node [anchor=north west][inner sep=0.75pt]    {$x\in F_{12}$};
+% Text Node
+\draw (191,320.4) node [anchor=north west][inner sep=0.75pt]    {$x_{3} \leq 8\ $};
+% Text Node
+\draw (357,322.4) node [anchor=north west][inner sep=0.75pt]    {$x_{3} \geq 9\ $};
+% Text Node
+\draw (211,390.4) node [anchor=north west][inner sep=0.75pt]    {$x\in F_{111}$};
+% Text Node
+\draw (370,380.4) node [anchor=north west][inner sep=0.75pt]    {$x\in F_{112}$};
+% Text Node
+\draw (81,430.4) node [anchor=north west][inner sep=0.75pt]    {$x_{2} \leq 7\ $};
+% Text Node
+\draw (257,422.4) node [anchor=north west][inner sep=0.75pt]    {$x_{2} \geq 8\ $};
+
+
+\end{tikzpicture}
 
 \chapter{Tema 2 Programación Dinámica}
 
@@ -1149,18 +1286,7 @@ condición buscamos obligar a tomar el que nos falte por obligar.
       Calcular la solución óptima del problema global.
     \end{enumerate}
 \pagebreak
-  Ejemplo programación dinámica en Coeficientes Binomiales:
-  \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Programación Dinamica I}}
-	{\includegraphics[scale=.32]{Untitled 23.png}}
-\end{figure}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Programación Dinamica II}}
-	{\includegraphics[scale=.32]{Untitled 24.png}}
-\end{figure}
-\pagebreak
+
 \section{Single-Source Shortest-Path}
 
   
@@ -1171,11 +1297,7 @@ demás vértices.
 \subsection{Bellman-Ford-Moore (1958, 56, 57)}
 
 El camino óptimo entre dos puntos será: \(\min (d[e.v], d[e.u]+ e.c)\)
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Bellman-Ford-Moore}}
-	{\includegraphics[scale=.32]{Untitled 25.png}}
-\end{figure}
+
 \begin{itemize}
 \item
   e.u = origen
@@ -1201,13 +1323,6 @@ def bellmanFordMoore (V,E,s):
 			raise(...) #Ciclos negativos
 \end{lstlisting}
 
-\pagebreak
-Ejemplo
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo Bellman-Ford-Moore}}
-	{\includegraphics[scale=.3]{Untitled 26.png}}
-\end{figure}
 Complejidad:
 
 \begin{itemize}
@@ -1267,12 +1382,6 @@ def floydwarshall:
 				d[i][j]= min(d[i][j],d[i][k]+d[k][j])
 \end{lstlisting}
 
-  Diagrama:
-  \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Floyd-Warshall:}}
-	{\includegraphics[scale=.3]{2A6EA3F5-5BA5-4FDB-9D83-EB572452B3AB.jpeg}}
-\end{figure}
   \begin{itemize}
   \item Complejidad: \(O(|V|^3)\)
   \end{itemize}
@@ -1355,14 +1464,6 @@ def floydwarshall:
 	
   Si resulta la conjunto vacía, \(\emptyset\), SAT
 
-  
-  
-    Ejemplos:
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Resolución FNC}}
-		{\includegraphics[scale=.2]{Untitled 29.png}}
-	\end{figure}
 	El modelo de resolución reduce el número de variables, pero no
     necesariamente el número de cláusulas será \(\frac {n^2} {4}\)
 
@@ -1373,18 +1474,43 @@ def floydwarshall:
 
   
     Ejemplo UNSAT
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Ejemplo UNSAT}}
-		{\includegraphics[scale=.25]{Untitled 31.png}}
-	\end{figure}
-	\pagebreak
-	Ejemplo SAT
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Ejemplo SAT}}
-		{\includegraphics[scale=.28]{Untitled 32.png}}
-	\end{figure}
+	\begin{multicols}{2}
+
+$C_{1}:(p \vee \bar{q} \vee \bar{r})$
+
+$C_{2}:(\bar{p} \vee s)$
+
+$C_{3}:(\bar{s} \vee q)$
+
+$C_{4}: \bar{q}$ igual que $(\bar{q})$
+
+$C_{5}:(p \vee \bar{r})$
+
+$C_{6}:(p \vee q)$
+
+$C_{7}: (q \vee s)$
+
+$C_{8}:(q \vee q)=(q)$
+
+\columnbreak
+
+\begin{align*}
+\textit{Paso 0: } &G_0 = \{C_i\}_{i=1}^6 \\
+&Res(G_0, \bar{r}) = \{ C_2, C_3, C_4, C_6 \} \\
+&G_0 \setminus Res(G_0, \bar{r}) = \{ C_1, C_5 \} \\
+\textit{Paso 1: } &G_1 = \{C_2, C_3, C_4, C_6\} \\
+&Res(G_1, p) = \{ C_3, C_4, C_7 \} \\
+&G_1 \setminus Res(G_1, p) = \{ C_2, C_6 \} \\
+\textit{Paso 2: } &G_2 = \{C_3, C_4, C_7\} \\
+&Res(G_2, s) = \{ C_4, C_8 \} \\
+&G_2 \setminus Res(G_2, s) = \{ C_3, C_7 \} \\
+\textit{Paso 3: } &G_3 = \{C_4, C_8\} \\
+&Res(G_3, q) = \{ C9: \emptyset \} = \{ \emptyset \} \; \textit{UNSAT} \\
+&\textit{Insatisfacible, terminado}
+\end{align*}
+
+\end{multicols}
+
 	\pagebreak
 \section{Algoritmos}
 \subsection{Davis-Putnam (DP)}
@@ -1436,12 +1562,54 @@ def floydwarshall:
 
 	La 6 es la Fase II, de regresión.
 \pagebreak
-    Ejemplo
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Davis-Putnam}}
-		{\includegraphics[scale=.4]{Untitled 33.png}}
-	\end{figure}
+  
+	Ejemplo
+	
+  \begin{multicols}{2}
+
+$C_{1}:(p \vee r \vee \bar{s})$
+
+$C_{2}:(\bar{p} \vee \bar{s})$
+
+$C_{3}:(\bar{q} \vee \bar{r})$
+
+$C_{4}:(q \vee s)$
+
+$C_{5}:(r \vee \bar{s})$
+
+$C_{6}: (q \vee r)$
+
+\columnbreak
+
+\begin{align*}
+\textit{Paso 0: } &G_0 = \{C_i\}_{i=1}^4 \\
+&Res(G_0, p) = \{ C_3, C_4, C_5 \} \\
+&G_0 \setminus Res(G_0, p) = \{ C_1, C_2 \} \\
+\textit{Paso 1: } &G_1 = \{ C_3, C_4, C_5 \} \\
+&Res(G_1, s) = \{ C_3, C_6 \} \\
+&G_1 \setminus Res(G_1, s) = \{ C_4, C_5 \} \\
+\textit{Paso 2: } &G_2 = \{C_3, C_6 \} \\
+&Res(G_2, q) = \{ C_7:(\bar{r} \vee r) \} = \emptyset \; \; \textit{SAT} \\
+&G_2 \setminus Res(G_2, q) = \{ C_3, C_6 \} \\
+\end{align*}
+
+\end{multicols}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c|c}
+\textbf{Paso}           & \textbf{Var} & \textbf{Clausulas} & \textbf{M}                         \\ \hline
+\multicolumn{1}{|c|}{2} & s            & $C_4, C_6$         & \multicolumn{1}{c|}{$q=\bot$, $r=\top$} \\ \hline
+\multicolumn{1}{|c|}{1} & s            & $C_4, C_5$         & \multicolumn{1}{c|}{$s=\top$}      \\ \hline
+\multicolumn{1}{|c|}{0} & p            & $C_1, C_2$         & \multicolumn{1}{c|}{$p=\bot$}      \\ \hline
+\end{tabular}
+\end{table}
+
+Buscamos en cada paso ir dando valor a las variables para que cumpla las cláusulas, primero a la var y si necesitamos otra a esa, pero no más
+
+Los valores no son únicos
+
+Si hay una variable que su valor no importa hay que indicar que puede ser $\top$ o $\bot$, ''Se le da cualquier valor''
 
 	
 \subsection{Davis-Putnam-Logemann-Loveland (DPLL)}
@@ -1473,11 +1641,87 @@ def floydwarshall:
   \end{itemize}
 
   Ejemplo
-  \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Davis-Putnam-Logemann-Loveland}}
-	{\includegraphics[scale=.35]{Untitled 34.png}}
-\end{figure}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,359); %set diagram left start at 0, and has height of 359
+
+%Straight Lines [id:da8536565270692567] 
+\draw    (300,35) -- (400,85) ;
+%Straight Lines [id:da8143384481700704] 
+\draw    (300,35) -- (200,85) ;
+%Straight Lines [id:da9113860189379104] 
+\draw    (200,119) -- (250,169) ;
+%Straight Lines [id:da15965108508694592] 
+\draw    (200,119) -- (150,169) ;
+%Straight Lines [id:da16767489107231293] 
+\draw    (400,119) -- (450,169) ;
+%Straight Lines [id:da23862558881233875] 
+\draw    (400,119) -- (350,169) ;
+%Straight Lines [id:da38139706249059024] 
+\draw    (150,199) -- (200,249) ;
+%Straight Lines [id:da4040442684585883] 
+\draw    (150,199) -- (100,249) ;
+%Straight Lines [id:da42010124304423035] 
+\draw    (450,199) -- (500,249) ;
+%Straight Lines [id:da6129321632178557] 
+\draw    (450,199) -- (400,249) ;
+
+% Text Node
+\draw (208,12.4) node [anchor=north west][inner sep=0.75pt]    {$( p\lor \overline{t}) \land (\overline{p} \lor q) \land ( t\lor \overline{q})$};
+% Text Node
+\draw (165,91.4) node [anchor=north west][inner sep=0.75pt]    {$q\land ( t\lor \overline{q})$};
+% Text Node
+\draw (361,91.4) node [anchor=north west][inner sep=0.75pt]    {$\overline{t} \land ( t\lor \overline{q})$};
+% Text Node
+\draw (147,171.4) node [anchor=north west][inner sep=0.75pt]    {$t$};
+% Text Node
+\draw (441,171.4) node [anchor=north west][inner sep=0.75pt]    {$\overline{q}$};
+% Text Node
+\draw (232,171.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$\{\emptyset \}$};
+% Text Node
+\draw (331,171.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$\{\emptyset \}$};
+% Text Node
+\draw (182,252.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$\{\emptyset \}$};
+% Text Node
+\draw (381,251.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$\{\emptyset \}$};
+% Text Node
+\draw (89,251.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,opacity=1 ]  {$\emptyset $};
+% Text Node
+\draw (81,281) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,opacity=1 ] [align=left] {SAT};
+% Text Node
+\draw (489,252.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,opacity=1 ]  {$\emptyset $};
+% Text Node
+\draw (481,282) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,opacity=1 ] [align=left] {SAT};
+% Text Node
+\draw (204,42.4) node [anchor=north west][inner sep=0.75pt]    {$p=\top $};
+% Text Node
+\draw (361,42.4) node [anchor=north west][inner sep=0.75pt]    {$p=\perp $};
+% Text Node
+\draw (125,132.4) node [anchor=north west][inner sep=0.75pt]    {$q=\top $};
+% Text Node
+\draw (241,132.4) node [anchor=north west][inner sep=0.75pt]    {$q=\perp $};
+% Text Node
+\draw (371,212.4) node [anchor=north west][inner sep=0.75pt]    {$q=\top $};
+% Text Node
+\draw (481,212.4) node [anchor=north west][inner sep=0.75pt]    {$q=\perp $};
+% Text Node
+\draw (71,212.4) node [anchor=north west][inner sep=0.75pt]    {$t=\top $};
+% Text Node
+\draw (331,132.4) node [anchor=north west][inner sep=0.75pt]    {$t=\top $};
+% Text Node
+\draw (181,212.4) node [anchor=north west][inner sep=0.75pt]    {$t=\perp $};
+% Text Node
+\draw (437,132.4) node [anchor=north west][inner sep=0.75pt]    {$t=\perp $};
+
+
+\end{tikzpicture}
+
+Hay 2 modelos:
+
+$M_1= \{ p= \top, q=\top, t=\top \}$
+
+$M_2= \{ p= \perp, q=\perp, t=\perp \}$
 
 \subsection{CSP - Procedimiento de Satisfacción de Restricciones}
 
@@ -1509,13 +1753,6 @@ def floydwarshall:
   legales.
 
   \item
-    Problema de las n reinas.
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Problema de las n reinas}}
-		{\includegraphics[scale=.25]{Untitled 35.png}}
-	\end{figure}
-  \item
     Una instanciación de un subconjunto de variables \(S \subseteq X\)
     consiste en una asignación de valores de los dominios de las
     variables en S que sea consistente con las restricciones.
@@ -1546,11 +1783,7 @@ def floydwarshall:
     Una red de restricciones \(R(C, D, C)\) puede representarse como un
     grafo donde los vértices representan X, y hay un arco entre los
     vértices \(x_i\) y \(x_j\) si \(R_{ij} \neq \emptyset\)
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Red de restricciones}}
-		{\includegraphics[scale=.35]{Untitled 36.png}}
-	\end{figure}
+
 \end{enumerate}
 
 
@@ -1560,25 +1793,31 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
   y solo si para cada \(a_i \in D_i\), existe otro valor
   \(a_j \in D_j\),, \((a_i,a_j) \in R_{ij}\)
 
-    Arco-consistencia es Direccional.
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Arco-consistencia I}}
-		{\includegraphics[scale=.5]{Untitled 37.png}}
-	\end{figure}
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Arco-consistencia II}}
-		{\includegraphics[scale=.2]{Untitled 38.png}}
-	\end{figure}
-	\pagebreak
+AC-REVISE($x_i$, $x_j$):
+
+\hspace{0.6cm} For $\sigma_i \in D_i$:
+
+\hspace{1.2cm} If $\nexists a_j \in D_j ,, (\sigma_i, \sigma_j) \in R_{ij}$:
+
+\hspace{1.8cm} $D_i = D_i \setminus \{ \sigma_i \}$
+
+Arco-consistencia es Direccional.
+
+AC(R):
+
+\hspace{0.6cm} REPEAT:
+
+\hspace{1.2cm} For ($x_i$, $x_j$),, $R_{ij} \neq \emptyset$
+
+\hspace{1.8cm} AC-REVISE($x_i$, $x_j$)
+
+\hspace{1.8cm} AC-REVISE($x_j$, $x_i$)
+
+\hspace{0.6cm} UNTIL no domain is changed
+
 	La arco-consistencia NO sirve para verificar la consistencia global.
     Ya que los arcos lo verifican para ese par solamente.
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Arco-consistencia III}}
-		{\includegraphics[scale=.35]{Untitled 39.png}}
-	\end{figure}
+
 
 	
 \subsection{Camino-Consistencia}
@@ -1592,22 +1831,14 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
     \begin{itemize}
     \item
       La camino-consistencia NO es direccional.
-	  \begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Camino-Consistencia I}}
-		{\includegraphics[scale=.42]{Untitled 40.png}}
-	\end{figure}
-	\pagebreak
+
+	
     \item
       La camino-consistencia tampoco sirve para verificar la
       consistencia global. (por ejemplo, si aumenta a 4)
-	  \begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Camino-Consistencia II}}
-		{\includegraphics[scale=.15]{Untitled 41.png}}
-	\end{figure}
+	  
     \end{itemize}
-
+\pagebreak
 \subsection{Como lo calculamos realmente.}
 
 
@@ -1621,11 +1852,8 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
     así reducimos el número de ramas que hay que considerar. Además, hay
     que calcular la camino consistencia de todas las variables que
     llevamos y la que estamos contemplando en conjunto.
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{C-Co con Árboles}}
-		{\includegraphics[scale=.23]{Untitled 42.png}}
-	\end{figure}    Si llegamos a vacío en algún nodo, tenemos un fallo, y hacemos
+
+    Si llegamos a vacío en algún nodo, tenemos un fallo, y hacemos
     backtracking, si aun así todos salen vacíos no tenemos solución o
     por el contrario si encontramos una no vacía tenemos una
     sustanciación global, que cumpla todas las restricciones.
@@ -1635,11 +1863,6 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 \chapter{Tema 4 Búsqueda}
 
 \section{Espacio De Búsqueda}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Espacio De Búsqueda}}
-	{\includegraphics[scale=.25]{Untitled 44.png}}
-\end{figure}
 
   \begin{enumerate}
 
@@ -1726,7 +1949,96 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
   \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Primero en Amplitud}}
-	{\includegraphics[scale=.25]{Untitled 46.png}}
+	{
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Ellipse [id:dp18669847718653876] 
+\draw   (285.66,41.38) .. controls (285.66,34.26) and (291.09,28.5) .. (297.78,28.5) .. controls (304.48,28.5) and (309.91,34.26) .. (309.91,41.38) .. controls (309.91,48.49) and (304.48,54.25) .. (297.78,54.25) .. controls (291.09,54.25) and (285.66,48.49) .. (285.66,41.38) -- cycle ;
+
+%Shape: Ellipse [id:dp5065383528404799] 
+\draw   (217.59,96.38) .. controls (217.59,89.26) and (223.02,83.5) .. (229.72,83.5) .. controls (236.41,83.5) and (241.84,89.26) .. (241.84,96.38) .. controls (241.84,103.49) and (236.41,109.25) .. (229.72,109.25) .. controls (223.02,109.25) and (217.59,103.49) .. (217.59,96.38) -- cycle ;
+
+%Shape: Ellipse [id:dp5426834345553206] 
+\draw   (353.73,97.13) .. controls (353.73,90.01) and (359.16,84.25) .. (365.85,84.25) .. controls (372.55,84.25) and (377.98,90.01) .. (377.98,97.13) .. controls (377.98,104.24) and (372.55,110) .. (365.85,110) .. controls (359.16,110) and (353.73,104.24) .. (353.73,97.13) -- cycle ;
+
+%Shape: Ellipse [id:dp01748689504157186] 
+\draw   (184.03,152.13) .. controls (184.03,145.01) and (189.46,139.25) .. (196.16,139.25) .. controls (202.85,139.25) and (208.28,145.01) .. (208.28,152.13) .. controls (208.28,159.24) and (202.85,165) .. (196.16,165) .. controls (189.46,165) and (184.03,159.24) .. (184.03,152.13) -- cycle ;
+
+%Shape: Ellipse [id:dp9428098642277205] 
+\draw   (251.15,152.13) .. controls (251.15,145.01) and (256.58,139.25) .. (263.28,139.25) .. controls (269.98,139.25) and (275.4,145.01) .. (275.4,152.13) .. controls (275.4,159.24) and (269.98,165) .. (263.28,165) .. controls (256.58,165) and (251.15,159.24) .. (251.15,152.13) -- cycle ;
+
+
+%Shape: Ellipse [id:dp8284720105120542] 
+\draw   (320.83,152.13) .. controls (320.83,145.01) and (326.26,139.25) .. (332.95,139.25) .. controls (339.65,139.25) and (345.08,145.01) .. (345.08,152.13) .. controls (345.08,159.24) and (339.65,165) .. (332.95,165) .. controls (326.26,165) and (320.83,159.24) .. (320.83,152.13) -- cycle ;
+
+%Shape: Ellipse [id:dp7978478412339847] 
+\draw   (386.63,152.13) .. controls (386.63,145.01) and (392.05,139.25) .. (398.75,139.25) .. controls (405.45,139.25) and (410.88,145.01) .. (410.88,152.13) .. controls (410.88,159.24) and (405.45,165) .. (398.75,165) .. controls (392.05,165) and (386.63,159.24) .. (386.63,152.13) -- cycle ;
+
+
+%Shape: Ellipse [id:dp12937770899009537] 
+\draw   (167.25,206.44) .. controls (167.25,199.33) and (172.68,193.56) .. (179.38,193.56) .. controls (186.07,193.56) and (191.5,199.33) .. (191.5,206.44) .. controls (191.5,213.55) and (186.07,219.31) .. (179.38,219.31) .. controls (172.68,219.31) and (167.25,213.55) .. (167.25,206.44) -- cycle ;
+
+%Shape: Ellipse [id:dp04757183323164882] 
+\draw   (200.81,206.44) .. controls (200.81,199.33) and (206.24,193.56) .. (212.94,193.56) .. controls (219.63,193.56) and (225.06,199.33) .. (225.06,206.44) .. controls (225.06,213.55) and (219.63,219.31) .. (212.94,219.31) .. controls (206.24,219.31) and (200.81,213.55) .. (200.81,206.44) -- cycle ;
+
+
+%Shape: Ellipse [id:dp22772640796294663] 
+\draw   (234.37,206.44) .. controls (234.37,199.33) and (239.8,193.56) .. (246.5,193.56) .. controls (253.19,193.56) and (258.62,199.33) .. (258.62,206.44) .. controls (258.62,213.55) and (253.19,219.31) .. (246.5,219.31) .. controls (239.8,219.31) and (234.37,213.55) .. (234.37,206.44) -- cycle ;
+
+%Shape: Ellipse [id:dp17174669939626908] 
+\draw   (267.94,206.44) .. controls (267.94,199.33) and (273.37,193.56) .. (280.06,193.56) .. controls (286.76,193.56) and (292.19,199.33) .. (292.19,206.44) .. controls (292.19,213.55) and (286.76,219.31) .. (280.06,219.31) .. controls (273.37,219.31) and (267.94,213.55) .. (267.94,206.44) -- cycle ;
+
+
+%Straight Lines [id:da4745317766148347] 
+\draw    (264,165) -- (280.06,193.56) ;
+%Straight Lines [id:da07339283488170056] 
+\draw    (196.87,165) -- (212.94,193.56) ;
+%Straight Lines [id:da48454934430057994] 
+\draw    (264,165) -- (246.5,193.56) ;
+%Straight Lines [id:da6739639319907231] 
+\draw    (196.16,165) -- (178.65,193.56) ;
+%Straight Lines [id:da025742732922336753] 
+\draw    (229.72,109.25) -- (196.16,139.25) ;
+%Straight Lines [id:da1324756178738058] 
+\draw    (229.72,109.25) -- (263.28,139.25) ;
+%Straight Lines [id:da5822899387100338] 
+\draw    (365.85,110) -- (332.29,140) ;
+%Straight Lines [id:da5970792883885521] 
+\draw    (365.85,110) -- (398.75,139.25) ;
+%Straight Lines [id:da982961690294212] 
+\draw    (296.9,55) -- (231,82.5) ;
+%Straight Lines [id:da48070786942664956] 
+\draw    (296.9,55) -- (365.85,84.25) ;
+
+% Text Node
+\draw (360.35,88.63) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+% Text Node
+\draw (224.22,87.88) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+% Text Node
+\draw (190.66,143.63) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+% Text Node
+\draw (173.88,197.94) node [anchor=north west][inner sep=0.75pt]   [align=left] {8};
+% Text Node
+\draw (207.44,197.94) node [anchor=north west][inner sep=0.75pt]   [align=left] {9};
+% Text Node
+\draw (257.78,143.63) node [anchor=north west][inner sep=0.75pt]   [align=left] {5};
+% Text Node
+\draw (237,197.94) node [anchor=north west][inner sep=0.75pt]   [align=left] {10};
+% Text Node
+\draw (271.06,197.94) node [anchor=north west][inner sep=0.75pt]   [align=left] {11};
+% Text Node
+\draw (327.45,143.63) node [anchor=north west][inner sep=0.75pt]   [align=left] {6};
+% Text Node
+\draw (393.25,143.63) node [anchor=north west][inner sep=0.75pt]   [align=left] {7};
+% Text Node
+\draw (291.78,32.88) node [anchor=north west][inner sep=0.75pt]   [align=left] {S};
+
+
+\end{tikzpicture}}
 \end{figure}
 
 	Al ser un problema de satisfacibilidad solo nos interesa saber cuál es
@@ -1743,6 +2055,7 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 
 	El hecho que de que ambos sean exponenciales es bastante
     desafortunado.
+\pagebreak
 
 \subsection{Primero en Profundidad}
 
@@ -1752,15 +2065,94 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
   
     Se usa una profundidad máxima para evitar caer en una rama infinita
     que nos aleja de la solución.
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Escala Primero en Profundidad}}
-		{\includegraphics[scale=.25]{Untitled 47.png}}
-	\end{figure}
+
 	\begin{figure}[H]
 		\ffigbox[\FBwidth]
 		{\caption{Primero en Profundidad}}
-		{\includegraphics[scale=.2]{Untitled 48.png}}
+		{
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Ellipse [id:dp7147448304890514] 
+\draw   (299.78,42.06) .. controls (299.78,34.95) and (305.21,29.19) .. (311.91,29.19) .. controls (318.61,29.19) and (324.03,34.95) .. (324.03,42.06) .. controls (324.03,49.17) and (318.61,54.94) .. (311.91,54.94) .. controls (305.21,54.94) and (299.78,49.17) .. (299.78,42.06) -- cycle ;
+
+%Shape: Ellipse [id:dp20243255870818078] 
+\draw   (231.72,97.06) .. controls (231.72,89.95) and (237.15,84.19) .. (243.84,84.19) .. controls (250.54,84.19) and (255.97,89.95) .. (255.97,97.06) .. controls (255.97,104.17) and (250.54,109.94) .. (243.84,109.94) .. controls (237.15,109.94) and (231.72,104.17) .. (231.72,97.06) -- cycle ;
+
+%Shape: Ellipse [id:dp06075207361727131] 
+\draw   (367.85,97.81) .. controls (367.85,90.7) and (373.28,84.94) .. (379.98,84.94) .. controls (386.67,84.94) and (392.1,90.7) .. (392.1,97.81) .. controls (392.1,104.92) and (386.67,110.69) .. (379.98,110.69) .. controls (373.28,110.69) and (367.85,104.92) .. (367.85,97.81) -- cycle ;
+
+%Shape: Ellipse [id:dp7288702595865146] 
+\draw   (198.16,152.81) .. controls (198.16,145.7) and (203.58,139.94) .. (210.28,139.94) .. controls (216.98,139.94) and (222.41,145.7) .. (222.41,152.81) .. controls (222.41,159.92) and (216.98,165.69) .. (210.28,165.69) .. controls (203.58,165.69) and (198.16,159.92) .. (198.16,152.81) -- cycle ;
+
+%Shape: Ellipse [id:dp15893340072025164] 
+\draw   (265.28,152.81) .. controls (265.28,145.7) and (270.71,139.94) .. (277.4,139.94) .. controls (284.1,139.94) and (289.53,145.7) .. (289.53,152.81) .. controls (289.53,159.92) and (284.1,165.69) .. (277.4,165.69) .. controls (270.71,165.69) and (265.28,159.92) .. (265.28,152.81) -- cycle ;
+
+
+%Shape: Ellipse [id:dp9662165256424733] 
+\draw   (335,152.88) .. controls (335,145.76) and (340.43,140) .. (347.13,140) .. controls (353.82,140) and (359.25,145.76) .. (359.25,152.88) .. controls (359.25,159.99) and (353.82,165.75) .. (347.13,165.75) .. controls (340.43,165.75) and (335,159.99) .. (335,152.88) -- cycle ;
+%Shape: Ellipse [id:dp0998222305838985] 
+\draw   (400.75,152.88) .. controls (400.75,145.76) and (406.18,140) .. (412.88,140) .. controls (419.57,140) and (425,145.76) .. (425,152.88) .. controls (425,159.99) and (419.57,165.75) .. (412.88,165.75) .. controls (406.18,165.75) and (400.75,159.99) .. (400.75,152.88) -- cycle ;
+%Shape: Ellipse [id:dp994427506944682] 
+\draw   (181.38,207.13) .. controls (181.38,200.01) and (186.8,194.25) .. (193.5,194.25) .. controls (200.2,194.25) and (205.63,200.01) .. (205.63,207.13) .. controls (205.63,214.24) and (200.2,220) .. (193.5,220) .. controls (186.8,220) and (181.38,214.24) .. (181.38,207.13) -- cycle ;
+
+%Shape: Ellipse [id:dp4625155723271066] 
+\draw   (214.94,207.13) .. controls (214.94,200.01) and (220.36,194.25) .. (227.06,194.25) .. controls (233.76,194.25) and (239.19,200.01) .. (239.19,207.13) .. controls (239.19,214.24) and (233.76,220) .. (227.06,220) .. controls (220.36,220) and (214.94,214.24) .. (214.94,207.13) -- cycle ;
+
+
+%Shape: Ellipse [id:dp9934619630000707] 
+\draw   (248.5,207.13) .. controls (248.5,200.01) and (253.92,194.25) .. (260.62,194.25) .. controls (267.32,194.25) and (272.75,200.01) .. (272.75,207.13) .. controls (272.75,214.24) and (267.32,220) .. (260.62,220) .. controls (253.92,220) and (248.5,214.24) .. (248.5,207.13) -- cycle ;
+%Shape: Ellipse [id:dp24628406315543883] 
+\draw   (282.06,207.13) .. controls (282.06,200.01) and (287.49,194.25) .. (294.19,194.25) .. controls (300.88,194.25) and (306.31,200.01) .. (306.31,207.13) .. controls (306.31,214.24) and (300.88,220) .. (294.19,220) .. controls (287.49,220) and (282.06,214.24) .. (282.06,207.13) -- cycle ;
+%Straight Lines [id:da8102467632383925] 
+\draw    (278.13,165.69) -- (294.19,194.25) ;
+%Straight Lines [id:da8149785410743664] 
+\draw    (211,165.69) -- (227.06,194.25) ;
+%Straight Lines [id:da917783493754426] 
+\draw    (278.13,165.69) -- (260.62,194.25) ;
+%Straight Lines [id:da9063123251939682] 
+\draw    (210.28,165.69) -- (192.78,194.25) ;
+%Straight Lines [id:da945253246951004] 
+\draw    (243.84,109.94) -- (210.28,139.94) ;
+%Straight Lines [id:da5250821856676404] 
+\draw    (243.84,109.94) -- (277.4,139.94) ;
+%Straight Lines [id:da7344096654954528] 
+\draw    (379.98,110.69) -- (346.42,140.69) ;
+%Straight Lines [id:da3071529216977307] 
+\draw    (379.98,110.69) -- (412.88,139.94) ;
+%Straight Lines [id:da6476589848449845] 
+\draw    (311.02,55.69) -- (245.13,83.19) ;
+%Straight Lines [id:da37331982934300845] 
+\draw    (311.02,55.69) -- (379.98,84.94) ;
+
+% Text Node
+\draw (221.56,198.63) node [anchor=north west][inner sep=0.75pt]   [align=left] {7};
+% Text Node
+\draw (188,198.63) node [anchor=north west][inner sep=0.75pt]   [align=left] {6};
+% Text Node
+\draw (271.9,144.31) node [anchor=north west][inner sep=0.75pt]   [align=left] {5};
+% Text Node
+\draw (204.78,144.31) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+% Text Node
+\draw (374.48,89.31) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+% Text Node
+\draw (238.34,88.56) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+% Text Node
+\draw (305.91,33.56) node [anchor=north west][inner sep=0.75pt]   [align=left] {S};
+% Text Node
+\draw (255.12,198.63) node [anchor=north west][inner sep=0.75pt]   [align=left] {8};
+% Text Node
+\draw (288.69,198.63) node [anchor=north west][inner sep=0.75pt]   [align=left] {9};
+% Text Node
+\draw (337.63,144.38) node [anchor=north west][inner sep=0.75pt]   [align=left] {10};
+% Text Node
+\draw (403.88,144.38) node [anchor=north west][inner sep=0.75pt]   [align=left] {11};
+
+
+\end{tikzpicture}}
 	\end{figure}
  
 	
@@ -1786,12 +2178,6 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 
   ``Consiste en una serie de exploraciones en profundidad donde
   \(d_{max}\) se incrementa en k en cada iteración''
-  \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Profundidad Iterativa}}
-	{\includegraphics[scale=.3]{Untitled 49.png}}
-\end{figure}
-
 
     En cada iteración anterior a la solución ha expandido todos los
     nodos.
@@ -1815,7 +2201,7 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
     \begin{itemize}
   
     \item
-      \(b^d >> \sum _{i=0}^{d-1} b^i\) (\textgreater\textgreater{} Mucho
+      \(b^d >> \sum\limits_{i=0}^{d-1} b^i\) (\textgreater\textgreater{} Mucho
       más grande)
     \end{itemize}
 
@@ -1833,7 +2219,7 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 
     \begin{itemize}
     \item
-      \(g(\pi)= \sum_{i=0}^{k-1} c(n_i,n_{i+1})\) donde
+      \(g(\pi)= \sum\limits_{i=0}^{k-1} c(n_i,n_{i+1})\) donde
       \(c(n_i,n_{i+1})\) es el coste del arco \(<n_i,n_{i+1}>\) (modelo
       aditivo nosotros lo consideramos siempre, pero en la realidad no
       tiene por qué). Con frecuencia \(g(\pi)\) se representa como
@@ -1841,7 +2227,86 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 	  \begin{figure}[H]
 		\ffigbox[\FBwidth]
 		{\caption{Ramificación y Acotación}}
-		{\includegraphics[scale=.3]{Untitled 51.png}}
+		{
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Ellipse [id:dp4003665532106575] 
+\draw   (305.66,61.38) .. controls (305.66,54.26) and (311.09,48.5) .. (317.78,48.5) .. controls (324.48,48.5) and (329.91,54.26) .. (329.91,61.38) .. controls (329.91,68.49) and (324.48,74.25) .. (317.78,74.25) .. controls (311.09,74.25) and (305.66,68.49) .. (305.66,61.38) -- cycle ;
+
+%Shape: Ellipse [id:dp07934250802611231] 
+\draw   (237.59,116.38) .. controls (237.59,109.26) and (243.02,103.5) .. (249.72,103.5) .. controls (256.41,103.5) and (261.84,109.26) .. (261.84,116.38) .. controls (261.84,123.49) and (256.41,129.25) .. (249.72,129.25) .. controls (243.02,129.25) and (237.59,123.49) .. (237.59,116.38) -- cycle ;
+%Shape: Ellipse [id:dp9367384394905647] 
+\draw   (373.73,117.13) .. controls (373.73,110.01) and (379.16,104.25) .. (385.85,104.25) .. controls (392.55,104.25) and (397.98,110.01) .. (397.98,117.13) .. controls (397.98,124.24) and (392.55,130) .. (385.85,130) .. controls (379.16,130) and (373.73,124.24) .. (373.73,117.13) -- cycle ;
+%Shape: Ellipse [id:dp7560627925325043] 
+\draw   (203.77,172.13) .. controls (203.77,165.01) and (209.19,159.25) .. (215.89,159.25) .. controls (222.59,159.25) and (228.02,165.01) .. (228.02,172.13) .. controls (228.02,179.24) and (222.59,185) .. (215.89,185) .. controls (209.19,185) and (203.77,179.24) .. (203.77,172.13) -- cycle ;
+
+%Shape: Ellipse [id:dp9931576053307947] 
+\draw   (271.15,172.13) .. controls (271.15,165.01) and (276.58,159.25) .. (283.28,159.25) .. controls (289.98,159.25) and (295.4,165.01) .. (295.4,172.13) .. controls (295.4,179.24) and (289.98,185) .. (283.28,185) .. controls (276.58,185) and (271.15,179.24) .. (271.15,172.13) -- cycle ;
+
+%Shape: Ellipse [id:dp300916356649114] 
+\draw   (341,172.38) .. controls (341,165.26) and (346.43,159.5) .. (353.13,159.5) .. controls (359.82,159.5) and (365.25,165.26) .. (365.25,172.38) .. controls (365.25,179.49) and (359.82,185.25) .. (353.13,185.25) .. controls (346.43,185.25) and (341,179.49) .. (341,172.38) -- cycle ;
+
+%Shape: Ellipse [id:dp43938209107999815] 
+\draw   (407,172.13) .. controls (407,165.01) and (412.43,159.25) .. (419.13,159.25) .. controls (425.82,159.25) and (431.25,165.01) .. (431.25,172.13) .. controls (431.25,179.24) and (425.82,185) .. (419.13,185) .. controls (412.43,185) and (407,179.24) .. (407,172.13) -- cycle ;
+
+%Shape: Ellipse [id:dp4020358419650045] 
+\draw   (254.19,226.44) .. controls (254.19,219.33) and (259.61,213.56) .. (266.31,213.56) .. controls (273.01,213.56) and (278.44,219.33) .. (278.44,226.44) .. controls (278.44,233.55) and (273.01,239.31) .. (266.31,239.31) .. controls (259.61,239.31) and (254.19,233.55) .. (254.19,226.44) -- cycle ;
+%Shape: Ellipse [id:dp9981864633543025] 
+\draw   (288.09,226.44) .. controls (288.09,219.33) and (293.52,213.56) .. (300.22,213.56) .. controls (306.92,213.56) and (312.34,219.33) .. (312.34,226.44) .. controls (312.34,233.55) and (306.92,239.31) .. (300.22,239.31) .. controls (293.52,239.31) and (288.09,233.55) .. (288.09,226.44) -- cycle ;
+%Straight Lines [id:da3059365570001984] 
+\draw    (284,185) -- (300.06,213.56) ;
+%Straight Lines [id:da5952206635127173] 
+\draw    (284,185) -- (266.5,213.56) ;
+%Straight Lines [id:da11491176850041174] 
+\draw    (249.72,129.25) -- (216.16,159.25) ;
+%Straight Lines [id:da42874946559440397] 
+\draw    (249.72,129.25) -- (283.28,159.25) ;
+%Straight Lines [id:da9331241391070975] 
+\draw    (385.85,130) -- (352.29,160) ;
+%Straight Lines [id:da6443612761052202] 
+\draw    (385.85,130) -- (418.75,159.25) ;
+%Straight Lines [id:da6568518738253144] 
+\draw    (316.9,75) -- (251,102.5) ;
+%Straight Lines [id:da3865035093082203] 
+\draw    (316.9,75) -- (385.85,104.25) ;
+
+% Text Node
+\draw (413.63,163.63) node [anchor=north west][inner sep=0.75pt]   [align=left] {8};
+% Text Node
+\draw (347.63,163.88) node [anchor=north west][inner sep=0.75pt]   [align=left] {7};
+% Text Node
+\draw (277.78,163.63) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+% Text Node
+\draw (210.39,163.63) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+% Text Node
+\draw (311.78,52.88) node [anchor=north west][inner sep=0.75pt]   [align=left] {S};
+% Text Node
+\draw (380.35,108.63) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+% Text Node
+\draw (244.22,107.88) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+% Text Node
+\draw (260.81,217.94) node [anchor=north west][inner sep=0.75pt]   [align=left] {5};
+% Text Node
+\draw (294.72,217.94) node [anchor=north west][inner sep=0.75pt]   [align=left] {6};
+% Text Node
+\draw (358.5,57.4) node [anchor=north west][inner sep=0.75pt]    {$B\leftarrow +\infty \ /19\ /\ 16$};
+% Text Node
+\draw (206.39,189.4) node [anchor=north west][inner sep=0.75pt]    {$19$};
+% Text Node
+\draw (256.81,244.4) node [anchor=north west][inner sep=0.75pt]    {$21$};
+% Text Node
+\draw (290.72,244.4) node [anchor=north west][inner sep=0.75pt]    {$19$};
+% Text Node
+\draw (343.63,195.15) node [anchor=north west][inner sep=0.75pt]    {$20$};
+% Text Node
+\draw (409.63,191.4) node [anchor=north west][inner sep=0.75pt]    {$16$};
+
+
+\end{tikzpicture}}
 	\end{figure}
     \end{itemize}
 
@@ -1924,18 +2389,7 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
       actual, el final y un punto a la misma de ambos.
     \end{itemize}
 \pagebreak
-	Ejemplos:
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Relajación de restricciones I}}
-		{\includegraphics[scale=.22]{Untitled 52.png}}
-	\end{figure}
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Relajación de restricciones II}}
-		{\includegraphics[scale=.22]{Untitled 53.png}}
-	\end{figure}
-\pagebreak
+
 \section{Algoritmos de Búsqueda Heurística}
 
   Se aplica tanto a costes unitarios como a costes arbitrarios, pero
@@ -1966,11 +2420,6 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 
   ``Se expanden simultáneamente los k sucesores más prometedores
   heurísticamente''
-  \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ream search}}
-	{\includegraphics[scale=.22]{Untitled 54.png}}
-\end{figure}
  
     k: ventana o amplitud del haz
 
@@ -1993,7 +2442,7 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
 	Tiempo: Exponencial.
 
 	Memoria: O(k) lineal, solo almacena los k más prometedores.
-
+\pagebreak
 	
 \subsection{Algoritmo de ``El mejor primero'' (Raphael, Hart, Nilsson, 1968)}
   
@@ -2016,11 +2465,6 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
     \end{enumerate}
   \item
     Miembros:
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Costes Best first}}
-		{\includegraphics[scale=.45]{Untitled 55.png}}
-	\end{figure}
     \begin{itemize}
   
     \item
@@ -2038,22 +2482,14 @@ Una variable \(x_i\) es arco-consistente con otra variable \(x_j\) si
     Memoria: Exponencial.
 
     Especialmente útil por la detección de nodos duplicados.
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Costes Best first}}
-		{\includegraphics[scale=.32]{Untitled 56.png}}
-	\end{figure}
+
   \end{enumerate}
-\pagebreak
+
 \subsection{Iterative-deepening A* - IDA* (Korf, 1985)}
 
   ``Consiste en una serie de recorridos del \textbf{primero en
   profundidad hasta que \(f(n) > \eta\) o hemos encontrado la solución},
   incrementando f(n) en cada iteración al menor exceso cometido''
-  \begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Iterative-deepening A*}}
-	{\includegraphics[scale=.38]{Untitled 57.png}}
-\end{figure}
+
 
 \end{document}
