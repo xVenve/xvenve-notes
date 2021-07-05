@@ -462,24 +462,12 @@ velocidad, flujo, fugas, movimiento, electricidad, \ldots{}
 	\item \textbf{Analógico}: Produce voltaje analógico constante de lo medido.
 	      El gráfico de voltaje sobre el tiempo debe ser continuo y suave.
 
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Diagrama de voltaje Sensor Analógico}}
-		      {\includegraphics[scale=.5]{image-20210307210139988.png}}
-	      \end{figure}
-	      \vspace{-0.5cm}
 	      Sensor de presión, sensor de luz, sensor de temperatura,
 	      acelerómetro, sensor de sonido.
 	\item \textbf{Digital}: Produce un voltaje discreto, por lo general tendrá
 	      uno u otro de dos valores, 0 V (apagado) a 5 V (encendido). Gracias a la
 	      miniaturización hay más dado que se puede introducir un conversor.
 
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Diagrama de voltaje Sensor Digital}}
-		      {\includegraphics[scale=.5]{image-20210307210421078.png}}
-	      \end{figure}
-	      \vspace{-0.5cm}
 	      Sensor de ultrasonidos, sensor de infrarrojos, acelerómetro, sensor
 	      de sonido (suele ser analógico), sensor de temperatura.
 \end{itemize}
@@ -502,6 +490,7 @@ Según si necesitan energía:
 		            (LDR)
 	      \end{itemize}
 \end{itemize}
+\pagebreak
 
 \textbf{Sensor piezoeléctrico:}
 
@@ -535,7 +524,7 @@ Interferencia electromagnética, Tamaño, Rudeza y Consumo de energía.
 \textbf{Factores característicos del sensor}: Sensibilidad, Rango,
 Estabilidad, Repetibilidad, Rango de error, Tiempo de respuesta y
 Linealidad.
-
+\pagebreak
 \section{Preguntas Test 1}
 \begin{enumerate}
 	\item La tercera generación de IoT se caracteriza por:
@@ -697,12 +686,6 @@ aplicación según las necesidades del usuario.
 
 \section{Estructura de un sistema embebido}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Estructura genérica de un Sistema Embebido}}
-	{\includegraphics[scale=.35]{2021-03-19 16_58_28-DSO Elementos Sistema embebido.mkv.png}}
-\end{figure}
-
 \begin{description}
 	\item[Microcontrolador] Es el componente que ejecuta un programa en un sistema integrado, y se encuentra en la zona central, se encarga de realizar el procesamiento.
 
@@ -729,13 +712,6 @@ aplicación según las necesidades del usuario.
 \section{Ejemplos de Sistemas embebidos que usamos}
 \subsection{Arduino}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Estructura Arduino}}
-	{\includegraphics[scale=.5]{2021-03-19 17_31_12-DSO Elementos Sistema embebido.mkv.png}}
-\end{figure}
-
-
 Es una plataforma de código abierto sed para construir proyecto de electrónica.	Consta de una placa de circuito programable física (microcontrolador) y una pieza de software, o IDE (entorno de desarrollo) que se ejecuta en una computadora portátil o computadora personal utilizada para escribir y cargar código de computadora en la física. Tiene pines analógicos y digitales.
 
 No necesita una pieza software separada para cargar un nuevo código en la placa.
@@ -747,12 +723,6 @@ Utiliza una versión simplificada de C++, lo que lo hace más fácil de aprender
 \textbf{Razones para no utilizarlos:} Poca memoria para datos y RAM, procesamiento, arquitectura basada en 8 bits, caro cuando se necesita a gran escala, mala calidad/precio, las empresas no les gusta que sea open source, no está aliado con proveedores y no da garantías.
 
 \subsection{Raspberry Pi}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Estructura Raspberry Pi}}
-	{\includegraphics[scale=.4]{2021-03-19 17_48_46-DSO Elementos Sistema embebido.mkv.png}}
-\end{figure}
 
 Es una computadora de bajo costo del tamaño de una tarjeta de crédito que se conecta a un monitor de computadora o televisor y utiliza un teclado y un mouse estándar.
 
@@ -793,7 +763,8 @@ La Raspberry PI tiene una conexión GPIO de 40 pines, lo que facilita la conexi�
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Raspberry Pi vs. Arduino}}
-	{\includegraphics[scale=.62]{2021-03-24 19_03_44-Tema 03 - Gateways IoT - Sistemas Embebidos.png}}
+	{\def\svgwidth{.8\textwidth}
+     \input{./img/raspyvsardu.eps_tex}}
 \end{figure}
 \pagebreak
 \subsection{¿Es Raspberry Pi un dispositivo de IoT?}
@@ -821,14 +792,9 @@ En nuestro caso tiene como función proporcionar una interfaz común (no tiene p
 
 El núcleo del sistema operativo es el kernel, pero depende el SO embebido tendremos distintos tipos, algunos más robustos que tienen incluso interfaz gráfica o más ligeros que tienen la gestión de procesos y memoria.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Capas Sistema Operativo}}
-	{\includegraphics[scale=.6]{2021-03-25 09_19_18-2021-03-24 16-59-20.mkv.png}}
-\end{figure}
-
 \subsection{Principales Sistemas Operativos embebidos actuales}
 Zephyr, Micrium, RTOS (Real Time Operative Systems), R IOT, VxWorks, ThreadX, MircroEJ, TinyOS, APACHE, ARMmbed, Contiki, Nucleus, Windows IoT, snappy, android things, Mongoose o mynewt.
+\pagebreak
 
 \subsection{Requisitos de un Sistema Operativo Embebido}
 \textbf{Restricciones de Hardware Heterogéneos}
@@ -856,7 +822,56 @@ Zephyr, Micrium, RTOS (Real Time Operative Systems), R IOT, VxWorks, ThreadX, Mi
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Modelo General SO embebido}}
-	{\includegraphics[scale=.5]{2021-03-25 10_06_39-2021-03-24 16-59-20.mkv.png}}
+	{
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Rounded Rect [id:dp7905458643152794] 
+\draw   (203.5,105.71) .. controls (203.5,102.56) and (206.06,100) .. (209.21,100) -- (353.79,100) .. controls (356.94,100) and (359.5,102.56) .. (359.5,105.71) -- (359.5,122.86) .. controls (359.5,126.01) and (356.94,128.57) .. (353.79,128.57) -- (209.21,128.57) .. controls (206.06,128.57) and (203.5,126.01) .. (203.5,122.86) -- cycle ;
+
+%Rounded Rect [id:dp32346366711827446] 
+\draw   (203.5,135.71) .. controls (203.5,132.56) and (206.06,130) .. (209.21,130) -- (353.79,130) .. controls (356.94,130) and (359.5,132.56) .. (359.5,135.71) -- (359.5,152.86) .. controls (359.5,156.01) and (356.94,158.57) .. (353.79,158.57) -- (209.21,158.57) .. controls (206.06,158.57) and (203.5,156.01) .. (203.5,152.86) -- cycle ;
+
+%Rounded Rect [id:dp016923522331532048] 
+\draw   (189.74,166.38) .. controls (189.74,163.12) and (192.38,160.48) .. (195.64,160.48) -- (367.36,160.48) .. controls (370.62,160.48) and (373.26,163.12) .. (373.26,166.38) -- (373.26,184.1) .. controls (373.26,187.36) and (370.62,190) .. (367.36,190) -- (195.64,190) .. controls (192.38,190) and (189.74,187.36) .. (189.74,184.1) -- cycle ;
+
+
+%Shape: Rectangle [id:dp5794607685065638] 
+\draw   (161.5,70) -- (401.5,70) -- (401.5,200) -- (161.5,200) -- cycle ;
+
+
+%Rounded Rect [id:dp5082065582146538] 
+\draw   (161.5,54) .. controls (161.5,51.79) and (163.29,50) .. (165.5,50) -- (397.5,50) .. controls (399.71,50) and (401.5,51.79) .. (401.5,54) -- (401.5,66) .. controls (401.5,68.21) and (399.71,70) .. (397.5,70) -- (165.5,70) .. controls (163.29,70) and (161.5,68.21) .. (161.5,66) -- cycle ;
+
+%Rounded Rect [id:dp6618739418282149] 
+\draw   (161.5,204) .. controls (161.5,201.79) and (163.29,200) .. (165.5,200) -- (397.5,200) .. controls (399.71,200) and (401.5,201.79) .. (401.5,204) -- (401.5,216) .. controls (401.5,218.21) and (399.71,220) .. (397.5,220) -- (165.5,220) .. controls (163.29,220) and (161.5,218.21) .. (161.5,216) -- cycle ;
+
+
+%Rounded Rect [id:dp937496481180339] 
+\draw   (140,62.75) .. controls (140,39.14) and (159.14,20) .. (182.75,20) -- (380.25,20) .. controls (403.86,20) and (423,39.14) .. (423,62.75) -- (423,191) .. controls (423,214.61) and (403.86,233.75) .. (380.25,233.75) -- (182.75,233.75) .. controls (159.14,233.75) and (140,214.61) .. (140,191) -- cycle ;
+
+
+
+% Text Node
+\draw (242,52) node [anchor=north west][inner sep=0.75pt]   [align=left] {Middleware};
+% Text Node
+\draw (231.5,201) node [anchor=north west][inner sep=0.75pt]   [align=left] {Device Drivers};
+% Text Node
+\draw (231.5,22) node [anchor=north west][inner sep=0.75pt]   [align=left] {Embedded OS};
+% Text Node
+\draw (207.5,136.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {Process Management};
+% Text Node
+\draw (259,72) node [anchor=north west][inner sep=0.75pt]   [align=left] {Kernel};
+% Text Node
+\draw (197.5,166) node [anchor=north west][inner sep=0.75pt]   [align=left] {I/O System Management};
+% Text Node
+\draw (207.5,106.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {Memory Management};
+
+
+\end{tikzpicture}}
 \end{figure}
 
 Es un conjunto de librerías que proporcionan 3 grandes áreas de procesamiento: Gestión de tareas, de memoria y de Entrada/Salida. Dependiendo del SO puede incluir los drivers de los distintos dispositivos hardware que conectamos, o servicios de programación más refinados para tareas más complejas en el Middleware.
@@ -971,19 +986,13 @@ Todos los controladores de dispositivos generalmente se componen de todas o una 
 		      \item[Shared memory object] Implementar variables, objetos o espacios de memoria compartidos en distintos procesos para favorecer su sincronización.
 	      \end{description}
 
-	      \paragraph{Modo de usuario vs. Modo kernel}
-	      La forma en que los sistemas operativos administran el espacio de memoria lógica difiere de un sistema operativo a otro, pero los núcleos generalmente ejecutan el código del núcleo en un espacio de memoria separado de los procesos que ejecutan código de nivel superior (es decir, middleware y código de capa de aplicación).
+	\paragraph{Modo de usuario vs. Modo kernel}
+	La forma en que los sistemas operativos administran el espacio de memoria lógica difiere de un sistema operativo a otro, pero los núcleos generalmente ejecutan el código del núcleo en un espacio de memoria separado de los procesos que ejecutan código de nivel superior (es decir, middleware y código de capa de aplicación).
 
 
 	\item[I/O System Management] Se encarga de cómo vamos a almacenar o permitir que los procesos entre sí accedan al espacio de almacenamiento secundario. Lo que queremos es una interfaz estándar para que puedan acceder a todos los espacios de almacenamiento independientemente del hardware y driver que tenga implementado.
 
-	      Los dispositivos de E/S también deben compartirse entre los diversos procesos y, por tanto, al igual que con la memoria, el acceso y la asignación de un dispositivo de E/S deben administrarse.
-
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Gestión de archivos en Sistemas Embebidos}}
-		      {\includegraphics[scale=.5]{2021-03-25 11_52_40-2021-03-24 16-59-20.mkv.png}}
-	      \end{figure}
+	Los dispositivos de E/S también deben compartirse entre los diversos procesos y, por tanto, al igual que con la memoria, el acceso y la asignación de un dispositivo de E/S deben administrarse.
 
 \end{description}
 
@@ -999,6 +1008,7 @@ Cualquier software del sistema que no es kernel del sistema operativo, controlad
 	\item \textbf{Portabilidad - Portability:} Permite que las aplicaciones integradas y/o middleware superpuestas se ejecuten en diferentes sistemas integrados con diferentes capas de software y/o hardware.
 	\item \textbf{Seguridad - Security:} Garantiza que el middleware superpuesto y/o las aplicaciones integradas tengan acceso autorizado a los recursos del sistema.
 \end{itemize}
+\pagebreak
 
 \textbf{Tipos de Middleware}
 \begin{itemize}
@@ -1071,12 +1081,6 @@ Los protocolos estándar son las herramientas que unen y encapsulan datos sin pr
 
 Los protocolos dominantes son MQTT y CoAP.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Protocolos de comunicación}}
-	{\includegraphics[scale=.5]{2021-04-08 09_06_45-2021-04-07 17-01-12.mkv.png}}
-\end{figure}
-
 El problema de usar TCP y HTTP (basado en TCP) es que son muy ricos en información que es una ventaja, pero en el caso de los dispositivos IoT se dispone de recursos limitados, por lo que se preferirá aquellos más ligeros.
 
 \section{Middleware Orientado a Mensajes}
@@ -1090,19 +1094,17 @@ El servicio de mensajería consta de 3 partes; Publisher (publicador, emisor), B
 	\item El suscriptor se conecta y pide recibir los mensajes de un canal (topic), y el broker se los irá enviando.
 \end{itemize}
 
-
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Comunicación orientada a mensajes}}
 	{\includegraphics[scale=.5]{2021-04-08 09_17_44-2021-04-07 17-01-12.mkv.png}
-		\includegraphics[scale=.22]{2021-04-08 09_20_09-2021-04-07 17-01-12.mkv.png}}
+	\def\svgwidth{.6\textwidth}
+     \input{./img/comuMensa.eps_tex}}
 \end{figure}
 
 El broker hace como intermediario de los publicadores y suscriptores, de esta manera se reduce el acoplamiento y es más fácil escalar el sistema.
 
 A diferencia de HTTP, no es necesario que el publicador sepa a quién enviárselo, de esta manera se reduce también el consumo de recursos. Al igual los suscriptores no tienen que consultar a un montón de publicadores, solo al broker.
-
-\newpage
 
 \section{Servicio RESTful}
 
@@ -1115,7 +1117,7 @@ Envía con post y recibe con get, resolviendo el URL.
 
 Utiliza directamente el protocolo HTTP, todos están sobre este, mediante una URL podemos identificar el path.
 Al emplear HTTP son protocolos muy exigentes en el ámbito de comunicaciones, requiere mayor cabecera y número de intercambios de mensajes.
-
+\vspace{-1.5cm}
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Servicio RESTful}}
@@ -1159,12 +1161,6 @@ Se debe tener en cuenta cuál es el tamaño máximo de los mensajes según el pr
 	\item \textbf{Cabecera adicional (opcional)}: de longitud variable, de uso marginal.
 	\item \textbf{Payload (datos):} Puede tener un tamaño variable, que por protocolo son 256 MB máximo, pero dependiendo del proveedor puede ser menor.
 \end{itemize}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Estructura de un paquete MQTT}}
-	{\includegraphics[scale=.5]{f4bd0f8a-2e92-4cdd-abfc-c7b067788d4a.png}}
-\end{figure}
 
 \subsection{Tipos de mensajes}
 \subsubsection{CONNECT (cliente a servidor)}
@@ -1233,11 +1229,6 @@ Son los aseguramientos de entrega de los mensajes enviados por un publicador. No
 		      \item El broker envía un mensaje al suscriptor con la información por el publicador.
 	      \end{enumerate}
 
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{QoS 0}}
-		      {\includegraphics[scale=.5]{0_1NSybQWdhHvVhnTb.png}}
-	      \end{figure}
 	\item[1 - Transmisión asegurada] Asegura la entrega al menos una vez, puede recibirse el mismo mensaje varias veces. Produce más tráfico, el receptor envía un acuse de recibo con una respuesta PUBACK. Debería ser el uso predeterminado, más rápido que el 2 y reduce el costo de transmisión.
 
 	      El publicador almacena el mensaje hasta que recibe la confirmación del broker de que se ha enviado al suscriptor. Se desentiende cuando sabe que se ha enviado.
@@ -1260,11 +1251,6 @@ Son los aseguramientos de entrega de los mensajes enviados por un publicador. No
 		      \item El broker elimina el último mensaje enviado por el publicador A.
 	      \end{enumerate}
 
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{QoS 1}}
-		      {\includegraphics[scale=.35]{0_b4pvXUWp6MVnAAFy.png}}
-	      \end{figure}
 	\item[2 - Servicio asegurado en aplicaciones] Asegura la entrega, pero solo se recibirá el mensaje una única vez por suscriptor. Informa tanto al remitente como al receptor que se ha transmitido correctamente, se confirman todos los mensajes incluidas las confirmaciones de entregas.
 
 	      Se usa para aplicaciones de misión crítica, sobre todo en aquellas circunstancias en las que recibir un mensaje duplicado podría provocar fallos.
@@ -1288,12 +1274,6 @@ Son los aseguramientos de entrega de los mensajes enviados por un publicador. No
 		      \item El publicador A elimina el mensaje enviado.
 	      \end{enumerate}
 
-	      Error en la imagen: el broker guardaría el mensaje después de recibirlo.
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{QoS 2}}
-		      {\includegraphics[scale=.2]{0_G6zwc_VftJ4AcueS.png}}
-	      \end{figure}
 \end{description}
 \pagebreak
 \section{MQTT-SN - Message Queuing Telemetry Transport for Sensor Networks}
@@ -1301,11 +1281,7 @@ Se utiliza en los casos en los que se quiere conectar sensores que se encuentran
 
 
 \subsection{Elementos de estas redes:}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Estructura MQTT-SN}}
-	{\includegraphics[scale=.35]{15a80880-30ad-472a-bf98-254556798207.png}}
-\end{figure}
+
 \begin{itemize}
 	\item \textbf{Endpoints:} Los distintos sensores o dispositivos.
 	\item \textbf{Gateways - Puertas de enlace:} Son los responsables de convertir MQTT-SN a MQTT para enviarlo al router. Se pueden tener retransmisores y repetidores, que permiten que llegue más lejos la señal cuando se encuentran en lugares remotos.
@@ -1331,12 +1307,7 @@ Los gateways/routers envían periódicamente mensajes broadcast (ADVERTISE) info
 Es un estándar del IETF, está pensado para facilitar la conexión entre dos máquinas punto a punto.
 
 El broker no existe como tal, sino que para conectarte a un servidor necesita conocer su dirección física. Una vez establecida la conexión es hasta 64 veces mejor que su equivalente con HTTP y software similar.
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Estructura CoAP}}
-	{\includegraphics[scale=.35]{79e6a27f-bae5-4c7b-963a-dcd46c9e26f1.png}}
-\end{figure}
-\pagebreak
+
 \subsection{Requisitos a satisfacer}
 \begin{itemize}
 	\item Debe tener una complejidad adecuada que se tienen en una red IoT, con baja capacidad de procesamiento y una RAM muy limitada. Memoria hasta 256 K y RAM de 12 K. Reduciendo la sobrecarga de los mensajes de HTTP, pero con un método de direccionamiento exactamente igual al de HTTP.
@@ -1378,23 +1349,12 @@ Se utiliza el protocolo coap (coap://) en vez de http, con un nombre de URL que 
 	\item \textbf{Proxies:} Nos permite conectar los endpoints a la red, funcionan como intermediarios de los mensajes, reciben CoAP y puede salir otro formato para los servidores.
 	\item \textbf{Servidor CoAP:} Es al que nos conectamos cuando queremos obtener la información de los sensores.
 	\item \textbf{Observador:} Elemento que se puede utilizar como si fuera un broker de MQTT.
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{CoAP Observer}}
-		      {\includegraphics[scale=.48]{2a2f42a1-0813-4e84-a244-72e6f2667ba8.png}}
-	      \end{figure}
-
 
 \end{itemize}
 
 \textbf{DTLS} es el protocolo de comunicación seguro que se monta sobre CoAP, da una capa de seguridad a UDP sobre los mensajes en transmisiones punto a punto.
 
 \subsection{Tipos de mensajes}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{CoAP Messages}}
-	{\includegraphics[scale=.48]{d5c42d4c-400c-4d55-9eea-96fc5bedf353.png}}
-\end{figure}
 
 Todos los mensajes tienen un MID (message ID) y un Token, es un código que nos da en algún momento el servidor (representa nuestros datos propios) y se utiliza para indicar quienes somos, así nos puede reconocer.
 
@@ -1500,11 +1460,6 @@ Esto hace que sea muy difícil de mantener y evolucionar, todo está muy acoplad
 Se establecen unas capas según las funcionalidades e intereses.
 
 \subsubsection{Modelo Vista Controlador}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Arquitectura Modelo Vista Controlador}}
-	{\includegraphics[scale=.8]{9781484212769_Fig03-01.jpg}}
-\end{figure}
 \begin{itemize}
 	\item \textbf{Presentación}, la de interfaz de usuario, lo que se muestra al usuario e interactúa.
 	\item \textbf{Aplicación}, tiene toda la lógica de negocio.
@@ -1513,16 +1468,10 @@ Se establecen unas capas según las funcionalidades e intereses.
 
 	\item \textbf{Persistencia}, donde se produce el almacenamiento y consulta de datos.
 \end{itemize}
-\pagebreak
+
 \subsubsection{Aplicaciones normales}
 
 Se tiene una evolución muy superior que MVC, consisten en proporcionar diferentes interfaces de usuario mediante contratos o servicios web.
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Arquitectura en capas}}
-	{\includegraphics[scale=.8]{9781484212769_Fig03-02.jpg}}
-\end{figure}
 
 \begin{itemize}
 	\item \textbf{Clientes móvil/web}: Se pueden conectar vía móvil, tablet, web, etc.
@@ -1538,16 +1487,9 @@ Se tiene una evolución muy superior que MVC, consisten en proporcionar diferent
 	\item \textbf{Capa de almacenamiento}: Se tienen las distintas operaciones de gestión de los datos, desde la gestión física de datos, hasta el modelo de datos y el cacheo.
 \end{itemize}
 
-\pagebreak
 \subsection{Arquitectura de Microservicios}
 En las arquitecturas de microservicios las 3 capas (Presentación, Aplicación y Persistencia) están separadas en diferentes nodos que pueden trabajar de manera independiente y luego hay servicios que coreografían las peticiones para realizar las operaciones de manera atómica.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Arquitectura de Microservicios}}
-	{\includegraphics[scale=.8]{9781484212769_Fig03-03.jpg}}
-\end{figure}
-\vspace{-0.5cm}
 La capa de aplicación está formada por microservicios que se coordinan con una API que hace de coreografiador según las peticiones que recibe de la WebApp.
 
 Cuando se recibe una petición de la WebApp se pasa a la API (coreografiador) que se encarga de pasarla al microservicio correcto para realizar lo solicitado, cada microservicio posee sus propios datos con su propio gestor de bases de datos.
@@ -1565,12 +1507,6 @@ Incluso un mismo microservicio según la configuración que le demos puede utili
 \end{itemize}
 
 \section{Elementos de los Microservicios}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Elementos de un Microservicio}}
-	{\includegraphics[scale=.8]{9781484212769_Fig03-04.jpg}}
-\end{figure}
 
 \begin{itemize}
 	\item \textbf{Capa de modelos:} Tiene su propio modelo de datos que es la estructura que deben tener los datos que entran y salen de nuestros microservicios. En la práctica el modelo de datos es agnóstico, independiente.
@@ -1593,6 +1529,8 @@ Incluso un mismo microservicio según la configuración que le demos puede utili
 		      \item \textbf{PATCH - Modificar Parcialmente}
 		      \item \textbf{DELETE - Borrar}
 	      \end{itemize}
+		  \pagebreak
+
 	\item \textbf{Protocolo:} Puede ser de dos tipos ReST o SOAP.
 	      \begin{table}[H]
 		      \begin{tabular}{l|c|c|}
@@ -1624,11 +1562,6 @@ Incluso un mismo microservicio según la configuración que le demos puede utili
 \end{itemize}
 
 \section{Características Importantes de una Arquitectura de Microservicios}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Arquitectura de Microservicios II}}
-	{\includegraphics[scale=.3]{0_W5T2tfcKgudQZYnu.jpeg}}
-\end{figure}
 
 Toda aplicación se divide en procesos separados, donde cada proceso tiene distintos módulos internos, de manera que cada uno es un pequeño monolito que puede trabajar de  manera independiente.
 
@@ -1637,22 +1570,12 @@ Para desarrollar estas arquitecturas podemos utilizar distintos patrones de dise
 Algunos patrones de diseño para microservicios son:
 
 \subsection{Base de datos por microservicio}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Database per Microservice}}
-	{\includegraphics[scale=.3]{1_WWJQH50jxgrqh-ABFRQuzQ.jpeg}}
-\end{figure}
 
 Un único repositorio de datos para cada microservicio se trata de reducir el acoplamiento entre ellos, la dependencia.
 
 El problema es como permitir que los distintos microservicios intercambien información entre sí, se comunicarían de manera asíncrona, para solventar esto se usa lo siguiente.
 
 \subsection{Abastecimiento de eventos}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Event Sourcing}}
-	{\includegraphics[scale=.3]{1_tRDaroNg_GnGdCZDFxLFKQ.jpeg}}
-\end{figure}
 
 Para que intercambien información necesitamos implementar un coreografiador que sea capaz de almacenar los distintos eventos, y cuando hemos completado estos eventos le damos la información a los elementos de la interfaz de usuario para identificar que la operación se ha realizado correctamente.
 
@@ -1665,11 +1588,6 @@ En caso de que un evento provoque una situación de error, todos los anteriores 
 \end{itemize}
 
 \subsection{Backends para Frontends (BFF)}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Backends for Frontends}}
-	{\includegraphics[scale=.3]{1_FCZRcAuSLhrNOjcq1zYXDw.jpeg}}
-\end{figure}
 
 Como se tienen distintas interfaces que tienen distintos componentes de interfaz visual, se utiliza un orquestador distinto para los distintos tipos de interfaces de usuario (web/mobile), se gestionan los microservicios de manera distinta para que se adapten mejor a estas.
 
@@ -1760,6 +1678,7 @@ En los 2000 surgieron los contenedores como ese mecanismo para gestionar las inf
 	\item \textbf{Imagen:} Es el conjunto de fichero que define el contenido o lo que puede ejecutar un contenedor.
 	      Una imagen de contenedor es un paquete de software ligero e independiente, que incluyen lo necesario para correr la aplicación.
 \end{itemize}
+\pagebreak
 
 La diferencia con la alternativa de máquinas virtuales es que no tenemos un hipervisor, sino un sistema operativo base y un motor que es capaz de ejecutar distintos contenedores, donde cada contenedor tiene sus dependencias, sus sistemas de configuración y el código de la aplicación a desarrollar. Es mucho más liviano un contenedor que una máquina virtual, encapsula lo que se necesita para funcionar.
 
@@ -1776,27 +1695,18 @@ Docker fue el que introdujo el término de contenedor, pero hoy en día hay más
 \end{itemize}
 
 \subsection{Arquitectura de contenedores}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Arquitectura de contenedores}}
-	{\includegraphics[scale=.4]{default.jpg}}
-\end{figure}
+
 \begin{itemize}
 	\item \textbf{Sistema operativo de Linux}, lo que nos interesa son los espacios de nombres de Linux para ejecutar cada uno es un espacio y que sean independientes del resto de procesos.
 	\item \textbf{Runtime engine de Docker}, se compone del demonio de contenedores containerd y el ejecutador de contenedores runc, la combinación de ambos nos da todo el tiempo de vida de un contenedor. Se coge el contenedor de una imagen y lo pone a ejecutar.
 	\item \textbf{Docker engine}, proporciona la funcionalidad adicional para la gestión del contenedor en tiempo de ejecución.
 \end{itemize}
-
+\pagebreak
 
 \section{Creación de imágenes}
 \subsection{Imagen}
 En Linux todo es un archivo, de tal manera que las imágenes se gestionaran de esta manera. Es un gran fichero comprimido con su propio sistema de ficheros, que está construido en capas.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Estructura de una imagen}}
-	{\includegraphics[scale=.5]{c4c5fd21-cc6e-49e6-b4f8-1692a5f1a561.jpg}}
-\end{figure}
 Cuando se tiene una imagen de un contenedor lo que se tiene es una plantilla de archivos que se va a desplegar.
 \begin{itemize}
 	\item La primera capa es la base, sobre esta se construyen el resto.
@@ -1846,7 +1756,7 @@ CMD ["python", "main.py"]
 \end{lstlisting}
 
 Cada línea constituye un nivel, el primero es la base.
-
+\pagebreak
 \paragraph{Clausulas}
 \begin{itemize}
 	\item FROM es la cláusula que usa para establecer la imagen base sobre la que vamos a trabajar tiene que estar en Docker Hub, pero no tiene por qué ser un sistema operativo directamente.
@@ -1918,11 +1828,7 @@ El \textbf{Docker Swarm} nos permite ir generando distintos nodos virtuales en l
 
 
 \section{Comandos Docker}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Estructura comando Docker}}
-	{\includegraphics[scale=.3]{a18cdc15-25f8-4985-aa8d-4748d3dc2e05.png}}
-\end{figure}
+
 \begin{itemize}
 	\item \textbf{docker -v}
 
