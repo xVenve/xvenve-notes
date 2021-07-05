@@ -179,34 +179,34 @@ hmargin=3cm
 
 \begin{document}
 \pagenumbering{roman} % Se utilizan cifras romanas en la numeración de las páginas previas al cuerpo del trabajo
-	
+
 %----------
 %	PORTADA
 %----------	
 \begin{titlepage}
 	\begin{sffamily}
-	\color{azulUC3M}
-	\begin{center}
-		\begin{figure}[H] %incluimos el logotipo de la Universidad
-			\makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
-		\end{figure}
-		\vspace{2.5cm}
-		\begin{Large}
-			Grado en Ingeniería Informática\\			
-			2020-2021\\
-			\vspace{2cm}		
-			\textsl{Apuntes}\\
-			\bigskip
-		\end{Large}
-		 	{\Huge Diseño de Sistemas Operativos}\\
-		 	\vspace*{0.5cm}
-	 		\rule{10.5cm}{0.1mm}\\
+		\color{azulUC3M}
+		\begin{center}
+			\begin{figure}[H] %incluimos el logotipo de la Universidad
+				\makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
+			\end{figure}
+			\vspace{2.5cm}
+			\begin{Large}
+				Grado en Ingeniería Informática\\
+				2020-2021\\
+				\vspace{2cm}
+				\textsl{Apuntes}\\
+				\bigskip
+			\end{Large}
+			{\Huge Diseño de Sistemas Operativos}\\
+			\vspace*{0.5cm}
+			\rule{10.5cm}{0.1mm}\\
 			\vspace*{0.9cm}
-			{\LARGE Jorge Rodríguez Fraile\footnote{\href{mailto:100405951@alumnos.uc3m.es}{Universidad: 100405951@alumnos.uc3m.es}  |  \href{mailto:jrf1616@gmail.com}{Personal: jrf1616@gmail.com}}}\\ 
+			{\LARGE Jorge Rodríguez Fraile\footnote{\href{mailto:100405951@alumnos.uc3m.es}{Universidad: 100405951@alumnos.uc3m.es}  |  \href{mailto:jrf1616@gmail.com}{Personal: jrf1616@gmail.com}}}\\
 			\vspace*{1cm}
-	\end{center}
-	\vfill
-	\color{black}
+		\end{center}
+		\vfill
+		\color{black}
 		\includegraphics[width=4.2cm]{img/creativecommons.png}\\
 		Esta obra se encuentra sujeta a la licencia Creative Commons\\ \textbf{Reconocimiento - No Comercial - Sin Obra Derivada}
 	\end{sffamily}
@@ -249,13 +249,13 @@ hmargin=3cm
 \section{Profesores}
 
 \begin{quote}
-Teorías: Javier García Guzmán
+	Teorías: Javier García Guzmán
 
-Prácticas: Mat Max Montalvo Martínez
+	Prácticas: Mat Max Montalvo Martínez
 \end{quote}
 
 \chapter{Tema 1: Arquitectura de Sistemas
-IoT}
+  IoT}
 
 
 \textbf{IoT - Internet de las Cosas}: Consiste en conectar a internet
@@ -276,27 +276,20 @@ Se busca que sean pequeños y tengan un chip que les permita
 El \textbf{top 6 áreas} de aplicación de IoT:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-
-\item
-  \textbf{Industrial/Fabricación}: Automatizar, controlar la
-  distribución, gestión de instalaciones.
-\item
-  \textbf{Transporte/Movilidad:} Coches, tráfico en ciudad, vehículos de
-  transporte masivo y transporte industrial.
-\item
-  \textbf{Energía/Gestión eléctrica}: Predecir consumo, personalizar,
-  bien estar de los ocupantes, monitorizar el consumo detallado,
-  instalaciones con sensores.
-\item
-  \textbf{Gestión de inventarios/Comercial}: Saber cuánto queda y pedir,
-  facilitar compras.
-\item
-  \textbf{Ciudad}: Recoge muchas áreas; basura, vigilancia, tráfico,
-  etc.
-\item
-  \textbf{Salud:} Investigación, la forma de tratar, las emergencias,
-  distribución de información médica y dispositivos.
+	\def\labelenumi{\arabic{enumi}.}
+	\item \textbf{Industrial/Fabricación}: Automatizar, controlar la
+	      distribución, gestión de instalaciones.
+	\item \textbf{Transporte/Movilidad:} Coches, tráfico en ciudad, vehículos de
+	      transporte masivo y transporte industrial.
+	\item \textbf{Energía/Gestión eléctrica}: Predecir consumo, personalizar,
+	      bien estar de los ocupantes, monitorizar el consumo detallado,
+	      instalaciones con sensores.
+	\item \textbf{Gestión de inventarios/Comercial}: Saber cuánto queda y pedir,
+	      facilitar compras.
+	\item \textbf{Ciudad}: Recoge muchas áreas; basura, vigilancia, tráfico,
+	      etc.
+	\item \textbf{Salud:} Investigación, la forma de tratar, las emergencias,
+	      distribución de información médica y dispositivos.
 \end{enumerate}
 
 \textbf{Agricultura de precisión}: Según las previsiones ambientales y
@@ -307,7 +300,7 @@ y abonar las tierras, así como la recolecta.
 \newpage
 
 \section{En IoT de vehículos hay distintos
-niveles}
+  niveles}
 
 \textbf{0}: Sin automatización.
 
@@ -341,106 +334,96 @@ información.
 3 generaciones.
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \textbf{RFID y sensores}
+	\def\labelenumi{\arabic{enumi}.}
+	\item \textbf{RFID y sensores}
 
-  Tecnología de detección por radiofrecuencia.
+	      Tecnología de detección por radiofrecuencia.
 
-  Las cosas contengan información, las etiquetas (como NFC, se
-  estandarizó para indicar que datos contiene) y tener un dispositivo
-  que al acercarlo podamos leerla.
-\item
-  \textbf{Web services e inter-networking} (2004-2012): Interconexión
-  completa de las cosas y la red de las cosas.
+	      Las cosas contengan información, las etiquetas (como NFC, se
+	      estandarizó para indicar que datos contiene) y tener un dispositivo
+	      que al acercarlo podamos leerla.
+	\item \textbf{Web services e inter-networking} (2004-2012): Interconexión
+	      completa de las cosas y la red de las cosas.
 
-  IPv4, HTTP, Bluetooth, TCP, UDP, etc.
+	      IPv4, HTTP, Bluetooth, TCP, UDP, etc.
 
-  Pasan a tener una manera fácil de conectarse los dispositivos entre sí
-  o con internet.
-\item
-  \textbf{Social, Cloud \& ICN:} La era de la computación en la nube y
-  la Internet del futuro.
+	      Pasan a tener una manera fácil de conectarse los dispositivos entre sí
+	      o con internet.
+	\item \textbf{Social, Cloud \& ICN:} La era de la computación en la nube y
+	      la Internet del futuro.
 
-  En esta generación la lógica pasa a estar en la nube, no en el
-  dispositivo.
+	      En esta generación la lógica pasa a estar en la nube, no en el
+	      dispositivo.
 
-  Gestión de grandes cantidades de información.
+	      Gestión de grandes cantidades de información.
 
-  Seguridad, evitar accesos fraudulentos.
+	      Seguridad, evitar accesos fraudulentos.
 \end{enumerate}
 
 \section{Arquitectura de un Sistema IoT}
 \begin{description}
 	\item[Dispositivos (Devices)] Sensores y actuadores FÍSICOS, que
-	normalmente tienen un microprocesador, que mide el medio físico y
-	transforma las mediciones a señales digitales. Su función es tomar
-	medidas y procesarlas, pero su función no puede ser solo transmitir la
-	información.
-	
-	Actuador, Sensores, LED, LCD, Beacon (la parte dispositivo), Termostato,
-	RFID, Trampa para ratones inteligente, Dispositivos embebidos, etc.
+	      normalmente tienen un microprocesador, que mide el medio físico y
+	      transforma las mediciones a señales digitales. Su función es tomar
+	      medidas y procesarlas, pero su función no puede ser solo transmitir la
+	      información.
+
+	      Actuador, Sensores, LED, LCD, Beacon (la parte dispositivo), Termostato,
+	      RFID, Trampa para ratones inteligente, Dispositivos embebidos, etc.
 	\item[Pasarela (Gateway)] Dispositivo o protocolo con la capacidad de
-	comunicar con internet los dispositivos, para transmitir los datos
-	tomados. Su única función es transmitir.
-	
-	Router, Wifi, GSM, Bluetooth, Zigbee, Raspberry a veces, AMQP, CoAP,
-	LoRaWAN (sistema de radio), Wimax.
-	
-	Un móvil está entre Device y Gateway.
+	      comunicar con internet los dispositivos, para transmitir los datos
+	      tomados. Su única función es transmitir.
+
+	      Router, Wifi, GSM, Bluetooth, Zigbee, Raspberry a veces, AMQP, CoAP,
+	      LoRaWAN (sistema de radio), Wimax.
+
+	      Un móvil está entre Device y Gateway.
 	\item[Plataforma IoT (IoT Platform)] Conjunto de servicios
-	orquestados para gestionar una gran red de dispositivos interconectados
-	y que proporcionan información a aplicaciones u otros tipos de sistemas
-	de información. Gestiona y almacena grandes cantidades de datos y las
-	redirige. Funciona como middleware.
-	
-	Es una nube de servidores que dan servicios:
-	
-	\begin{enumerate}
-		\item \textbf{Message broker y Message bus}: Se encarga de conectar los
-		dispositivos físicos con los distintos procesos que forman parte de la
-		red de IoT. Manda los datos a todos los que estén conectados a su bus,
-		suscritos por API Rest.
-		\item
-		\textbf{Message router}: Está suscrito al message broker, los mensajes
-		que recibe los enriquece; dando información semántica, de contexto, de
-		estado y los reenvía a aquellos componentes que van a gestionar la
-		lógica de las aplicaciones relacionadas con la nube IoT. Otra cosa que
-		hace es transformar datos, descomprimir y decodificar datos para
-		hacerlos más fáciles de procesar y tratar.
-		\item
-		\textbf{Rest API}: Interfaz que usan otros programas para obtener los
-		servicios o las funcionalidades de un componente. Esta API se
-		caracteriza por ser accesible por http e independiente del estado del
-		sistema.
-		\item
-		\textbf{Data Management}: Para almacenar y gestionar los datos tomados
-		en la red.
-		\item
-		\textbf{Rule engine}: Permite monitorear los mensajes recibidos desde
-		el router y permite lanzar distintas acciones en distintos elementos.
-		Decide que acción tomar.
-		
-		Ejem: Si se abre la puerta, entonces avisar de intruso.
-		\item
-		\textbf{Microservicios}: Proporciona funcionalidades muy específicas a
-		través de una interfaz API Rest bien definidas mediante un contrato de
-		datos. Muchos los coordina el rule engine. Se busca que esté muy
-		cohesionado y poco acoplado.
-		
-		Ejem: El que actualiza la estación meteorológica en el móvil, es un
-		proceso muy concreto.
-		\item
-		\textbf{Device manager}: Permite monitorizar algunos elementos de los
-		sensores físicos como si está activo, la batería o si está conectado a
-		la red.
-		\item
-		\textbf{App y User management}: Sistema de permisos que identifica y
-		gestiona el acceso de usuarios y aplicaciones.
-	\end{enumerate}
+	      orquestados para gestionar una gran red de dispositivos interconectados
+	      y que proporcionan información a aplicaciones u otros tipos de sistemas
+	      de información. Gestiona y almacena grandes cantidades de datos y las
+	      redirige. Funciona como middleware.
+
+	      Es una nube de servidores que dan servicios:
+
+	      \begin{enumerate}
+		      \item \textbf{Message broker y Message bus}: Se encarga de conectar los
+		            dispositivos físicos con los distintos procesos que forman parte de la
+		            red de IoT. Manda los datos a todos los que estén conectados a su bus,
+		            suscritos por API Rest.
+		      \item \textbf{Message router}: Está suscrito al message broker, los mensajes
+		            que recibe los enriquece; dando información semántica, de contexto, de
+		            estado y los reenvía a aquellos componentes que van a gestionar la
+		            lógica de las aplicaciones relacionadas con la nube IoT. Otra cosa que
+		            hace es transformar datos, descomprimir y decodificar datos para
+		            hacerlos más fáciles de procesar y tratar.
+		      \item \textbf{Rest API}: Interfaz que usan otros programas para obtener los
+		            servicios o las funcionalidades de un componente. Esta API se
+		            caracteriza por ser accesible por http e independiente del estado del
+		            sistema.
+		      \item \textbf{Data Management}: Para almacenar y gestionar los datos tomados
+		            en la red.
+		      \item \textbf{Rule engine}: Permite monitorear los mensajes recibidos desde
+		            el router y permite lanzar distintas acciones en distintos elementos.
+		            Decide que acción tomar.
+
+		            Ejem: Si se abre la puerta, entonces avisar de intruso.
+		      \item \textbf{Microservicios}: Proporciona funcionalidades muy específicas a
+		            través de una interfaz API Rest bien definidas mediante un contrato de
+		            datos. Muchos los coordina el rule engine. Se busca que esté muy
+		            cohesionado y poco acoplado.
+
+		            Ejem: El que actualiza la estación meteorológica en el móvil, es un
+		            proceso muy concreto.
+		      \item \textbf{Device manager}: Permite monitorizar algunos elementos de los
+		            sensores físicos como si está activo, la batería o si está conectado a
+		            la red.
+		      \item \textbf{App y User management}: Sistema de permisos que identifica y
+		            gestiona el acceso de usuarios y aplicaciones.
+	      \end{enumerate}
 
 	\item[Aplicación (Application)] La interfaz que el usuario utiliza
-	para controlar el sistema.
+	      para controlar el sistema.
 
 \end{description}
 
@@ -455,7 +438,7 @@ que los datos sean accesibles, informativos y procesables.
 alcance de las redes inalámbricas (en vez de 30 metros, 40 kilómetros).
 
 \chapter{Tema 2: Sensores y
-Actuadores}
+  Actuadores}
 
 
 Hasta la sección `Up to Functional examples
@@ -476,76 +459,61 @@ velocidad, flujo, fugas, movimiento, electricidad, \ldots{}
 \textbf{Según la señal que produce:}
 
 \begin{itemize}
+	\item \textbf{Analógico}: Produce voltaje analógico constante de lo medido.
+	      El gráfico de voltaje sobre el tiempo debe ser continuo y suave.
 
-\item
-  \textbf{Analógico}: Produce voltaje analógico constante de lo medido.
-  El gráfico de voltaje sobre el tiempo debe ser continuo y suave.
+	      \begin{figure}[H]
+		      \ffigbox[\FBwidth]
+		      {\caption{Diagrama de voltaje Sensor Analógico}}
+		      {\includegraphics[scale=.5]{image-20210307210139988.png}}
+	      \end{figure}
+	      \vspace{-0.5cm}
+	      Sensor de presión, sensor de luz, sensor de temperatura,
+	      acelerómetro, sensor de sonido.
+	\item \textbf{Digital}: Produce un voltaje discreto, por lo general tendrá
+	      uno u otro de dos valores, 0 V (apagado) a 5 V (encendido). Gracias a la
+	      miniaturización hay más dado que se puede introducir un conversor.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama de voltaje Sensor Analógico}}
-	{\includegraphics[scale=.5]{image-20210307210139988.png}}
-\end{figure}
-\vspace{-0.5cm}
-    Sensor de presión, sensor de luz, sensor de temperatura,
-    acelerómetro, sensor de sonido.
-
-\item
-  \textbf{Digital}: Produce un voltaje discreto, por lo general tendrá
-  uno u otro de dos valores, 0 V (apagado) a 5 V (encendido). Gracias a la
-  miniaturización hay más dado que se puede introducir un conversor.
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama de voltaje Sensor Digital}}
-	{\includegraphics[scale=.5]{image-20210307210421078.png}}
-\end{figure}
-\vspace{-0.5cm}
-    Sensor de ultrasonidos, sensor de infrarrojos, acelerómetro, sensor
-    de sonido (suele ser analógico), sensor de temperatura.
+	      \begin{figure}[H]
+		      \ffigbox[\FBwidth]
+		      {\caption{Diagrama de voltaje Sensor Digital}}
+		      {\includegraphics[scale=.5]{image-20210307210421078.png}}
+	      \end{figure}
+	      \vspace{-0.5cm}
+	      Sensor de ultrasonidos, sensor de infrarrojos, acelerómetro, sensor
+	      de sonido (suele ser analógico), sensor de temperatura.
 \end{itemize}
 
 Según si necesitan energía:
 
 \begin{itemize}
+	\item \textbf{Sensor activo}: Siempre \textbf{necesitan} su propia fuente de
+	      energía.
 
-\item
-  \textbf{Sensor activo}: Siempre \textbf{necesitan} su propia fuente de
-  energía.
+	      \begin{itemize}
+		      \item Sensor de ultrasonidos, radar, LiDAR, sensor de humedad, cámara
+		            infrarroja.
+	      \end{itemize}
+	\item \textbf{Sensor pasivo}: \textbf{No necesitan} una fuente de energía,
+	      usan factores externos para alimentarse.
 
-  \begin{itemize}
-  
-  \item
-    Sensor de ultrasonidos, radar, LiDAR, sensor de humedad, cámara
-    infrarroja.
-  \end{itemize}
-\item
-  \textbf{Sensor pasivo}: \textbf{No necesitan} una fuente de energía,
-  usan factores externos para alimentarse.
-
-  \begin{itemize}
-  
-  \item
-    Sensor infrarrojo (fotodiodo infrarrojo), sensor PIR, sensor de luz
-    (LDR)
-  \end{itemize}
+	      \begin{itemize}
+		      \item Sensor infrarrojo (fotodiodo infrarrojo), sensor PIR, sensor de luz
+		            (LDR)
+	      \end{itemize}
 \end{itemize}
 
 \textbf{Sensor piezoeléctrico:}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-
-\item
-  Un cristal piezoeléctrico se coloca entre dos placas de metal que
-  están en perfecto equilibrio y conduce ninguna corriente eléctrica.
-\item
-  Las placas de metal aplican tensión o fuerza mecánica sobre el
-  material que hace que las cargas eléctricas del cristal se
-  desequilibren.
-\item
-  Las placas de metal recogen esas cargas y producen un voltaje y envía
-  una corriente eléctrica a través de un circuito.
+	\def\labelenumi{\arabic{enumi}.}
+	\item Un cristal piezoeléctrico se coloca entre dos placas de metal que
+	      están en perfecto equilibrio y conduce ninguna corriente eléctrica.
+	\item Las placas de metal aplican tensión o fuerza mecánica sobre el
+	      material que hace que las cargas eléctricas del cristal se
+	      desequilibren.
+	\item Las placas de metal recogen esas cargas y producen un voltaje y envía
+	      una corriente eléctrica a través de un circuito.
 \end{enumerate}
 
 \section{Actuadores}
@@ -557,7 +525,7 @@ físicas del entorno generando los datos.
 Relay, solenoide, actuadores lineales, \ldots{}
 
 \section{Factores de selección de Sensores y
-Actuadores}
+  Actuadores}
 
 \textbf{Factores ambientales}: Temperatura, Humedad, Corrosión,
 Interferencia electromagnética, Tamaño, Rudeza y Consumo de energía.
@@ -571,52 +539,52 @@ Linealidad.
 \section{Preguntas Test 1}
 \begin{enumerate}
 	\item La tercera generación de IoT se caracteriza por:
-	
-	c. la forma de construir servicios de Internet y permitir un acceso ubicuo, conveniente y bajo demanda a ellos (computación en la nube).
+
+	      c. la forma de construir servicios de Internet y permitir un acceso ubicuo, conveniente y bajo demanda a ellos (computación en la nube).
 
 	\item ¿Cuál de los siguientes NO es un impulsor del mercado de Internet de las cosas (IoT)?
-	
-	c. Adopción global de redes no IP 
+
+	      c. Adopción global de redes no IP
 
 	\item Seleccione la respuesta correcta con respecto a la prevalencia de sensores:
 
-	b. Los sensores de temperatura son los sensores más comunes. 
+	      b. Los sensores de temperatura son los sensores más comunes.
 
 	\item ¿Con qué sensor se realiza la monitorización de máquinas, engranajes y objetos?
 
-	Sensor de proximidad
+	      Sensor de proximidad
 
 	\item Seleccione la aplicación de IoT fuera del ámbito agrícola:
 
-	b. Monitorización de parámetros fisiológicos de personas 
-	
+	      b. Monitorización de parámetros fisiológicos de personas
+
 	\item Message Broker y Message Bus tratan con ...
-	
-	d. ... la transmisión de mensajes con el mundo físico, especialmente dispositivos y sensores heterogéneos. 
+
+	      d. ... la transmisión de mensajes con el mundo físico, especialmente dispositivos y sensores heterogéneos.
 
 	\item Un ejemplo de sensor activo es:
 
-	b. Sensor de humedad 
-	
+	      b. Sensor de humedad
+
 	\item Un \_\_\_\_\_\_\_\_ es un resistor térmicamente sensible que exhibe un gran cambio de resistencia.
 
-	b. Termistor.
+	      b. Termistor.
 
 	\item ¿Qué permite que los dispositivos digitales se interconecten y transmitan datos?
 
-	c. Una red 
+	      c. Una red
 
 	\item Seleccione la respuesta correcta con respecto a un sensor analógico:
 
-	d. El gráfico de tiempo versus voltaje de una señal analógica debe ser uniforme y continuo. 
+	      d. El gráfico de tiempo versus voltaje de una señal analógica debe ser uniforme y continuo.
 
 \end{enumerate}
 
 \chapter{Tema 3: Sistemas operativos embebidos para Dispositivos
-IoT}
+  IoT}
 
 \section{¿Que es un sistema embebido o
-integrado?}
+  integrado?}
 
 Sistemas basados en computadora que no parecen ser computadoras, la complejidad está oculta al usuario.
 
@@ -636,9 +604,7 @@ puede enviar la información que registra en tiempo real por internet.
 interactuar con el usuario (a través de una interfaz simple) o con otra herramienta invisible para el usuario. Es decir, no tiene por qué haber una interacción directa con el usuario (un pendrive se enchufa al ordenador, no al usuario)
 
 \begin{itemize}
-
-\item
-  Ejem: Memoria flash, pendrive, sistema antibloqueo de ruedas.
+	\item Ejem: Memoria flash, pendrive, sistema antibloqueo de ruedas.
 \end{itemize}
 
 \textbf{Un sistema IoT} es aquel con el que podemos interactuar
@@ -649,23 +615,17 @@ embebido a IoT.
 \textbf{Factor clave de los sistemas embebidos}:
 
 \begin{itemize}
-
-\item
-  La \textbf{eficiencia}, velocidad a la que responde o realiza la tarea
-  específica. Para alcanzar la eficiencia \textbf{se cambia el enfoque
-  de la programación}, no hay recursos ilimitados y hay que adaptarlo
-  para que consuma poca energía y memoria.
-\item
-  El \textbf{consumo de energía}, si se encuentra en algún lugar remoto
-  y tiene una batería debe durar mucho.
-\item
-  El \textbf{uso de memoria}, ya que afecta al rendimiento y son caras.
-\item
-  \textbf{Precio}, ya que ante productos similares se elige el más
-  barato.
-\item
-  \textbf{Sistema crítico}, aquel del que el tiempo de respuesta es
-  clave, que si falla puede correr riesgo alguna vida humana.
+	\item La \textbf{eficiencia}, velocidad a la que responde o realiza la tarea
+	      específica. Para alcanzar la eficiencia \textbf{se cambia el enfoque
+		      de la programación}, no hay recursos ilimitados y hay que adaptarlo
+	      para que consuma poca energía y memoria.
+	\item El \textbf{consumo de energía}, si se encuentra en algún lugar remoto
+	      y tiene una batería debe durar mucho.
+	\item El \textbf{uso de memoria}, ya que afecta al rendimiento y son caras.
+	\item \textbf{Precio}, ya que ante productos similares se elige el más
+	      barato.
+	\item \textbf{Sistema crítico}, aquel del que el tiempo de respuesta es
+	      clave, que si falla puede correr riesgo alguna vida humana.
 \end{itemize}
 
 \textbf{Fuertes restricciones}: Coste de fabricación, Coste de diseño, Rendimiento, Energía, Tiempo de comercialización.
@@ -679,80 +639,61 @@ durar en él un largo periodo de tiempo.
 \textbf{Del cuestionario:}
 
 \begin{itemize}
-
-\item
-  Se dice que un \textbf{sistema es en tiempo real si el tiempo de
-  respuesta es crítico}. Como el sistema ABS o de detección de colisión.
-\item
-  Es cierto que la mayoría de los sistemas informáticos integrados están
-  diseñados por equipos pequeños con plazo ajustados.
-\item
-  Un sistema en tiempo real se define como un sistema cuya corrección de
-  la puntualidad de su respuesta.
-\item
-  Es cierto que un sistema integrado puede definirse como un sistema de
-  control o un sistema informático diseñado para realizar una tarea
-  específica.
+	\item Se dice que un \textbf{sistema es en tiempo real si el tiempo de
+		      respuesta es crítico}. Como el sistema ABS o de detección de colisión.
+	\item Es cierto que la mayoría de los sistemas informáticos integrados están
+	      diseñados por equipos pequeños con plazo ajustados.
+	\item Un sistema en tiempo real se define como un sistema cuya corrección de
+	      la puntualidad de su respuesta.
+	\item Es cierto que un sistema integrado puede definirse como un sistema de
+	      control o un sistema informático diseñado para realizar una tarea
+	      específica.
 \end{itemize}
 
 \subsection{Ordenador personal vs. Sistema
-embebido}
+	embebido}
 
 \textbf{Sistema embebido}: Son específicos de una aplicación, se
 focalizan en una tarea o conjunto de tareas relacionadas en todo
 momento.
 
 \begin{itemize}
-
-\item
-  Todos los recursos están dirigidos a realizar esa tarea, por lo que la
-  realiza de manera eficiente, pero no le sobran recursos y realizar alguna otra tarea es
-  muy difícil o imposible. El software y hardware lo diseñan juntos por
-  lo que es más eficiente y fiable, se adaptan al hardware
-  perfectamente.
-\item
-  Utilizan arquitecturas muy variadas, con diferentes CPU, periféricos,
-  SO y prioridades de diseño.
-\item
-  El tiempo de arranque es casi instantáneo, medido en segundos.
+	\item Todos los recursos están dirigidos a realizar esa tarea, por lo que la
+	      realiza de manera eficiente, pero no le sobran recursos y realizar alguna otra tarea es
+	      muy difícil o imposible. El software y hardware lo diseñan juntos por
+	      lo que es más eficiente y fiable, se adaptan al hardware
+	      perfectamente.
+	\item Utilizan arquitecturas muy variadas, con diferentes CPU, periféricos,
+	      SO y prioridades de diseño.
+	\item El tiempo de arranque es casi instantáneo, medido en segundos.
 \end{itemize}
 
 \textbf{Computadora de escritorio}: Puede ejecutar cualquier clase se
 aplicación según las necesidades del usuario.
 
 \begin{itemize}
-
-\item
-  Está listo para cualquier tarea por lo que consume más energía y
-  recursos. El diseño de hardware lo desarrollan empresas distintas, por
-  lo que sobran recursos o se requiere más de los que hay, sobreestima.
-  Además, se pueden ampliar fácil y económicamente si es necesario.
-\item
-  Usan una arquitectura muy similar todos y ejecutan software en
-  sistemas idénticos.
-\item
-  El tiempo de inicio se puede medir en minutos cuando se carga desde
-  disco.
+	\item Está listo para cualquier tarea por lo que consume más energía y
+	      recursos. El diseño de hardware lo desarrollan empresas distintas, por
+	      lo que sobran recursos o se requiere más de los que hay, sobreestima.
+	      Además, se pueden ampliar fácil y económicamente si es necesario.
+	\item Usan una arquitectura muy similar todos y ejecutan software en
+	      sistemas idénticos.
+	\item El tiempo de inicio se puede medir en minutos cuando se carga desde
+	      disco.
 \end{itemize}
 
 \textbf{Del cuestionario:}
 
 \begin{itemize}
-
-\item
-  Un sistema embebido no necesita interacción humana para realizar
-  tareas.
-\item
-  Un sistema embebido necesita menos potencia operativa que una
-  computadora.
-\item
-  Los ordenadores se pueden reprogramar para un nuevo propósito.
-\item
-  Los ordenadores son difíciles cuando se usan, en comparación con un
-  sistema embebido.
-\item
-  Los ordenadores pueden realizar muchas tareas.
-\end{itemize}		
+	\item Un sistema embebido no necesita interacción humana para realizar
+	      tareas.
+	\item Un sistema embebido necesita menos potencia operativa que una
+	      computadora.
+	\item Los ordenadores se pueden reprogramar para un nuevo propósito.
+	\item Los ordenadores son difíciles cuando se usan, en comparación con un
+	      sistema embebido.
+	\item Los ordenadores pueden realizar muchas tareas.
+\end{itemize}
 
 \section{Estructura de un sistema embebido}
 
@@ -763,24 +704,24 @@ aplicación según las necesidades del usuario.
 \end{figure}
 
 \begin{description}
-	\item[Microcontrolador] Es el componente que ejecuta un programa en un sistema integrado, y se encuentra en la zona central, se encarga de realizar el procesamiento. 
-	
-	Conectado a otros componentes del hardware, envía órdenes a los actuadores y recibe datos de los sensores. 
-	
-	Consta de CPU, RAM, ROM, puertos E/S y temporizadores.
-	
-	Más lento que un microprocesador, menos memoria y menos funciones.
-	
-	Requiere ser programado, se debe escribir el código del programa que va a realizar. El código se escribe en el host, un ordenador de sobremesa o laptop, y después se transfiere el programa del host al microcontrolador.
+	\item[Microcontrolador] Es el componente que ejecuta un programa en un sistema integrado, y se encuentra en la zona central, se encarga de realizar el procesamiento.
+
+	      Conectado a otros componentes del hardware, envía órdenes a los actuadores y recibe datos de los sensores.
+
+	      Consta de CPU, RAM, ROM, puertos E/S y temporizadores.
+
+	      Más lento que un microprocesador, menos memoria y menos funciones.
+
+	      Requiere ser programado, se debe escribir el código del programa que va a realizar. El código se escribe en el host, un ordenador de sobremesa o laptop, y después se transfiere el programa del host al microcontrolador.
 	\item[Cajas negras] Realizan parte del trabajo del microprocesador para reducir la carga, algunas tareas específicas. Algunos ejemplos son:
-	\begin{description}
-		\item[IP Core] Circuito integrado que desempeña una función que interactúa con el microcontrolador, y son baratos en un volumen alto. Muy útiles para tareas comunes como controlador de network (Ethernet, CAN)  o de audio/video (Audio Códec, Controlador VGA). Necesita interactuar con el microprocesador y se siguen unos protocolos de comunicación. 
+	      \begin{description}
+		      \item[IP Core] Circuito integrado que desempeña una función que interactúa con el microcontrolador, y son baratos en un volumen alto. Muy útiles para tareas comunes como controlador de network (Ethernet, CAN)  o de audio/video (Audio Códec, Controlador VGA). Necesita interactuar con el microprocesador y se siguen unos protocolos de comunicación.
 
-		\item[FPGA - Field Programmable Gate Array] Matriz de puertas lógicas programable en campo, es un chip con una red de puertas de memoria RAM que se pueden configurar (establecer las conexiones entre chips o puertas), para realizar una serie de tareas, como puede ser filtrar una señal o comprimir video. Es más rápido que software, pero más lento que ASIC. 
+		      \item[FPGA - Field Programmable Gate Array] Matriz de puertas lógicas programable en campo, es un chip con una red de puertas de memoria RAM que se pueden configurar (establecer las conexiones entre chips o puertas), para realizar una serie de tareas, como puede ser filtrar una señal o comprimir video. Es más rápido que software, pero más lento que ASIC.
 
-		\item[DSP] Procesadores y compresores de señales digitales, tanto de audio como de video. Son más económicos que los procesadores, pero tiene capacidades más limitadas.
+		      \item[DSP] Procesadores y compresores de señales digitales, tanto de audio como de video. Son más económicos que los procesadores, pero tiene capacidades más limitadas.
 
-	\end{description}
+	      \end{description}
 	\item[Conversores] Analógico-Digital sale de sensor, izquierda y el Digital-Analógico va al actuador, derecha. Los analógicos a digital son muy comunes, porque los sensores son analógicos y el microcontrolador es digital.
 	\item[Sensores y actuadores] Toma medidas del medio que rodea al dispositivo y puede alterar el entorno. Sensores a la izquierda y actuadores a la derecha.
 \end{description}
@@ -796,13 +737,13 @@ aplicación según las necesidades del usuario.
 
 
 Es una plataforma de código abierto sed para construir proyecto de electrónica.	Consta de una placa de circuito programable física (microcontrolador) y una pieza de software, o IDE (entorno de desarrollo) que se ejecuta en una computadora portátil o computadora personal utilizada para escribir y cargar código de computadora en la física. Tiene pines analógicos y digitales.
-	
+
 No necesita una pieza software separada para cargar un nuevo código en la placa.
-	
+
 Utiliza una versión simplificada de C++, lo que lo hace más fácil de aprender.
-	
+
 \textbf{Razones por la que se usa:} Es de código abierto, económico, multiplataforma, prototipos rápidos, entorno programable más simple y claro. Algunas también cuentan con conexión a Internet incorporada o la posibilidad de conectividad externa.
-	
+
 \textbf{Razones para no utilizarlos:} Poca memoria para datos y RAM, procesamiento, arquitectura basada en 8 bits, caro cuando se necesita a gran escala, mala calidad/precio, las empresas no les gusta que sea open source, no está aliado con proveedores y no da garantías.
 
 \subsection{Raspberry Pi}
@@ -819,28 +760,27 @@ La Raspberry PI tiene una conexión GPIO de 40 pines, lo que facilita la conexi�
 
 
 \begin{description}
-	\item[GPIO] Significa entrada/salida de uso general. Estos pines son una interfaz física entre Raspberry Pi y el mundo exterior. 
-	
-	El Pi puede recibir información de sensores y actuadores, y controlar actuadores como LED, ejecutar motores y muchas otras cosas.
-	
-	Hay 40 pines y proporcionan varias funciones diferentes. 
-	\begin{itemize}
-		\item Los pines 27 y 28, ID SD e ID SC, son para conectar una EEPROM.
-		\item Pines 8 y 10, GPIO 14 y 15, son para comunicación UART puerto serie que transmite poca información (baja frecuencia), como USB, RFID, Bluetooth, GPS, GSM o GPRDS.
-		\item GPIO 2 y 3 (clock) se usan para I2C, comunicación entre placas, como un LCD, otras placas base (Raspberry, Arduino, ...) o un reloj de tiempo real.
-		\item GPIO 7, 8, 9, 10 y 11 implementan otro mecanismo de comunicación el SPI, que es la evolución del protocolo I2C, su función es comunicar full duplex, como SSD card, IP Core o Memoria Flash.
-	\end{itemize}
-		
-\end{description}  
+	\item[GPIO] Significa entrada/salida de uso general. Estos pines son una interfaz física entre Raspberry Pi y el mundo exterior.
+
+	      El Pi puede recibir información de sensores y actuadores, y controlar actuadores como LED, ejecutar motores y muchas otras cosas.
+
+	      Hay 40 pines y proporcionan varias funciones diferentes.
+	      \begin{itemize}
+		      \item Los pines 27 y 28, ID SD e ID SC, son para conectar una EEPROM.
+		      \item Pines 8 y 10, GPIO 14 y 15, son para comunicación UART puerto serie que transmite poca información (baja frecuencia), como USB, RFID, Bluetooth, GPS, GSM o GPRDS.
+		      \item GPIO 2 y 3 (clock) se usan para I2C, comunicación entre placas, como un LCD, otras placas base (Raspberry, Arduino, ...) o un reloj de tiempo real.
+		      \item GPIO 7, 8, 9, 10 y 11 implementan otro mecanismo de comunicación el SPI, que es la evolución del protocolo I2C, su función es comunicar full duplex, como SSD card, IP Core o Memoria Flash.
+	      \end{itemize}
+
+\end{description}
 \textbf{Del cuestionario:}
 
 \begin{itemize}
+	\item Cuál de los siguientes NO es un beneficio de usar un sistema operativo?
 
-\item Cuál de los siguientes NO es un beneficio de usar un sistema operativo? 
-
-La frecuencia del reloj del microprocesador se puede aumentar significativamente.
+	      La frecuencia del reloj del microprocesador se puede aumentar significativamente.
 \end{itemize}
-	
+
 \subsection{Raspberry Pi vs. Arduino}
 \begin{itemize}
 	\item Raspberry usa un procesador de propósito general y Arduino un microprocesador.
@@ -887,12 +827,12 @@ El núcleo del sistema operativo es el kernel, pero depende el SO embebido tendr
 	{\includegraphics[scale=.6]{2021-03-25 09_19_18-2021-03-24 16-59-20.mkv.png}}
 \end{figure}
 
-\subsection{Principales Sistemas Operativos embebidos actuales} 
+\subsection{Principales Sistemas Operativos embebidos actuales}
 Zephyr, Micrium, RTOS (Real Time Operative Systems), R IOT, VxWorks, ThreadX, MircroEJ, TinyOS, APACHE, ARMmbed, Contiki, Nucleus, Windows IoT, snappy, android things, Mongoose o mynewt.
 
 \subsection{Requisitos de un Sistema Operativo Embebido}
 \textbf{Restricciones de Hardware Heterogéneos}
-\begin{itemize}	
+\begin{itemize}
 	\item Requisitos de CPU: Las operaciones no deben ser de carga alta, hay baja frecuencia.
 	\item Requisito de Memoria: Suelen tener poca memoria (Arduino 4K).
 	\item Características limitadas
@@ -900,16 +840,16 @@ Zephyr, Micrium, RTOS (Real Time Operative Systems), R IOT, VxWorks, ThreadX, Mi
 \end{itemize}
 
 \textbf{Autonomía}
-\begin{itemize}	
+\begin{itemize}
 	\item Eficiencia energética: Como suspenderse bajo inactividad o protocolos de comunicación de bajo consumo.
 	\item Stack de Red Adaptativo
 	\item Fiabilidad, cuanto más tiempo pase antes de que necesite asistencia o ser remplazado, más autonomía.
 \end{itemize}
 
-\textbf{Programabilidad:} 
+\textbf{Programabilidad:}
 \begin{itemize}
 	\item API estándar: Gestionar procesos, servicios, tareas, threads, interrupciones, shockets...
-	\item Lenguajes de Programación estándar, que nos permita utilizar la API para desarrollar aplicaciones. 
+	\item Lenguajes de Programación estándar, que nos permita utilizar la API para desarrollar aplicaciones.
 \end{itemize}
 
 \subsection{Capa de Software del Sistema}
@@ -933,11 +873,11 @@ Todos los controladores de dispositivos generalmente se componen de todas o una 
 	\item \textbf{Hardware Disable:} Permitir que otro software desactive el hardware sobre la marcha.
 	\item \textbf{Hardware Enable:} Permitir que otro software active el hardware sobre la marcha.
 	\item \textbf{Hardware Acquire:} Permitir que otro software obtenga acceso singular (bloqueo) al hardware.
-	\item \textbf{Hardware Release:} Permitir que otro software libere (desbloquee) hardware. 
+	\item \textbf{Hardware Release:} Permitir que otro software libere (desbloquee) hardware.
 	\item \textbf{Hardware Read:} Permitir que otro software lea datos en el hardware.
 	\item \textbf{Hardware Write:} Permitir que otro software escriba datos en el hardware.
-	\item \textbf{Hardware Install:} Permitir que otro software instale nuevo hardware sobre la marcha.  
-	\item \textbf{Hardware Uninstall:} Permitir que otro software quite hardware instalado sobre la marcha.   
+	\item \textbf{Hardware Install:} Permitir que otro software instale nuevo hardware sobre la marcha.
+	\item \textbf{Hardware Uninstall:} Permitir que otro software quite hardware instalado sobre la marcha.
 	\item \textbf{Hardware Mapping:} Permite el mapeo de direcciones hacia y desde dispositivos de almacenamiento de hardware para leer y escribir datos.
 	\item \textbf{Hardware Unmapping:} Permitiendo eliminar bloques de datos de dispositivos de almacenamiento de hardware.
 \end{itemize}
@@ -945,105 +885,105 @@ Todos los controladores de dispositivos generalmente se componen de todas o una 
 \subsubsection{Kernel}
 
 \begin{description}
-	\item[Gestión de Procesos - Process Management] Como el sistema operativo administra y ve otro software en el sistema embebido. 
+	\item[Gestión de Procesos - Process Management] Como el sistema operativo administra y ve otro software en el sistema embebido.
 
-	\begin{description}
-		\item[Threads] Crear hilos, lanzarlos, controlarlos, terminarlos o sincronizarlos. Estos nos permiten tener varias tareas en ejecución de manera concurrente. 
-		\item[Semaphores] Primitiva de sincronización, para evitar las condiciones de carrera.
-		\item[Priority scheduling] Determinar el orden en el que los hilos entran a ejecutar.
-		\item[Real-time signal extension] Interrupciones y señales, para activar notificaciones de aplicaciones asíncronamente.
-		\item[Timers] Mecanismo de notificación que nos avisa cuando se ha alcanzado o superado un determinado tiempo.
-		\item[IPC] Comunicación Inter-Proceso.
-	\end{description}
+	      \begin{description}
+		      \item[Threads] Crear hilos, lanzarlos, controlarlos, terminarlos o sincronizarlos. Estos nos permiten tener varias tareas en ejecución de manera concurrente.
+		      \item[Semaphores] Primitiva de sincronización, para evitar las condiciones de carrera.
+		      \item[Priority scheduling] Determinar el orden en el que los hilos entran a ejecutar.
+		      \item[Real-time signal extension] Interrupciones y señales, para activar notificaciones de aplicaciones asíncronamente.
+		      \item[Timers] Mecanismo de notificación que nos avisa cuando se ha alcanzado o superado un determinado tiempo.
+		      \item[IPC] Comunicación Inter-Proceso.
+	      \end{description}
 
-	\paragraph{Gestión de multitareas y de procesos en sistemas embebidos}
+	      \paragraph{Gestión de multitareas y de procesos en sistemas embebidos}
 
-	Una de las principales diferencias de los SO embebidos es que no tenemos múltiples núcleos, donde en cada núcleo se podría ejecutar distintas cosas, lo que tenemos es un único núcleo que ejecuta una única tarea a la vez y va asignando rodajas a los procesos para dar la sensación de que se ejecutan varias en paralelo.
+	      Una de las principales diferencias de los SO embebidos es que no tenemos múltiples núcleos, donde en cada núcleo se podría ejecutar distintas cosas, lo que tenemos es un único núcleo que ejecuta una única tarea a la vez y va asignando rodajas a los procesos para dar la sensación de que se ejecutan varias en paralelo.
 
-	Como no se pueden hacer múltiples tareas a la vez, por lo que debemos tener un mecanismo que administre y planifique el orden de ejecución de los distintos procesos. Indicar cuando entran y salen, y el paso de datos.
-	
-	La Raspberry Pi como tiene 4 núcleos se considera nano ordenador, no sistema embebido.
-	
-	
-	\paragraph{Implementación de procesos en Sistemas Operativos embebidos}
-	
-	Las tareas están estructuradas como una jerarquía de tareas principales y secundarias, y cuando se inicia el kernel embebido, solo existe una tarea de la que se lanzan todas las demás.
-	
-	
-	\paragraph{Creación de tareas}
-	La creación de tareas en sistemas operativos integrados se basa principalmente en dos modelos, fork/exec (deriva del IEEE/ISO POSIX) y spawn (deriva de fork/exec).
+	      Como no se pueden hacer múltiples tareas a la vez, por lo que debemos tener un mecanismo que administre y planifique el orden de ejecución de los distintos procesos. Indicar cuando entran y salen, y el paso de datos.
 
-	\begin{itemize}
-		\item \textbf{fork:} Crea una copia del espacio de memoria de la tarea principal en lo que se asigna para la tarea secundaria, lo que permite que la tarea secundaria herede varias propiedades, como el código del programa y las variables, de la tarea principal.
-		\item \textbf{exec:} Se utiliza para eliminar explícitamente del espacio de memoria de la tarea secundaria cualquier referencia al programa principal y establece el nuevo código de programa que pertenece a la tarea secundaria para que se ejecute.
-		\item \textbf{spawn model:} Crea un espacio de direcciones completamente nuevo para la tarea secundaria. La llamada al "modelo de generación" permite definir el nuevo programa y los argumentos para la tarea secundaria. 
-	\end{itemize}
+	      La Raspberry Pi como tiene 4 núcleos se considera nano ordenador, no sistema embebido.
 
-	\textbf{Spawn model:} No tiene espacios duplicados, optimiza el espacio de memoria, no gasta tanta memoria como fork/exec. Es más complicado compartir propiedades entre procesos.
-	
-	\textbf{fork/exec:} Nos permite coordinar de una manera más sencilla y compartir propiedades, pero es más lenta y requiere más memoria (que es limitada) porque tiene que copiar y eliminar.
-	
-	\paragraph{Planificador de Tareas - Scheduler:} Es el que nos dice cuándo y cuanto tiene va a ejecutar cada una de las tareas, va metiendo y sacando de la CPU. El programador clasifica las tareas en READY, RUNNING y BLOCK.
-	
-	\paragraph{Factores clave del Scheduling}
-	Lo critico es la efectividad y la eficiencia en cuanto al tiempo de respuesta en cambiar entre tareas y elegir cuál es la va a continuación.
-	\begin{itemize}
-		\item 	\textbf{Tiempo de respuesta - Response Time:} Tiempo para que el programador haga que el contexto cambie a una tarea lista e incluye el tiempo de espera de la tarea en cola lista.
-		\item 	\textbf{Turnaround time:} El tiempo que tarda un proceso en completarse.
-		\item 	\textbf{Overhead:} El tiempo y los datos necesarios para determinar que tareas se ejecutan a continuación.
-		\item 	\textbf{Fairness:} Ser capaz de realizar una partición equitativa entre todas las tareas que están pendientes de ejecución. ¿Cuáles son los factores determinantes en cuanto a qué procesos llegan a ejecutarse?
-		\item 	\textbf{Throughput:} Procesar tantas tareas como sea posible en un periodo de tiempo determinado. tareas por unidad de tiempo.
-		\item 	\textbf{Starvation:} Donde una tarea nunca llega a ejecutarse, nunca recibe una rodaja de tiempo.
-	\end{itemize}
 
-	
-	\paragraph{Preventivo vs. No preventivo}
+	      \paragraph{Implementación de procesos en Sistemas Operativos embebidos}
 
-	Utilizar el término más parecido a la terminología inglesa, Expropiativo y No expropiativo.
+	      Las tareas están estructuradas como una jerarquía de tareas principales y secundarias, y cuando se inicia el kernel embebido, solo existe una tarea de la que se lanzan todas las demás.
 
-	\begin{itemize}
-		\item \textbf{Non-pre-emptive - No expropiativo - Apropiativo:} No se le puede expulsar. Las tareas reciben el control de la CPU maestra hasta que finalizan su ejecución, independientemente del tiempo o la importancia de las otras tareas que están en espera.
-		
-		Ejemplos: FCFS, SPF o SJF, Prioridades
 
-		\item \textbf{Pre-emptive - Expropiativo - No apropiativo:} Se les puede expulsar de las CPU cuando acaba su rodaja, se dividen los procesos en rodajas de duración fija. El SO fuerza el cambio de contexto en una tarea, ya sea que una tarea en ejecución haya terminado de ejecutarse o este cooperando con el cambio de contexto.	
+	      \paragraph{Creación de tareas}
+	      La creación de tareas en sistemas operativos integrados se basa principalmente en dos modelos, fork/exec (deriva del IEEE/ISO POSIX) y spawn (deriva de fork/exec).
 
-		Ejemplos: Round Robin, SRTF, Colas Multinivel
-	\end{itemize}
-	
-	\paragraph{Planificación e Raspberry Pi OS}
-	\begin{itemize}
-		\item 	Opera en todos los componentes.
-		\item 	Solo se ejecuta una tarea a la vez.
-		\item 	El planificador es un componente independiente.
-		\item 	El programador predeterminado es una cola FIFO simple.
-		\item 	La planificación es consciente de la energía, y pone el procesador en suspensión cuando no hay ninguna tarea en la cola.
-	\end{itemize}
+	      \begin{itemize}
+		      \item \textbf{fork:} Crea una copia del espacio de memoria de la tarea principal en lo que se asigna para la tarea secundaria, lo que permite que la tarea secundaria herede varias propiedades, como el código del programa y las variables, de la tarea principal.
+		      \item \textbf{exec:} Se utiliza para eliminar explícitamente del espacio de memoria de la tarea secundaria cualquier referencia al programa principal y establece el nuevo código de programa que pertenece a la tarea secundaria para que se ejecute.
+		      \item \textbf{spawn model:} Crea un espacio de direcciones completamente nuevo para la tarea secundaria. La llamada al "modelo de generación" permite definir el nuevo programa y los argumentos para la tarea secundaria.
+	      \end{itemize}
 
-	\paragraph{Manejo de señales e interrupciones} Cuando llega una interrupción externa, saca el proceso de la CPU y atiende la interrupción ejecutando la rutina correspondiente, y vuelve al proceso previo.
+	      \textbf{Spawn model:} No tiene espacios duplicados, optimiza el espacio de memoria, no gasta tanta memoria como fork/exec. Es más complicado compartir propiedades entre procesos.
 
-	\paragraph{Sincronización y comunicación entre tareas} Nos permite que las distintas subtareas compartan datos, la manera más sencilla es utilizando espacios de memoria compartidos.
+	      \textbf{fork/exec:} Nos permite coordinar de una manera más sencilla y compartir propiedades, pero es más lenta y requiere más memoria (que es limitada) porque tiene que copiar y eliminar.
+
+	      \paragraph{Planificador de Tareas - Scheduler:} Es el que nos dice cuándo y cuanto tiene va a ejecutar cada una de las tareas, va metiendo y sacando de la CPU. El programador clasifica las tareas en READY, RUNNING y BLOCK.
+
+	      \paragraph{Factores clave del Scheduling}
+	      Lo critico es la efectividad y la eficiencia en cuanto al tiempo de respuesta en cambiar entre tareas y elegir cuál es la va a continuación.
+	      \begin{itemize}
+		      \item \textbf{Tiempo de respuesta - Response Time:} Tiempo para que el programador haga que el contexto cambie a una tarea lista e incluye el tiempo de espera de la tarea en cola lista.
+		      \item \textbf{Turnaround time:} El tiempo que tarda un proceso en completarse.
+		      \item \textbf{Overhead:} El tiempo y los datos necesarios para determinar que tareas se ejecutan a continuación.
+		      \item \textbf{Fairness:} Ser capaz de realizar una partición equitativa entre todas las tareas que están pendientes de ejecución. ¿Cuáles son los factores determinantes en cuanto a qué procesos llegan a ejecutarse?
+		      \item \textbf{Throughput:} Procesar tantas tareas como sea posible en un periodo de tiempo determinado. tareas por unidad de tiempo.
+		      \item \textbf{Starvation:} Donde una tarea nunca llega a ejecutarse, nunca recibe una rodaja de tiempo.
+	      \end{itemize}
+
+
+	      \paragraph{Preventivo vs. No preventivo}
+
+	      Utilizar el término más parecido a la terminología inglesa, Expropiativo y No expropiativo.
+
+	      \begin{itemize}
+		      \item \textbf{Non-pre-emptive - No expropiativo - Apropiativo:} No se le puede expulsar. Las tareas reciben el control de la CPU maestra hasta que finalizan su ejecución, independientemente del tiempo o la importancia de las otras tareas que están en espera.
+
+		            Ejemplos: FCFS, SPF o SJF, Prioridades
+
+		      \item \textbf{Pre-emptive - Expropiativo - No apropiativo:} Se les puede expulsar de las CPU cuando acaba su rodaja, se dividen los procesos en rodajas de duración fija. El SO fuerza el cambio de contexto en una tarea, ya sea que una tarea en ejecución haya terminado de ejecutarse o este cooperando con el cambio de contexto.
+
+		            Ejemplos: Round Robin, SRTF, Colas Multinivel
+	      \end{itemize}
+
+	      \paragraph{Planificación e Raspberry Pi OS}
+	      \begin{itemize}
+		      \item Opera en todos los componentes.
+		      \item Solo se ejecuta una tarea a la vez.
+		      \item El planificador es un componente independiente.
+		      \item El programador predeterminado es una cola FIFO simple.
+		      \item La planificación es consciente de la energía, y pone el procesador en suspensión cuando no hay ninguna tarea en la cola.
+	      \end{itemize}
+
+	      \paragraph{Manejo de señales e interrupciones} Cuando llega una interrupción externa, saca el proceso de la CPU y atiende la interrupción ejecutando la rutina correspondiente, y vuelve al proceso previo.
+
+	      \paragraph{Sincronización y comunicación entre tareas} Nos permite que las distintas subtareas compartan datos, la manera más sencilla es utilizando espacios de memoria compartidos.
 
 	\item[Memory Management] El espacio del sistema embebido es compartido por todos los diferentes procesos, por lo que es necesario administrar el acceso y la asignación de partes del espacio de memoria. Los procesos de memoria para tener en cuenta:
-	\begin{description}
-		\item[Process memory locking] Ser capaz de bloquear y evitar los accesos indebidos al espacio de memoria de otros procesos.
-		\item[Memory mapped files] Llevar a memorias secundarias algunos mapas o páginas que tenga en función de las restricciones.
-		\item[Shared memory object] Implementar variables, objetos o espacios de memoria compartidos en distintos procesos para favorecer su sincronización.
-	\end{description}
+	      \begin{description}
+		      \item[Process memory locking] Ser capaz de bloquear y evitar los accesos indebidos al espacio de memoria de otros procesos.
+		      \item[Memory mapped files] Llevar a memorias secundarias algunos mapas o páginas que tenga en función de las restricciones.
+		      \item[Shared memory object] Implementar variables, objetos o espacios de memoria compartidos en distintos procesos para favorecer su sincronización.
+	      \end{description}
 
-	\paragraph{Modo de usuario vs. Modo kernel}
-		La forma en que los sistemas operativos administran el espacio de memoria lógica difiere de un sistema operativo a otro, pero los núcleos generalmente ejecutan el código del núcleo en un espacio de memoria separado de los procesos que ejecutan código de nivel superior (es decir, middleware y código de capa de aplicación).
+	      \paragraph{Modo de usuario vs. Modo kernel}
+	      La forma en que los sistemas operativos administran el espacio de memoria lógica difiere de un sistema operativo a otro, pero los núcleos generalmente ejecutan el código del núcleo en un espacio de memoria separado de los procesos que ejecutan código de nivel superior (es decir, middleware y código de capa de aplicación).
 
-	
+
 	\item[I/O System Management] Se encarga de cómo vamos a almacenar o permitir que los procesos entre sí accedan al espacio de almacenamiento secundario. Lo que queremos es una interfaz estándar para que puedan acceder a todos los espacios de almacenamiento independientemente del hardware y driver que tenga implementado.
 
-	Los dispositivos de E/S también deben compartirse entre los diversos procesos y, por tanto, al igual que con la memoria, el acceso y la asignación de un dispositivo de E/S deben administrarse. 
+	      Los dispositivos de E/S también deben compartirse entre los diversos procesos y, por tanto, al igual que con la memoria, el acceso y la asignación de un dispositivo de E/S deben administrarse.
 
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{Gestión de archivos en Sistemas Embebidos}}
-		{\includegraphics[scale=.5]{2021-03-25 11_52_40-2021-03-24 16-59-20.mkv.png}}
-	\end{figure}
+	      \begin{figure}[H]
+		      \ffigbox[\FBwidth]
+		      {\caption{Gestión de archivos en Sistemas Embebidos}}
+		      {\includegraphics[scale=.5]{2021-03-25 11_52_40-2021-03-24 16-59-20.mkv.png}}
+	      \end{figure}
 
 \end{description}
 
@@ -1069,7 +1009,7 @@ Cualquier software del sistema que no es kernel del sistema operativo, controlad
 Aun así, puede ser middleware \textbf{propietario}, que significa que es un software cerrado respaldado por una empresa que lo licencia a otra para su uso, o puede ser \textbf{abierto}, lo que significa que puede ser implementado y/o licenciado por cualquier parte interesada.
 
 \subsection{Capa de Software de Aplicación}
-Se encuentra en la parte superior de la capa de software del sistema y depende del software del sistema, o administra y lo ejecuta. 
+Se encuentra en la parte superior de la capa de software del sistema y depende del software del sistema, o administra y lo ejecuta.
 
 Es el software dentro de la capa de aplicación el que define inherentemente que tipo de dispositivo es un sistema integrado, porque la funcionalidad de una aplicación representa al más alto nivel el propósito de ese sistema integrado y realiza la mayor parte de la interacción con los usuarios o administradores de ese dispositivo.
 
@@ -1078,46 +1018,46 @@ Se pueden dividir en aplicaciones integradas \textbf{específicas del mercado} (
 \section{Preguntas Test 2}
 \begin{enumerate}
 	\item Seleccione la frase incorrecta con respecto a la definición de sistemas embebidos:
-	
-	d. PDA o web pads son ejemplos típicos de sistemas embebidos.
-	
+
+	      d. PDA o web pads son ejemplos típicos de sistemas embebidos.
+
 	\item ¿Por qué POSIX es muy relevante en el área de sistemas operativos integrados?
-	
-	b. Porque proporciona una interfaz de programación estándar para sistemas operativos embebidos. 
-	
+
+	      b. Porque proporciona una interfaz de programación estándar para sistemas operativos embebidos.
+
 	\item Seleccione la afirmación correcta con respecto a las señales/interrupciones del sistema operativo integrado:
-	
-	b. Las interrupciones son indicadores de que un evento asincrónico ha sido generado por algún evento externo.
-	
+
+	      b. Las interrupciones son indicadores de que un evento asincrónico ha sido generado por algún evento externo.
+
 	\item Seleccione la afirmación correcta con respecto a la interfaz GPIO de Raspberry Pi:
-	
-	a. Los pines UART se pueden usar para comunicar su Raspberry Pi con otros dispositivos que tengan una interfaz serie.
-	
+
+	      a. Los pines UART se pueden usar para comunicar su Raspberry Pi con otros dispositivos que tengan una interfaz serie.
+
 	\item Las placas de desarrollo de microcontroladores...
-	
-	a. incluyen hardware para programar microcontroladores. 
-	
+
+	      a. incluyen hardware para programar microcontroladores.
+
 	\item Seleccione la afirmación correcta con respecto a las funcionalidades de los controladores del sistema operativo integrado:
-	
-	b. La funcionalidad de instalación de hardware permite que otro software instale nuevo hardware sobre la marcha.
-	
+
+	      b. La funcionalidad de instalación de hardware permite que otro software instale nuevo hardware sobre la marcha.
+
 	\item Seleccionar la afirmación incorrecta:
-	
-	d. Raspberry Pi está diseñado para la integración de hardware de bajo nivel.
-	
+
+	      d. Raspberry Pi está diseñado para la integración de hardware de bajo nivel.
+
 	\item Las responsabilidades de gestión de la memoria en el sistema operativo embebido incluye:
-	
-	a. Determinar qué procesos cargar en el espacio de memoria disponible.
-	
+
+	      a. Determinar qué procesos cargar en el espacio de memoria disponible.
+
 	\item Seleccionar la afirmación incorrecta:
-	
-	?? a. Windows IoT no es un sistema operativo embebido IoT.
-	
-	c. Debian no es un sistema operativo embebido IoT. 
-	
+
+	      ?? a. Windows IoT no es un sistema operativo embebido IoT.
+
+	      c. Debian no es un sistema operativo embebido IoT.
+
 	\item La placa Arduino One no incluye
-	
-	a. Una ranura para tarjeta Micro SD.
+
+	      a. Una ranura para tarjeta Micro SD.
 \end{enumerate}
 
 
@@ -1155,10 +1095,10 @@ El servicio de mensajería consta de 3 partes; Publisher (publicador, emisor), B
 	\ffigbox[\FBwidth]
 	{\caption{Comunicación orientada a mensajes}}
 	{\includegraphics[scale=.5]{2021-04-08 09_17_44-2021-04-07 17-01-12.mkv.png}
-	\includegraphics[scale=.22]{2021-04-08 09_20_09-2021-04-07 17-01-12.mkv.png}}
+		\includegraphics[scale=.22]{2021-04-08 09_20_09-2021-04-07 17-01-12.mkv.png}}
 \end{figure}
 
-El broker hace como intermediario de los publicadores y suscriptores, de esta manera se reduce el acoplamiento y es más fácil escalar el sistema. 
+El broker hace como intermediario de los publicadores y suscriptores, de esta manera se reduce el acoplamiento y es más fácil escalar el sistema.
 
 A diferencia de HTTP, no es necesario que el publicador sepa a quién enviárselo, de esta manera se reduce también el consumo de recursos. Al igual los suscriptores no tienen que consultar a un montón de publicadores, solo al broker.
 
@@ -1215,8 +1155,8 @@ Se debe tener en cuenta cuál es el tamaño máximo de los mensajes según el pr
 \subsection{Estructura de un paquete MQTT}
 \begin{itemize}
 	\item \textbf{Cabecera:} Indica que tipo de mensaje que estamos mandando y algunos flags.
-	\item \textbf{Longitud del paquete} 
-	\item \textbf{Cabecera adicional (opcional)}: de longitud variable, de uso marginal. 
+	\item \textbf{Longitud del paquete}
+	\item \textbf{Cabecera adicional (opcional)}: de longitud variable, de uso marginal.
 	\item \textbf{Payload (datos):} Puede tener un tamaño variable, que por protocolo son 256 MB máximo, pero dependiendo del proveedor puede ser menor.
 \end{itemize}
 
@@ -1226,9 +1166,9 @@ Se debe tener en cuenta cuál es el tamaño máximo de los mensajes según el pr
 	{\includegraphics[scale=.5]{f4bd0f8a-2e92-4cdd-abfc-c7b067788d4a.png}}
 \end{figure}
 
-\subsection{Tipos de mensajes} 
+\subsection{Tipos de mensajes}
 \subsubsection{CONNECT (cliente a servidor)}
-Solicitud de conexión con el broker. 
+Solicitud de conexión con el broker.
 
 Solo es obligatorio el identificador de cliente (en nuestro caso lo administra paho), opcionalmente se puede proporcionar nombre de usuario, contraseña, keep alive o última voluntad.
 
@@ -1236,15 +1176,15 @@ Solo es obligatorio el identificador de cliente (en nuestro caso lo administra p
 Es el ACK de la conexión recibida, responde al CONNECT con un código (RC).
 \begin{description}
 	\item[0] Conexión satisfactoria.
-	\item[1] Conexión rechazada, versión de MQTT inaceptable.	
-	\item[2] Conexión rechazada, cliente identificado es UTF-8 y el servidor no lo permite.	
-	\item[3] Conexión rechazada, servidor no disponible.	
+	\item[1] Conexión rechazada, versión de MQTT inaceptable.
+	\item[2] Conexión rechazada, cliente identificado es UTF-8 y el servidor no lo permite.
+	\item[3] Conexión rechazada, servidor no disponible.
 	\item[4] Conexión rechazada, nombre o contraseña incorrecta.
 	\item[5] Conexión rechazada, el cliente no tiene permiso de conexión.
 \end{description}
 
 \subsubsection{PUBLISH}
-Publicar datos en una rama del canal. 
+Publicar datos en una rama del canal.
 
 Necesita un identificador de paquete/mensaje, nombre del canal (topic), nivel de calidad del servicio, retain y los datos (payload) son opcionales.
 
@@ -1253,18 +1193,18 @@ Suscribirse a un canal.
 
 Requiere identificador de paquete, tópico al que se suscribe, nivel de calidad de servicio. Opcionalmente topic\_2 y qos2. Poniendo llaves en el topic, con el nombre dentro, se suscribe a todos. /uc3m/aulas/{aulas}/temperature
 
-\subsection{Elementos de los mensajes} 
+\subsection{Elementos de los mensajes}
 
-\subsubsection{Last will - Ultima voluntad} 
+\subsubsection{Last will - Ultima voluntad}
 Es el mensaje que se envía a todos los suscriptores de un canal cuando se pierde la conexión de un publicador. Este parámetro se introduce al inicio.
 
-\subsubsection{Retain} 
+\subsubsection{Retain}
 En el indicamos si queremos que se retenga el mensaje hasta que sea confirmada la recepción por todos los suscriptores.
 
-\subsubsection{Keep alive} 
+\subsubsection{Keep alive}
 Indica cada cuanto tiempo se envía un mensaje al suscribirse, si no se recibe uno en 1,5 veces este valor se envía la última voluntad a los suscriptores. El servidor tiene un temporizador para controlar los tiempos.
 
-\textbf{Desconexión inesperada de publicadores:} Se puede deber a quedarse sin batería, internet o no enviar el disconnect. 
+\textbf{Desconexión inesperada de publicadores:} Se puede deber a quedarse sin batería, internet o no enviar el disconnect.
 \begin{itemize}
 	\item Conexión con petición de almacenamiento de "última voluntad"
 	\item Almacenamiento de petición de "última voluntad"
@@ -1281,81 +1221,79 @@ En caso de que el cliente no tenga nada que enviar envía periódicamente PINGRE
 Son los aseguramientos de entrega de los mensajes enviados por un publicador. Nos permite indicar como queremos que sea la conexión respecto a la recepción de los mensajes.
 
 \begin{description}
-\item[0 - Transmisión no asegurada] Es un proceso de entrega de mejor esfuerzo sin que el receptor reconozca un mensaje o el remitente vuelve a intentar transmitir. No se asegura de la entrega de todos los mensajes, si no llega se pierde.
+	\item[0 - Transmisión no asegurada] Es un proceso de entrega de mejor esfuerzo sin que el receptor reconozca un mensaje o el remitente vuelve a intentar transmitir. No se asegura de la entrega de todos los mensajes, si no llega se pierde.
 
-Debe usarse cuando no se necesita la cola de mensajes, para conexiones por cable o sistemas muy limitado en ancho de banda.
+	      Debe usarse cuando no se necesita la cola de mensajes, para conexiones por cable o sistemas muy limitado en ancho de banda.
 
-	\textbf{Orden de los eventos}
-	\begin{enumerate}
-	\item El dispositivo publicador se conecta al broker.
-	\item El suscriptor se conecta al broker.
-	\item El publicador publica un mensaje a través del broker.
-	\item El broker envía un mensaje al suscriptor con la información por el publicador.
-	\end{enumerate}
+	      \textbf{Orden de los eventos}
+	      \begin{enumerate}
+		      \item El dispositivo publicador se conecta al broker.
+		      \item El suscriptor se conecta al broker.
+		      \item El publicador publica un mensaje a través del broker.
+		      \item El broker envía un mensaje al suscriptor con la información por el publicador.
+	      \end{enumerate}
 
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{QoS 0}}
-		{\includegraphics[scale=.5]{0_1NSybQWdhHvVhnTb.png}}
-	\end{figure}
+	      \begin{figure}[H]
+		      \ffigbox[\FBwidth]
+		      {\caption{QoS 0}}
+		      {\includegraphics[scale=.5]{0_1NSybQWdhHvVhnTb.png}}
+	      \end{figure}
+	\item[1 - Transmisión asegurada] Asegura la entrega al menos una vez, puede recibirse el mismo mensaje varias veces. Produce más tráfico, el receptor envía un acuse de recibo con una respuesta PUBACK. Debería ser el uso predeterminado, más rápido que el 2 y reduce el costo de transmisión.
 
-\item[1 - Transmisión asegurada] Asegura la entrega al menos una vez, puede recibirse el mismo mensaje varias veces. Produce más tráfico, el receptor envía un acuse de recibo con una respuesta PUBACK. Debería ser el uso predeterminado, más rápido que el 2 y reduce el costo de transmisión.
+	      El publicador almacena el mensaje hasta que recibe la confirmación del broker de que se ha enviado al suscriptor. Se desentiende cuando sabe que se ha enviado.
 
-	El publicador almacena el mensaje hasta que recibe la confirmación del broker de que se ha enviado al suscriptor. Se desentiende cuando sabe que se ha enviado.
-			
-	El broker cunado recibe el mensaje lo almacena, envía al suscriptor, avisa del envío al publicador y hasta que no recibe la confirmación de los suscriptores no elimina el mensaje.
+	      El broker cunado recibe el mensaje lo almacena, envía al suscriptor, avisa del envío al publicador y hasta que no recibe la confirmación de los suscriptores no elimina el mensaje.
 
-	El suscriptor cuando recibe el mensaje confirma la recepción al broker.
+	      El suscriptor cuando recibe el mensaje confirma la recepción al broker.
 
-	\textbf{Orden de los eventos}
-	\begin{enumerate}
-	\item El dispositivo publicador A se conecta al broker.
-	\item El suscriptor B se conecta al broker.
-	\item El publicador publica un mensaje a través del broker.
-	\item El publicador A almacena el mensaje enviado.
-	\item El broker almacena el mensaje enviado por el publicador A.
-	\item El broker envía un mensaje al suscriptor B con la información enviada por el publicador A.
-	\item El broker notifica al publicador A que se ha enviado el mensaje.
-	\item El publicador A elimina el mensaje enviado.
-	\item El suscriptor B confirma que ha recibido el mensaje.
-	\item El broker elimina el último mensaje enviado por el publicador A.
-	\end{enumerate}
+	      \textbf{Orden de los eventos}
+	      \begin{enumerate}
+		      \item El dispositivo publicador A se conecta al broker.
+		      \item El suscriptor B se conecta al broker.
+		      \item El publicador publica un mensaje a través del broker.
+		      \item El publicador A almacena el mensaje enviado.
+		      \item El broker almacena el mensaje enviado por el publicador A.
+		      \item El broker envía un mensaje al suscriptor B con la información enviada por el publicador A.
+		      \item El broker notifica al publicador A que se ha enviado el mensaje.
+		      \item El publicador A elimina el mensaje enviado.
+		      \item El suscriptor B confirma que ha recibido el mensaje.
+		      \item El broker elimina el último mensaje enviado por el publicador A.
+	      \end{enumerate}
 
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{QoS 1}}
-		{\includegraphics[scale=.35]{0_b4pvXUWp6MVnAAFy.png}}
-	\end{figure}
+	      \begin{figure}[H]
+		      \ffigbox[\FBwidth]
+		      {\caption{QoS 1}}
+		      {\includegraphics[scale=.35]{0_b4pvXUWp6MVnAAFy.png}}
+	      \end{figure}
+	\item[2 - Servicio asegurado en aplicaciones] Asegura la entrega, pero solo se recibirá el mensaje una única vez por suscriptor. Informa tanto al remitente como al receptor que se ha transmitido correctamente, se confirman todos los mensajes incluidas las confirmaciones de entregas.
 
-\item[2 - Servicio asegurado en aplicaciones] Asegura la entrega, pero solo se recibirá el mensaje una única vez por suscriptor. Informa tanto al remitente como al receptor que se ha transmitido correctamente, se confirman todos los mensajes incluidas las confirmaciones de entregas.
+	      Se usa para aplicaciones de misión crítica, sobre todo en aquellas circunstancias en las que recibir un mensaje duplicado podría provocar fallos.
 
-Se usa para aplicaciones de misión crítica, sobre todo en aquellas circunstancias en las que recibir un mensaje duplicado podría provocar fallos.
+	      \textbf{Orden de los eventos}
+	      \begin{enumerate}
+		      \item El dispositivo publicador A se conecta al broker.
+		      \item El suscriptor B se conecta al broker.
+		      \item El publicador A almacena el mensaje enviado.
+		      \item El publicador A publica un mensaje a través del broker.
+		      \item El broker almacena el mensaje enviado por el publicador A.
+		      \item El broker envía un mensaje al suscriptor B con la información enviada por el publicador A.
+		      \item El suscriptor B confirma que ha recibido el mensaje.
+		      \item El broker envía al publicador A la confirmación de recepción de mensaje.
+		      \item El publicador A envía la confirmación de la eliminación del mensaje al broker.
+		      \item El broker informa al suscriptor B de la eliminación del mensaje.
+		      \item El suscriptor B confirma al broker la recepción del aviso de eliminación del mensaje.
+		      \item El suscriptor B elimina la información de estado de recepción del mensaje.
+		      \item El broker confirma al publicador A la confirmación de la recepción del aviso de eliminación del mensaje por parte del suscriptor B.
+		      \item El broker elimina el último mensaje enviado por el publicador A.
+		      \item El publicador A elimina el mensaje enviado.
+	      \end{enumerate}
 
-	\textbf{Orden de los eventos}
-	\begin{enumerate}
-	\item El dispositivo publicador A se conecta al broker.
-	\item El suscriptor B se conecta al broker.
-	\item El publicador A almacena el mensaje enviado.
-	\item El publicador A publica un mensaje a través del broker.
-	\item El broker almacena el mensaje enviado por el publicador A.
-	\item El broker envía un mensaje al suscriptor B con la información enviada por el publicador A.
-	\item El suscriptor B confirma que ha recibido el mensaje.
-	\item El broker envía al publicador A la confirmación de recepción de mensaje.
-	\item El publicador A envía la confirmación de la eliminación del mensaje al broker.
-	\item El broker informa al suscriptor B de la eliminación del mensaje.
-	\item El suscriptor B confirma al broker la recepción del aviso de eliminación del mensaje.
-	\item El suscriptor B elimina la información de estado de recepción del mensaje.
-	\item El broker confirma al publicador A la confirmación de la recepción del aviso de eliminación del mensaje por parte del suscriptor B.
-	\item El broker elimina el último mensaje enviado por el publicador A.
-	\item El publicador A elimina el mensaje enviado.
-	\end{enumerate}
-	
-	Error en la imagen: el broker guardaría el mensaje después de recibirlo.
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{QoS 2}}
-		{\includegraphics[scale=.2]{0_G6zwc_VftJ4AcueS.png}}
-	\end{figure}
+	      Error en la imagen: el broker guardaría el mensaje después de recibirlo.
+	      \begin{figure}[H]
+		      \ffigbox[\FBwidth]
+		      {\caption{QoS 2}}
+		      {\includegraphics[scale=.2]{0_G6zwc_VftJ4AcueS.png}}
+	      \end{figure}
 \end{description}
 \pagebreak
 \section{MQTT-SN - Message Queuing Telemetry Transport for Sensor Networks}
@@ -1390,9 +1328,9 @@ Los gateways/routers envían periódicamente mensajes broadcast (ADVERTISE) info
 \end{itemize}
 
 \section{CoAP (Constrained Application Protocol) - Protocolo de Aplicación Restringida}
-	Es un estándar del IETF, está pensado para facilitar la conexión entre dos máquinas punto a punto.
+Es un estándar del IETF, está pensado para facilitar la conexión entre dos máquinas punto a punto.
 
-	El broker no existe como tal, sino que para conectarte a un servidor necesita conocer su dirección física. Una vez establecida la conexión es hasta 64 veces mejor que su equivalente con HTTP y software similar.
+El broker no existe como tal, sino que para conectarte a un servidor necesita conocer su dirección física. Una vez establecida la conexión es hasta 64 veces mejor que su equivalente con HTTP y software similar.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Estructura CoAP}}
@@ -1400,14 +1338,14 @@ Los gateways/routers envían periódicamente mensajes broadcast (ADVERTISE) info
 \end{figure}
 \pagebreak
 \subsection{Requisitos a satisfacer}
-	\begin{itemize}
-		\item Debe tener una complejidad adecuada que se tienen en una red IoT, con baja capacidad de procesamiento y una RAM muy limitada. Memoria hasta 256 K y RAM de 12 K. Reduciendo la sobrecarga de los mensajes de HTTP, pero con un método de direccionamiento exactamente igual al de HTTP.
-		\item Es necesario un mecanismo que permita gestionar la caché de solicitudes de recursos recientes, para optimizar.
-		\item Tiene que implementar peticiones post, get, put y delete, de manera que permita facilitar y automatizar la creación, eliminación, lectura y actualización de un dispositivo, canal o recursos.
-		\item Cada dispositivo debe tener su URI, un identificador único de recurso, similar al de URL.
-		\item Periodos de latencias muy bajos.
-		\item Tiene que trabajar sobre UDP, para aligerar el protocolo.
-	\end{itemize}
+\begin{itemize}
+	\item Debe tener una complejidad adecuada que se tienen en una red IoT, con baja capacidad de procesamiento y una RAM muy limitada. Memoria hasta 256 K y RAM de 12 K. Reduciendo la sobrecarga de los mensajes de HTTP, pero con un método de direccionamiento exactamente igual al de HTTP.
+	\item Es necesario un mecanismo que permita gestionar la caché de solicitudes de recursos recientes, para optimizar.
+	\item Tiene que implementar peticiones post, get, put y delete, de manera que permita facilitar y automatizar la creación, eliminación, lectura y actualización de un dispositivo, canal o recursos.
+	\item Cada dispositivo debe tener su URI, un identificador único de recurso, similar al de URL.
+	\item Periodos de latencias muy bajos.
+	\item Tiene que trabajar sobre UDP, para aligerar el protocolo.
+\end{itemize}
 
 \subsection{Diferencias con MQTT}
 \begin{itemize}
@@ -1440,13 +1378,13 @@ Se utiliza el protocolo coap (coap://) en vez de http, con un nombre de URL que 
 	\item \textbf{Proxies:} Nos permite conectar los endpoints a la red, funcionan como intermediarios de los mensajes, reciben CoAP y puede salir otro formato para los servidores.
 	\item \textbf{Servidor CoAP:} Es al que nos conectamos cuando queremos obtener la información de los sensores.
 	\item \textbf{Observador:} Elemento que se puede utilizar como si fuera un broker de MQTT.
-	\begin{figure}[H]
-		\ffigbox[\FBwidth]
-		{\caption{CoAP Observer}}
-		{\includegraphics[scale=.48]{2a2f42a1-0813-4e84-a244-72e6f2667ba8.png}}
-	\end{figure}
+	      \begin{figure}[H]
+		      \ffigbox[\FBwidth]
+		      {\caption{CoAP Observer}}
+		      {\includegraphics[scale=.48]{2a2f42a1-0813-4e84-a244-72e6f2667ba8.png}}
+	      \end{figure}
 
-	
+
 \end{itemize}
 
 \textbf{DTLS} es el protocolo de comunicación seguro que se monta sobre CoAP, da una capa de seguridad a UDP sobre los mensajes en transmisiones punto a punto.
@@ -1462,23 +1400,23 @@ Todos los mensajes tienen un MID (message ID) y un Token, es un código que nos 
 
 \begin{itemize}
 	\item \textbf{CON - Confirmable:} Requiere un ACK. Si se envía un mensaje CON, se debe recibir un ACK dentro de un intervalo de tiempo aleatorio entre ACK\_TIMEOUT y este valor multiplicado por un valor aleatorio. Si no se recibe el ACK, el remitente transmite el mensaje CON una y otra vez a intervalos que aumentan exponencialmente hasta que recibe le ACK o un RST.
-	\begin{itemize}
-		\item El A manda CON get \/temp con un token. 
-		\item El B envía un mensaje ACK al A.
-		\item El B manda CON con el contenido solicitado.
-		\item El A confirma la recepción con un ACK.
-	\end{itemize}
+	      \begin{itemize}
+		      \item El A manda CON get \/temp con un token.
+		      \item El B envía un mensaje ACK al A.
+		      \item El B manda CON con el contenido solicitado.
+		      \item El A confirma la recepción con un ACK.
+	      \end{itemize}
 	\item \textbf{NON: No-confirmable:} No requiere un ACK. Esencialmente un mensaje o transmisión de disparar y olvidar.
-	\begin{itemize}
-		\item El cliente A manda un mensaje NON para get \/temp, con un token para identificarme.
-		\item El cliente B lo recibe y envía al Cliente A el contenido solicitado con el token que le envió A, para que sepa que es suyo.
-	\end{itemize}
+	      \begin{itemize}
+		      \item El cliente A manda un mensaje NON para get \/temp, con un token para identificarme.
+		      \item El cliente B lo recibe y envía al Cliente A el contenido solicitado con el token que le envió A, para que sepa que es suyo.
+	      \end{itemize}
 	\item \textbf{ACK - Reconocimiento:} Reconoce mensajes CON. El mensaje ACK puede combinarse con otros datos.
 
 	\item \textbf{RST - Reseteo:} Indica que se ha recibido un mensaje CON, pero falta el contexto. El mensaje RST puede combinarse con otros datos.
 \end{itemize}
 
-\textbf{Simétrico} ambos extremos de la comunicación tienen que ser capaces de proporcionar los mismos mensajes en la comunicación, la comunicación entre ambos nodos se realiza de la misma manera, sin embargo \textbf{asimétrico} cada uno se comporta de una manera distinta cuando se comunican. 
+\textbf{Simétrico} ambos extremos de la comunicación tienen que ser capaces de proporcionar los mismos mensajes en la comunicación, la comunicación entre ambos nodos se realiza de la misma manera, sin embargo \textbf{asimétrico} cada uno se comporta de una manera distinta cuando se comunican.
 
 \chapter{Tema 6: Microservicios para la gestión de nubes de dispositivos IoT}
 \section{Microservicio}
@@ -1519,42 +1457,42 @@ Los microservicios deben ser configurables de manera automática, es decir con a
 \begin{itemize}
 	\item \textbf{Gestión de Dispositivos - Device Microservice}, se encarga de registrar, de registrar y conocer el estado de los dispositivos para transmitirla.
 	\item \textbf{Ingestión de telemétrica - Ingestion Event Hub}, recepción de mensajes de los dispositivos que tengamos distribuidos por el mundo. Gestiona grandes cantidades de datos.
-	\item \textbf{Transformación y Almacenamiento - Event Relational Store}. 
+	\item \textbf{Transformación y Almacenamiento - Event Relational Store}.
 	\item \textbf{Estado y Notificaciones - Alarm Event Hub}.
-	\item \textbf{Analíticas y Visualización de Datos - Reference Data Microservice}. 
+	\item \textbf{Analíticas y Visualización de Datos - Reference Data Microservice}.
 \end{itemize}
 
 
 \section{Características}
-	\begin{description}
-		\item[Autónomos] Capaz de existir independientemente de otros componentes de la plataforma IoT, responder, reaccionar o desarrollase independientemente del todo. Que se pueda tener funciones sin requerir el todo y estos componentes se pueden poner a ejecutar de manera aislada.
-		\item[Aislados] Capaz de ejecutarse aisladamente de los demás componentes, pudiéndose ejecutar en diferentes lugares y en diferentes momentos.
-		\pagebreak 
-		\item[Elástico] Cuando gestionando los recursos de manera razonable es capaz de proporcionar servicio a centenares de usuarios y a centenares de miles de usuarios, es capaz de estirarse para dar servicio a más usuarios sin necesidad de desarrollo adicional, solo replicando el microservicio en contenedores y servidores
-		\item[Resiliente] Capaz de mantenerse en funcionamiento después de un error, no se queda bloqueada, se debe poder recuperar.
-		\item[Responsive] Debe proporcionar una respuesta rápida y eficiente por muchos usuarios que se tenga.
-		\item[Orientado a mensaje] Disponible a partir de una interfaz HTTP, que los datos se transferirán mediante una llamada CoAP, HTTP o similar, y los datos están guardados en un objeto (de una manera más rica) como JSON o binario, de manera que los sistemas separados en una red estén conectados.
-		
-		Si quiero acceder a un método de un microservicio haré una petición get, post, put o delete, si está en una nube mediante HTTP y si es un dispositivo con la nube mediante CoAP o MQTT.
+\begin{description}
+	\item[Autónomos] Capaz de existir independientemente de otros componentes de la plataforma IoT, responder, reaccionar o desarrollase independientemente del todo. Que se pueda tener funciones sin requerir el todo y estos componentes se pueden poner a ejecutar de manera aislada.
+	\item[Aislados] Capaz de ejecutarse aisladamente de los demás componentes, pudiéndose ejecutar en diferentes lugares y en diferentes momentos.
+	      \pagebreak
+	\item[Elástico] Cuando gestionando los recursos de manera razonable es capaz de proporcionar servicio a centenares de usuarios y a centenares de miles de usuarios, es capaz de estirarse para dar servicio a más usuarios sin necesidad de desarrollo adicional, solo replicando el microservicio en contenedores y servidores
+	\item[Resiliente] Capaz de mantenerse en funcionamiento después de un error, no se queda bloqueada, se debe poder recuperar.
+	\item[Responsive] Debe proporcionar una respuesta rápida y eficiente por muchos usuarios que se tenga.
+	\item[Orientado a mensaje] Disponible a partir de una interfaz HTTP, que los datos se transferirán mediante una llamada CoAP, HTTP o similar, y los datos están guardados en un objeto (de una manera más rica) como JSON o binario, de manera que los sistemas separados en una red estén conectados.
 
-		\item[Programable] Un plan de tareas que se realizan con el fin de lograr un resultado específico. Que estas funcionalidades de la API se puedan acceder desde un navegador o por medio de otras aplicaciones. Esta programación en un microservicio se hace mediante un protocolo de red.
-		\item[Configurable] Diseñado para poderse adaptar a diferentes configuraciones específicas, que se tiene que adaptar a las distintas posibles configuraciones de despliegue, hacer que sea más fácil realizar estas configuraciones. Diseñado para poderse adaptar a diferentes configuraciones específicas o para algún propósito específico.
-		\item[Automatizado] Tener controles que permitan que algo funcione o suceda sin ser controlado directamente por una persona.
-	\end{description}
+	      Si quiero acceder a un método de un microservicio haré una petición get, post, put o delete, si está en una nube mediante HTTP y si es un dispositivo con la nube mediante CoAP o MQTT.
+
+	\item[Programable] Un plan de tareas que se realizan con el fin de lograr un resultado específico. Que estas funcionalidades de la API se puedan acceder desde un navegador o por medio de otras aplicaciones. Esta programación en un microservicio se hace mediante un protocolo de red.
+	\item[Configurable] Diseñado para poderse adaptar a diferentes configuraciones específicas, que se tiene que adaptar a las distintas posibles configuraciones de despliegue, hacer que sea más fácil realizar estas configuraciones. Diseñado para poderse adaptar a diferentes configuraciones específicas o para algún propósito específico.
+	\item[Automatizado] Tener controles que permitan que algo funcione o suceda sin ser controlado directamente por una persona.
+\end{description}
 
 \section{Arquitectura de Microservicios}
 
-El principio básico para el desarrollo de una arquitectura de servicios en la nube, como es el IoT, consiste en la separación de intereses, siguiendo un principio de diseño que permite separar la implementación de todo un sistema complejo en distintas capas, donde cada capa tiene su ámbito o foco de actuación. 
+El principio básico para el desarrollo de una arquitectura de servicios en la nube, como es el IoT, consiste en la separación de intereses, siguiendo un principio de diseño que permite separar la implementación de todo un sistema complejo en distintas capas, donde cada capa tiene su ámbito o foco de actuación.
 
 Esa separación se logra mediante el encapsulamiento e interfaces bien definidas, que es lo que buscamos con los microservicios.
 Este tipo de encapsulamiento se debe hacer en las 5 áreas que se describen arriba.
 
 En función de la separación de los intereses hay distintos tipos de arquitecturas.
 
-\subsection{Solución monolítica} 
+\subsection{Solución monolítica}
 Aquellas que se implementan como un gran cuerpo con todo el código y se necesita tenerlo completo para utilizar el sistema.
 
-No se encuentra divida en partes más pequeñas (como podrían ser microservicios) para obtener solo lo que nos interesa. 
+No se encuentra divida en partes más pequeñas (como podrían ser microservicios) para obtener solo lo que nos interesa.
 
 Esto hace que sea muy difícil de mantener y evolucionar, todo está muy acoplado entre sí.
 
@@ -1570,9 +1508,9 @@ Se establecen unas capas según las funcionalidades e intereses.
 \begin{itemize}
 	\item \textbf{Presentación}, la de interfaz de usuario, lo que se muestra al usuario e interactúa.
 	\item \textbf{Aplicación}, tiene toda la lógica de negocio.
-	
-	Es una capa monolítica si se quiere cambiar algo de esta capa hay que reinstalar toda la capa por completo, como si fuera un monolito.
-	
+
+	      Es una capa monolítica si se quiere cambiar algo de esta capa hay que reinstalar toda la capa por completo, como si fuera un monolito.
+
 	\item \textbf{Persistencia}, donde se produce el almacenamiento y consulta de datos.
 \end{itemize}
 \pagebreak
@@ -1590,10 +1528,10 @@ Se tiene una evolución muy superior que MVC, consisten en proporcionar diferent
 	\item \textbf{Clientes móvil/web}: Se pueden conectar vía móvil, tablet, web, etc.
 	\item \textbf{Clientes ricos}: Como puede ser el que se puede acceder desde un computador de escritorio, en el que se puede proporcionar y acceder a mucha más información.
 	\item \textbf{Contratos y Servicios web}: Para controlar las diferentes interfaces se utiliza SOAP o REST.
-	
-	\textbf{SOAP} es un protocolo específico que se gestiona de manera independiente a HTTP y tiene otros estándares adicionales para publicar servicios complejos en internet, que permite implementar más seguridad o atomicidad de las operaciones. Emplea XML.
 
-	\textbf{REST} es un estilo arquitectónico para exponer servicios web en internet mediante HTTP y que nos permite más tipos. Emplea XML o JSON, permite más tipos de protocolos.
+	      \textbf{SOAP} es un protocolo específico que se gestiona de manera independiente a HTTP y tiene otros estándares adicionales para publicar servicios complejos en internet, que permite implementar más seguridad o atomicidad de las operaciones. Emplea XML.
+
+	      \textbf{REST} es un estilo arquitectónico para exponer servicios web en internet mediante HTTP y que nos permite más tipos. Emplea XML o JSON, permite más tipos de protocolos.
 
 	\item \textbf{Capa de dominio:} Es donde se tienen las reglas de negocio.
 	\item \textbf{Capa de aplicación}: Se coreografían las reglas de negocio.
@@ -1612,18 +1550,18 @@ En las arquitecturas de microservicios las 3 capas (Presentación, Aplicación y
 \vspace{-0.5cm}
 La capa de aplicación está formada por microservicios que se coordinan con una API que hace de coreografiador según las peticiones que recibe de la WebApp.
 
-Cuando se recibe una petición de la WebApp se pasa a la API (coreografiador) que se encarga de pasarla al microservicio correcto para realizar lo solicitado, cada microservicio posee sus propios datos con su propio gestor de bases de datos. 
+Cuando se recibe una petición de la WebApp se pasa a la API (coreografiador) que se encarga de pasarla al microservicio correcto para realizar lo solicitado, cada microservicio posee sus propios datos con su propio gestor de bases de datos.
 
 Incluso un mismo microservicio según la configuración que le demos puede utilizar un gestor de bases de datos u otro.
 
 \subsection{Ventajas de las Arquitecturas de Microservicios}
 \begin{itemize}
-	\item	Mejor escalabilidad del desarrollo, cada microservicio se centra en una cuestión, de esta manera el trabajo de desarrollo se puede dividir entre distintos equipos de desarrollo y que sean más diversos.
-	\item	Mayor velocidad de desarrollo, al haber más equipos que trabajen en paralelo.
-	\item	Apoya la modernización iterativa o incremental.
-	\item	Aprovecha el moderno ecosistema de desarrollo de software (nube, contenedores, DevOps, sin servidor), nos permite desplegar en un nodo independiente cada uno de estos microservicios de esta manera se da servicio a más sistemas.
-	\item	Admite escalado horizontal y granulado.
-	\item	Pone poca complejidad cognitiva en la cabeza del desarrollador gracias a su tamaño más pequeño.
+	\item Mejor escalabilidad del desarrollo, cada microservicio se centra en una cuestión, de esta manera el trabajo de desarrollo se puede dividir entre distintos equipos de desarrollo y que sean más diversos.
+	\item Mayor velocidad de desarrollo, al haber más equipos que trabajen en paralelo.
+	\item Apoya la modernización iterativa o incremental.
+	\item Aprovecha el moderno ecosistema de desarrollo de software (nube, contenedores, DevOps, sin servidor), nos permite desplegar en un nodo independiente cada uno de estos microservicios de esta manera se da servicio a más sistemas.
+	\item Admite escalado horizontal y granulado.
+	\item Pone poca complejidad cognitiva en la cabeza del desarrollador gracias a su tamaño más pequeño.
 \end{itemize}
 
 \section{Elementos de los Microservicios}
@@ -1638,51 +1576,51 @@ Incluso un mismo microservicio según la configuración que le demos puede utili
 	\item \textbf{Capa de modelos:} Tiene su propio modelo de datos que es la estructura que deben tener los datos que entran y salen de nuestros microservicios. En la práctica el modelo de datos es agnóstico, independiente.
 	\item \textbf{Capa de SDK - Software Development Kit:} Conjunto de herramientas y librerías que se utilizan para desarrollar código, incluye funciones que realizan las llamadas a la API ReST para facilitarnos interactuar con ellas de manera que no haga falta que lo hagamos nosotros.
 	\item Nuestros microservicios van a utilizar comunicación HTTP, por lo tanto, dentro de sus elementos se encuentran las distintas peticiones.
-	\begin{itemize}
-		\item \textbf{GET - Leer}: Puede hacerse de manera simple, mediante la URL con el ID a consultar, o más compleja mediante el uso de una interrogación e igual, para determinar los parámetros y debe ser capaz de trabajar con estos.
-		
-		GET http://myapi.looksfamiliar.com/profiles/user/id/99999
+	      \begin{itemize}
+		      \item \textbf{GET - Leer}: Puede hacerse de manera simple, mediante la URL con el ID a consultar, o más compleja mediante el uso de una interrogación e igual, para determinar los parámetros y debe ser capaz de trabajar con estos.
 
-		GET http://myapi.looksfamiliar.com/profiles?location=Massachusetts
+		            GET http://myapi.looksfamiliar.com/profiles/user/id/99999
 
-		\item \textbf{POST - Crear}: Peticiones que nos permiten crear elementos, los parámetros se pasan con una estructura determinada como JSON
-		
-		\{ \"id" : "99999", "first" : "Bob", "last" : "Familiar" \}
+		            GET http://myapi.looksfamiliar.com/profiles?location=Massachusetts
 
-		POST http://myapi.looksfamiliar.com/profiles/user
-		
-		\item \textbf{PUT - Sustituir o actualizar}
-		\item \textbf{PATCH - Modificar Parcialmente}
-		\item \textbf{DELETE - Borrar}
-	\end{itemize}
+		      \item \textbf{POST - Crear}: Peticiones que nos permiten crear elementos, los parámetros se pasan con una estructura determinada como JSON
+
+		            \{ \"id" : "99999", "first" : "Bob", "last" : "Familiar" \}
+
+		            POST http://myapi.looksfamiliar.com/profiles/user
+
+		      \item \textbf{PUT - Sustituir o actualizar}
+		      \item \textbf{PATCH - Modificar Parcialmente}
+		      \item \textbf{DELETE - Borrar}
+	      \end{itemize}
 	\item \textbf{Protocolo:} Puede ser de dos tipos ReST o SOAP.
-	\begin{table}[H]
-		\begin{tabular}{l|c|c|}
-			\cline{2-3}
-			& \textbf{SOAP/WSPL} & \textbf{ReST} \\ \hline
-			\multicolumn{1}{|l|}{\textbf{Estilo}}                                                      
-			& Protocolo & Arquitectónico \\ \hline
-			\multicolumn{1}{|l|}{\textbf{Foco}} 
-			& \begin{tabular}[c]{@{}c@{}}Orientado a la funcionalidad\\ - Hacer Transacciones\end{tabular} & \begin{tabular}[c]{@{}c@{}}Orientado a datos - \\ Acceder a los datos de un recurso\end{tabular} \\ \hline
-			\multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Formato \\ de Datos\end{tabular}}} 
-			& XML & Texto, JSON, HTML, XML \\ \hline
-			\multicolumn{1}{|l|}{\textbf{Seguridad}}                                                  
-			& WS-Security -\textgreater SSL & TLS y SSL -\textgreater HTTP \\ \hline
-			\multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Ancho \\ de banda\end{tabular}}} &
-				\begin{tabular}[c]{@{}c@{}}Requiere más al usar XML y ser un \\ protocolo, tiene su propia secuencia de \\ negociación de mensajes, más tráfico\end{tabular} & Requiere menos \\ \hline
-			\multicolumn{1}{|l|}{\textbf{Cache}}                                                       
-			& No se puede gestionar & Puede gestionar caché \\ \hline
-			\multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Contrato \\ de datos\end{tabular}}} 
-			& Necesito conocer la Clase del Objeto & \begin{tabular}[c]{@{}c@{}}No tiene por qué ser conocido \\ el tipo de datos previamente\end{tabular} \\ \hline
-			\multicolumn{1}{|l|}{\textbf{Atomicidad}}                                                  
-			& Si & No \\ \hline
-		\end{tabular}
-		\caption{Diferencias entre SOAP y ReST}
-	\end{table}
+	      \begin{table}[H]
+		      \begin{tabular}{l|c|c|}
+			      \cline{2-3}
+			        & \textbf{SOAP/WSPL}                   & \textbf{ReST}                \\ \hline
+			      \multicolumn{1}{|l|}{\textbf{Estilo}}
+			        & Protocolo                            & Arquitectónico               \\ \hline
+			      \multicolumn{1}{|l|}{\textbf{Foco}}
+			        & \begin{tabular}[c]{@{}c@{}}Orientado a la funcionalidad\\ - Hacer Transacciones\end{tabular}           & \begin{tabular}[c]{@{}c@{}}Orientado a datos - \\ Acceder a los datos de un recurso\end{tabular}   \\ \hline
+			      \multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Formato \\ de Datos\end{tabular}}}
+			        & XML                                  & Texto, JSON, HTML, XML       \\ \hline
+			      \multicolumn{1}{|l|}{\textbf{Seguridad}}
+			        & WS-Security -\textgreater SSL        & TLS y SSL -\textgreater HTTP \\ \hline
+			      \multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Ancho \\ de banda\end{tabular}}} &
+			      \begin{tabular}[c]{@{}c@{}}Requiere más al usar XML y ser un \\ protocolo, tiene su propia secuencia de \\ negociación de mensajes, más tráfico\end{tabular} & Requiere menos \\ \hline
+			      \multicolumn{1}{|l|}{\textbf{Cache}}
+			        & No se puede gestionar                & Puede gestionar caché        \\ \hline
+			      \multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Contrato \\ de datos\end{tabular}}}
+			        & Necesito conocer la Clase del Objeto & \begin{tabular}[c]{@{}c@{}}No tiene por qué ser conocido \\ el tipo de datos previamente\end{tabular}   \\ \hline
+			      \multicolumn{1}{|l|}{\textbf{Atomicidad}}
+			        & Si                                   & No                           \\ \hline
+		      \end{tabular}
+		      \caption{Diferencias entre SOAP y ReST}
+	      \end{table}
 	\item \textbf{API Gateway}
 	\item \textbf{Capa de Servicio}: Es donde realmente se implementa el funcionamiento, el código que tenemos que utilizar para implementar los métodos que se exponen sobre la API. Actúa con la capa de acceso a datos para gestionar los datos en persistencia.
 	\item \textbf{Capa de Acceso a Datos}: Gestión de la persistencia de los datos y las caches. Interfaces para acceder a los datos.
-	\item \textbf{Capa de Automatización}: Es la que permite configurar mediante una secuencia de script, lanzar y ejecutar las distintas instancias de los microservicios mediante tecnología como contenedores, todo de manera automatizada. 
+	\item \textbf{Capa de Automatización}: Es la que permite configurar mediante una secuencia de script, lanzar y ejecutar las distintas instancias de los microservicios mediante tecnología como contenedores, todo de manera automatizada.
 \end{itemize}
 
 \section{Características Importantes de una Arquitectura de Microservicios}
@@ -1724,7 +1662,7 @@ En caso de que un evento provoque una situación de error, todos los anteriores 
 \begin{itemize}
 	\item \textbf{Pros:} Proporciona soluciones atómicas bien definidas y se tiene un registro de las peticiones de los microservicios, incluso un registro por cada microservicio. Se realiza mediante eventos y no compartiendo datos o estructura.
 	\item \textbf{Contras:} Realizar esas coreografías es complejo y requiere un almacén adicional para las peticiones y estado antes y después de cada evento,  para poder ante cualquier problema volver al estado anterior.
-\end{itemize}		
+\end{itemize}
 
 \subsection{Backends para Frontends (BFF)}
 \begin{figure}[H]
@@ -1744,65 +1682,65 @@ Se gestiona un backends para cada interfaz cuenta con su orquestador/coreografia
 \begin{itemize}
 	\item \textbf{Contras:} El problema es que se puede producir lógica duplicada, que resulta problemático a la hora de realizar las pruebas y corregir los errores.
 
-	Hay muchas posibles interfaces lo que hace que se vuelva más complejo, al haber tanta variedad de dispositivos, necesidades por cubrir y requisitos que satisfacer.
-\end{itemize}	
+	      Hay muchas posibles interfaces lo que hace que se vuelva más complejo, al haber tanta variedad de dispositivos, necesidades por cubrir y requisitos que satisfacer.
+\end{itemize}
 \pagebreak
 \section{Preguntas Test 3}
 \begin{enumerate}
 	\item Indique el orden CORRECTO de los eventos para la verificación periódica de la conexión de los clientes en el protocolo MQTT:
-	
-	1 - El publicador recibe del broker la confirmación de recepción del PINGREQ
 
-	2 - El publicador A publica un mensaje a través del broker
+	      1 - El publicador recibe del broker la confirmación de recepción del PINGREQ
 
-	3 - El publicador A detecta que ha pasado el tiempo máximo entre mensajes
+	      2 - El publicador A publica un mensaje a través del broker
 
-	4 - El publicador envía un mensaje PINGREQ al broker
+	      3 - El publicador A detecta que ha pasado el tiempo máximo entre mensajes
 
-	Seleccione una:
+	      4 - El publicador envía un mensaje PINGREQ al broker
 
-	a. 2, 3, 4, 1 
+	      Seleccione una:
+
+	      a. 2, 3, 4, 1
 
 	\item Seleccione la respuesta CORRECTA con respecto a las diferencias entre MQTT y MQTT-SN. Seleccione una:
 
-	b. En MQTT-SN, se introduce un procedimiento de descubrimiento para ayudar a los clientes y permitirles encontrar las direcciones de red de servidores y puertas de enlace. 
+	      b. En MQTT-SN, se introduce un procedimiento de descubrimiento para ayudar a los clientes y permitirles encontrar las direcciones de red de servidores y puertas de enlace.
 
 	\item Seleccione la afirmación INCORRECTA con respecto a las desventajas de las arquitecturas de microservicio. Seleccione una:
 
-	d. La complejidad pasa de la infraestructura al código. 
+	      d. La complejidad pasa de la infraestructura al código.
 
 	\item Seleccione la afirmación CORRECTA con respecto a los elementos de un microservicio. Seleccione una:
 
-	b. Los modelos definen la estructura de los datos a medida que entran y salen de un microservicio. 
+	      b. Los modelos definen la estructura de los datos a medida que entran y salen de un microservicio.
 
 	\item Seleccione la respuesta INCORRECTA con respecto a las diferencias entre el Constrained Application Protocol (CoAP) y MQTT.
-	Seleccione una:
+	      Seleccione una:
 
-	a. MQTT utiliza el modelo de comunicación solicitud-respuesta. 
+	      a. MQTT utiliza el modelo de comunicación solicitud-respuesta.
 
 	\item Seleccione la respuesta CORRECTA con respecto a los mensajes del Protocolo de aplicación restringida (CoAP). Seleccione una:
 
-	d. Si se envía un mensaje CON, se debe recibir un ACK dentro de un intervalo de tiempo aleatorio entre ACK\_TIMEOUT y (ACK\_TIMEOUT * ACK\_RANDOM \_FACTOR). 
+	      d. Si se envía un mensaje CON, se debe recibir un ACK dentro de un intervalo de tiempo aleatorio entre ACK\_TIMEOUT y (ACK\_TIMEOUT * ACK\_RANDOM \_FACTOR).
 
 	\item Seleccione la respuesta CORRECTA con respecto a los niveles de calidad de servicio en el protocolo MQTT.	Seleccione una:
-	
-	a. El modo QoS-1 garantizará la entrega del mensaje al menos una vez al receptor. 
+
+	      a. El modo QoS-1 garantizará la entrega del mensaje al menos una vez al receptor.
 
 	\item Seleccione la afirmación INCORRECTA con respecto a las características de los microservicios. Seleccione una:
 
-	c. El concepto de "micro" en microservicio se refiere al tamaño del componente de software. 
+	      c. El concepto de "micro" en microservicio se refiere al tamaño del componente de software.
 
 	\item Seleccione la afirmación CORRECTA con respecto a los beneficios de la base de datos por patrón de microservicio. Seleccione una:
 
-	d. Proporciona la propiedad completa de los datos a un servicio. 
+	      d. Proporciona la propiedad completa de los datos a un servicio.
 	\item Seleccione la afirmación INCORRECTA con respecto a la comparación entre REST API y SOAP / WSDL. 	Seleccione una:
 
-	b. REST es un protocolo, mientras que SOAP es un estilo de arquitectura. 
+	      b. REST es un protocolo, mientras que SOAP es un estilo de arquitectura.
 \end{enumerate}
 
 \chapter{Tema 7: Introducción a Contenedores}
 \section{Introducción}
-Es una analogía con el transporte de grandes cargas en contenedores de tamaño estándar, que les permite ser transportados fácilmente en camiones, trenes y barcos; maquinaria especializada. 
+Es una analogía con el transporte de grandes cargas en contenedores de tamaño estándar, que les permite ser transportados fácilmente en camiones, trenes y barcos; maquinaria especializada.
 
 Es un sistema de transporte muy estándar. Independientemente de la funcionalidad que integre queremos que sea estándar, como una caja negra.
 
@@ -1820,7 +1758,7 @@ En los 2000 surgieron los contenedores como ese mecanismo para gestionar las inf
 \begin{itemize}
 	\item \textbf{Contenedor:} Una unidad estándar de software \textbf{en ejecución}, que empaqueta el código y todas sus referencias.
 	\item \textbf{Imagen:} Es el conjunto de fichero que define el contenido o lo que puede ejecutar un contenedor.
-	Una imagen de contenedor es un paquete de software ligero e independiente, que incluyen lo necesario para correr la aplicación.
+	      Una imagen de contenedor es un paquete de software ligero e independiente, que incluyen lo necesario para correr la aplicación.
 \end{itemize}
 
 La diferencia con la alternativa de máquinas virtuales es que no tenemos un hipervisor, sino un sistema operativo base y un motor que es capaz de ejecutar distintos contenedores, donde cada contenedor tiene sus dependencias, sus sistemas de configuración y el código de la aplicación a desarrollar. Es mucho más liviano un contenedor que una máquina virtual, encapsula lo que se necesita para funcionar.
@@ -1830,9 +1768,9 @@ Docker fue el que introdujo el término de contenedor, pero hoy en día hay más
 \subsection{¿Por qué son importantes los contenedores?}
 \begin{itemize}
 	\item Las aplicaciones que se ejecutan en un contenedor son \textbf{más seguras que sus contrapartes} que no se ejecutan en un contenedor, ya que a nivel interno utiliza el espacio de nombre de kernel de Linux, lo que nos permite crear una caja cerrada en la que el proceso del contenedor no puede interactuar con ningún otro proceso que se ejecuta en la máquina, tiene su propia memoria y disco (es una sandbox).
-	
+
 	\item Los contenedores \textbf{facilitan la simulación de un entorno de producción}, incluso en la computadora portátil de un desarrollador.
-	Facilita mucho la instalación y despliegue.
+	      Facilita mucho la instalación y despliegue.
 
 	\item Los operadores pueden finalmente \textbf{concentrarse en el aprovisionamiento de infraestructura y ejecutar y monitorear aplicaciones en producción}.
 \end{itemize}
@@ -1863,12 +1801,12 @@ Cuando se tiene una imagen de un contenedor lo que se tiene es una plantilla de 
 \begin{itemize}
 	\item La primera capa es la base, sobre esta se construyen el resto.
 	\item Cada capa sobre la básica solo contiene los ficheros que vaya a añadir, eliminar o modificar con respecto a la capa anterior.
-	Se realizan las modificaciones y se empaqueta una nueva imagen hasta esta capa, que vuelvo a containerizar. Se generan imágenes de capa sobre capa.
-	\begin{itemize}
-		\item Capa 3: Añado los ficheros de datos, Add static files.
-		\item Capa 2: Añado el sistema de servidor, Add Nginx.
-		\item Capa base: El sistema operativo, Alpine Linux
-	\end{itemize}
+	      Se realizan las modificaciones y se empaqueta una nueva imagen hasta esta capa, que vuelvo a containerizar. Se generan imágenes de capa sobre capa.
+	      \begin{itemize}
+		      \item Capa 3: Añado los ficheros de datos, Add static files.
+		      \item Capa 2: Añado el sistema de servidor, Add Nginx.
+		      \item Capa base: El sistema operativo, Alpine Linux
+	      \end{itemize}
 	\item Las capas son inmutables, solo se pueden quitar eliminando los archivos de esta.
 \end{itemize}
 
@@ -1906,44 +1844,43 @@ COPY ./requirements.txt /app/
 RUN pip install -r requirements.txt
 CMD ["python", "main.py"]
 \end{lstlisting}
-            
+
 Cada línea constituye un nivel, el primero es la base.
 
 \paragraph{Clausulas}
 \begin{itemize}
 	\item FROM es la cláusula que usa para establecer la imagen base sobre la que vamos a trabajar tiene que estar en Docker Hub, pero no tiene por qué ser un sistema operativo directamente.
-	\begin{itemize}
-		\item FROM centos:7
-		\item 
-		FROM scratch
-	\end{itemize}
+	      \begin{itemize}
+		      \item FROM centos:7
+		      \item FROM scratch
+	      \end{itemize}
 	\item RUN es la cláusula que nos permite ejecutar distintos comandos sobre el sistema de la capa base. Con barra invertida (contraria a /) se puede hacer que siga en la siguiente línea.
-	\begin{itemize}
-		\item RUN apt-get update \&\& apt-get install -y wget
-	\end{itemize}
+	      \begin{itemize}
+		      \item RUN apt-get update \&\& apt-get install -y wget
+	      \end{itemize}
 	\item COPY y ADD Permite agregar contenido a la imagen de base, COPY es sobre documentos locales y ADD nos permite además traer archivos desde un URL.
-	\begin{itemize}
-		\item COPY ./app Permite copiar en app todo lo del directorio donde se ejecuta el Docker
-	\end{itemize}
+	      \begin{itemize}
+		      \item COPY ./app Permite copiar en app todo lo del directorio donde se ejecuta el Docker
+	      \end{itemize}
 	\item WORKDIR Define el espacio de trabajo, establece el contexto de se van a realizar las ejecuciones de ahora en adelante.
-	\begin{itemize}
-		\item RUN cd /app/bin   El siguiente comando no se haría sobre bin, es necesario el WORKDIR.
-		\item WORKDIR /app/bin
-		\item RUN touch sample.txt
-	\end{itemize}
+	      \begin{itemize}
+		      \item RUN cd /app/bin   El siguiente comando no se haría sobre bin, es necesario el WORKDIR.
+		      \item WORKDIR /app/bin
+		      \item RUN touch sample.txt
+	      \end{itemize}
 	\item CMD y ENTRYPOINT Estas cláusulas son diferentes a las anteriores, definen que va a hacer el contenedor cuando ya esté en ejecución.
-	
-	La cabecera de los comandos se pone en ENTRYPOINT y los parámetros en CMD.
-	\begin{itemize}
-		\item ENTRYPOINT para casos en los que tienen su propia shell, como python o mariaDB, que entran en una consola propia.
-		\begin{itemize}
-			\item ENTRYPOINT["mysql"]
-		\end{itemize}	
-		\item CMD dice que ejecutar, aunque puede hacerse también la entrada a shell como el ENTRYPOINT.
-		\begin{itemize}
-			\item CMD["use ipt\_data"]
-		\end{itemize}	
-	\end{itemize}
+
+	      La cabecera de los comandos se pone en ENTRYPOINT y los parámetros en CMD.
+	      \begin{itemize}
+		      \item ENTRYPOINT para casos en los que tienen su propia shell, como python o mariaDB, que entran en una consola propia.
+		            \begin{itemize}
+			            \item ENTRYPOINT["mysql"]
+		            \end{itemize}
+		      \item CMD dice que ejecutar, aunque puede hacerse también la entrada a shell como el ENTRYPOINT.
+		            \begin{itemize}
+			            \item CMD["use ipt\_data"]
+		            \end{itemize}
+	      \end{itemize}
 \end{itemize}
 
 \paragraph{Docker Compose}
@@ -1972,7 +1909,7 @@ services:
 No se tiene todo el código en un único servidor, sino que tenemos muchos de ellos, que tienen nombres que nos son amigables (identificadores).
 Utilizamos un Load Balancer para balancear las peticiones que se reciben entre los diferentes servidores.
 
-El Docker Compose nos permite automatizar las creaciones dentro de un nodo de nuestro clúster de servidores. 
+El Docker Compose nos permite automatizar las creaciones dentro de un nodo de nuestro clúster de servidores.
 
 El \textbf{Docker Swarm} nos permite ir generando distintos nodos virtuales en los que se introducen diversos contenedores, lo que nos permite como tal lanzar la aplicación distribuida.
 
@@ -1988,150 +1925,150 @@ El \textbf{Docker Swarm} nos permite ir generando distintos nodos virtuales en l
 \end{figure}
 \begin{itemize}
 	\item \textbf{docker -v}
-	
-	Verificar versión de Docker.
+
+	      Verificar versión de Docker.
 
 	\item \textbf{docker container run alpine COMANDO}
-	
-	Ejecutar un contenedor que corra en alpine el COMANDO.
+
+	      Ejecutar un contenedor que corra en alpine el COMANDO.
 
 	\item \textbf{docker container run -d alpine COMANDO}
-	
-	-d para ejecutar un contenedor como demonio.
+
+	      -d para ejecutar un contenedor como demonio.
 
 	\item \textbf{docker container run -it --name test alpine COMANDO}
-	
-	--name para dar nombre al contenedor y -it para ver los mensajes de error.
+
+	      --name para dar nombre al contenedor y -it para ver los mensajes de error.
 
 	\item \textbf{docker container stop NOMBREoID}
-	
-	Detener un contenedor.
+
+	      Detener un contenedor.
 
 	\item \textbf{docker container start NOMBREoID}
-	
-	Reanudar un contenedor detenido.
+
+	      Reanudar un contenedor detenido.
 
 	\item \textbf{docker container rm NOMBREoID}
-	
-	Eliminar un contenedor de memoria, se puede usar -f para eliminar el contenedor este en el estado que este.
+
+	      Eliminar un contenedor de memoria, se puede usar -f para eliminar el contenedor este en el estado que este.
 
 	\item \textbf{docker container ls -l / docker container ls / docker container ls -a}
-	
-	Listar los contenedores con su ID, IMAGEN, COMANDO, CREACIÓN, ESTADO, PUERTOS y NOMBRE.
-	-l para el último, sin nada solo los en ejecución y -a para todos.
+
+	      Listar los contenedores con su ID, IMAGEN, COMANDO, CREACIÓN, ESTADO, PUERTOS y NOMBRE.
+	      -l para el último, sin nada solo los en ejecución y -a para todos.
 
 	\item \textbf{docker container ps}
-	
-	Listar los contenedores en ejecución con su ID, IMAGEN, COMANDO, CREACIÓN, ESTADO, PUERTOS y NOMBRE.
+
+	      Listar los contenedores en ejecución con su ID, IMAGEN, COMANDO, CREACIÓN, ESTADO, PUERTOS y NOMBRE.
 
 	\item \textbf{docker container inspect NOMBREoID}
-	
-	Muestra los detalles del contenedor en forma de JSON.
+
+	      Muestra los detalles del contenedor en forma de JSON.
 
 	\item \textbf{docker container exec NOMBREoID COMANDO}
-	
-	Ejecutar comandos en un contenedor en ejecución, se puede usar -i para ejecutar el comando de forma interactiva y -t para que nos proporcione un terminal para el comando.
+
+	      Ejecutar comandos en un contenedor en ejecución, se puede usar -i para ejecutar el comando de forma interactiva y -t para que nos proporcione un terminal para el comando.
 
 	\item \textbf{docker container attach NOMBREoID}
-	
-	Ligar el contenedor a la entrada, salida y error de nuestro terminal.
+
+	      Ligar el contenedor a la entrada, salida y error de nuestro terminal.
 
 	\item \textbf{docker container logs --tail 5 NOMBREoID}
-	
-	Ver un registro de los últimos 5 procesos en ejecución en el contenedor, sin --tail 5 muestra todos.
+
+	      Ver un registro de los últimos 5 procesos en ejecución en el contenedor, sin --tail 5 muestra todos.
 
 	\item \textbf{docker container diff NOMBREoID}
-	
-	Visualizar las diferencias que se han producido con respecto a la imagen base, A añadido, C cambiado y D borrado.
+
+	      Visualizar las diferencias que se han producido con respecto a la imagen base, A añadido, C cambiado y D borrado.
 
 	\item \textbf{docker container commit NOMBREoID NOMBREIMAGEN}
-	
-	Crear la imagen de un contendor en su estado actual, y le damos un nombre.
+
+	      Crear la imagen de un contendor en su estado actual, y le damos un nombre.
 
 	\item \textbf{docker image ls}
-	
-	Listar las imágenes
+
+	      Listar las imágenes
 
 	\item \textbf{docker image history NOMBREoID}
-	
-	Lista las capas sobre las que se ha construido nuestra imagen.
+
+	      Lista las capas sobre las que se ha construido nuestra imagen.
 
 	\item \textbf{docker image build -t NOMBREoID}
-	
-	Construir una imagen sin ejecutarla desde un Dockerfile.
+
+	      Construir una imagen sin ejecutarla desde un Dockerfile.
 
 	\item \textbf{docker image rm NOMBREoID}
-	
-	Borra la imagen del servidor local.
+
+	      Borra la imagen del servidor local.
 
 	\item \textbf{docker image save -o DESTINO IMAGEN}
-	
-	\textbf{docker image load -i ORIGEN}
-	
-	Guardar y cargar una imagen.
+
+	      \textbf{docker image load -i ORIGEN}
+
+	      Guardar y cargar una imagen.
 
 	\item \textbf{docker image tag alpine:latest gnschenker/alpine:1.0}
-	
-	\textbf{docker login -u gnschenker -p <my secret password>}
-	
-	\textbf{docker image push gnschenker/alpine:1.0}
-	
-	Dar etiqueta de versión a nuestra imagen, preparándola para publicarla, y subiendola a Docker Hub tras previo inicio de sesión.
+
+	      \textbf{docker login -u gnschenker -p <my secret password>}
+
+	      \textbf{docker image push gnschenker/alpine:1.0}
+
+	      Dar etiqueta de versión a nuestra imagen, preparándola para publicarla, y subiendola a Docker Hub tras previo inicio de sesión.
 \end{itemize}
 \pagebreak
 
 \section{Preguntas Test 4}
 \begin{enumerate}
 	\item Seleccione el comando CORRECTO que debe ejecutar cuando necesite iniciar una terminal en un contenedor en ejecución:
-	Seleccione una:
+	      Seleccione una:
 
-	docker exec -it /bin/bash, docker run /bin/bash
+	      docker exec -it /bin/bash, docker run /bin/bash
 
 	\item Un contenedor es:
-	Seleccione una:
+	      Seleccione una:
 
-	Un método de virtualización que empaqueta el código, las configuraciones y las dependencias de una aplicación en bloques de construcción para lograr consistencia, eficiencia, productividad y control de versiones., Un paquete de software ligero, independiente y ejecutable que incluye todo lo necesario para ejecutar una aplicación.
+	      Un método de virtualización que empaqueta el código, las configuraciones y las dependencias de una aplicación en bloques de construcción para lograr consistencia, eficiencia, productividad y control de versiones., Un paquete de software ligero, independiente y ejecutable que incluye todo lo necesario para ejecutar una aplicación.
 
 	\item Seleccione la opción CORRECTA con respecto a los contenedores:
-	Seleccione una:
+	      Seleccione una:
 
-	Las aplicaciones que se ejecutan en un contenedor son menos seguras que sus contrapartes que no se ejecutan en un contenedor., Los contenedores son bestias bastante pesadas por sí mismos, ya que todos contienen un sistema operativo completo., Los operadores de contenedores deben concentrarse en la implementación de microservicios., Los contenedores dificultan la simulación de un entorno de producción.
-	
+	      Las aplicaciones que se ejecutan en un contenedor son menos seguras que sus contrapartes que no se ejecutan en un contenedor., Los contenedores son bestias bastante pesadas por sí mismos, ya que todos contienen un sistema operativo completo., Los operadores de contenedores deben concentrarse en la implementación de microservicios., Los contenedores dificultan la simulación de un entorno de producción.
+
 	\item Las diferencias entre las cláusulas ADD y COPY para la configuración de archivos de Docker son:
-	Seleccione una:
+	      Seleccione una:
 
-	La cláusula ADD permite copiar archivos de URL externas.
+	      La cláusula ADD permite copiar archivos de URL externas.
 
 	\item Una buena práctica para resolver los problemas de configuración de direcciones IP cuando utiliza una aplicación distribuida compuesta por una gran cantidad de microservicios es:
-	Seleccione una:
+	      Seleccione una:
 
-	Servicio DNS.
+	      Servicio DNS.
 
 	\item Las cláusulas o elementos que NO se pueden configurar en el archivo yaml docker-compose incluyen:
-	Seleccione una:
+	      Seleccione una:
 
-	La respuesta correcta es: Los archivos que se agregarán a una imagen de contenedor base.
+	      La respuesta correcta es: Los archivos que se agregarán a una imagen de contenedor base.
 
 	\item Seleccione el comando CORRECTO que debe ejecutar cuando necesite ver todos los contenedores (activos o no) que se han ejecutado en una máquina:
-	Seleccione una:
-	
-	docker container ls -l, docker ps ls -l, docker logs ls -l, docker ps
-	
-	Enunciado de la pregunta
+	      Seleccione una:
+
+	      docker container ls -l, docker ps ls -l, docker logs ls -l, docker ps
+
+	      Enunciado de la pregunta
 	\item Docker compose es una:
-	Seleccione una:
-	
-	Herramienta para definir y ejecutar aplicaciones Docker de múltiples contenedores.
-	
+	      Seleccione una:
+
+	      Herramienta para definir y ejecutar aplicaciones Docker de múltiples contenedores.
+
 	\item Seleccione la opción CORRECTA con respecto a la arquitectura de contenedores:
-	Seleccione una:
-	
-	El container runtime (containerd y runc) es responsable de todo el ciclo de 
-	
+	      Seleccione una:
+
+	      El container runtime (containerd y runc) es responsable de todo el ciclo de
+
 	\item Al configurar aplicaciones de varios contenedores con docker-compose:
-	Seleccione una:
-	
-	Deben seguirse los tres pasos considerados en las otras opciones.
+	      Seleccione una:
+
+	      Deben seguirse los tres pasos considerados en las otras opciones.
 \end{enumerate}
 \pagebreak
 
@@ -2139,47 +2076,47 @@ El \textbf{Docker Swarm} nos permite ir generando distintos nodos virtuales en l
 
 \textbf{Una opción sencilla para editar archivos de texto en la consola VM es usar}
 \begin{itemize}
-  \item c. nano  
+	\item c. nano
 \end{itemize}
 
 \textbf{El contenido de un mensaje MQTT recibido por un suscriptor puede extraerse de la variable}
 \begin{itemize}
-  \item b. msg.payload 
+	\item b. msg.payload
 \end{itemize}
 
 \textbf{El return code (rc) que devuelve MQTT al método on\_connect para indicar que se ha conseguido establecer la conexión con éxito es}
 \begin{itemize}
-  \item b. 0 
+	\item b. 0
 \end{itemize}
 
 \textbf{La IP asignada por defecto en GCP a tu VM es}
 \begin{itemize}
-  \item Efímera 
+	\item Efímera
 \end{itemize}
 
 \textbf{Para establecer un orden correcto de despliegue de diversos dockers, usamos en docker-compose la etiqueta}
 \begin{itemize}
-  \item a. depends\_on 
+	\item a. depends\_on
 \end{itemize}
 
 \textbf{¿Cuál es el usuario por defecto con el que inicias sesión en una nueva máquina virtual en GCP?}
 \begin{itemize}
-  \item c. El nombre del correo con el que te has dado de alta en GCP 
+	\item c. El nombre del correo con el que te has dado de alta en GCP
 \end{itemize}
 
 \textbf{Para servir páginas desde la VM web en este curso hemos empleado}
 \begin{itemize}
-  \item a. apache 
+	\item a. apache
 \end{itemize}
 
 \textbf{La librería Python que empleamos para la conexión con un servidor MQTT es}
 \begin{itemize}
-  \item b. paho 
+	\item b. paho
 \end{itemize}
 
 \textbf{El archivo donde se especifican las características necesarias para construir y desplegar varios dockers a la vez se llama}
 \begin{itemize}
-  \item a. docker-compose.yml 
+	\item a. docker-compose.yml
 \end{itemize}
 
 \chapter{Recursos}
@@ -2217,7 +2154,7 @@ El \textbf{Docker Swarm} nos permite ir generando distintos nodos virtuales en l
 \section{Tema 7: Introducción a Contenedores}
 \href{https://learning.oreilly.com/library/view/getting-started-with/9781838645700/fb4efc86-2e13-4f11-94be-2485878464ca.xhtml}{¿Qué son los contenedores y por qué debemos utilizarlos?}
 
-\href{https://learning.oreilly.com/library/view/getting-started-with/9781838645700/9f8c7bb0-cd1d-4dc3-8d6b-c08ef3590c44.xhtml}{Instalar el entorno de trabajo de Dockers} 
+\href{https://learning.oreilly.com/library/view/getting-started-with/9781838645700/9f8c7bb0-cd1d-4dc3-8d6b-c08ef3590c44.xhtml}{Instalar el entorno de trabajo de Dockers}
 
 \href{https://learning.oreilly.com/library/view/getting-started-with/9781838645700/ef53b9f7-3bd4-459e-9665-a53931a3ae0a.xhtml}{Trabajando con contenedores}
 
