@@ -524,7 +524,71 @@ fáciles de percibir y Gaver(90s) perceptible Falsas ocultas.
 	      \begin{figure}[H]
 		      \ffigbox[\FBwidth]
 		      {\caption{Diagrama affordance}}
-		      {\includegraphics[scale=.4]{Untitled.png}}
+		      {
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+
+%Straight Lines [id:da13471245958847788] 
+\draw    (150,40) -- (149,200) ;
+%Straight Lines [id:da06234307165339659] 
+\draw    (390,200) -- (149,200) ;
+
+% Text Node
+\draw (114,65) node [anchor=north west][inner sep=0.75pt]   [align=left] {yes};
+% Text Node
+\draw (120,151) node [anchor=north west][inner sep=0.75pt]   [align=left] {no};
+% Text Node
+\draw (32,102) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{53.75pt}\setlength\topsep{0pt}
+\begin{center}
+Perceptual\\Information
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (231,241) node [anchor=north west][inner sep=0.75pt]   [align=left] {Affordance};
+% Text Node
+\draw (200,211) node [anchor=north west][inner sep=0.75pt]   [align=left] {no};
+% Text Node
+\draw (321,211) node [anchor=north west][inner sep=0.75pt]   [align=left] {yes};
+% Text Node
+\draw    (330.5, 160) circle [x radius= 55.86, y radius= 29.7]   ;
+\draw (292,141) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{53.75pt}\setlength\topsep{0pt}
+\begin{center}
+Perceptible\\Affordance
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw    (330.5, 75.78) circle [x radius= 53.74, y radius= 29.7]   ;
+\draw (293.5,56.78) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{51.87pt}\setlength\topsep{0pt}
+\begin{center}
+Hidden\\Affordance
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw    (212, 160) circle [x radius= 53.74, y radius= 29.7]   ;
+\draw (175,141) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{51.87pt}\setlength\topsep{0pt}
+\begin{center}
+False\\Affordance
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw    (212, 75.78) circle [x radius= 47.38, y radius= 29.7]   ;
+\draw (179.5,56.78) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{45.25pt}\setlength\topsep{0pt}
+\begin{center}
+Correct\\Rejection
+\end{center}
+
+\end{minipage}};
+
+
+\end{tikzpicture}}
 	      \end{figure}
 \end{itemize}
 
@@ -950,15 +1014,7 @@ Métodos que tienen el diseño en el centro.
 
 De interpretación objetiva a subjetiva, de individuo a colectivo.
 
-\newpage
-
 \section{User Centered Design (UCD)}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama proceso UCD}}
-	{\includegraphics[scale=.4]{image-20210312134547277.png}}
-\end{figure}
 
 Proceso iterativo de diseño, centrado en los usuarios.
 
@@ -969,7 +1025,7 @@ valores... Investigativas y Generativas.
 
 \textbf{Objetivo}: Crear experiencias y productos usables, accesibles,
 etc.
-
+\pagebreak
 
 \subsection{Fases}
 
@@ -1356,18 +1412,12 @@ análisis.
 \pagebreak
 \textbf{Marco o Estructura de Observación} para manejar la complejidad:
 \begin{itemize}
-	\item \textbf{Sencillo}: Más posible añadir puntos nuevos.
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Estructura de observación sencilla}}
-		      {\includegraphics[scale=.3]{Untitled 1.png}}
-	      \end{figure}
+	\item \textbf{Sencillo}: Más posible añadir puntos nuevos. 
+	
+	Puntos: La persona, el lugar y el qué.
 	\item \textbf{Detallado}: Más específico.
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Estructura de observación detallada}}
-		      {\includegraphics[scale=.27]{Untitled 2.png}}
-	      \end{figure}
+	
+	Puntos: Espacio, Actores, Actividades, Objetos, Acciones, Eventos, Tiempo, Objetivos y Sentimientos.
 \end{itemize}
 
 
@@ -1411,7 +1461,8 @@ fotos,\ldots{}
 	\item \textbf{Recogida de datos:} Anotación, grabaciones de audio y
 	      video. Anotaciones al final de las sesiones.
 \end{itemize}
-\vspace{-.5cm}
+\pagebreak
+
 \subsubsection{Directas en espacio controlado}
 
 En el laboratorio, más formal y más control, se sigue un protocolo.
@@ -1680,6 +1731,8 @@ posteriores.
 		      \item \textbf{Ordinales}: Siguen un orden o secuencia. Ej. Meses de año.
 		      \item \textbf{Categóricos}: No siguen un orden. Ej: Estado civil.
 	      \end{itemize}
+		  \pagebreak
+
 	\item \textbf{Numéricas}: Operaciones aritméticas.
 
 	      \begin{itemize}
@@ -1711,12 +1764,6 @@ posteriores.
 
 \section{Tabla de frecuencia}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo de Tabla de frecuencias}}
-	{\includegraphics[scale=.5]{Untitled 3.png}}
-\end{figure}
-
 \textbf{Datos categóricos.}
 
 Los datos numéricos con variables continuas, y discretas con muchos
@@ -1741,12 +1788,6 @@ tendencias y diferencias, e ilustrativos.
 
 Para medidas de tendencia central y dispersión.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo de Boxplot}}
-	{\includegraphics[scale=.5]{Untitled 4.png}}
-\end{figure}
-
 Visualiza medidas de desviación con la mediana:
 
 \begin{itemize}
@@ -1760,12 +1801,6 @@ Visualiza medidas de desviación con la mediana:
   Distribuciones}
 
 \subsection{Gráfico de barras}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo gráfico de barras}}
-	{\includegraphics[scale=.5]{Untitled 5.png}}
-\end{figure}
 
 Frecuencias de una \textbf{variable cualitativa o discreta}. Sencillo,
 agrupado y apilado.
@@ -1781,19 +1816,9 @@ La altura indica la frecuencia o porcentaje y las barras son
 	Frecuencias}
 
 Visualización de frecuencias de cada una de las categorías.
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo de Polígono de frecuencias}}
-	{\includegraphics[scale=.5]{Untitled 6.png}}
-\end{figure}
 
 \subsection{Histograma}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo de Histograma}}
-	{\includegraphics[scale=.4]{Untitled 7.png}}
-\end{figure}
 Representa las frecuencias de una \textbf{variable cuantitativa
 	continua.}
 
@@ -1801,12 +1826,6 @@ Representa las frecuencias de una \textbf{variable cuantitativa
 continua.
 
 \subsection{Gráfico de sectores}
-\vspace{-1cm}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo de Gráfico de sectores}}
-	{\includegraphics[scale=.5]{Untitled 8.png}}
-\end{figure}
 
 Representación circular de las frecuencias relativas.
 
@@ -1815,11 +1834,6 @@ Variable cualitativa o discreta, se muestran en porcentajes.
 Útil: Cuando hay pocas categorías.
 
 \subsection{Gráfico de líneas}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo de Gráfico de líneas}}
-	{\includegraphics[scale=.5]{Untitled 9.png}}
-\end{figure}
 
 Representa relaciones entre dos variables.
 
@@ -1830,15 +1844,9 @@ Una o varias variables.
 \subsection{Gráfico de
 	Dispersión}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo de Gráfico de dispersión}}
-	{\includegraphics[scale=.5]{Untitled 10.png}}
-\end{figure}
-
 Relación entre dos variables en ejes cartesianos e informa del grado de
 correlación.
-\pagebreak
+
 \section{Resultados}
 
 Requiere habilidad, esfuerzo y trabajo.
@@ -2025,11 +2033,23 @@ Ayudan a pensar en la relación entre la tecnología y la experiencia.
 
 Define una plantilla de campos que deben tener los requisitos. Framework
 general de requisitos no específicos de IxD.
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Atomic Requirements Shell de Volere}}
-	{\includegraphics[scale=.4]{2_9_volere_snow_card_alt.jpg}}
-\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+\textbf{Requirement:}                                                      & Unique id & \textbf{\begin{tabular}[c]{@{}l@{}}Requierement \\ Type:\end{tabular}} &                                                                               & \textbf{Event/BUC/PUC \#:} &  \\ \hline
+\textbf{Description:}                                                      & \multicolumn{5}{l|}{A one sentence statement of the intention of the requirement}                                                                                                                  \\ \hline
+\textbf{Rationale:}                                                        & \multicolumn{5}{l|}{A justification of the requirement}                                                                                                                                            \\ \hline
+\textbf{Originator:}                                                       & \multicolumn{5}{l|}{The person who raised this requirement}                                                                                                                                        \\ \hline
+\textbf{Fit Criterion:}                                                    & \multicolumn{5}{l|}{\begin{tabular}[c]{@{}l@{}}A measurement of the requirement such that it is possible to\\ test if the solution matches the original requirement\end{tabular}}                  \\ \hline
+\textbf{\begin{tabular}[c]{@{}l@{}}Customer \\ Satisfaction:\end{tabular}} & \multicolumn{2}{l|}{}                                                              & \textbf{\begin{tabular}[c]{@{}l@{}}Customer \\ Dissatisfaction:\end{tabular}} & \multicolumn{2}{l|}{}         \\ \hline
+\textbf{Priority:}                                                         & \multicolumn{2}{l|}{A rating of the customer value}                                & \textbf{Conflicts:}                                                           & \multicolumn{2}{l|}{}         \\ \hline
+\textbf{\begin{tabular}[c]{@{}l@{}}Supporting \\ Materials:\end{tabular}}  & \multicolumn{5}{l|}{}                                                                                                                                                                              \\ \hline
+\textbf{History:}                                                          & \multicolumn{5}{l|}{}                                                                                                                                                                              \\ \hline
+\end{tabular}
+\caption{Atomic Requirements Shell de Volere}
+\end{table}
 
 \section{User Stories}
 
@@ -2182,6 +2202,7 @@ Dos tipos de diseño, que están vinculados.
 	\item Conceptual, la idea del producto, los aspectos generales. Fase divergente de ideación.
 	\item Detalles, aspectos concretos del producto. Fase de convergencia de diseño y desarrollo.
 \end{itemize}
+\pagebreak
 
 \section{Brainstorming}
 El objetivo general es obtener una gran cantidad de diferentes ideas, poder definir el problema y objetivos. Cantidad antes que calidad, el objetivo es sacar ideas no analizarlas.
@@ -2270,12 +2291,6 @@ Muy básicos, permite realizar muchas versiones rápidas y baratas, para ir mejo
 
 \subsubsection{Mago de Oz}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama Wizard of Oz}}
-	{\includegraphics[scale=.4]{2021-03-20 23_48_56-L5.pdf - Foxit Reader.png}}
-\end{figure}
-
 Alguien simula cómo funciona el sistema mientras se evalúa el prototipo. Centrado en la interactividad y la experiencia. Más barato que implementar las funcionalidades.
 
 \subsubsection{High Fidelity - Alta fidelidad}
@@ -2311,12 +2326,6 @@ Los Wireframes y Mockups son muy usados en desarrollo web, se diferencian en el 
 
 \subsection{Wireframes}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo Wireframe}}
-	{\includegraphics[scale=.4]{2021-03-20 23_51_33-L5.pdf - Foxit Reader.png}}
-\end{figure}
-
 Prototipado más básico. Es un prototipo de nivel medio funcional.
 
 Baja fidelidad. La documentación está centrada en la funcionalidad.
@@ -2344,12 +2353,6 @@ Más costoso de hacer. Se requiere SW específico.
 
 \section{Más allá del prototipado del producto}
 \subsection{Storyboard}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo Storyboard}}
-	{\includegraphics[scale=.38]{2021-03-20 23_53_31-L5.pdf - Foxit Reader.png}}
-\end{figure}
 
 Muy visual, influenciado por comics y películas. Ilustraciones secuenciales de acciones o eventos por los que pasa el usuario y el producto para conseguir un objetivo.
 
