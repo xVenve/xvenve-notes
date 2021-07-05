@@ -581,8 +581,7 @@ autorización. La Seguridad).
 
 \begin{enumerate}
 \setcounter{enumi}{9}
-\item
-  \textbf{Sistema Gestor de Bases de Datos:} Conjunto de herramientas
+\item \textbf{Sistema Gestor de Bases de Datos:} Conjunto de herramientas
   (Programas, procedimientos, lenguajes, ...) capaz de posibilitar la
   interacción (describir, recuperar y manipular) con la base de datos a
   todos lo niveles(usuarios de todo tipo, programador, analista,
@@ -1724,9 +1723,7 @@ autorización. La Seguridad).
          
             Notación: $(elemento)^*$ desde 0 hasta N elementos.
 
-			\item
-            
-            Notación: $(elemento)^+$ desde 1 hasta N elementos.
+			\item Notación: $(elemento)^+$ desde 1 hasta N elementos.
             
           \end{itemize}
         \end{itemize}
@@ -1769,9 +1766,7 @@ autorización. La Seguridad).
           
 
           \begin{itemize}
-          \item
-            
-            \textbf{Elementos de datos:}
+          \item \textbf{Elementos de datos:}
             
 
            
@@ -1791,9 +1786,7 @@ autorización. La Seguridad).
               usa para campos muy grandes. Su uso es peligroso.
              
 			  
-          \item
-            
-            \textbf{Registro}:
+          \item \textbf{Registro}:
             
 
             
@@ -1815,21 +1808,13 @@ autorización. La Seguridad).
           
 
           \begin{itemize}
-          \item
+          \item Utilizar codificación numérica.
             
-            Utilizar codificación numérica.
+          \item Utilizar enumerados.
             
-          \item
+          \item Fecha en formato Juliano (la de un numero).
             
-            Utilizar enumerados.
-            
-          \item
-            
-            Fecha en formato Juliano (la de un numero).
-            
-          \item
-            
-            Agrupación de varios campos.
+          \item Agrupación de varios campos.
             
           \end{itemize}
         \end{itemize}
@@ -1890,9 +1875,7 @@ autorización. La Seguridad).
           
 
           \begin{itemize}
-          \item
-            
-            En memoria intermedia (buffer), es que es más rápida(ahorra
+          \item En memoria intermedia (buffer), es que es más rápida(ahorra
             accesos), pero más costosa(es escasa)
             
           \end{itemize}
@@ -1902,9 +1885,7 @@ autorización. La Seguridad).
           
 
           \begin{itemize}
-          \item
-            
-            \textbf{coste real(efectivo)= (1-hr)*coste global}
+          \item \textbf{coste real(efectivo)= (1-hr)*coste global}
             
           \end{itemize}
         \item \textbf{PIO(Physical Input Output):} Numero de veces que
@@ -1927,14 +1908,10 @@ autorización. La Seguridad).
           
 
           \begin{itemize}
-          \item
-            
-            \textbf{De identificación:} Campo o conjunto de campos que
+          \item \textbf{De identificación:} Campo o conjunto de campos que
             identifican unívocamente un registro. Sin valores repetidos.
             
-          \item
-            
-            \textbf{No identificativa}: Lo contrario. Presenta valores
+          \item \textbf{No identificativa}: Lo contrario. Presenta valores
             repetidos en el fichero.
             
 
@@ -1979,27 +1956,19 @@ autorización. La Seguridad).
           
 
           \begin{itemize}
-          \item
+          \item \textbf{Actualización:} Implican escritura.
             
-            \textbf{Actualización:} Implican escritura.
-            
-          \item
-            
-            \textbf{Recuperación}: Solo implican lectura.
+          \item \textbf{Recuperación}: Solo implican lectura.
             
           \end{itemize}
         \item \textbf{Diferenciar entre:}
           
 
           \begin{itemize}
-          \item
-            
-            \textbf{Selectivo:} Aquel que impone un filtro o condición,
+          \item \textbf{Selectivo:} Aquel que impone un filtro o condición,
             solo a esos.
             
-          \item
-            
-            \textbf{Incondicional}: No impone condiciones, se refiere a
+          \item \textbf{Incondicional}: No impone condiciones, se refiere a
             al totalidad.
             
           \end{itemize}
@@ -2007,9 +1976,7 @@ autorización. La Seguridad).
           
 
           \begin{itemize}
-          \item
-            
-            \textbf{Identificativa(exact match)}: Aquella cuya clave de
+          \item \textbf{Identificativa(exact match)}: Aquella cuya clave de
             búsqueda es identificativa, que encuentra a solo 1. De media
             recorre la mitad.
             
@@ -2022,9 +1989,7 @@ autorización. La Seguridad).
               \textbf{Multiclave}: No tiene sentido, la identificativa
               ya lo encuentra.
              
-          \item
-            
-            \textbf{No identificativa:} Hay que recórrelos todos, ya que
+          \item \textbf{No identificativa:} Hay que recórrelos todos, ya que
             hay más de uno, pero no sabes o cuantos.
             
 			
@@ -2609,9 +2574,7 @@ autorización. La Seguridad).
               1 + Prob.desb.*(Ndesb.+1)/2 accesos.
              
 			  
-          \item
-            
-            \textbf{Consulta selectiva no identificativa:} leer todos
+          \item \textbf{Consulta selectiva no identificativa:} leer todos
             los cubos no filtrados.
             
 
@@ -2620,9 +2583,7 @@ autorización. La Seguridad).
               1 + Ndesb. Accesos.
            
 			  
-          \item
-            
-            \textbf{Consulta selectiva multiclave:} Filtrado multiclave.
+          \item \textbf{Consulta selectiva multiclave:} Filtrado multiclave.
             
 
             
@@ -2631,9 +2592,7 @@ autorización. La Seguridad).
               desconocemos.
               
 			  
-          \item
-            
-            \textbf{Otras consultas}: $full scan= N + N_{desb}$.
+          \item \textbf{Otras consultas}: $full scan= N + N_{desb}$.
             
           \end{itemize}
         \end{itemize}
@@ -3014,8 +2973,7 @@ autorización. La Seguridad).
           
         \item \textbf{Indice disperso}: Pierde eficiencia si cambia, es más
           útil como indice temporal.
-          \item 
-        \end{itemize}
+          \item \end{itemize}
       \end{itemize}
     \end{itemize}
   \item \textbf{Indice Simple No Denso}: Una entrada por cubo de datos.
@@ -3125,8 +3083,7 @@ autorización. La Seguridad).
     
 
     \begin{itemize}
-    \item
-    \item \textbf{k = m - 1}. Si un nodo tiene m descendientes, tendrá m-1
+    \item \item \textbf{k = m - 1}. Si un nodo tiene m descendientes, tendrá m-1
       entradas.
       
     \item El nodo raíz tiene al menos un elemento y por lo tanto al menos
