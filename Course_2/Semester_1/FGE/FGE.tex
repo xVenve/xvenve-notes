@@ -25,8 +25,8 @@ hmargin=3cm
 % ENLACES
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,
-	linkcolor=black, % enlaces a partes del documento (p.e. índice) en color negro
-	urlcolor=blue} % enlaces a recursos fuera del documento en azul
+  linkcolor=black, % enlaces a partes del documento (p.e. índice) en color negro
+  urlcolor=blue} % enlaces a recursos fuera del documento en azul
 
 % Añadir pdfs como partes del documento
 \usepackage{pdfpages}
@@ -95,7 +95,7 @@ hmargin=3cm
 [10pt]                                               
 {}
 {\contentsmargin{0pt}                          
-	\thecontentslabel.\enspace}
+  \thecontentslabel.\enspace}
 {\contentsmargin{0pt}}                        
 {\titlerule*[.7pc]{.}\contentspage}  
 
@@ -110,13 +110,13 @@ hmargin=3cm
 
 % Diseño de tabla para ingeniería
 \captionsetup[table]{
-	format=hang,
-	name=Tabla,
-	justification=centering,
-	labelsep=colon,
-	width=.75\linewidth,
-	labelfont=small,
-	font=small,
+  format=hang,
+  name=Tabla,
+  justification=centering,
+  labelsep=colon,
+  width=.75\linewidth,
+  labelfont=small,
+  font=small,
 }
 
 % DISEÑO DE FIGURAS.
@@ -125,12 +125,12 @@ hmargin=3cm
 
 % Diseño de figuras para ingeniería
 \captionsetup[figure]{
-	format=hang,
-	name=Fig.,
-	singlelinecheck=off,
-	labelsep=colon,
-	labelfont=small,
-	font=small		
+  format=hang,
+  name=Fig.,
+  singlelinecheck=off,
+  labelsep=colon,
+  labelfont=small,
+  font=small    
 }
 
 % NOTAS A PIE DE PÁGINA
@@ -143,28 +143,28 @@ hmargin=3cm
 
 % definimos un estilo de listings
 \lstdefinestyle{estilo}{ frame=Ltb,
-	framerule=0pt,
-	aboveskip=0.5cm,
-	framextopmargin=3pt,
-	framexbottommargin=3pt,
-	framexleftmargin=0.4cm,
-	framesep=0pt,
-	rulesep=.4pt,
-	backgroundcolor=\color{gray97},
-	rulesepcolor=\color{black},
-	%
-	basicstyle=\ttfamily\footnotesize,
-	keywordstyle=\bfseries,
-	stringstyle=\ttfamily,
-	showstringspaces = false,
-	commentstyle=\color{gray45},     
-	%
-	numbers=left,
-	numbersep=15pt,
-	numberstyle=\tiny,
-	numberfirstline = false,
-	breaklines=true,
-	xleftmargin=\parindent
+  framerule=0pt,
+  aboveskip=0.5cm,
+  framextopmargin=3pt,
+  framexbottommargin=3pt,
+  framexleftmargin=0.4cm,
+  framesep=0pt,
+  rulesep=.4pt,
+  backgroundcolor=\color{gray97},
+  rulesepcolor=\color{black},
+  %
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\bfseries,
+  stringstyle=\ttfamily,
+  showstringspaces = false,
+  commentstyle=\color{gray45},     
+  %
+  numbers=left,
+  numbersep=15pt,
+  numberstyle=\tiny,
+  numberfirstline = false,
+  breaklines=true,
+  xleftmargin=\parindent
 }
 
 \captionsetup[lstlisting]{font=small, labelsep=period}
@@ -174,47 +174,47 @@ hmargin=3cm
 
 \pgfplotsset{compat=1.17} 
 %-------------
-%	DOCUMENTO
+% DOCUMENTO
 %-------------
 
 \begin{document}
 \pagenumbering{roman} % Se utilizan cifras romanas en la numeración de las páginas previas al cuerpo del trabajo
-	
+
 %----------
-%	PORTADA
-%----------	
+% PORTADA
+%---------- 
 \begin{titlepage}
 	\begin{sffamily}
-	\color{azulUC3M}
-	\begin{center}
-		\begin{figure}[H] %incluimos el logotipo de la Universidad
-			\makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
-		\end{figure}
-		\vspace{2.5cm}
-		\begin{Large}
-			Grado en Ingeniería Informática\\			
-			2019-2020\\
-			\vspace{2cm}		
-			\textsl{Apuntes}\\
-			\bigskip
-		\end{Large}
-		 	{\Huge Fundamentos de gestión empresarial}\\
-		 	\vspace*{0.5cm}
-	 		\rule{10.5cm}{0.1mm}\\
+		\color{azulUC3M}
+		\begin{center}
+			\begin{figure}[H] %incluimos el logotipo de la Universidad
+				\makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
+			\end{figure}
+			\vspace{2.5cm}
+			\begin{Large}
+				Grado en Ingeniería Informática\\
+				2019-2020\\
+				\vspace{2cm}
+				\textsl{Apuntes}\\
+				\bigskip
+			\end{Large}
+			{\Huge Fundamentos de gestión empresarial}\\
+			\vspace*{0.5cm}
+			\rule{10.5cm}{0.1mm}\\
 			\vspace*{0.9cm}
-			{\LARGE Jorge Rodríguez Fraile\footnote{\href{mailto:100405951@alumnos.uc3m.es}{Universidad: 100405951@alumnos.uc3m.es}  |  \href{mailto:jrf1616@gmail.com}{Personal: jrf1616@gmail.com}}}\\ 
+			{\LARGE Jorge Rodríguez Fraile\footnote{\href{mailto:100405951@alumnos.uc3m.es}{Universidad: 100405951@alumnos.uc3m.es}  |  \href{mailto:jrf1616@gmail.com}{Personal: jrf1616@gmail.com}}}\\
 			\vspace*{1cm}
-	\end{center}
-	\vfill
-	\color{black}
+		\end{center}
+		\vfill
+		\color{black}
 		\includegraphics[width=4.2cm]{img/creativecommons.png}\\
 		Esta obra se encuentra sujeta a la licencia Creative Commons\\ \textbf{Reconocimiento - No Comercial - Sin Obra Derivada}
 	\end{sffamily}
 \end{titlepage}
 
 %----------
-%	ÍNDICES
-%----------	
+% ÍNDICES
+%---------- 
 
 %--
 % Índice general
@@ -223,21 +223,21 @@ hmargin=3cm
 \thispagestyle{fancy}
 
 %----------
-%	TRABAJO
-%----------	
+% TRABAJO
+%---------- 
 
-\pagenumbering{arabic} % numeración con múmeros arábigos para el resto de la publicación	
+\pagenumbering{arabic} % numeración con múmeros arábigos para el resto de la publicación  
 
 
 %----------
-%	COMENZAR A ESCRIBIR AQUI
-%----------	
+% COMENZAR A ESCRIBIR AQUI
+%---------- 
 
 
 
 \chapter{Tema 1. La empresa- naturaleza y tipos}
 
-\paragraph{¿Qué es la empresa?} 
+\paragraph{¿Qué es la empresa?}
 Es una institución en la que un conjunto de personas transforma diversos recursos en
 bienes y/o servicios que satisfagan necesidades humanas.
 
@@ -265,7 +265,7 @@ Unidad de decisión: Alguien se preocupa (y toma decisiones) de que los diferent
 que integran la empresa guarden una serie de relaciones preestablecidas, que permitan dar coherencia a sus
 actuaciones.
 
-\paragraph{¿Qué es una organización?} 
+\paragraph{¿Qué es una organización?}
 Un conjunto de personas que, con los medios o recursos adecuados, funciona
 mediante un conjunto de procedimientos y reglas establecidos para alcanzar un fin determinado.
 
@@ -506,10 +506,10 @@ El entorno específico de la empresa.
 
 Análisis del sector – 5 fuerzas de Porter
 \begin{figure}[H]
-  \ffigbox[\FBwidth]
-  {\caption{5 fuerzas de Porter}}
-  {\def\svgwidth{.9\textwidth}
-  \input{./img/Porter.eps_tex}}
+	\ffigbox[\FBwidth]
+	{\caption{5 fuerzas de Porter}}
+	{\def\svgwidth{.9\textwidth}
+		\input{./img/Porter.eps_tex}}
 \end{figure}
 
 
@@ -654,17 +654,17 @@ Objetivo general: Maximizar el valor de la empresa Æ Maximizar la riqueza de lo
 los activos de la empresa Æ Maximizar la rentabilidad de los activos
 
 $$\begin{gathered}\textit{Variables } \\ \textit{explicativas}\end{gathered}
-\begin{cases}
-\textit{Beneficio} \begin{cases}
-\begin{gathered}\textit{Beneficio contable = Incremento de los fondos propios} \\  \textit{+ dividendos repartidos}\end{gathered} \\
-\begin{gathered}\textit{Beneficio economico = Incremento del valor de mercado} \\  \textit{de los fondos propios + dividendos repartidos} \end{gathered}
-\end{cases} \\
-\begin{gathered}\textit{Coste de oportunidad}\\ \textit{de los inversores}\end{gathered} \begin{cases}
-\textit{Coste del dinero} \\
-\textit{Inflación} \\
-\textit{Nivel de riesgo}
-\end{cases} 
-\end{cases}$$
+	\begin{cases}
+		\textit{Beneficio} \begin{cases}
+			\begin{gathered}\textit{Beneficio contable = Incremento de los fondos propios} \\  \textit{+ dividendos repartidos}\end{gathered} \\
+			\begin{gathered}\textit{Beneficio economico = Incremento del valor de mercado} \\  \textit{de los fondos propios + dividendos repartidos} \end{gathered}
+		\end{cases}       \\
+		\begin{gathered}\textit{Coste de oportunidad}\\ \textit{de los inversores}\end{gathered} \begin{cases}
+			\textit{Coste del dinero} \\
+			\textit{Inflación}        \\
+			\textit{Nivel de riesgo}
+		\end{cases}
+	\end{cases}$$
 
 Criterios de clasificación de proyectos de inversión:
 
@@ -703,11 +703,11 @@ inicial de la inversión, es decir el número de años necesario para que los fl
 desembolso inicial o el tamaño de la inversión.
 \begin{table}[H]
 	\begin{tabular}{lll}
-V: Volumen de ventas & $\textit{Rotación de activos} = V / TA$ \\
-TA: Total de activos & $\textit{Endeudamiento} = FA / FP$ \\
-FP: Fondos propios & $BAT = BAIT - (Ki * FA)$ \\
-FA: Fondos ajenos & $BN = BAT (1 - T)$ \\
-Ki: Coste del capital ajeno & $\textit{Margen sobre ventas} = BAIT / V$ \\
+		V: Volumen de ventas        & $\textit{Rotación de activos} = V / TA$   \\
+		TA: Total de activos        & $\textit{Endeudamiento} = FA / FP$        \\
+		FP: Fondos propios          & $BAT = BAIT - (Ki * FA)$                  \\
+		FA: Fondos ajenos           & $BN = BAT (1 - T)$                        \\
+		Ki: Coste del capital ajeno & $\textit{Margen sobre ventas} = BAIT / V$ \\
 	\end{tabular}
 \end{table}
 
@@ -722,7 +722,7 @@ $RF = BAT / FP$ (sin efecto impositivo) o $RF = BN / FP$ (incluye efecto imposit
 Apalancamiento financiero: Efecto palanca del endeudamiento sobre la rentabilidad económica.
 \begin{table}[H]
 	\begin{tabular}{lll}
-$Af = RE - Ki$ & $Af > 0 \rightarrow$ Amplificador & $Af < 0 \rightarrow$ Reductor
+		$Af = RE - Ki$ & $Af > 0 \rightarrow$ Amplificador & $Af < 0 \rightarrow$ Reductor
 	\end{tabular}
 \end{table}
 
@@ -742,7 +742,7 @@ Tasa de interés en la que VAN (A) = VAN (B)
 
 
 \chapter{Tema 4. La función de producción}
-La función de producción es la parte de la empresa que se dedica a crear un producto o servicio que cubre una necesidad 
+La función de producción es la parte de la empresa que se dedica a crear un producto o servicio que cubre una necesidad
 
 Sus principales objetivos son el tiempo de envío, la calidad, el coste y la flexibilidad.
 
@@ -757,34 +757,34 @@ Las decisiones estratégicas de la función de producción son:
 Podemos diferenciar diferentes tipos de producción:
 \begin{enumerate}
 	\item PRODUCCIÓN POR PROYECTO: Los proyectos son personalizados y únicos, por lo que cubren necesidades muy específicas.
-	\begin{itemize}
-		\item Volumen de producción muy bajo
-		\item Variabilidad muy alta
-		\item Altos costes variables
-		\item Trabajadores muy cualificados
-	\end{itemize}
-	El tipo de distribución de esta producción es de posición fija, todos los trabajadores e inputs se mueven al punto donde se realizara el proyecto.
+	      \begin{itemize}
+		      \item Volumen de producción muy bajo
+		      \item Variabilidad muy alta
+		      \item Altos costes variables
+		      \item Trabajadores muy cualificados
+	      \end{itemize}
+	      El tipo de distribución de esta producción es de posición fija, todos los trabajadores e inputs se mueven al punto donde se realizara el proyecto.
 	\item PRODUCCIÓN FLEXIBLE: Este sistema de producción cubre las necesidades de un número pequeño de consumidores dispuestos a pagar mucho dinero por productos distintivos.
-	\begin{itemize}
-		\item Volumen de producción medio
-		\item Variabilidad alta
-		\item Trabajadores polivalentes
-		\item Altos costes variables
-	\end{itemize}
-	\pagebreak
+	      \begin{itemize}
+		      \item Volumen de producción medio
+		      \item Variabilidad alta
+		      \item Trabajadores polivalentes
+		      \item Altos costes variables
+	      \end{itemize}
+	      \pagebreak
 	\item PRODUCCIÓN EN MASA: Sistema de producción que intenta satisfacer a un largo número de clientes con productos indiferenciados a precio bajo.
-	\begin{itemize}
-		\item Volumen de producción alto
-		\item Variabilidad muy baja
-		\item Trabajadores poco cualificados
-		\item Maquinaria muy especializada
-		\item Altos costes fijos
-		\item Precios bajos
-	\end{itemize}
-	En la producción en masa es común la distribución por producto, donde un conjunto de máquinas se predisponen a otro conforman do el proceso de montaje del producto.
-	
-	Dependiendo de la situación será más conveniente una producción flexible o una en masa.
-	\item PRODUCCIÓN JUST IN TIME: Esta producción es una mezcla de la producción en masa y la flexible, que busca producir las cantidades justas con la máxima calidad, mediante un proceso que evite cualquier despilfarro.	
+	      \begin{itemize}
+		      \item Volumen de producción alto
+		      \item Variabilidad muy baja
+		      \item Trabajadores poco cualificados
+		      \item Maquinaria muy especializada
+		      \item Altos costes fijos
+		      \item Precios bajos
+	      \end{itemize}
+	      En la producción en masa es común la distribución por producto, donde un conjunto de máquinas se predisponen a otro conforman do el proceso de montaje del producto.
+
+	      Dependiendo de la situación será más conveniente una producción flexible o una en masa.
+	\item PRODUCCIÓN JUST IN TIME: Esta producción es una mezcla de la producción en masa y la flexible, que busca producir las cantidades justas con la máxima calidad, mediante un proceso que evite cualquier despilfarro.
 \end{enumerate}
 
 \section{DECISIONES DEL SISTEMA PRODUCTIVO:}
@@ -794,7 +794,7 @@ Capacidad: Es la cantidad máxima de bienes y servicios que podemos obtener de u
 	\item Es la capacidad máxima, no efectiva
 	\item Depende de un período de tiempo
 	\item En condiciones normales, no a capacidad punta.
-\end{itemize}	
+\end{itemize}
 Localización: Es la fuente de muchas ventajas competitivas, por reducción de costes, acceso a materias primas, cercanía al cliente…
 \begin{itemize}
 	\item Se deben tener en cuenta los inputs, la demanda y el entorno en el que se lleva a cabo la producción
@@ -815,11 +815,11 @@ La logística está conformada por todas las actividades de aprovisionamiento, f
 	\item EQUILIBRIO DE CAPACIDADES: Desarrollo de políticas de personal, inversiones y recursos, acorde con las previsiones de venta.
 	\item CONTROL PROACTIVO DEL FLUJO DE MATERIALES: Lanzamiento de programas de fabricación y compra (solo si se tiene la capacidad)
 	\item PLANIFICACIÓN TOP-DOWN: De lo más general a lo más específico en cuanto a lo planificado, y de lo más lejano a lo más cercano en cuanto a horizonte temporal.
-	\begin{itemize}
-		\item Nivel estratégico: fábricas y almacenes, stocks, transporte…
-		\item Nivel táctico: equipos de fabricación, manutención, volumen de inventarios…
-		\item Nivel operativo: Programación de aprovisionamiento, asignación de cargas…
-	\end{itemize}
+	      \begin{itemize}
+		      \item Nivel estratégico: fábricas y almacenes, stocks, transporte…
+		      \item Nivel táctico: equipos de fabricación, manutención, volumen de inventarios…
+		      \item Nivel operativo: Programación de aprovisionamiento, asignación de cargas…
+	      \end{itemize}
 \end{enumerate}
 
 La incorporación de las TIC a la logística hace que se tenga un mayor control del flujo de información, esto permite una automatización de los procesos de aprovisionamiento y selección. (e-procurement y e-sourcing respectivamente)
@@ -882,15 +882,15 @@ psicológico, y el comportamiento de compra.
 Una vez que se segmenta el mercado, se elige una estrategia de segmentación:
 \begin{itemize}
 	\item Estrategia diferenciada
-	\begin{itemize}
-		\item Marketing diferenciado: Para cada sector se lanzan unos productos
-	\end{itemize}
+	      \begin{itemize}
+		      \item Marketing diferenciado: Para cada sector se lanzan unos productos
+	      \end{itemize}
 	\item Estrategia indiferenciada
-	\begin{itemize}
-		\item Marketing diferenciado: Para cada sector se lanzan unos productos
-		\item Marketing concentrado: Nos concentramos en un único segmento del mercado.
-		\item Marketing masivo: Un único producto para todo el mercado.
-	\end{itemize}
+	      \begin{itemize}
+		      \item Marketing diferenciado: Para cada sector se lanzan unos productos
+		      \item Marketing concentrado: Nos concentramos en un único segmento del mercado.
+		      \item Marketing masivo: Un único producto para todo el mercado.
+	      \end{itemize}
 \end{itemize}
 
 Al definir la estrategia, se pasa a posicionar el producto, que se basa en crear una imagen del
@@ -904,18 +904,18 @@ se cambia el precio, la demanda variará bastante, en cambio, si es inelástica,
 \begin{enumerate}
 	\item Marca: La marca es toda señal o símbolo que se colocan en el producto para que el cliente lo sepa distinguir los demás.
 
-En una marca se distinguen el nombre y el logotipo.
-\pagebreak
-Hay de diferentes tipos, marcas de distribuidores (Alcampo), marcas únicas (Loewe), marcas
-individuales (P\&G, se distribuye en Pantene, Head and shoulders…), marca de familia (Panrico
-tiene Donut, Qe!...), marca paraguas (Sony tiene Xperia para móviles AIO para sonido…)
+	      En una marca se distinguen el nombre y el logotipo.
+	      \pagebreak
+	      Hay de diferentes tipos, marcas de distribuidores (Alcampo), marcas únicas (Loewe), marcas
+	      individuales (P\&G, se distribuye en Pantene, Head and shoulders…), marca de familia (Panrico
+	      tiene Donut, Qe!...), marca paraguas (Sony tiene Xperia para móviles AIO para sonido…)
 	\item Diseño y forma: Hay que tener en cuenta tanto la estética del producto como su funcionalidad
 	\item Packaging: Se debe estudiar cómo envolver el producto para facilitar su transporte, ajustarse a
-las normas legales, y aceptar la información complementaria.
+	      las normas legales, y aceptar la información complementaria.
 	\item Calidad: Grado de adecuación del producto
 	\item Otros atributos: Garantía, servicio posventa…
-Gama de productos: Cuál va a ser la longitud y profundidad de nuestros productos, y si
-tenemos pensado añadir más líneas de productos o extenderlas.
+	      Gama de productos: Cuál va a ser la longitud y profundidad de nuestros productos, y si
+	      tenemos pensado añadir más líneas de productos o extenderlas.
 	\item Ciclo de vida: ¿Va a durar la popularidad de nuestro producto?
 \end{enumerate}
 
@@ -926,17 +926,17 @@ la cantidad de la demanda que se necesite, y en el momento y lugar adecuado.
 La distribución tiene dos facetas: Los canales de distribución y la distribución física.
 \begin{enumerate}
 	\item Canales de distribución: Pueden ser directos (el propio fabricante los vende al consumidor) o
-indirectos (en el canal de distribución existen mayoristas y minoristas), se deben tener en
-cuenta el tipo y la longitud que va a tener el canal de distribución, además del n.º de
-intermediarios.
+	      indirectos (en el canal de distribución existen mayoristas y minoristas), se deben tener en
+	      cuenta el tipo y la longitud que va a tener el canal de distribución, además del n.º de
+	      intermediarios.
 
 	\item Intermediarios: Son los representantes (trabajan a comisión sobre ventas y la mercancía no es
-suya, ponen en contacto al fabricante y al consumidor), los mayoristas (asumen el riesgo de su
-actividad y el producto no es suyo, venden al por mayor) y los minoristas (los productos son
-suyos y afrontan un mayor riesgo, venden al por menor)
+	      suya, ponen en contacto al fabricante y al consumidor), los mayoristas (asumen el riesgo de su
+	      actividad y el producto no es suyo, venden al por mayor) y los minoristas (los productos son
+	      suyos y afrontan un mayor riesgo, venden al por menor)
 
-Las funciones de los intermediarios es reducir el número de contactos, adecuar la oferta a la
-demanda, mover el producto…
+	      Las funciones de los intermediarios es reducir el número de contactos, adecuar la oferta a la
+	      demanda, mover el producto…
 \end{enumerate}
 
 \subsection{PRECIO}
@@ -949,15 +949,15 @@ precio del líder del mercado.
 Se basa en estimular la demanda mediante la transmisión de las características del producto.
 \begin{enumerate}
 	\item Publicidad: Es una forma de comunicación en forma de masa pagada, puede ser informativa o
-persuasiva.
+	      persuasiva.
 	\item Promoción en ventas: Crear ofertas y acciones comerciales para que el consumidor se vea más
-atraído a la hora de elegir el producto.
+	      atraído a la hora de elegir el producto.
 	\item Relaciones públicas: Ser sponsor de un equipo y actividades similares hacen que se le den una
-imagen positiva a la empresa y a la marca
+	      imagen positiva a la empresa y a la marca
 	\item Marketing directo: Son el conjunto de actividades que ofrecen el producto o servicio a
-segmentos del mercado previamente definidos, un teleoperador, por ejemplo.
+	      segmentos del mercado previamente definidos, un teleoperador, por ejemplo.
 	\item Fuerza de ventas: Un ejemplo sería un vendedor que va puerta por puerta vendiendo un
-producto.
+	      producto.
 \end{enumerate}
 
 
@@ -968,16 +968,16 @@ La tarea directiva se basa en conseguir una actuación conjunta de las personas 
 organización dándoles objetivos y valores comunes, para poder responder a los cambios.
 \begin{description}
 	\item[PLANIFICACION] Es el proceso en el que se decide que se va a hacer y cómo. Implica definir los
-objetivos y las estrategias de la empresa. La planificación facilita la dirección, incrementa el
-éxito y ayuda a mejorar la adaptación de la empresa.
+	      objetivos y las estrategias de la empresa. La planificación facilita la dirección, incrementa el
+	      éxito y ayuda a mejorar la adaptación de la empresa.
 	\item[ORGANIZACIÓN] Se basa en definir las tareas de cada uno, así como las vinculaciones entre
-ellos. La organización se basa en dos procesos, la diferenciación y la integración
+	      ellos. La organización se basa en dos procesos, la diferenciación y la integración
 	\item[DIRECCIÓN DE RRHH] Es el proceso en el que se decide que se va a hacer y cómo. Implica definir los
-objetivos y las estrategias de la empresa. La planificación facilita la dirección, incrementa el
-éxito y ayuda a mejorar la adaptación de la empresa.
+	      objetivos y las estrategias de la empresa. La planificación facilita la dirección, incrementa el
+	      éxito y ayuda a mejorar la adaptación de la empresa.
 	\item[CONTROL] Es la fase que vigila la actuación a nivel individual y grupal y determina el grado de
-cumplimiento de los planes. Con el control, se modifican las actividades de la empresa para
-que se puedan desarrollar correctamente los planos definidos.
+	      cumplimiento de los planes. Con el control, se modifican las actividades de la empresa para
+	      que se puedan desarrollar correctamente los planos definidos.
 \end{description}
 
 \section{TOMA DE DECISIONES}
@@ -998,12 +998,12 @@ Los hay de alta dirección, de nivel medio y supervisores de primera línea.
 Para diseñar esta estructura hay que tener en cuenta:
 \begin{itemize}
 	\item Especialización: Existen la horizontal (n.º de departamentos y n.º de puestos definidos) y
-vertical (n.º de niveles jerárquicos)
+	      vertical (n.º de niveles jerárquicos)
 	\item Estandarización: Limitación a la hora de que tareas se harán, cómo y cuándo.
 	\item Centralización: Grado de concentración de la autoridad para tomar decisiones.
 	\item Configuración estructural: Vinculación entre los puestos.
 	\item Componentes comunes: Lo son el ápice estratégico, la línea media, el núcleo de operaciones,
-la tecno estructura, y el staff de apoyo
+	      la tecno estructura, y el staff de apoyo
 \end{itemize}
 
 \section{TIPOS DE ESTRUCTURA:}
@@ -1023,25 +1023,25 @@ El problema principal es que la empresa y los individuos tengan el mismo objetiv
 aplican unos sistemas de evaluación e incentivos, y se motiva a los individuos.
 \begin{itemize}
 	\item Motivación: para dar motivación a los individuos de la empresa se crea un ciclo el cual empieza
-con una necesidad de la empresa, se resuelve con un comportamiento que da lugar a la
-resolución de la necesidad o a la frustración al fracasar. Existen diversas teorías de motivación,
-las más importantes son la Pirámide Maslow y los factores de motivación de Herzberg.
+	      con una necesidad de la empresa, se resuelve con un comportamiento que da lugar a la
+	      resolución de la necesidad o a la frustración al fracasar. Existen diversas teorías de motivación,
+	      las más importantes son la Pirámide Maslow y los factores de motivación de Herzberg.
 	\item Liderazgo y comunicación: El liderazgo es una forma de poder, la capacidad de afectar en el
-comportamiento de los demás. La comunicación es un proceso de transmisión de información,
-puede ser descendente, ascendente o cruzada.
+	      comportamiento de los demás. La comunicación es un proceso de transmisión de información,
+	      puede ser descendente, ascendente o cruzada.
 	\item Reclutamiento: Es un proceso mediante el cual la organización intenta conseguir empleados
-potenciales, que cumplan los requisitos deseados. Existen el interno y el externo. Las ventajas
-del interno es que aumenta la motivación, evita sorpresas y tiene menos costes, pero genera
-conflictos internos y hay pocos candidatos. En cuanto al externo, hay muchos candidatos,
-evitan problemas entre el personal y se aprovechan las ayudas públicas, por otro lado, tiene
-costes mayores y no se conoce al 100\% al candidato.
+	      potenciales, que cumplan los requisitos deseados. Existen el interno y el externo. Las ventajas
+	      del interno es que aumenta la motivación, evita sorpresas y tiene menos costes, pero genera
+	      conflictos internos y hay pocos candidatos. En cuanto al externo, hay muchos candidatos,
+	      evitan problemas entre el personal y se aprovechan las ayudas públicas, por otro lado, tiene
+	      costes mayores y no se conoce al 100\% al candidato.
 	\item Selección y formación: El proceso de selección se basa en elegir cuál de los candidatos
-reclutados es mejor para cada posición. La formación puede ser por necesidad de formación
-inicial o por necesidad de mantener el conocimiento.
+	      reclutados es mejor para cada posición. La formación puede ser por necesidad de formación
+	      inicial o por necesidad de mantener el conocimiento.
 	\item Evaluación de rendimiento: Son herramientas para medir el cumplimiento de los objetivos a
-los individuos y/o grupos.
+	      los individuos y/o grupos.
 	\item Sistemas de retribución: Es la acción de remunerar a los trabajadores, juntos con las leyes,
-normas y principios que rigen dichas acciones.
+	      normas y principios que rigen dichas acciones.
 \end{itemize}
 
 
@@ -1052,26 +1052,23 @@ La innovación se basa en la comercialización de un invento.
 Tipos:
 \begin{itemize}
 	\item Por grado de novedad:
-	\begin{itemize}
-		\item Radical: son las más novedosas y difíciles de imitar (internet)
-		\item Incremental
-	\end{itemize}
+	      \begin{itemize}
+		      \item Radical: son las más novedosas y difíciles de imitar (internet)
+		      \item Incremental
+	      \end{itemize}
 	\item Por el resultado innovador:
-	\begin{itemize}
-		\item Producto
-		\item Proceso
-		\item etc.
-	\end{itemize}
+	      \begin{itemize}
+		      \item Producto
+		      \item Proceso
+		      \item etc.
+	      \end{itemize}
 \end{itemize}
 
 \section{Modelo interactivo de la innovación}
 \begin{itemize}
 	\item Innovación I+D: Se basan en investigaciones de trabajos teóricos o prácticos en los que se les intentan buscar diferentes usos y aplicarlos en la producción de productos o procesos.
-
 	\item Innovación learning by doing: Surge al repetir las operaciones de producción
-
 	\item Innovación learning by using: Información que proporcionan usuarios o clientes.
-
 	\item Innovación learning by failing: Los fracasos ayudan a rectificar y rediseñar o cambiar diferentes elementos de producción.
 \end{itemize}
 
