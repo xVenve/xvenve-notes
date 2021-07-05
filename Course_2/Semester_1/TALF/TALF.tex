@@ -180,34 +180,34 @@ hmargin=3cm
 
 \begin{document}
 \pagenumbering{roman} % Se utilizan cifras romanas en la numeración de las páginas previas al cuerpo del trabajo
-	
+
 %----------
 %	PORTADA
 %----------	
 \begin{titlepage}
 	\begin{sffamily}
-	\color{azulUC3M}
-	\begin{center}
-		\begin{figure}[H] %incluimos el logotipo de la Universidad
-			\makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
-		\end{figure}
-		\vspace{2.5cm}
-		\begin{Large}
-			Grado en Ingeniería Informática\\			
-			2019-2020\\
-			\vspace{2cm}		
-			\textsl{Apuntes}\\
-			\bigskip
-		\end{Large}
-		 	{\Huge Teoría de Automatas y Lenguajes Formales}\\
-		 	\vspace*{0.5cm}
-	 		\rule{10.5cm}{0.1mm}\\
+		\color{azulUC3M}
+		\begin{center}
+			\begin{figure}[H] %incluimos el logotipo de la Universidad
+				\makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
+			\end{figure}
+			\vspace{2.5cm}
+			\begin{Large}
+				Grado en Ingeniería Informática\\
+				2019-2020\\
+				\vspace{2cm}
+				\textsl{Apuntes}\\
+				\bigskip
+			\end{Large}
+			{\Huge Teoría de Automatas y Lenguajes Formales}\\
+			\vspace*{0.5cm}
+			\rule{10.5cm}{0.1mm}\\
 			\vspace*{0.9cm}
-			{\LARGE Jorge Rodríguez Fraile\footnote{\href{mailto:100405951@alumnos.uc3m.es}{Universidad: 100405951@alumnos.uc3m.es}  |  \href{mailto:jrf1616@gmail.com}{Personal: jrf1616@gmail.com}}}\\ 
+			{\LARGE Jorge Rodríguez Fraile\footnote{\href{mailto:100405951@alumnos.uc3m.es}{Universidad: 100405951@alumnos.uc3m.es}  |  \href{mailto:jrf1616@gmail.com}{Personal: jrf1616@gmail.com}}}\\
 			\vspace*{1cm}
-	\end{center}
-	\vfill
-	\color{black}
+		\end{center}
+		\vfill
+		\color{black}
 		\includegraphics[width=4.2cm]{img/creativecommons.png}\\
 		Esta obra se encuentra sujeta a la licencia Creative Commons\\ \textbf{Reconocimiento - No Comercial - Sin Obra Derivada}
 	\end{sffamily}
@@ -286,8 +286,8 @@ hmargin=3cm
 	\item Construir un grafo dirigido en el que los nodos son los $\Sigma_{NT}$ y las flechas son los $\Sigma_T$.
 	\item Intercambiar las etiquetas de $\lambda$ y S, y dar la vuelta a las flechas.
 	\item Interpretar el grafo
-	
-	Nota: las que iban de S van a $\lambda$, y de $\lambda$ no puede salir nada.
+
+	      Nota: las que iban de S van a $\lambda$, y de $\lambda$ no puede salir nada.
 \end{enumerate}
 
 \subsection{Lenguaje vacío (G2)}
@@ -303,14 +303,14 @@ accesibles desde el axioma, entonces es un lenguaje infinito.
 	\item Eliminar reglas innecesarias ($A \rightarrow A$)
 	\item Eliminar símbolos inaccesibles (para ello se construye un vector con los símbolos T y NT)
 
-	Ir marcando desde el axioma los que vaya produciendo.
+	      Ir marcando desde el axioma los que vaya produciendo.
 	\item Eliminar reglas superfluas con el algoritmo de marcado
-	\begin{enumerate}
-		\item Se marcan los $\Sigma_{NT} \rightarrow \Sigma_{T}$ y los $\Sigma_{NT} \rightarrow \lambda$
-		\item Se marcan los que contengan un $\Sigma_{NT}$ marcado en la derecha
-		\item Se repite hasta que no se pueden marcar más
-		\item Se eliminan todas las reglas no marcadas
-	\end{enumerate}
+	      \begin{enumerate}
+		      \item Se marcan los $\Sigma_{NT} \rightarrow \Sigma_{T}$ y los $\Sigma_{NT} \rightarrow \lambda$
+		      \item Se marcan los que contengan un $\Sigma_{NT}$ marcado en la derecha
+		      \item Se repite hasta que no se pueden marcar más
+		      \item Se eliminan todas las reglas no marcadas
+	      \end{enumerate}
 	\item Eliminar los símbolos no generativos, es decir, aquellos que solo aparecen en reglas superfluas.
 	\item Eliminar las reglas no generativas, las de tipo $A \rightarrow \lambda$. Cada vez que aparezca A en la $\lambda$. Se admite parte derecha, se añade la posibilidad de que sea $\textit{Axioma} \rightarrow \lambda$, OJO si cuando eliminamos solo quedaba un símbolo ($C \rightarrow M$ y eliminamos M), ponemos lambda ($C \rightarrow \lambda$) y repetimos el proceso de eliminación (para C).
 	\item Eliminar las reglas de redenominación, las de tipo $A \rightarrow B$. Por cada regla de la forma $B \rightarrow x$, se añade $A \rightarrow x$
@@ -325,9 +325,9 @@ Se separa el primer símbolo de la derecha del resto, por ejemplo, de $A \righta
 	\item Quitar recursividad a izquierdas si las reglas. $\lambda$ no se toca en este paso
 	\item Ordenar el alfabeto $\Sigma_{NT}$ (A, B) y clasificar las reglas en G2(AB) o G3(BA)
 	\item Pasar las de G3 a G2. Se hace por sustitución, no sustituir con las reglas que dan $\lambda$
-	\begin{enumerate}
-		\item Quitar recursividad a izquierdas si apareciese.
-	\end{enumerate}
+	      \begin{enumerate}
+		      \item Quitar recursividad a izquierdas si apareciese.
+	      \end{enumerate}
 	\item Pasar de G2 a G1, empezando por la que me deje meter un $\Sigma_T$ en la cabeza.
 	\item Si hay un $\Sigma_T$ que no esté en la cabeza, sustituirlo por un $\Sigma_{NT}$ que dé ese $\Sigma_T$.
 \end{enumerate}
@@ -363,21 +363,21 @@ Nota: $D_{ab}(\alpha)= D_b(D_a(\alpha))$
 \begin{enumerate}
 	\item Derivar la expresión respecto de todos los símbolos y todas las que me vayan saliendo.
 
-	Las voy llamando $R_x$, donde x es un Número
+	      Las voy llamando $R_x$, donde x es un Número
 	\item Si $R_x$ puede ser $\lambda$, se añade una regla, $R_x \rightarrow \lambda$
 	\item Si $D_y(R_{x_1}) = R_{x_2}$, se añade una regla $R_{x_1} \rightarrow y R_{x_2}$
 	\item Luego se aplica el paso de G3LD (FNG) a AF para obtener el AF correspondiente
 \end{enumerate}
 \begin{table}[H]
 	\centering\begin{tabular}{ll}
-$D_a(a) = \lambda$ \\
-$D_a(b) = \emptyset$ \\
-$D_a(RS) = D_a(R)S + d(R)D_a(S)$ \\
-$D_a(R+S) = D_a(R) + D_a(S)$ \\
-$D_a(R^*) = D_a(R)R^*$ \\
-$d(a) = \emptyset$ \\
-$d(a^*) = \lambda$ & Si puede ser $\lambda$, es $\lambda$, si no $\emptyset$ \\
-$d(a^*+a) = \lambda$ \\
+		$D_a(a) = \lambda$ \\
+		$D_a(b) = \emptyset$ \\
+		$D_a(RS) = D_a(R)S + d(R)D_a(S)$ \\
+		$D_a(R+S) = D_a(R) + D_a(S)$ \\
+		$D_a(R^*) = D_a(R)R^*$ \\
+		$d(a) = \emptyset$ \\
+		$d(a^*) = \lambda$ & Si puede ser $\lambda$, es $\lambda$, si no $\emptyset$ \\
+		$d(a^*+a) = \lambda$ \\
 	\end{tabular}
 \end{table}
 
@@ -396,11 +396,11 @@ $d(a^*+a) = \lambda$ \\
 \subsection{$\boldsymbol{G2 \; (FNG) \rightarrow APV}$}
 \begin{enumerate}
 	\item Tres tipos de reglas:
-	\begin{enumerate}
-		\item $A \rightarrow aBCD: \; f(q,\; a,\; A) = (q,\; BCD)$
-		\item $A \rightarrow a: \; f(q,\; a,\; A) = (q,\; \lambda)$
-		\item $S \rightarrow \lambda: \; f(q,\; \lambda,\; S) = (q,\; \lambda)$
-	\end{enumerate}
+	      \begin{enumerate}
+		      \item $A \rightarrow aBCD: \; f(q,\; a,\; A) = (q,\; BCD)$
+		      \item $A \rightarrow a: \; f(q,\; a,\; A) = (q,\; \lambda)$
+		      \item $S \rightarrow \lambda: \; f(q,\; \lambda,\; S) = (q,\; \lambda)$
+	      \end{enumerate}
 	\item El automata tendrá un único estado, q.
 \end{enumerate}
 
@@ -408,84 +408,82 @@ $d(a^*+a) = \lambda$ \\
 \begin{enumerate}
 	\item Se pone una regla del tipo $S \rightarrow (q_0, \; A_0, \; pqr...)$
 	\item Se ponen reglas de tipo:
-	\begin{enumerate}
-		\item Tipo $1A: \; f(q, \; a, \; B) = (p, \; DEF)$
+	      \begin{enumerate}
+		      \item Tipo $1A: \; f(q, \; a, \; B) = (p, \; DEF)$
 
-		El molde será: $(qB\_) \rightarrow a(pD\_)(\_E\_)(\_F\_)$
+		            El molde será: $(qB\_) \rightarrow a(pD\_)(\_E\_)(\_F\_)$
 
-		\item Tipo $1B: \; f(p, \; \lambda, \; B) = (q, \; A)$
+		      \item Tipo $1B: \; f(p, \; \lambda, \; B) = (q, \; A)$
 
-		El molde será: $(pB\_) \rightarrow X(qA\_)$
+		            El molde será: $(pB\_) \rightarrow X(qA\_)$
 
-		\item Tipo $2A: \; f(p, \; a, \; B) = (q, \; \lambda)$
+		      \item Tipo $2A: \; f(p, \; a, \; B) = (q, \; \lambda)$
 
-		El molde será: $(pBq) \rightarrow a$
+		            El molde será: $(pBq) \rightarrow a$
 
-		\item Tipo $2B: \; f(p, \; \lambda, \; B) = (q, \; \lambda)$
+		      \item Tipo $2B: \; f(p, \; \lambda, \; B) = (q, \; \lambda)$
 
-		El molde será: $(pBq) \rightarrow \lambda$
+		            El molde será: $(pBq) \rightarrow \lambda$
 
 
-	\end{enumerate}
+	      \end{enumerate}
 \end{enumerate}
 \pagebreak
 \subsection{Equivalencia de EERR}
 \begin{multicols}{2}
-\begin{enumerate}
-  \item $(\alpha+\beta)+\sigma = \alpha + (\beta + \sigma)$
-  \item $\alpha + \beta = \beta + \alpha$
-  \item $(\alpha \cdot \beta)\cdot\sigma = \alpha \cdot (\beta\cdot\sigma)$
-  \item $\alpha \cdot (\beta +\sigma) = (\alpha \cdot \beta) + (\alpha \cdot \sigma)$
-  
-  $(\beta +\sigma) \cdot \alpha  = (\beta \cdot \alpha) + (\sigma \cdot \alpha)$
-  \item $\alpha \cdot \lambda = \lambda \cdot \alpha = \alpha$
-  \item $\alpha + \phi = \phi + \alpha = \alpha$
-  \item $\lambda^* = \lambda$
-  \item $\alpha \cdot \phi = \phi \cdot \alpha= \phi$
-  \item $\phi^* = \lambda$
-  \item $\alpha^* \cdot \alpha^* = \alpha^*$
-  \item $\alpha \cdot \alpha^* = \alpha^* \cdot \alpha$
-  \columnbreak
-  \item $(\alpha^*)^*=\alpha^*$
-  \item $\alpha^* = \lambda + \alpha + \alpha^2 + ... + \alpha^n + \alpha^{n+1} \cdot \alpha^*$
-  \item $\alpha^* = \lambda + \alpha \cdot \alpha^*$
-  \item $\alpha^* = (\lambda + \alpha)n-1 + \alpha n \cdot \alpha^*$
-  \item Sea $f$ una función, $f: E_{\Sigma^n} \rightarrow E_\Sigma$ se verifica: 
-  
-  $f(\alpha, \beta, ..., \sigma) + (\alpha + \beta + ... + \sigma)^* = (\alpha + \beta + ... + \sigma)^*$
+	\begin{enumerate}
+		\item $(\alpha+\beta)+\sigma = \alpha + (\beta + \sigma)$
+		\item $\alpha + \beta = \beta + \alpha$
+		\item $(\alpha \cdot \beta)\cdot\sigma = \alpha \cdot (\beta\cdot\sigma)$
+		\item $\alpha \cdot (\beta +\sigma) = (\alpha \cdot \beta) + (\alpha \cdot \sigma)$
 
-  \item Sea $f$ una función, $f: E_{\Sigma^n} \rightarrow E_\Sigma$ se verifica: 
-  
-  $(f(\alpha^*, \beta^*, ..., \sigma^*))^* = (\alpha + \beta + ... + \sigma)^*$
+		      $(\beta +\sigma) \cdot \alpha  = (\beta \cdot \alpha) + (\sigma \cdot \alpha)$
+		\item $\alpha \cdot \lambda = \lambda \cdot \alpha = \alpha$
+		\item $\alpha + \phi = \phi + \alpha = \alpha$
+		\item $\lambda^* = \lambda$
+		\item $\alpha \cdot \phi = \phi \cdot \alpha= \phi$
+		\item $\phi^* = \lambda$
+		\item $\alpha^* \cdot \alpha^* = \alpha^*$
+		\item $\alpha \cdot \alpha^* = \alpha^* \cdot \alpha$
+		      \columnbreak
+		\item $(\alpha^*)^*=\alpha^*$
+		\item $\alpha^* = \lambda + \alpha + \alpha^2 + ... + \alpha^n + \alpha^{n+1} \cdot \alpha^*$
+		\item $\alpha^* = \lambda + \alpha \cdot \alpha^*$
+		\item $\alpha^* = (\lambda + \alpha)n-1 + \alpha n \cdot \alpha^*$
+		\item Sea $f$ una función, $f: E_{\Sigma^n} \rightarrow E_\Sigma$ se verifica:
 
-  \item $(\alpha^* + \beta^*)^* = (\alpha^* \cdot \beta^*)^* = (\alpha + \beta)^*$
-  \item $(\alpha \cdot \beta)^*\cdot \alpha = \alpha \cdot (\beta \cdot \alpha)^*$
-  \item $(\alpha^* \cdot \beta)^*\cdot \alpha^* =(\alpha + \beta)^*$  
-  \item $(\alpha^* \cdot \beta)^*\cdot \alpha^* = \lambda + (\alpha + \beta)^*\cdot \beta$
-  \item R. Inferencia: $X=Ax + B \rightarrow X = A^* \cdot B$
-\end{enumerate}
+		      $f(\alpha, \beta, ..., \sigma) + (\alpha + \beta + ... + \sigma)^* = (\alpha + \beta + ... + \sigma)^*$
+		\item Sea $f$ una función, $f: E_{\Sigma^n} \rightarrow E_\Sigma$ se verifica:
+
+		      $(f(\alpha^*, \beta^*, ..., \sigma^*))^* = (\alpha + \beta + ... + \sigma)^*$
+		\item $(\alpha^* + \beta^*)^* = (\alpha^* \cdot \beta^*)^* = (\alpha + \beta)^*$
+		\item $(\alpha \cdot \beta)^*\cdot \alpha = \alpha \cdot (\beta \cdot \alpha)^*$
+		\item $(\alpha^* \cdot \beta)^*\cdot \alpha^* =(\alpha + \beta)^*$
+		\item $(\alpha^* \cdot \beta)^*\cdot \alpha^* = \lambda + (\alpha + \beta)^*\cdot \beta$
+		\item R. Inferencia: $X=Ax + B \rightarrow X = A^* \cdot B$
+	\end{enumerate}
 \end{multicols}
 
 \subsection{Analisis}
 \begin{enumerate}
 	\item Hacer las ecuaciones del Automata Finito
 
-	De $X_0$ a $X_1$ con una 'a': $X_0 = aX_1$
+	      De $X_0$ a $X_1$ con una 'a': $X_0 = aX_1$
 
-	De $X_0$ a $X_2$ que es final con una 'b': $X_0 = b X_2 + b$
+	      De $X_0$ a $X_2$ que es final con una 'b': $X_0 = b X_2 + b$
 
-	Si hay varias transiciones se ponen en la misma ecuación sumándose
+	      Si hay varias transiciones se ponen en la misma ecuación sumándose
 
-	Si el estado final solo va al sumidero o no tiene ramas se le añade $\lambda$
+	      Si el estado final solo va al sumidero o no tiene ramas se le añade $\lambda$
 
 	\item Utilizar las equivalencias de EERR, empezando por las más lejanas al inicial. Esencialmente se usa la regla de inferencia
-	\begin{table}[H]
-		\centering\begin{tabular}{ll}
-			$X_0 = aX_0$ & $X_0 = \emptyset$ \\
-			$X_1 = bX_1 + c$ & $X_1 = b^*c$ \\
-			$X_2 = c$ & $X_2 = c$ \\
-		\end{tabular}
-	\end{table}
+	      \begin{table}[H]
+		      \centering\begin{tabular}{ll}
+			      $X_0 = aX_0$     & $X_0 = \emptyset$ \\
+			      $X_1 = bX_1 + c$ & $X_1 = b^*c$      \\
+			      $X_2 = c$        & $X_2 = c$         \\
+		      \end{tabular}
+	      \end{table}
 \end{enumerate}
 
 \subsection{Formatos}
@@ -507,12 +505,12 @@ Todos aceptan axioma para dar $\lambda$
 	\item[G1] Sensible al contexto, puede ser cualquier cosa, sin reglas compresoras y Contexto ($aS \rightarrow ADC$)
 	\item[G2] De contexto libre, un símbolo a la izquierda pero cualquier cosa a la derecha. También si hay G3LD y G3LI en la misma gramática.
 	\item[G3] Gramática regular, son las de la forma $NT \rightarrow T$ y un tipo de las siguientes reglas:
-	\begin{table}[H]
-		\centering\begin{tabular}{ll}
-		G3LI	& $NT \rightarrow NT \; T$\\
-		G3LD	& $NT \rightarrow T \; NT$
-		\end{tabular}
-	\end{table}
+	      \begin{table}[H]
+		      \centering\begin{tabular}{ll}
+			      G3LI & $NT \rightarrow NT \; T$ \\
+			      G3LD & $NT \rightarrow T \; NT$
+		      \end{tabular}
+	      \end{table}
 \end{description}
 
 \end{document}
