@@ -275,22 +275,8 @@ Se encuentra en las fronteras de la programación.
 
 \textbf{Programación tradicional}: Lo normal, es que el usuario construya el programa que resuelve el problema.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Programación tradicional}}
-	{\includegraphics[scale=.15]{Untitled.png}}
-\end{figure}
-
 \textbf{Programación automática}: Se crea un programa capaz de generar
 el programa que es capaz de resolver nuestro problema.
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Programación automática}}
-	{\includegraphics[scale=.15]{Untitled 1.png}}
-\end{figure}
-
-\pagebreak
 
 \textbf{Es útil cuando:}
 
@@ -311,12 +297,6 @@ basándose en la \textbf{experiencia} E (los ejemplos).
 
 Tarea, Medida y Experiencia.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Tipos de tareas de Aprendizaje Automático}}
-	{\includegraphics[scale=.2]{Untitled 2.png}}
-\end{figure}
-\pagebreak
 \textbf{Tipos de tareas de Aprendizaje Automático:}
 \begin{itemize}
 	\item \textbf{Aprendizaje supervisado}: Consiste en etiquetar los datos.
@@ -326,6 +306,7 @@ Tarea, Medida y Experiencia.
 		      \item \textbf{Predicción -- Regresión}: Determinar una etiqueta numérica.
 
 	      \end{itemize}
+		  \pagebreak
 	\item \textbf{Aprendizaje no supervisado}: Agrupa elementos similares, no
 	      etiqueta.
 
@@ -427,45 +408,6 @@ Usa búsqueda avara, para encontrar el árbol más sencillo que separa mejor los
 
 	      si no, \textbf{ejecutar el ID3} con la tabla formada por los ejemplos de ese nodo, pero sin el atributo que todos tiene en común.
 \end{enumerate}
-\pagebreak
-Ejemplo:
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagramas ID3 I}}
-	{\includegraphics[scale=.2]{Untitled 3.png}}
-\end{figure}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagramas ID3 II}}
-	{\includegraphics[scale=.2]{Untitled 4.png}}
-
-\end{figure}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagramas ID3 III}}
-	{\includegraphics[scale=.2]{Untitled 5.png}}
-\end{figure}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagramas ID3 IV}}
-	{\includegraphics[scale=.2]{Untitled 6.png}}
-\end{figure}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagramas ID3 V}}
-	{\includegraphics[scale=.2]{Untitled 7.png}}
-\end{figure}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagramas ID3 VI}}
-	{\includegraphics[scale=.2]{Untitled 8.png}}
-\end{figure}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagramas ID3 VII}}
-	{\includegraphics[scale=.2]{Untitled 9.png}}
-\end{figure}
-
 
 \section{Heurística de ID3 (Heurística de la ganancia de
   información)}
@@ -517,15 +459,6 @@ ya que menos resta es el que menos entropía tiene, o elegir el que menor
 \textbf{entropía tenga}.
 
 \(A= \arg\max_{A \in \mathcal{A}} G(S,A) = \arg\min_{A \in \mathcal{A}} Entropia \_ Atr(A,S)\)
-
-
-\begin{figure}[H]
-	Ejemplo
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo cálculo de entropía}}
-	{\includegraphics[scale=.1]{Untitled 10.png}}
-\end{figure}
-
 
 \section{Aprendizaje de reglas de
   decisión}
@@ -641,12 +574,17 @@ admite cierta diferencia.
 
 \textbf{Basadas en la Matriz de confusión:}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Matriz de confusión con fórmulas}}
-	{\includegraphics[scale=.2]{Untitled 11.png}}
-\end{figure}
-
+\begin{table}[H]
+\centering
+\begin{tabular}{cc|c|c|}
+\cline{3-4}
+                                                                                                  &                                                         & \multicolumn{2}{c|}{\cellcolor[HTML]{34CDF9}{\color[HTML]{FFFFFF} Clase real}}                                                        \\ \cline{3-4} 
+                                                                                                  &                                                         & \cellcolor[HTML]{32CB00}{\color[HTML]{FFFFFF} Positiva}           & \cellcolor[HTML]{FE0000}{\color[HTML]{FFFFFF} Negativa}           \\ \hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{34CDF9}{\color[HTML]{FFFFFF} }}                             & \cellcolor[HTML]{32CB00}{\color[HTML]{FFFFFF} Positiva} & \begin{tabular}[c]{@{}c@{}}Positivo\\ Verdadero (TP)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Falso\\ Positivo (FP)\end{tabular}     \\ \cline{2-4} 
+\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{34CDF9}{\color[HTML]{FFFFFF} Predicción}}} & \cellcolor[HTML]{FE0000}{\color[HTML]{FFFFFF} Negativa} & \begin{tabular}[c]{@{}c@{}}Falso\\ Negativo (FN)\end{tabular}     & \begin{tabular}[c]{@{}c@{}}Negativo\\ Verdadero (TN)\end{tabular} \\ \cline{1-1} \cline{3-4} 
+\end{tabular}
+\caption{Matriz de confusión con fórmulas}
+\end{table}
 \(Accuracy= \frac {TP+TN}{TP+TP+FP+FN}\)
 
 \(\textit{Sensibilidad(recall)}= \frac {TP}{TP+FN}\) Proporción de las que son
@@ -669,15 +607,48 @@ Medida armónica entre sensibilidad y precisión de clase.
 
 Cuando se busca un buen balance entre recall y precisión de clase, y las
 clases no balanceadas.
-\newpage
+
 \textbf{Espacio ROC:} Mide como de útil es un clasificador para
 distinguir entre clases. Cuanto más cerca de la esquina superior
 izquierda mejor, recoge más área y está más cerca del punto óptimo.
 \begin{figure}[H]
 	Ejemplo
-	\ffigbox[\FBwidth]
+	\ffigbox[.8\FBwidth]
 	{\caption{Espacio ROC}}
-	{\includegraphics[scale=.2]{Untitled 12.png}}
+	{\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,324); %set diagram left start at 0, and has height of 324
+
+%Straight Lines [id:da48912769607859996] 
+\draw    (420,20) -- (150,290) ;
+%Straight Lines [id:da07809475437797575] 
+\draw    (160,20) -- (160,280) ;
+%Straight Lines [id:da7666140860911692] 
+\draw    (160,280) -- (420,280) ;
+%Straight Lines [id:da2427096733098011] 
+\draw    (150,40) -- (400,40) ;
+%Straight Lines [id:da6726693666957959] 
+\draw    (400,40) -- (400,290) ;
+
+% Text Node
+\draw (13,15) node [anchor=north west][inner sep=0.75pt]   [align=left] {ratio de positivos\\verdaderos = recall};
+% Text Node
+\draw (439,262) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{66.23pt}\setlength\topsep{0pt}
+\begin{center}
+ratio de falsos\\positivos
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (381,291) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+% Text Node
+\draw (171,12) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+% Text Node
+\draw (201,102) node [anchor=north west][inner sep=0.75pt]   [align=left] {Razonable};
+
+
+\end{tikzpicture}}
 \end{figure}
 \textbf{Curva ROC}: Es una curva en el espacio ROC, en la que cada punto
 de la recta representa un clasificador, el más cercano al punto óptimo
@@ -689,12 +660,6 @@ sentido, pero si en los casos que hay que definir un umbral
 o negativa. Los puntos representan los distintos umbrales.
 
 Cuanto más Área por debajo de la curva mejor.
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Curvas ROC}}
-	{\includegraphics[scale=.18]{Untitled 13.png}}
-\end{figure}
 
 \section{Proceso de análisis de
   datos}
@@ -734,21 +699,8 @@ Es un proceso iterativo, tras la última etapa se vuelve al principio.
 				                  \item \textbf{Técnicas de wrapper}: Se genera el modelo con todos los
 				                        atributos, se evalúa el modelo y se ve el subconjunto de
 				                        atributos mejores.
-				                        \begin{figure}[H]
-					                        Ejemplo
-					                        \ffigbox[\FBwidth]
-					                        {\caption{Técnicas de wrapper}}
-					                        {\includegraphics[scale=.2]{Untitled 14.png}}
-				                        \end{figure}
-				                        \pagebreak
 				                  \item \textbf{Búsqueda en el espacio de estado de los conjuntos de
 					                        atributos.}
-				                        \begin{figure}[H]
-					                        Ejemplo
-					                        \ffigbox[\FBwidth]
-					                        {\caption{Búsqueda por atributos}}
-					                        {\includegraphics[scale=.15]{Untitled 15.png}}
-				                        \end{figure}
 				                        \begin{itemize}
 					                        \item Se puede comenzar por el conjunto completo (por arriba) o por
 					                              el conjunto vacío (por abajo).
@@ -765,12 +717,7 @@ Es un proceso iterativo, tras la última etapa se vuelve al principio.
 			                  clase desbalanceada.
 		            \end{itemize}
 	      \end{itemize}
-	\item \textbf{Diseño}.
-
-	      \begin{itemize}
-		      \item Selección de algoritmo.
-		      \item Selección de parámetros.
-	      \end{itemize}
+	\item \textbf{Diseño}: Selección de algoritmo y Selección de parámetros.
 	\item \textbf{Ejecución de algoritmo.}
 	\item \textbf{Postproceso.}
 
@@ -784,13 +731,6 @@ Es un proceso iterativo, tras la última etapa se vuelve al principio.
 
 \subsection{Sobreajuste
 	(overfitting)}
-
-\begin{figure}[H]
-	Ejemplo
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama de sobreajuste}}
-	{\includegraphics[scale=.2]{image-20210305195646416.png}}
-\end{figure}
 
 Fenómeno que se produce al hacer aprendizaje, porque \textbf{el modelo
 	se ajusta demasiado a los ejemplos, y eso hace que no generalice bien.}
@@ -817,29 +757,16 @@ Para evitar sobreajuste se debe generalizar, hay \textbf{2 métodos}:
 		      \item \textbf{Eliminando subárboles}: Eliminando nodos del árbol empezando
 		            por las hojas, se evalúa el error tras eliminarlo, si no mejora
 		            probamos otro.
-		            \pagebreak
 		      \item \textbf{Eliminando precondiciones o reglas}: Tras haberlo pasado a
 		            reglas, eliminamos condiciones o reglas completas. Tras la
 		            eliminación se calcula el error, si mejora, el modelo principal pasa
 		            a ser el que lo eliminó y se sigue probado. Si no se prueba otra
 		            condición o regla.
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{Eliminación de atributos/reglas Post-poda}}
-			            {\includegraphics[scale=.2]{image-20210305201114245.png}
-				            \includegraphics[scale=.2]{image-20210305201127523.png}}
-		            \end{figure}
 	      \end{itemize}
 \end{itemize}
 
 \subsection{Atributos con valores
 	continuos}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Tratamiento de valores continuos}}
-	{\includegraphics[scale=.2]{image-20210305201824512.png}}
-\end{figure}
-
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item Se \textbf{ordenan los valores del atributo}, y se especifica la clase
@@ -947,13 +874,6 @@ método de discretización.
 \end{itemize}
 
 \section{Función de regresión}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo Regresión Lineal}}
-	{\includegraphics[scale=.15]{image-20210305211354068.png}
-		\includegraphics[scale=.15]{image-20210305211454026.png}}
-\end{figure}
-
 \subsection{Regresión lineal}
 
 Hallar una \textbf{función que se ajuste lo mejor posible a la nube de
@@ -980,11 +900,6 @@ que queremos es minimizar.
 
 La \textbf{suma de todas las diferencias de los valores de la función y
 	su aproximación}. Buscamos aquella aproximación que minimice E.
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Error en Regresión Lineal}}
-	{\includegraphics[scale=.10]{image-20210305212854142.png}}
-\end{figure}
 
 \subsubsection{Minimizando el error}
 
@@ -996,11 +911,6 @@ pesos.
 \textbf{Aproximación}: Descenso de gradiente.
 
 \subsection{Descenso de gradiente}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama de Descenso de Gradiente}}
-	{\includegraphics[scale=.3]{image-20210305214445428.png}}
-\end{figure}
 Sobre la función de errores por variable \textbf{vamos calculando la tangente y desplazando los valores de los pesos}.
 
 \begin{itemize}
@@ -1032,13 +942,25 @@ función de error de cada uno de los pesos.
 \begin{itemize}
 	\item C conjunto de ejemplo de entrenamiento. n tasa de aprendizaje cuando
 	      salta.
-\end{itemize}
+		  \begin{itemize}
+			  \item Inicializar cada $w_i$ a algun valor aleatorio pequeño
+			  \item Hasta que la condicion de fin sea alcanzada, hacer
+			  \begin{itemize}
+				  \item Inicializar cada $\Delta w_i$ a cero
+				  \item Para cada $\langle \vec{x}, \vec{t} \rangle \in C $:
+				  \begin{itemize}
+					  \item $o = \hat{f}(\vec{x})$
+				      \item Para cada peso $w_i$:
+						
+				      $\Delta w_i \leftarrow \Delta w_i + \eta (t - o)x_i$
+				  \end{itemize}
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Algoritmo de Descenso de Gradiente}}
-	{\includegraphics[scale=.2]{image-20210305224415026.png}}
-\end{figure}
+				  \item Para cada peso, $w_i$:
+                  
+				  $w_i \leftarrow w_i + \Delta w_i$
+			  \end{itemize}
+		  \end{itemize}	  
+\end{itemize}
 
 \subsection{Regresión no lineal}
 
@@ -1102,12 +1024,6 @@ estándar.
 no hoja se tienen atributos acotados \textless. Cada nodo tiene un
 conjunto de entrenamiento y se hace su regresión lineal.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagramas M5}}
-	{\includegraphics[scale=.2]{image-20210305230339091.png}
-		\includegraphics[scale=.15]{image-20210305230601935.png}}
-\end{figure}
 En los árboles de regresión, los nodos hoja tienen modelos lineales y
 para llegar a esos nodos se usa como heurística la Desviación típica
 (cuanto menor mejor), que se calcula haciendo una media ponderada
@@ -1117,7 +1033,7 @@ de cada uno de los conjuntos resultantes.
 Tras la construcción del árbol hay un proceso de poda, que consiste en
 Simplificar los modelos lineales de las hojas, Simplificar el árbol para
 que sea más pequeño y por último el Suavizado.
-\pagebreak
+
 \section{Poda}
 
 \textbf{Paso 0}: Antes de realizar la poda se crean modelos lineales de los nodos
@@ -1231,7 +1147,77 @@ aproximación.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Diagrama de una neurona}}
-	{\includegraphics[scale=.2]{image-20210312101135112.png}}
+	{
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da5244047550527262] 
+\draw    (298,150) -- (353,150.11) ;
+\draw [shift={(355,150.11)}, rotate = 180.11] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Ellipse [id:dp005350822023084234] 
+\draw   (250,150) .. controls (250,122.39) and (283.58,100) .. (325,100) .. controls (366.42,100) and (400,122.39) .. (400,150) .. controls (400,177.61) and (366.42,200) .. (325,200) .. controls (283.58,200) and (250,177.61) .. (250,150) -- cycle ;
+%Straight Lines [id:da2428669600286424] 
+\draw    (372,150) -- (440,150) ;
+\draw [shift={(442,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da2108327199440594] 
+\draw    (230,90) -- (278.44,128.75) ;
+\draw [shift={(280,130)}, rotate = 218.66] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5437083844551118] 
+\draw    (110,150) -- (268,150) ;
+\draw [shift={(270,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da06004854365587553] 
+\draw    (110,200) -- (268.09,150.6) ;
+\draw [shift={(270,150)}, rotate = 522.65] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da3199592630984822] 
+\draw    (110,100) -- (268.09,149.4) ;
+\draw [shift={(270,150)}, rotate = 197.35] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+
+% Text Node
+\draw (71,52) node [anchor=north west][inner sep=0.75pt]   [align=left] {entradas};
+% Text Node
+\draw (151,52) node [anchor=north west][inner sep=0.75pt]   [align=left] {pesos};
+% Text Node
+\draw (211,52) node [anchor=north west][inner sep=0.75pt]   [align=left] {umbral};
+% Text Node
+\draw (323,42) node [anchor=north west][inner sep=0.75pt]   [align=left] {\begin{minipage}[lt]{53.19pt}\setlength\topsep{0pt}
+\begin{center}
+Función de\\activación
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (418,111) node [anchor=north west][inner sep=0.75pt]   [align=left] {salida};
+% Text Node
+\draw (448,141) node [anchor=north west][inner sep=0.75pt]   [align=left] {s};
+% Text Node
+\draw (216,72) node [anchor=north west][inner sep=0.75pt]   [align=left] {U};
+% Text Node
+\draw (91,92) node [anchor=north west][inner sep=0.75pt]   [align=left] {x1};
+% Text Node
+\draw (91,141) node [anchor=north west][inner sep=0.75pt]   [align=left] {x2};
+% Text Node
+\draw (91,191) node [anchor=north west][inner sep=0.75pt]   [align=left] {xn};
+% Text Node
+\draw (158,92) node [anchor=north west][inner sep=0.75pt]   [align=left] {w1};
+% Text Node
+\draw (158,132) node [anchor=north west][inner sep=0.75pt]   [align=left] {w2};
+% Text Node
+\draw (161,192) node [anchor=north west][inner sep=0.75pt]   [align=left] {wn};
+% Text Node
+\draw    (354,138) -- (372,138) -- (372,162) -- (354,162) -- cycle  ;
+\draw (357,142.4) node [anchor=north west][inner sep=0.75pt]    {$f$};
+% Text Node
+\draw (309.5,131) node [anchor=north west][inner sep=0.75pt]   [align=left] {RED};
+% Text Node
+\draw    (278,138) -- (298,138) -- (298,162) -- (278,162) -- cycle  ;
+\draw (281,142.4) node [anchor=north west][inner sep=0.75pt]    {$\Sigma $};
+
+
+\end{tikzpicture}}
 \end{figure}
 Las \textbf{entradas son los valores de los atributos}
 (\(x_1,x_2,..,x_n\)) y un umbral, se hace \textbf{combinación lineal de
@@ -1353,12 +1339,7 @@ Se usa en tareas de clasificación lineal, es capaz de determinar el hiperplano 
 \subsection{Redes}
 
 Red neuronal multicapa
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama Red neuronal multicapa}}
-	{\includegraphics[scale=.82]{image-20210312102144206.png}}
-\end{figure}
-\vspace{-.5cm}
+
 Es un \textbf{conjunto de neuronas conectadas entre sí} que se distribuyen en capas.
 
 \textbf{Ventajas}:
@@ -1384,6 +1365,7 @@ Para cada ejemplo:
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item Se propaga desde la \textbf{entrada hasta la salida} (calcular la salida de la red)
+	\pagebreak
 	\item \textbf{Propagación del error hacia atrás}: En las que están en la
 	      última capa es fácil, pero para las que están en las capas intermedias
 	      no tanto.
@@ -1412,17 +1394,12 @@ resolución de la imagen, Pooling. Se repite el proceso hasta que tenemos
 los datos para clasificar, extracción de características, y podemos
 generar una red neuronal totalmente conectada, classification.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama de Deep Learning}}
-	{\includegraphics[scale=.3]{image-20210312111406573.png}}
-\end{figure}
-
 \section{Algoritmos genéticos}
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Diagrama Genético}}
-	{\includegraphics[scale=.4]{2021-03-19 11_26_59-otras-tecnicas.pdf - Foxit Reader.png}}
+	{\def\svgwidth{.9\textwidth}
+	\input{./img/genetico.eps_tex}}
 \end{figure}
 Aprendizaje basado en evolución simulada, se mantiene una colección de soluciones, se evoluciona a través de generaciones por recombinación de las más adecuadas y eliminación de las menos adecuadas, y se termina cuando se obtiene una solución suficientemente adecuada.
 
@@ -1436,13 +1413,8 @@ Hacen \textbf{búsqueda en el espacio de soluciones}, se usan cuando es fácil e
 	\item Las operaciones para combinar soluciones y generar soluciones nuevas.
 	\item La \textbf{función de adecuación (fitness)} que indica como de buena es una población, cuanto más es mejor. Transforma el genotipo (cadena de bits) en el fenotipo (significado de la cadena bits).
 \end{itemize}
-\pagebreak
+
 \textbf{Proceso:}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Algoritmo genético}}
-	{\includegraphics[scale=.3]{2021-03-19 11_42_34-otras-tecnicas.pdf - Foxit Reader.png}}
-\end{figure}
 \begin{enumerate}
 	\item Se selecciona un conjunto de individuos de la población de soluciones. Se pueden elegir por Ruleta (por número aleatorio) o por Torneo (se coge un par de individuos y se escoge el mejor, dejando al otro fuera).
 	\item A la nueva población se le realizan una serie de modificaciones como: reproducción, cruce, mutaciones y clone. Y quedan unos sobrevivientes, siempre tiene el mismo número de individuos.
@@ -1461,7 +1433,8 @@ No genera modelo, lo que hace es que cuando recibe un dato nuevo busca algunos s
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Estrategia IBL}}
-	{\includegraphics[scale=.3]{2021-03-19 12_05_34-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}}
+	{\def\svgwidth{.8\textwidth}
+		\input{./img/IBL.eps_tex}}
 \end{figure}
 \textbf{Fases:}
 \begin{enumerate}
@@ -1509,7 +1482,7 @@ El parámetro k identifica cuantos vecinos se utilizan para la decisión, su val
 	\item[Manhattan] $d(\vec{x}, \vec{z})=\sum_{m=1}^{n}\left|x_{m}-z_{m}\right|$
 	\item[Minkowski] $d(\vec{x}, \vec{z})=\left(\sum_{m=1}^{n}\left|x_{m}-z_{m}\right|^{k}\right)^{\frac{1}{k}}$
 \end{description}
-\pagebreak
+
 \subsection{Propiedades}
 \begin{itemize}
 	\item Las instancias son puntos de un espacio n dimensional, donde n es el número de atributos.
@@ -1543,7 +1516,8 @@ El parámetro k identifica cuantos vecinos se utilizan para la decisión, su val
 			                  \begin{figure}[H]
 				                  \ffigbox[\FBwidth]
 				                  {\caption{Ejemplo Árbol KD}}
-				                  {\includegraphics[scale=.7]{2021-03-19 14_58_39-AA IBL y no supervisados I.mkv.png}}
+				                  {\def\svgwidth{.6\textwidth}
+								   \input{./img/AKD.eps_tex}}
 			                  \end{figure}
 			            \item \textbf{Agrupación o clustering:} Que es de aprendizaje no supervisado.
 		            \end{itemize}
@@ -1627,22 +1601,6 @@ Genera regiones de Voronoi y nos proporciona un representante de la región, se 
 	\item Si el decremento de la distorsión entre dos interacciones no supera un umbral (bastante bajo), parar. Si no ir al paso 2.
 \end{enumerate}
 
-\textbf{Ejemplo:}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{k-medias I}}
-	{\includegraphics[scale=.2]{2021-03-26 09_37_22-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}
-		\includegraphics[scale=.2]{2021-03-26 09_38_09-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}}
-\end{figure}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{k-medias II}}
-	{\includegraphics[scale=.2]{2021-03-26 09_39_23-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}
-		\includegraphics[scale=.2]{2021-03-26 09_39_55-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}}
-\end{figure}
-
 \textbf{Algunas consideraciones:}
 \begin{itemize}
 	\item Atributos con diferentes rangos es imprescindible normalizarlos.
@@ -1681,24 +1639,6 @@ Consisten en generar unos árboles denominados dendrogramas.
 		      \item Se sustituyen los dos nodos por su representante/centroide/prototipo.
 	      \end{enumerate}
 \end{enumerate}
-
-\textbf{Ejemplo:}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Clustering jerárquico I}}
-	{\includegraphics[scale=.2]{2021-03-26 10_12_33-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}
-		\includegraphics[scale=.2]{2021-03-26 10_13_31-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}}
-\end{figure}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Clustering jerárquico II}}
-	{\includegraphics[scale=.2]{2021-03-26 10_13_56-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}
-		\includegraphics[scale=.2]{2021-03-26 10_14_24-Aprendizaje basado en instancias y no supervisados.pdf - Foxit Reader.png}}
-\end{figure}
-
-\pagebreak
 
 \subsubsection{Distancia entre clústeres}
 
@@ -1768,13 +1708,7 @@ Construir distintos conjuntos de entrenamientos, generar los clasificadores y la
 
 Generan muestras de m instancias del conjunto de entrenamiento, donde cada muestra se genera haciendo selección aleatoria con remplazo (una instancia se puede coger en varios conjuntos) Se genera un clasificador con cada muestra.
 
-Los clasificadores se pueden generar en paralelo, y se combinan las decisiones de los clasificadores por voto mayoritario.
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Bagging}}
-	{\includegraphics[scale=.3]{2021-04-09 23_26_39-Settings.png}}
-\end{figure}
+Los clasificadores se pueden generar en paralelo, y se combinan las decisiones de los clasificadores por voto mayoritario.	
 
 \subsubsection{Algoritmo de Bagging}
 \textbf{Procedimiento Bagging (E, B, N)}, donde E es el conjunto de entrenamiento, B el algoritmo de aprendizaje y N el número de clasificadores que se generan (copias de E).
@@ -1803,11 +1737,6 @@ El algoritmo de boosting más utilizado es AdaBoost - Adaptative Boosting.
 
 Los clasificadores se generan de manera secuencial y se combina la decisión de los clasificadores por voto ponderado.
 \subsubsection{Algoritmo de Boosting}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Boosting}}
-	{\includegraphics[scale=.25]{2021-04-10 00_10_42-ensembles-reglasAsociacion.pdf - Foxit Reader.png}}
-\end{figure}
 
 Se tienen unas instancias con unos pesos, se utiliza un algoritmo de aprendizaje que genera un modelo, se evalúan las instancias y según las mal clasificadas se recalculan los pesos de las instancias (que lo solucionaran los futuros clasificadores)
 
@@ -1866,6 +1795,7 @@ Tiene dos niveles de aprendizaje (Nivel-0 y Nivel-1)
 	\item Nivel 0: Entrenar los clasificadores.
 	\item Nivel 1: Entrenar el metaclasificador.
 \end{itemize}
+\pagebreak
 
 \textbf{Entrenamiento:}
 \begin{itemize}
@@ -1874,7 +1804,7 @@ Tiene dos niveles de aprendizaje (Nivel-0 y Nivel-1)
 	\item El conjunto de entrenamiento de Nivel-1 se construye utilizando los atributos originales y las k predicciones para cada instancia (utiliza las predicciones de los clasificadores como atributos del metaclasificador, pero mantiene la clase de la instancia).
 \end{itemize}
 Al clasificar, primero se pasa por los clasificadores de nivel 0, para construir la instancia que se pasara al metaclasificador, que proporciona la clase final.
-\pagebreak
+
 \section{Reglas de asociación}
 Se emplea en aprendizaje no supervisado.
 
@@ -1890,6 +1820,7 @@ Si un conjunto es \textbf{frecuente}, cualquier \textbf{subconjunto es también}
 Si un conjunto \textbf{NO es frecuente}, cualquier \textbf{superconjunto tampoco} lo es.
 
 Teniendo unos conjuntos de elementos, podemos determinar la cobertura de un subconjunto de elementos según en cuantos de esos conjuntos aparecen esos elementos juntos.
+\pagebreak
 
 \subsubsection{Algoritmo APRIORI [Agrawal and Srikant, 1994]}
 
@@ -1910,12 +1841,6 @@ Repetir
 Hasta qué $L_i = \emptyset$. Devolver la unión de todos los $L_i$
 
 Los subconjuntos de salida son aquellos que no son subconjuntos de otros, partiendo de coger el del último L no vacío.
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{APRIORI}}
-	{\includegraphics[scale=.4]{2021-04-10 01_06_33-ensembles-reglasAsociacion.pdf - Foxit Reader.png}}
-\end{figure}
 
 \subsection{Reglas de asociación}
 \textbf{Objetivo:} Dados conjuntos de ejemplos, trata de determinar reglas que relacionen los elementos.
@@ -1938,18 +1863,6 @@ $$P = \frac{|X, Y|}{|X|}$$
 
 La idea es elegir las reglas cuya cobertura es mayor que un umbral de cobertura y cuya precisión sea mayor que un umbral de precisión.
 
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo. Reglas de asociación I}}
-	{\includegraphics[scale=.3]{2021-04-10 01_17_45-ensembles-reglasAsociacion.pdf - Foxit Reader.png}}
-\end{figure}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo. Reglas de asociación II}}
-	{\includegraphics[scale=.3]{2021-04-10 01_18_02-ensembles-reglasAsociacion.pdf - Foxit Reader.png}}
-\end{figure}
-
 \textbf{Si se parte de ejemplos atributo-valor:} Se define un elemento por cada valor del atributo (Si salario puede ser alto o bajo, los elementos serán salarioAlto y salarioBajo), de tal manera que un ejemplo/instancia se define como el conjunto de los elementos de sus valores de atributos (sin que haya más de un elemento que se refiera al mismo atributo). Se ejecuta APRIORI: genera reglas de asociación.
 
 \textbf{Ejemplo:}
@@ -1957,6 +1870,72 @@ La idea es elegir las reglas cuya cobertura es mayor que un umbral de cobertura 
 \textbf{Si} numero-habitacionesAlto Y salarioMedio \textbf{Entonces} numero-hijosAlto
 
 \textbf{Si} salarioAlto \textbf{Entonces} precio-viviendaAlto
+
+\textbf{Ejemplo completo:}
+\begin{itemize}
+	\item Entrada
+
+	carro1: leche, cereales, jamon, queso, pan-de-molde
+
+	carro2: cerveza, leche, jamon, queso, pan-de-molde
+
+	carro3: panales, leche, cereales, potitos
+
+	carro4: leche, queso, pasta-dientes, peine
+	\item Conjuntos mas frecuentes, C = 0,5
+
+	L1 = {leche, queso, jamon, cereales, pan-de-molde }
+
+	L2 = {(leche, queso), (leche, jamon), (leche, cereales), (leche, pan-de-molde), 
+	(queso, jamon), (queso, pan-de-molde), (jamon, pan-de-molde)  }
+
+	L3 = {(leche, queso, jamon), (leche, queso, pan-de-molde),
+	(leche, jamon, pan-de-molde), (queso, jamon, pan-de-molde)}
+
+	L4 = {(leche, queso, jamon, pan-de-molde) }
+
+	L5 = $\emptyset$;
+	\item Salida (los que no son subconjuntos de otros):
+
+	leche, cereales
+
+	leche, queso, jamon, pan-de-molde
+	\item Reglas de asociacion
+
+
+	R1: leche $\rightarrow$ cereales (C=2/4, P=2/4)
+
+	R2: cereales $\rightarrow$ leche (C=2/4, P=2/2)
+
+	R3: leche, queso, jamon  $\rightarrow$ pan-de-molde (C=2/4, P=2/4)
+
+	R4: leche, queso, pan-de-molde $\rightarrow$ jamon (C=2/4, P=2/4) 
+
+	R5: leche, jamon, pan-de-molde  $\rightarrow$ queso (C=2/4, P=2/4)
+
+	R6: queso, jamon, pan-de-molde  $\rightarrow$ leche (C=2/4, P=2/4)
+
+	R7: leche, queso $\rightarrow$ jamon, pan-de-molde (C=2/4, P=2/3) 
+
+	R8: leche, jamon  $\rightarrow$ queso, pan-de-molde (C=2/4, P=2/2)
+
+	R9: leche, pan-de-molde $\rightarrow$ queso, jamon (C=2/4, P=2/2) 
+
+	R10: queso, jamon  $\rightarrow$ leche, pan-de-molde (C=2/4, P=2/2)
+
+	R11: queso, pan-de-molde $\rightarrow$ leche, jamon (C=2/4, P=2/2) 
+
+	R12: jamon, pan-de-molde  $\rightarrow$ leche, queso (C=2/4, P=2/2)
+
+	R13: leche $\rightarrow$ queso, jamon, pan-de-molde (C=2/4, P=2/4) 
+
+	R14: queso $\rightarrow$ leche, jamon, pan-de-molde (C=2/4, P=2/3) 
+
+	R15: jamon  $\rightarrow$ leche, queso, pan-de-molde (C=2/4, P=2/2)
+
+	R16: pan-de-molde $\rightarrow$ leche, queso, jamon (C=2/4, P=2/2)
+\end{itemize}
+
 
 \chapter{Tema 7: Aprendizaje por Refuerzo}
 Consiste en aprender a decidir, ante una situación determinada, que acción es la más adecuada para lograr un objetivo.
@@ -2079,11 +2058,7 @@ La Función de Transición y la Función de Refuerzo son conocidas, se trata de 
 	      \end{enumerate}
 \end{itemize}
 Cuando el algoritmo converge (los valores se estabilizan) la política es óptima.
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Algoritmo Iteración de valor}}
-	{\includegraphics[scale=.3]{2021-04-16 13_01_42-refuerzo.pdf - Foxit Reader.png}}
-\end{figure}
+\pagebreak
 
 \subsubsection{Algoritmo Iteración de política - Policy Iteration}
 Es como hacer Iteración valor, pero en la Ecuación de Bellman en vez de evaluar todas las acciones se evalúa solo la acción que proporciona la política que vamos actualizando, en cuanto al cálculo de la política es igual, por lo que debemos tener en cuenta todas las acciones en todos los estados (lo que parecía que nos ahorrábamos calcular, se calcula ahora).
@@ -2109,6 +2084,7 @@ Problema de Aprendizaje por Refuerzo (definido como un MDP):
 	\item Función de Refuerzo $R: S \times A \times S \rightarrow \mathbb{R}$.
 \end{itemize}
 \textbf{Objetivo:} aprender la política de acción,$\pi: S \rightarrow A$, que maximice el refuerzo esperado acumulado en el tiempo mediante exploración del entorno.
+\pagebreak
 
 \subsection{Aproximaciones Basadas en el Modelo}
 \begin{enumerate}
@@ -2229,21 +2205,6 @@ En el que se realizan varios escenarios para ir mejorando la tabla Q, en cada un
 	\item Devuelve $Q(s, a)$.
 \end{itemize}
 
-\textbf{Ejemplo Q-Learning}
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo Q-Learning I}}
-	{\includegraphics[scale=.2]{2021-04-16 13_05_26-refuerzo.pdf - Foxit Reader.png}
-		\includegraphics[scale=.25]{2021-04-16 13_05_47-refuerzo.pdf - Foxit Reader.png}}
-\end{figure}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo Q-Learning II}}
-	{\includegraphics[scale=.2]{2021-04-16 13_07_03-refuerzo.pdf - Foxit Reader.png}
-		\includegraphics[scale=.2]{2021-04-16 13_07_51-refuerzo.pdf - Foxit Reader.png}}
-\end{figure}
-
 \subsection{Exploración vs. Explotación}
 
 \textbf{Exploración:} Acciones aleatorias.
@@ -2323,13 +2284,7 @@ Los nodos y hojas del árbol representan regiones del espacio de estados.
 
 En cada nodo del árbol, una región se divide en otras dos, esta división se realizará según un criterio.
 
-Con esta técnica una región se irá partiendo en dos hasta que cumpla las condiciones establecidas, y se crearan regiones más grandes para las menos pobladas y más pequeñas para las superpobladas.
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Discretización: Árbol KD}}
-	{\includegraphics[scale=.25]{2021-04-24 14_09_21-refuerzo.pdf - Foxit Reader.png}}
-\end{figure}
+Con esta técnica una región se irá partiendo en dos hasta que cumpla las condiciones establecidas, y se crearan regiones más grandes para las menos pobladas y más pequeñas para las superpobladas
 
 \subsection{Clustering (Agrupamiento) para Q-Learning}
 \begin{enumerate}
