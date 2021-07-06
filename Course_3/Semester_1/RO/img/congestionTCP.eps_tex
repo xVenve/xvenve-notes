@@ -1,0 +1,121 @@
+%% Creator: Inkscape 1.1 (c68e22c387, 2021-05-23), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'congestionTCP.eps' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{313.85984406bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.69998999)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength]{congestionTCP.eps}}%
+    \put(0.45585946,0.45328181){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize expiración\end{tabular}}}}%
+    \put(0.41889303,0.43302894){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize ssthresh = cwnd/2\end{tabular}}}}%
+    \put(0.43206395,0.41612204){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize cwnd = 1 MSS\end{tabular}}}}%
+    \put(0.42085277,0.39940849){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize dupACKcount = 0\end{tabular}}}}%
+    \put(0.37247858,0.38250159){\color[rgb]{0,0,0.60392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textsl{retransmitir segmento que falta}\end{tabular}}}}%
+    \put(0.47650558,0.4941808){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize A\end{tabular}}}}%
+    \put(0.42439864,0.5146303){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize cwnd > ssthresh\end{tabular}}}}%
+    \put(0.64659036,0.49260776){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize evitación de\end{tabular}}}}%
+    \put(0.65405247,0.45721438){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize congestion\end{tabular}}}}%
+    \put(0.6402982,0.6261194){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize cwnd = cwnd + MSS (MSS/cwnd)\end{tabular}}}}%
+    \put(0.70420945,0.60842926){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize dupACKcount = 0\end{tabular}}}}%
+    \put(0.64855671,0.59093249){\color[rgb]{0,0,0.60392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textsl{transmitir nuevo(s) segmento(s),}\end{tabular}}}}%
+    \put(0.71049176,0.57324235){\color[rgb]{0,0,0.60392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textsl{según se pueda}\end{tabular}}}}%
+    \put(0.73271423,0.64774866){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize ACK nuevo\end{tabular}}}}%
+    \put(0.79347278,0.62965873){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize .\end{tabular}}}}%
+    \put(0.83869772,0.39625917){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize dupACKcount++\end{tabular}}}}%
+    \put(0.84302346,0.42162441){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize ACK duplicado\end{tabular}}}}%
+    \put(0.42062545,0.15479262){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize recuperación\end{tabular}}}}%
+    \put(0.46647743,0.12549006){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize rápida\end{tabular}}}}%
+    \put(0.56970802,0.0515672){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize cwnd = cwnd + MSS\end{tabular}}}}%
+    \put(0.56970802,0.03387698){\color[rgb]{0,0,0.60392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textsl{transmitir nuevo(s) segmento(s),}\end{tabular}}}}%
+    \put(0.56970802,0.01638019){\color[rgb]{0,0,0.60392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textsl{según se pueda}\end{tabular}}}}%
+    \put(0.56872495,0.07693244){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize ACK duplicado\end{tabular}}}}%
+    \put(0.05984704,0.17269106){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize ssthresh= cwnd/2\end{tabular}}}}%
+    \put(0.05060869,0.15676407){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize cwnd = ssthresh + 3\end{tabular}}}}%
+    \put(0.01127947,0.14024717){\color[rgb]{0,0,0.60392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textsl{retransmitir segmento que falta}\end{tabular}}}}%
+    \put(0.05415132,0.20002913){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize dupACKcount == 3\end{tabular}}}}%
+    \put(0.29069693,0.31014185){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize expiración\end{tabular}}}}%
+    \put(0.33650846,0.28851583){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize ssthresh = cwnd/2\end{tabular}}}}%
+    \put(0.36738585,0.27180559){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize cwnd = 1\end{tabular}}}}%
+    \put(0.33867788,0.25489869){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize dupACKcount = 0\end{tabular}}}}%
+    \put(0.29030699,0.23818521){\color[rgb]{0,0,0.60392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textsl{retransmitir segmento que falta}\end{tabular}}}}%
+    \put(0.81136613,0.21182036){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize ssthresh= cwnd/2\end{tabular}}}}%
+    \put(0.80212785,0.19589336){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize cwnd = ssthresh + 3\end{tabular}}}}%
+    \put(0.76279859,0.17937647){\color[rgb]{0,0,0.60392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textsl{retransmitir segmento que falta}\end{tabular}}}}%
+    \put(0.76161879,0.23993844){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize dupACKcount == 3\end{tabular}}}}%
+    \put(0.59409019,0.24387107){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize cwnd = ssthresh\end{tabular}}}}%
+    \put(0.5844619,0.22814067){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize dupACKcount = 0\end{tabular}}}}%
+    \put(0.63577573,0.2700228){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize ACK nuevo\end{tabular}}}}%
+    \put(0.19532496,0.49398418){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize arranque\end{tabular}}}}%
+    \put(0.22658909,0.45859083){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize lento\end{tabular}}}}%
+    \put(0.09720667,0.39763555){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize expiración\end{tabular}}}}%
+    \put(0.05826742,0.37503294){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize ssthresh = cwnd/2\end{tabular}}}}%
+    \put(0.07360782,0.35929929){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize cwnd = 1 MSS\end{tabular}}}}%
+    \put(0.06239664,0.3433723){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize dupACKcount = 0\end{tabular}}}}%
+    \put(0.01421907,0.3268554){\color[rgb]{0,0,0.60392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textsl{retransmitir segmento que falta}\end{tabular}}}}%
+    \put(0.36029735,0.5932822){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize cwnd = cwnd+MSS\end{tabular}}}}%
+    \put(0.36029735,0.57578871){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize dupACKcount = 0\end{tabular}}}}%
+    \put(0.36029735,0.55809533){\color[rgb]{0,0,0.60392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textsl{transmitir nuevo(s) segmento(s),}\end{tabular}}}}%
+    \put(0.36029735,0.54040518){\color[rgb]{0,0,0.60392157}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textsl{según se pueda}\end{tabular}}}}%
+    \put(0.36324678,0.61609126){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize ACK nuevo\end{tabular}}}}%
+    \put(0.21518456,0.61137217){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize dupACKcount++\end{tabular}}}}%
+    \put(0.21951044,0.63673741){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize ACK duplicado\end{tabular}}}}%
+    \put(0.07793697,0.55552929){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize A\end{tabular}}}}%
+    \put(0.03212548,0.53292671){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize cwnd = 1 MSS\end{tabular}}}}%
+    \put(0.02269381,0.51719303){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize ssthresh = 64 KB\end{tabular}}}}%
+    \put(0.02112732,0.50146265){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize dupACKcount = 0\end{tabular}}}}%
+    \put(0.63852853,0.3181971){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textbf{N}\textbf{e}\textbf{w}\end{tabular}}}}%
+    \put(0.63714551,0.29932068){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textbf{ACK!}\end{tabular}}}}%
+    \put(0.39765703,0.66249589){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textbf{N}\textbf{e}\textbf{w}\end{tabular}}}}%
+    \put(0.39627406,0.64361944){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textbf{ACK!}\end{tabular}}}}%
+    \put(0.83732124,0.67468698){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textbf{N}\textbf{e}\textbf{w}\end{tabular}}}}%
+    \put(0.83593833,0.65581049){\color[rgb]{0.2,0.2,0.8}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \scriptsize \textbf{ACK!}\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

@@ -1,0 +1,104 @@
+%% Creator: Inkscape 1.1 (c68e22c387, 2021-05-23), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'rdt3.eps' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{370.2859937bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.74999868)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength]{rdt3.eps}}%
+    \put(0.34033143,0.57466538){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}sndpkt = make\_pkt(0, data, checksum)\end{tabular}}}}%
+    \put(0.34033143,0.55133203){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}udt\_send(sndpkt)\end{tabular}}}}%
+    \put(0.34033143,0.52816549){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}start\_timer\end{tabular}}}}%
+    \put(0.34483143,0.60683473){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}rdt\_send(data)\end{tabular}}}}%
+    \put(0.61033082,0.49116556){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}espe-\end{tabular}}}}%
+    \put(0.62283087,0.46783232){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}rar\end{tabular}}}}%
+    \put(0.60649751,0.44466567){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ACK 0\end{tabular}}}}%
+    \put(0.71899721,0.59516537){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}rdt\_rcv(rcvpkt) \&\&\end{tabular}}}}%
+    \put(0.71899721,0.57183202){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}( corrupt(rcvpkt) ||\end{tabular}}}}%
+    \put(0.71899721,0.54866548){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}isACK(rcvpkt,1) )\end{tabular}}}}%
+    \put(0.62849746,0.28099932){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}esperar\end{tabular}}}}%
+    \put(0.61933088,0.25783547){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}llamada 1\end{tabular}}}}%
+    \put(0.62316413,0.23449943){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}de arriba\end{tabular}}}}%
+    \put(0.37266467,0.15466629){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}sndpkt = make\_pkt(1, data, checksum)\end{tabular}}}}%
+    \put(0.37266467,0.13133306){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}udt\_send(sndpkt)\end{tabular}}}}%
+    \put(0.37266467,0.1081664){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}start\_timer\end{tabular}}}}%
+    \put(0.37266467,0.18549957){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}rdt\_send(data)\end{tabular}}}}%
+    \put(0.69683062,0.38633253){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}rdt\_rcv(rcvpkt)\end{tabular}}}}%
+    \put(0.69683062,0.36299918){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\&\& notcorrupt(rcvpkt)\end{tabular}}}}%
+    \put(0.69683062,0.33966595){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\&\& isACK(rcvpkt,0)\end{tabular}}}}%
+    \put(0.15116511,0.17233293){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}rdt\_rcv(rcvpkt) \&\&\end{tabular}}}}%
+    \put(0.15116511,0.14916908){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}( corrupt(rcvpkt) ||\end{tabular}}}}%
+    \put(0.15116511,0.12583304){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}isACK(rcvpkt,0) )\end{tabular}}}}%
+    \put(0.10933191,0.41266569){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}rdt\_rcv(rcvpkt)\end{tabular}}}}%
+    \put(0.10933191,0.38933246){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\&\& notcorrupt(rcvpkt)\end{tabular}}}}%
+    \put(0.10933191,0.3661658){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\&\& isACK(rcvpkt,1)\end{tabular}}}}%
+    \put(0.69916403,0.31049933){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}stop\_timer\end{tabular}}}}%
+    \put(0.10849847,0.33466588){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}stop\_timer\end{tabular}}}}%
+    \put(0.72866385,0.45083232){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}udt\_send(sndpkt)\end{tabular}}}}%
+    \put(0.72866385,0.42766847){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}start\_timer\end{tabular}}}}%
+    \put(0.73099714,0.47666833){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}timeout\end{tabular}}}}%
+    \put(0.07883201,0.23816611){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}udt\_send(sndpkt)\end{tabular}}}}%
+    \put(0.07883201,0.21500226){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}start\_timer\end{tabular}}}}%
+    \put(0.08033198,0.26600215){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}timeout\end{tabular}}}}%
+    \put(0.12349856,0.52099882){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}rdt\_rcv(rcvpkt)\end{tabular}}}}%
+    \put(0.29666477,0.48549897){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}esperar\end{tabular}}}}%
+    \put(0.28749819,0.46233511){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}llamada 0\end{tabular}}}}%
+    \put(0.29133156,0.43900176){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}de arriba\end{tabular}}}}%
+    \put(0.30866483,0.28349942){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}esper-\end{tabular}}}}%
+    \put(0.32433144,0.26016607){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}rar\end{tabular}}}}%
+    \put(0.30799819,0.23699953){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ACK 1\end{tabular}}}}%
+    \put(0.80016363,0.1919996){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
+    \put(0.74916385,0.2224995){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}rdt\_rcv(rcvpkt)\end{tabular}}}}%
+    \put(0.78966377,0.52066544){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
+    \put(0.17149842,0.49049892){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
+    \put(0.21566505,0.08899968){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

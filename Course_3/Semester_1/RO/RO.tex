@@ -263,7 +263,6 @@ hmargin=3cm
 \href{https://padlet.com/fvalera/8njxmoxyj4qgck6d}{Computer Networks}
 
 
-\part{Teoría}
 \chapter{TEMA 1}
 
 \section{1.1 y 1.3 Internet o Red de ordenadores}
@@ -333,11 +332,6 @@ se denominan host o sistemas terminales.
 	      determinar la ruta desde el origen hasta destino que seguirán los
 	      paquetes mediante algoritmo de enrutado.
 \end{itemize}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Circuit switching}}
-	{\includegraphics[scale=.25]{Untitled.png}}
-\end{figure}
 
 \section{1.2 Las fronteras de la red}
 
@@ -345,7 +339,6 @@ Redes de acceso
 
 Medios físicos
 
-\pagebreak
 \subsection{Arquitectura de la red}
 
 Hoy en día usamos principalmente dos redes de comunicación, la red
@@ -384,7 +377,6 @@ recepción de datos.
 	      sube las capas.
 	\item Los enrutadores - routers implementan la capa red, enlace y física.
 	\item Los conmutadores - switch implementan enlace y física.
-	      \pagebreak
 	\item Capas:
 
 	      \begin{itemize}
@@ -413,7 +405,7 @@ recepción de datos.
 El tiempo que pasa desde que el paquete es recibido por el router hasta
 que llega al destino.
 $$d_{nodal}= d_{procesado}+d_{cola}+d_{transmisión}+d_{propagación}$$
-
+\pagebreak
 
 Tipos:
 
@@ -488,11 +480,6 @@ menor capacidad o que esté saturado.
 
 Se toma para los cálculos el mínimo entre el \(\frac{R}{10}\),
 \(R_{emisor}\) o \(R_{receptor}\).
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Throughput}}
-	{\includegraphics[scale=.5]{Untitled 2.png}}
-\end{figure}
 
 Como R recibe muchas conexiones puede haber cuello de botella en
 \(R_e\) y \(R_r\).
@@ -616,7 +603,8 @@ Diagrama paquete
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Diagrama paquete DNS}}
-	{\includegraphics[scale=.4]{Untitled.jpeg}}
+	{\def\svgwidth{.5\textwidth}
+		\input{./img/DDNS.eps_tex}}
 \end{figure}
 Jerarquía:
 
@@ -788,12 +776,6 @@ TCP siempre envía MSS:
 	      almacena en el buffer los paquetes que recibe fuera de orden, pero
 	      sigue mandando la confirmación del que le falta en medio, y cuando
 	      lo recibe los pasa en orden a la aplicación.
-
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Envio mensajes en TCP}}
-		      {\includegraphics[scale=.25]{Untitled 3.png}}
-	      \end{figure}
 	\item La unidad fundamental de transmisión es el byte, por ello a cada
 	      byte que transmita le asocia un numero de secuencia. Cuando se
 	      recibe un asentimiento, se ha tenido en cuenta la suma de los
@@ -823,7 +805,8 @@ Crea un segmento con:
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Segmento TCP}}
-	{\includegraphics[scale=.4]{Untitled 4.png}}
+	{\def\svgwidth{1.2\textwidth}
+		\input{./img/STCP.eps_tex}}
 \end{figure}
 \pagebreak
 En la cabecera se pone el número de secuencia del propio paquete y
@@ -835,11 +818,6 @@ comunicar conmigo de vuelta.
 	      propio número de secuencia de tal manera que cada uno controla la
 	      llegada de sus propios datos y el otro confirma esos paquetes
 	      recibidos.
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Secuencia ACKs}}
-		      {\includegraphics[scale=.45]{Untitled 5.png}}
-	      \end{figure}
 \end{itemize}
 
 Calcular el tiempo para el temporizador (timeout):
@@ -850,16 +828,14 @@ Calcular el tiempo para el temporizador (timeout):
 	      el paquete.
 	\item Demasiado grande: Cuando no llega la confirmación espero demasiado
 	      tiempo. Aunque es mejor pasarse que quedarse corto
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Calcular EstimatedRTT}}
-		      {\includegraphics[scale=.45]{Untitled 6.png}}
-	      \end{figure}
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Calculo de Timeout}}
-		      {\includegraphics[scale=.45]{Untitled 7.png}}
-	      \end{figure}
+
+	      $\textit{EstimatedRTT}=(1-\alpha)\cdot \textit{EstimatedRTT} + \alpha \cdot \textit{SampleRTT}$
+
+	      $\textit{DevRTT} = (1-\beta)\cdot \textit{DevRTT} + \beta \cdot |\textit{SampleRTT}-\textit{EstimatedRTT}|$
+
+	      $\textit{TimeoutInterval} = \textit{EstimatedRTT} + 4 \cdot \textit{DevRTT}$
+
+	      Valor típico: $\alpha = 0,125$ y $\beta = 0,25$
 	\item Cada vez que recibo un paquete, voy calculando la media ponderada
 	      móvil exponencial (las más recientes influyen más) de los RTT más
 	      un margen de seguridad según la variabilidad de los tiempos como
@@ -881,6 +857,7 @@ Emisor:
 		            no hay ninguno para el más viejo.
 	      \end{itemize}
 \end{itemize}
+\pagebreak
 
 Receptor:
 
@@ -925,6 +902,7 @@ sin esperar a que termine el temporizador.
 \end{itemize}
 
 Cambia: Retardo -\textgreater{} Integridad.
+\pagebreak
 
 \subsection{3.3 UDP -- User Datagram Protocol:}
 
@@ -951,7 +929,7 @@ Al no haber establecimiento de la conexión, es más rápida.
 
 Al no tener control de congestión, puede disparar todo lo rápida que
 quiera.
-\pagebreak
+
 Cabecera: Datagrama con
 
 \begin{itemize}
@@ -960,8 +938,9 @@ Cabecera: Datagrama con
 	\item Checksum: Detectar errores, pero no los solventa.
 	      \begin{figure}[H]
 		      \ffigbox[\FBwidth]
-		      {\caption{Diagrama paquete UCD}}
-		      {\includegraphics[scale=.45]{Untitled 8.png}}
+		      {\caption{Diagrama paquete UDP}}
+		      {\def\svgwidth{.5\textwidth}
+			      \input{./img/DUDP.eps_tex}}
 	      \end{figure}
 \end{itemize}
 
@@ -986,7 +965,7 @@ algún error.
 	      sumamos al mismo, 1º+2º, (1º+2º)+3º\ldots. Cuando hemos sumado
 	      todos hacemos complemento a uno, los 1 por 0 y 0 por 1.
 \end{itemize}
-\pagebreak
+
 \subsection{3.2 Multiplexación/ Demultiplexación:}
 
 
@@ -1012,12 +991,6 @@ lo recibe de un canal no confiable(según el lado).
 
 Las características del canal no fiable determinarán la complejidad
 de transferencia de datos fiable.
-
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Diagrama envio confiable}}
-	{\includegraphics[scale=.35]{Untitled 9.png}}
-\end{figure}
 
 Terminología:
 
@@ -1048,7 +1021,8 @@ Sin errores de bit, ni perdida de paquetes.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{rdt1.0}}
-	{\includegraphics[scale=.45]{Untitled 10.png}}
+	{\def\svgwidth{.9\textwidth}
+		\input{./img/rdt1.eps_tex}}
 \end{figure}
 
 Emisor:
@@ -1085,7 +1059,8 @@ si llega bien una respuesta positiva.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{rdt2.0}}
-	{\includegraphics[scale=.45]{Untitled 11.png}}
+	{\def\svgwidth{.9\textwidth}
+		\input{./img/rdt2.0.eps_tex}}
 \end{figure}
 Emisor:
 
@@ -1123,7 +1098,8 @@ Emisor:
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{rdt2.1: Emisor}}
-	{\includegraphics[scale=.45]{Untitled 12.png}}
+	{\def\svgwidth{.9\textwidth}
+		\input{./img/rdt2.1E.eps_tex}}
 \end{figure}
 \begin{itemize}
 	\item Espera datos de la aplicación para poner el número de secuencia
@@ -1144,7 +1120,8 @@ Receptor:
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{rdt2.1: Receptor}}
-	{\includegraphics[scale=.45]{Untitled 13.png}}
+	{\def\svgwidth{1.1\textwidth}
+		\input{./img/rdt2.1R.eps_tex}}
 \end{figure}
 \begin{itemize}
 	\item Espera paquete con numero de secuencia 0:
@@ -1185,13 +1162,8 @@ recibido bien indicando el número de secuencia del mismo.
 
 Por lo tanto, el emisor si recibe un ACK de numero de secuencia
 incorrecta es NAK y retransmite.
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{rdt2.2}}
-	{\includegraphics[scale=.45]{Untitled 14.png}}
-\end{figure}
-\subsubsection{rdt3.0: Canales con errores y perdidas.}
 
+\subsubsection{rdt3.0: Canales con errores y perdidas.}
 
 El emisor espera un tiempo razonable para recibir el asentimiento,
 si no se ha perdido.
@@ -1248,9 +1220,10 @@ Emisor:
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{rdt3.0}}
-	{\includegraphics[scale=.45]{Untitled 15.png}}
+	{\def\svgwidth{1.2\textwidth}
+		\input{./img/rdt3.eps_tex}}
 \end{figure}
-\pagebreak
+
 Receptor: Es igual que en rdt2.2, se envía asentimiento positivo
 con checksum y numero de secuencia.
 
@@ -1272,9 +1245,6 @@ parte del tiempo esperando respuesta.
 
 
 \subsubsection{Protocolos segmentados (pipelined protocols)}
-
-
-
 Se amplía el número de serie que se envía lo que nos permite
 aumentar el número de paquetes en vuelo.
 
@@ -1364,7 +1334,6 @@ de envío a la del receptor.
 	\item Recibe más de lo que puede procesar.
 \end{itemize}
 
-\pagebreak
 \subsection{3.6 Principios del control de congestión}
 
 Congestión: hay más tráfico en una parte de la red de lo que es
@@ -1453,7 +1422,8 @@ in TCP Reno.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Control de congestión TCP}}
-	{\includegraphics[scale=.15]{Untitled 19.png}}
+	{\def\svgwidth{.9\textwidth}
+		\input{./img/congestionTCP.eps_tex}}
 \end{figure}
 En arranque lento aumenta uno por cada segmento de la ventana, lo
 que al ocurrir para toda la ventana duplica.
@@ -1558,14 +1528,10 @@ Protocolos de la capa de red:
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Arquitectura del router}}
-	{\includegraphics[scale=.25]{Untitled 22.png}}
+	{\def\svgwidth{.8\textwidth}
+		\input{./img/ArqRouter.eps_tex}}
 \end{figure}
 Funciones del Puerto de entrada: 3 capas.
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Puerto de entrada router}}
-	{\includegraphics[scale=.25]{Untitled 23.png}}
-\end{figure}
 \begin{itemize}
 	\item Física: Transforma los impulsos de luz a bits.
 	\item Enlace: Procesa la capa de enlace.
@@ -1578,7 +1544,7 @@ Funciones del Puerto de entrada: 3 capas.
 		      \item Generalizado: Basado en campos de la cabecera.
 	      \end{itemize}
 \end{itemize}
-\pagebreak
+
 Matrices de conmutación: Permite hacer forwarding, lleva paquetes
 del puerto de entrada a los de salida adecuado.
 
@@ -1589,12 +1555,6 @@ del puerto de entrada a los de salida adecuado.
 		      \item De memoria: Bajo el control de la CPU, los paquetes se copian en
 		            memoria y la velocidad está limitada por el ancho de banda de
 		            memoria.
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{Matrices de conmutación de memoria}}
-			            {\includegraphics[scale=.15]{Untitled 23.png}}
-		            \end{figure}
-
 		            \begin{itemize}
 			            \item Llega un paquete a la entrada.
 			            \item Se pasa a memoria.
@@ -1603,11 +1563,6 @@ del puerto de entrada a los de salida adecuado.
 		            \end{itemize}
 		      \item De bus: Cada puerto tiene capacidad de memoria y procesamiento,
 		            y usa el bus para pasar de entrada a salida.
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{Matrices de conmutación de bus}}
-			            {\includegraphics[scale=.15]{Untitled 24.png}}
-		            \end{figure}
 		            \begin{itemize}
 			            \item Hay limitación por el ancho de banda del bus.
 			            \item Para no saturar el bus: el ancho de banda del bus
@@ -1622,11 +1577,6 @@ del puerto de entrada a los de salida adecuado.
 		            \begin{itemize}
 			            \item Para evitar que se haga tan caro, se usan múltiples planos
 			                  para tener más caminos.
-			                  \begin{figure}[H]
-				                  \ffigbox[\FBwidth]
-				                  {\caption{Red de interconexión}}
-				                  {\includegraphics[scale=.2]{Untitled 25.png}}
-			                  \end{figure}
 		            \end{itemize}
 
 
@@ -1681,7 +1631,8 @@ Formato:
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Diagrama mensaje IP}}
-	{\includegraphics[scale=.17]{Untitled 28.png}}
+	{\def\svgwidth{\textwidth}
+		\input{./img/DIP.eps_tex}}
 \end{figure}
 \begin{itemize}
 	\item Cabecera: 20 bytes IP.
@@ -1721,30 +1672,9 @@ Fragmentación y Reensamblado.
 	      reensambla.
 	\item Cada fragmento tiene en la cabecera un identificador que indica a
 	      que paquete corresponde y cuál es de todos.
-	\item EJEMPLO:
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Ejemplo Fragmentación}}
-		      {\includegraphics[scale=.21]{Untitled 29.png}}
-	      \end{figure}
 \end{itemize}
 
-\pagebreak
 \subsection{Direccionamiento}
-
-
-
-EJEMPLO:
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo Direccionamiento}}
-	{\includegraphics[scale=.3]{Untitled 30.png}}
-\end{figure}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Ejemplo Direccionamiento}}
-	{\includegraphics[scale=.3]{Untitled 31.png}}
-\end{figure}
 
 Pasos para asignar direcciones a una topología con subredes dadas:
 
@@ -1815,11 +1745,6 @@ Tabla de Forwarding/reenvío:
 	\item La tabla de los dispositivos de una red es: Se pone la de la red y
 	      no se configura (vacía), y en la global de la red se pone la de
 	      salida.
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Tabla de Fordwarding}}
-		      {\includegraphics[scale=.2]{Untitled 32.png}}
-	      \end{figure}
 \end{itemize}
 
 Dos interfaces que no están en la misma red tendrán que usar al
@@ -1859,16 +1784,6 @@ tomar el paquete.
 
 CIDR - Classless InterDomain Routing: Porciones de la subred de
 longitud arbitraria
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Classless InterDomain Routing}}
-	{\includegraphics[scale=.4]{Untitled 34.png}}
-\end{figure}
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Classless InterDomain Routing}}
-	{\includegraphics[scale=.5]{Untitled 35.png}}
-\end{figure}
 
 La IP se asigna a la interfaz del dispositivo, no al propio
 dispositivo.
@@ -1963,6 +1878,7 @@ Implementación:
 	      de NAT.
 \end{itemize}
 \pagebreak
+
 Controversia:
 
 \begin{itemize}
@@ -1998,9 +1914,10 @@ Formato del datagrama:
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Formato del datagrama IPv6}}
-	{\includegraphics[scale=.3]{Untitled 36.png}}
+	{\def\svgwidth{.9\textwidth}
+		\input{./img/DIPv6.eps_tex}}
 \end{figure}
-\pagebreak
+
 \begin{itemize}
 	\item Cabecera
 
@@ -2032,11 +1949,6 @@ Transición
 	      \end{itemize}
 	\item Se han tardado 25 años hasta este punto, pero todavía queda.
 	\item Tunneling:
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Tunneling}}
-		      {\includegraphics[scale=.3]{Untitled 37.png}}
-	      \end{figure}
 	      \begin{itemize}
 		      \item Los datagramas de IPv6 se encapsulan en datagramas de tipo IPv4
 		            como datos, para ser gestionado por los dispositivos que admiten
@@ -2069,12 +1981,6 @@ todos los dispositivos.
 	      comunicación y la red se queda en las 3 primeras.
 	\item Aunque algunas funcionalidades pueden implementarse en la red, como
 	      congestión o transferencia fiable.
-
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Principio arquitectónico de Internet}}
-		      {\includegraphics[scale=.35]{Untitled 38.png}}
-	      \end{figure}
 	\item ICMP -- Internet Control Message Protocol: Protocolo que utilizan
 	      los dispositivos con los routers y viceversa para comunicar
 	      información a nivel de red, ya sean errores o llegadas de datos
@@ -2113,23 +2019,12 @@ Dos aproximaciones:
 
 \begin{itemize}
 	\item Per-router: Configurar cada router/dispositivo manualmente.
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Per-router}}
-		      {\includegraphics[scale=.3]{Untitled 20.png}}
-	      \end{figure}
 	      \begin{itemize}
 		      \item Todo y cada uno de los router tiene un algoritmo de enrutado,
 		            que le configura las tablas de ruta.
 	      \end{itemize}
-	      \pagebreak
 	\item SDN -- Software Defined Networking: Todo el enrutado se hace
 	      mediante software desde un punto centralizado.
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Software Defined Networking}}
-		      {\includegraphics[scale=.3]{Untitled 21.png}}
-	      \end{figure}
 	      \begin{itemize}
 		      \item Hay un controlador remoto que configura las tablas de los
 		            routers, un proceso centralizado que se comunica con todos los
@@ -2206,11 +2101,31 @@ estado de enlaces de Dijkstra.
 	      \end{itemize}
 	      \pagebreak
 	\item Algoritmo:
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Algoritmo de Dijsktra}}
-		      {\includegraphics[scale=.4]{Untitled 39.png}}
-	      \end{figure}
+	      \begin{enumerate}
+		      \item Inicialización:
+		            \begin{enumerate}
+			            \item N' = {u}
+			            \item para todo nodo v
+			                  \begin{enumerate}
+				                  \item si v adyacente a u
+
+				                        entonces D(v) = c(u,v)
+				                  \item si no D(v) = $\infty$
+			                  \end{enumerate}
+		            \end{enumerate}
+		      \item Lazo
+		            \begin{enumerate}
+			            \item buscar w no en N' tal que D(w) sea el mínimo
+			            \item añadir w a N'
+			            \item para todo v adyacente a w y no en N', actualiza D(v):
+
+			                  D(v) = min( D(v), D(w) + c(w,v) )
+
+			            \item /* el nuevo coste a v es: o viejo coste a v, o coste de ruta más barata conocida a w más coste de w a v */
+		            \end{enumerate}
+		      \item hasta que todos los nodos están en N'
+	      \end{enumerate}
+
 	\item La complejidad del algoritmo es \(O(n^2)\), una mejor
 	      implementación tendrá \(O(n \log (n))\)
 	\item La complejidad de mensaje, cada router debe transmitir la
@@ -2218,15 +2133,9 @@ estado de enlaces de Dijkstra.
 	\item Posibles oscilación/fluctuaciones de ruta, según la cantidad de
 	      tráfico en los enlaces, lo que hace que tenga que recomputar todas
 	      las rutas.
-	\item Ejemplo:
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Algoritmo estado de enlaces}}
-		      {\includegraphics[scale=.35]{Untitled 40.png}\includegraphics[scale=.35]{Untitled 41.png}}
-	      \end{figure}
 
 \end{itemize}
-\pagebreak
+
 Algoritmo vector de distancias -- distance vector: Basado en la
 ecuación de Bellman-Ford.
 
@@ -2241,11 +2150,13 @@ ecuación de Bellman-Ford.
 		            desde ese vértice hasta y.
 	      \end{itemize}
 	\item Algoritmo
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Algoritmo vector de distancias I}}
-		      {\includegraphics[scale=.35]{Untitled 42.png}}
-	      \end{figure}
+
+	      Ecuación Bellman-Ford (programación dinámica)
+	      Definir
+
+	      $d_x(y)$ := coste del camino más barato desde x a y
+
+	      Tenemos $d_x(y) = \min_v \{c(x,v) + d_v(y)\}$ donde el mín se toma sobre todos los vecinos v de x
 	      \begin{itemize}
 		      \item La clave es que cada nodo envía su vector de distancia solo a sus
 		            vecinos, cuando recibe el de los vecinos actualizas tu vector de
@@ -2256,11 +2167,18 @@ ecuación de Bellman-Ford.
 			            \item El cambio de coste en el enlace local
 		            \end{itemize}
 		      \item Mensaje de actualización de DV desde un vecino.
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{Algoritmo vector de distancias II}}
-			            {\includegraphics[scale=.4]{Untitled 43.png}}
-		            \end{figure}
+		            \begin{enumerate}
+			            \item espera (un cambio en coste
+			                  de enlace local; o mensaje
+			                  de otro vecino)
+
+			            \item recomputa la estimación
+
+			            \item si DV a cualquier dest ha
+			                  cambiado, notifica a los
+			                  vecinos
+		            \end{enumerate}
+
 		      \item Distribuido: cada nodo notifica a los vecinos solo si su propio DV
 		            cambia, y los vecinos a sus vecinos, si es necesario.
 		      \item Cada iteración va llegando a datos de más lejos, se propaga, y
@@ -2274,12 +2192,6 @@ ecuación de Bellman-Ford.
 			            \item Good news travel fast, se superan antes al ser menores.
 		            \end{itemize}
 	      \end{itemize}
-	\item Ejemplo
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Ej. vector de distancias}}
-		      {\includegraphics[scale=.25]{Untitled 44.png}}
-	      \end{figure}
 \end{itemize}
 
 
@@ -2298,7 +2210,6 @@ Comparación de estado de enlaces y vector de distancias:
 		      \item LS: Algoritmo \(O(n^2)\), necesita \(O(nE)\) enlaces.
 		      \item DV: Tiempo de convergencia variable.
 	      \end{itemize}
-	      \pagebreak
 	\item Robustez:
 
 	      \begin{itemize}
@@ -2350,7 +2261,6 @@ Los router de un dominio deben conocer que destinos tienen los
 dominios vecinos para saber a qué router pasarela hay que enviar los
 datagramas, esos datos los proporciona el routing inter-AS.
 
-\pagebreak
 \section{5.3 Intra-AS Routing in the Internet: OSPF}
 
 Protocolos intradominio más comunes, llamados IGP -- Interior
@@ -2369,6 +2279,8 @@ Gateway Protocols:
 		      \item En cada anuncio, lista de hasta 25 subredes destino, en
 		            sentido IP.
 	      \end{itemize}
+	      \pagebreak
+
 	\item Fallo y recuperación de enlace:
 
 	      \begin{itemize}
@@ -2411,6 +2323,7 @@ Gateway Protocols:
 	\item Basado en vector de distancia.
 	\item Conocido como Propiedad Cisco.
 \end{itemize}
+\pagebreak
 
 \subsection{OSPF -- Open Shortest Path First.}
 
@@ -2485,17 +2398,10 @@ Enrutado Interdominio:
 			            \item Llevan la información sobre las rutas hasta las diferentes
 			                  redes destinos en forma de prefijos.
 		            \end{itemize}
-		      \item Diagrama
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{Border Gateway Protocol}}
-			            {\includegraphics[scale=.15]{Untitled 45.png}}
-		            \end{figure}
 		      \item Si hay varias rutas se escogerá la de menor número de saltos.
 	      \end{itemize}
 \end{itemize}
 
-\pagebreak
 ¿Por qué diferentes enrutados, intra e inter dominio?
 
 \begin{itemize}
@@ -2543,7 +2449,6 @@ eficiente. Hay que controlar duplicados.
 		            RPF: solo se reenvía un paquete si ha llegado por el camino más
 		            corto desde su origen, evitando bucles.
 	      \end{itemize}
-	      \pagebreak
 	\item Árbol de recubrimiento -- Spanning Tree: Ningún nodo recibe
 	      paquetes redundantes.
 
@@ -2579,7 +2484,7 @@ Enrutado multicast -- multidifusión, problemas.
 \end{itemize}
 
 \section{5.6 ICMP: The Internet Control Message Protocol}
-\includepdf[pages=-]{docs/s4.6.pdf}
+\href{https://drive.google.com/file/d/1B-h5Mxn93RJ-fWKjj9H8U_rHdbnS8vVq/view?usp=sharing}{Acceso en Drive a las diapositivas}
 
 \chapter{TEMA 6: Link Layer}
 
@@ -2667,19 +2572,10 @@ Servicios de la capa de enlace:
 	      (Tarjeta de red).
 	\item Conectado a los buses de los hosts.
 	\item Combinación de Software, Hardware, Firmware.
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Network Interface Card}}
-		      {\includegraphics[scale=.3]{Untitled 46.png}}
-	      \end{figure}
+
 \end{itemize}
 
 Comunicación:
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Capa de enlace}}
-	{\includegraphics[scale=.35]{Untitled 47.png}}
-\end{figure}
 \begin{itemize}
 	\item Emisor: Desde la NIC
 
@@ -2699,7 +2595,7 @@ Comunicación:
 
 
 \section{6.2 Error Detection and Correction Techniques}
-\pagebreak
+
 \section{6.3 Multiple Access Protocols}
 
 
@@ -2742,6 +2638,7 @@ Protocolo de acceso Multiple ideal:
 		      \item Simple.
 	      \end{itemize}
 \end{itemize}
+\pagebreak
 
 Clasificación:
 
@@ -2749,7 +2646,6 @@ Clasificación:
 Dividir el canal en
 piezas más pequeñas, de tiempo o frecuencias. Reservas un nodo
 para uso exclusivo.
-\pagebreak
 \begin{itemize}
 	\item TDMA: Acceso por multiplexación en el tiempo.
 
@@ -2757,11 +2653,6 @@ para uso exclusivo.
 		      \item Se accede al canal en rondas.
 		      \item Cada estación tiene espacios de tiempo fijo en cada ronda.
 		      \item Los slots no usados se desaprovechan.
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{TDMA}}
-			            {\includegraphics[scale=.25]{Untitled 48.png}}
-		            \end{figure}
 	      \end{itemize}
 	\item FDMA: Acceso múltiple por división en frecuencia.
 
@@ -2770,11 +2661,6 @@ para uso exclusivo.
 		      \item Cada estación tiene su frecuencia fija.
 		      \item El espectro del canal se divide en bandas.
 		      \item Cuando no transmite la banda queda desocupada.
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{FDMA}}
-			            {\includegraphics[scale=.2]{Untitled 49.png}}
-		            \end{figure}
 	      \end{itemize}
 \end{itemize}
 
@@ -2812,11 +2698,6 @@ Si se produce colisión espera un tiempo aleatorio antes de
 volver intentar transmitir.
 
 Eficiencia: 18\%, peor que ALOHA ranurado.
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{ALOHA puro}}
-	{\includegraphics[scale=.25]{Untitled 50.png}}
-\end{figure}
 
 \subsubsection{ALOHA ranurado -- Slotted ALOHA:}
 
@@ -2874,23 +2755,13 @@ Contras:
 \end{itemize}
 
 Eficiencia: Fracción más larga de slots exitosos.
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{Eficiencia ALOHA ranurado}}
-	{\includegraphics[scale=.25]{Untitled 51.png}}
-\end{figure}
+
 Como mucho el canal se puede usar para transmisiones con éxito
 el 37\% del tiempo.
-\begin{figure}[H]
-	\ffigbox[\FBwidth]
-	{\caption{ALOHA ranurado}}
-	{\includegraphics[scale=.25]{Untitled 52.png}}
-\end{figure}
+
 
 \subsubsection{CSMA -- Carrier Sense Multiple Access -- Acceso múltiple con
 	sondeo de portadora}
-
-
 
 Escucha el canal, para saber si está libre u ocupada.
 
@@ -2962,11 +2833,6 @@ CSMA/CA se usa en wifi
 		            puede transmitir.
 		      \item Entonces el emisor al que se lo envía transmite y el resto
 		            los aplaza.
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{CSMA/CA}}
-			            {\includegraphics[scale=.25]{Untitled 53.png}}
-		            \end{figure}
 	      \end{itemize}
 \end{itemize}
 
@@ -2993,6 +2859,8 @@ Los anteriores son por cables. Ahora por Wireless:
 			            \item goal: avoid collisions: CSMA/CollisionAvoidance
 		            \end{itemize}
 	      \end{itemize}
+	      \pagebreak
+
 	\item IEEE 802.11 MAC Protocol: CSMA/CA
 
 	      \begin{itemize}
@@ -3042,13 +2910,8 @@ esclavos. Se emplea típicamente con nodos tontos.
 \begin{itemize}
 	\item Hay que tener en cuenta el tiempo que se tarda en sondear, la
 	      latencia y un único punto de fallo, el nodo maestro.
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Sondeo}}
-		      {\includegraphics[scale=.25]{Untitled 55.png}}
-	      \end{figure}
 \end{itemize}
-\pagebreak
+
 Paso de testigo: Una trama especial token es intercambiado de un
 nodo al siguiente.
 
@@ -3057,12 +2920,8 @@ nodo al siguiente.
 	      transmitir y cuando termina se lo pasa a otro.
 	\item Hay que tener en cuenta el tiempo de pasar el token, la
 	      latencia y un único punto de fallo, el token.
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{Paso de testigo}}
-		      {\includegraphics[scale=.25]{Untitled 56.png}}
-	      \end{figure}
 \end{itemize}
+\pagebreak
 
 \section{6.4 Switched Local Area Networks}
 
@@ -3099,11 +2958,6 @@ Direccionamiento a nivel de enlace.
 		            \end{itemize}
 		      \item TTL: Tiempo en el que olvidar esa asociación, normalmente 20 minutos.
 		            Tiempo de vida de una entrada en la tabla.
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{Protocolo de Resolución de Direcciones}}
-			            {\includegraphics[scale=.25]{Untitled 57.png}}
-		            \end{figure}
 		      \item Es plug-and-play: Los nodos crean su tabla ARP sin intervención del administrador de red.
 		      \item Proceso: A quiere enviar un datagrama a B, y la dirección MAC de B no está en la tabla ARP de A.
 		            \begin{itemize}
@@ -3111,6 +2965,7 @@ Direccionamiento a nivel de enlace.
 			            \item B recibe la solicitud ARP y responde con su dirección MAC a A.
 			            \item A recibe la respuesta de B la añade a su ARP table hasta que no sea necesaria, TTL.
 		            \end{itemize}
+		            \pagebreak
 		      \item Enviar un datagrama de A a B a través de R:
 		            \begin{itemize}
 			            \item Suponemos:
@@ -3167,9 +3022,9 @@ Estructura de trama Ethernet:
 	      \begin{figure}[H]
 		      \ffigbox[\FBwidth]
 		      {\caption{Estructura de trama Ethernet}}
-		      {\includegraphics[scale=.25]{Untitled 58.png}}
+		      {\def\svgwidth{.9\textwidth}
+			      \input{./img/EEthernet.eps_tex}}
 	      \end{figure}
-	      \pagebreak
 	\item Partes:
 	      \begin{itemize}
 		      \item Preámbulo: Para sincronizar relojes del dispositivo y separación de tramas.
@@ -3237,17 +3092,6 @@ Redes inalámbricas y móviles:
 
 		      \item Enlace inalámbrico: Típicamente conecta móviles y la estación base.
 		            Varios ratios, distintas y frecuencias de transmisión.
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{Enlace inalámbricos}}
-			            {\includegraphics[scale=.25]{Untitled 59.png}}
-		            \end{figure}
-		      \item Characteristics of selected wireless links
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{haracteristics of selected wireless links}}
-			            {\includegraphics[scale=.25]{Untitled 60.png}}
-		            \end{figure}
 	      \end{itemize}
 
 	\item Modo infraestructura:
@@ -3280,32 +3124,17 @@ Redes inalámbricas y móviles:
 			            \item Cuando se asocia con un punto de acceso, se puede hacer autenticación, típicamente se hace DHCP para conseguir una IP.
 		            \end{itemize}
 		      \item Escaneo pasivo:
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{Escaneo pasivo}}
-			            {\includegraphics[scale=.25]{Untitled 61.png}}
-		            \end{figure}
 		            \begin{itemize}
 			            \item Los beacons frames envían solicitudes para asociarse con los hosts.
 			            \item Beacon frame: Pequeña trama donde va información sobre el punto de acceso y la MAC.
 		            \end{itemize}
 
 		      \item Escaneo activo:
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{Escaneo activo}}
-			            {\includegraphics[scale=.2]{Untitled 62.png}}
-		            \end{figure}
 		            \begin{itemize}
 			            \item Los dispositivos son los que van mandando solicitudes.
 		            \end{itemize}
-
+		            \pagebreak
 		      \item Trama: Direccionamiento.
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{Trama: Direccionamiento}}
-			            {\includegraphics[scale=.2]{Untitled 63.png}}
-		            \end{figure}
 		            \begin{itemize}
 			            \item Partes:
 			                  \begin{itemize}
@@ -3355,7 +3184,7 @@ El protocolo ethernet se usa en cada enlace de entrada:
 	\item Un switch puede recibir y reenviar datos simultáneamente, pero
 	      por un mismo enlace solo se puede transmitir uno a la vez.
 \end{itemize}
-
+\pagebreak
 Autoaprende: El switch aprende cuáles son los hosts alcanzables
 según la MAC origen e interfaces de entrada de las tramas que
 recibe.
@@ -3400,11 +3229,8 @@ Switch vs router:
 		      \item switch: Se basa en MAC.
 	      \end{itemize}
 \end{itemize}
-\pagebreak
+
 \subsection{VLAN - Redes de Area Local Virtual}
-
-
-
 Un solo dominio de broadcast, todo el tráfico debe cruzar la LAN
 entera.
 
@@ -3413,6 +3239,7 @@ red de área local.
 
 Permite a un usuario que no está conectado físicamente, pertenecer
 lógicamente a la red mediante un switch.
+\pagebreak
 
 VLAN basado en el puerto:
 
@@ -3433,11 +3260,6 @@ VLAN basado en el puerto:
 		            802.1
 		      \item Se usan 802.1Q para añadir en la cabecera o quitar la
 		            cabecera entre los puertos trunk.
-		            \begin{figure}[H]
-			            \ffigbox[\FBwidth]
-			            {\caption{Formato trama VLAN}}
-			            {\includegraphics[scale=.25]{Untitled 63.png}}
-		            \end{figure}
 	      \end{itemize}
 \end{itemize}
 
@@ -3471,6 +3293,7 @@ Permite detectar rápidamente fallos.
 
 A diferencia de IP, la ruta se puede basar tanto en la dirección
 de origen como la de destino, no solo en la de destino.
+\pagebreak
 
 Como lo hace:
 \begin{itemize}
@@ -3478,11 +3301,6 @@ Como lo hace:
 	\item Los routers MPLS usan RSVP-TE para configurar el reenvío, que es una
 	      modificación de OSPF, un protocolo de estado de enlace por
 	      inundación.
-	      \begin{figure}[H]
-		      \ffigbox[\FBwidth]
-		      {\caption{MPLS}}
-		      {\includegraphics[scale=.25]{Untitled 66.png}}
-	      \end{figure}
 \end{itemize}
 
 \section{6.7 A Day in the Life of a Web Page Request}
@@ -3491,23 +3309,10 @@ Como lo hace:
 
 \section{7.3 WiFi: 802.11 Wireless LANs}
 
-\includepdf[pages=-]{docs/s5.1.pdf}
+\href{https://drive.google.com/file/d/1A_ompfRwG0UC5bUmhosP19GjYcG3iaNC/view?usp=sharing}{Acceso en Drive a las diapositivas}
 
-\includepdf[pages=-]{docs/s5.2.pdf}
+\href{https://drive.google.com/file/d/1As8rdI9okS-TyZsHl3f6tj1ZKKItx1kT/view?usp=sharing}{Acceso en Drive a las diapositivas}
 
-\includepdf[pages=-]{docs/s5.3.pdf}
-
-
-\part{Laboratorios}
-\chapter{Practica DNS}
-\includepdf[pages=-]{docs/PRACTICA_-_DNS.pdf}
-
-\chapter{Practica de Direccionamiento}
-\includepdf[pages=-]{docs/understandIP.pdf}
-
-\chapter{Practica de routers}
-\includepdf[pages=-]{docs/manual_linksys_uc3m.pdf}
-\includepdf[pages=-]{docs/4_routers_eng_VM_con_instrucciones.pdf}
-
+\href{https://drive.google.com/file/d/1AYFfY-uZcdAW7zipB4o5x_fc4mfXV6Cq/view?usp=sharing}{Acceso en Drive a las diapositivas}
 
 \end{document}

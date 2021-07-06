@@ -1,0 +1,110 @@
+%% Creator: Inkscape 1.1 (c68e22c387, 2021-05-23), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'DIP.eps' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{373.33091435bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.65714266)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength]{DIP.eps}}%
+    \put(0.34382857,0.54450235){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ver\end{tabular}}}}%
+    \put(0.60435233,0.53772751){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}longitud\end{tabular}}}}%
+    \put(0.50715184,0.60748427){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}32 bits\end{tabular}}}}%
+    \put(0.52467439,0.22843542){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}datos\end{tabular}}}}%
+    \put(0.44929442,0.19537404){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(longitud variable,\end{tabular}}}}%
+    \put(0.40565615,0.16231265){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}típicamente un segmento\end{tabular}}}}%
+    \put(0.49178105,0.12925127){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}TCP o UDP)\end{tabular}}}}%
+    \put(0.34201019,0.48763675){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}identificador 16 bits\end{tabular}}}}%
+    \put(0.59030123,0.44779775){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}suma comprob.\end{tabular}}}}%
+    \put(0.61840344,0.42118611){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}cabecera\end{tabular}}}}%
+    \put(0.35308578,0.44845898){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}tiempo\end{tabular}}}}%
+    \put(0.35110206,0.41853844){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}de vida\end{tabular}}}}%
+    \put(0.39722275,0.37473206){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}dirección IP origen 32 bits\end{tabular}}}}%
+    \put(0.07818028,0.61889046){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}versión protocol IP\end{tabular}}}}%
+    \put(0.13289689,0.55954525){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}long. cabecera\end{tabular}}}}%
+    \put(0.21389732,0.52962471){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(bytes)\end{tabular}}}}%
+    \put(0.11173762,0.4509386){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}número de saltos\end{tabular}}}}%
+    \put(0.13752549,0.42118335){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}aún permitidos\end{tabular}}}}%
+    \put(0.08661371,0.39142811){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(se decrementa en\end{tabular}}}}%
+    \put(0.16232153,0.36167282){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}cada router)\end{tabular}}}}%
+    \put(0.81263916,0.49375311){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}para\end{tabular}}}}%
+    \put(0.81263916,0.46383254){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}fragmentar/\end{tabular}}}}%
+    \put(0.81263916,0.43407727){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}reensamblar\end{tabular}}}}%
+    \put(0.80933304,0.59773117){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}longitud total\end{tabular}}}}%
+    \put(0.80933304,0.56797593){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}datagrama\end{tabular}}}}%
+    \put(0.80933304,0.53805536){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(en bytes)\end{tabular}}}}%
+    \put(0.02908413,0.31257667){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}prot. de la capa superior\end{tabular}}}}%
+    \put(0.023629,0.2828214){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}al que entregar los datos\end{tabular}}}}%
+    \put(0.39656149,0.55590851){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}long.\end{tabular}}}}%
+    \put(0.39937174,0.52598797){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}cab.\end{tabular}}}}%
+    \put(0.46351079,0.55690037){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}tipo de\end{tabular}}}}%
+    \put(0.47590884,0.5271451){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}serv.\end{tabular}}}}%
+    \put(0.12297849,0.49953884){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}“tipo”de datos\end{tabular}}}}%
+    \put(0.55707463,0.48631429){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ind.\end{tabular}}}}%
+    \put(0.64667092,0.50317559){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}desplaz.\end{tabular}}}}%
+    \put(0.63063622,0.47672649){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}fragmento\end{tabular}}}}%
+    \put(0.44929442,0.45193042){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}prot. capa\end{tabular}}}}%
+    \put(0.48053741,0.42531878){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}sup.\end{tabular}}}}%
+    \put(0.40036354,0.3271237){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}dirección IP destino 32 bit\end{tabular}}}}%
+    \put(0.43375558,0.27653977){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Opciones (si las hay)\end{tabular}}}}%
+    \put(0.80024111,0.27951528){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Ej. sello de\end{tabular}}}}%
+    \put(0.80024111,0.24976002){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}tiempo,\end{tabular}}}}%
+    \put(0.80024111,0.21983948){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}registrar ruta,\end{tabular}}}}%
+    \put(0.80024111,0.19008421){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}especificar\end{tabular}}}}%
+    \put(0.80024111,0.16032894){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}lista de routers\end{tabular}}}}%
+    \put(0.80024111,0.13057373){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}a visitar\end{tabular}}}}%
+    \put(0.04445767,0.22661703){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}¿cuánto sobre-\end{tabular}}}}%
+    \put(0.08165176,0.19355565){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}carga TCP?\end{tabular}}}}%
+    \put(0.08165176,0.15388198){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}20 bytes de TCP\end{tabular}}}}%
+    \put(0.08165176,0.11437363){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}20 bytes de IP\end{tabular}}}}%
+    \put(0.08165176,0.07469996){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}= 40 bytes +\end{tabular}}}}%
+    \put(0.08165176,0.04163852){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}sobrecarga apl.\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
