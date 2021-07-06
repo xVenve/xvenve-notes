@@ -1,8 +1,0 @@
-theme: jekyll-theme-minimal
-
-title: Jorge Rodríguez
-description: Collection of notes from Computer Science and Engineering at the Carlos III University of Madrid.
-
-logo: /img/logo.png
-show_downloads: true
-google_analytics: ${{ secrets.GOOGLE_ANALYTICS }}
