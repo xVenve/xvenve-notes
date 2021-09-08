@@ -54,3 +54,12 @@
 * [Machine Learning](https://drive.google.com/file/d/1vWaFu8clxDaJEyYwbN5Gyz_urlBAfZek)
 * [Operating Systems Design](https://drive.google.com/open?id=1UQKRY6aBhSCIEq5xgZvI9r4SUT6L09NO)
 * [Software Development Projects Management](https://drive.google.com/open?id=1vkLZzg83SIzFWm_TpkVxiceRaSguKe61)
+
+## Fourth course
+
+### First semester
+
+* [Artificial intelligence in business](https://drive.google.com/file/d/14F2TsizefSL_1-e7ryq7e-sIr7dpvjP8/view?usp=sharing)
+* [Artificial neural networks](https://drive.google.com/file/d/1UsCozOskUDjA6ONo3eNOIsXYKx7GA6iu/view?usp=sharing)
+* [Knowledge Engineering](https://drive.google.com/file/d/1dhzdNcaJcJF7hwimyJPiMdVt0F6mCw1i/view?usp=sharing)
+* [Genetic and evolutionary algorithmsg](https://drive.google.com/file/d/1Ss7q_LiH47Ns4DSieZLJnWXOhL0rMQnw/view?usp=sharing)
