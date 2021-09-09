@@ -278,8 +278,18 @@ hmargin=3cm
 \begin{itemize}
 	\item 60\% Evaluación continua
 	      \begin{itemize}
-		      \item 20\% Practica 1
-		      \item 20\% Practica 2
+		      \item 20\% Practica 1. Trata de resolver un problema de regresión, estimar un número real, y se divide en dos partes:
+		            \begin{itemize}
+			            \item  Modelo lineal (ADALINE) determinando los coeficientes, este caso tenemos programarlo nosotros en nuestro lenguaje de preferencia.
+			                  Se nos proporcionan unos datos de prueba para cuando lo estemos programando salga un error muy pequeño, de esta manera sabemos si lo hacemos bien. Las de prueba son 3 atributos, pero los reales son de 8.
+			            \item  No lineal (Perceptrón multicapa), presentando una memoria de unas 8 páginas en forma de artículo.
+			                  Para esta parte se nos dará un script en R, no hay que programarlo, pero hay que realizar muchas pruebas para ver los resultados (errores).
+		            \end{itemize}
+		      \item 20\% Practica 2. Habrá que modificar scripts de Python, también ser usará Google Colab.
+		            \begin{itemize}
+			            \item Parte 1: Problema de clasificación que resolveremos con Perceptrón multicapa.
+			            \item Parte 2: Problema de clasificación con imágenes usando Deep Learning.
+		            \end{itemize}
 		      \item 20\% Prueba parcial, de las prácticas (a principios de noviembre.
 	      \end{itemize}
 	\item 40\% Examen final, se realizarán cuestiones teórico-prácticas, pudiendo incluir preguntas sobre las prácticas.
@@ -291,7 +301,60 @@ hmargin=3cm
 
 Para la bibliografía se empleará en los primeros temas el libro escrito por los profesores (Redes de Neuronas Artificiales. Un enfoque práctico, 2004), pero para el resto de los temas sobre todo Deep Learning (Redes Neuronales \& Deep Learning de Fernando Bernal, 2018).
 
-\chapter{Tema 1: XXX}
+\chapter{Practica 1}
+\section{Preparación de Datos}
+\subsection{Los datos}
+Variables, datos o patrones de entrada y de salida deseada de la red, que solo trabajan con atributos numéricos y cuando no son numéricos se discretizan para que pasen a ser numéricos.
 
+\textbf{Supervisado:} Hay una salida que es lo que buscamos determinar.
+
+\textbf{No supervisado:} Tratamos de agrupar o buscar una determinada estructura en los datos, no hay salida.
+
+\subsection{Transformación de los datos}
+\textbf{Normalización de datos:} Se emplea en los casos en los que los valores entre los atributos con muy dispares (ej. 0.1 y 10) lo que provocaría que al realizar operaciones entre ellos dieran valores que dependen mucho más de un atributo que otro. Los valores se ajustan al rango de 0 y 1.
+
+$$ValorNormalizado_i=\frac {Valor_i-ValorMinimo_i} {ValorMaximo_i-ValorMinimo_i}$$
+
+\textbf{Aleatorización de los datos:} Se altera el orden las instancias de manera que se evita cualquier sesgo a la hora de entrenar el modelo.
+
+\textbf{Eliminación de  atributos irrelevantes:} Nosotros no lo haremos, pero este nos permite eliminar la información que no aporta nada y entorpece el entrenamiento.
+
+\textbf{Reducción dimensionalidad:} Se realizan las técnicas de reducción de dimensionalidad, que bien seleccionan un subconjunto de atributos, bien transforman los datos de entrada en otro conjunto de mayor dimensión.
+
+\subsection{Evaluación de una red de Neuronas}
+\textbf{Separación del conjunto de entrenamiento y test:} Se separa un conjunto de instancias que se emplearan solo para el entrenamiento y otro que se utilizara solo para evaluar el modelo, el conjunto de test. Esto permitirá detectar si el entrenamiento que estamos haciendo se está sobreajustando, haciendo que no generalizase adecuadamente.
+\pagebreak
+
+\textbf{Validación cruzada:} Consiste en dividir los datos en una serie de conjuntos de igual tamaño. Con estos conjuntos se va entrenando, dejando uno fuera en todo momento para utilizarlo como test. Esto nos permite evaluar el error haciendo la media de todos los errores obtenidos con los modelos, siendo este valor error del modelo que se obtienen entrenando con todas las instancias.
+
+\textbf{Validación cruzada estratificada:} Se dividen de igual las instancias en conjuntos de igual tamaño. En este caso lo que se hace es que haya en cada conjunto la misma proporción de instancias con cada clase con respecto al total. Todos tendrán la misma proporción de instancias de una clase que los otros del total.
+Lo que se hace es separar las instancias por la clase, de estos conjuntos generados se divide cada uno en el número de conjuntos de validación cruzada, de esta manera en cada uno de los conjuntos que vamos a generar vamos cogiendo uno conjunto de cada una de las clases.
+
+\textbf{Medida de evaluación}
+\begin{itemize}
+	\item \textbf{En regresión:} Error absoluto medio (Mean Absolute Error) es la media del valor absoluto de la diferencia de la salida y el deseado. Error cuadrático medio (Mean Square Error) es igual al anterior, pero en vez de valor absoluto la diferencia se pone al cuadrado.
+	      $$MAE=\frac 1 N \sum^N_{i=1} |s_i-d_i| \quad MSE=\frac 1 N \sum^N_{i=1} (d_i-s_i)^2$$
+	      Acaba cuando el error medio o el cuadrático es aceptable. También por una visualización gráfica de las salidas deseadas y las salidas de la red.
+	\item \textbf{En clasificación:} Lo más habitual es evaluar la calidad de la red basándonos en su precisión predictiva (\% de aciertos), la proporción de aciertos sobre el total de instancias.
+
+	      Acaba cuando el porcentaje de aciertos es alto, teniendo en cuenta que debe ser mayor que la probabilidad de que acierte aleatoriamente (como si tirase una moneda) y las clases están equilibradas (porque si siempre da una clase podría tener un buen porcentaje de acierto dando un valor constante).
+
+	      \textbf{Matriz de confusión:} Representa la cantidad de instancias según lo estimado y lo correcto, de manera que se pueda ver los que han sido estimados según TP, FN, FP o TN. Los datos correctamente clasificados están en la diagonal, los incorrectos fuera de ella. Se emplean otras medidas como son:
+	      \begin{itemize}
+		      \item El porcentaje de aciertos total es $\frac {TP+TN} {TP+TN+FN+FP}$
+		      \item El porcentaje de aciertos de + es: $\frac {TP} {TP+FN}$
+		      \item El porcentaje de aciertos – es: $\frac {TN} {FP+TN}$
+	      \end{itemize}
+
+\end{itemize}
+
+\section{Anotaciones Practica 1}
+A la hora de normalizar hacerlo sobre el total de los datos, no solo sobre los de entrenamiento.
+Aleatorizarlos.
+Separar las instancias en 70 15 15.
+
+En la parte de programar los vectores de pesos y umbrales, si se hace un vector con los pesos y el umbral, tener en cuenta que al hacer el producto cartesiano el de entrada debe tener un 1 para el umbral. $[x_1 \; x_2 \; x_3 \; 1]$ con $[w_1 \; w_2 \; w_3 \; \sigma]$
+
+\chapter{Tema 1: XXX}
 
 \end{document}
