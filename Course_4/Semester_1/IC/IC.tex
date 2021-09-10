@@ -284,28 +284,28 @@ También obtendremos soft-skill que nos permitirán destacar entre el resto de l
 \begin{itemize}
   \item Habrá un examen de CLIP, día de asistencia obligatoria, un martes.
   \item 30\% Examen final.
-  \begin{itemize}
-    \item Consistirán en formalizar y resolver un problema dado. También habrá preguntas relacionadas con las prácticas obligatorias.
-    \item Nota mínima de 4. 
-  \end{itemize}
+        \begin{itemize}
+          \item Consistirán en formalizar y resolver un problema dado. También habrá preguntas relacionadas con las prácticas obligatorias.
+          \item Nota mínima de 4.
+        \end{itemize}
   \item 70\% Teoría.
-  \begin{itemize}
-    \item Actividad individual relacionada con magistrales 15\%, son la que se realizan peer-to-peer.
-    \begin{itemize}
-      \item Preguntas cortas de manera semanal.
-      \item Se reciben puntos por realizarlo 70\% y un 30\% por evaluar a un compañero (anónimamente).
-      \item Las notas se medirán en estrellas: 0, 2´5, 5, 7´5 o 10. 
-    \end{itemize}
-    \item Practica obligatoria en parejas 30%, en las clases prácticas.
-    \item Actividad parcial 25%.
-    \begin{itemize}
-      \item Examen CLIPS y antologías 1 punto.
-      \item Actividades foro 1 punto, 0.25 entregas  y 0.25 por cada foro.
-      \item Entregas dominios de planificación 0.5 puntos
-      \item Practica 1: Implementación en CLIPS 1.5 puntos
-      \item Practica 2: Implementación en PDDL 1.5 puntos 
-    \end{itemize}
-  \end{itemize} 
+        \begin{itemize}
+          \item Actividad individual relacionada con magistrales 15\%, son la que se realizan peer-to-peer.
+                \begin{itemize}
+                  \item Preguntas cortas de manera semanal.
+                  \item Se reciben puntos por realizarlo 70\% y un 30\% por evaluar a un compañero (anónimamente).
+                  \item Las notas se medirán en estrellas: 0, 2´5, 5, 7´5 o 10.
+                \end{itemize}
+          \item Practica obligatoria en parejas 30%, en las clases prácticas.
+          \item Actividad parcial 25%.
+                \begin{itemize}
+                  \item Examen CLIPS y antologías 1 punto.
+                  \item Actividades foro 1 punto, 0.25 entregas  y 0.25 por cada foro.
+                  \item Entregas dominios de planificación 0.5 puntos
+                  \item Practica 1: Implementación en CLIPS 1.5 puntos
+                  \item Practica 2: Implementación en PDDL 1.5 puntos
+                \end{itemize}
+        \end{itemize}
 \end{itemize}
 
 Prácticas dirigidas a conceptualizar (recoger todo el conocimiento, independientemente mediante el sistema que lo vayamos a realizar) e implementar el conocimiento, realizado mediante 2 prácticas.
@@ -326,13 +326,13 @@ El pico es el metaconocimiento, en esta asignatura trataremos el conocimiento.
 
 \textbf{Información:} Menor volumen, tienen valor al tener un contexto o significado asociado.
 
-\textbf{Conocimiento:} Entender el dominio, pudiendo aplicarlo para resolver problemas. Se basan en la información que sale de los datos, pero este no se trata de meros datos sino de lo que subyace sobre estos. 
+\textbf{Conocimiento:} Entender el dominio, pudiendo aplicarlo para resolver problemas. Se basan en la información que sale de los datos, pero este no se trata de meros datos sino de lo que subyace sobre estos.
 
 \textbf{Metaconocimiento:} Es el conocimiento del conocimiento.
 
 \section{Sistemas Basados en el Conocimiento y Sistemas Expertos}
 
-\textbf{Sistema Basados en el Conocimiento (SBC):} Es un tipo de sistemas software, que tratan problemas cuyo método de resolución es más heurístico (guía hacia la solución de una manera más o menos óptima, mediante el conocimiento previo del problema, en forma de una serie de reglas) que algorítmico y que contiene conocimientos públicos de un dominio. Lo clave es que es heurística y contiene conocimiento. 
+\textbf{Sistema Basados en el Conocimiento (SBC):} Es un tipo de sistemas software, que tratan problemas cuyo método de resolución es más heurístico (guía hacia la solución de una manera más o menos óptima, mediante el conocimiento previo del problema, en forma de una serie de reglas) que algorítmico y que contiene conocimientos públicos de un dominio. Lo clave es que es heurística y contiene conocimiento.
 
 Es un sistema que usa conocimiento específico de un problema e intenta codificar el razonamiento que hacemos los humanos, como si fuera un experto, es decir juntando los datos e ir sacando conclusiones hasta llegar a la solución.
 
@@ -357,25 +357,25 @@ El primer sistema que se puede llamar SBC es el General Problem Solver (GPS): H.
 
 \textbf{En técnicas de programación:} SBC emplea programación declarativa y los SST programación imperativa.
 
-Lo más importante es que los SBC son capaces de explicar cuál es el proceso de razonamiento que ha empleado para llegar a la solución. Es posible al ser declarativo y la forma en la que se implementan poder ver qué proceso es el que ha seguido. 
+Lo más importante es que los SBC son capaces de explicar cuál es el proceso de razonamiento que ha empleado para llegar a la solución. Es posible al ser declarativo y la forma en la que se implementan poder ver qué proceso es el que ha seguido.
 
 \subsection{Ingeniería del Software vs. Ingeniería del Conocimiento}
 \begin{table}[H]
   \centering
   \caption{IS vs. IC}
   \resizebox{\textwidth}{!}{%
-  \begin{tabular}{l|l|l|}
-  \cline{2-3}
-   & \multicolumn{1}{c|}{\textbf{Ingeniería del Software}} & \multicolumn{1}{c|}{\textbf{Ingeniería del Conocimiento}} \\ \hline
-  \multicolumn{1}{|l|}{\textbf{Dominios}} & Tratamiento eficaz de los datos & Conocimientos especializados \\ \hline
-  \multicolumn{1}{|l|}{\textbf{Tipo de problemas}} & Sistemáticos y procedimentales & Heurísticos y declarativos \\ \hline
-  \multicolumn{1}{|l|}{\textbf{Entrada}} & Datos, procesos y algoritmos & Conocimiento humano \\ \hline
-  \multicolumn{1}{|l|}{\textbf{Técnica de programación}} & \begin{tabular}[c]{@{}l@{}}Procedimentales sofisticados\\ secuenciales y rígidos\end{tabular} & \begin{tabular}[c]{@{}l@{}}Declarativos, elementales\\ paralelos y flexibles\end{tabular} \\ \hline
-  \multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Modelo de solución\\ de problemas\end{tabular}}} & \begin{tabular}[c]{@{}l@{}}Implícitamente en el\\ código del programa\end{tabular} & \begin{tabular}[c]{@{}l@{}}Explicitamente en la\\ Base de Conocimiento\end{tabular} \\ \hline
-  \multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Niveles organización\\ conocimientos\end{tabular}}} & \begin{tabular}[c]{@{}l@{}}1. Datos\\ 2. Programas\end{tabular} & \begin{tabular}[c]{@{}l@{}}1. Datos o hechos\\ 2. Reglas operativas o heurísticas\\ 3. Inferencia y control\end{tabular} \\ \hline
-  \end{tabular}%
+    \begin{tabular}{l|l|l|}
+      \cline{2-3}
+                                                                & \multicolumn{1}{c|}{\textbf{Ingeniería del Software}} & \multicolumn{1}{c|}{\textbf{Ingeniería del Conocimiento}} \\ \hline
+      \multicolumn{1}{|l|}{\textbf{Dominios}}                   & Tratamiento eficaz de los datos                       & Conocimientos especializados                              \\ \hline
+      \multicolumn{1}{|l|}{\textbf{Tipo de problemas}}          & Sistemáticos y procedimentales                        & Heurísticos y declarativos                                \\ \hline
+      \multicolumn{1}{|l|}{\textbf{Entrada}}                    & Datos, procesos y algoritmos                          & Conocimiento humano                                       \\ \hline
+      \multicolumn{1}{|l|}{\textbf{Técnica de programación}}    & \begin{tabular}[c]{@{}l@{}}Procedimentales sofisticados\\ secuenciales y rígidos\end{tabular}                             & \begin{tabular}[c]{@{}l@{}}Declarativos, elementales\\ paralelos y flexibles\end{tabular}                                \\ \hline
+      \multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Modelo de solución\\ de problemas\end{tabular}}} & \begin{tabular}[c]{@{}l@{}}Implícitamente en el\\ código del programa\end{tabular}                            & \begin{tabular}[c]{@{}l@{}}Explicitamente en la\\ Base de Conocimiento\end{tabular}                                \\ \hline
+      \multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Niveles organización\\ conocimientos\end{tabular}}} & \begin{tabular}[c]{@{}l@{}}1. Datos\\ 2. Programas\end{tabular}                            & \begin{tabular}[c]{@{}l@{}}1. Datos o hechos\\ 2. Reglas operativas o heurísticas\\ 3. Inferencia y control\end{tabular}                                \\ \hline
+    \end{tabular}%
   }
-  \end{table}
+\end{table}
 
 \subsection{Elementos de un SBC}
 \textbf{Base de conocimiento:} contiene el conocimiento que hemos recibido de los expertos en un dominio determinado.
@@ -387,7 +387,7 @@ Lo más importante es que los SBC son capaces de explicar cuál es el proceso de
   \ffigbox[\FBwidth]
   {\caption{Elementos de un SBC}}
   {\def\svgwidth{.8\textwidth}
-  \input{img/elementos_sbc.eps_tex}}
+    \input{img/elementos_sbc.eps_tex}}
 \end{figure}
 \pagebreak
 
@@ -427,21 +427,21 @@ Es un proceso que no se realiza a la primera, se retrocede continuamente, ademá
 \textbf{Sistema Experto en Medicina:} en el que con todo el conocimiento médico y recibiendo una serie de variables ser capaz de dar un diagnóstico. En este punto entra en juego la ética y el querer saber en qué se basa este diagnóstico, como lo obtuvo.
 \begin{itemize}
   \item ATHENA: Assessment and Treatment of Hypertensión
-	\item GIDEON: Global Infectious Disease and Epidemiology Network
+  \item GIDEON: Global Infectious Disease and Epidemiology Network
 \end{itemize}
 
 \textbf{Sistema de Gestión de Reglas de Negocio:} Dado el conocimiento adquirido por profesionales e históricos (como en el sistema financiero) ser capaz de decidir cuándo invertir o realizar alguna operación.
 \begin{itemize}
   \item IBM ILOG JRules BRMS
-	\item Drools
-	\item Red Hat JBoss BRMS
+  \item Drools
+  \item Red Hat JBoss BRMS
 \end{itemize}
 
 \textbf{Ontologías:}
 \begin{itemize}
   \item Web semánticas: Web Ontology Languaje
-	\item Protégé: Editor de ontologías
-	\item Información de seguimiento de una persona
+  \item Protégé: Editor de ontologías
+  \item Información de seguimiento de una persona
 \end{itemize}
 
 \textbf{Planificación Automática y Robótica:} Como por ejemplo es el proyecto Nao Therapist un robot para ayudar a los niños en rehabilitación por parálisis cerebral.
