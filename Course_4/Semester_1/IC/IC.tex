@@ -276,7 +276,7 @@ Wooclap que se realizaran en clase, para seguir el temario.
   \item Estudiaremos CLIP, una versión reducida.
   \item Aplicar los conocimientos teóricos a problemas complejos.
 \end{itemize}
-Lograremos adquirir, obtener, formalizar y representar el conocimiento humano en una forma computable epata la resolución de problemas mediante un sistema informático en cualquier ámbito de aplicación.
+Lograremos adquirir, obtener, formalizar y representar el conocimiento humano en una forma computable para la resolución de problemas mediante un sistema informático en cualquier ámbito de aplicación.
 También obtendremos soft-skill que nos permitirán destacar entre el resto de los graduados, como son la comunicación escrita y oral, flexibilidad, responsabilidad, trabajo en equipo.
 
 \pagebreak
@@ -311,6 +311,139 @@ También obtendremos soft-skill que nos permitirán destacar entre el resto de l
 Prácticas dirigidas a conceptualizar (recoger todo el conocimiento, independientemente mediante el sistema que lo vayamos a realizar) e implementar el conocimiento, realizado mediante 2 prácticas.
 
 \chapter{Tema 1: Introducción}
+\section{Definición de Ingeniería del Conocimiento}
 
+\textbf{Ingeniería de conocimiento:} Es la actividad de construir Sistemas Basados en el Conocimiento (SBC). Es el proceso para adquirir, estructurar, conceptualizar y después implementar un conjunto de conocimientos.
+
+El conocimiento sobrevive a implementaciones y valorado en sí mismo.
+
+Debe considerar la escalabilidad del sistema y el mantenimiento de este.
+
+\subsection{Pirámide de Datos/Información/Conocimiento}
+El pico es el metaconocimiento, en esta asignatura trataremos el conocimiento.
+
+\textbf{Datos:} Gran volumen, pero de bajo valor, carecen de significado o contexto que los hagan más valiosos.
+
+\textbf{Información:} Menor volumen, tienen valor al tener un contexto o significado asociado.
+
+\textbf{Conocimiento:} Entender el dominio, pudiendo aplicarlo para resolver problemas. Se basan en la información que sale de los datos, pero este no se trata de meros datos sino de lo que subyace sobre estos. 
+
+\textbf{Metaconocimiento:} Es el conocimiento del conocimiento.
+
+\section{Sistemas Basados en el Conocimiento y Sistemas Expertos}
+
+\textbf{Sistema Basados en el Conocimiento (SBC):} Es un tipo de sistemas software, que tratan problemas cuyo método de resolución es más heurístico (guía hacia la solución de una manera más o menos óptima, mediante el conocimiento previo del problema, en forma de una serie de reglas) que algorítmico y que contiene conocimientos públicos de un dominio. Lo clave es que es heurística y contiene conocimiento. 
+
+Es un sistema que usa conocimiento específico de un problema e intenta codificar el razonamiento que hacemos los humanos, como si fuera un experto, es decir juntando los datos e ir sacando conclusiones hasta llegar a la solución.
+
+El conocimiento se presenta de manera declarativa (explicita). Los SBC son más heurístico que algorítmico.
+
+El primer sistema que se puede llamar SBC es el General Problem Solver (GPS): H. Simon y A. Newell, 1957
+
+\subsection{Actores participantes}
+\begin{itemize}
+  \item \textbf{Experto:} Es el que posee el conocimiento, como podría ser un libro.
+  \item \textbf{Usuario:} Es el que usara el conocimiento.
+  \item \textbf{Ingeniero de conocimiento:} Es el que se encarga de formalizar el conocimiento para que sea utilizado \item \textbf{Desarrollador}
+  \item \textbf{Gestor del proyecto}
+\end{itemize}
+
+\subsection{Diferencias entre un SBC y un SST}
+\textbf{SST:} Sistema de Software Tradicional.
+
+\textbf{En arquitectura:} Los SBC siempre separan la parte de datos y la parte de resolución, sin embargo en SST están mezcladas.
+
+\textbf{En tipo de problemas:} Los SBC resuelven problemas heurísticos y los SST dan soluciones algorítmicas.
+
+\textbf{En técnicas de programación:} SBC emplea programación declarativa y los SST programación imperativa.
+
+Lo más importante es que los SBC son capaces de explicar cuál es el proceso de razonamiento que ha empleado para llegar a la solución. Es posible al ser declarativo y la forma en la que se implementan poder ver qué proceso es el que ha seguido. 
+
+\subsection{Ingeniería del Software vs. Ingeniería del Conocimiento}
+\begin{table}[H]
+  \centering
+  \caption{IS vs. IC}
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{l|l|l|}
+  \cline{2-3}
+   & \multicolumn{1}{c|}{\textbf{Ingeniería del Software}} & \multicolumn{1}{c|}{\textbf{Ingeniería del Conocimiento}} \\ \hline
+  \multicolumn{1}{|l|}{\textbf{Dominios}} & Tratamiento eficaz de los datos & Conocimientos especializados \\ \hline
+  \multicolumn{1}{|l|}{\textbf{Tipo de problemas}} & Sistemáticos y procedimentales & Heurísticos y declarativos \\ \hline
+  \multicolumn{1}{|l|}{\textbf{Entrada}} & Datos, procesos y algoritmos & Conocimiento humano \\ \hline
+  \multicolumn{1}{|l|}{\textbf{Técnica de programación}} & \begin{tabular}[c]{@{}l@{}}Procedimentales sofisticados\\ secuenciales y rígidos\end{tabular} & \begin{tabular}[c]{@{}l@{}}Declarativos, elementales\\ paralelos y flexibles\end{tabular} \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Modelo de solución\\ de problemas\end{tabular}}} & \begin{tabular}[c]{@{}l@{}}Implícitamente en el\\ código del programa\end{tabular} & \begin{tabular}[c]{@{}l@{}}Explicitamente en la\\ Base de Conocimiento\end{tabular} \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Niveles organización\\ conocimientos\end{tabular}}} & \begin{tabular}[c]{@{}l@{}}1. Datos\\ 2. Programas\end{tabular} & \begin{tabular}[c]{@{}l@{}}1. Datos o hechos\\ 2. Reglas operativas o heurísticas\\ 3. Inferencia y control\end{tabular} \\ \hline
+  \end{tabular}%
+  }
+  \end{table}
+
+\subsection{Elementos de un SBC}
+\textbf{Base de conocimiento:} contiene el conocimiento que hemos recibido de los expertos en un dominio determinado.
+
+\textbf{Base de hechos:} Como está la base de conocimiento, pensando como el estado, es la memoria de trabajo que almacena los datos iniciales del problema y los resultados intermedio durante el proceso.
+
+\textbf{Motor de inferencia:} Es el que se encarga de ir pasando de estados aplicando reglas imitando el procedimiento humano de los expertos, poco a poco se va llegando a la solución. Aprenderemos cómo funciona y tendremos que definir las reglas.
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Elementos de un SBC}}
+  {\def\svgwidth{.8\textwidth}
+  \input{img/elementos_sbc.eps_tex}}
+\end{figure}
+\pagebreak
+
+\subsection{Fases para construir un SBC}
+Iteración:
+\begin{enumerate}
+  \item \textbf{Identificar} el problema (con usuario y expertos)
+  \item Adquirir conocimiento (con expertos y estudio de la documentación)
+  \item \textbf{Conceptualizar}, saber estructurar el conocimiento, separar los datos y el problema.
+  \item \textbf{Formalizar} conocimiento.
+  \item \textbf{Implementar} formalización (con desarrollador).
+  \item \textbf{Validar} funcionamientos esperados (con usuario y experto).
+\end{enumerate}
+
+Es un proceso que no se realiza a la primera, se retrocede continuamente, además se deben hacer varias iteraciones en todos los pasos, es difícil realizarlos a la primera al ser fácil pasarse algo del problema.
+
+\subsection{Ventajas de los SBC}
+\begin{itemize}
+  \item Distribución y disponibilidad del conocimiento.
+  \item Coherente y estabilidad.
+  \item Almacenamiento del conocimiento
+  \item Resuelven el problema con incertidumbre.
+  \item Explicación de como adoptará la solución.
+  \item Aprendizaje.
+\end{itemize}
+
+\subsection{Desventajas de los SBC}
+\begin{itemize}
+  \item No asegura que se vaya a encontrar la solución óptima, pero al menos alcanzara una.
+  \item El conocimiento es limitado, no se puede poseer todo el conocimiento, hay que asumir esta limitación y trabajar con ella.
+  \item Falta de sentido común.
+  \item La adquisición del conocimiento y mantenimiento es difícil.
+  \item Degradación del conocimiento, requiere un mantenimiento constante para mantenerse al día.
+\end{itemize}
+
+\section{Ejemplos Actuales Relacionados con la Ingeniería del Conocimiento}
+\textbf{Sistema Experto en Medicina:} en el que con todo el conocimiento médico y recibiendo una serie de variables ser capaz de dar un diagnóstico. En este punto entra en juego la ética y el querer saber en qué se basa este diagnóstico, como lo obtuvo.
+\begin{itemize}
+  \item ATHENA: Assessment and Treatment of Hypertensión
+	\item GIDEON: Global Infectious Disease and Epidemiology Network
+\end{itemize}
+
+\textbf{Sistema de Gestión de Reglas de Negocio:} Dado el conocimiento adquirido por profesionales e históricos (como en el sistema financiero) ser capaz de decidir cuándo invertir o realizar alguna operación.
+\begin{itemize}
+  \item IBM ILOG JRules BRMS
+	\item Drools
+	\item Red Hat JBoss BRMS
+\end{itemize}
+
+\textbf{Ontologías:}
+\begin{itemize}
+  \item Web semánticas: Web Ontology Languaje
+	\item Protégé: Editor de ontologías
+	\item Información de seguimiento de una persona
+\end{itemize}
+
+\textbf{Planificación Automática y Robótica:} Como por ejemplo es el proyecto Nao Therapist un robot para ayudar a los niños en rehabilitación por parálisis cerebral.
 
 \end{document}
