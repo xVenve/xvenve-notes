@@ -1,5 +1,5 @@
-\documentclass[12pt, twoside, openright]{report} %fuente a 12pt, formato doble pagina y chapter a la derecha
-\raggedbottom % No ajustar el contenido con un salto de pagina
+\documentclass[12pt, twoside, openright]{report} % Fuente a 12pt, formato doble página y chapter a la derecha
+\raggedbottom % No ajustar el contenido con un salto de página
 
 % MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
 \usepackage[
@@ -37,17 +37,17 @@ hmargin=3cm
 % Añadir pdfs como partes del documento
 \usepackage{pdfpages}
 
-% Quitar la indentación de principio de los parrafos
+% Quitar la indentación de principio de los párrafos
 \setlength{\parindent}{0em}
 
-% EXPRESIONES MATEMATICAS
+% EXPRESIONES MATEMÁTICAS
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 
 \usepackage{txfonts} 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
-% Insertar graficas y fotos
+% Insertar gráficas y fotos
 \usepackage{tikz}
 \usepackage{pgfplots}
 
@@ -105,7 +105,6 @@ hmargin=3cm
 {\contentsmargin{0pt}}                        
 {\titlerule*[.7pc]{.}\contentspage}  
 
-
 % DISEÑO DE TABLAS.
 \usepackage{multirow} % permite combinar celdas 
 \usepackage{caption} % para personalizar el título de tablas y figuras
@@ -140,7 +139,7 @@ hmargin=3cm
 }
 
 % NOTAS A PIE DE PÁGINA
-\usepackage{chngcntr} %para numeración continua de las notas al pie
+\usepackage{chngcntr} % Para numeración continua de las notas al pie
 \counterwithout{footnote}{chapter}
 
 % LISTADOS DE CÓDIGO
@@ -193,7 +192,7 @@ hmargin=3cm
   \begin{sffamily}
     \color{azulUC3M}
     \begin{center}
-      \begin{figure}[H] %incluimos el logotipo de la Universidad
+      \begin{figure}[H] % Incluimos el logotipo de la Universidad
         \makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
       \end{figure}
       \vspace{2.5cm}
@@ -244,19 +243,17 @@ hmargin=3cm
 % TRABAJO
 %---------- 
 
-\pagenumbering{arabic} % numeración con múmeros arábigos para el resto de la publicación  
-
+\pagenumbering{arabic} % numeración con números arábigos para el resto de la publicación  
 
 %----------
-% COMENZAR A ESCRIBIR AQUI
+% COMENZAR A ESCRIBIR AQUÍ
 %---------- 
 
-
 \part{Separador}
-\chapter{Titulo 1}
-\section{Titulo 2}
-\subsection{Titulo 3}
-\subsubsection{Titulo 4}
+\chapter{Título 1}
+\section{Título 2}
+\subsection{Título 3}
+\subsubsection{Título 4}
 \paragraph{paragraph}
 \subparagraph{subparagraph}
 
@@ -270,7 +267,6 @@ hmargin=3cm
   {\caption{Figura 1}}
   {\includegraphics[scale=.8]{Portada_Logo.png}}
 \end{figure}
-
 
 \subsection{Tabla}
 \begin{table} [h] %  https://www.tablesgenerator.com/latex_tables
@@ -303,8 +299,7 @@ hmargin=3cm
   \caption{Tabla Ejemplo}
 \end{table}
 
-
-\subsection{Grafica}
+\subsection{Gráfica}
 \begin{figure}[H]
   \ffigbox[\FBwidth]
   {\caption{Figura 1}}
@@ -363,7 +358,6 @@ hmargin=3cm
     \end{tikzpicture}}
 \end{figure}
 
-
 \subsection{Lista}
 \begin{enumerate}
   \item The labels consists of sequential numbers.
@@ -384,6 +378,5 @@ while babies < 100:
 
 \part{PDF (siguiente hoja)}
 \includepdf[pages=-]{docs/pdfImport.pdf}
-
 
 \end{document}
