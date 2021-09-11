@@ -1,5 +1,5 @@
-\documentclass[12pt, twoside, openright]{report} %fuente a 12pt, formato doble pagina y chapter a la derecha
-\raggedbottom % No ajustar el contenido con un salto de pagina
+\documentclass[12pt, twoside, openright]{report} % fuente a 12pt, formato doble página y chapter a la derecha
+\raggedbottom % No ajustar el contenido con un salto de página
 
 % MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
 \usepackage[
@@ -41,7 +41,7 @@ hmargin=3cm
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
-% Insertar graficas y fotos
+% Insertar gráficas y fotos
 \usepackage{tikz}
 \usepackage{pgfplots}
 
@@ -275,8 +275,7 @@ Se encuentra en las fronteras de la programación.
 
 \textbf{Programación tradicional}: Lo normal, es que el usuario construya el programa que resuelve el problema.
 
-\textbf{Programación automática}: Se crea un programa capaz de generar
-el programa que es capaz de resolver nuestro problema.
+\textbf{Programación automática}: Se crea un programa capaz de generar el programa que es capaz de resolver nuestro problema.
 
 \textbf{Es útil cuando:}
 
@@ -287,38 +286,29 @@ el programa que es capaz de resolver nuestro problema.
 	\item Los modelos se basan en enormes cantidades de datos.
 \end{itemize}
 
-\textbf{Actualmente}: Existen muchos algoritmos de aprendizaje
-automático efectivo y eficientes, recursos computacionales y datos
-disponibles.
+\textbf{Actualmente}: Existen muchos algoritmos de aprendizaje automático efectivo y eficientes, recursos computacionales y datos disponibles.
 
 \textbf{Definición de tarea de Aprendizaje Automático}: Mejorar en una
-\textbf{tarea} T, respecto a una \textbf{medida de rendimiento} P,
-basándose en la \textbf{experiencia} E (los ejemplos).
+\textbf{tarea} T, respecto a una \textbf{medida de rendimiento} P, basándose en la \textbf{experiencia} E (los ejemplos).
 
 Tarea, Medida y Experiencia.
 
 \textbf{Tipos de tareas de Aprendizaje Automático:}
 \begin{itemize}
 	\item \textbf{Aprendizaje supervisado}: Consiste en etiquetar los datos.
-
 	      \begin{itemize}
 		      \item \textbf{Clasificación}: Determinar de qué clase es un ejemplo.
 		      \item \textbf{Predicción -- Regresión}: Determinar una etiqueta numérica.
-
 	      \end{itemize}
 		  \pagebreak
-	\item \textbf{Aprendizaje no supervisado}: Agrupa elementos similares, no
-	      etiqueta.
-
+	\item \textbf{Aprendizaje no supervisado}: Agrupa elementos similares, no etiqueta.
 	      \begin{itemize}
 		      \item \textbf{Agrupación}.
 	      \end{itemize}
-	\item \textbf{Aprendizaje por refuerzo}: Basado en prueba y error. Dando
-	      refuerzo positivo/negativo.
+	\item \textbf{Aprendizaje por refuerzo}: Basado en prueba y error. Dando refuerzo positivo/negativo.
 \end{itemize}
 
-\textbf{Algunas aplicaciones}: Sanidad, Domótica, Banca, Marketing,
-Personalización, Seguridad, Videojuego, etc.
+\textbf{Algunas aplicaciones}: Sanidad, Domótica, Banca, Marketing, Personalización, Seguridad, Videojuego, etc.
 
 \textbf{Problemas no técnicos:}
 
@@ -341,11 +331,9 @@ Encontrar una \textbf{función h} (la hipótesis o modelo) que aproxime la \text
 
 Los ejemplos normalmente se representan como pares, \textbf{(x, f(x))}.
 
-\textbf{Según como sea la salida de f}: Es \textbf{clasificación} si es
-categórica y es de \textbf{regresión} si es numérica.
+\textbf{Según como sea la salida de f}: Es \textbf{clasificación} si es categórica y es de \textbf{regresión} si es numérica.
 
-Se basa en inducción, se parte de un ejemplo específico para obtener
-modelos generales.
+Se basa en inducción, se parte de un ejemplo específico para obtener modelos generales.
 
 \textbf{Asume que:}
 
@@ -354,16 +342,12 @@ modelos generales.
 	\item Si un modelo o hipótesis \textbf{categoriza bien en función a un
 		      conjunto de ejemplos grande también lo hará bien para futuros
 		      ejemplos.}
-	\item \textbf{Siempre hay un sesgo inductivo}, que influye en la decisión,
-	      nos lleva más a uno que a otro.
-	\item El lenguaje de representación nos limita si no lo puede expresar bien.
-	      Por ejemplo, limitarnos a una función lineal, pero es cuadrática.
-	\item Encontrar una hipótesis adecuada puede ser difícil, f es desconocida y
-	      puede ser complicado determinar si h es buena.
+	\item \textbf{Siempre hay un sesgo inductivo}, que influye en la decisión, nos lleva más a uno que a otro.
+	\item El lenguaje de representación nos limita si no lo puede expresar bien. Por ejemplo, limitarnos a una función lineal, pero es cuadrática.
+	\item Encontrar una hipótesis adecuada puede ser difícil, f es desconocida y puede ser complicado determinar si h es buena.
 \end{itemize}
 
-El \textbf{espacio de hipótesis} es el conjunto de hipótesis que se consideran para aproximar f, \textbf{influye mucho para encontrar una
-	buena aproximación}, pueden ser: funciones lineales, polinómicas, lógica de predicados, árboles de decisión, etc.
+El \textbf{espacio de hipótesis} es el conjunto de hipótesis que se consideran para aproximar f, \textbf{influye mucho para encontrar una buena aproximación}, pueden ser: funciones lineales, polinómicas, lógica de predicados, árboles de decisión, etc.
 
 Los ejemplos tienen atributos/características que los identifican y nos permitirán clasificarlos por clases. Cada ejemplo es una instancia, da valor a los atributos y su clase.
 
@@ -387,8 +371,7 @@ Todos los ejemplos clasificados forman el conjunto de entrenamiento.
 
 Usaremos \textbf{modelos simbólicos como árboles de decisión}, que usan símbolos para representar lo que los hace más fáciles para ver explicaciones de las decisiones, las podemos entender. Sin embargo, en otros tipos de modelos como los numéricos (redes neuronales), usa números para representar y no es posible que dé explicaciones que entendamos.
 
-\section{Aprendizaje de árboles de
-  decisión}
+\section{Aprendizaje de árboles de decisión}
 
 Nosotros estudiaremos \textbf{ID3 (Dicotomizador Iterativo, Quinlan 1986)}, a partir de ejemplos de partida genera árboles de decisión. Normalmente NO son árboles binarios.
 
@@ -398,8 +381,7 @@ Usa búsqueda avara, para encontrar el árbol más sencillo que separa mejor los
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
-	\item \textbf{Seleccionar el atributo} \(A_i\) que maximice la ganancia
-	      \(G(A_i)\).
+	\item \textbf{Seleccionar el atributo} \(A_i\) que maximice la ganancia \(G(A_i)\).
 	\item \textbf{Crear un nodo} para ese atributo con \textbf{tantos sucesores como valores} tenga.
 	\item \textbf{Dividir los ejemplos} en los sucesores según el valor del atributo.
 	\item Por cada sucesor,
@@ -412,17 +394,13 @@ Usa búsqueda avara, para encontrar el árbol más sencillo que separa mejor los
 \section{Heurística de ID3 (Heurística de la ganancia de
   información)}
 
-Seleccionar el \textbf{atributo que mejor separe los ejemplos de acuerdo
-	con las clases}, que deje subconjuntos más puros (orientados más a un
-valor)
+Seleccionar el \textbf{atributo que mejor separe los ejemplos de acuerdo con las clases}, que deje subconjuntos más puros (orientados más a un valor).
 
 Para calcular la ganancia se utiliza el concepto de Entropía, como medida de la pureza o impureza de un conjunto ejemplos.
 \pagebreak
 \section{Entropía}
 
-\textbf{Entropía en clasificación binaria}: El conjunto de ejemplos S
-pertenece a una de las dos clases:
-\textbf{\(Entropia(S) \equiv -p_\oplus \log _2 p_\oplus -p_\ominus \log _2 p_\ominus\)}
+\textbf{Entropía en clasificación binaria}: El conjunto de ejemplos S pertenece a una de las dos clases: \textbf{\(Entropia(S) \equiv -p_\oplus \log _2 p_\oplus -p_\ominus \log _2 p_\ominus\)}
 
 \begin{itemize}
 	\item \(p_\oplus\): \textbf{Proporción} de ejemplos \textbf{positivos} sobre el total.
@@ -433,16 +411,13 @@ pertenece a una de las dos clases:
 
 \(p_\oplus+p_\ominus=0.5\) Entropía máxima
 
-\textbf{Entropía en múltiples clases}:
-\(Entropia(S) \equiv \sum_{c\in C} -p_c \log _2 p_c\)
+\textbf{Entropía en múltiples clases}: \(Entropia(S) \equiv \sum_{c\in C} -p_c \log _2 p_c\)
 
 Cuanto más se diferencian las proporciones, cuanto más notablemente hay de una que de otra, más tiende a 0.
 
 \textbf{Nuestro objetivo es minimizar la entropía.}
 
-\textbf{La ganancia de información:} mide la efectividad de un atributo
-para clasificar, es la \textbf{reducción esperada de la entropía} cuando
-se divide el conjunto de datos original S según el atributo dado A.
+\textbf{La ganancia de información:} mide la efectividad de un atributo para clasificar, es la \textbf{reducción esperada de la entropía} cuando se divide el conjunto de datos original S según el atributo dado A.
 \begin{figure}[H]
 	\begin{itemize}
 		\item \(G(S, A)=Entropia(S) - Entropia\_ Atr(S, A)\)
@@ -454,46 +429,36 @@ se divide el conjunto de datos original S según el atributo dado A.
 \end{figure}
 
 
-\textbf{Se elige el atributo que maximiza la ganancia de información},
-ya que menos resta es el que menos entropía tiene, o elegir el que menor
-\textbf{entropía tenga}.
+\textbf{Se elige el atributo que maximiza la ganancia de información}, ya que menos resta es el que menos entropía tiene, o elegir el que menor \textbf{entropía tenga}.
 
 \(A= \arg\max_{A \in \mathcal{A}} G(S,A) = \arg\min_{A \in \mathcal{A}} Entropia \_ Atr(A,S)\)
 
-\section{Aprendizaje de reglas de
-  decisión}
+\section{Aprendizaje de reglas de decisión}
 
 \textbf{Traducción a reglas:}
 
 \begin{itemize}
 	\item Cualquier árbol de decisión se puede convertir a reglas.
-	\item \textbf{Reglas}: Estructura del tipo \textbf{Si(valor de los
-		      atributos)-Entonces(clase a la que pertenece)}
-	\item \textbf{Algoritmo}: Por cada rama del árbol, las preguntas y sus
-	      valores estarán en la parte de la izquierda de las reglas y la
-	      etiqueta del nodo hoja correspondiente será la parte derecha.
+	\item \textbf{Reglas}: Estructura del tipo \textbf{Si(valor de los atributos)-Entonces(clase a la que pertenece)}
+	\item \textbf{Algoritmo}: Por cada rama del árbol, las preguntas y sus valores estarán en la parte de la izquierda de las reglas y la etiqueta del nodo hoja correspondiente será la parte derecha.
 \end{itemize}
 
 \textbf{Sesgo inductivo en ID3}
 
 \begin{itemize}
-	\item Preferir árboles con atributos con más información cerca de la raíz, y
-	      árboles cortos.
-	\item \textbf{La navaja de Ockham/Occam:} Preferir siempre la hipótesis más
-	      sencilla que describa los datos.
+	\item Preferir árboles con atributos con más información cerca de la raíz, y árboles cortos.
+	\item \textbf{La navaja de Ockham/Occam:} Preferir siempre la hipótesis más sencilla que describa los datos.
 	\item Favorece atributos con muchos valores.
 \end{itemize}
 
 \section{Ampliación del ID3}
 
-En los datos puede haber errores, ruido. Si se ajusta mucho a los datos
-se produce \textbf{sobreajuste}.
+En los datos puede haber errores, ruido. Si se ajusta mucho a los datos se produce \textbf{sobreajuste}.
 
 \textbf{No se pueden tratar:}
 
 \begin{itemize}
-	\item \textbf{Valores continuos de atributos}, números reales, lo que no son
-	      discretos.
+	\item \textbf{Valores continuos de atributos}, números reales, lo que no son discretos.
 	\item \textbf{Valores discretos con muchos valores.}
 \end{itemize}
 
@@ -502,17 +467,14 @@ Hay valores de atributos más caros de obtener.
 \begin{itemize}
 	\item Hay métodos que los ejemplos vienen incrementalmente, se puede ampliar el modelo, no hace falta volver a empezar: ID4, ID5 y Hoeffding tree.
 	\item Clases continuas: M5
-	\item Representación relacional, la más común es con lógica de predicados:
-	      ILP.
+	\item Representación relacional, la más común es con lógica de predicados: ILP.
 \end{itemize}
 
-Normalmente recibimos los datos como \textbf{atributo-valor}, pero
-también se pueden recibir de forma \textbf{relacional}, hay-robot(imagen).
+Normalmente recibimos los datos como \textbf{atributo-valor}, pero también se pueden recibir de forma \textbf{relacional}, hay-robot(imagen).
 
 \section{Ruido}
 
-Cualquier cosa que pueda oscurecer la relación entre los atributos y la
-clase.
+Cualquier cosa que pueda oscurecer la relación entre los atributos y la clase.
 
 \begin{itemize}
 	\item Que los atributos no estén bien descritos o seleccionados.
@@ -521,56 +483,34 @@ clase.
 
 \textbf{Ruido en atributos:} Valores erróneos, sin valor (missing values) u outliers (que se salen de sus valores)
 
-\textbf{Ruido en la clase:} Ejemplos con una clase incorrecta, ejemplos
-exactamente iguales, pero clase distinta (contradictorio)
+\textbf{Ruido en la clase:} Ejemplos con una clase incorrecta, ejemplos exactamente iguales, pero clase distinta (contradictorio)
 
-\section{Evaluación para Validación de un
-  modelo}
+\section{Evaluación para Validación de un modelo}
 
-No se pueden usar para evaluar ejemplos conocidos, tienen que ser
-nuevos, para ello se tienen \textbf{dos conjuntos de ejemplos, uno para
-	entrenar y otros de prueba}. Tras crear el modelo se pasan los ejemplos
-de prueba y se calcula el número de errores, se evalúan los resultados.
+No se pueden usar para evaluar ejemplos conocidos, tienen que ser nuevos, para ello se tienen \textbf{dos conjuntos de ejemplos, uno para entrenar y otros de prueba}. Tras crear el modelo se pasan los ejemplos de prueba y se calcula el número de errores, se evalúan los resultados.
 
-$Accuracy= \frac {numeroEjemplosClasificadosCorrectamente}{numeroTotalEjemplos}$
-Proporción de aciertos sobre conjunto de prueba.
-Proporción de aciertos sobre el conjunto de prueba.
+$Accuracy= \frac {numeroEjemplosClasificadosCorrectamente}{numeroTotalEjemplos}$ Proporción de aciertos sobre el conjunto de prueba.
 
-Un problema de hacer la división de conjuntos es que no se usan todos
-para entrenar, y esto es problemático si no se tienen muchos.
+Un problema de hacer la división de conjuntos es que no se usan todos para entrenar, y esto es problemático si no se tienen muchos.
 
-\textbf{Validación cruzada k-veces:} Método para definir el conjunto de
-entrenamiento y de pruebas, que permite usar todos los datos para
-entrenar el modelo. Sirve para \textbf{estimar el error del modelo
-	final, no para generar el modelo final}, en el que se usan todos los
-ejemplos.
+\textbf{Validación cruzada k-veces:} Método para definir el conjunto de entrenamiento y de pruebas, que permite usar todos los datos para entrenar el modelo. Sirve para \textbf{estimar el error del modelo final, no para generar el modelo final}, en el que se usan todos los ejemplos.
 
-Estimación del error del modelo final, en el que se usan todos los
-ejemplos para entrenarlo.
+Estimación del error del modelo final, en el que se usan todos los ejemplos para entrenarlo.
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item Divide el \textbf{conjunto de ejemplos en k partes} iguales.
-	\item Para cada conjunto, se \textbf{entrena con los k-1 conjuntos
-		      restantes}, y se pasa por el modelo generado el conjunto seleccionado
-	      calculando el error de ese modelo sobre el conjunto. \(e_i\)
-	\item Se estima la \textbf{tasa de error total haciendo la media} aritmética
-	      de los errores. \(r= \sum_{i=1}^k \frac {e_i}{k}\)
+	\item Para cada conjunto, se \textbf{entrena con los k-1 conjuntos restantes}, y se pasa por el modelo generado el conjunto seleccionado calculando el error de ese modelo sobre el conjunto. \(e_i\)
+	\item Se estima la \textbf{tasa de error total haciendo la media} aritmética de los errores. \(r= \sum_{i=1}^k \frac {e_i}{k}\)
 \end{enumerate}
 
-Si k=5, se hacen 5 modelos (clasificadores) para evaluar y otro que es
-el final que usa todos. k=n entonces n+1 modelos.
+Si k=5, se hacen 5 modelos (clasificadores) para evaluar y otro que es el final que usa todos. k=n entonces n+1 modelos.
 
-El valor de \textbf{k típico es 10}, pero la mejor sería que fuese
-`Leave one out'(aunque es muy lento y costoso), coger todas menos 1
-instancia para entrenar y usar esa para hacer test.
+El valor de \textbf{k típico es 10}, pero la mejor sería que fuese ‘Leave one out’(aunque es muy lento y costoso), coger todas menos 1 instancia para entrenar y usar esa para hacer test.
 
-\section{Medidas adicionales del
-  rendimiento}
+\section{Medidas adicionales del rendimiento}
 
-Tener una precisión alta, no quiere decir que sea bueno, la clase puede
-estar desbalanceada, que haya más de una clase que otra, aunque se
-admite cierta diferencia.
+Tener una precisión alta, no quiere decir que sea bueno, la clase puede estar desbalanceada, que haya más de una clase que otra, aunque se admite cierta diferencia.
 
 \textbf{Basadas en la Matriz de confusión:}
 
@@ -587,30 +527,23 @@ admite cierta diferencia.
 \end{table}
 \(Accuracy= \frac {TP+TN}{TP+TP+FP+FN}\)
 
-\(\textit{Sensibilidad(recall)}= \frac {TP}{TP+FN}\) Proporción de las que son
-positivas acierta. Cuanto más es mejor.
+\(\textit{Sensibilidad(recall)}= \frac {TP}{TP+FN}\) Proporción de las que son positivas acierta. Cuanto más es mejor.
 
 Cuando el coste de FN es alto.
 
-\(\textit{Especificidad}= \frac {TN}{TN+FP}\) En qué medida acierta cuando la
-clase es negativa.
+\(\textit{Especificidad}= \frac {TN}{TN+FP}\) En qué medida acierta cuando la clase es negativa.
 
 \(\textit{Tasa de falsos positivos}=1-\textit{Especificidad}= \frac {FP}{TN+FP}\)
 
-\(\textit{Precision de clase}= \frac {TP}{TP+FP}\) En qué medida el
-clasificador acierta cuando predice clase positiva.
+\(\textit{Precision de clase}= \frac {TP}{TP+FP}\) En qué medida el clasificador acierta cuando predice clase positiva.
 
 Importante cuando el coste FP es alto.
 
-\(\textit{F1 score}= 2\cdot \frac {precision \cdot recall}{precision +recall}\)
-Medida armónica entre sensibilidad y precisión de clase.
+\(\textit{F1 score}= 2\cdot \frac {precision \cdot recall}{precision +recall}\) Medida armónica entre sensibilidad y precisión de clase.
 
-Cuando se busca un buen balance entre recall y precisión de clase, y las
-clases no balanceadas.
+Cuando se busca un buen balance entre recall y precisión de clase, y las clases no balanceadas.
 
-\textbf{Espacio ROC:} Mide como de útil es un clasificador para
-distinguir entre clases. Cuanto más cerca de la esquina superior
-izquierda mejor, recoge más área y está más cerca del punto óptimo.
+\textbf{Espacio ROC:} Mide como de útil es un clasificador para distinguir entre clases. Cuanto más cerca de la esquina superior izquierda mejor, recoge más área y está más cerca del punto óptimo.
 \begin{figure}[H]
 	Ejemplo
 	\ffigbox[.8\FBwidth]
@@ -650,14 +583,9 @@ ratio de falsos\\positivos
 
 \end{tikzpicture}}
 \end{figure}
-\textbf{Curva ROC}: Es una curva en el espacio ROC, en la que cada punto
-de la recta representa un clasificador, el más cercano al punto óptimo
-será el mejor, pero teniendo cuidado de los falsos positivos.
+\textbf{Curva ROC}: Es una curva en el espacio ROC, en la que cada punto de la recta representa un clasificador, el más cercano al punto óptimo será el mejor, pero teniendo cuidado de los falsos positivos.
 
-En el caso de árboles de decisión no lo utilizaremos porque no tiene
-sentido, pero si en los casos que hay que definir un umbral
-(Clasificador Bayesiano) a partir del cual se considera de clase positiva
-o negativa. Los puntos representan los distintos umbrales.
+En el caso de árboles de decisión no lo utilizaremos porque no tiene sentido, pero si en los casos que hay que definir un umbral (Clasificador Bayesiano) a partir del cual se considera de clase positiva o negativa. Los puntos representan los distintos umbrales.
 
 Cuanto más Área por debajo de la curva mejor.
 
@@ -674,47 +602,33 @@ Es un proceso iterativo, tras la última etapa se vuelve al principio.
 		      \item \textbf{Tratamiento de datos imperfectos:}
 
 		            \begin{itemize}
-			            \item \textbf{Reducción del ruido:} Mediante filtros que eliminan
-			                  instancias clasificadas mal.
-			            \item \textbf{Valores desconocidos:} Eliminar instancias/atributos o
-			                  asignar el valor más probable.
+			            \item \textbf{Reducción del ruido:} Mediante filtros que eliminan instancias clasificadas mal.
+			            \item \textbf{Valores desconocidos:} Eliminar instancias/atributos o asignar el valor más probable.
 		            \end{itemize}
 		      \item \textbf{Reducción de datos:} Reducir la variedad.
 
 		            \begin{itemize}
 			            \item \textbf{Normalización}: Valores entre 0 y 1.
 			            \item \textbf{Discretización}: En rangos.
-			            \item \textbf{Selección de instancias}: Aleatoriamente, los más
-			                  parecidos entre sí, los más diferentes entre sí o según alguna
-			                  distribución.
+			            \item \textbf{Selección de instancias}: Aleatoriamente, los más parecidos entre sí, los más diferentes entre sí o según alguna distribución.
 			            \item \textbf{Selección de atributos:}
 
 			                  \begin{itemize}
-				                  \item Reducción de la dimensionalidad de los datos, mediante filtrado
-				                        según algún criterio o seleccionando un subconjunto.
+				                  \item Reducción de la dimensionalidad de los datos, mediante filtrado según algún criterio o seleccionando un subconjunto.
 				                  \item \textbf{Búsqueda}: Cualquier técnica.
 				                  \item \textbf{Evaluación}: Correlación, entropía, etc.
-				                  \item \textbf{Criterio de parada:} Porcentaje, umbral, iteraciones,
-				                        etc.
-				                  \item \textbf{Técnicas de wrapper}: Se genera el modelo con todos los
-				                        atributos, se evalúa el modelo y se ve el subconjunto de
-				                        atributos mejores.
+				                  \item \textbf{Criterio de parada:} Porcentaje, umbral, iteraciones, etc.
+				                  \item \textbf{Técnicas de wrapper}: Se genera el modelo con todos los atributos, se evalúa el modelo y se ve el subconjunto de atributos mejores.
 				                  \item \textbf{Búsqueda en el espacio de estado de los conjuntos de
 					                        atributos.}
 				                        \begin{itemize}
-					                        \item Se puede comenzar por el conjunto completo (por arriba) o por
-					                              el conjunto vacío (por abajo).
+					                        \item Se puede comenzar por el conjunto completo (por arriba) o por el conjunto vacío (por abajo).
 					                        \item La búsqueda puede ser de cualquier tipo.
-					                        \item La evaluación de cada nodo, que son subconjuntos de atributos,
-					                              se realiza llamando al algoritmo inductivo seleccionado, una
-					                              función de evaluación. Tras evaluar se opera.
+					                        \item La evaluación de cada nodo, que son subconjuntos de atributos, se realiza llamando al algoritmo inductivo seleccionado, una función de evaluación. Tras evaluar se opera.
 				                        \end{itemize}
-				                  \item \textbf{PCA (No lo usaremos):} Análisis de componentes
-				                        principales. Es una solución algebraica, describe los datos en
-				                        términos de nuevos atributos que no están correlados entre sí.
+				                  \item \textbf{PCA (No lo usaremos):} Análisis de componentes principales. Es una solución algebraica, describe los datos en términos de nuevos atributos que no están correlados entre sí.
 			                  \end{itemize}
-			            \item \textbf{Datos no balanceados:} Crear ejemplos sintéticos de la
-			                  clase desbalanceada.
+			            \item \textbf{Datos no balanceados:} Crear ejemplos sintéticos de la clase desbalanceada.
 		            \end{itemize}
 	      \end{itemize}
 	\item \textbf{Diseño}: Selección de algoritmo y Selección de parámetros.
@@ -732,11 +646,9 @@ Es un proceso iterativo, tras la última etapa se vuelve al principio.
 \subsection{Sobreajuste
 	(overfitting)}
 
-Fenómeno que se produce al hacer aprendizaje, porque \textbf{el modelo
-	se ajusta demasiado a los ejemplos, y eso hace que no generalice bien.}
+Fenómeno que se produce al hacer aprendizaje, porque \textbf{el modelo se ajusta demasiado a los ejemplos, y eso hace que no generalice bien.}
 
-Mejora con los que se entrena, pero con aquellas que no conoce falla
-más.
+Mejora con los que se entrena, pero con aquellas que no conoce falla más.
 
 Para evitar sobreajuste se debe generalizar, hay \textbf{2 métodos}:
 
@@ -744,24 +656,14 @@ Para evitar sobreajuste se debe generalizar, hay \textbf{2 métodos}:
 	\item \textbf{Pre-poda}: Mientras se construye se poda.
 
 	      \begin{itemize}
-		      \item \textbf{Método de \(\chi^2\) (chi-cuadrado)}: Si en un nodo la
-		            diferencia entre clases no es significativa, no se divide, para con
-		            la mayoría. Muy conservador.
-		      \item \textbf{Mediante curvas de error}: Cross-validation. De esta manera
-		            podemos detectar el punto de inflexión, donde se empieza a producir
-		            overfitting (en el punto que se separan las curvas).
+		      \item \textbf{Método de \(\chi^2\) (chi-cuadrado)}: Si en un nodo la diferencia entre clases no es significativa, no se divide, para con la mayoría. Muy conservador.
+		      \item \textbf{Mediante curvas de error}: Cross-validation. De esta manera podemos detectar el punto de inflexión, donde se empieza a producir overfitting (en el punto que se separan las curvas).
 	      \end{itemize}
 	\item \textbf{Post-poda}: Después de generar poda.
 
 	      \begin{itemize}
-		      \item \textbf{Eliminando subárboles}: Eliminando nodos del árbol empezando
-		            por las hojas, se evalúa el error tras eliminarlo, si no mejora
-		            probamos otro.
-		      \item \textbf{Eliminando precondiciones o reglas}: Tras haberlo pasado a
-		            reglas, eliminamos condiciones o reglas completas. Tras la
-		            eliminación se calcula el error, si mejora, el modelo principal pasa
-		            a ser el que lo eliminó y se sigue probado. Si no se prueba otra
-		            condición o regla.
+		      \item \textbf{Eliminando subárboles}: Eliminando nodos del árbol empezando por las hojas, se evalúa el error tras eliminarlo, si no mejora probamos otro.
+		      \item \textbf{Eliminando precondiciones o reglas}: Tras haberlo pasado a reglas, eliminamos condiciones o reglas completas. Tras la eliminación se calcula el error, si mejora, el modelo principal pasa a ser el que lo eliminó y se sigue probado. Si no se prueba otra condición o regla.
 	      \end{itemize}
 \end{itemize}
 
@@ -769,25 +671,18 @@ Para evitar sobreajuste se debe generalizar, hay \textbf{2 métodos}:
 	continuos}
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
-	\item Se \textbf{ordenan los valores del atributo}, y se especifica la clase
-	      a la que pertenecen.
-	\item Se \textbf{observan los puntos en los que pasa de una clase a otra} y
-	      se hace media con los puntos de corte.
+	\item Se \textbf{ordenan los valores del atributo}, y se especifica la clase a la que pertenecen.
+	\item Se \textbf{observan los puntos en los que pasa de una clase a otra} y se hace media con los puntos de corte.
 	\item Los \textbf{nodos de decisión se crean según:}
 
 	      \begin{itemize}
-		      \item Se trata como \textbf{atributo binario}: Se escoge \textbf{una sola
-			            regla de distinción} entre valores, el de mayor ganancia de
-		            información, que se eligen con los valores medios. Las reglas son del
-		            tipo atrib\textless punto1 o atrib\textless punto2.
+		      \item Se trata como \textbf{atributo binario}: Se escoge \textbf{una sola regla de distinción} entre valores, el de mayor ganancia de información, que se eligen con los valores medios. Las reglas son del tipo atrib\textless punto1 o atrib\textless punto2.
 		      \item Se trata como \textbf{atributos multivaluado}: Se crean
-		            \textbf{tanto grupos como queramos}, lo más preciso es uno por cada
-		            intervalo de valores que tengan la misma clase.
+		            \textbf{tanto grupos como queramos}, lo más preciso es uno por cada intervalo de valores que tengan la misma clase.
 	      \end{itemize}
 \end{enumerate}
 
-\subsection{Atributos con muchos
-	valores}
+\subsection{Atributos con muchos valores}
 
 \textbf{ID3 prefiere atributos con mayor número de valores.}
 
@@ -796,10 +691,9 @@ Para evitar sobreajuste se debe generalizar, hay \textbf{2 métodos}:
 \textbf{Alternativas}:
 
 \begin{itemize}
-	\item Por cada valor v del atributo A, se puede \textbf{crear un atributo binario}, de si ese atributo toma ese valor o no.
+	\item Por cada valor v del atributo A, se puede \textbf{crear un atributo binario}, de sí ese atributo toma ese valor o no.
 	      \pagebreak
-	\item \textbf{Razón de ganancia (GainRatio, GR)}: Ganancia calculada como la ganancia partida por una penalización por el número de valores del
-	      atributos.
+	\item \textbf{Razón de ganancia (GainRatio, GR)}: Ganancia calculada como la ganancia partida por una penalización por el número de valores del atributos.
 	      \begin{figure}[H]
 		      $$
 			      GR(S, A)= \frac {G(S, A)=max Entropia(S)-EntropiaAtrib(S, A)}{\textit{Split\_Information}(S, A)=-\sum_{v\in valores(A)} \frac {|S_v|}{|S|} \cdot log_2(\frac {|S_v|}{|S|})}
@@ -812,12 +706,9 @@ Para evitar sobreajuste se debe generalizar, hay \textbf{2 métodos}:
 	      $$
 \end{itemize}
 
-\subsection{Atributos con costes
-	variables}
+\subsection{Atributos con costes variables}
 
-Como podrían ser pruebas médicas caras, obtener los ejemplos es caro.
-\textbf{Consiste en penalizar la entropía de los atributos con coste
-	variable.}
+Como podrían ser pruebas médicas caras, obtener los ejemplos es caro. \textbf{Consiste en penalizar la entropía de los atributos con coste variable.}
 
 \(\frac {G(S, A)}{unidad \space de \space coste(A)} o \frac {G(S, A)}{unidad \space de \space coste(A)^2}\)
 
@@ -826,12 +717,8 @@ Como podrían ser pruebas médicas caras, obtener los ejemplos es caro.
 \textbf{Clasificadores débiles:}
 
 \begin{itemize}
-	\item \textbf{ZeroR}: En clasificación, dará siempre la \textbf{clase más
-		      frecuente}, la moda de la clase. En regresión, devuelve la media.
-	\item \textbf{OneR}: Construye un conjunto de \textbf{reglas de decisión con
-		      un solo atributo}. Se elige aquel atributo con menor error, para cada
-	      valor del atributo se crea una regla, donde el valor que toma es el
-	      más frecuente.
+	\item \textbf{ZeroR}: En clasificación, dará siempre la \textbf{clase más frecuente}, la moda de la clase. En regresión, devuelve la media.
+	\item \textbf{OneR}: Construye un conjunto de \textbf{reglas de decisión con un solo atributo}. Se elige aquel atributo con menor error, para cada valor del atributo se crea una regla, donde el valor que toma es el más frecuente.
 \end{itemize}
 
 \section{Implementaciones}
@@ -859,11 +746,9 @@ Como podrían ser pruebas médicas caras, obtener los ejemplos es caro.
 \end{table}
 La clase en regresión es numérica.
 
-\section{Regresión como
-  clasificación}
+\section{Regresión como clasificación}
 
-Discretizando la clase, pero se pierde información y hay que elegir un
-método de discretización.
+Discretizando la clase, pero se pierde información y hay que elegir un método de discretización.
 
 \textbf{Soluciones}:
 
@@ -876,37 +761,26 @@ método de discretización.
 \section{Función de regresión}
 \subsection{Regresión lineal}
 
-Hallar una \textbf{función que se ajuste lo mejor posible a la nube de
-	puntos}. En el caso de la \textbf{lineal es una recta.}
+Hallar una \textbf{función que se ajuste lo mejor posible a la nube de puntos}. En el caso de la \textbf{lineal es una recta.}
 
-Aproximar una función \(f(x)\) que no tiene por qué ser lineal en
-regresión, con una función
-\textbf{\(\hat{f}(x)= w_0 + w_1a_1(x)+ w_2a_2(x)+ ...+ w_na_n(x)\)}
-donde
+Aproximar una función \(f(x)\) que no tiene por qué ser lineal en regresión, con una función \textbf{\(\hat{f}(x)= w_0 + w_1a_1(x)+ w_2a_2(x)+ ...+ w_na_n(x)\)} donde
 
 \begin{itemize}
 	\item \(a_i\) denota el \textbf{atributo} i-ésimo del ejemplo x.
 	\item \(w_i\) \textbf{peso} del atributo
 \end{itemize}
 
-\textbf{Objetivo}: Encontrar aquellos \(w_i\) que minimicen el error
-entre la función clase y el valor de la aproximación.
+\textbf{Objetivo}: Encontrar aquellos \(w_i\) que minimicen el error entre la función clase y el valor de la aproximación.
 
-Equivalente a \textbf{minimizar el error cuadrático sobre el conjunto de
-	entrenamiento total, } C: \(E= \sum _{c \in C} (f(x)-\hat{f}(x))^2\) Lo
-que queremos es minimizar.
+Equivalente a \textbf{minimizar el error cuadrático sobre el conjunto de entrenamiento total, } C: \(E= \sum _{c \in C} (f(x)-\hat{f}(x))^2\) Lo que queremos es minimizar.
 
 \subsection{Error de Regresión}
 
-La \textbf{suma de todas las diferencias de los valores de la función y
-	su aproximación}. Buscamos aquella aproximación que minimice E.
+La \textbf{suma de todas las diferencias de los valores de la función y su aproximación}. Buscamos aquella aproximación que minimice E.
 
 \subsubsection{Minimizando el error}
 
-\textbf{El problema de definir la función se traslada a un problema de
-	definir el vector de pesos w.} Se debe encontrar el vector \(\vec{w}\)
-que minimice la función de error, problema de búsqueda en el espacio de
-pesos.
+\textbf{El problema de definir la función se traslada a un problema de definir el vector de pesos w.} Se debe encontrar el vector \(\vec{w}\) que minimice la función de error, problema de búsqueda en el espacio de pesos.
 
 \textbf{Aproximación}: Descenso de gradiente.
 
@@ -915,21 +789,15 @@ Sobre la función de errores por variable \textbf{vamos calculando la tangente y
 
 \begin{itemize}
 	\item Consisten en movernos poco a poco en los pesos, para no pasarnos, y se parte de pesos aleatorios.
-	\item Si la \textbf{tangente} tiene pendiente \textbf{positiva}, nos
-	      desplazamos a la \textbf{izquierda}.
-	\item Si la \textbf{tangente} tiene pendiente \textbf{negativa}, vamos a la
-	      \textbf{derecha}.
+	\item Si la \textbf{tangente} tiene pendiente \textbf{positiva}, nos desplazamos a la \textbf{izquierda}.
+	\item Si la \textbf{tangente} tiene pendiente \textbf{negativa}, vamos a la \textbf{derecha}.
 \end{itemize}
 
-\textbf{Gradiente del error respecto a w:} Derivada parcial de la
-función de error de cada uno de los pesos.
-\(\nabla E[\vec{w}] \equiv\left[\frac{\partial E}{\partial w_{0}}, \frac{\partial E}{\partial w_{1}}, \cdots ,\frac{\partial E}{\partial w_{n}}\right]\)
+\textbf{Gradiente del error respecto a w:} Derivada parcial de la función de error de cada uno de los pesos. \(\nabla E[\vec{w}] \equiv\left[\frac{\partial E}{\partial w_{0}}, \frac{\partial E}{\partial w_{1}}, \cdots ,\frac{\partial E}{\partial w_{n}}\right]\)
 
-\textbf{Regla de entrenamiento:}
-\(\Delta \vec{w}=-\eta \nabla E[\vec{w}]\)
+\textbf{Regla de entrenamiento:} \(\Delta \vec{w}=-\eta \nabla E[\vec{w}]\)
 
-\textbf{Derivada del error:}
-\(\frac{\partial E}{\partial w_{i}}=\sum_{e}\left(t_{e}-o_{e}\right)\left(-x_{i, e}\right)\)
+\textbf{Derivada del error:} \(\frac{\partial E}{\partial w_{i}}=\sum_{e}\left(t_{e}-o_{e}\right)\left(-x_{i, e}\right)\)
 
 \begin{itemize}
 	\item \(t_e\): Valor \textbf{verdadero} para la instancia e.
@@ -940,11 +808,10 @@ función de error de cada uno de los pesos.
 \textbf{Procedimiento: Descenso de Gradiente(C, n)}
 
 \begin{itemize}
-	\item C conjunto de ejemplo de entrenamiento. n tasa de aprendizaje cuando
-	      salta.
+	\item C conjunto de ejemplo de entrenamiento. n tasa de aprendizaje cuando salta.
 		  \begin{itemize}
-			  \item Inicializar cada $w_i$ a algun valor aleatorio pequeño
-			  \item Hasta que la condicion de fin sea alcanzada, hacer
+			  \item Inicializar cada $w_i$ a algún valor aleatorio pequeño
+			  \item Hasta que la condición de fin sea alcanzada, hacer
 			  \begin{itemize}
 				  \item Inicializar cada $\Delta w_i$ a cero
 				  \item Para cada $\langle \vec{x}, \vec{t} \rangle \in C $:
@@ -964,10 +831,7 @@ función de error de cada uno de los pesos.
 
 \subsection{Regresión no lineal}
 
-Cuando usamos este tipo de funciones hay que tener \textbf{cuidado}, la
-evaluación se debe realizar con ejemplos de un conjunto distinto al de
-entrenamiento, porque la función no lineal se puede ajustar muy bien a
-esos, pero no al resto.
+Cuando usamos este tipo de funciones hay que tener \textbf{cuidado}, la evaluación se debe realizar con ejemplos de un conjunto distinto al de entrenamiento, porque la función no lineal se puede ajustar muy bien a esos, pero no al resto.
 
 Esta función es más difícil de generar.
 
@@ -977,8 +841,7 @@ Elegir una función lineal, logística o cualquier tipo, para que se ajuste.
 
 El modelo o predictor adopta una forma predeterminada.
 
-Regresión lineal es regresión paramétrica. También se puede hacer
-regresión no lineal paramétrica, función logística, polinómica, etc.
+Regresión lineal es regresión paramétrica. También se puede hacer regresión no lineal paramétrica, función logística, polinómica, etc.
 
 \section{Árboles de regresión}
 
@@ -986,20 +849,14 @@ Regresión no lineal y no paramétrica.
 
 \section{M5}
 
-\textbf{M5 es una variación de CART}, donde las hojas son valores numéricos y
-elige aquel atributo que maximice la reducción esperada en varianza.
+\textbf{M5 es una variación de CART}, donde las hojas son valores numéricos y elige aquel atributo que maximice la reducción esperada en varianza.
 
-\textbf{Estrategia}: Se divide el espacio en partes y hace regresión
-lineal por partes, no global.
+\textbf{Estrategia}: Se divide el espacio en partes y hace regresión lineal por partes, no global.
 
-\textbf{Algoritmo}: Parecido a ID3, pero en este caso se trata de
-reducir la variación interna de los valores de la clase de cada
-subconjunto.
+\textbf{Algoritmo}: Parecido a ID3, pero en este caso se trata de reducir la variación interna de los valores de la clase de cada subconjunto.
 
 \begin{itemize}
-	\item Elige aquel atributo que maximice la reducción del error (en vez de
-	      entropía o desviación típica). Nos quedamos con la menor media de
-	      desviaciones.
+	\item Elige aquel atributo que maximice la reducción del error (en vez de entropía o desviación típica). Nos quedamos con la menor media de desviaciones.
 	      \begin{figure}[H]
 		      \(\Delta \operatorname{error}(S, A)=\operatorname{sd}(S)-\sum_{v \in \text { valoresTestNodo }(A)} \frac{\left|S_{A=v}\right|}{|S|} \times \operatorname{sd}\left(S_{A=v}\right)\)
 		      \captionsetup{justification=centering}
@@ -1009,89 +866,56 @@ subconjunto.
 	      \begin{itemize}
 		      \item \textbf{S} conjunto de ejemplos en el nodo a dividir.
 		      \item \textbf{\(S_{A=v}\)} Ejemplos con valor v en el atributo A.
-		      \item \textbf{sd(S)} Desviación típica de los valores de la clase para los
-		            ejemplos en S.
+		      \item \textbf{sd(S)} Desviación típica de los valores de la clase para los ejemplos en S.
 	      \end{itemize}
 \end{itemize}
 
-\textbf{Criterio de parada}: Pocos ejemplos o poca variación de los
-valores (desviación típica pequeña)
+\textbf{Criterio de parada}: Pocos ejemplos o poca variación de los valores (desviación típica pequeña)
 
-\textbf{Hojas}: Se calcula un modelo lineal y se utiliza regresión
-estándar.
+\textbf{Hojas}: Se calcula un modelo lineal y se utiliza regresión estándar.
 
-\textbf{Salida}: En las hojas tiene funciones de regresión, en los nodos
-no hoja se tienen atributos acotados \textless. Cada nodo tiene un
-conjunto de entrenamiento y se hace su regresión lineal.
+\textbf{Salida}: En las hojas tiene funciones de regresión, en los nodos no hoja se tienen atributos acotados \textless. Cada nodo tiene un conjunto de entrenamiento y se hace su regresión lineal.
 
-En los árboles de regresión, los nodos hoja tienen modelos lineales y
-para llegar a esos nodos se usa como heurística la Desviación típica
-(cuanto menor mejor), que se calcula haciendo una media ponderada
-(\(S_{S=si}\cdot\frac {|S_{S=si}|}{|S|}\)) de las desviaciones típicas
-de cada uno de los conjuntos resultantes.
+En los árboles de regresión, los nodos hoja tienen modelos lineales y para llegar a esos nodos se usa como heurística la Desviación típica (cuanto menor mejor), que se calcula haciendo una media ponderada (\(S_{S=si}\cdot\frac {|S_{S=si}|}{|S|}\)) de las desviaciones típicas de cada uno de los conjuntos resultantes.
 
-Tras la construcción del árbol hay un proceso de poda, que consiste en
-Simplificar los modelos lineales de las hojas, Simplificar el árbol para
-que sea más pequeño y por último el Suavizado.
+Tras la construcción del árbol hay un proceso de poda, que consiste en Simplificar los modelos lineales de las hojas, Simplificar el árbol para que sea más pequeño y por último el Suavizado.
 
 \section{Poda}
 
-\textbf{Paso 0}: Antes de realizar la poda se crean modelos lineales de los nodos
-intermedios, que se utilizaran para ver si se pueden simplificar los subárboles por ese modelo del nodo intermedio. Para estos modelos se usan solo los atributos que aparecen en el subárbol.
+\textbf{Paso 0}: Antes de realizar la poda se crean modelos lineales de los nodos intermedios, que se utilizaran para ver si se pueden simplificar los subárboles por ese modelo del nodo intermedio. Para estos modelos se usan solo los atributos que aparecen en el subárbol.
 
-Para decidir si simplificamos por un modelo lineal necesitamos una
-medida del error. Si el modelo lineal proporciona menor error con
-respecto al subárbol podemos simplificarlo utilizando el modelo.
+Para decidir si simplificamos por un modelo lineal necesitamos una medida del error. Si el modelo lineal proporciona menor error con respecto al subárbol podemos simplificarlo utilizando el modelo.
 
-La medida de error que empleamos es el \textbf{Error absoluto medio},
-que es la media del error al clasificar las instancias el subconjunto de
-instancias de entrenamiento del subárbol. Se calcula como $residuo(T) = \frac 1 n \sum _{i \in T} ||f(i)- \hat{f}(i)||$, dado un
-subárbol con un subconjunto de n instancias de entrenamiento T.
+La medida de error que empleamos es el \textbf{Error absoluto medio}, que es la media del error al clasificar las instancias el subconjunto de instancias de entrenamiento del subárbol. Se calcula como $residuo(T) = \frac 1 n \sum _{i \in T} ||f(i)- \hat{f}(i)||$, dado un subárbol con un subconjunto de n instancias de entrenamiento T.
 
-El residuo subestima el error en instancias nuevas (que no ha visto
-nunca), para solucionar esto se multiplica por
-\(\alpha = \frac {n+v}{n-v}\). Tal que n es el número de ejemplos del
-subárbol y v el número de atributos del modelo.
+El residuo subestima el error en instancias nuevas (que no ha visto nunca), para solucionar esto se multiplica por \(\alpha = \frac {n+v}{n-v}\). Tal que n es el número de ejemplos del subárbol y v el número de atributos del modelo.
 
-Por lo que el error aumenta cuando hay muchos parámetros o hay pocas
-instancias.
+Por lo que el error aumenta cuando hay muchos parámetros o hay pocas instancias.
 
-\textbf{Fórmula del error:}
-\(error\_estimado(T) = \alpha \times residuo(T)\) Es una proporción del
-residuo.
+\textbf{Fórmula del error:} \(error\_estimado(T) = \alpha \times residuo(T)\) Es una proporción del residuo.
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
-	\item \textbf{Simplificación de los modelos lineales} (Busca eliminar
-	      atributos)
+	\item \textbf{Simplificación de los modelos lineales} (Busca eliminar atributos)
 
 	      Se realiza en cada modelo lineal. Se eliminan atributos, que se seleccionan utilizando escalada para reducir el error estimado. En el extremo, deja solo una constante, como termino independiente.
 
 	      \(M= 0.25a_1+0.12a_2+300a_5-40 \Rightarrow M=0.12a_2+300a_5-40\)
-	\item \textbf{Simplificación del subárbol} (Busca eliminar subárboles por modelos
-	      lineales)
+	\item \textbf{Simplificación del subárbol} (Busca eliminar subárboles por modelos lineales)
 
-	      Cada nodo interno del árbol tiene un modelo lineal simplificado y un
-	      modelo subárbol, y se elige aquel que minimice el error estimado. Si
-	      el modelo da mejor resultado, se sustituye el subárbol por el nodo del
-	      modelo.
+	      Cada nodo interno del árbol tiene un modelo lineal simplificado y un modelo subárbol, y se elige aquel que minimice el error estimado. Si el modelo da mejor resultado, se sustituye el subárbol por el nodo del modelo.
 	\item \textbf{Suavizar el árbol}
 
-	      Algunos trabajos han comprobado que realizar un suavizado mejora la predicción final, dado que la predicción en cada nodo puede variar
-	      mucho. Lo que hace es en lugar de devolver la predicción del modelo en
-	      el nodo hoja, se consideran también los modelos en los nodos
-	      intermedios entre el nodo hoja y el nodo raíz.
+	      Algunos trabajos han comprobado que realizar un suavizado mejora la predicción final, dado que la predicción en cada nodo puede variar mucho. Lo que hace es en lugar de devolver la predicción del modelo en el nodo hoja, se consideran también los modelos en los nodos intermedios entre el nodo hoja y el nodo raíz.
 \end{enumerate}
 
 \chapter{Tema 4: Otras técnicas}
 
 \section{Aprendizaje Bayesiano}
 
-Funcionan bien en la clasificación de textos, text mining. Permite
-recibir los datos de manera incremental y va creciendo el modelo.
+Funcionan bien en la clasificación de textos, text mining. Permite recibir los datos de manera incremental y va creciendo el modelo.
 
-\subsection{Hipótesis más probable
-	(MAP)}
+\subsection{Hipótesis más probable (MAP)}
 
 Se busca la hipótesis que explique mejor los datos.
 \begin{figure}[H]
@@ -1100,10 +924,7 @@ Se busca la hipótesis que explique mejor los datos.
 	\caption{Formula Hipótesis más probable}
 \end{figure}
 
-Es aquella que \(\arg \max P(h_i/E)\) o $\arg \max P(E/h_i) $.
-Cogemos el \(h_i\) más probable, pero puede haber otros muchos modelos
-que dicen que no y que habría que considerar, entonces lo que queremos
-es la clase más probable para esos datos.
+Es aquella que \(\arg \max P(h_i/E)\) o $\arg \max P(E/h_i) $. Cogemos el \(h_i\) más probable, pero puede haber otros muchos modelos que dicen que no y que habría que considerar, entonces lo que queremos es la clase más probable para esos datos.
 
 \subsection{Clasificación más
 	probable}
@@ -1125,20 +946,11 @@ A esto se le llama \textbf{Clasificador Bayesiano Óptimo}, en la práctica el t
 	\caption{Fórmula Naïve Bayes}
 \end{figure}
 
-Podemos quitar el denominador porque todas las clases se evalúan con los
-mismos atributos. Y \(P(a_1, ...,a_n/C)\) es muy complejo de calcular,
-exponencial, se necesitaría una tabla de todas las combinaciones.
+Podemos quitar el denominador porque todas las clases se evalúan con los mismos atributos. Y \(P(a_1, ...,a_n/C)\) es muy complejo de calcular, exponencial, se necesitaría una tabla de todas las combinaciones.
 
-Para evitar esta complejidad se hace una simplificación, \textbf{se asume que los valores de los atributos una vez se conoce la clase son
-	condicionalmente independientes}, lo que quiere decir que se puede
-calcular como un producto.
-\(P(a_1, ...,a_n/C) = P(a_1/C) \cdot P(a_2/C) \cdot ... \cdot P(a_n/C) \cdot P(C)\).
-El problema es que ahora es una aproximación y no un clasificador
-bayesiano óptimo. \textbf{Suele funcionar bastante bien} esta
-aproximación.
+Para evitar esta complejidad se hace una simplificación, \textbf{se asume que los valores de los atributos una vez se conoce la clase son condicionalmente independientes}, lo que quiere decir que se puede calcular como un producto. \(P(a_1, ...,a_n/C) = P(a_1/C) \cdot P(a_2/C) \cdot ... \cdot P(a_n/C) \cdot P(C)\). El problema es que ahora es una aproximación y no un clasificador bayesiano óptimo. \textbf{Suele funcionar bastante bien} esta aproximación.
 
-\(P(c=c_1)= \frac {n\_casos\_c=1}{n\_casosTotales}\)
-\(P(a=v_1/c=c_1)= \frac {n\_casos\_c=1\_y\_v=v_1}{n\_casos\_c=1}\)
+\(P(c=c_1)= \frac {n\_casos\_c=1}{n\_casosTotales}\) \(P(a=v_1/c=c_1)= \frac {n\_casos\_c=1\_y\_v=v_1}{n\_casos\_c=1}\)
 
 \section{Redes de neuronas}
 
@@ -1219,10 +1031,7 @@ Función de\\activación
 
 \end{tikzpicture}}
 \end{figure}
-Las \textbf{entradas son los valores de los atributos}
-(\(x_1,x_2,..,x_n\)) y un umbral, se hace \textbf{combinación lineal de
-	las entradas con unos pesos} (\(w_0+w_1x_1+...+w_nx_n\)) y se pasa el
-\textbf{resultado por una función de activación} que nos da la salida.
+Las \textbf{entradas son los valores de los atributos} (\(x_1,x_2,..,x_n\)) y un umbral, se hace \textbf{combinación lineal de las entradas con unos pesos} (\(w_0+w_1x_1+...+w_nx_n\)) y se pasa el \textbf{resultado por una función de activación} que nos da la salida.
 
 \textbf{Tipos de función de activación:}
 \begin{figure}[H]
@@ -1314,25 +1123,17 @@ Las \textbf{entradas son los valores de los atributos}
 		\end{tikzpicture}}
 \end{figure}
 \pagebreak
-El aprendizaje consiste en determinar los pesos que se aplican a las
-entradas.
+El aprendizaje consiste en determinar los pesos que se aplican a las entradas.
 
-La regla que se aplica de forma habitual es la \textbf{Regla delta}, que
-es parecido al descenso del gradiente. Se empieza con peso aleatorio y
-con las iteraciones del entrenamiento se van actualizando los pesos.
-\(w_i \leftarrow w_i+\Delta w_i\) El delta es una pequeña variación es
-ŋ\((t-o)x_1\) donde ŋ es una tasa de aprendizaje, \(t\) la salida real y
-\(o\) el valor que damos.
+La regla que se aplica de forma habitual es la \textbf{Regla delta}, que es parecido al descenso del gradiente. Se empieza con peso aleatorio y con las iteraciones del entrenamiento se van actualizando los pesos. \(w_i \leftarrow w_i+\Delta w_i\) El delta es una pequeña variación es ŋ\((t-o)x_1\) donde ŋ es una tasa de aprendizaje, \(t\) la salida real y \(o\) el valor que damos.
 
-En general para hacer descenso del gradiente necesitamos que la función
-sea derivable y con un único mínimo.
+En general para hacer descenso del gradiente necesitamos que la función sea derivable y con un único mínimo.
 
 Se van metiendo los datos de entrada, se recibe la salida y según el error se van actualizando los pesos, para cuando los pesos se estabilizan.
 
 \subsection{Perceptrón}
 
-Es una forma más simple de red de neuronas, formada por una sola
-neurona. Usa la función escalón como función de activación.
+Es una forma más simple de red de neuronas, formada por una sola neurona. Usa la función escalón como función de activación.
 
 Se usa en tareas de clasificación lineal, es capaz de determinar el hiperplano capaz de discriminar los ejemplos en dos clases.
 
@@ -1353,32 +1154,22 @@ Es un \textbf{conjunto de neuronas conectadas entre sí} que se distribuyen en c
 
 \textbf{Desventaja}: El aprendizaje es lento.
 
-En las redes multicapa el cálculo del error se complica, hay varias
-salidas y capas ocultas.
+En las redes multicapa el cálculo del error se complica, hay varias salidas y capas ocultas.
 
 \subsection{Backpropagation o Retropropagación}
 
-Se basa en:
-$Error \sim \sum _{d \in D} \sum_{k \in outputs} (t_{kd}-o_{kd})^2$.
-Para cada ejemplo:
+Se basa en: $Error \sim \sum _{d \in D} \sum_{k \in outputs} (t_{kd}-o_{kd})^2$. Para cada ejemplo:
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item Se propaga desde la \textbf{entrada hasta la salida} (calcular la salida de la red)
 	\pagebreak
-	\item \textbf{Propagación del error hacia atrás}: En las que están en la
-	      última capa es fácil, pero para las que están en las capas intermedias
-	      no tanto.
+	\item \textbf{Propagación del error hacia atrás}: En las que están en la última capa es fácil, pero para las que están en las capas intermedias no tanto.
 
 	      \begin{enumerate}
 		      \def\labelenumii{\arabic{enumii}.}
-		      \item Se calcula el \textbf{error en la unidad de salida}:
-		            \(\delta_k \leftarrow\) \(o_k(1-o_k)(t_k-o_k)\) Este valor es el
-		            (t-o) de la variación delta, en este caso para una función sigmoide
-		            en vez de lineal
-		      \item \textbf{En las capas ocultas}: Se calcula con las unidades que están
-		            conectadas posteriormente,
-		            \(\delta_n \leftarrow o_n(1-o_n)\sum_{k \in output} w_{kn}\delta_k\)
+		      \item Se calcula el \textbf{error en la unidad de salida}: \(\delta_k \leftarrow\) \(o_k(1-o_k)(t_k-o_k)\) Este valor es el (t-o) de la variación delta, en este caso para una función sigmoide en vez de lineal
+		      \item \textbf{En las capas ocultas}: Se calcula con las unidades que están conectadas posteriormente, \(\delta_n \leftarrow o_n(1-o_n)\sum_{k \in output} w_{kn}\delta_k\)
 	      \end{enumerate}
 \end{enumerate}
 
@@ -1386,13 +1177,7 @@ Para cada ejemplo:
 
 Redes neuronales convolucionales. Se usan para procesado de imágenes.
 
-\textbf{Puede recibir datos en crudo, no necesita que se los pasemos
-	como atributo valor}, lo que es una ventaja no hay que elegir los atributos
-relevantes y organizar los datos. Recibe el grueso de los datos y los
-va cogiendo por partes y agrupando, Convolution. Después se reduce la
-resolución de la imagen, Pooling. Se repite el proceso hasta que tenemos
-los datos para clasificar, extracción de características, y podemos
-generar una red neuronal totalmente conectada, classification.
+\textbf{Puede recibir datos en crudo, no necesita que se los pasemos como atributo valor}, lo que es una ventaja no hay que elegir los atributos relevantes y organizar los datos. Recibe el grueso de los datos y los va cogiendo por partes y agrupando, Convolution. Después se reduce la resolución de la imagen, Pooling. Se repite el proceso hasta que tenemos los datos para clasificar, extracción de características, y podemos generar una red neuronal totalmente conectada, classification.
 
 \section{Algoritmos genéticos}
 \begin{figure}[H]
@@ -1424,7 +1209,7 @@ Hacen \textbf{búsqueda en el espacio de soluciones}, se usan cuando es fácil e
 		      \item[Reproducción] Pasa a la nueva generación/población igual.
 		      \item[Mutación] Cambios muy pequeños, un solo bit.
 	      \end{description}
-	\item Se evalúa la nueva población. Si es mejor pasa a ser la población base (generación), Si no se descarta y se intentan otras alternativas.
+	\item Se evalúa la nueva población. Si es mejor pasa a ser la población base (generación), si no se descarta y se intentan otras alternativas.
 \end{enumerate}
 
 \chapter{Tema 5: Técnicas Vagas y No Supervisadas}
@@ -1738,7 +1523,7 @@ El algoritmo de boosting más utilizado es AdaBoost - Adaptative Boosting.
 Los clasificadores se generan de manera secuencial y se combina la decisión de los clasificadores por voto ponderado.
 \subsubsection{Algoritmo de Boosting}
 
-Se tienen unas instancias con unos pesos, se utiliza un algoritmo de aprendizaje que genera un modelo, se evalúan las instancias y según las mal clasificadas se recalculan los pesos de las instancias (que lo solucionaran los futuros clasificadores)
+Se tienen unas instancias con unos pesos, se utiliza un algoritmo de aprendizaje que genera un modelo, se evalúan las instancias y según las mal clasificadas se recalculan los pesos de las instancias (que lo solucionaran los futuros clasificadores).
 
 \textbf{Procedimiento AdaBoostM1(E, B, T)}, donde E es el conjunto de entrenamiento E, B el algoritmo de aprendizaje base y T el número de iteraciones.
 
@@ -1867,7 +1652,7 @@ La idea es elegir las reglas cuya cobertura es mayor que un umbral de cobertura 
 
 \textbf{Ejemplo:}
 
-\textbf{Si} numero-habitacionesAlto Y salarioMedio \textbf{Entonces} numero-hijosAlto
+\textbf{Si} número-habitacionesAlto Y salarioMedio \textbf{Entonces} número-hijosAlto
 
 \textbf{Si} salarioAlto \textbf{Entonces} precio-viviendaAlto
 
@@ -1875,65 +1660,65 @@ La idea es elegir las reglas cuya cobertura es mayor que un umbral de cobertura 
 \begin{itemize}
 	\item Entrada
 
-	carro1: leche, cereales, jamon, queso, pan-de-molde
+	carro1: leche, cereales, jamón, queso, pan-de-molde
 
-	carro2: cerveza, leche, jamon, queso, pan-de-molde
+	carro2: cerveza, leche, jamón, queso, pan-de-molde
 
 	carro3: panales, leche, cereales, potitos
 
 	carro4: leche, queso, pasta-dientes, peine
-	\item Conjuntos mas frecuentes, C = 0,5
+	\item Conjuntos más frecuentes, C = 0,5
 
-	L1 = {leche, queso, jamon, cereales, pan-de-molde }
+	L1 = {leche, queso, jamón, cereales, pan-de-molde}
 
-	L2 = {(leche, queso), (leche, jamon), (leche, cereales), (leche, pan-de-molde), 
-	(queso, jamon), (queso, pan-de-molde), (jamon, pan-de-molde)  }
+	L2 = {(leche, queso), (leche, jamón), (leche, cereales), (leche, pan-de-molde), 
+	(queso, jamón), (queso, pan-de-molde), (jamón, pan-de-molde)  }
 
-	L3 = {(leche, queso, jamon), (leche, queso, pan-de-molde),
-	(leche, jamon, pan-de-molde), (queso, jamon, pan-de-molde)}
+	L3 = {(leche, queso, jamón), (leche, queso, pan-de-molde),
+	(leche, jamón, pan-de-molde), (queso, jamón, pan-de-molde)}
 
-	L4 = {(leche, queso, jamon, pan-de-molde) }
+	L4 = {(leche, queso, jamón, pan-de-molde)}
 
 	L5 = $\emptyset$;
 	\item Salida (los que no son subconjuntos de otros):
 
 	leche, cereales
 
-	leche, queso, jamon, pan-de-molde
-	\item Reglas de asociacion
+	leche, queso, jamón, pan-de-molde
+	\item Reglas de asociación
 
 
 	R1: leche $\rightarrow$ cereales (C=2/4, P=2/4)
 
 	R2: cereales $\rightarrow$ leche (C=2/4, P=2/2)
 
-	R3: leche, queso, jamon  $\rightarrow$ pan-de-molde (C=2/4, P=2/4)
+	R3: leche, queso, jamón  $\rightarrow$ pan-de-molde (C=2/4, P=2/4)
 
-	R4: leche, queso, pan-de-molde $\rightarrow$ jamon (C=2/4, P=2/4) 
+	R4: leche, queso, pan-de-molde $\rightarrow$ jamón (C=2/4, P=2/4) 
 
-	R5: leche, jamon, pan-de-molde  $\rightarrow$ queso (C=2/4, P=2/4)
+	R5: leche, jamón, pan-de-molde  $\rightarrow$ queso (C=2/4, P=2/4)
 
-	R6: queso, jamon, pan-de-molde  $\rightarrow$ leche (C=2/4, P=2/4)
+	R6: queso, jamón, pan-de-molde  $\rightarrow$ leche (C=2/4, P=2/4)
 
-	R7: leche, queso $\rightarrow$ jamon, pan-de-molde (C=2/4, P=2/3) 
+	R7: leche, queso $\rightarrow$ jamón, pan-de-molde (C=2/4, P=2/3) 
 
-	R8: leche, jamon  $\rightarrow$ queso, pan-de-molde (C=2/4, P=2/2)
+	R8: leche, jamón  $\rightarrow$ queso, pan-de-molde (C=2/4, P=2/2)
 
-	R9: leche, pan-de-molde $\rightarrow$ queso, jamon (C=2/4, P=2/2) 
+	R9: leche, pan-de-molde $\rightarrow$ queso, jamón (C=2/4, P=2/2) 
 
-	R10: queso, jamon  $\rightarrow$ leche, pan-de-molde (C=2/4, P=2/2)
+	R10: queso, jamón  $\rightarrow$ leche, pan-de-molde (C=2/4, P=2/2)
 
-	R11: queso, pan-de-molde $\rightarrow$ leche, jamon (C=2/4, P=2/2) 
+	R11: queso, pan-de-molde $\rightarrow$ leche, jamón (C=2/4, P=2/2) 
 
-	R12: jamon, pan-de-molde  $\rightarrow$ leche, queso (C=2/4, P=2/2)
+	R12: jamón, pan-de-molde  $\rightarrow$ leche, queso (C=2/4, P=2/2)
 
-	R13: leche $\rightarrow$ queso, jamon, pan-de-molde (C=2/4, P=2/4) 
+	R13: leche $\rightarrow$ queso, jamón, pan-de-molde (C=2/4, P=2/4) 
 
-	R14: queso $\rightarrow$ leche, jamon, pan-de-molde (C=2/4, P=2/3) 
+	R14: queso $\rightarrow$ leche, jamón, pan-de-molde (C=2/4, P=2/3) 
 
-	R15: jamon  $\rightarrow$ leche, queso, pan-de-molde (C=2/4, P=2/2)
+	R15: jamón  $\rightarrow$ leche, queso, pan-de-molde (C=2/4, P=2/2)
 
-	R16: pan-de-molde $\rightarrow$ leche, queso, jamon (C=2/4, P=2/2)
+	R16: pan-de-molde $\rightarrow$ leche, queso, jamón (C=2/4, P=2/2)
 \end{itemize}
 
 
@@ -2088,14 +1873,14 @@ Problema de Aprendizaje por Refuerzo (definido como un MDP):
 
 \subsection{Aproximaciones Basadas en el Modelo}
 \begin{enumerate}
-	\item Se aprende el modelo (T y R) y se resuelven las ecuaciones por Programación Dinámica (Iteración de valor o Política)
+	\item Se aprende el modelo (T y R) y se resuelven las ecuaciones por Programación Dinámica (Iteración de valor o Política).
 	      \begin{itemize}
 		      \item Técnicas costosas computacionalmente.
 		      \item No útil para respuestas en tiempo real
 		      \item Se debe asegurar que se aprende el entorno completamente.
 		      \item No es sensible a cambios en el entorno
 	      \end{itemize}
-	\item Se aprende el modelo a la vez que la función Q (algoritmo Dyna-Q)
+	\item Se aprende el modelo a la vez que la función Q (algoritmo Dyna-Q).
 \end{enumerate}
 
 \subsection{Aproximaciones libres de Modelo}
@@ -2197,7 +1982,7 @@ En el que se realizan varios escenarios para ir mejorando la tabla Q, en cada un
 		      \item Repetir (para cada paso del episodio)
 		            \begin{itemize}
 			            \item Selecciona una acción a y la ejecuta.
-			            \item Recibe el estado actual s', y el refuerzo, r.
+			            \item Recibe el estado actual s’, y el refuerzo, r.
 			            \item $Q(s, a) \leftarrow (1-\alpha) Q(s, a) + \alpha[r + \gamma \max_{a'} Q(s’, a')]$
 			            \item Asigna $s \leftarrow s'$
 		            \end{itemize}
@@ -2284,7 +2069,7 @@ Los nodos y hojas del árbol representan regiones del espacio de estados.
 
 En cada nodo del árbol, una región se divide en otras dos, esta división se realizará según un criterio.
 
-Con esta técnica una región se irá partiendo en dos hasta que cumpla las condiciones establecidas, y se crearan regiones más grandes para las menos pobladas y más pequeñas para las superpobladas
+Con esta técnica una región se irá partiendo en dos hasta que cumpla las condiciones establecidas, y se crearan regiones más grandes para las menos pobladas y más pequeñas para las superpobladas.
 
 \subsection{Clustering (Agrupamiento) para Q-Learning}
 \begin{enumerate}
@@ -2498,7 +2283,7 @@ Si va a haber atributos con valores vacíos usar representación relacional.
 		      \item Conjuntos de clasificadores
 		      \item Naïve Bayes, Redes neuronales, Deep Learning
 	      \end{itemize}
-	\item \textbf{En relacional mirar la lista}, tiene posibles para todos
+	\item \textbf{En relacional mirar la lista}, tiene posibles para todos.
 \end{itemize}
 
 \section{Aprendizaje no supervisado}
@@ -2522,7 +2307,7 @@ Si va a haber atributos con valores vacíos usar representación relacional.
 \end{itemize}
 
 \section{Aprendizaje por refuerzo}
-Definir Estados, Acciones, función de Transición (si es conocida) y función de Refuerzo (retardada casi siempre, los inmediatos llevan a comportamientos cortoplacistas)
+Definir Estados, Acciones, función de Transición (si es conocida) y función de Refuerzo (retardada casi siempre, los inmediatos llevan a comportamientos cortoplacistas).
 
 \begin{itemize}
 	\item \textbf{Q-learning}
@@ -2543,7 +2328,7 @@ Definir Estados, Acciones, función de Transición (si es conocida) y función d
 	\item El beneficio/impacto solo se conoce al final del episodio.
 \end{itemize}
 
-\section{Normalizar valores numericos}
+\section{Normalizar valores numéricos}
 $$z_i = \frac{x_i - \min x}{\max x - \min x}$$
 
 \section{Tratamiento de valores nominales en distancias}
