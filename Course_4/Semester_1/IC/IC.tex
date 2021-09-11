@@ -1,5 +1,5 @@
-\documentclass[12pt, twoside, openright]{report} %fuente a 12pt, formato doble página y chapter a la derecha
-\raggedbottom % No ajustar el contenido con un salto de pagina
+\documentclass[12pt, twoside, openright]{report} % Fuente a 12pt, formato doble página y chapter a la derecha
+\raggedbottom % No ajustar el contenido con un salto de página
 
 % MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
 \usepackage[
@@ -37,10 +37,10 @@ hmargin=3cm
 % Añadir pdfs como partes del documento
 \usepackage{pdfpages}
 
-% Quitar la indentación de principio de los parrafos
+% Quitar la indentación de principio de los párrafos
 \setlength{\parindent}{0em}
 
-% EXPRESIONES MATEMATICAS
+% EXPRESIONES MATEMÁTICAS
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 
 \usepackage{txfonts} 
@@ -105,7 +105,6 @@ hmargin=3cm
 {\contentsmargin{0pt}}                        
 {\titlerule*[.7pc]{.}\contentspage}  
 
-
 % DISEÑO DE TABLAS.
 \usepackage{multirow} % permite combinar celdas 
 \usepackage{caption} % para personalizar el título de tablas y figuras
@@ -140,7 +139,7 @@ hmargin=3cm
 }
 
 % NOTAS A PIE DE PÁGINA
-\usepackage{chngcntr} %para numeración continua de las notas al pie
+\usepackage{chngcntr} % Para numeración continua de las notas al pie
 \counterwithout{footnote}{chapter}
 
 % LISTADOS DE CÓDIGO
@@ -283,27 +282,27 @@ También obtendremos soft-skill que nos permitirán destacar entre el resto de l
 \subsection{Evaluación}
 \begin{itemize}
 	\item Habrá un examen de CLIP, día de asistencia obligatoria, un martes.
-	\item 30\% Examen final.
+	\item 30 \% Examen final.
 	      \begin{itemize}
 		      \item Consistirán en formalizar y resolver un problema dado. También habrá preguntas relacionadas con las prácticas obligatorias.
 		      \item Nota mínima de 4.
 	      \end{itemize}
-	\item 70\% Teoría.
+	\item 70 \% Teoría.
 	      \begin{itemize}
-		      \item Actividad individual relacionada con magistrales 15\%, son la que se realizan peer-to-peer.
+		      \item Actividad individual relacionada con magistrales 15 \%, son la que se realizan peer-to-peer.
 		            \begin{itemize}
 			            \item Preguntas cortas de manera semanal.
-			            \item Se reciben puntos por realizarlo 70\% y un 30\% por evaluar a un compañero (anónimamente).
+			            \item Se reciben puntos por realizarlo 70 \% y un 30 \% por evaluar a un compañero (anónimamente).
 			            \item Las notas se medirán en estrellas: 0, 2´5, 5, 7´5 o 10.
 		            \end{itemize}
-		      \item Practica obligatoria en parejas 30\%, en las clases prácticas.
-		      \item Actividad parcial 25\%.
+		      \item Practica obligatoria en parejas 30 \%, en las clases prácticas.
+		      \item Actividad parcial 25 \%.
 		            \begin{itemize}
 			            \item Examen CLIPS y antologías 1 punto.
 			            \item Actividades foro 1 punto, 0.25 entregas  y 0.25 por cada foro.
-			            \item Entregas dominios de planificación 0.5 puntos
-			            \item Practica 1: Implementación en CLIPS 1.5 puntos
-			            \item Practica 2: Implementación en PDDL 1.5 puntos
+			            \item Entregas dominios de planificación 0.5 puntos.
+			            \item Practica 1: Implementación en CLIPS 1.5 puntos.
+			            \item Practica 2: Implementación en PDDL 1.5 puntos.
 		            \end{itemize}
 	      \end{itemize}
 \end{itemize}
@@ -379,7 +378,7 @@ Distingue entre mayúsculas y minúsculas, todos los comandos se presentan entre
 		            \end{itemize}
 
 		            \pagebreak
-		      \item \textbf{Fase de acción o ejecución}: La ejecución de una instancia de una regla modifica la Base de Hechos actual dando lugar a una Base de Hechos nueva al añadir, borrar y/o modificar. La nueva BH es el punto de partida para el siguiente ciclo.
+		      \item \textbf{Fase de acción o ejecución}: La ejecución de una instancia de una regla modifica la Base de Hechos actual dando lugar a una Base de Hechos nueva al añadir, borrar o modificar. La nueva BH es el punto de partida para el siguiente ciclo.
 
 		            Por el principio de refracción nunca se ejecuta 2 veces la misma regla con los mismos hechos, entraría en bucle.
 	      \end{itemize}
@@ -411,7 +410,7 @@ Los campos sin valor se indican con \textit{nil}.
 \begin{description}
 	\item[(facts)] Base de hechos.
 	\item[(assert hecho)] Añadir hechos a la base de hechos. Si se trata de introducir dos hechos iguales solo deja el último.
-	\item[(retract indice-hecho)] Eliminar hechos de la base de hechos.
+	\item[(retract índice-hecho)] Eliminar hechos de la base de hechos.
 	\item[(modify dirección-hecho (nombre-atributo nuevo-valor))] Modifica el valor de un atributo. La dirección la podemos obtener buscando el hecho por algún atributo ?f <- (car (doors 2)).
 	\item[(reset)] Eliminar todos los hechos de la memoria de trabajo, añade initial-fact e initial-object. Cuando comenzamos lo utilizamos para añadir los hechos y que se tengan en cuenta.
 	\item[(clear)] Elimina todos los hechos y constructores.
@@ -435,7 +434,7 @@ Para obligar al usuario a que de valor a un slot al crear un hecho en default se
 
 La premisa puede ser:
 \begin{itemize}
-	\item Un patrón que se encarga de consultar la existencia de un hecho en la Memoria de e trabajo.
+	\item Un patrón que se encarga de consultar la existencia de un hecho en la Memoria de trabajo.
 	\item Un test para comprobar el cumplimiento de una condición.
 	\item Una negación para negar un patrón o test.
 \end{itemize}
@@ -540,11 +539,11 @@ Desde una regla no se puede lanzar otra.
 	      (read <nombre-canal>)
 	\item \textbf{printout}
 
-	      Por pantalla: (printout t ''Hello there!'' crlf)
+	      Por pantalla: (printout t “Hello there!” crlf)
 
-	      En fichero: (printout file-name ''red green'')
-	\item \textbf{eq:} TRUE si los argumentos son iguales en valor y tipo, sino FALSE.
-	\item \textbf{neq:} TRUE si alguno de los valores de las expresiones argumento es distinto, sino FALSE.
+	      En fichero: (printout file-name “red green”)
+	\item \textbf{eq:} TRUE si los argumentos son iguales en valor y tipo, si no FALSE.
+	\item \textbf{neq:} TRUE si alguno de los valores de las expresiones argumento es distinto, si no FALSE.
 	\item \textbf{=, <>, <, >, <=, >=:} Funciones para argumentos numéricos.
 	\item \textbf{and:} TRUE si los argumentos son TRUE.
 	\item \textbf{or:} TRUE si alguno de los argumentos es TRUE.
@@ -553,10 +552,10 @@ Desde una regla no se puede lanzar otra.
 
 \textbf{Modos de acceso:}
 \begin{itemize}
-	\item ''r'' solo lectura
-	\item ''w'' solo escritura
-	\item ''r+'' lectura y escritura
-	\item ''a'' escritura al final de fichero (append)
+	\item “r” solo lectura.
+	\item “w” solo escritura.
+	\item “r+” lectura y escritura.
+	\item “a” escritura al final de fichero (append).
 \end{itemize}
 
 \textbf{Canales predefinidos:} stdin, stdout, werror.
@@ -565,7 +564,7 @@ Se utilizan en aquellos casos de estructuras más complejas que puedan requerir 
 
 \textbf{Declaración:} (defclass nombre (is-a nombre-padre) propiedades slots-o-multislots)
 
-\textbf{Propiedades de la clase:} (role abstract/concrete) para que no se puedan crear instancias o si y (pattern-match non-reactive/reactive)
+\textbf{Propiedades de la clase:} (role abstract/concrete) para que no se puedan crear instancias o si y (pattern-match non-reactive/reactive).
 
 Los slots de las clases son los mismos que las plantillas, pero además están (create-accesor read-write) para modificarlo y (source composite) heredar todas las facetas del mismo slot que el padre para redefinir slots del padre.
 
@@ -575,7 +574,7 @@ El nombre de la clase padre inicial es INITIAL-OBJECT.
 \begin{itemize}
 	\item \textbf{make-instance:} Añade una instancia.
 
-	      (make-instance of INTRODUCCION (primitiva ESTAR))
+	      (make-instance of INTRODUCCIÓN (primitiva ESTAR))
 	\item \textbf{unmake-instance:} Quita la instancia.
 
 	      (unmake-instance ?ins)
@@ -584,7 +583,7 @@ El nombre de la clase padre inicial es INITIAL-OBJECT.
 	      (modify-instance ?ins (orden 7))
 	\item \textbf{instances:} Muestra las instancias de la base de hechos.
 
-	      [gen1] of INTRODUCCION
+	      [gen1] of INTRODUCCIÓN
 	\item \textbf{(send [gen1] print):} Para ver valor de los slots.
 \end{itemize}
 
@@ -610,7 +609,7 @@ El pico es el metaconocimiento, en esta asignatura trataremos el conocimiento.
 
 \section{Sistemas Basados en el Conocimiento y Sistemas Expertos}
 
-\textbf{Sistema Basados en el Conocimiento (SBC):} Es un tipo de sistemas software, que tratan problemas cuyo método de resolución es más heurístico (guía hacia la solución de una manera más o menos óptima, mediante el conocimiento previo del problema, en forma de una serie de reglas) que algorítmico y que contiene conocimientos públicos de un dominio. Lo clave es que es heurística y contiene conocimiento.
+\textbf{Sistema Basados en el Conocimiento (SBC):} Es un tipo de sistemas software, que tratan problemas cuyo método de resolución es más heurístico (guía hacia la solución de una manera más o menos buena, mediante el conocimiento previo del problema, en forma de una serie de reglas) que algorítmico y que contiene conocimientos públicos de un dominio. Lo clave es que es heurística y contiene conocimiento.
 
 Es un sistema que usa conocimiento específico de un problema e intenta codificar el razonamiento que hacemos los humanos, como si fuera un experto, es decir juntando los datos e ir sacando conclusiones hasta llegar a la solución.
 
@@ -649,7 +648,7 @@ Lo más importante es que los SBC son capaces de explicar cuál es el proceso de
 			\multicolumn{1}{|l|}{\textbf{Tipo de problemas}}          & Sistemáticos y procedimentales                        & Heurísticos y declarativos                                \\ \hline
 			\multicolumn{1}{|l|}{\textbf{Entrada}}                    & Datos, procesos y algoritmos                          & Conocimiento humano                                       \\ \hline
 			\multicolumn{1}{|l|}{\textbf{Técnica de programación}}    & \begin{tabular}[c]{@{}l@{}}Procedimentales sofisticados\\ secuenciales y rígidos\end{tabular}                            & \begin{tabular}[c]{@{}l@{}}Declarativos, elementales\\ paralelos y flexibles\end{tabular}                                \\ \hline
-			\multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Modelo de solución\\ de problemas\end{tabular}}} & \begin{tabular}[c]{@{}l@{}}Implícitamente en el\\ código del programa\end{tabular}                            & \begin{tabular}[c]{@{}l@{}}Explicitamente en la\\ Base de Conocimiento\end{tabular}                                \\ \hline
+			\multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Modelo de solución\\ de problemas\end{tabular}}} & \begin{tabular}[c]{@{}l@{}}Implícitamente en el\\ código del programa\end{tabular}                            & \begin{tabular}[c]{@{}l@{}}Explícitamente en la\\ Base de Conocimiento\end{tabular}                                \\ \hline
 			\multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Niveles organización\\ conocimientos\end{tabular}}} & \begin{tabular}[c]{@{}l@{}}1. Datos\\ 2. Programas\end{tabular}                            & \begin{tabular}[c]{@{}l@{}}1. Datos o hechos\\ 2. Reglas operativas o heurísticas\\ 3. Inferencia y control\end{tabular}                                \\ \hline
 		\end{tabular}%
 	}
