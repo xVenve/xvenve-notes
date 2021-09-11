@@ -1,5 +1,5 @@
-\documentclass[12pt, twoside, openright]{report} %fuente a 12pt, formato doble pagina y chapter a la derecha
-\raggedbottom % No ajustar el contenido con un salto de pagina
+\documentclass[12pt, twoside, openright]{report} % fuente a 12pt, formato doble página y chapter a la derecha
+\raggedbottom % No ajustar el contenido con un salto de página
 
 % MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
 \usepackage[
@@ -31,17 +31,17 @@ hmargin=3cm
 % Añadir pdfs como partes del documento
 \usepackage{pdfpages}
 
-% Quitar la indentación de principio de los parrafos
+% Quitar la indentación de principio de los párrafos
 \setlength{\parindent}{0em}
 
-% EXPRESIONES MATEMATICAS
+% EXPRESIONES MATEMÁTICAS
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 
 \usepackage{txfonts} 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
-% Insertar graficas y fotos
+% Insertar gráficas y fotos
 \usepackage{tikz}
 \usepackage{pgfplots}
 
@@ -441,8 +441,8 @@ alcance de las redes inalámbricas (en vez de 30 metros, 40 kilómetros).
   Actuadores}
 
 
-Hasta la sección `Up to Functional examples
-(putting it all together)' incluida.
+Hasta la sección “Up to Functional examples
+(putting it all together)” incluida.
 
 \section{Sensores}
 
@@ -547,9 +547,9 @@ Linealidad.
 
 	      b. Monitorización de parámetros fisiológicos de personas
 
-	\item Message Broker y Message Bus tratan con ...
+	\item Message Broker y Message Bus tratan con …
 
-	      d. ... la transmisión de mensajes con el mundo físico, especialmente dispositivos y sensores heterogéneos.
+	      d. … la transmisión de mensajes con el mundo físico, especialmente dispositivos y sensores heterogéneos.
 
 	\item Un ejemplo de sensor activo es:
 
@@ -572,8 +572,7 @@ Linealidad.
 \chapter{Tema 3: Sistemas operativos embebidos para Dispositivos
   IoT}
 
-\section{¿Que es un sistema embebido o
-  integrado?}
+\section{¿Qué es un sistema embebido o integrado?}
 
 Sistemas basados en computadora que no parecen ser computadoras, la complejidad está oculta al usuario.
 
@@ -590,7 +589,7 @@ embebido es IoT. Los sistemas IoT son accesibles a través de internet y
 puede enviar la información que registra en tiempo real por internet.
 
 \textbf{Los sistemas embebidos o integrados} son aquellos capaces de
-interactuar con el usuario (a través de una interfaz simple) o con otra herramienta invisible para el usuario. Es decir, no tiene por qué haber una interacción directa con el usuario (un pendrive se enchufa al ordenador, no al usuario)
+interactuar con el usuario (a través de una interfaz simple) o con otra herramienta invisible para el usuario. Es decir, no tiene por qué haber una interacción directa con el usuario (un pendrive se enchufa al ordenador, no al usuario).
 
 \begin{itemize}
 	\item Ejem: Memoria flash, pendrive, sistema antibloqueo de ruedas.
@@ -720,7 +719,7 @@ Utiliza una versión simplificada de C++, lo que lo hace más fácil de aprender
 
 \textbf{Razones por la que se usa:} Es de código abierto, económico, multiplataforma, prototipos rápidos, entorno programable más simple y claro. Algunas también cuentan con conexión a Internet incorporada o la posibilidad de conectividad externa.
 
-\textbf{Razones para no utilizarlos:} Poca memoria para datos y RAM, procesamiento, arquitectura basada en 8 bits, caro cuando se necesita a gran escala, mala calidad/precio, las empresas no les gusta que sea open source, no está aliado con proveedores y no da garantías.
+\textbf{Razones para no utilizarlos:} Poca memoria para datos y RAM, procesamiento, arquitectura basada en 8 bits, caro cuando se necesita a gran escala, mala calidad/precio, las empresas no les gusta que sea código abierto, no está aliado con proveedores y no da garantías.
 
 \subsection{Raspberry Pi}
 
@@ -732,13 +731,13 @@ La Raspberry PI tiene una conexión GPIO de 40 pines, lo que facilita la conexi�
 \begin{description}
 	\item[GPIO] Significa entrada/salida de uso general. Estos pines son una interfaz física entre Raspberry Pi y el mundo exterior.
 
-	      El Pi puede recibir información de sensores y actuadores, y controlar actuadores como LED, ejecutar motores y muchas otras cosas.
+	      La Pi puede recibir información de sensores y actuadores, y controlar actuadores como LED, ejecutar motores y muchas otras cosas.
 
 	      Hay 40 pines y proporcionan varias funciones diferentes.
 	      \begin{itemize}
 		      \item Los pines 27 y 28, ID SD e ID SC, son para conectar una EEPROM.
 		      \item Pines 8 y 10, GPIO 14 y 15, son para comunicación UART puerto serie que transmite poca información (baja frecuencia), como USB, RFID, Bluetooth, GPS, GSM o GPRDS.
-		      \item GPIO 2 y 3 (clock) se usan para I2C, comunicación entre placas, como un LCD, otras placas base (Raspberry, Arduino, ...) o un reloj de tiempo real.
+		      \item GPIO 2 y 3 (clock) se usan para I2C, comunicación entre placas, como un LCD, otras placas base (Raspberry, Arduino, …) o un reloj de tiempo real.
 		      \item GPIO 7, 8, 9, 10 y 11 implementan otro mecanismo de comunicación el SPI, que es la evolución del protocolo I2C, su función es comunicar full duplex, como SSD card, IP Core o Memoria Flash.
 	      \end{itemize}
 
@@ -814,7 +813,7 @@ Zephyr, Micrium, RTOS (Real Time Operative Systems), R IOT, VxWorks, ThreadX, Mi
 
 \textbf{Programabilidad:}
 \begin{itemize}
-	\item API estándar: Gestionar procesos, servicios, tareas, threads, interrupciones, shockets...
+	\item API estándar: Gestionar procesos, servicios, tareas, threads, interrupciones, shockets…
 	\item Lenguajes de Programación estándar, que nos permita utilizar la API para desarrollar aplicaciones.
 \end{itemize}
 
@@ -931,7 +930,7 @@ Todos los controladores de dispositivos generalmente se componen de todas o una 
 	      \begin{itemize}
 		      \item \textbf{fork:} Crea una copia del espacio de memoria de la tarea principal en lo que se asigna para la tarea secundaria, lo que permite que la tarea secundaria herede varias propiedades, como el código del programa y las variables, de la tarea principal.
 		      \item \textbf{exec:} Se utiliza para eliminar explícitamente del espacio de memoria de la tarea secundaria cualquier referencia al programa principal y establece el nuevo código de programa que pertenece a la tarea secundaria para que se ejecute.
-		      \item \textbf{spawn model:} Crea un espacio de direcciones completamente nuevo para la tarea secundaria. La llamada al "modelo de generación" permite definir el nuevo programa y los argumentos para la tarea secundaria.
+		      \item \textbf{spawn model:} Crea un espacio de direcciones completamente nuevo para la tarea secundaria. La llamada al “modelo de generación” permite definir el nuevo programa y los argumentos para la tarea secundaria.
 	      \end{itemize}
 
 	      \textbf{Spawn model:} No tiene espacios duplicados, optimiza el espacio de memoria, no gasta tanta memoria como fork/exec. Es más complicado compartir propiedades entre procesos.
@@ -1043,7 +1042,7 @@ Se pueden dividir en aplicaciones integradas \textbf{específicas del mercado} (
 
 	      a. Los pines UART se pueden usar para comunicar su Raspberry Pi con otros dispositivos que tengan una interfaz serie.
 
-	\item Las placas de desarrollo de microcontroladores...
+	\item Las placas de desarrollo de microcontroladores…
 
 	      a. incluyen hardware para programar microcontroladores.
 
@@ -1127,7 +1126,7 @@ Al emplear HTTP son protocolos muy exigentes en el ámbito de comunicaciones, re
 \section{MQTT - Message Queuing Telemetry Transport}
 Protocolo de cola de mensajes, es el protocolo de intercambio de mensajes en el ámbito IoT por excelencia.
 
-Se empezó a trabajar en el en 1993 por IBM, para comunicar dispositivos en lugares remotos, con latencias altas y bajo ancho de banda.
+Se empezó a trabajar en él en 1993 por IBM, para comunicar dispositivos en lugares remotos, con latencias altas y bajo ancho de banda.
 
 Normalmente hay un suscriptor, un broker y un publicador, que funcionan como se ha descrito arriba (uno crea los topic, otro los gestiona y el último lo recibe).
 
@@ -1191,24 +1190,24 @@ Requiere identificador de paquete, tópico al que se suscribe, nivel de calidad 
 
 \subsection{Elementos de los mensajes}
 
-\subsubsection{Last will - Ultima voluntad}
+\subsubsection{Last will - Última voluntad}
 Es el mensaje que se envía a todos los suscriptores de un canal cuando se pierde la conexión de un publicador. Este parámetro se introduce al inicio.
 
 \subsubsection{Retain}
-En el indicamos si queremos que se retenga el mensaje hasta que sea confirmada la recepción por todos los suscriptores.
+En él indicamos si queremos que se retenga el mensaje hasta que sea confirmada la recepción por todos los suscriptores.
 
 \subsubsection{Keep alive}
-Indica cada cuanto tiempo se envía un mensaje al suscribirse, si no se recibe uno en 1,5 veces este valor se envía la última voluntad a los suscriptores. El servidor tiene un temporizador para controlar los tiempos.
+Indica cada cuánto tiempo se envía un mensaje al suscribirse, si no se recibe uno en 1,5 veces este valor se envía la última voluntad a los suscriptores. El servidor tiene un temporizador para controlar los tiempos.
 
 \textbf{Desconexión inesperada de publicadores:} Se puede deber a quedarse sin batería, internet o no enviar el disconnect.
 \begin{itemize}
-	\item Conexión con petición de almacenamiento de "última voluntad"
-	\item Almacenamiento de petición de "última voluntad"
+	\item Conexión con petición de almacenamiento de “última voluntad”
+	\item Almacenamiento de petición de “última voluntad”
 	\item Confirmación de conexión.
 	\item El publicador publica mensajes.
 	\item El suscriptor recibe mensajes.
 	\item El cliente inesperadamente deja de responder.
-	\item El broker envía el mensaje de "última voluntad" a los suscriptores.
+	\item El broker envía el mensaje de “última voluntad” a los suscriptores.
 \end{itemize}
 En caso de que el cliente no tenga nada que enviar envía periódicamente PINGRESP para que no piense que se ha muerto y se reinicie su temporizador.
 
@@ -1386,7 +1385,7 @@ Es un servicio que está disponible en la plataforma IoT y como su nombre indica
 
 Un microservicio es un componente que tiene vida independiente, aunque se integre en un sistema complejo puede funcionar de manera independiente.
 
-Es micro porque esta clase de servicios tienen un conjunto de responsabilidades pequeño, porque lo que buscamos es que se puedan utilizar en multitud de entornos, así son más generales. Por ejemplo, se utilizan para gestionar sensores, solamente para recibir las mediciones de los sensores de la red, o gestionar dispositivos, para ver en qué estado están o regístralos.
+Es micro porque esta clase de servicios tienen un conjunto de responsabilidades pequeño, ya que lo que buscamos es que se puedan utilizar en multitud de entornos, así son más generales. Por ejemplo, se utilizan para gestionar sensores, solamente para recibir las mediciones de los sensores de la red, o gestionar dispositivos, para ver en qué estado están o regístralos.
 
 Son neutrales en cuanto al lenguaje de programación, cada microservicio puede estar en uno distinto mientras se comuniquen mediante la API REST.
 
@@ -1799,7 +1798,7 @@ Lo utilizaremos para ejecutar aplicaciones multiservicio/distribuidas, que tiene
 
 Es una herramienta para definir y lanzar aplicaciones distribuidas con varios contenedores con un solo comando.
 
-Nos permite integrar todas las creaciones de contenedores dentro de un único fichero llamado docker-compose.yaml .
+Nos permite integrar todas las creaciones de contenedores dentro de un único fichero llamado docker-compose.yaml.
 
 \textbf{Estructura:}
 \begin{lstlisting}
@@ -1933,7 +1932,7 @@ El \textbf{Docker Swarm} nos permite ir generando distintos nodos virtuales en l
 	\item Un contenedor es:
 	      Seleccione una:
 
-	      Un método de virtualización que empaqueta el código, las configuraciones y las dependencias de una aplicación en bloques de construcción para lograr consistencia, eficiencia, productividad y control de versiones., Un paquete de software ligero, independiente y ejecutable que incluye todo lo necesario para ejecutar una aplicación.
+	      Un método de virtualización que empaqueta el código, las configuraciones y las dependencias de una aplicación en bloques de construcción para lograr consistencia, eficiencia, productividad y control de versiones. Un paquete de software ligero, independiente y ejecutable que incluye todo lo necesario para ejecutar una aplicación.
 
 	\item Seleccione la opción CORRECTA con respecto a los contenedores:
 	      Seleccione una:
@@ -2036,14 +2035,14 @@ El \textbf{Docker Swarm} nos permite ir generando distintos nodos virtuales en l
 \href{https://learning.oreilly.com/library/view/build-your-own/9781484244982/html/474034_1_En_2_Chapter.xhtml}{Arquitectura de Sistemas de Internet de las Cosas}
 
 \section{Tema 2: Sensores y Actuadores}
-\href{https://learning.oreilly.com/library/view/internet-of-things/9781788470599/d39be056-b166-476e-868e-c415e4dfa886.xhtml}{Introducción a Sensores y Actuadores} Hasta la sección 'Up to Functional examples (putting it all together)' incluida
+\href{https://learning.oreilly.com/library/view/internet-of-things/9781788470599/d39be056-b166-476e-868e-c415e4dfa886.xhtml}{Introducción a Sensores y Actuadores} Hasta la sección “Up to Functional examples (putting it all together)” incluida
 
 \section{Tema 3: Sistemas operativos embebidos para Dispositivos IoT}
 \href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP001.html#CHP001titl}{Introducción a los Sistemas Embebidos} Solo capítulo 1
 
 \href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP009.html#CHP009titl}{Sistemas Operativos Embebidos} Capítulo 9
 
-\href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP008.html#CHP008titl}{Drivers de Dispositivos} Hasta el encabezado "8.1 Example 1: Device Drivers for Interrupt Handling"
+\href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP008.html#CHP008titl}{Drivers de Dispositivos} Hasta el encabezado “8.1 Example 1: Device Drivers for Interrupt Handling”
 
 \href{https://learning.oreilly.com/library/view/embedded-systems-architecture/9780123821966/xhtml/CHP010.html#CHP010titl}{Middleware} Secciones 10.1 y 10.2
 
