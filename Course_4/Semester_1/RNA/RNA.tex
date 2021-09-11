@@ -1,5 +1,5 @@
-\documentclass[12pt, twoside, openright]{report} %fuente a 12pt, formato doble pagina y chapter a la derecha
-\raggedbottom % No ajustar el contenido con un salto de pagina
+\documentclass[12pt, twoside, openright]{report} % Fuente a 12pt, formato doble página y chapter a la derecha
+\raggedbottom % No ajustar el contenido con un salto de página
 
 % MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
 \usepackage[
@@ -37,17 +37,17 @@ hmargin=3cm
 % Añadir pdfs como partes del documento
 \usepackage{pdfpages}
 
-% Quitar la indentación de principio de los parrafos
+% Quitar la indentación de principio de los párrafos
 \setlength{\parindent}{0em}
 
-% EXPRESIONES MATEMATICAS
+% EXPRESIONES MATEMÁTICAS
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 
 \usepackage{txfonts} 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
-% Insertar graficas y fotos
+% Insertar gráficas y fotos
 \usepackage{tikz}
 \usepackage{pgfplots}
 
@@ -105,7 +105,6 @@ hmargin=3cm
 {\contentsmargin{0pt}}                        
 {\titlerule*[.7pc]{.}\contentspage}  
 
-
 % DISEÑO DE TABLAS.
 \usepackage{multirow} % permite combinar celdas 
 \usepackage{caption} % para personalizar el título de tablas y figuras
@@ -140,7 +139,7 @@ hmargin=3cm
 }
 
 % NOTAS A PIE DE PÁGINA
-\usepackage{chngcntr} %para numeración continua de las notas al pie
+\usepackage{chngcntr} % Para numeración continua de las notas al pie
 \counterwithout{footnote}{chapter}
 
 % LISTADOS DE CÓDIGO
@@ -279,18 +278,18 @@ hmargin=3cm
 	\item 60 \% Evaluación continua
 	      \begin{itemize}
 		      \item 20 \% Practica 1. Trata de resolver un problema de regresión, estimar un número real, y se divide en dos partes:
-		      \begin{itemize}
-				  \item  Modelo lineal (ADALINE) determinando los coeficientes, este caso tenemos programarlo nosotros en nuestro lenguaje de preferencia.
-				  Se nos proporcionan unos datos de prueba para cuando lo estemos programando salga un error muy pequeño, de esta manera sabemos si lo hacemos bien. Las de prueba son 3 atributos, pero los reales son de 8.
-				  \item  No lineal (Perceptrón multicapa), presentando una memoria de unas 8 páginas en forma de artículo.
-				  Para esta parte se nos dará un script en R, no hay que programarlo, pero hay que realizar muchas pruebas para ver los resultados (errores).
-			  \end{itemize}
+		            \begin{itemize}
+			            \item  Modelo lineal (ADALINE) determinando los coeficientes, este caso tenemos programarlo nosotros en nuestro lenguaje de preferencia.
+			                  Se nos proporcionan unos datos de prueba para cuando lo estemos programando salga un error muy pequeño, de esta manera sabemos si lo hacemos bien. Las de prueba son 3 atributos, pero los reales son de 8.
+			            \item  No lineal (Perceptrón multicapa), presentando una memoria de unas 8 páginas en forma de artículo.
+			                  Para esta parte se nos dará un script en R, no hay que programarlo, pero hay que realizar muchas pruebas para ver los resultados (errores).
+		            \end{itemize}
 		      \item 20 \% Practica 2. Habrá que modificar scripts de Python, también ser usará Google Colab.
-		      \begin{itemize}
-				  \item Parte 1: Problema de clasificación que resolveremos con Perceptrón multicapa.
-				  \item Parte 2: Problema de clasificación con imágenes usando Deep Learning.
-			  \end{itemize}
-		      \item 20 \% Prueba parcial, de las prácticas (a principios de noviembre.
+		            \begin{itemize}
+			            \item Parte 1: Problema de clasificación que resolveremos con Perceptrón multicapa.
+			            \item Parte 2: Problema de clasificación con imágenes usando Deep Learning.
+		            \end{itemize}
+		      \item 20 \% Prueba parcial, de las prácticas (a principios de noviembre).
 	      \end{itemize}
 	\item 40 \% Examen final, se realizarán cuestiones teórico-prácticas, pudiendo incluir preguntas sobre las prácticas.
 	      \begin{itemize}
@@ -311,7 +310,7 @@ Variables, datos o patrones de entrada y de salida deseada de la red, que solo t
 \textbf{No supervisado:} Tratamos de agrupar o buscar una determinada estructura en los datos, no hay salida.
 
 \subsection{Transformación de los datos}
-\textbf{Normalización de datos:} Se emplea en los casos en los que los valores entre los atributos con muy dispares (ej. 0.1 y 10) lo que provocaría que al realizar operaciones entre ellos dieran valores que dependen mucho más de un atributo que otro. Los valores se ajustan al rango de 0 y 1. 
+\textbf{Normalización de datos:} Se emplea en los casos en los que los valores entre los atributos con muy dispares (ej. 0.1 y 10) lo que provocaría que al realizar operaciones entre ellos dieran valores que dependen mucho más de un atributo que otro. Los valores se ajustan al rango de 0 y 1.
 
 $$ValorNormalizado_i=\frac {Valor_i-ValorMinimo_i} {ValorMaximo_i-ValorMinimo_i}$$
 
@@ -333,19 +332,19 @@ Lo que se hace es separar las instancias por la clase, de estos conjuntos genera
 \textbf{Medida de evaluación}
 \begin{itemize}
 	\item \textbf{En regresión:} Error absoluto medio (Mean Absolute Error) es la media del valor absoluto de la diferencia de la salida y el deseado. Error cuadrático medio (Mean Square Error) es igual al anterior, pero en vez de valor absoluto la diferencia se pone al cuadrado.
-	$$MAE=\frac 1 N \sum^N_{i=1} |s_i-d_i| \quad MSE=\frac 1 N \sum^N_{i=1} (d_i-s_i)^2$$
-	Acaba cuando el error medio o el cuadrático es aceptable. También por una visualización gráfica de las salidas deseadas y las salidas de la red.
+	      $$MAE=\frac 1 N \sum^N_{i=1} |s_i-d_i| \quad MSE=\frac 1 N \sum^N_{i=1} (d_i-s_i)^2$$
+	      Acaba cuando el error medio o el cuadrático es aceptable. También por una visualización gráfica de las salidas deseadas y las salidas de la red.
 	\item \textbf{En clasificación:} Lo más habitual es evaluar la calidad de la red basándonos en su precisión predictiva (\% de aciertos), la proporción de aciertos sobre el total de instancias.
-	
-	Acaba cuando el porcentaje de aciertos es alto, teniendo en cuenta que debe ser mayor que la probabilidad de que acierte aleatoriamente (como si tirase una moneda) y las clases están equilibradas (porque si siempre da una clase podría tener un buen porcentaje de acierto dando un valor constante).
 
-	\textbf{Matriz de confusión:} Representa la cantidad de instancias según lo estimado y lo correcto, de manera que se pueda ver los que han sido estimados según TP, FN, FP o TN. Los datos correctamente clasificados están en la diagonal, los incorrectos fuera de ella. Se emplean otras medidas como son:
-	\begin{itemize}
-		\item El porcentaje de aciertos total es $\frac {TP+TN} {TP+TN+FN+FP}$
-		\item El porcentaje de aciertos de + es: $\frac {TP} {TP+FN}$
-		\item El porcentaje de aciertos – es: $\frac {TN} {FP+TN}$
-	\end{itemize}
-  
+	      Acaba cuando el porcentaje de aciertos es alto, teniendo en cuenta que debe ser mayor que la probabilidad de que acierte aleatoriamente (como si tirase una moneda) y las clases están equilibradas (porque si siempre da una clase podría tener un buen porcentaje de acierto dando un valor constante).
+
+	      \textbf{Matriz de confusión:} Representa la cantidad de instancias según lo estimado y lo correcto, de manera que se pueda ver los que han sido estimados según TP, FN, FP o TN. Los datos correctamente clasificados están en la diagonal, los incorrectos fuera de ella. Se emplean otras medidas como son:
+	      \begin{itemize}
+		      \item El porcentaje de aciertos total es $\frac {TP+TN} {TP+TN+FN+FP}$
+		      \item El porcentaje de aciertos de + es: $\frac {TP} {TP+FN}$
+		      \item El porcentaje de aciertos – es: $\frac {TN} {FP+TN}$
+	      \end{itemize}
+
 \end{itemize}
 
 \subsection{Anotaciones Practica 1}
