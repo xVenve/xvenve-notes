@@ -264,7 +264,7 @@ hmargin=3cm
 
 \section{Objetivos}
 \begin{itemize}
-	\item “Transmitirnos su entusiasmo por las redes neuronales", darnos la posibilidad de acceder más fácilmente a este mundo.
+	\item “Transmitirnos su entusiasmo por las redes neuronales”, darnos la posibilidad de acceder más fácilmente a este mundo.
 	\item Entender que subyace sobre estas redes y el método científico.
 	\item Estudiar los diferentes modelos de redes.
 	\item Describir las diferentes áreas de aplicabilidad de las redes de neuronas.
@@ -276,23 +276,23 @@ hmargin=3cm
 
 \section{Sistema de evaluación}
 \begin{itemize}
-	\item 60\% Evaluación continua
+	\item 60 \% Evaluación continua
 	      \begin{itemize}
-		      \item 20\% Practica 1. Trata de resolver un problema de regresión, estimar un número real, y se divide en dos partes:
-		            \begin{itemize}
-			            \item  Modelo lineal (ADALINE) determinando los coeficientes, este caso tenemos programarlo nosotros en nuestro lenguaje de preferencia.
-			                  Se nos proporcionan unos datos de prueba para cuando lo estemos programando salga un error muy pequeño, de esta manera sabemos si lo hacemos bien. Las de prueba son 3 atributos, pero los reales son de 8.
-			            \item  No lineal (Perceptrón multicapa), presentando una memoria de unas 8 páginas en forma de artículo.
-			                  Para esta parte se nos dará un script en R, no hay que programarlo, pero hay que realizar muchas pruebas para ver los resultados (errores).
-		            \end{itemize}
-		      \item 20\% Practica 2. Habrá que modificar scripts de Python, también ser usará Google Colab.
-		            \begin{itemize}
-			            \item Parte 1: Problema de clasificación que resolveremos con Perceptrón multicapa.
-			            \item Parte 2: Problema de clasificación con imágenes usando Deep Learning.
-		            \end{itemize}
-		      \item 20\% Prueba parcial, de las prácticas (a principios de noviembre.
+		      \item 20 \% Practica 1. Trata de resolver un problema de regresión, estimar un número real, y se divide en dos partes:
+		      \begin{itemize}
+				  \item  Modelo lineal (ADALINE) determinando los coeficientes, este caso tenemos programarlo nosotros en nuestro lenguaje de preferencia.
+				  Se nos proporcionan unos datos de prueba para cuando lo estemos programando salga un error muy pequeño, de esta manera sabemos si lo hacemos bien. Las de prueba son 3 atributos, pero los reales son de 8.
+				  \item  No lineal (Perceptrón multicapa), presentando una memoria de unas 8 páginas en forma de artículo.
+				  Para esta parte se nos dará un script en R, no hay que programarlo, pero hay que realizar muchas pruebas para ver los resultados (errores).
+			  \end{itemize}
+		      \item 20 \% Practica 2. Habrá que modificar scripts de Python, también ser usará Google Colab.
+		      \begin{itemize}
+				  \item Parte 1: Problema de clasificación que resolveremos con Perceptrón multicapa.
+				  \item Parte 2: Problema de clasificación con imágenes usando Deep Learning.
+			  \end{itemize}
+		      \item 20 \% Prueba parcial, de las prácticas (a principios de noviembre.
 	      \end{itemize}
-	\item 40\% Examen final, se realizarán cuestiones teórico-prácticas, pudiendo incluir preguntas sobre las prácticas.
+	\item 40 \% Examen final, se realizarán cuestiones teórico-prácticas, pudiendo incluir preguntas sobre las prácticas.
 	      \begin{itemize}
 		      \item Se puede emplear material.
 		      \item No hay nota mínima
@@ -311,7 +311,7 @@ Variables, datos o patrones de entrada y de salida deseada de la red, que solo t
 \textbf{No supervisado:} Tratamos de agrupar o buscar una determinada estructura en los datos, no hay salida.
 
 \subsection{Transformación de los datos}
-\textbf{Normalización de datos:} Se emplea en los casos en los que los valores entre los atributos con muy dispares (ej. 0.1 y 10) lo que provocaría que al realizar operaciones entre ellos dieran valores que dependen mucho más de un atributo que otro. Los valores se ajustan al rango de 0 y 1.
+\textbf{Normalización de datos:} Se emplea en los casos en los que los valores entre los atributos con muy dispares (ej. 0.1 y 10) lo que provocaría que al realizar operaciones entre ellos dieran valores que dependen mucho más de un atributo que otro. Los valores se ajustan al rango de 0 y 1. 
 
 $$ValorNormalizado_i=\frac {Valor_i-ValorMinimo_i} {ValorMaximo_i-ValorMinimo_i}$$
 
@@ -333,22 +333,22 @@ Lo que se hace es separar las instancias por la clase, de estos conjuntos genera
 \textbf{Medida de evaluación}
 \begin{itemize}
 	\item \textbf{En regresión:} Error absoluto medio (Mean Absolute Error) es la media del valor absoluto de la diferencia de la salida y el deseado. Error cuadrático medio (Mean Square Error) es igual al anterior, pero en vez de valor absoluto la diferencia se pone al cuadrado.
-	      $$MAE=\frac 1 N \sum^N_{i=1} |s_i-d_i| \quad MSE=\frac 1 N \sum^N_{i=1} (d_i-s_i)^2$$
-	      Acaba cuando el error medio o el cuadrático es aceptable. También por una visualización gráfica de las salidas deseadas y las salidas de la red.
+	$$MAE=\frac 1 N \sum^N_{i=1} |s_i-d_i| \quad MSE=\frac 1 N \sum^N_{i=1} (d_i-s_i)^2$$
+	Acaba cuando el error medio o el cuadrático es aceptable. También por una visualización gráfica de las salidas deseadas y las salidas de la red.
 	\item \textbf{En clasificación:} Lo más habitual es evaluar la calidad de la red basándonos en su precisión predictiva (\% de aciertos), la proporción de aciertos sobre el total de instancias.
+	
+	Acaba cuando el porcentaje de aciertos es alto, teniendo en cuenta que debe ser mayor que la probabilidad de que acierte aleatoriamente (como si tirase una moneda) y las clases están equilibradas (porque si siempre da una clase podría tener un buen porcentaje de acierto dando un valor constante).
 
-	      Acaba cuando el porcentaje de aciertos es alto, teniendo en cuenta que debe ser mayor que la probabilidad de que acierte aleatoriamente (como si tirase una moneda) y las clases están equilibradas (porque si siempre da una clase podría tener un buen porcentaje de acierto dando un valor constante).
-
-	      \textbf{Matriz de confusión:} Representa la cantidad de instancias según lo estimado y lo correcto, de manera que se pueda ver los que han sido estimados según TP, FN, FP o TN. Los datos correctamente clasificados están en la diagonal, los incorrectos fuera de ella. Se emplean otras medidas como son:
-	      \begin{itemize}
-		      \item El porcentaje de aciertos total es $\frac {TP+TN} {TP+TN+FN+FP}$
-		      \item El porcentaje de aciertos de + es: $\frac {TP} {TP+FN}$
-		      \item El porcentaje de aciertos – es: $\frac {TN} {FP+TN}$
-	      \end{itemize}
-
+	\textbf{Matriz de confusión:} Representa la cantidad de instancias según lo estimado y lo correcto, de manera que se pueda ver los que han sido estimados según TP, FN, FP o TN. Los datos correctamente clasificados están en la diagonal, los incorrectos fuera de ella. Se emplean otras medidas como son:
+	\begin{itemize}
+		\item El porcentaje de aciertos total es $\frac {TP+TN} {TP+TN+FN+FP}$
+		\item El porcentaje de aciertos de + es: $\frac {TP} {TP+FN}$
+		\item El porcentaje de aciertos – es: $\frac {TN} {FP+TN}$
+	\end{itemize}
+  
 \end{itemize}
 
-\section{Anotaciones Practica 1}
+\subsection{Anotaciones Practica 1}
 A la hora de normalizar hacerlo sobre el total de los datos, no solo sobre los de entrenamiento.
 Aleatorizarlos.
 Separar las instancias en 70 15 15.
