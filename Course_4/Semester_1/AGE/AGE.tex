@@ -1,5 +1,5 @@
-\documentclass[12pt, twoside, openright]{report} %fuente a 12pt, formato doble pagina y chapter a la derecha
-\raggedbottom % No ajustar el contenido con un salto de pagina
+\documentclass[12pt, twoside, openright]{report} % Fuente a 12pt, formato doble página y chapter a la derecha
+\raggedbottom % No ajustar el contenido con un salto de página
 
 % MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
 \usepackage[
@@ -37,17 +37,17 @@ hmargin=3cm
 % Añadir pdfs como partes del documento
 \usepackage{pdfpages}
 
-% Quitar la indentación de principio de los parrafos
+% Quitar la indentación de principio de los párrafos
 \setlength{\parindent}{0em}
 
-% EXPRESIONES MATEMATICAS
+% EXPRESIONES MATEMÁTICAS
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 
 \usepackage{txfonts} 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
-% Insertar graficas y fotos
+% Insertar gráficas y fotos
 \usepackage{tikz}
 \usepackage{pgfplots}
 
@@ -105,7 +105,6 @@ hmargin=3cm
 {\contentsmargin{0pt}}                        
 {\titlerule*[.7pc]{.}\contentspage}  
 
-
 % DISEÑO DE TABLAS.
 \usepackage{multirow} % permite combinar celdas 
 \usepackage{caption} % para personalizar el título de tablas y figuras
@@ -140,7 +139,7 @@ hmargin=3cm
 }
 
 % NOTAS A PIE DE PÁGINA
-\usepackage{chngcntr} %para numeración continua de las notas al pie
+\usepackage{chngcntr} % Para numeración continua de las notas al pie
 \counterwithout{footnote}{chapter}
 
 % LISTADOS DE CÓDIGO
@@ -193,7 +192,7 @@ hmargin=3cm
 	\begin{sffamily}
 		\color{azulUC3M}
 		\begin{center}
-			\begin{figure}[H] %incluimos el logotipo de la Universidad
+			\begin{figure}[H] % incluimos el logotipo de la Universidad
 				\makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
 			\end{figure}
 			\vspace{2.5cm}
@@ -244,7 +243,7 @@ hmargin=3cm
 % TRABAJO
 %---------- 
 
-\pagenumbering{arabic} % numeración con múmeros arábigos para el resto de la publicación  
+\pagenumbering{arabic} % numeración con números arábigos para el resto de la publicación  
 
 
 %----------
@@ -273,8 +272,7 @@ Se utilizará portátil en las clases prácticas, traerlo para ir resolviendo lo
 	\item Lo que buscamos es ser capaces de entender cómo funciona la inteligencia de las personas o animales para ver cómo se desarrollan los procesos y poder programarlos para que hagan una tarea o aprendan a hacerla.
 \end{itemize}
 
-Un ejemplo de aplicación consiste en desarrollo de antenas que se generan según distintas mediciones de señal de manera que se extenderá en aquellas direcciones que la maximicen, también evitando las interferencias. Este ejemplo se basa en las plantas, en la manera que tienen de ir buscando la luz para poder obtener
-energía y seguir creciendo.
+Un ejemplo de aplicación consiste en desarrollo de antenas que se generan según distintas mediciones de señal de manera que se extenderá en aquellas direcciones que la maximicen, también evitando las interferencias. Este ejemplo se basa en las plantas, en la manera que tienen de ir buscando la luz para poder obtener energía y seguir creciendo.
 
 También se emplean muchas basadas en insectos por su corta vida, que permiten observar la evolución de una manera más rápida.
 
@@ -288,29 +286,233 @@ Inteligencia artificial (no hay una única definición): Disciplina que consiste
 		      \item Individuales, excepto la última que es en equipo. 1 punto, 1.5 y 2.5 puntos
 	      \end{itemize}
 	\item 2 pruebas de evaluación, 2,5 puntos cada una.
-	\item Examen final no obligatorio, si no se presenta a este la nota final será la de evaluación continua. Si te presentas ser pondera la nota final tal que 0.25 evaluación continua y 0.75 la nota final.
+	\item Examen final no obligatorio, si no se presenta a este la nota final será la de evaluación continua. Si te presentas se pondera la nota final tal que el 0.25 es evaluación continua y el 0.75 la nota del examen final.
 	      \begin{itemize}
 		      \item Sin hacer el examen final:
 		            \begin{itemize}
-			            \item 25\% Parcial 1
-			            \item 25\% Parcial 2
-			            \item 10\% Practica 1
-			            \item 15\% Practica 2
-			            \item 25\% Practica 3
+			            \item 25 \% Parcial 1
+			            \item 25 \% Parcial 2
+			            \item 10 \% Práctica 1
+			            \item 15 \% Práctica 2
+			            \item 25 \% Práctica 3
 		            \end{itemize}
 		      \item Haciendo el examen final
 		            \begin{itemize}
-			            \item 6,3\% Parcial 1
-			            \item 6,3\% Parcial 2
-			            \item 2,5\% Practica 1
-			            \item 3,8\% Practica 2
-			            \item 6,3\% Practica 3
-			            \item 75\% Examen final
+			            \item 6,3 \% Parcial 1
+			            \item 6,3 \% Parcial 2
+			            \item 2,5 \% Práctica 1
+			            \item 3,8 \% Práctica 2
+			            \item 6,3 \% Práctica 3
+			            \item 75 \% Examen final
 		            \end{itemize}
 	      \end{itemize}
 \end{itemize}
 
-\chapter{Tema 1: XXX}
+\chapter{Tema 1: Introducción a los algoritmos de computación evolutiva}
+\section{Teoría genética}
+Este tema nos permite entender de donde surge la intención de tratar de imitar los comportamientos biológicos y las teorías evolutivas que hay, en particular la evolución. Lo que trataremos es de acercarnos a como la biología es capaz de crear sistemas complejos.
 
+\subsection{Los cuatro pilares de la evolución}
+Dobzhansky (1973): “nothing in biology makes sense except in the light of evolution”.
+
+\begin{itemize}
+	\item \textbf{Población:} El conjunto de individuos.
+	\item \textbf{Diversidad:} Es la variedad de individuos, que difieren en cualquier cosa, la naturaleza es la que se encarga de mantenerla y tiende a generar nueva diversidad. Las leyes de la naturaleza se dirigen a crearla.
+	\item \textbf{Herencia:} Esencial para que se puedan transmitir la información entre individuos.
+	\item \textbf{Selección:} Debe producirse la muerte de algunos individuos para que pueda seguir adelante la evolución, es fundamental.
+\end{itemize}
+
+\subsection{Selección Natural}
+No es selección de los mejores, es un proceso estocástico, pueden sobrevivir individuos no tan buenos individualmente  pero si para el colectivo, porque mejoren la reproducción media.
+
+La evolución no tiene un objetivo, no es un progreso, solo se adapta a las circunstancias y al medio. No necesariamente una generación en mejor que la anterior.
+
+Actúa en el aquí y ahora, lo que es bueno en términos reproductivos aquí o ahora, puede no selo allí o después.
+
+La vida no tiende a la complejidad, hay muchos más individuos simples que complejos.
+
+En el mejor de los casos, la combinación de variedad, herencia y selección puede incrementar “hoy” la proporción de individuos cuyos padres disponían de características más propicias “ayer”.
+
+\subsection{De donde viene la diversidad}
+Viene de que la reproducción NO es perfecta, esto permite que haya ciertas imperfecciones (muy poco frecuentes) que les hagan más viables reproductivamente y se transmitan a sus descendientes, eso genera diversidad al haber pequeñas variaciones.
+
+Aquellas características que no son ventajosas, pero tampoco afectan negativamente, son transmitidas también.
+
+Es cuestión de estadística que se produzcan las variaciones, pero este proceso repetido innumerables veces, genera diversidad.
+
+Permite al individuo “ensayar” nuevas funcionalidades, comportamientos, morfologías, nuevos nichos y propagar a generaciones futuras aquellos que mejor se adapten al entorno.
+
+\subsection{Escala Evolutiva}
+La vida se dio muy al comienzo de la vida de la Tierra, pero se han dado muchas grandes extinciones, una vez la vida se da la vida se va sabiendo abrir camino.
+
+3.500 Ma para generar los primeros seres eucariotas pluricelulares.
+
+Solo 500 Ma para generar el resto de los seres vivos (80 \% contra 20 \%).
+
+Los organismos microscópicos, similares a aquello que evolucionaron tempranamente continúan siendo altamente exitosos y dominan la Tierra.
+
+La mayor parte de las especias y la biomasa terrestre está constituida por procariotas.
+
+\subsection{Primeros pasos}
+\textbf{Moléculas replicantes → poblaciones de moléculas en compartimentos}. Favorece la cooperación entre replicantes, al estar dentro de una membrana común
+
+\textbf{Replicadores independientes → cromosomas}. Los replicadores independientes se unen formando estructuras, cromosomas, que facilitan su supervivencia
+
+\textbf{ARN como gen y enzima → ADN y proteína}. Se separa la información de los procesos enzimáticos
+
+\textbf{Nace el código genético}. División del trabajo, aumento en la complejidad de lo producido
+
+\subsection{Estromatolitos (-3500 Ma)}
+Agrupaciones de células unicelulares en forma de colonias capaces de generar con energía solar un gas tóxico, O$_2$, de forma masiva.
+
+A pesar de este gas tóxico la vida se adaptó para utilizar ese oxígeno.
+
+\subsection{Célula eucariota (-3500 Ma a -1200 Ma)}
+\textbf{Procariota → Eucariota}. Aparece un núcleo celular, donde está la información y orgánulos, esto ayuda a la supervivencia de la célula.
+
+\subsection{Organismos pluricelulares (-540)}
+Antes del cámbrico había organismos simples, paquetes de proteínas autoreplicantes tipo medusa o esponjas habitando el mar.
+
+Se alimentaban de bacterias o filtrando el agua, no había plantas.
+
+\subsection{El Cámbrico}
+Aparecen cadenas tróficas complejas (animales que comen otros animales), todos los grandes filos (grandes divisiones de la naturaleza) de la naturaleza (50 en el cámbrico, antes solo había 1 y después 8 más, tras esto solo quedaban 20).
+
+Cambió la faz de la tierra y conformaron la vida tal y como lo conocemos hoy.
+
+Ocurrió en solo 5 millones de años.
+
+\subsection{Periodo Cámbrico}
+Antes del cámbrico organismos simples, paquetes de proteínas autoreplicantes tipo medusas o esponjas habitando el mar.
+
+Se alimentaban de bacterias o filtrando el agua. No había plantas.
+
+Aparecen cadenas tróficas complejas (animales comen otros animales).
+
+De repente aparecen todos los grandes filos de la naturaleza, 50 en el cámbrico, solo 1 antes y 8 después (solo quedan 20).
+
+Mares casi inertes en mares repletos de vida. Cambió la faz de la tierra y conformaron la vida tal y como la conocemos hoy.
+
+Ocurrió en solo 5 millones de años.
+
+Causas ambientales. La escasez de recursos dio lugar a una competencia ecológica que favoreció la coevolución “depredador- presa”.
+
+Causas geológicas. La separación de los continentes permite la segregación de las poblaciones y la diversificación evolutiva.
+
+Causas morfológicas. Aparición del mesodermo.
+
+Permite la generación de estructuras de colágeno (piel, cartílago, músculos).
+
+Esqueletos rígidos (huesos, conchas).
+
+Proliferación de oxígeno. Los animales no están obligados a obtener el oxígeno por todo el cuerpo, sino por órganos específicos, dejando el resto para caparazones o exoesqueletos.
+
+\subsection{Seres complejos}
+\textbf{Clones asexuales → Poblaciones sexuales}, es el mecanismo que guía el proceso, permite generar más individuos y diversidad de una manera eficaz. Aparece el sexo.
+
+\textbf{Protista → Animales, plantas y hongos}. Aparece la diferenciación celular, todas las células tienen todo el material genético. Cada tipo de célula tiene activa una pequeña parte de su material genético. Empiezan a aparecer organismos.
+
+\textbf{Individuos solitarios → Colonias}, conjunto de organismos que funcionan como uno. Organismos sociales.
+
+\subsection{Últimos pasos}
+-500 Ma plantas y hongos colonizan la tierra.
+
+Poco después Artrópodos y otros animales.
+
+-300 Ma aparecen los anfibios.
+
+Primeros Amniotas.
+
+-200 Ma Mamíferos.
+
+-100 Ma Aves.
+
+-6 Ma Homínidos. Algo peculiar de los humanos y simios es que son consciente de su propia existencia, a diferencia de otros animales.
+
+\subsection{Las leyes de Mendel}
+Hizo experimentos con guisantes entre 1857 y 1868. Publico su primer artículo en 1866.
+
+Se fijó en dos características, la altura de la planta y la rugosidad del guisante.
+
+Mendel cruzó artificialmente plantas altas con bajas, y siempre se producían plantas altas.
+
+Después cruzó las plantas resultantes y obtuvo unas proporciones de 3 a 1.
+
+Elaboró una teoría corpuscularia de la herencia, que decía que la herencia está en alguna parte del individuo codificada.
+
+Envió los resultados a un científico famoso, Nageli, pero pasó desapercibido.
+
+50 años después se redescubrió su teoría y fue aceptada.
+
+\subsection{El Ácido Desoxirribonucleico}
+Watson y Crick descubrieron en 1951 la estructura en doble hélice del ADN: Adenia-Timina Guanina-Citosina.
+
+Más tarde se descubrió el ARN. Igual excepto Uracilo en vez de timina.
+
+El ARN no tiene estructura fija en doble hélice. Puede doblarse de muchas formas.
+
+Los pliegues le dan carácter de enzima, y es además portador de código genético.
+
+\subsection{El código genético}
+\textbf{Cada tres bases (codón) → un aminoácido}
+
+Hay 4$^3$ = 64 posibles codones para 20 aminoácidos.
+
+Algunos no codifican aminoácidos, sino controles (STOP).
+
+Más de un codón codifica un mismo aminoácido.
+
+Código autocorrector.- Los aminoácidos más numerosos son codificados por más codones, y parecidos. Esto evita las mutaciones destructivas.
+
+Los aminoácidos forman las proteínas.
+
+Las proteínas son enzimas que gobiernan todos los procesos químicos.
+
+\subsection{La síntesis de proteínas}
+El ADN contiene el material genético, es copiado “en negativo” por el ARN-mensajero.
+
+El ARN-mensajero pasa la información al ARN-de transferencia.
+
+El ARN-de transferencia tiene una zona desplegada compuesta por tres bases y tiene adosado un aminoácido.
+
+El ARN-t se “pega” al trozo de ARN-m complementario, cuando el anterior trozo ya ha sido leído, y deposita su aminoácido a continuación del anterior.
+
+Este proceso se realiza en presencia de una enzima llamada ribozima.
+\pagebreak
+
+\subsection{Definiciones}
+\textbf{Gen:} La definición no es clara. Todo aquello que produzca de forma monolítica una característica en un individuo.
+
+\textbf{Genotipo:} Es el conjunto de todos los genes. Es la secuencia de bases enumerada una detrás de otra
+
+\textbf{Fenotipo:} Es la consecuencia física, psíquica, de comportamiento, o cualquier otra; de un determinado gen
+
+\subsection{Reproducción}
+Existen dos tipos de reproducción: asexual y sexual
+
+La asexual es cuando un individuo por sí solo produce copias idénticas de él mismo.
+\begin{itemize}
+	\item P. ej. Las estrellas de mar
+\end{itemize}
+
+La sexual es cuando se necesitan dos individuos para producir un descendiente (o varios), y el resultado es un individuo cuyos genes son una mezcla de los de sus progenitores.
+
+La reproducción sexual produce constantemente individuos diferentes y ayuda a la variedad genética
+
+Se desconocen las causas de la aparición de la reproducción sexual Computacionalmente la reproducción sexual es mucho más potente
+
+\subsection{Tipos de reproducción}
+Tienen un solo juego de cromosomas. Los individuos se reproducen por sí mismos. La reproducción da lugar a individuos genéticamente idénticos al progenitor
+
+Los cromosomas están pareados. Las células sexuales se generan mediante meiosis y son “haploides”, conteniendo información redundante e incluso contradictoria. Los descendientes reciben un cromosoma de cada uno de los progenitores para formar un embrión diploide
+
+\subsection{Haplo-Diploidad}
+Unos individuos son haploides (machos) y otros diploides (hembras).
+\begin{itemize}
+	\item P. ej. Los insectos sociales
+\end{itemize}
+\pagebreak
+
+\section{Conceptos de Computación Evolutiva}
 
 \end{document}
