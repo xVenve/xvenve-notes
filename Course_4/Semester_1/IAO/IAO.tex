@@ -585,7 +585,7 @@ Los componentes principales para construirlo son:
 \end{itemize}
 También puede contener un subsistema de explicación, cuya función es explicar el razonamiento llevado a cabo por el sistema experto y justificar las conclusiones alcanzas, y una memoria de trabajo reservada para descripción del problema actual y para registrar los resultados intermedios. 
 
-Otra posible estructura de sistema experto, contiene además de los anteriores:
+Otra posible estructura de sistema experto contiene además de los anteriores:
 \begin{itemize}
     \item \textbf{Base de datos de dominio}, que contiene la información relevante sobre el dominio o área de interés.
     \item Un \textbf{sistema de gestión de base de datos}, que se encarga de controlar la entrada y gestionar tanto la base de datos de dominio como la base de datos de conocimiento.
@@ -622,12 +622,12 @@ Para comenzar el desarrollo de un sistema experto se puede hacer desde 0, diseñ
  
 Aunque también se puede utilizar lenguajes convencionales, como C, C++ o Java, que permiten dar una mayor flexibilidad a la hora de adaptar el sistema al problema de dominio específico. 
  
-Sin embargo, estos últimos lenguajes no proporcionan una idea de como debe ser representado el conocimiento, ni de que mecanismo deben ser diseñados para acceder a la base de conocimiento.
+Sin embargo, estos últimos lenguajes no proporcionan una idea de cómo debe ser representado el conocimiento, ni de que mecanismo deben ser diseñados para acceder a la base de conocimiento.
  
 \subsection{Entornos híbridos}
 Por otro lado, los entornos híbridos brindan mucha facilidad para la conducción de sistemas expertos, con estas herramientas personas con poca experiencia pueden trabajar con un sistema experto. 
  
-Suelen poseer una shell de sistema experto que contiene todos los elementos esenciales de un sistema experto, exceptuando el conocimiento específico de dominio, también herramientas para construir interfaces de usuario y más características para facilitar la construcción del sistema experto.
+Suelen poseer una Shell de sistema experto que contiene todos los elementos esenciales de un sistema experto, exceptuando el conocimiento específico de dominio, también herramientas para construir interfaces de usuario y más características para facilitar la construcción del sistema experto.
  
 Una Shell es una herramienta específica para sistemas expertos que facilita la implementación de estos sistemas. Además los sistemas expertos llevan mucho tiempo en el mercado, por lo que existen muchos ejemplos. El usuario introduce los parámetros de entrada al sistema y este le da salida para el problema, algunos ejemplos:
  \begin{itemize}
@@ -638,9 +638,10 @@ Una Shell es una herramienta específica para sistemas expertos que facilita la 
      \item \textbf{Personal Consultant (PC) Easy} era utilizado para guiar vehículos en almacenes y plantas de manufactura.
  \end{itemize}
  
-Una shell muy usada hoy en día es \textbf{Exsys} desarrollada por Corvid, es una herramienta diseñada para crear sistemas expertos en línea y pensada en usuarios no programadores.
+Una Shell muy usada hoy en día es \textbf{Exsys} desarrollada por Corvid, es una herramienta diseñada para crear sistemas expertos en línea y pensada en usuarios no programadores.
 \section{Aplicaciones}
 Se aplican en una gran variedad de dominios con el propósito de dar soporte a la toma de decisiones. Se puede ver tanto en el área de los negocios para dar soporte como con usos médicos para el diagnóstico.
+\pagebreak
 
 Los primeros sistemas expertos estaban dirigidos al dominio de las ciencias como son:
 \begin{itemize}
@@ -660,6 +661,7 @@ Los primeros sistemas expertos estaban dirigidos al dominio de las ciencias como
 	\item \textbf{Automatización de procesos de negocio}, se utiliza en la gestión de call center.
 	\item \textbf{Administración de la salud}, se han utilizado para resolver diferentes problemas y la aplicación en la bioinformática.
 \end{itemize}
+\pagebreak
 
 \textbf{Ejemplos de Sistemas expertos}
 \begin{itemize}
@@ -676,6 +678,158 @@ Los primeros sistemas expertos estaban dirigidos al dominio de las ciencias como
 Estos son solo algunos ejemplos, muchas empresas desarrollan sus propios sistemas expertos y no publican sus resultados porque son parte de su core-business.
 
 \section{Beneficios y limitaciones}
+\textbf{Beneficios de los Sistemas Expertos}
+\begin{itemize}
+	\item \textbf{Captura de conocimientos escasos}, se da en los casos en los que los expertos se jubilan o dejan el trabajo, pasando haber insuficientes expertos.
+	\item \textbf{Aumento de la productividad y la calidad}, los sistemas expertos son capaces de trabajar más rápido que los humanos y brindar recomendaciones consistentes, reduciendo el orden de magnitud de los errores.
+	\item \textbf{Disminución del tiempo de toma de decisiones}, las personas que toman consejo de sistemas expertos pueden tomar decisiones mucho más rápido.
+	\item \textbf{Mejora en la resolución de problemas}, los sistemas expertos incorporan conocimiento de múltiples expertos en el proceso de análisis lo que posibilita esta mejora y la Integración de varias opiniones de expertos.
+	\item \textbf{Puede trabajar con información incierta o incompleta} como lo haría un ser humano.
+\end{itemize}
+Estos son solo algunos de los beneficios de utilizar estos sistemas, pero también hay algunas limitaciones.
+
+\textbf{Problemas y limitaciones de los Sistemas Expertos}
+\begin{itemize}
+	\item \textbf{Falta de disponibilidad del conocimiento}, puede darse el caso de que no se pueda acceder al conocimiento, que no haya expertos en el problema que queremos resolver.
+	\item \textbf{Extracción de la experiencia}, es proceso difícil obtener el conocimiento de los humanos.
+	\item \textbf{Miedo a compartir conocimiento}, lo sufren algunos expertos por miedo a perder su trabajo y ser remplazados.
+	\item \textbf{Dominio estrecho y bien definido.}
+	\item \textbf{Vocabulario técnico de los expertos.}
+	\item \textbf{Falta de confianza de los usuarios finales en el sistema.}
+	\item \textbf{Pueden generar recomendaciones incorrectas.}
+\end{itemize}
+
+Investigadores han hecho estudios sobre los factores que determinan el éxito o fracaso de un SSEE, son los siguientes:
+\begin{itemize}
+	\item \textbf{Contar con un buen gestor.}
+	\item \textbf{Participación del usuario y un elemento de formación.}
+	\item \textbf{Justificación de la importancia del problema de manera adecuada.}
+	\item \textbf{Buena gestión de proyectos.}
+	\item Es necesario que el nivel de conocimiento sea lo suficientemente alto.
+	\item Debe haber al menos un experto cooperativo.
+	\item El problema debe ser principalmente cualitativo.
+	\item Debe ser suficientemente limitado el alcance.
+	\item La interfaz de usuario debe ser de alta calidad, amigable y capaz de almacenar y manipular el conocimiento.
+\end{itemize}
+
+En 1995 se descubrió que solo un tercio de los sistemas expertos que se habían estudiado sobrevivía más allá de los 5 años, por lo general el sistema fallaba debido a problemas administrativos como la falta de aceptación del sistema por parte de los usuarios, la incapacidad de retener a los desarrolladores del sistema, problemas en la fase de transición del desarrollo al mantenimiento (falta de refinamiento del sistema), cambios en la prioridad de la organización. 
+
+Una \textbf{adecuada gestión, desarrollo y despliegue del sistema experto podría resolver la mayoría de estos problemas}.
+
+Hoy en día no se ven muchas publicaciones sobre la aplicación de sistemas expertos, sin embargo como dice \textbf{Richard Barfus “Los sistemas expertos no desaparecieron, sino que fueron encubiertos”}, han evolucionado y se encuentran en sistemas híbridos junto a otros tipos de sistemas inteligentes.
 
 \section{Casos}
+\subsection{Caso 1: Cultivo de algodón en Pakistán}
+Es un proyecto basado en el Internet de las cosas, IoT, que mediante dispositivos distribuidos y conectados que toman datos nos dan la información sobre los campos.
+
+\textbf{Internet de las cosas (IoT)}: es la red de objetos físicos que contienen tecnología integrada para comunicarse y detectar o interactuar con sus estados internos o el entorno externo. Hoy en día todo está conectado como la lavadora, frigorífico, sensores en el campo, wearable, etc.
+
+Otras tecnologías previas al IoT son:
+\begin{itemize}
+	\item Radio Frecuency Identification (RFID) es una tecnología que permite localizar objetos en un lugar.
+	\item Wireless Sensor Network (WSN) que es una red de objetos interconectados dentro de una misma red para compartir datos.
+\end{itemize}
+
+Este proyecto se llevó a cabo en Pakistán porque es un país agrícola, depende mucho de su producción la economía, y se ha enfrentado a perdidas por las siguientes razones.
+\begin{itemize}
+	\item Siembra retrasada y baja.
+	\item calidad de semilla.
+	\item Peligros ambientales.
+	\item Ataques de insectos y enfermedades.
+	\item Riego no planificado y pérdidas de agua.
+	\item Cosecha intempestiva.
+	\item Uso indebido de fertilizantes e insecticidas.
+	\item Falta de maquinaria y equipo.
+	\item Mal manejo de cultivos maduros.
+\end{itemize}
+
+Por esto surge el proyecto de emplear tecnología para mejorar la producción. Los agricultores son en su mayoría son analfabetos, por lo que se recogerá el conocimiento de expertos y agricultores experimentados para ayudarles, el sistema se consultará a través de una app en distintas lenguas locales.
+
+El sistema tiene como objetivo:
+\begin{itemize}
+	\item Manejo eficiente de cultivos. Control de riego.
+	\item Advertencias y orientaciones medioambientales.
+	\item Uso óptimo de fertilizantes, insecticidas y pesticidas.
+\end{itemize}
+
+El proceso que se seguirá será primero, Adquisición de conocimiento (desplegar los sensores, datos de plagas, insectos, enfermedades, maleza y entorno de crecimiento), desarrollar el sistema experto en este caso en CLIPS (reglas del tipo IF  THEN ELSE) y por último los agricultores consultaran las recomendaciones del sistema.
+\begin{itemize}
+	\item Síntomas de insectos y recomendaciones de insecticidas.
+	\item Síntomas de malezas y recomendación de plaguicidas.
+	\item Síntomas de gusanos y recomendaciones de insecticidas.
+	\item Programación de riego.
+\end{itemize}
+
+Los dispositivos empleados con pequeños y constan de: Sensor de suelo, Sensor de humedad, Sensor de temperatura y Sensores de humedad de la hoja. Todos estos dispositivos están conectados formando una red en la que se van comunicando la información y llega al sistema por el Gateway.
+
+Sensores conectados > Sistema Experto > App móvil
+
+Su estructura consta de Base de conocimiento, motor de inferencia (con agenda), Facilidad de explicación y la interfaz de usuario.
+
+No toda la información viene de los sensores, alguna la da el propio usuario mediante la interfaz, en un futuro con una foto y visión artificial será capaz de reconocerlo por sí mismo.
+\pagebreak
+
+Conclusiones
+\begin{itemize}
+	\item Sistema evaluado entre julio y diciembre de 2015.
+	\item Tasa de aceptación del 65 \%, en una encuesta a 100 individuos.
+	\item Recomendaciones sobre riego, pestes, insectos y malezas.
+\end{itemize}
+
+Trabajos futuros
+\begin{itemize}
+	\item Despliegue de actuadores en campo, que sean capaces de en función de los parámetros realizarlo ellos mismos.
+	\item Mejora de la funcionalidad del servidor.
+	\item Despliegue de cámaras en el campo, de esta manera no se mete a mano la información.
+\end{itemize}
+
+\subsection{Caso 2: Predicción de inundaciones}
+Las catástrofes meteorológicas generan inundaciones, lo que trata este proyecto es de estar prevenidos de estos mediante alertas, ya que son los que generan mayores desastres.
+
+\textbf{Inundación:} es una condición general y temporal de anegación parcial o completa de áreas de tierra normalmente seca por el desbordamiento de aguas continentales o de marea debido a la acumulación o escorrentía inusual y rápida de las aguas superficiales de cualquier fuente.
+
+Datos con los que cuenta
+\begin{itemize}
+	\item Cantidad de lluvia
+	\item Duración de la lluvia
+	\item Tasa de cambio en el flujo del río
+	\item Nivel del agua del río
+	\item Características de la cuenca de drenaje de un río (si el río es capaz de absorber el agua)
+	\item Actividades humanas que se desarrolla en el área.
+\end{itemize}
+
+Se desarrolló un \textbf{sistema experto basado en reglas de creencias}, cuya estructura es:
+\begin{itemize}
+	\item Base de conocimiento, cuyo núcleo es la base de reglas de creencia.
+	\item Motor de inferencia, realiza el razonamiento probatorio, en vez de encadenamiento hacia delante o atrás.
+\end{itemize}
+
+Se utiliza estas reglas para procesar \textbf{varios tipos de incertidumbre} en datos de sensores.
+\begin{itemize}
+	\item Ignorancia
+	\item Incompletitud
+	\item Aleatoriedad
+	\item Vaguedad
+	\item Imprecisión
+\end{itemize}
+
+\textbf{Las reglas tiene la forma:} Si lluviaCaida es Media Y DuraciónLluviaCaida es Alta ENTONCES CondiciónMeteorologica es {(Severa, 0), (Moderada, 0.4), (Baja, 0.6)}. Funcionan algo parecido a las reglas difusas.
+
+Estas reglas emplean términos como Alto, Medio o Bajo, además la salida viene dada como la probabilidad de cada uno de los posibles valores de salida.
+
+\textbf{Proceso de inferencia:} Razonamiento Probatorio
+\begin{enumerate}
+	\item Transformación de entrada 
+	\item Activación de reglas, se hace match de las reglas para ver cuál es la necesaria.
+	\item Actualización de creencias
+	\item Agregación de reglas
+\end{enumerate}
+La inferencia la hacemos de esta manera para tener en cuenta la incertidumbre.
+
+Se van agrupando los factores de entrada generando otros factores que se van relacionando, generando una jerarquía tal que en la parte superior está la salida. La agregación de todas las reglas nos permite saber el nivel de inundación. Por ejemplo el X7 es la salida, pero depende de X8, X9, X10, X11 y X12, que son agrupaciones de entradas.
+
+Mediante la interfaz de entrada, para cada antecedente de las reglas (no son solo las entradas, sino también las agrupaciones intermedias) se definen los intervalos de los términos difusos; alto, medio y bajo, así como el valor por defecto. Lo mismo se realiza para el consecuente.
+
+Este sistema permite actualizar las reglas, de manera que ajusta unos pesos a cada variable de la regla para dar la salida. Se representa el conocimiento de tal manera que tenga la incertidumbre del problema, y con la llegada de las entradas voy actualizando los pesos. Se van agregando las reglas de manera que cuando todas se han lanzado se ha escalado el árbol y se conoce la predicción.
+
 \end{document}
