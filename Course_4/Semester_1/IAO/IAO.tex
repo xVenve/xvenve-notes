@@ -39,6 +39,7 @@ hmargin=3cm
 
 % Quitar la indentación de principio de los párrafos
 \setlength{\parindent}{0em}
+\usepackage{multicol}
 
 % EXPRESIONES MATEMÁTICAS
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
@@ -477,5 +478,170 @@ La tendencia actual es incorporar los sistemas inteligentes dentro de otras apli
 
 Los sistemas híbridos es un área en expansión.
 
+\chapter{Tema 2: Sistemas Expertos}
+\section{Introducción}
+Estos sistemas surgieron en los 70, pero proliferaron a lo largo de los 80. Se pueden llamar sistemas expertos o sistema basados en conocimiento.
 
+Están dirigidos a resolver tareas en dominios definidos de manera limitada y que requieren conocimiento especializado, de expertos.
+
+Llevan una larga trayectoria, en la que han aparecido numerosas variantes, y se han consolidado en muchos dominios.
+
+\subsection{Dominios y áreas de aplicación}
+\begin{multicols}{2}
+\textbf{Dominios}
+\begin{itemize}
+    \item Contabilidad
+    \item Finanzas
+    \item Gerencia
+    \item Comercialización
+    \item Leyes
+    \item Ingeniería
+\end{itemize}
+\columnbreak
+
+\textbf{Áreas de aplicación}
+\begin{itemize}
+    \item Resolución de problemas
+    \item Tareas de planificación
+    \item Tareas en búsqueda
+    \item Interpretación
+    \item Monitorización
+    \item Control
+\end{itemize}
+\end{multicols}
+
+\subsection{¿Qué son?}
+Son programas de ordenar que exhiben un comportamiento característico de los expertos, personas que dominan un área/materia.
+
+Son sistemas informáticos que utilizan conocimiento experto con el propósito de alcanzar un rendimiento similar al de un experto a la hora de resolver un problema muy bien definido.
+
+Es importante destacar que los Sistemas expertos no sustituyen a los expertos, pero permiten que la experiencia y conocimiento de estos esté disponibles, lo que hace que los no expertos puedan trabajar mejor.
+
+Son la tecnología de Inteligencia Artificial más aplicada hoy en día.
+
+\subsection{¿Cuándo se utilizan?}
+Existen unos requerimientos para aplicar un sistema experto, que son:
+\begin{itemize}
+    \item \textbf{Conocimiento especializado}, que provienen de expertos y libro/textos publicados.
+    \item \textbf{Juicio}, la capacidad de tomar decisiones sensatas o llegar a conclusiones razonables, que tenga un criterio.
+    \item \textbf{Experiencia}, contar con alguien que sepa resolver el problema para poder seguir adelante.
+\end{itemize}
+
+En relación con el problema hay dos características que debe poseer:
+\begin{itemize}
+    \item El problema debe ser \textbf{heurístico}, que no cuente con una solución algorítmica o al menos no fácil.
+    \item El problema debe estar \textbf{bien definido}, tiene que estar claramente identificado.
+\end{itemize}
+Además, el área de experiencia debe estar muy  definido y reconocida a nivel profesional.
+
+Cuando se está desarrollando el sistema se necesita reclutar expertos que deseen cooperar en el desarrollo del sistema. El problema de reclutar al experto es que no quieran  porque lo vean como una amenaza que les quite el trabajo.
+
+También hay que tener en cuenta el tamaño y complejidad de la aplicación, deben ir acorde con la organización, de manera que sea manejable en función de los recursos de la organización y contando con el respaldo de la administración. Cuanto más grande y complejo más reglas requerirá.
+
+\section{Conceptos}
+\subsection{¿Qué es un sistema experto?}
+Feigenbaum; McCorduck y Nii lo definen de la siguiente manera
+\begin{quote}
+	Los programas de IA que consiguen una capacidad a nivel de expertos en la resolución de  problemas mediante la reproducción de un cuerpo de conocimiento se denominan sistemas basados en conocimiento o sistemas expertos.
+\end{quote}
+
+Lo que quiere decir que un sistema experto es: Un programa de ordenador que realiza una tarea con el nivel que alcanzaría un experto humano.
+
+Los sistemas expertos intentas incorporar en un programa de ordenador el conocimiento de expertos humanos en un área bien definida.
+
+Un punto clave en estos sistemas es que el dominio debe definirse de una manera limitada, no puede dar respuestas útiles a todas las posibles preguntas. Se limita a un área de conocimiento, como pasa con los expertos humanos.
+
+\textbf{Experto:} Persona que ha desarrollado un alto nivel de habilidades que le permiten hacer juicios en un dominio específico. 
+
+Otro concepto que debemos considerar es la pericia, que es la sabiduría, práctica y experiencia en una ciencia o arte. 
+
+\textbf{Pericia:} Conjunto de capacidades que enfatizan el desempeño de los expertos humanos como extenso conocimiento de dominio, heurísticas que simplifican y mejoran los enfoques para la resolución de problemas, el metaconocimiento y la metacognición. Por último, comportamientos que permiten un mejor desempeño en una tarea determinada.
+
+\subsection{Porque construir un sistema experto?}
+Una de las principales razones de las organizaciones es que permite preservar la experiencia, los sistemas expertos almacenan una gran cantidad de conocimiento que pueden poner a disposición de personas con menos experiencia.
+
+Otras razones son: Mejorar la productividad, hacer que la experiencia sea portable u obtener consejo de expertos que de otra manera no sería posible.
+
+\subsection{¿Qué hace falta para construir un sistema experto?}
+\begin{itemize}
+    \item Lo primero es \textbf{adquirir el conocimiento}, llamado Obtención del conocimiento, que a menudo requiere una serie de entrevistas así como una observación minuciosa del experto mientras lleva a cabo sus tareas.
+    \item Una vez hemos adquirido el conocimiento debemos \textbf{representar el conocimiento} de tal manera que pueda ser reutilizado por el ordenador. Existen distintas maneras:
+    \begin{itemize}
+        \item \textbf{Reglas de producción}, que son reglas del tipo Sí … Entonces …
+        \item \textbf{Marcos}, son  estructuras de datos que representan situaciones estereotipadas en un dominio mediante el uso de un formalismo baso en conceptos. Se pueden considerar los predecesores de los objetos del paradigma de la Programación Orientada a Objetos.
+        \item \textbf{Redes semánticas}, que utilizan un formalismo basado en relaciones para representar el conocimiento del dominio.
+        \item \textbf{Ontologías}.
+    \end{itemize}
+\end{itemize}
+La representación más habitual del conocimiento para los sistemas expertos son las reglas de producción. Que tiene la forma de sí se cumple la premisa entonces se realiza la acción.
+
+Los componentes principales para construirlo son:
+\begin{itemize}
+    \item La \textbf{base del conocimiento}, es una colección de hechos, reglas y procedimientos organizados en esquemas. Contiene toda la información y conocimiento sobre un campo de interés específico.
+    \item Un \textbf{motor de inferencia}, cerebro del sistema, contiene las estrategias de inferencia y los controles usados por los expertos para manipular las bases de datos de conocimiento y dominio.
+    
+    Este recibe la consulta mediante la interfaz de usuario y lleva a cabo el razonamiento en la base de conocimiento.
+    \item La \textbf{interfaz de usuario}, es un componente orientado a facilitar la comunicación entre el sistema y el usuario.
+\end{itemize}
+También puede contener un subsistema de explicación, cuya función es explicar el razonamiento llevado a cabo por el sistema experto y justificar las conclusiones alcanzas, y una memoria de trabajo reservada para descripción del problema actual y para registrar los resultados intermedios. 
+
+Otra posible estructura de sistema experto, contiene además de los anteriores:
+\begin{itemize}
+    \item \textbf{Base de datos de dominio}, que contiene la información relevante sobre el dominio o área de interés.
+    \item Un \textbf{sistema de gestión de base de datos}, que se encarga de controlar la entrada y gestionar tanto la base de datos de dominio como la base de datos de conocimiento.
+    \item Un \textbf{componente de adquisición de conocimiento},  orientado a la extracción y formulación de conocimientos derivados de diversas fuentes, especialmente de expertos. En sistemas más avanzados es capaz de aprender nuevo conocimiento de manera autónoma. Permite la interacción entre el usuario  y el sistema.
+\end{itemize}
+
+Un concepto importante para estos sistemas es la inferencia.
+
+\textbf{Inferencia:} Es el proceso de encadenar múltiples reglas juntas basadas en los datos de los que se dispone. En un sistema experto lo lleva a cabo el motor de inferencia. Los mecanismos de inferencia más populares para los sistemas basados en reglas son:
+ \begin{itemize}
+     \item \textbf{Encadenamiento hacia delante}, es una búsqueda orientada por los datos, si las cláusulas de la premisa coinciden con la situación actual el proceso intenta afirmar la conclusión.
+     \item \textbf{Encadenamiento hacia atrás}, es una búsqueda orientada a objetivos, el proceso comienza con la cláusula de acción de una regla y  trabaja hacia atrás a través de una cadena de reglas en un intento de encontrar un conjunto verificable de cláusulas de colisión.
+ \end{itemize}
+ 
+\section{Herramientas de desarrollo}
+Un proceso tipo para desarrollar un sistema experto incluye:
+ \begin{itemize}
+     \item Adquisición de conocimiento.
+     \item Representación del conocimiento.
+     \item Selección de herramientas de desarrollo.
+     \item Prototipado del sistema.
+     \item Evaluación del sistema desarrollado.
+     \item Proceso continuo de mejora y mantenimiento.
+ \end{itemize}
+ A la hora de seleccionar una herramienta para el desarrollo de sistemas expertos hay que tener en cuenta:
+ \begin{itemize}
+     \item Relación costo/beneficio.
+     \item Funcionalidad/Flexibilidad de la herramienta.
+     \item Compatibilidad de la herramienta con la infraestructura de información existente, es un aspecto fundamental para facilitar la incorporación del sistema experto a los sistemas actuales de la organización.
+     \item Fiabilidad y soporte de proveedor de la herramienta.
+ \end{itemize}
+\subsection{Lenguajes IA}
+Para comenzar el desarrollo de un sistema experto se puede hacer desde 0, diseñando y programando los componentes de un sistema experto utilizando el lenguaje de programación de propósito general utilizado en el desarrollo de sistemas basados en inteligencia artificial, como LISP o PROLOG.
+ 
+Aunque también se puede utilizar lenguajes convencionales, como C, C++ o Java, que permiten dar una mayor flexibilidad a la hora de adaptar el sistema al problema de dominio específico. 
+ 
+Sin embargo, estos últimos lenguajes no proporcionan una idea de como debe ser representado el conocimiento, ni de que mecanismo deben ser diseñados para acceder a la base de conocimiento.
+ 
+\subsection{Entornos híbridos}
+Por otro lado, los entornos híbridos brindan mucha facilidad para la conducción de sistemas expertos, con estas herramientas personas con poca experiencia pueden trabajar con un sistema experto. 
+ 
+Suelen poseer una shell de sistema experto que contiene todos los elementos esenciales de un sistema experto, exceptuando el conocimiento específico de dominio, también herramientas para construir interfaces de usuario y más características para facilitar la construcción del sistema experto.
+ 
+Una Shell es una herramienta específica para sistemas expertos que facilita la implementación de estos sistemas. Además los sistemas expertos llevan mucho tiempo en el mercado, por lo que existen muchos ejemplos. El usuario introduce los parámetros de entrada al sistema y este le da salida para el problema, algunos ejemplos:
+ \begin{itemize}
+     \item \textbf{1st-Class Fusion} brindaba un fácil acceso a la base de conocimiento e incorporaba el algoritmo ID3.
+     \item \textbf{Financial Advisor} que analizaba las inversiones de capital activo como equipo e instalaciones. Fue desarrollado 1985.
+     \item \textbf{KnowledgePro} es un lenguaje de alto nivel que combina funcionalidades de sistemas expertos e hipertexto. Permitía crear sistemas clásicos de reglas, si-entonces, y leer datos desde base de datos y hojas de cálculo.
+     \item \textbf{Leonardo} utilizaba un lenguaje orientado a objetos llamado contract que permitía a los especialistas en marketing analizar su empresa y/o producto con respecto a la competencia.
+     \item \textbf{Personal Consultant (PC) Easy} era utilizado para guiar vehículos en almacenes y plantas de manufactura.
+ \end{itemize}
+ 
+Una shell muy usada hoy en día es \textbf{Exsys} desarrollada por Corvid, es una herramienta diseñada para crear sistemas expertos en línea y pensada en usuarios no programadores.
+\section{Aplicaciones}
+
+\section{Beneficios y limitaciones}
+
+\section{Casos}
 \end{document}
