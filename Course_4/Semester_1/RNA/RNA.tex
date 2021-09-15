@@ -354,6 +354,138 @@ Separar las instancias en 70 15 15.
 
 En la parte de programar los vectores de pesos y umbrales, si se hace un vector con los pesos y el umbral, tener en cuenta que al hacer el producto cartesiano el de entrada debe tener un 1 para el umbral. $[x_1 \; x_2 \; x_3 \; 1]$ con $[w_1 \; w_2 \; w_3 \; \sigma]$
 
-\chapter{Tema 1: XXX}
+\chapter{Tema 1: Introducción}
+El objeto de la IA es la construcción de sistemas inteligentes.
+
+\textbf{Sistema Inteligente:} Dispositivo físico o lógico con capacidades propias de los humanos como tomar decisiones, resolución de problemas o el aprendizaje.
+
+Partiremos de la base, por lo que el primer paso serán organismos más pequeños, pero el objetivo es alcanzar la capacidad humana y llegar a sustituirnos.
+
+Áreas
+\begin{itemize}
+	\item \textbf{Simbólica (Top-down):} Diseñar componentes del sistema inteligente donde el comportamiento es programado por nosotros para que él sea capaz de razonar y aprender. Se emplea en búsqueda y optimización
+	\item \textbf{Subsimbólica (Bottom-up):} Se programa lo básico y lo dejamos interactuar para ver si llega a un punto adecuado. No programamos el comportamiento, sino las partes base y miramos a ver como se relaciona y si lo resuelve.
+\end{itemize}
+
+Las \textbf{Redes de Neuronas} se encuentran en la IA subsimbólica, tratan de emular los sistemas neuronales biológicos. Se ha estado durante décadas detrás de la construcción de algoritmos capaces de procesar la información de la misma manera que lo hace el cerebro humano.
+
+Se caracterizan por tener la \textbf{propiedad de aprender} a partir de ejemplos.
+
+Tratan \textbf{información numérica}, si se puede discretizar bien, si no se emplean otros métodos.
+
+En la actualidad existe un gran número de arquitecturas diferentes de redes de neuronas artificiales, además este progreso ha sido posible por la capacidad de cómputo, esos procesos son muy costosos.
+
+Algunas \textbf{áreas de aplicación}:
+\begin{itemize}
+	\item Reconocimiento de patrones (imagen, voz, caracteres)
+	\item Compresión y análisis de datos.
+	\item Robótica.
+	\item Medicina.
+	\item Predicción de series temporales.
+\end{itemize}
+
+Las redes de neuronas no permiten abordar problemas de: Aproximación, Predicción, Clasificación, Agrupación.
+
+\textbf{Otras técnicas de IA que se pueden emplear} para estos problemas son:
+\begin{itemize}
+	\item Máquinas de Vectores de Soporte (Vapnik, 1995)
+	\item Gradient Boosting (Friedman, 2002)
+	\item Random Forest (Breiman, 2001)
+	\item K-medias (agrupación) (MacQueen, 1967)
+\end{itemize}
+
+\textbf{Ventajas}
+\begin{itemize}
+	\item Son fáciles de utilizar y diseñar, la parte difícil es acertar.
+	\item Capacidad de aprender a partir de ejemplos.
+	\item Tolerancia al ruido en los ejemplos, es muy tolerante a fallos, incluso a la perdida de unas pocas neuronas.
+	\item Diversidad de las áreas de aplicación, teniendo datos se puede aplicar en problemas de cualquier área aunque no seamos expertos en la misma.
+\end{itemize}
+
+Desde la aparición de las redes sociales y móviles las compañías han recogido muchísimos datos que han posibilitado el entrenamiento de  redes en muchas áreas.
+
+\textbf{Problemas específicos de las RNA}
+\begin{itemize}
+	\item Tiempo de aprendizaje, requiere mucha capacidad de cómputo y son lentos.
+	\item Determinación de los hiperparametros, como el número de neuronas, ciclos, etc.
+	\item No se pueden explicar los resultados, como una caja negra por lo que se están diseñando redes cuyo propósito es explicar.
+\end{itemize}
+
+\section{Historia}
+Comienza en \textbf{1940} con estudios en la neurocirugía, al descubrir la neurona, se empezó a ver el funcionamiento del cerebro y se vio que funcionaba por señales eléctricas. A raíz de esto se hicieron modelos computaciones basados en lo que se conocía, se crearon para puertas lógicas inicialmente (con pesos fijos). El primer modelo fue de S. McCulloch y W. Pitts, que permitía pesos que se ajustaban, pero no se aprendían.
+
+F. Rosenblatt en \textbf{1957} diseñó el Perceptrón que tenía un proceso para calcular los pesos según las entradas, en esos momentos la entrada era binaria.
+
+B. Widrow y M. Hoff en \textbf{1960} diseñaron el \textbf{ADALINE} que permitía entradas no binarias.
+
+Faltaban neuronas por falta de hardware, pero se pensaba que ya estaba todo hecho.
+
+M. Minsky y S. Papert con el \textbf{libro “Perceptrón”} en \textbf{1969} rompieron el pensamiento de que todo estaba hecho con el \textbf{XOR Problem}, en el que no existe un único plano que represente la logia de la puerta XOR. Este problema inició la Época oscura (“AI Winter”).
+
+D. Rumelhart, G. Hinton y R. William en \textbf{1986} solucionaron el problema XOR con más de 1 capa en el perceptrón, lo que da origen al \textbf{Perceptrón Multicapa y la Retropropagación.}
+
+V. Vapnik y C. Cortes en \textbf{1995} desarrollaron las Máquinas de Vectores de Soporte (SVM) que están relacionados con problemas de clasificación y regresión.
+
+En el año \textbf{2006} ya había capacidad de cómputo, se podía dar más profundidad con un mayor número de capas \textbf{Redes de Neuronas Profundas}, pero no se avanzó mucho en la teoría, se basaba en lo que había dicho Rumelhart.
+
+\section{Fundamentos biológicos}
+El \textbf{Sistema nervioso} es un conjunto de células especializadas en la conducción de señales eléctricas. Capta estímulos del entorno o internos, procesa la información y genera respuestas diferentes según la situación. No todos son igual de complejos, la estructura es lo que varía, pero todos están compuestos por los mismos componentes.
+
+El \textbf{Cerebro} es el órgano principal del Sistema Nervioso. Se encarga de regular y mantener cada función vital del cuerpo, y es el órgano donde reside la mente y la conciencia del individuo. Existen distintas áreas, cada una más sofisticada para una serie de tareas (como puede ser la motora, sensoria, etc.), pero todas son importantes para el individuo.
+\begin{itemize}
+	\item Está formado por $10^{11}$ células, llamadas neuronas, interconectadas entre sí (cada una a otras 1000-10000 $10^{15}$) y forman una densa red.
+\end{itemize}
+
+Las neuronas se comunican a través de \textbf{impulsos eléctricos de corta duración, que se transmiten a través de las sinapsis}.
+
+El impulso se propaga a través del axón, y es recibido por la dendrita (ramificaciones de la neurona que buscan axones) de la célula receptora.
+
+El \textbf{Axón} (una sola por neurona) se ramifica, y puede propagar una misma señal a cientos de dendritas de células diferentes. Contiene unas vesículas que contienen los neurotransmisores, que al liberarse se comunican con la neurona inmediata por medio de la sinapsis. La señal que se propaga es única y es recibida por todas las células conectadas.
+
+Las \textbf{Dendritas} reciben multitud de señales diferentes, algunas excitatorias y otras inhibitorias.
+\pagebreak
+
+Cuando el impulso llega a la neurona pre-sináptica, abre los canales de ion cálcico que liberan los neurotransmisores que son captados por los receptores de la neurona post-sináptica que abren o cierran los canales iónicos de la dendrita generando potenciales eléctricos que permiten la propagación de la señal hacia el soma de la célula. Se va despolarizando al recibir estímulos eléctricos, cuando supera un umbral se dispara un potencial de acción.
+
+\textbf{Son elementos no lineales:} Si se supera un umbral, se produce una señal de activación
+
+El sistema nervioso funciona como una enorme malla que propaga señales electroquímicas de unas células a otras, modificando sucesivamente la concentración de iones de las sinapsis.
+
+Robustez y tolerancia a fallos
+
+Adaptación y plasticidad
+
+Manejar información: inconsistente, difusa y con ruido
+
+Una \textbf{red artificial (ResNet152) puede llegar a los 60 millones de sinapsis} (diez millones de veces más pequeña), todavía estamos lejos.
+
+\section{Neurona artificial}
+Trata de imitar las características generales de las neuronas.
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Comparación neurona bilógica y neurona artificial}}
+	{\includegraphics[scale=.8]{neurona-vs-perceptron.jpg}}
+\end{figure}
+
+Las \textbf{dendritas funcionan como las entradas} en la neurona, el \textbf{axón como la salida} y la \textbf{densidad de la sinapsis para que pase mejor el impulso serían los pesos}.
+
+En cuanto al \textbf{potencial de acción (cuando supera el umbral) se simula con una función de activación} no lineal. Se utiliza un \textbf{umbral para poder ajustar esta función}.
+
+Cada neurona está caracterizada por un estado interno denominado nivel de activación:
+\begin{itemize}
+	\item Discreto: Desactivado o Activado, S=0,1.
+	\item Continuo: S=[0,1].
+\end{itemize}
+
+\textbf{Función de activación:} permite cambiar el nivel de activación a partir de las señales de entrada.
+
+Las señales de entrada se combinan entre sí, generando la entrada total.
+
+\textbf{Tipos de funciones de activación:}
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Tipos de funciones de activación}}
+	{\includegraphics[scale=.8]{tipos-fun-act.jpg}}
+\end{figure}
 
 \end{document}
