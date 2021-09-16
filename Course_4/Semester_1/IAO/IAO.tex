@@ -865,7 +865,40 @@ Se usan de forma extensiva en diferentes problemas reales de muy distintas índo
 Además, existen investigaciones recientes que han dado lugar a un nuevo paradigma, las redes de neuronas convolucionales o Deep Learning. Modelo propuesto por Yann LeCun en 1982, pero refinado en 2012 por un equipo liderado por Dan Ciresan.
 
 \section{Definición y tipos}
+Una \textbf{Red de Neuronas Artificiales} es un modelo (matemático) muy simple del conjunto de neuronas del cerebro. Se trata de conseguir el paso del circuito natural del cerebro al correspondiente circuito artificial o red de neuronas.
 
+Las neuronas del cerebro son lentas en comparación con los circuitos eléctricos ($10^{-3}$ s y $10^{-9}$), pero las naturales realizan computo masivamente paralelo lo que reduce la apariencia de esta lentitud.
+
+Una \textbf{neurona} es una unidad de proceso de 1 o varias entradas y con 1 o varias salidas. En la que se lleva a cabo la suma ponderada de las entradas ($a=x_1*w_1*x_2*w_2$), aplicando un peso a cada una, y se procesa mediante una función de activación ($y=F(a)$) que es la que produce la salida. 
+
+Las señales que llegan a la sinapsis son las entradas y estas señales pueden excitar a la neurona (si es positivo) o inhibirla (si es negativo). Si la suma ponderada supera un umbral se activará, si no permanecerá inactiva. 
+
+Las neuronas se encuentran distribuidas en capas, formadas por al menos 1 neurona, y estas capas están interconectadas, esto da lugar a la Red de Neuronas. La estructura de interconexión recibe el nombre de Arquitectura de la Red o Patrón de interconectividad. Las capas pueden ser: Capa de entrada, Capa oculta o Capa de salida.
+
+Las conexiones del perceptrón están siempre orientadas hacia delante, de esta manera las neuronas de una capa se conectan con todas o algunas de las neuronas de la siguiente capa, el llamado Feedforward.
+
+Para desarrollar una arquitectura de red se debe tener en cuenta el número de capas ocultas y su número de neuronas, que operaciones se pueden hacer en paralelo por las conexiones con la siguiente capa. Este proceso se realiza de manera manual y dependerá del problema a resolver, se está trabajando el diseño automático.
+
+El conocimiento en las RNA se ve representado en el peso de las conexiones entre neuronas, por lo que se aprende modificando estos pesos. Cada modelo dispone de su propia técnica de aprendizaje.
+
+\textbf{Función de activación} es una de las partes más importante de la red, esta nos permite independientemente de la arquitectura aprender relaciones no lineales de los datos. Transforma la correspondencia lineal en no lineal, las funciones más utilizadas son del tipo sigmoide, aunque se puede usar la función escalón.
+
+\textbf{Tipos de aprendizajes}
+\begin{itemize}
+	\item \textbf{Aprendizaje supervisado:} Un ejemplo es el perceptrón multicapa que es capaz de aprender a partir de un conjunto de ejemplos, pudiendo aproximar funciones no lineales, filtrar ruido en los datos, etc. Este aprendizaje se ha conseguido introduciendo la capa oculta y aplicando los algoritmos de aprendizaje de descenso del error, como backpropagation.
+	
+	Cybenko en 1989 demostró que se puede separar cualquier conjunto de datos aunque tengan relaciones no lineales siempre que se introduzca en el perceptrón una capa oculta sea del tamaño que sea.
+
+	Las neuronas aparecen en una red agrupadas en las tres capas mencionadas antes:
+	\begin{itemize}
+		\item Capa de entrada, las neuronas reciben información del exterior. No actúan como verdades neuronas, solo reciben las entradas/patrones del exterior y las propagan a la capa siguiente.
+		\item Capas ocultas, son las que realmente realizan el procesamiento de la información, comunican con la entrada y la salida. Realizan el procesamiento no lineal de los patrones recibidos.
+		\item Capa de salida, recibe información de la capa anterior y la envían hacia el exterior proporcionando la respuesta para cada uno de los patrones de entrada.
+	\end{itemize}
+
+	Para el aprendizaje se proporcionan a la red los datos de entrenamiento, que consisten en patrones de entrenamiento de entrada y salida, en función de la diferencia entre la salida y la salida esperada se van actualizando los pesos ($w_{i+1}=w_i+\Delta w_i$).
+	\item \textbf{Aprendizaje no supervisado:} Son capaces de modificar sus parámetros internamente para adaptarse al entorno, descubriendo por si solas características, regularidades o categorías entre los datos de entrada. Proporciona de manera codificada la salida. Las neuronas y sus conexiones muestran cierta capacidad de autoorganización.
+\end{itemize}
 
 \section{Aplicaciones}
 Las RNA se usan cada vez más en problemas de clasificación, predicción y clustering en ámbitos muy diversos, nosotros en la asignatura trataremos el financiero y empresarial. Algunos ejemplos son:
