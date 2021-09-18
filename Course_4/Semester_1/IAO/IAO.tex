@@ -318,8 +318,29 @@ Con el COVID se trató de desarrollar modelos de IA, pero no se tenían apenas d
 	\item 40 \% Práctica
 	      \begin{itemize}
 		      \item 15 \% Prácticas cortas.
-		      \item 10 \% PEC prácticas.
-		      \item 15 \% Práctica final.
+		            \begin{itemize}
+			            \item Redes de Neuronas Artificiales (2 sesiones).
+			            \item Mineria de Datos (2 sesiones).
+			            \item Logica difusa (1 sesión).
+		            \end{itemize}
+		            Evaluación
+		            \begin{itemize}
+			            \item Planteamiento y desarrollo del problema: 25 \%
+			            \item Resultados del problema: 25 \%
+			            \item Análisis de resultados y conclusiones: 25 \%
+			            \item Presentación: 15 \%
+			            \item Contexto de la práctica: 10 \%
+		            \end{itemize}
+		      \item 10 \% PEC prácticas: Control sobre las practicas (asequible si se han hecho)
+		      \item 15 \% Práctica final: Analisis, diseño y contrucción de un sistema basado en tecnicas de IA sobre un tema que nos guste.
+		            \begin{itemize}
+			            \item Presentación oral (20 \%)
+			            \item Presentación del documento (15 \%)
+			            \item Introducción y Estado del Arte (15 \%)
+			            \item Planteamiento de la solución (20 \%)
+			            \item Resultados (10 \%)
+			            \item Análisis de Resultados y Conclusiones (20 \%)
+		            \end{itemize}
 	      \end{itemize}
 	      
 \end{itemize}
@@ -886,17 +907,17 @@ El conocimiento en las RNA se ve representado en el peso de las conexiones entre
 \textbf{Tipos de aprendizajes}
 \begin{itemize}
 	\item \textbf{Aprendizaje supervisado:} Un ejemplo es el perceptrón multicapa que es capaz de aprender a partir de un conjunto de ejemplos, pudiendo aproximar funciones no lineales, filtrar ruido en los datos, etc. Este aprendizaje se ha conseguido introduciendo la capa oculta y aplicando los algoritmos de aprendizaje de descenso del error, como backpropagation.
-	
-	Cybenko en 1989 demostró que se puede separar cualquier conjunto de datos aunque tengan relaciones no lineales siempre que se introduzca en el perceptrón una capa oculta sea del tamaño que sea.
-
-	Las neuronas aparecen en una red agrupadas en las tres capas mencionadas antes:
-	\begin{itemize}
-		\item Capa de entrada, las neuronas reciben información del exterior. No actúan como verdades neuronas, solo reciben las entradas/patrones del exterior y las propagan a la capa siguiente.
-		\item Capas ocultas, son las que realmente realizan el procesamiento de la información, comunican con la entrada y la salida. Realizan el procesamiento no lineal de los patrones recibidos.
-		\item Capa de salida, recibe información de la capa anterior y la envían hacia el exterior proporcionando la respuesta para cada uno de los patrones de entrada.
-	\end{itemize}
-
-	Para el aprendizaje se proporcionan a la red los datos de entrenamiento, que consisten en patrones de entrenamiento de entrada y salida, en función de la diferencia entre la salida y la salida esperada se van actualizando los pesos ($w_{i+1}=w_i+\Delta w_i$).
+	      
+	      Cybenko en 1989 demostró que se puede separar cualquier conjunto de datos aunque tengan relaciones no lineales siempre que se introduzca en el perceptrón una capa oculta sea del tamaño que sea.
+	      
+	      Las neuronas aparecen en una red agrupadas en las tres capas mencionadas antes:
+	      \begin{itemize}
+		      \item Capa de entrada, las neuronas reciben información del exterior. No actúan como verdades neuronas, solo reciben las entradas/patrones del exterior y las propagan a la capa siguiente.
+		      \item Capas ocultas, son las que realmente realizan el procesamiento de la información, comunican con la entrada y la salida. Realizan el procesamiento no lineal de los patrones recibidos.
+		      \item Capa de salida, recibe información de la capa anterior y la envían hacia el exterior proporcionando la respuesta para cada uno de los patrones de entrada.
+	      \end{itemize}
+	      
+	      Para el aprendizaje se proporcionan a la red los datos de entrenamiento, que consisten en patrones de entrenamiento de entrada y salida, en función de la diferencia entre la salida y la salida esperada se van actualizando los pesos ($w_{i+1}=w_i+\Delta w_i$).
 	\item \textbf{Aprendizaje no supervisado:} Son capaces de modificar sus parámetros internamente para adaptarse al entorno, descubriendo por si solas características, regularidades o categorías entre los datos de entrada. Proporciona de manera codificada la salida. Las neuronas y sus conexiones muestran cierta capacidad de autoorganización.
 \end{itemize}
 
@@ -934,8 +955,64 @@ Se siguen realizando investigaciones y por lo tanto se producen avances en su pr
 
 
 \section{Casos}
-\subsection{Caso 1}
-\subsection{Caso 2}
-\subsection{Caso 3}
+\subsection{Caso 1: Predicción de bancarrotas}
+Un problema muy importante para las empresas y entidades financieras. Se emplean redes de neuronas en combinación con otros modelos clásicos para mejorar la predicción, como puede ser el modelo de Altman de predicción de insolvencias.
+
+Mejoran la predicción.
+
+Los modelos existentes son muy complejos, pero aun así incrementó su difusión y su uso según se fueron desarrollando las computadoras y hojas de cálculo.
+
+Tradicionalmente:
+\begin{itemize}
+	\item \textbf{1966 Beaver:} El primero con el uso de técnicas estadísticas de univarianza. Relaciones financieras para predecir bancarrotas muchos años antes de que estas se produjeran.
+	\item \textbf{1969 Altman:} Es el trabajo de referencia. Utilizo análisis mutivarianza.
+	\item \textbf{1972 Edmister:} Análisis mutivarianza con análisis de tendencias.
+	\item \textbf{1985 Fryman, Altman y Kao:} Utilizaron un algoritmo de particionamiento recursivo, sin embargo son modelos muy complejos que no pueden ser utilizados por personal no formado.
+\end{itemize}
+
+\subsubsection{Bankruptcy Prediction using ANN 1995: Dorsey, Edmister y Johnson}
+Plantearon el uso de redes de neuronas para la predicción de bancarrotas utilizaron una serie de razones financieras de todas las que hay, que fueron razón de liquidez, solvencia/apalancamiento, endeudamiento y la razón de cobertura.
+
+Estudiaron todas esas razones financieras para predecir bancarrotas del año 1994, estudiando las bancarrotas desde 1981-1991.
+
+Tomaron de entrada 20 empresas de tamaño similar con activos de más de 20 millones, 10 ellas solventes y 10 que habían quebrado. 
+
+Como entradas para la red se calcularon 18 razones financieras y como salida detección de empresas saludables, de riesgo y que quebraran pronto. La salida siendo un valor entre 0 y 1, según un umbral (0.4) marcado indica el estado.
+
+Era capaz de detectar un 100 \% de las que van a quebrar, pero falla prediciendo que no quebraron en un 30 \%.
+
+\subsection{Caso 2: Aplicaciones en Banca}
+En este ámbito tiene mucha importancia detectar cuando conceder un crédito o no, detectar fraudes, impagos, etc.
+
+Los analistas de riesgos son los que toman estas decisiones, pero para acceder a los datos que da el banco de España son muy lento, por lo que la aplicación de redes para generar perfiles de solvencia es muy buena.
+
+Las entradas son los valores sobre el cliente (renta, hipoteca, historial de compra, profesión, edad, etc.) y la salida si es solvente o insolvente. Esto se puede generar mediante una red de neuronas, como un perceptrón multicapas, con una capa oculta de tamaño suficiente. 
+
+Con backpropagation podrá ir aprendiendo, como entrada de aprendizaje se utilizará un 60 \% de los datos y se validará con el otro 40 \%. Esto permite que una vez entrenada al recibir un nuevo perfil sea capaz de determinar si es solvente o no.
+
+\subsection{Caso 3: Marketing dirigido por los datos}
+Se pueden utilizar redes de neuronas no supervisadas para segmentar clientes, son capaces de encontrar patrones en los datos sin haber sido entrenados para ello de manera más eficiente que los métodos de clustering clásicos.
+
+Lo difícil es encontrar los patrones en los clientes para este marketing.
+
+Ese caso de estudio se trata de una sociedad inmobiliaria con 5 millones de clientes y está usando una campaña por correo para promover un nuevo producto de inversión.
+
+Ha llevado a cabo una primera campaña por correo dirigida a 50000 clientes elegidos al azar, de los que solo ha recibido respuesta positiva de 1000 de ellos (un 2 \%). El objetivo es analizar las respuestas a esta primera campaña para encontrar una manera de enfocar la campaña de forma que las respuestas se dupliquen, pasen a ser un 4 \% y conseguir 40000 nuevos inversores.
+
+Se utilizan como entradas los datos de clientes de la base de datos, se trata de optimizarlo por lo que se usa la antigüedad del cliente (TIMEAC, tiempo que lleva abierta la cuenta en años) y su actividad de cuenta (AVEBAL, balance promedio de cuentas de los últimos 3 meses). La salida es un valor que nos tendrá que permitir diferencias el comportamiento del cliente.
+
+Representando estas variables con respecto a si respondieron o no al correo se puede ver que no hay una clara diferencia, ambas se distribuyen de igual manera.
+
+La puntuación de salida será 1 si contesta y 0 en caso contrario, pero los datos se solapan.
+
+La red utilizada puede ser un perceptrón multicapa con aprendizaje supervisado, ya que la empresa conoce a los clientes y la salida. Tendría 2 neuronas en la capa de entrada, el doble en la capa oculta 4 y la capa de salida con 1 que nos dirá si contestara 1 o no 0.
+
+Para el entrenamiento se dispone de 2000 datos de clientes, 1000 positivos y 1000 negativos.  Cada conjunto se divide en 2 conjuntos de 500. El conjunto de entrenamiento serán un grupo de 500 de los divididos, 500 positivos y 500 negativos. El conjunto de test serán los otros 1000 restantes distribuidos equitativamente.
+
+En el entrenamiento si la red proporciona una respuesta adecuada pasa al siguiente, si se equivoca con respecto a la esperada se ajusta la red para reducir la diferencia. Esto repetido varias veces (100-500) sobre todo el conjunto de entrenamiento provoca que se vaya reduciendo el error hasta un valor aceptable.
+
+Se puede representar de manera tridimensional, en los dos ejes la entrada y la altura la salida de la red, de esta manera podemos distinguir los que responderán y los que no.
+
+Cuando ya está entrenando se le pasan los datos de test y se mide el error cometido por la red. Mediante la Gráfica de ganancia (Acumulado de respuestas vs. Acumulado de NO respuestas) podemos ver por encima de la bisectriz como discrimina la red.
 
 \end{document}
