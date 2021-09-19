@@ -255,9 +255,9 @@ hmargin=3cm
 \section{Profesores}
 \begin{quote}
 	Magistral: Pedro Isasi, pedro.isasi@uc3m.es, 2.1.B13.
-
+	
 	Práctica: Yago Sáez, yago.saez@uc3m.es, 2.1.C13
-
+	
 	Miércoles clases Práctica / Jueves clase Magistral.
 \end{quote}
 
@@ -519,5 +519,188 @@ Unos individuos son haploides (machos) y otros diploides (hembras).
 \pagebreak
 
 \section{Conceptos de Computación Evolutiva}
+La evolución se apoya en 4 pilares: Población, Diversidad, Herencia y Selección.
+\subsection{Definición de CE}
+\subsubsection{Qué es la Computación Evolutiva?}
+Se parte de una \textbf{población que es un conjunto de soluciones} aparentes al problema que buscamos resolver. Se emplea en aquellos problemas que encontrar una solución no es difícil, ya que hay una cantidad enorme de alternativas, pero si una que sea buena y eficiente.
+
+Buscamos \textbf{encontrar una solución que sea suficientemente buena} (encontrar la óptima es muy difícil y costoso), este concepto debe ser definido para saber cuándo se alcanza.
+
+El problema tiene que poder describirse como un conjunto de estados/soluciones alternativas, \textbf{encontrar una buena representación} de las mismas.
+
+Se debe poder \textbf{medir la calidad de cada solución} alternativa al problema, mediante una \textbf{función de fitness}, para saber si es válida.
+
+Desde el punto de vista de optimización hay que generar soluciones cada vez mejores.
+
+Desde el punto de vista de búsqueda se trata de buscar buenas soluciones en un espacio de búsqueda inmenso (como si fuera infinito).
+
+La búsqueda se realiza de forma poblacional (un conjunto de individuos), no mediante trayectoria de un solo individuo.
+
+\textbf{Son metaheurísticas}. La heurística es siempre la misma (universal) por eso se pueden aplicar a una variedad de problemas y construir heurísticas específicas.
+
+La heurística es una \textbf{versión reducida de la selección natural}, combinación de los buenos candidatos, se generan individuos a partir de los previos y nos vamos quedando con los mejores.
+
+Son \textbf{técnicas estocásticas}, para 2 ejecuciones se pueden observar distintas salidas, ya que por probabilidad no se han realizado las mismas operaciones. Esto permite evitar el estancamiento.
+\pagebreak
+
+\subsubsection{Evolución artificial}
+Se basa en los mismos principios que la evolución natural
+\begin{itemize}
+	\item Mantenimiento de una \textbf{población}
+	\item Creación de \textbf{diversidad}
+	\item Un mecanismo de \textbf{selección}
+	\item Un proceso de \textbf{herencia} genética
+\end{itemize}
+Se diferencia en que la evolución artificial es \textbf{orientada hacia una meta, no como la natural}.
+
+Hay que obtener una \textbf{medida cuantitativa de la calidad del individuo (solución) para poder seleccionar al mejor y generar más copias} de los mejores individuos.
+
+Es un proceso iterativo que finaliza cuando se ha obtenido un individuo lo suficientemente bueno.
+
+\subsubsection{Procedimiento}
+Se parte de una población inicial de soluciones aleatoria.
+\begin{enumerate}
+	\item Selección de progenitores, mediante la función de fitness evaluamos los individuos y aplicando reglas de selección escogemos una población de progenitores.
+	\item Reproducción, las operaciones son estocásticas y aleatorias.
+	\item Nueva población que se pasa por la función de fitness para ver si es mejor que la progenitora.
+	\item Evaluación de la descendencia, que vuelve al paso 1.
+\end{enumerate}
+
+\subsubsection{Representaciones genéticas}
+\textbf{Genotipo:} La codificación del individuo.
+
+\textbf{Fenotipo:} El individuo en sí, su significado.
+\pagebreak
+
+Los individuos deben poder representarse de forma que:
+\begin{itemize}
+	\item El individuo pueda poder ser decodificado fácilmente (fenotipo).
+	\item Se puedan generar nuevos individuos mediante combinaciones de los que ya existen.
+	\item El conjunto de todos los posibles individuos debe coincidir lo máximo posible con el de todas las soluciones posibles, la codificación se debe ajustar a todo el espacio de soluciones (no solo a una pequeña parte)
+	\item Se debe evitar que se codifiquen soluciones no válidas, atender a las limitaciones.
+\end{itemize}
+Encontrar una buena representación es el aspecto clave del algoritmo.
+
+\textbf{Pueden ser:} Discretas (Algoritmos Genéticos), continuas(EE, Evolución Diferencial) o basadas en árboles(Programación genética)
+
+\subsection{Población Inicial}
+Se trata de generar una población de n individuos (soluciones) de dimensión k de forma aleatoria.
+
+Si se tiene algún conocimiento previo para generar una buena población inicial usarlo, pero si no se emplea:
+\begin{itemize}
+	\item \textbf{Aleatoria uniforme:} Hay que tener en cuenta que habrá huevos en el espacio de soluciones no cubiertos, ya que es aleatorio. Genera valores aleatorios entre los rangos marcados para los valores del individuo.
+	\item \textbf{Muestreo uniforme hipercúbico:} Para evitar que haya regiones más pobladas que otras se divide el espacio en n regiones iguales y se generan dentro de estos individuos aleatoriamente. De esta manera están más distribuidos uniformemente en el espacio.
+	\item \textbf{Secuenciado simple inhibido:} Otra manera de buscar que este todo poblado es generar individuos que se encuentren al menos a una distancia mínima $\Delta$, se parte de un individuo aleatorio y se van generando más mientras están al menos a esa distancia del resto de individuos.
+	\item \textbf{Heurística:} Emplea una heurística como podría ser la greedy.
+\end{itemize}
+\pagebreak
+
+\subsection{Evaluación}
+Los individuos son evaluados por su capacidad para resolver el problema
+
+\textbf{Evaluación cuantitativa:} Se asigna un valor numérico.
+\textbf{Evaluación cualitativa:} No se produce un valor numérico, sino por comparativa con el resto.
+
+La función de evaluación es lo que más tiempo de cálculo consume, hay que simplificarla al máximo.
+
+Se tiene que adaptar al problema la función de fitness, no a un caso específico, dado que el algoritmo producirá soluciones tratando de maximizar la evaluación de los individuos, y ningún otro factor.
+
+Hay que estar seguro de que lo que queremos maximizar u obtener, está descrito con precisión en la función de evaluación.
+\subsubsection{Paisaje de calidad}
+El poder tener una \textbf{representación gráfica de la calidad de los individuos} permite estimar la complejidad del problema
+
+Muestra el valor de calidad de todos los puntos del espacio de estados, que tiene que ser \textbf{estimación}.
+
+Se puede calcular la calidad de los individuos que rodean a uno determinado, e intentar extrapolar en el resto del espacio.
+
+\subsection{Selección}
+La selección tiene como objetivo que los mejores individuos generen más descendentes que los peores
+
+Se utiliza el término \textbf{presión selectiva} (cuando un individuo tiene mucho estrés encima para evolucionar, tiene competencia) como la cantidad de individuos diferentes que generarán descendencia.
+
+Mucha presión selectiva indica que solo unos pocos generarán descendencia. Cuando no hay presión selectiva no necesita evolucionar sabe que podrá seguir igual.
+
+\textbf{Tres tipos:}
+\begin{itemize}
+	\item \textbf{Selección proporcional o Ruleta:} La probabilidad de que un individuo sea seleccionado para reproducción es proporcional al cociente entre su valor de evaluación, y el total de la población.
+	      $$p(i)=\frac{f(i)}{\sum^N_{i=1} f(i)}$$
+	      \pagebreak
+	      
+	      Este método no funciona bien en dos situaciones:
+	      \begin{itemize}
+		      \item Cuando un individuo es muy superior al resto (Problema del superindividuo), ya que estará sobrerepresentado y pierde diversidad.
+		      \item Todos los individuos son igualmente válidos, todos tendrán la misma probabilidad y se aleatoriza la evolución. Por probabilidad unos individuos podrían ser seleccionados preferentemente.
+	      \end{itemize}
+	\item \textbf{Selección por rango o jerárquica:} Probabilidad en función de la posición que ocupa en orden de mayor evaluación. Evita los inconvenientes de la ruleta o selección proporcional. La probabilidad la da la posición no el valor de la evaluación.
+	      
+	      Aunque un individuo sea muy superior no será una diferencia excesiva de probabilidad de selección, lo mismo si son parecidos. La presión selectiva vendrá dada por la diferencia entre posiciones y puede ser regulada.
+	\item \textbf{Selección por rango o jerárquica truncada:} Se seleccionan una proporción de los mejores individuos, asignando la misma probabilidad de selección, y al resto cero.
+	      
+	      Los mejores se reproducen aproximadamente el mismo número de veces, el resto no transmite su material genético.
+	\item \textbf{Selección por torneos:} Consiste en realizar un torneo entre un número reducido de
+	      individuos de la población, cada vez que haya que seleccionar. Se eligen T individuos de forma aleatoria uniforme y se selecciona el mejor, hay remplazo, es decir uno elegido puede volver a ser elegido.
+	      
+	      Se repite el proceso tantas veces como individuos a seleccionar.
+	      
+	      Cuanto más grande sea T más presión selectiva, se empieza con poca presión y se va aumentando más adelante.
+	      
+	      No es necesaria función de evaluación, solo comparar individuos.
+	      
+	      Es fácil pasar de exploración a explotación.
+	      
+	      Permite mantener y regular la variabilidad genética.
+	      
+	      Se elimina el efecto de los superindividuos.
+	      
+	      Se ajusta fácilmente a problemas multiobjetivo.
+\end{itemize}
+
+\subsection{Emparejamiento}
+La reproducción es sexual, se realiza entre dos individuos, y la descendencia puede ser de un único individuo o de dos.
+\pagebreak
+
+Los individuos se eligen de entre los seleccionados en el paso anterior según las siguientes maneras:
+\begin{itemize}
+	\item Se eligen ambos de manera aleatoria.
+	\item El primero aleatoriamente, el segundo por afinidad (genotípica o fenotípica).
+	\item Se selecciona el más afín, o el mejor de los que están a proximidad (vecindario), o aleatoriamente proporcional a la calidad de los que están a proximidad
+\end{itemize}
+Una vez reproducidos, los individuos no vuelven a ser utilizados de nuevo para reproducción.
+
+\subsection{Reproducción}
+\subsubsection{Recombinación}
+\begin{itemize}
+	\item \textbf{Discreta:} Se generan descendientes seleccionando una secuencia consecutiva de un progenitor, y la otra del otro.
+	      
+	      100 101 y 010 110 dan 100110 y 010101
+	\item \textbf{Uniforme:} Se generan descendientes seleccionando los genes homólogos de sus progenitores aleatoriamente. Se escoge aleatoriamente los genes teniendo en cuenta su posición.
+	      
+	      10 01 01 y 01 01 10 dan 100110 y 010101.
+	\item \textbf{Aritmética:} Se hace la media de los valores de los genes de los progenitores para generar un nuevo individuo.
+	      0,2 0,6 1,2 y 0,4 0,4 1,0 dan 0,3 0,5 1,1
+	\item \textbf{Secuencias:} El nuevo individuo mantiene la secuencia de los padres sin repetir valores. Se cogen secuencias de valores sin tener en cuenta la posición y van rellenando el progenitor.
+	      
+	      ABCDEFG y GFCDBAE dan E BCD GFA (la AE del segundo)
+	\item \textbf{Intermedia:} La recombinación aritmética genera siempre valores entre los de sus progenitores, esto reduce la variabilidad y hace converger hacia valores intermedios definidos aleatoriamente en la población inicial.
+	      
+	      Esto se puede evitar permitiendo generar valores en un rango mayor al definido por los genes de los progenitores
+	      
+	      No se realiza la media aritmética, sino un valor aleatorio en un rango extendido.
+	      
+	      A partir de los valores de los genes de los progenitores, se obtiene un valor intermedio para cada descendiente
+	      \pagebreak
+	      
+	      Para cada gen (i)
+	      \begin{enumerate}
+		      \item Se genera un valor aleatorio (a$_i$) en el intervalo [-d, 1+d], siendo d un parámetro del método.
+		      \item Se asigna como valor del gen descendiente (z$_i$) la combinación de los valores de los genes homólogos de los progenitores (x$_i$, y$_i$). Se multiplica el gen del primer progenitor por a$_i$ y el del segundo por (1 - a$_i$) y se suman.
+	      \end{enumerate}
+	      
+	      Si d=0 los genes de los descendientes generarán valores intermedios de los de los progenitores, que sería como recombinación discreta. Para evitar que los valores converjan hacia dentro, se asignan valores de d>0 así sale de las fronteras de sus progenitores.
+	\item \textbf{Lineal:} Igual que la recombinación intermedia, pero con el mismo valor de a para todos los genes. Permite generar valores de descendientes en la línea definida por sus progenitores.
+\end{itemize}
+
+\subsection{Inserción y remplazo}
+\subsection{Convergencia}
 
 \end{document}
