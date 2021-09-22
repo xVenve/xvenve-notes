@@ -1092,7 +1092,7 @@ fin_AE
 \end{lstlisting}
 \begin{enumerate}
 	\item Obtener de una forma aleatoria una población inicial, un conjunto de soluciones arbitrarias.
-	\item Evaluamos cada uno de esos individuos, soluciones.
+	\item Evaluamos cada uno de esos individuos, soluciones, con la función de adecuación.
 	\item Modificamos la población a lo largo de generaciones.
 	      \begin{enumerate}
 		      \item Seleccionamos los padres a reproducir
@@ -1205,5 +1205,50 @@ Por ejemplo en una RNA al aplicar mutación se haría directamente sobre la matr
 No se aplica la recombinación o sobre-cruzamiento, de este modo las soluciones candidatas representan lo que en el ámbito natural se llama Especies, es decir que solo se evoluciona a lo largo del tiempo mediante mutaciones.
 
 \section{Funciones y operadores}
+\subsection{Caso de Concesión de créditos}
+En economía el valor de una empresa viene determinado por el valor del conjunto de sus activos.
+
+Para un banco un préstamo concedido es un activo puesto que le supone ingresos netos positivos, sin embargo el préstamo tiene un cierto riesgo de impago y cuanto menor sea el riesgo mejor será el activo. 
+
+Por lo tanto del total de préstamos interesa minimizar el dinero perdido en la concesión de los créditos. A la hora de conceder un crédito personal, un crédito hipotecario o una reunificación de deuda se considera una serie de atributos personales, económicos y laborales de dicha persona como por ejemplo la edad, el estado civil, el número de hijos, el tipo de entidad para la que trabaja, el salario, el conjunto de deudas que pueda tener o el tiempo que lleva trabajando en la empresa. 
+
+Los bancos aplican una serie de reglas para determinar si conceden el crédito o no.
+
+\textbf{SCORER:} Sistema en el ámbito financiero que recibe como entrada toda la información pertinente de un cliente y se obtiene como salida un valor asociado al riesgo que supondría conceder el préstamo. En función del riesgo se determina si se concede o no el préstamo y si se concede a que interés. 
+
+El scorer se compone de un conjunto de reglas (tipo if-then), que para este ejemplo será si se concede o no el préstamo. Estas reglas se pueden expresas como tabla o matriz en la que cada fila representa una regla y cada columna una característica/atributo del cliente, siendo la última si se concede o no el préstamo. De esta manera si se cumplen las condiciones de la regla se considera la respuesta de la última columna.
+
+El \textbf{espacio de soluciones} son todas las posibles combinaciones de valores de los atributos y salida.
+
+El \textbf{cromosoma/individuo} en este caso es la matriz entera en la que cada una de las reglas, cada gen representa un atributo y tomara tantos bits como valores posibles tenga.
+
+10 01 010 001 010 1 / Salario Deuda Edad Hijos T.Empresa Crédito?
+
+La \textbf{función de fitness o adecuación} se considera como un individuo todo el conjunto de reglas que supone el scorer. Para poder obtener el valor de adecuación de una matriz de reglas es necesario un histórico de créditos concedidos en el pasado donde cada uno de sus créditos se tiene la información adicional de si hubo impago o no. 
+
+El valor de adecuación refleja la cantidad de dinero que se ha perdido concediendo ese conjunto de créditos, por lo que trataremos de minimizarlo.
+
+\subsection{Operadores}
+En cada problema se pueden implementar distintas versiones de los operadores.
+
+\textbf{Selección:} Se aplica para elegir los cromosomas que se van a reproducir, aquellos a partir de los cuales se van a obtener nuevos cromosomas. Los cromosomas con mejor valor (mayor si maximizamos o menor si minimizamos) de adecuación tienen mayor probabilidad de ser seleccionados.
+
+\textbf{Sobrecruzamiento:} Toma el cromosoma de dos individuos distintos y genera dos nuevos recombinando trozos o genes de los cromosomas originales manteniendo el sentido del cromosoma. Se puede establecer una probabilidad para aplicar esta operación, de esta manera si no se aplica pasan los dos padres sin modificaciones. Los trozos en los que se dividen pueden deberse a 1 punto o más de corte, que se hará en el mismo gen en ambos cromosomas.
+
+\textbf{Mutación:} Corresponde con pequeños cambios en cromosoma, que equivale a moverse poco en el espacio de búsqueda. Nos permite prevenir la saturación de la población con cromosomas similares. Consiste en una probabilidad con la que los genes de un individuo pueden sufrir modificaciones pequeñas. Si es muy alta puede desorientar la búsqueda y si es muy pequeña estancarla.
+
+\textbf{Remplazo:} Hay diversas estrategias:
+\begin{itemize}
+	\item \textbf{Generacional:} Supone remplazar toda la población.
+	\item \textbf{Estado estacionario:} El remplazo es parcial y se pueden aplicas distintos criterios como son remplazar los peores en fitness, remplazar los individuos progenitores o remplazar a aquellos individuos que son más parecidos entre sí en cromosoma.
+\end{itemize}
+
+\subsection{Aplicaciones}
+\begin{itemize}
+	\item Establecer los parámetros para el diseño del ala de un avión o de las hélices de un aerogenerador.
+	\item Generación de trayectorias para robots.
+	\item Diseño de redes de neuronas artificiales, como las Deep Neural Networks.
+	\item Diseño de sistema de diagnóstico de fallo.
+\end{itemize}
 
 \end{document}
