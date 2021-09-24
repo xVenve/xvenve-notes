@@ -488,4 +488,174 @@ Las señales de entrada se combinan entre sí, generando la entrada total.
 	{\includegraphics[scale=.8]{tipos-fun-act.jpg}}
 \end{figure}
 
+Las que nosotros emplearemos con la Sigmoide, Tangente hiperbólica y la ReLU (Rectified Linear Unit, es lineal a partir de 0).
+
+Excepto la función lineal estas propagan la señal de manera no lineal.
+\pagebreak
+
+\subsection{Modelo computacional}
+\textbf{Componentes}
+\begin{itemize}
+	\item Conjunto de unidades de proceso o neuronas artificiales.
+	\item Conexiones entre las unidades.
+	\item Regla de propagación, para propagar las entradas hacia la salida de la red.
+	\item Regla de aprendizaje para modificar los pesos de las conexiones.
+\end{itemize}
+
+Tiene una arquitectura en forma de capas (entrada, ocultas y salida) que se propaga hacia delante (izq. a dch.).
+
+Las capas ocultas son las que realizan el procesamiento, la entrada y salida solo se encargan de recibir y sacar los datos de la red.
+
+Las conexiones van de una capa a la inmediata siguiente, no saltan capas o retroceden (todavía no). Todas las neuronas de una capa están conectadas con cada una de la capa anterior y posterior (full connected).
+
+El aprendizaje consiste en ajustar los pesos de tal manera que pueda resolver el problema de manera eficaz.
+
+\subsection{Aprendizaje}
+Tratamos de que al pasar un patrón (serie de datos de entrada) nos dé la salida correspondiente, para esto cuando falla hay que ajustar los pesos y umbral.
+
+Se realiza a partir de un conjunto de ejemplos o muestras conocidas, que llamaremos Conjunto de entrenamiento. Se debe disponer de una cantidad significativa y representativa de ejemplos para realizar un buen aprendizaje, suficientes ejemplos y que cubran la variedad de salidas.
+
+\textbf{Proceso:}
+\begin{enumerate}
+	\item Introducir progresivamente los ejemplos de aprendizaje.
+	\item Modificar los pesos siguiendo una ley o ecuación de aprendizaje.
+	\item Cuando se han introducido todos se ha completado una iteración. Ahora se comprueba si se cumple cierto criterio de convergencia y si no se cumple, se repite el proceso.
+\end{enumerate}
+\pagebreak
+
+La modificación de los pesos puede ocurrir después de introducir cada patrón (lo habitual) o después de introducir todos los patrones (o un lote de estos, permite acelerar el proceso y se usa en Redes Convolucionales).
+
+En cuanto a la finalización del aprendizaje se hace en función de un criterio de convergencia que puede ser que el error sea menor que un valor dado (puede no llegar a ocurrir) o que los pesos dejen de sufrir modificaciones y el error se estabilice.
+
+\textbf{Modelos de aprendizaje:}
+\begin{itemize}
+	\item \textbf{Aprendizaje supervisado:} Se conoce la salida de los ejemplos de aprendizaje. Utiliza un proceso externo para determinarlo. Conocer el resultado nos permite manejar el error cometido y guiar el aprendizaje
+	\item \textbf{Aprendizaje no supervisado:} No se conoce la salida de los ejemplos. Permite detectar características de los datos, agruparlos o reducir la dimensionalidad. Se reajustan automáticamente los pesos y autoorganiza la información.
+	\item \textbf{Aprendizaje por refuerzo:} Se aprende por prueba y error guiado por una recompensa si lo hace bien. No existe medida de error, solo si lo ha habido.
+\end{itemize}
+
+\subsection{Validación}
+El modelo resultante debe ser capaz de responder de forma adecuada ante datos desconocidos. Meter datos no conocidos y usarlos solo para evaluar (no aprender) si el modelo es bueno.
+
+El conjunto de datos disponibles se divide en subconjuntos de:
+\begin{itemize}
+	\item \textbf{Entrenamiento:} Usado para ajustar el valor de los pesos.
+	\item \textbf{Validación (no siempre se utiliza este conjunto):} Usado para determinar los hiperparámetros de la red y detener el aprendizaje. Permite detectar sobre ajuste.
+	\item \textbf{Test:} Usado para medir la capacidad de generalización de la red. Se utiliza este segundo no conocido porque no es conocido y no se ha utilizado previamente (ni entrenar, ni para el entrenamiento) son verdaderamente nuevos para el modelo.
+\end{itemize}
+
+Los conjuntos de validación y test deben ser Independientes del aprendizaje, Significativos y representativos.
+
+\textbf{Sobreajuste (overfitting):} La red se ha sobreajustado a los ejemplos de entrenamiento, deja de generalizar bien.
+\pagebreak
+
+\subsection{Taxonomía}
+Redes Feedforward supervisadas: Conexiones hacia delante y aprendizaje supervisado.
+\begin{itemize}
+	\item Perceptrón simple, Adaline, Perceptrón Multicapa, Redes de Base Radialy Redes Convolucionales.
+\end{itemize}
+
+Redes no supervisadas
+\begin{itemize}
+	\item Kohonen y ART.
+\end{itemize}
+
+Redes recurrentes: Conexiones en todas las direcciones
+\begin{itemize}
+	\item Solo unas pocas conexiones recurrentes: Red de Jordan, Red de Elman
+	\item Totalmente recurrentes: Backpropagation a través del tiempo, Long short-term memory.
+\end{itemize}
+
+\subsection{Diferencia de las RNA y Biología}
+Estamos muy lejos todavía, el cerebro tiene 10 millones más de sinapsis y no necesita capas de neuronas. Siempre está aprendiendo (y olvidando).
+
+El cerebro trabaja de manera asíncrona (se ajusta cuando lo necesita) y las RNA son síncronas (cuando se actualizan los pesos lo hacen todos a la vez).
+
+Las RNA para aprender usan el descenso de gradiente, pero del cerebro no se conoce.
+\pagebreak
+
+\section{Primeros modelos}
+\subsection{Células de McCulloch-Pitts}
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Estructura de Célula de McCulloch-Pitts}}
+	{\includegraphics[scale=.25]{McCulloch-Pitts.jpg}}
+\end{figure}
+Consiste en unas entradas que tienen asignado manualmente un peso cada una de las que se hace el sumatorio de la entrada por el peso, este resultado se pasa por una función de activación no lineal y se obtiene la salida.
+$$y=f\left(\sum_{i=1}^n I_i w_i\right) \quad f (x) = \begin{cases}1 & \textit{si}\quad  x> 0\\0 & \textit{en caso contrario}\end{cases}$$
+En este momento hablamos de células individuales, no de redes.
+
+\subsubsection{Limitaciones}
+Se puede simular cualquier puerta lógica. Uniendo las puertas lógicas, se puede representar cualquier función.
+
+El problema es el diseño de la red, que requiere determinar la arquitectura y los pesos. Se necesita un mecanismo para que determine los pesos automáticamente, es muy pesado hacerlo a mano.
+
+El perceptrón son un conjunto de células de McCulloch-Pitts, con una sola capa, y cuyos pesos pueden ser determinados a partir de los ejemplos de los que se disponga.
+\pagebreak
+
+\subsection{Perceptrón}
+Tiene una estructura similar a las células de McCulloch-Pitts, pero además de los pesos hay un umbral.
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Estructura del Perceptrón}}
+	{\includegraphics[scale=.35]{perceptron.jpg}}
+\end{figure}
+
+La salida de cada célula se calcula mediante:
+$$y=\mathcal{F}\left(\sum_{i=1}^n x_i w_i+\theta\right) \quad \mathcal{F}(s) = \begin{cases}1 & \textit{si}\quad  x> 0\\-1 & \textit{en caso contrario}\end{cases}$$
+
+La función escalón lo hace discriminante, si solo hay una célula y da 1 pertenece a la categoría A y si es -1 a la categoría B.
+
+El número de células de un Perceptrón se corresponde con la dimensión de la entrada, y el número de células de salida, con el número de clases a discriminar.
+
+En el caso binario, dos entradas una salida, el perceptrón representa una recta que divide el plano en dos partes cada una categoría.
+
+\subsubsection{Aprendizaje}
+El proceso de aprendizaje del perceptrón consiste en descubrir los parámetros de una recta que deje a todos los ejemplos de la clase A en un lado, y a los de la clase B en el otro.
+
+Dado un conjunto de ejemplos de prueba distribuidos de los que se conoce su categoría, se trata de obtener la ecuación del hiperplano que deja a un lado los ejemplos de un tipo, y a otro los del otro.
+$$A=(\vec{a}_1, ..., \vec{a}_n) \quad B=(\vec{b}_1, ..., \vec{b}_n)$$
+$$\forall \vec{a} \in A,, w_1a_1+\cdot+w_na_n+\theta > 0$$
+$$\forall \vec{b} \in B,, w_1b_1+\cdot+w_nb_n+\theta < 0$$
+Para todos los puntos de A deben dar la misma categoría y los de B deben dar la otra.
+\pagebreak
+
+El proceso de aprendizaje necesita de un conjunto de ejemplos $\chi$ para los cuales tenemos una respuesta d($\chi$), y es un aprendizaje por refuerzo:
+\begin{itemize}
+	\item Si la red da una respuesta correcta, no se modifican los pesos.
+	\item Si da una respuesta incorrecta, se modifican los pesos una cantidad fija.
+\end{itemize}
+
+El incremento de los pesos se realiza mediante la expresión: $\Delta w_i = d(\vec{x})x_i, , x \in \chi$
+
+Si la \textbf{salida obtenida es y($\vec{x}$) = 1, y la deseada es d($\vec{x}$) = -1, entonces $w_i = -x_i$}. La salida es mayor que la esperada, y los pesos se decrementan
+
+Si la \textbf{salida obtenida es -1, y la deseada es 1, entonces $w_i = x_i$.} La salida es menor que la esperada, y los pesos se incrementan.
+
+\subsubsection{Validación}
+Se realiza de forma iterativa.
+
+\begin{enumerate}
+	\item Inicialización aleatoria de los pesos y el umbral de la red.
+	\item Se toma un ejemplo entrada-salida $\vec{x} = (x_1, x_2, ..., x_n), d(\vec{x})$
+	\item Se calcula la salida de la red: $y(\vec{x}) = f (x_1w_1 + x_2w_2 + ... + x_nw_n + \theta)$
+	\item Si $y(\vec{x}) \neq d(\vec{x})$ (clasificación incorrecta) se modifican los pesos y el umbral:
+	
+	Si $\vec{x} \in A, d(x) = 1 \rightarrow w_i(t+1) = w_i(t)+x_i, \theta(t+1) = \theta(t)+1$
+	
+	Si $\vec{x} \in B, d(x) = -1 \rightarrow w_i(t+1) = w_i(t)-x_i, \theta(t+1) = \theta(t)-1$
+
+	\item Se vuelve al paso 2 hasta completar el conjunto de patrones de entrenamiento.
+	\item Se repiten los pasos 2, 3, 4 y 5 hasta alcanzar el criterio de parada.
+\end{enumerate}
+
+Cada una de las capas representa una recta por eso en el problema XOR hacían falta más capas.
+
+\subsubsection{Tasa de aprendizaje}
+Es el ritmo con el que aprende, es un valor entre 0 y 1 que regula la variación de los pesos en cada iteración, para que no se vayan mucho y oscilen.
+
+$$w_i(t+1)=w_i(t)+\gamma d(\chi)x_i$$
+
+Se suelen empezar con valores mayores y se va reduciendo una vez se va aproximando (balance exploración-explotación)
+
 \end{document}
