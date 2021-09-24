@@ -640,10 +640,10 @@ Se realiza de forma iterativa.
 	\item Se toma un ejemplo entrada-salida $\vec{x} = (x_1, x_2, ..., x_n), d(\vec{x})$
 	\item Se calcula la salida de la red: $y(\vec{x}) = f (x_1w_1 + x_2w_2 + ... + x_nw_n + \theta)$
 	\item Si $y(\vec{x}) \neq d(\vec{x})$ (clasificación incorrecta) se modifican los pesos y el umbral:
-	
-	Si $\vec{x} \in A, d(x) = 1 \rightarrow w_i(t+1) = w_i(t)+x_i, \theta(t+1) = \theta(t)+1$
-	
-	Si $\vec{x} \in B, d(x) = -1 \rightarrow w_i(t+1) = w_i(t)-x_i, \theta(t+1) = \theta(t)-1$
+
+	      Si $\vec{x} \in A, d(x) = 1 \rightarrow w_i(t+1) = w_i(t)+x_i, \theta(t+1) = \theta(t)+1$
+
+	      Si $\vec{x} \in B, d(x) = -1 \rightarrow w_i(t+1) = w_i(t)-x_i, \theta(t+1) = \theta(t)-1$
 
 	\item Se vuelve al paso 2 hasta completar el conjunto de patrones de entrenamiento.
 	\item Se repiten los pasos 2, 3, 4 y 5 hasta alcanzar el criterio de parada.
