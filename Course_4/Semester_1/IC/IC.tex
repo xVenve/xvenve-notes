@@ -255,7 +255,7 @@ hmargin=3cm
 \section{Profesores}
 \begin{quote}
 	Teoría y coordinadora: Susana Fernández Arregui, sfarregu@inf.uc3m.es, enviar mail con tiempo para pedir tutorías.
-
+	
 	Prácticas: Alba Gragera Álvarez, agragera@pa.uc3m.es
 \end{quote}
 
@@ -324,9 +324,9 @@ Distingue entre mayúsculas y minúsculas, todos los comandos se presentan entre
 \subsection{Arquitectura de un sistema de producción}
 \begin{itemize}
 	\item \textbf{Base de Hechos o Memoria de Trabajo:} Representa conocimientos del dominio sobre el problema (hechos establecidos y metas a alcanzar). Según se ejecutan las reglas se va modificando, parte de esta es permanente (la inicial, no la del propio proceso).
-
+	      
 	      Representa el estado inicial, el conocimiento de manera declarativa (hechos e instancias).
-
+	      
 	      Los hechos pueden ser:
 	      \begin{itemize}
 		      \item \textbf{Ordered:} Con uno o varios campos, donde el primer campo marca la relación entre los restantes, por lo que el orden es importante. Sin nombre.
@@ -334,7 +334,7 @@ Distingue entre mayúsculas y minúsculas, todos los comandos se presentan entre
 	      \end{itemize}
 	\item \textbf{Base de Reglas:} Representa conocimiento sobre cómo conseguir la solución del problema en forma de reglas de producción. Las reglas dan información sobre cómo resolverlo.
 	\item \textbf{Motor de Inferencia (MI):} Razona sobre el conocimiento del problema y sobre su solución. Determina como se aplican las reglas.
-
+	      
 	      \pagebreak
 	      \textbf{Fases}
 	      \begin{itemize}
@@ -342,16 +342,16 @@ Distingue entre mayúsculas y minúsculas, todos los comandos se presentan entre
 		            \begin{itemize}
 			            \item \textbf{Restricción:} Acota el contenido de la Base de Reglas y la Base de Hechos según las características del programa.
 			            \item \textbf{Equiparación:} Selección del conjunto de reglas candidatas para dispararse.
-
+			                  
 			                  \textbf{Equiparación de constantes}, son aquellas secuencias de caracteres no precedidas por ?. Deben ser exactamente iguales.
-
+			                  
 			                  \textbf{Equiparación de variables}, este proceso equipara las variables de la regla con los hechos en busca de patrones de hechos que ocupen las posicione especificadas. Es decir, ocupe la misma posición en ordered o el mismo nombre en non-ordered.
-
+			                  
 			                  El mismo hecho puede ser utilizado varias veces en una regla, a menos que se especifique con un test neq de ambas.
-
+			                  
 			            \item \textbf{Resolución del Conjunto Conflicto:} Selección de la instancia de regla que va a ejecutar.
 			                  Conjunto conflicto: Conjunto de instancias de las posibles reglas ejecutables.
-
+			                  
 			                  \textbf{Estrategias de selección}
 			                  \begin{itemize}
 				                  \item \textbf{Orden de escritura:} Primera regla que cuyo antecedente es cierto según el orden de escritura en al BR.
@@ -361,25 +361,25 @@ Distingue entre mayúsculas y minúsculas, todos los comandos se presentan entre
 				                  \item Utilizar el \textbf{principio de refracción:} No se pueden ejecutar instancias de reglas ya disparadas
 				                  \item \textbf{Arbitrariedad}
 			                  \end{itemize}
-
+			                  
 			                  \textbf{Estrategias de inferencia}
 			                  \begin{itemize}
 				                  \item \textbf{Encadenamiento hacia delante} (dirigido por el antecedente), parte de unos hechos particulares (el contenido de la BH).
-
+				                        
 				                        Busca reglas cuyo antecedente esté satisfecho por esos hechos.
 				                  \item \textbf{Encadenamiento hacia atrás} (dirigido por el consecuente), parte de un conjunto de metas u objetivos.
-
+				                        
 				                        Se buscan reglas cuya instanciación implica la consecución de una meta. La
 				                        equiparación se realiza sobre el consecuente
-
+				                        
 				                        Si el antecedente equipara con la BH la meta se puede concluir
 			                  \end{itemize}
-
+			                  
 		            \end{itemize}
-
+		            
 		            \pagebreak
 		      \item \textbf{Fase de acción o ejecución}: La ejecución de una instancia de una regla modifica la Base de Hechos actual dando lugar a una Base de Hechos nueva al añadir, borrar o modificar. La nueva BH es el punto de partida para el siguiente ciclo.
-
+		            
 		            Por el principio de refracción nunca se ejecuta 2 veces la misma regla con los mismos hechos, entraría en bucle.
 	      \end{itemize}
 \end{itemize}
@@ -458,23 +458,23 @@ Al definir reglas ya existentes, la primera regla se borra.
 \subsection{Elementos de condición (LHS)}
 \begin{itemize}
 	\item \textbf{Direcciones de hechos:} Almacenar la dirección de hechos en variables.
-
+	      
 	      ?P <- (persona (nombre ?N) (amigos \$?A) (edad 30))
 	\item \textbf{Test:} Comprobar el cumplimiento de alguna condición.
-
+	      
 	      (test (>= (abs (- ?y ?x)) 3))
 	\item \textbf{Not:} No existencia de un determinado hecho.
-
+	      
 	      (not (dato rojo ?x ?x))
 \end{itemize}
 
 \subsection{Acciones}
 \begin{itemize}
 	\item \textbf{Parada:} Para la ejecución del sistema.
-
+	      
 	      (halt)
 	\item \textbf{bind:} Asignar valor a variables.
-
+	      
 	      (bind ?X (* ?Y 2))
 \end{itemize}
 
@@ -529,18 +529,18 @@ Desde una regla no se puede lanzar otra.
 \section{Funciones}
 \begin{itemize}
 	\item \textbf{open:} Abrir un fichero, en nombre de canal se puede poner una variable.
-
+	      
 	      (open nombre-fichero nombre-canal-asignado modo-acceso)
 	\item \textbf{close:} Cerrar un fichero.
-
+	      
 	      (close nombre-canal)
 	\item \textbf{read:} Leer de un canal.
-
+	      
 	      (read <nombre-canal>)
 	\item \textbf{printout}
-
+	      
 	      Por pantalla: (printout t “Hello there!” crlf)
-
+	      
 	      En fichero: (printout file-name “red green”)
 	\item \textbf{eq:} TRUE si los argumentos son iguales en valor y tipo, si no FALSE.
 	\item \textbf{neq:} TRUE si alguno de los valores de las expresiones argumento es distinto, si no FALSE.
@@ -573,16 +573,16 @@ El nombre de la clase padre inicial es INITIAL-OBJECT.
 \subsection{Comandos para instancias}
 \begin{itemize}
 	\item \textbf{make-instance:} Añade una instancia.
-
+	      
 	      (make-instance of INTRODUCCIÓN (primitiva ESTAR))
 	\item \textbf{unmake-instance:} Quita la instancia.
-
+	      
 	      (unmake-instance ?ins)
 	\item \textbf{modify-instance:} Borra y crea instancias de la base de hechos.
-
+	      
 	      (modify-instance ?ins (orden 7))
 	\item \textbf{instances:} Muestra las instancias de la base de hechos.
-
+	      
 	      [gen1] of INTRODUCCIÓN
 	\item \textbf{(send [gen1] print):} Para ver valor de los slots.
 \end{itemize}
@@ -747,10 +747,12 @@ Etapas de la identificación
 		      \item Tecnología/medios disponibles.
 		      \item Ampliaciones futuras.
 	      \end{itemize}
+	      \pagebreak
+	      
 	\item \textbf{Evaluar el problema:} ver si de verdad es necesario y posible crear el SBC (tratar tampoco de matar moscas a cañonazos). Para la práctica se nos piden las 2 primeras:
 	      \begin{itemize}
 		      \item \textbf{Adecuación}, se ajusta al tipo de problema. Nos tenemos que fijar en:
-
+		            
 		            Naturaleza del problema
 		            \begin{itemize}
 			            \item Requiere experiencia, si lo hace es adecuado.
@@ -844,7 +846,7 @@ Están compuestas por 4 elementos:
 	      \end{itemize}
 	      (se usa para, es un, está compuesto por)
 	\item \textbf{Afirmaciones:} Establece una verdad.
-
+	      
 	      (es causa de, se relaciona con, es la finalidad de)
 	\item \textbf{Leyes:} Principios básicos.
 	\item \textbf{Procedimientos:} Pasos para la resolución.
@@ -864,16 +866,16 @@ Psicológicamente un experto:
 Técnicas de educción: ayudan a adquirir y validar el conocimiento de los expertos. No hace falta conocer todas las técnicas.
 \begin{itemize}
 	\item \textbf{Técnicas naturales:} Implican al experto realizando tareas que haría normalmente como parte de su trabajo.
-
+	      
 	      Entrevistas (Abiertas, Semiestructuradas y Estructuradas), Cuestionarios, Técnicas de observación y Técnicas de grupo.
 	\item \textbf{Técnicas artificiosas} Implican al experto realizando tareas que no realizaría normalmente como parte de su trabajo.
-
+	      
 	      Método triádico, Clasificación de conceptos, Emparrillado, Tareas con restricciones, 20 cuestiones, ‘Teach back’ y Análisis de Protocolos.
-
+	      
 	      \textbf{Análisis de Protocolos o caso concreto de forma global}
-
+	      
 	      Tiene tres profundidades: Análisis del asunto o materia, Análisis de tareas y Distinguir casos dentro de la materia y la tarea asociada.
-
+	      
 	      Etapas:
 	      \begin{itemize}
 		      \item Grabación del protocolo, tener un registro de cómo se lleva a cabo.
@@ -888,11 +890,11 @@ Técnicas de educción: ayudan a adquirir y validar el conocimiento de los exper
 		            \end{itemize}
 		      \item Interpretación del IC sobres reglas implícitas, planes y estrategias del experto.
 	      \end{itemize}
-
+	      
 	\item \textbf{Técnicas de modelado:} Técnicas basadas en el uso de modelos que guían la adquisición, validación y modificación del conocimiento. Representar el conocimiento para conceptualizar.
-
+	      
 	      Conceptos, Procesos y Estados.
-
+	      
 	      Tipos de modelado: Diagrama de proceso (conocimiento procedural), Mapa conceptual (conocimiento declarativo) y Diagramas de estados (variación de los diagramas de procesos, buenos para todo tipo de conocimiento.)
 \end{itemize}
 
@@ -918,13 +920,131 @@ Para completar una sesión el ingeniero del conocimiento debe realizar los sigui
 	\item Ejecución
 	\item Transcripción
 	\item Análisis de la sesión
-
+	      
 	      Organización de la información: Diccionario de términos o conceptos, Librería de casos y Documento de conocimientos.
-
+	      
 	      Actualización tras el análisis de cada sesión: determinar comprensión del IC, y si es necesario preguntar más sobre el tema. Producir documentos para fases posteriores.
-
+	      
 	      Proceso de razonamiento de resolución: Búsqueda de inferencias, Analizar casos buscando, Comprobación de suposiciones obvias y Analizar si es necesario el uso de la incertidumbre.
 	\item Evaluación
 \end{itemize}
+
+\chapter{Conceptualización}
+\section{Conceptualización}
+Consisten en estructurar todo el conocimiento adquirido y establece que conocimientos maneja el experto, como los utiliza, donde y cuando. 
+
+Es independiente de la implementación y herramienta.
+
+\textbf{Análisis: estructurar...}
+\begin{itemize}
+	\item \textbf{Conocimiento factual}, la información que se conoce (conceptos)
+	\item \textbf{Conocimiento táctico}, como y cunado se añade información (inferencia)
+	\item \textbf{Conocimiento estratégico}, que hacer, donde y por qué (pasos)
+	\item \textbf{Metaconocimiento}, conocimiento sobre el conocimiento.
+\end{itemize}
+\textbf{Síntesis: modelo conceptual}
+\begin{itemize}
+	\item \textbf{Modelo factual:} Tabla Conceptos-Atributos-Valores y Relaciones.
+	\item \textbf{Modelo de procesos:} Inferencias, tareas, procedimientos, estrategias, control, restricciones y operaciones que actúan sobre el modelo estático.
+	\item \textbf{Mapa de conocimiento:} Integra los dos modelos.
+\end{itemize}
+
+\subsection{Concepto}
+Cualquier cosa que se nos ocurra acerca de la cual se quiere decir algo, pueden ser cosas concretas, abstractas, de ficción, descripción de una tarea, función, acción, estrategias o tareas de razonamiento.
+
+Aunque se pueden generar infinidad de conceptos es conveniente reducir el número de conceptos mediante:
+\begin{itemize}
+	\item \textbf{Generalización:} Considerar el conjunto que contiene un concepto, de manera que este contenga a muchos conceptos. Ejemplo: Herramienta con martillo, sierra, destornillador...
+	\item \textbf{Abstracción:} Concentrarse en las cualidades esenciales de algo, en lugar de en sus relaciones concretas o casos.
+\end{itemize}
+\textbf{Universo del discurso:} Conjunto de conceptos acerca del cual se expresan los conocimientos.
+
+\subsubsection{Tabla Conceptos/Atributos/Valores}
+\begin{table}[H]
+	\centering
+	\caption{Ejemplo Tabla Conceptos/Atributos/Valores}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Concepto} & \textbf{Atributo}          & \textbf{Posible valor}     \\ \hline
+		Herramienta       & \begin{tabular}[c]{@{}l@{}}Nombre \\ Modelo \\ Coste \\ Fecha de compra \\ Fabricante \\ N.º de registro \\ Color\end{tabular} & \begin{tabular}[c]{@{}l@{}}Martillo1, Sierra1, Taladro1, Cincel1…\\ Un nombre\\ Un número\\ dd/mm/aa\\ Un nombre\\ Un n.º de 7 dígitos\\ Rojo, Verde, Blanco …\end{tabular} \\ \hline
+	\end{tabular}
+\end{table}
+
+Las relaciones se pueden representar como concepto y las partes implicadas como atributos, si existen más características en la relación serian atributos extras.
+
+\subsection{Relaciones entre conceptos}
+Interacción entre conceptos en un universo de discurso.
+
+Las relaciones más habituales son:
+\begin{table}[H]
+	\centering
+	\caption{Tipos de relaciones entre conceptos}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Tipo}              & \textbf{Ejemplos}          \\ \hline
+		\begin{tabular}[c]{@{}l@{}}Taxonómica \\ Estructurante \\ Topológica \\ Causal \\ Funcional \\ Cronológica \\ Similaridad \\ Condicional \\ Finalidad\end{tabular} & \begin{tabular}[c]{@{}l@{}}A es B. A puede clasificarse como un B, un C, o un D\\ A es parte de B. A está formado por B y C\\ A esta encima de B. A contiene a B. A intersecta a B\\ A causa B. A es efecto de B. Siempre que A, B\\ A permite B. A necesita B. A dispara B\\ A sucede antes de B. A y B ocurren simultáneamente\\ La válvula A esta abierta = admite gasolina\\ Si A y B entonces B\\ Los códigos se crearon para transmitir ideas\end{tabular} \\ \hline
+	\end{tabular}
+\end{table}
+\pagebreak
+
+\subsection{Atributos}
+Propiedad o característica de un concepto.
+
+\textbf{Lista atributos:} lista de elementos necesarios para inferir la/s meta/s del SE.
+
+En el ejemplo de la herramienta los atributos podrían ser: Nombre de la herramienta, Número de registro, Coste, Fecha de compra, Fabricante y Modelo.
+
+Para identificar los atributos nos podemos preguntar: 
+
+¿Es \textit{sustantivo1} un atributo del concepto \textit{sustantivo2}? $\equiv$ ¿Tiene sentido hablar acerca del \textit{sustantivo1} de un \textit{sustantivo2}?
+
+\subsubsection{Definición de un Atributo}
+Los atributos de los atributos se llaman facetas y deben ser definidos sobre los atributos de la Tabla Conceptos/Atributos/Valores.
+
+Los fundamentales son los que están en negrita.
+\begin{table}[H]
+	\centering
+	\caption{Definición de un Atributo}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{INFORMACIÓN}       & \textbf{DESCRIPCIÓN}                                \\ \hline
+		Nombre                     & Termino estándar que nombra ese atributo            \\ \hline
+		Descripción                & Breve explicación de lo que representa ese atributo \\ \hline
+		\textbf{Tipo Valor}        & \begin{tabular}[c]{@{}l@{}}Que puede contener el atributo\\ (Entero, real, cadena, símbolo, ...)\end{tabular}                          \\ \hline
+		\textbf{Rango de valores}  & \begin{tabular}[c]{@{}l@{}}Una lista de posibles valores\\ Un rango de valores numéricos\end{tabular}                          \\ \hline
+		\textbf{Cardinalidad}      & \begin{tabular}[c]{@{}l@{}}Máxima y mínima que puede tener\\ (normalmente uno o muchos)\end{tabular}                          \\ \hline
+		\textbf{Valor por defecto} & En caso de no especificar un valor                  \\ \hline
+		Grado de certeza           & En caso de incertidumbre                            \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsection{Relaciones entre Conceptos}
+Dependencia entre conceptos. Ejemplo: Herramienta y Persona la relación es de Propietario
+
+Es necesario que exista alguna instancia de los conceptos padres.
+
+Tipos de relación: Uno-a-Uno y Uno-a-Muchos.
+
+Las relaciones y conceptos se pueden representar en un Mapa Conceptual, las cajas son los conceptos y las flechas son las relaciones en las que se indica el nombre y tipo.
+\pagebreak
+
+\subsection{Conocimientos Estratégicos}
+\begin{enumerate}
+	\item Definir pasos de alto nivel para realizar la tarea: Identificar los pasos de alto nivel a ejecutar, Establecer el orden y Definir las condiciones en que debería ejecutarse cada paso.
+	\item Descomponer pasos de alto nivel en subpasos.
+	\item Para cada subpaso descubrir: Entrada, Modo de razonamiento y Salida.
+\end{enumerate}
+
+\subsection{Conocimientos Táctico. Inferencias}
+Una inferencia consta de una parte de condición y otra de conclusión.
+
+Hay múltiples posibles representaciones, pero la más habitual es: 
+\begin{itemize}
+	\item \textbf{SI} condiciones \textbf{ENTONCES} acciones
+\end{itemize}
+
+\textbf{Paso de inferencia:} Indicar que atributo/s usar para inferir nueva información (concluir un atributo específico)
+
+\section{Ontologías}
 
 \end{document}
