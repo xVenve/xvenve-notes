@@ -658,4 +658,68 @@ $$w_i(t+1)=w_i(t)+\gamma d(\chi)x_i$$
 
 Se suelen empezar con valores mayores y se va reduciendo una vez se va aproximando (balance exploración-explotación)
 
+\section{ADALINE}
+El Perceptron es de naturaleza binaria, lo que restringe su dominio de aplicación a la clasificación, pero en muchos casos se dispone de datos en el dominio de los reales. El perceptron es para clasificación lineal y ADALINE para regresión lineal.
+
+En este caso no hay que extrapolar a qué clase pertenecen las entradas desconocidas, sino que habrá que asignar a cada entrada su valor real correspondiente.
+
+Se trata de aproximar una función F de forma que:
+$$P=\{(\vec{x}_1, y_1), ...,(\vec{x}_m, y_m)\} \quad F(\vec{x}_1)=y_1, \forall p \in P$$
+
+No se puede utilizar aprendizaje por refuerzo, \textbf{no hay salidas correctas o incorrectas, todas son incorrectas, algunas más que otras}
+
+En 1960, Widrow y Hoff propusieron un modelo que sí tiene en cuenta el error producido, ADAptive LInear NEuron (ADALINE)
+
+Estructura identica al Perceptron.
+
+La diferencia con el perceptron es la manera de utilizar la salida en la regla de aprendizaje, en el \textbf{perceptron se utiliza la salida de la funcion umbral (binaria)} para el aprendizaje (si se ha equivocado o no) y en \textbf{Adaline se utiliza directamente la salida de la red (real)} teniendo en cuenta cuánto se ha equivocado.
+
+Se utiliza la diferencia entre el valor real esperado y la salida producida de la red $(d^p-y^p)$.
+
+\subsection{Regla Delta}
+Se define el error cometido por un modelo (un conjunto de pesos) mediante la desviación entre las salidas producidas por el mismo y las que debería haber producido, para todos los ejemplos de entrenamiento:
+
+$$E=\frac 1 2 \sum_{p=1}^m(d^p-y^p)^2$$
+
+El objetivo es encontrar un conjunto de pesos que haga que ese error sea el menor posible. Se aplica un proceso iterativo en el que después de propagar cada entrada, se modifican los pesos de acuerdo a regla delta:
+$$\Delta_pw_i=\gamma(d^p-y^p)x_i$$
+
+El error es una función de los pesos por lo que tiene que haber un valor de los pesos para los que dicho error sea mínimo y para localizarlo se utiliza el método de descenso de gradiente.
+
+El descenso de gradiente consiste en calcular la derivada de la función error respecto de los pesos en el punto determinado por el valor actual del peso, y utilizar dicho valor para variar los pesos
+\begin{itemize}
+	\item Si el valor es grande, es que la pendiente es grande y podemos desplazarnos mucho
+	\item Si el valor es pequeño, nos acercamos al mínimo, y variamos poco los pesos
+	\item Si el valor es cero, estamos en el mínimo y no se varían los pesos
+\end{itemize}
+
+$$\Delta_pw_i=-\gamma\frac{\partial E^p}{\partial w_i}$$
+
+Utilizando la regla de la cadena:
+$$\frac{\partial E^p}{\partial w_i}=\frac{\partial E^p}{\partial y^p}\frac{\partial y^p}{\partial w_i}=\frac{\partial (\frac 1 2 (d^p-y^p)^2)}{\partial y^p}\frac{\partial(w_ix_i)}{\partial w_i}=-(d^p-y^p)x_i$$
+De esta manera obtenemos la Regla Delta:
+$$\Delta_pw_i=\gamma(d^p-y^p)x_i$$
+
+Si aplicamos Adaline a problemas en los que las salidas son binarias la Reglas Delta quedaria:
+$$\Delta_pw_i=\{ \gamma x_i \quad si \quad d^p > y^p$$
+
+La Regla Delta es una extensión de la regla del Perceptron para valores de salida reales.
+
+\subsection{Procedimiento}
+\begin{enumerate}
+	\item Inicializar los pesos y umbral de forma aleatoria
+	\item Presentar un patrón de entrada
+	\item Calcular la salida, compararla con la deseada y obtener la diferencia: $(d^p-y^p)$
+	\item Para todos los pesos y para el umbral, calcular:
+	      
+	      $\Delta_pw_i=\gamma(d^p-y^p)x_i,, \Delta_p\theta=\gamma(d^p-y^p)$
+	\item Modificar los pesos y el umbral del siguiente modo:
+	      
+	      $w_j(t+1)=w_j(t)+\Delta_pw_j,, \theta(t+1)=\theta(t)+\Delta_p\theta$
+	\item Repetir los pasos 2, 3, 4 y 5 para todos los patrones de entrenamiento (1 ciclo)
+	\item Repetir los pasos 2,3,4,5 y 6 tantos ciclos hasta cumplir el criterio de parada
+\end{enumerate}
+
+\chapter{Perceptron multicapa}
+
 \end{document}
