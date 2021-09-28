@@ -1046,5 +1046,149 @@ Hay múltiples posibles representaciones, pero la más habitual es:
 \textbf{Paso de inferencia:} Indicar que atributo/s usar para inferir nueva información (concluir un atributo específico)
 
 \section{Ontologías}
+Una ontología es una especificación formal y explicita de una conceptualización compartida (Thomas Gruber), nosotros las utilizaremos para conceptualizar normal.
+\begin{itemize}
+	\item \textbf{Conceptualización:} desarrollo de un modelo abstracto del dominio basado esencialmente en el empleo de conceptos, atributos, valores, relaciones y funciones.
+	\item \textbf{Especificación explicita:} descripción y representación de un dominio concreto mediante conceptos, atributos, valores, relaciones y funciones, definidos explícitamente.
+	\item \textbf{Formal:} expresado mediante un formalismo (siempre idéntico) de manera que pueda ser reutilizada y leída por cualquier máquina.
+	\item \textbf{Compartida:} favorablemente acogida por todos los usuarios de esta. Se supone que se comparten entre usuarios para usarla con diferentes propósitos.
+\end{itemize}
+\pagebreak
+
+\subsection{Características de las Ontologías}
+\begin{itemize}
+	\item Disponibilidad, facilidad de gestión y divulgación
+	\item Ingeniería ontológica
+	      \begin{itemize}
+		      \item \textbf{Ciclo de vida:} construcción, refinamiento, modificaciones, uso, explotación y retiro.
+		      \item Requieren metodologías.
+	      \end{itemize}
+	\item No son cerrados y están sujetos a procesos evolutivos.
+\end{itemize}
+
+\subsection{Algunos problemas}
+\begin{itemize}
+	\item Imposibilidad de utilización directa de las ontologías previamente desarrolladas, almacenen el conocimiento junto, pero para hacer razonamientos hay que extraerlo (con un parser) y adaptarlo.
+	\item \textbf{Web semántica:} se necesita desarrollar buscadores semánticos.
+\end{itemize}
+
+\subsection{Terminología Básica}
+\begin{itemize}
+	\item \textbf{Clase:} representa un concepto.
+	\item \textbf{Subclase:} concepto más específico que dicha clase, cuando se da es-un, no cuando se da la relación es-parte-de o compone-a, en esos casos se crea su propia clase o se pone como atributo.
+	      
+	      Las subclases heredan todas las propiedades de la clase.
+	      
+	      Si A es subclase de B, una instancia de A también lo es de B.
+	      
+	      Una nueva subclase puede tener nuevas propiedades, diferentes valores de las propiedades y participar en nuevas relaciones. Aunque no tienen por qué introducir nuevas propiedades.
+	\item \textbf{Clase abstracta:} clase que no permite que existan instancias de ella. Se usa para agrupar conceptos e introducir cierto orden en la jerarquía.
+	\item \textbf{Propiedad o atributo (slot):} característica de la clase que se concretara mediante un valor, pueden ser tipos básicos o incluso otra clase o instancia.
+	\item \textbf{Faceta:} propiedad de los atributos. Tipo de dato, la cardinalidad, valor por defecto…
+	      \pagebreak
+	      
+	\item \textbf{Instancia:} representan objetos concretos del dominio.
+	      \begin{itemize}
+		      \item Pertenecen a una clase.
+		      \item Todos los atributos toman un valor concreto.
+		      \item La colección de instancias constituye la base de hechos.
+	      \end{itemize}
+	\item \textbf{Relación:} interacción o enlace entre los conceptos o clases del dominio.
+	      \begin{itemize}
+		      \item Relaciones semánticas básicas: subclase de (’es un’), parte de…
+		      \item Se pueden modelar mediante atributos de una clase o definiendo clases nuevas
+	      \end{itemize}
+	\item \textbf{Axioma:} reglas que son siempre ciertas. Se usan para Incluir restricciones, Verificar la corrección o Deducir conocimiento no codificado explícitamente.
+	\item \textbf{Herencia:} propiedad de la relación ‘es un’, las clases relacionadas (heredadas) cuenten con los atributos de la clase padre.
+	\item \textbf{Herencia múltiple:} una clase hereda o cuenta con las propiedades de dos clases padre.
+	\item \textbf{Derivación:} organización de las clases de la ontología en un árbol de jerarquía mediante sucesivas relaciones ‘es un’ (kind of, is a) con la propiedad de herencia.
+\end{itemize}
+
+\subsection{Metodologías para Hacer Ontologías}
+Son las metodologías para que dado un problema diseñar una ontología que lo represente.
+\begin{itemize}
+	\item \textbf{Diligence:} basada en la colaboración de múltiples participantes
+	\item \textbf{Competency Questions (‘Preguntas Relevantes o ‘Preguntas de Verificación’):} determina el dominio y el alcance de la ontología mediante la lista de preguntas
+	\item \textbf{Methontology:} propone un ciclo de vida de construcción de la ontología basado en prototipos evolutivos
+	\item \textbf{On-To-Knowledge:} hace hincapié en las aplicaciones futuras de la ontología a la hora de diseñarla.
+\end{itemize}
+\pagebreak
+
+\subsection{Desarrollo de una Ontología}
+\textbf{Algunas reglas:}
+\begin{itemize}
+	\item No existe un único modo correcto de modelizar un dominio.
+	\item El desarrollo de una ontología es necesariamente un proceso iterativo, se va refinando.
+	\item Los conceptos o clases de una ontología deberían ser muy cercanos a objetos o entes (tanto físicos como lógicos) y a las relaciones existentes en nuestro dominio de interés.
+\end{itemize}
+
+\textbf{Pasos:}
+\begin{enumerate}
+	\item Determinar el dominio y alcance de la ontología
+	      \begin{itemize}
+		      \item ¿Qué dominio cubrirá la ontología?
+		      \item ¿Para qué se va a emplear la ontología?
+		      \item ¿Qué preguntas debería contestar la ontología?
+		      \item ¿Quién usará y mantendrá la ontología?
+	      \end{itemize}
+	\item Considerar la reutilización de ontologías existentes
+	      \begin{itemize}
+		      \item Ontolingua
+		      \item DAML Library
+		      \item UNSPSC
+		      \item RosettaNet
+		      \item DMOZ
+	      \end{itemize}
+	\item Enumerar términos importantes de la ontología
+	      
+	      Listar todos los términos del dominio basándose en documentación o expertos.
+	      
+	      Al principio ignorar: relaciones, varios se enmarcan en un mismo concepto (sinónimos), o si corresponden a conceptos o propiedades.
+	      
+	      Algunos de estos términos se transformarán en clases, otros en propiedades y otros en instancias.
+	      
+	\item Definir las clases y la jerarquía de clases
+	      \begin{itemize}
+		      \item \textbf{Top-down:} comienza con las clases \textbf{más generales} del dominio y posteriormente se lleva a cabo su especialización
+		      \item \textbf{Botom-up:} comienza con la definición de las clases \textbf{más específicas}, reagrupando posteriormente estas clases en conceptos más generales
+		      \item \textbf{Combinación de las anteriores:} comienza con la enumeración de las clases \textbf{más destacadas y posteriormente se generalizan} y especializan apropiadamente
+	      \end{itemize}
+	\item Definir las propiedades/slots de las clases
+	      
+	      Características que pueden convertirse en slots: Características intrínsecas, extrínsecas, Partes del objeto y Relaciones con otras clases.
+	      
+	      \textbf{Relaciones inversas:} el valor de una propiedad puede depender de otra propiedad. Ej. Vino fue fabricado por una bodega, entonces, la bodega produce ese vino.
+	      
+	\item Definir las facetas o restricciones de las propiedades o slots
+	      \begin{itemize}
+		      \item \textbf{Tipo de valor:} String, Número (Entero o Float), Boolean, Enumerado, Instancias
+		      \item \textbf{Cardinalidad:} cuantos valores puede tener una propiedad
+		      \item \textbf{Rango:} clases permitidas para una propiedad de tipo Instancia, valores numéricos o valores permitidos.
+		      \item \textbf{Valor por defecto:} Si la mayoría de las instancias de la clase toman un valor concreto, el sistema lo completara automáticamente, pero se puede cambiar el valor posteriormente. No es lo mismo que el valor fijado.
+	      \end{itemize}
+	\item Crear instancias
+	      
+	      Las instancias son los objetos más específicos representados en una ontología: Se debe elegir una clase para la que crear la instancia y rellenar todos los valores de propiedades.
+\end{enumerate}
+
+\subsection{Jerarquía de clases}
+\begin{itemize}
+	\item Las instancias son los conceptos más específicos representados en una ontología.
+	\item No debemos emplear sinónimos de un mismo concepto para clases diferentes.
+	\item No deben aparecer ciclos o bucles en la jerarquía de clases.
+	\item Los conceptos de un mismo nivel de la jerarquía o clases hermanas deben presentar el mismo nivel de generalidad (excepto en la raíz).
+	\item Dominio del discurso: no es necesario especializar o generalizar más de lo que necesitemos.
+	\item Si los conceptos de un dominio forman una jerarquía natural, podríamos representarlos como clases abstractas.
+\end{itemize}
+
+\subsection{Herramientas de Edición de Ontologías}
+\begin{itemize}
+	\item Protege (Universidad de Stanford)
+	\item KAON (Universidad de Karlsruhe, Alemania)
+	\item WebOnto (Open University, UK)
+	\item OntoEdit (comercializada por Ontoprise GmbH)
+	\item Ontolingua (Universidad de Stanford)
+	\item OntoSaurus (Universidad de Southern California). Lenguaje LOOM
+\end{itemize}
 
 \end{document}
