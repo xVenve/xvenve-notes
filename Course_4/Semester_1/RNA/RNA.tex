@@ -255,9 +255,9 @@ hmargin=3cm
 \section{Profesores}
 \begin{quote}
 	Magistral: Isasi Viñuela, isasi@ia.uc3m.es
-
+	
 	Prácticas: José María Valls, jvalls@inf.uc3m.es
-
+	
 	Inés M. Galván, igalvan@inf.uc3m.es (de baja)
 \end{quote}
 
@@ -335,16 +335,16 @@ Lo que se hace es separar las instancias por la clase, de estos conjuntos genera
 	      $$MAE=\frac 1 N \sum^N_{i=1} |s_i-d_i| \quad MSE=\frac 1 N \sum^N_{i=1} (d_i-s_i)^2$$
 	      Acaba cuando el error medio o el cuadrático es aceptable. También por una visualización gráfica de las salidas deseadas y las salidas de la red.
 	\item \textbf{En clasificación:} Lo más habitual es evaluar la calidad de la red basándonos en su precisión predictiva (\% de aciertos), la proporción de aciertos sobre el total de instancias.
-
+	      
 	      Acaba cuando el porcentaje de aciertos es alto, teniendo en cuenta que debe ser mayor que la probabilidad de que acierte aleatoriamente (como si tirase una moneda) y las clases están equilibradas (porque si siempre da una clase podría tener un buen porcentaje de acierto dando un valor constante).
-
+	      
 	      \textbf{Matriz de confusión:} Representa la cantidad de instancias según lo estimado y lo correcto, de manera que se pueda ver los que han sido estimados según TP, FN, FP o TN. Los datos correctamente clasificados están en la diagonal, los incorrectos fuera de ella. Se emplean otras medidas como son:
 	      \begin{itemize}
 		      \item El porcentaje de aciertos total es $\frac {TP+TN} {TP+TN+FN+FP}$
 		      \item El porcentaje de aciertos de + es: $\frac {TP} {TP+FN}$
 		      \item El porcentaje de aciertos – es: $\frac {TN} {FP+TN}$
 	      \end{itemize}
-
+	      
 \end{itemize}
 
 \subsection{Anotaciones Practica 1}
@@ -640,11 +640,11 @@ Se realiza de forma iterativa.
 	\item Se toma un ejemplo entrada-salida $\vec{x} = (x_1, x_2, ..., x_n), d(\vec{x})$
 	\item Se calcula la salida de la red: $y(\vec{x}) = f (x_1w_1 + x_2w_2 + ... + x_nw_n + \theta)$
 	\item Si $y(\vec{x}) \neq d(\vec{x})$ (clasificación incorrecta) se modifican los pesos y el umbral:
-
+	      
 	      Si $\vec{x} \in A, d(x) = 1 \rightarrow w_i(t+1) = w_i(t)+x_i, \theta(t+1) = \theta(t)+1$
-
+	      
 	      Si $\vec{x} \in B, d(x) = -1 \rightarrow w_i(t+1) = w_i(t)-x_i, \theta(t+1) = \theta(t)-1$
-
+	      
 	\item Se vuelve al paso 2 hasta completar el conjunto de patrones de entrenamiento.
 	\item Se repiten los pasos 2, 3, 4 y 5 hasta alcanzar el criterio de parada.
 \end{enumerate}
@@ -720,6 +720,98 @@ La Regla Delta es una extensión de la regla del Perceptron para valores de sali
 	\item Repetir los pasos 2,3,4,5 y 6 tantos ciclos hasta cumplir el criterio de parada
 \end{enumerate}
 
-\chapter{Perceptron multicapa}
+\chapter{Perceptrón multicapa}
+\section{Problema XOR}
+Mediante ADALINE o un Perceptrón que son aproximadores de un solo plano no es posible crear una red que represente la lógica de la puerta XOR.
+\begin{table}[H]
+	\centering
+	\caption{Puerta XOR}
+	\begin{tabular}{cc|c}
+		\multicolumn{2}{l}{XOR} & \multicolumn{1}{l}{} \\ \hline
+		-1 & -1 & 1  \\
+		-1 & 1  & -1 \\
+		1  & -1 & -1 \\
+		1  & 1  & 1
+	\end{tabular}
+\end{table}
+
+Se llega a un punto al aplicar estos métodos que no sabe mejorar más la solución, se estabilizan los pesos, pero es una solución muy alejada de la óptima.
+
+Como se ha dicho solo se pueden resolver problemas en los que las salidas dependen linealmente de las entradas.
+
+La manera de resolver este problema fácilmente es introducir una capa adicional, que es como emplear dos rectas para discriminar.
+
+En el caso de más de 1 capa para ajustar los pesos no podemos hacerlo como anteriormente, ya que en las capas ocultas no conocemos la salida, solo nos serviría para la capa de salida.
+
+\section{No linealidad}
+En la mayoría de los casos los datos se distribuyen de manera no lineal, por lo que en general las rectas no son útiles para solucionar los problemas reales. Se necesitan curvas complejas.
+
+\section{Función de activación}
+Es necesario incluir una función de activación no lineal en la salida de las células. 
+
+Es importante que sean no lineales, derivables y acotadas.
+\pagebreak
+
+Nosotros emplearemos:
+\begin{itemize}
+	\item Función Sigmoide (0 - 1)
+	      $$g(x)=\frac{1}{1-e^{-x}}\quad g'(x)=g(x)(1-g(x))$$
+	\item Tangente Hiperbólica (-1 - 1) $$g(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}} \quad g'(x)=1-g(x)^2$$
+	\item Unidad de Rectificado Lineal - ReLU $$g(x)=\max(0,x) \quad g'(x)= \begin{cases}1 & x > 0\\0 & \textit{en otro caso}\end{cases}$$
+\end{itemize}
+
+\section{Redes alimentadas hacia delante}
+En cada capa C se calcula la salida de las células que la componen $a^C_j$ con: 
+$$y^C_j=f\left(\sum^{C-1}_(i=1) w^{C-1}_{ij}y^{C-1}_i+\theta_j^C\right)=f(s^{C}_{j})$$
+
+Tal que $w^C_{ij}$ es el peso de la capa C entre la célula origen i y la célula destino j y $y^{C-1}_j$ es la salida de la célula i de la capa anterior. El sumatorio se hace para todas las células de la capa anterior.
+
+\section{Aprendizaje de pesos}
+En este caso no podemos hacer como en ADALINE, ya que solo se conoce la salida esperada para la última capa, pero para las intermedias no podemos. Solo podríamos ajustar los pesos de esta. 
+
+Es por esto por lo que en 1986 Rumelhart et al. presentaron una generalización de la Regla Delta que solucionaba este problema: \textbf{Regla Delta Generalizada}.
+
+\section{Función de error}
+El objetivo es que la red produzca resultados lo más parecidos a los deseados, depende del tipo de problema.
+\pagebreak
+
+En los problemas de \textbf{Clasificación} se utiliza la \textbf{entropía cruzada}: $E=-\sum^C_{i=1}d_i \log (y_i)$ La base del logaritmo depende del número de posibles valores.
+\begin{itemize}
+	\item No siempre es conveniente ahorrar bits cuando se hace clasificación, ya que el conocimiento depende de las conexiones.
+\end{itemize}
+
+En \textbf{Regresión} se utiliza el \textbf{error cuadrático medio}: $E=\frac 1 N \sum^N_{i=1} (y_i-d_i)^2$
+
+Se puede hacer una representación gráfica del error según los pesos que nos permite ver como se distribuyen y buscar los valles, pero esto no es posible de dibujar en los problemas por el gran tamaño de los espacios y coste. Lo que se hace es como no conocemos el error en todos los puntos se utiliza la derivada para ver la pendiente y reducirla en busca de un mínimo local (Problema del mínimo local, es difícil salir).
+
+Como el objetivo es minimizar la función de error se calcula el gradiente de la función en un punto W para ver la pendiente y como queremos minimizar iremos en dirección opuesta al gradiente hasta alcanzar convergencia.
+
+\section{Retropropagación del gradiente}
+Hay que calcular la derivada del error respecto a cada uno de los pesos, dicha derivada se utilizará para modificar el peso correspondiente.
+
+Se va aplicando la regla de la cadena, en las capas intermedias hay que calcular los valores hacia atrás.
+\section{Procedimiento BackPropagation}
+\begin{enumerate}
+	\item Inicializar los pesos aleatoriamente $W \leftarrow N(0, \sigma)$.
+	\item Iterar hasta convergencia.
+	\item Calcular el gradiente de cada peso $\frac{\partial E(W)}{\partial W}$.
+	\item Actualizar los pesos en dirección opuesta al gradiente $ W \leftarrow W - \frac{\partial E(W)}{\partial W}$.
+	\item Generar como salida los pesos definitivos.
+\end{enumerate}
+\pagebreak
+
+\section{Con función de activación}
+
+$$s^P_k= \sum_j w^{P-1}_{jk}y^{P-1}_j+\theta_k^P \quad y^P_k=f(s^P_k)$$
+
+Necesitamos para cada célula un valor delta (menos para la entrada). Se deriva en función de la entrada, ya que es lo que cambia el error.
+
+$$\delta^P_k=-\frac{\partial E}{\partial s^P_k}=-\frac{\partial E}{\partial y^P_k}\frac{\partial y^P_k}{\partial s^P_k}=-\frac{\partial E}{\partial y^P_k}f'(s^P_k)$$
+
+Para la salida (o): Siendo el error $E=\frac 1 2 \sum (y^o_k-d^o_k)^2$
+$$\delta^o_k=-\frac{\partial E}{\partial y^o_k}f'(s^o_k)=-(y^o_k-d^o_k)f'(s^P_k)=(d^o_k-y^o_k)f'(s^o_k)$$
+
+Para la oculta(h):
+$$\delta^h_k=-\frac{\partial E}{\partial y^h_k}f'(s^h_k)=COMPLETAR$$
 
 \end{document}
