@@ -255,9 +255,9 @@ hmargin=3cm
 \section{Profesores}
 \begin{quote}
 	Magistral: Pedro Isasi, pedro.isasi@uc3m.es, 2.1.B13.
-	
+
 	Práctica: Yago Sáez, yago.saez@uc3m.es, 2.1.C13
-	
+
 	Miércoles clases Práctica / Jueves clase Magistral.
 \end{quote}
 
@@ -308,7 +308,7 @@ Inteligencia artificial (no hay una única definición): Disciplina que consiste
 	      \end{itemize}
 \end{itemize}
 
-\chapter{Tema 1: Introducción a los algoritmos de computación evolutiva}
+\chapter{Tema 1: Introducción a los algoritmos de Computación Evolutiva}
 \section{Teoría genética}
 Este tema nos permite entender de donde surge la intención de tratar de imitar los comportamientos biológicos y las teorías evolutivas que hay, en particular la evolución. Lo que trataremos es de acercarnos a como la biología es capaz de crear sistemas complejos.
 
@@ -507,7 +507,7 @@ Los individuos se reproducen por sí mismos.
 La reproducción da lugar a individuos genéticamente idénticos al progenitor
 
 \subsubsection{Diploidad}
-Los cromosomas están pareados. Las células sexuales se generan mediante meiosis y son “haploides”, conteniendo información redundante e incluso contradictoria. 
+Los cromosomas están pareados. Las células sexuales se generan mediante meiosis y son “haploides”, conteniendo información redundante e incluso contradictoria.
 
 Los descendientes reciben un cromosoma de cada uno de los progenitores para formar un embrión diploide
 
@@ -625,39 +625,39 @@ Mucha presión selectiva indica que solo unos pocos generarán descendencia. Cua
 	\item \textbf{Selección proporcional o Ruleta:} La probabilidad de que un individuo sea seleccionado para reproducción es proporcional al cociente entre su valor de evaluación, y el total de la población.
 	      $$p(i)=\frac{f(i)}{\sum^N_{i=1} f(i)}$$
 	      \pagebreak
-	      
+
 	      Este método no funciona bien en dos situaciones:
 	      \begin{itemize}
 		      \item Cuando un individuo es muy superior al resto (Problema del superindividuo), ya que estará sobrerepresentado y pierde diversidad.
 		      \item Todos los individuos son igualmente válidos, todos tendrán la misma probabilidad y se aleatoriza la evolución. Por probabilidad unos individuos podrían ser seleccionados preferentemente.
 	      \end{itemize}
 	\item \textbf{Selección por rango o jerárquica:} Probabilidad en función de la posición que ocupa en orden de mayor evaluación. Evita los inconvenientes de la ruleta o selección proporcional. La probabilidad la da la posición no el valor de la evaluación.
-	      
+
 	      Aunque un individuo sea muy superior no será una diferencia excesiva de probabilidad de selección, lo mismo si son parecidos. La presión selectiva vendrá dada por la diferencia entre posiciones y puede ser regulada.
 	\item \textbf{Selección por rango o jerárquica truncada:} Se seleccionan una proporción de los mejores individuos, asignando la misma probabilidad de selección, y al resto cero.
-	      
+
 	      Los mejores se reproducen aproximadamente el mismo número de veces, el resto no transmite su material genético.
 	\item \textbf{Selección por torneos:} Consiste en realizar un torneo entre un número reducido de
 	      individuos de la población, cada vez que haya que seleccionar. Se eligen T individuos de forma aleatoria uniforme y se selecciona el mejor, hay remplazo, es decir uno elegido puede volver a ser elegido.
-	      
+
 	      Se repite el proceso tantas veces como individuos a seleccionar.
-	      
+
 	      Cuanto más grande sea T más presión selectiva, se empieza con poca presión y se va aumentando más adelante.
-	      
+
 	      No es necesaria función de evaluación, solo comparar individuos.
-	      
+
 	      Es fácil pasar de exploración a explotación.
-	      
+
 	      Permite mantener y regular la variabilidad genética.
-	      
+
 	      Se elimina el efecto de los superindividuos.
-	      
+
 	      Se ajusta fácilmente a problemas multiobjetivo.
 \end{itemize}
+\pagebreak
 
 \subsection{Emparejamiento}
 La reproducción es sexual, se realiza entre dos individuos, y la descendencia puede ser de un único individuo o de dos.
-\pagebreak
 
 Los individuos se eligen de entre los seleccionados en el paso anterior según las siguientes maneras:
 \begin{itemize}
@@ -671,36 +671,330 @@ Una vez reproducidos, los individuos no vuelven a ser utilizados de nuevo para r
 \subsubsection{Recombinación}
 \begin{itemize}
 	\item \textbf{Discreta:} Se generan descendientes seleccionando una secuencia consecutiva de un progenitor, y la otra del otro.
-	      
+
 	      100 101 y 010 110 dan 100110 y 010101
 	\item \textbf{Uniforme:} Se generan descendientes seleccionando los genes homólogos de sus progenitores aleatoriamente. Se escoge aleatoriamente los genes teniendo en cuenta su posición.
-	      
+
 	      10 01 01 y 01 01 10 dan 100110 y 010101.
 	\item \textbf{Aritmética:} Se hace la media de los valores de los genes de los progenitores para generar un nuevo individuo.
 	      0,2 0,6 1,2 y 0,4 0,4 1,0 dan 0,3 0,5 1,1
 	\item \textbf{Secuencias:} El nuevo individuo mantiene la secuencia de los padres sin repetir valores. Se cogen secuencias de valores sin tener en cuenta la posición y van rellenando el progenitor.
-	      
+
 	      ABCDEFG y GFCDBAE dan E BCD GFA (la AE del segundo)
 	\item \textbf{Intermedia:} La recombinación aritmética genera siempre valores entre los de sus progenitores, esto reduce la variabilidad y hace converger hacia valores intermedios definidos aleatoriamente en la población inicial.
-	      
+
 	      Esto se puede evitar permitiendo generar valores en un rango mayor al definido por los genes de los progenitores
-	      
+
 	      No se realiza la media aritmética, sino un valor aleatorio en un rango extendido.
-	      
+
 	      A partir de los valores de los genes de los progenitores, se obtiene un valor intermedio para cada descendiente
-	      \pagebreak
-	      
+
 	      Para cada gen (i)
 	      \begin{enumerate}
 		      \item Se genera un valor aleatorio (a$_i$) en el intervalo [-d, 1+d], siendo d un parámetro del método.
 		      \item Se asigna como valor del gen descendiente (z$_i$) la combinación de los valores de los genes homólogos de los progenitores (x$_i$, y$_i$). Se multiplica el gen del primer progenitor por a$_i$ y el del segundo por (1 - a$_i$) y se suman.
 	      \end{enumerate}
-	      
+
 	      Si d=0 los genes de los descendientes generarán valores intermedios de los de los progenitores, que sería como recombinación discreta. Para evitar que los valores converjan hacia dentro, se asignan valores de d>0 así sale de las fronteras de sus progenitores.
 	\item \textbf{Lineal:} Igual que la recombinación intermedia, pero con el mismo valor de a para todos los genes. Permite generar valores de descendientes en la línea definida por sus progenitores.
 \end{itemize}
 
 \subsection{Inserción y remplazo}
+Una vez seleccionados los individuos a reproducir, emparejados y generados sus descendientes, hay que decidir cómo se van a renovar las poblaciones.
+\begin{itemize}
+	\item Suponemos que el tamaño de la población debe permanecer constante de generación en generación, pero puede no ser así.
+	\item \textbf{Política de inserción:} Qué individuos de los nuevos generados van a incluirse en la nueva generación.
+	\item \textbf{Política de reemplazo:} Qué individuos de la población van a ser sustituidos por los nuevos.
+\end{itemize}
+
+\subsubsection{Estrategias de inserción}
+Estrategia generacional:
+\begin{itemize}
+	\item \textbf{Generacional:} Se renueva toda la población al completo.
+	\item \textbf{Generacional elitista:} Mantiene los n mejores individuos de una generación a la siguiente ($n \ll \#population$) y renueva los restantes.
+	\item \textbf{Elitista puro:} El mejor individuo de la población pasa a la siguiente, el resto se renueva.
+\end{itemize}
+
+Estrategia de estado estacionario:
+\begin{itemize}
+	\item \textbf{Estado estacionario:} Se generan menos individuos del tamaño de la población y todos ellos se incluyen en la
+	      generación siguiente.
+	\item \textbf{Estado estacionario puro:} Solo se genera un individuo nuevo en cada generación y es insertado en la siguiente generación.
+\end{itemize}
+Para estas hay que decidir qué individuos de la población serán sustituidos por los nuevos generados, con Política de reemplazo.
+
+\textbf{Inserción híbrida:} Se generan más individuos nuevos que los que tiene la población.
+\begin{itemize}
+	\item \textbf{Basada en fitness parcial:} Se seleccionan los n mejores individuos y se renueva la población por completo.
+	\item \textbf{Basada en fitness:} Se seleccionan los mejores entre la población generada y la previa, de esta manera se renueva parcial o totalmente, depende del fitness.
+\end{itemize}
+
+\subsubsection{Estrategias de remplazo}
+\begin{itemize}
+	\item \textbf{Globales:} Considerando toda la población.
+	      \begin{itemize}
+		      \item Aleatoriamente
+		      \item Los más antiguos de la población
+		      \item Los peores de la población
+		      \item Los más parecidos a los individuos a insertar
+	      \end{itemize}
+	\item \textbf{Locales:} De entre los que participan en la reproducción.
+	      \begin{itemize}
+		      \item Los nuevos reemplazan a sus progenitores. n individuos como progenitores sustituidos por los n individuos nuevos generados.
+		      \item El peor. n progenitores generan m individuos nuevos (m<n), de manera que los nuevos sustituyen a los peores de los n progenitores.
+		      \item El más parecido. n progenitores generan m individuos nuevos (m<n), de manera que los nuevos sustituyen a los más parecidos de los n progenitores
+	      \end{itemize}
+\end{itemize}
+
 \subsection{Convergencia}
+Criterios de parada
+\begin{itemize}
+	\item \textbf{Estática:} Se establece antes de empezar.
+	      \begin{itemize}
+		      \item Número de iteraciones (generaciones).
+		      \item Número de evaluaciones.
+		      \item Un determinado tiempo.
+	      \end{itemize}
+	\item \textbf{Dinámica:} En cada momento se evalúa si merece la pena detenerse o continuar.
+	      \begin{itemize}
+		      \item Ya no se generen mejores soluciones.
+		      \item La diversidad genética caiga por debajo de cierto umbral.
+
+		            Se calcula la semejanza genotípica entre todos los posibles pares de individuos de la población $D(P)=\sum_{i,j\in P} d(P_i, P_j)$.
+
+		            En función de la representación puede ser distancia Hamming (discreta), distancia Euclídea (continúa) o diversidad de entropía $D(P)=\sum_{k=1}^l\sum_{\alpha \in A} f_k(\alpha)\log f_k(\alpha)$ (continúa no binaria).
+		      \item La diversidad fenotípica caiga por debajo de un umbral.
+		      \item Mejor individuo, se para sí no se encuentra después de n iteraciones un individuo mejor.
+		      \item Evaluación media (nos permite ver si hay posibilidad de mejora), calcula la media de la evaluación de los individuos de la población y cuando no mejora o muy poco (debajo de un umbral) se para.
+	      \end{itemize}
+\end{itemize}
+
+\chapter{Conceptos generales de algoritmos evolutivos}
+\section{Elementos}
+\textbf{Codificación:}
+\begin{itemize}
+	\item Individuo, cadena binaria que representa una solución al problema.
+	\item Población, conjunto finito de soluciones.
+\end{itemize}
+
+\textbf{Operadores genéticos:} Reproducción, Cruce, Inversión y Mutación.
+
+\textbf{Función de fitness:} Convierte un individuo en un valor real que evalúa la solución.
+
+\section{Diseño de un AG}
+Lo primero es plantearse si se puede resolver mediante esta técnica o no, si se puede entonces:
+\begin{enumerate}
+	\item \textbf{Modelar el problema:} Elegir una buena representación es muy importante y diseñar una función de evaluación.
+	\item \textbf{Elegir los parámetros del método:} Que tipo de operaciones de selección y cruce, y asignar las tasas de probabilidad a los operadores.
+\end{enumerate}
+
+\section{Codificación}
+\textbf{Debe cumplir:} Diseño eficaz de genes y Alfabeto mínimo.
+
+\textbf{Gen:} Secuencia genómica que produce una característica fenotípica. Deben ser pequeño y no estar relacionados entre ellos.
+
+\textbf{Codificación binaria:} Cadenas de caracteres binarios. Se pueden representar números enteros y reales, si se determina la precisión (x bits parte entra y z parte decimal).
+
+\textbf{Codificación binaria Gray:} Cadenas de caracteres binarias en la que la distancia Hamming entre codificaciones adyacentes es 1. Es conveniente para que fenotipos adyacentes se correspondan con codificaciones adyacentes.
+
+\textbf{Codificación Discreta no binaria:} Cuando para cada gen hay un número de alternativas no muy grande, pero mayor que dos. Esta alternativa evita dejar valores en binario sin significado.
+
+\textbf{Codificación de reglas:} Si condición, entonces acción. Se codifican por un lado las condiciones y por otro las acciones, sin olvidar los operadores ($\le, \ge, \neq, =$). Las condiciones pueden ser números o atributos (se pone el valor del atributo, 1 o 0) y las acciones un conjunto predeterminado de valores.
+\begin{itemize}
+	\item simetría bilateral, cuerpo segmentado, exoesqueleto y patas articuladas $\rightarrow$ es un [artrópodo]
+	\item Si Si Si Si 9
+	\item 1 1 1 1 1001
+\end{itemize}
+
+\section{Operadores Genéticos}
+\textbf{Selección}, simula la selección natural darwiniana hasta completar una población:
+\begin{itemize}
+	\item \textbf{Ruleta} (por valoración): Selecciona los individuos más aptos según la evaluación. Individuos con mayor evaluación generan mayor número de descendientes. La probabilidad de ser escogido es proporcional al fitness.
+
+	      Problemas:
+	      \begin{itemize}
+		      \item Convergencia prematura: Aquellos individuos con una evaluación muy superior al resto tendrá muchos clones y la descendencia se parecerá mucho al progenitor, lo que lleva a que se estanque en una solución subóptima.
+		      \item Estancamiento: Después de unas cuantas generaciones, todos los individuos tienen un valor de adecuación muy parecido entre ellos, por lo que hay baja presión selectiva al tener todos la misma probabilidad.
+	      \end{itemize}
+	\item \textbf{Jerárquica} (por posición): Se ordena la posición de mayor a menor fitness. Se selecciona al individuo proporcionalmente al rango que ocupa en la población. Maneras de calcular la probabilidad $P_i=\frac{p_i}{\sum_{j=1} p_j}$:
+	      \begin{itemize}
+		      \item Esquema lineal, $p_i=A\cdot i + B$
+		      \item Esquema exponencial, $p_i=A\cdot e^{B\cdot i+C}$
+	      \end{itemize}
+
+	      Esto permite eliminar la influencia de individuos muy superiores al uniformizar las diferencias entre probabilidades por posición.
+	\item \textbf{Torneos} (el mejor de un conjunto aleatorio de individuos).
+
+	      El tamaño del torneo permite variar la presión selectiva, además mantiene y regula la variedad genética.
+
+	      No necesita una función de evaluación, solo comparar individuos.
+
+	      Eliminar el efecto de los superindividuos.
+\end{itemize}
+
+\textbf{Cruce/Reproducción}: Simula la reproducción sexual.
+\begin{itemize}
+	\item Se genera una población intermedia del mismo tamaño que la original, en la que tendrá más probabilidad de estar representados los mejores individuos.
+	\item Puede ser: Simple (parte en 2), De dos puntos y Uniforme(cada gen tiene una probabilidad de cambiar por el del otro progenitor).
+	\item El problema del incesto, si solo se hace cruce puede ocurrir que se pierdan alelos (todos los individuos tengan el mimo valor para un gen). En este caso se pierde rápidamente la variedad genética y se produce convergencia prematura. Por esto se introduce mutación.
+\end{itemize}
+
+\textbf{Inversión}, operador a medida, adecuado para ciertos dominios.
+
+\textbf{Mutación}, simula las mutaciones que se producen en la reproducción.
+\begin{itemize}
+	\item  Elige aleatoriamente un gen y cambia su valor, por lo que pueden producirse muchas o ninguna mutación en un individuo.
+	\item Se emplean frecuencias bajas, para ir explorando poco a poco, pero si es demasiado baja hay incesto.
+	\item Evita la perdida de alelos y aleatoriza la búsqueda.
+	\item Se comienza con valores mayores (exploración) y se va reduciendo para afinar las soluciones (explotación).
+\end{itemize}
+
+\section{Estrategias de reemplazo}
+Dependiendo del tipo de reemplazamiento de los descendientes en la población, entre generaciones consecutivas, se distinguen dos tipos de Algoritmos Genéticos:
+\begin{itemize}
+	\item \textbf{Generacional:} Se reemplaza toda la población.
+	\item \textbf{Estado Estacionario:} El reemplazamiento es parcial (n individuos). En este caso hay diferentes criterios de reemplazo:
+	      \begin{itemize}
+		      \item Los n individuos con peor valor de adecuación son sustituidos por los nuevos.
+		      \item Los nuevos reemplazan a sus n progenitores.
+		      \item Los individuos más parecidos. Cada individuo nuevo reemplaza a aquel cuya distancia Hamming sea menor.
+	      \end{itemize}
+	\item \textbf{Estado estacionario puro:} Se reemplaza un único individuo.
+\end{itemize}
+
+\section{Propiedades}
+\subsection{Tamaño del espacio de búsqueda}
+Los algoritmos genéticos son útiles para tamaños grandes, cuando no hay manera de obtener la solución óptima.
+
+Los tiempos en explorar las soluciones aumenta exponencialmente.
+
+Son útiles a partir de un tamaño de entre 20 y 30, 2$^{20}$ y 2$^{30}$, los tamaños inferiores dan soluciones triviales y se pueden manejar.
+
+Suponiendo que cada individuo tarda un milisegundo en evaluarse:
+\begin{itemize}
+	\item Tamaño 20; 2$^{20}$= 17,45 minutos.
+	\item Tamaño 30; 2$^{30}$= 12,42 horas.
+	\item Tamaño 50; 2$^{50}$= 35702 años.
+\end{itemize}
+
+\subsection{Codificación}
+Es importante que trate de cumplir:
+\begin{itemize}
+	\item \textbf{Completitud:} Todas las soluciones deben poder ser codificadas.
+	\item \textbf{Coherencia:} Únicamente representar soluciones factibles, para no perder el tiempo.
+	\item \textbf{Uniformidad:} Todas las soluciones con la misma cantidad de codificaciones, no hay privilegiados con más de 1 código asociado.
+	\item \textbf{Sencillez:} Fácil y rápida de aplicar la codificación.
+	\item \textbf{Adyacencia:} Pequeños cambios en los individuos representan pequeños cambios en  la solución.
+\end{itemize}
+
+\subsection{Limitaciones}
+\begin{itemize}
+	\item \textbf{Representación:} El espacio de búsqueda solo se representa mediante cadenas binarias o discretas, puede que esta no sea la más conveniente para el problema.
+	\item \textbf{Dependencias:} No considera las restricciones o dependencias del problema.
+	\item \textbf{Opacidad:} Solo está guiado por la aptitud de los individuos, no incorpora ningún otro conocimiento.
+	\item \textbf{Finitud:} Solo puede trabajar con poblaciones finitas no muy grandes.
+\end{itemize}
+
+\subsection{Problemas}
+\begin{itemize}
+	\item  Pérdida de \textbf{variabilidad genética}.
+	\item  \textbf{Convergencia prematura}, estancamiento en mínimos locales.
+	\item  Problema de \textbf{epístasis}.
+	\item  Paisaje de la función de evaluación muy abrupto (\textbf{fitness landscape}).
+	\item  Problema de \textbf{desorientación} (deception).
+	\item  Problema de \textbf{deriva genética}.
+\end{itemize}
+
+\subsection{Variabilidad genética}
+Es importante para evitar la convergencia prematura.
+
+La generación de nuevos individuos se basa en la recombinación de los ya existentes.
+
+La pérdida de variabilidad genética impide producir soluciones novedosas. Se pierde la capacidad de intercambio de información útil entre los individuos.
+
+La similitud genética de los individuos indica el final del proceso de búsqueda.
+
+Si la pérdida de variabilidad genética se produce en las primeras fases de la evolución se dice que hay convergencia prematura, que hace que el proceso se estanque en mínimos locales.
+
+\subsection{Convergencia prematura}
+En las fases tempranas de la evolución de un AG puede ocurrir que un individuo o un grupo de ellos obtengan una aptitud notablemente superior a los demás.
+
+Riesgo de que se produzca una evolución en avalancha:
+\begin{itemize}
+	\item Al incrementar los individuos más aptos, la diversidad disminuye, la siguiente generación se favorece más de estos hasta que dominan toda la población (superindividuos).
+	\item Los superindividuos llevan hacia un subóptimo, son los más aptos en cierto momento.
+	\item Puede ser deseable, en la fase final del proceso.
+\end{itemize}
+
+\subsection{Epístasis}
+Cuando la búsqueda se vuelve más aleatoria, por dependencias entre genes.
+
+La heurística de los AGs se fundamenta en la adyacencia e independencia de la codificación:
+\begin{itemize}
+	\item Individuos genotípicamente parecidos producen fenotipos similares y viceversa.
+	\item No existen interacciones entre los genes, son independientes.
+\end{itemize}
+
+Si la propiedad de adyacencia no se cumple, el proceso de búsqueda se hace menos heurístico.
+
+Los nuevos individuos se generarán más aleatoriamente cuanto menos se cumpla la propiedad de adyacencia.
+
+Si los genes dependen unos de otros, cuando se cambia el valor de uno, esto repercute en la característica fenotípica de otro. La búsqueda se hace también más aleatoria. Cuando esto ocurre se dice que la codificación tiene epístasis.
+
+Esto es debido a la teoría de los bloques constructivos.
+
+\subsection{Geografía de la función de evaluación}
+Para que el AGs pueda encontrar una buena solución, los individuos deben tener evaluaciones suficientemente diferentes.  En caso contrario se dice que el paisaje de la función de evaluación es demasiado abrupto.
+
+Lo ideal es que haya un punto o zona en la que se produzca una subida para ir escalando. Que sean más suave los puntos con buena evaluación.
+
+Puede haber problema que sean muy abruptos y no se puedan hacer con AG.
+
+\subsubsection{Función de evaluación abrupta}
+La forma de la función de evaluación es muy abrupta, lo que hace que no haya suficiente presión selectiva para aproximarse sucesivamente al óptimo.
+
+Es difícil saber si se va por buen camino, todos los valores son muy similares y tienen las mismas probabilidades de sobrevivir, excepto unos pocos muy cercanos a la óptima.
+
+La búsqueda se convierte en un proceso aleatorio
+\pagebreak
+
+\subsection{Desorientación}
+Al combinar dos buenos individuos se producen habitualmente individuos peores que ambos.
+
+La teoría de los bloques constructivos necesita que se generen esquemas privilegiados.
+
+Si bloques constructivos que generan por separado individuos buenos, al combinarse generan individuos peores, se dice que existe desorientación.
+
+\subsection{Deriva genética}
+Es un efecto estocástico que emerge del rol del muestreo aleatorio en la reproducción.
+
+Se trata de un cambio aleatorio en la frecuencia de alelos de una generación a otra.
+
+Existe una tendencia que te guía hacia soluciones no muy buenas.
+
+Normalmente se da una pérdida de los alelos menos frecuentes y una fijación  de los más frecuentes, resultando una disminución en la diversidad genética de la población.
+
+Los efectos de la deriva se acentúan en poblaciones de tamaño pequeño, y ocasionan cambios que no son necesariamente
+adaptativos. Para evitarlo emplear poblaciones mayores.
+
+\subsection{Control de la diversidad genética}
+Para controlar la diversidad genética hay que actuar sobre el mecanismo de generación de descendientes.
+
+Cuanto más se favorezca a los más aptos menor variedad se obtendrá, y aumenta el riesgo de perder la información de valor desarrollada por los individuos moderadamente aptos. Si no se favorece especialmente a los individuos más aptos, se obtendrá más diversidad a costa de hacer las etapas de selección menos eficaces.
+
+A la mayor o menor tendencia a favorecer a los individuos más aptos se le llama presión selectiva, que es cuando un individuo tiene que luchar para pasar de generación.
+
+La presión selectiva (PS) cuantifica el número esperado de descendientes que generó el mejor individuo de la población: $PS=\frac{f_{\max}}{\bar{f}}$. Es la relación entre el valor máximo de evaluación de toda la población y el valor medio.
+
+Lo ideal son valores de presión selectiva alrededor de 1,5. Valores mayores generarán superindividuos, valores menores hacen la búsqueda más lenta. En caso extremo, si PS = 1, todos los individuos tienen idéntica evaluación y no existe ninguna presión selectiva
+
+Para cuantificar la diversidad hay que calcular la frecuencia relativa y calcular su desviación típica:
+$$fr_i=\frac{f_i}{\sum_{j=1}^n f_j} \quad D=\sqrt{\sum_{j=1}^n (fr_j-\bar{fr})^2}$$
+
+Controlar el mecanismo de selección, introduciendo nuevos operadores (tipo torneos) que prevengan de superindividuos.
+
+Cambiar la función de evaluación, de forma que suavice las diferencias entre los individuos.
+
+Introducir mecanismo de control de edades, donde los individuos reducen su aptitud con la edad o simplemente desaparecen.
 
 \end{document}
