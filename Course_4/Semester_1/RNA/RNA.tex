@@ -804,30 +804,30 @@ Se va aplicando la regla de la cadena, en las capas intermedias hay que calcular
 
 $$s^P_k= \sum_j w^{P-1}_{jk}y^{P-1}_j+\theta_k^P \quad y^P_k=f(s^P_k)$$
 
-Necesitamos para cada célula un valor delta (menos para la entrada). Se deriva en función de la entrada, ya que es lo que cambia el error. $\delta$ Estimación del error en esa celula.
+Necesitamos para cada célula un valor delta (menos para la entrada). Se deriva en función de la entrada, ya que es lo que cambia el error. $\delta$ Estimación del error en esa célula.
 
 $$\delta^P_k=-\frac{\partial E}{\partial s^P_k}=-\frac{\partial E}{\partial y^P_k}\frac{\partial y^P_k}{\partial s^P_k}=-\frac{\partial E}{\partial y^P_k}f'(s^P_k)$$
 
 \textbf{Para la salida (o):} Siendo el error $E=\frac 1 2 \sum (d^o_k-y^o_k)^2$
 $$\delta^o_k=-\frac{\partial E}{\partial y^o_k}f'(s^o_k)=-[-(d^o_k-y^o_k)]f'(s^P_k)=(d^o_k-y^o_k)f'(s^o_k)$$
 
-\textbf{Para la oculta (h):} Tras calcular la capa de salida, va hacia atras estimando la salida deseada de las capas ocultas.
+\textbf{Para la oculta (h):} Tras calcular la capa de salida, va hacia atrás estimando la salida deseada de las capas ocultas.
 $$\delta^h_k=-f'(s^h_k)\frac{\partial E}{\partial y^h_k}=-f'(s^h_k)\sum^{m}_{l=1}\frac{\partial E}{\partial s^{h+1}_l}\frac{\partial s^{h+1}_l}{\partial y^h_k}=-f'(s^h_k)\sum^{m}_{l=1}[-\delta^{h+1}_l]\frac{\partial (\sum_j^n w_{jl}y^{h-1}_j)}{\partial y^h_k}=$$ $$=f'(s^h_k)\sum^{m}_{l=1}\delta^{h+1}_l w_{kl}$$
 
-\section{Retro-propagación del error}
-Se calcula un valor, llamado $\delta$, para todas las celulas de la red, empezando por las de la ultima capa y retrocediendo una capa en cada iteración.
+\section{Retropropagación del error}
+Se calcula un valor, llamado $\delta$, para todas las células de la red, empezando por las de la última capa y retrocediendo una capa en cada iteración.
 
-El valor delta es proporcional a la derivada del error estimado por la celula.
+El valor delta es proporcional a la derivada del error estimado por la célula.
 \begin{itemize}
 	\item En la última capa se conoce el error producido por las células, y el delta se calcula teniendo en cuenta ese error.
 	\item En las capas ocultas, se propaga hacia atrás el valor $\delta$ ponderado por los pesos.
 \end{itemize}
 \pagebreak
 
-Una vez calculados los deltas, todas las conexiones se actualizaran de la misma manera: 
+Una vez calculados los deltas, todas las conexiones se actualizarán de la misma manera: 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Retro-propagación del error}}
+	{\caption{Retropropagación del error}}
 	{\includegraphics[scale=.35]{regla-delta.jpg}}
 \end{figure}
 $$w^+_{ij} = w_{ij}-\gamma \delta_j y_i \quad b^+_{i}=b_i - \gamma \delta_j$$
