@@ -1,0 +1,111 @@
+Data warehouse: Almacenes de datos, todo esta ordenado y fomateado. Busqueda de partorn novedosos, utiles, validos, etc.
+
+Pregunta 1
+	Gran aumento de datos
+	Computación mas potente y baratas
+	Mas memoria y BBDD
+	
+Pregunta 2
+	OIR al rededor del minuto 2
+	
+Pregunta 4
+	Banca
+	Marketing
+	Donde existan datos de calidad
+	
+El 79 % del timpo es preprar los datos
+
+KDD est el estandar
+CRISP-DM orientado a machine learning
+
+En mineria de dato las BBDD tienen redundancias estan hechas para procesos, no consultas.
+
+Queremos datos estructurado, y no lo son pasarlos, solo trabajara con este tipo.
+
+Pregunta 5
+	KDD
+	CRISP-DM
+	SEMMA
+
+Pregunta 6
+
+Entender el negocio y datos, tarda tanto porque no se puede automatizar como el resto de las fases, hay que entendelo y tener lo base.
+
+Pregunta 7
+	Tipo de dominio
+	Si se tiene que explicar.
+	
+Pregunta 8
+	Que nos deba dar su consentimiento expreso el usuario.
+	
+Big data esta fuera del Data science, so simplemente grandes cantidades de datos.
+
+Machine learning, base de la ?minoria? de datos.
+
+Data science es Estadistica, Aprendizaje maquina y Datos.
+
+
+CASO
+
+Motivación
+Los accidentes son la principal causa de muertes en jovenes y niños.
+En 2018, 1,35 millones de muertes por accidentes de transito en el mundo.
+Es la PRIMERA causa de muerte entre niños de 5 a 15 años y adultos jovenes de 15 a 29 años.
+El 94 % de los accidentes son debido al conductor, ya sea por el alcohol, drogas, estres, sonoliencia o el movil.
+
+Objetivo
+Monitorizar el estres del conductor, lo que llamamos Computación afectiva.
+
+En Jordania en 2017 hubo 150226 accidentes, de los cuales 5,6 % acabaron en muerte, lo que supone un 51 % de las muertes del pais. Tambien son los primeros en conducción agresva.
+
+Para detectar estres en el conductor, se tienen en cuenta 3 tipos de daos:
+	Fisiologicos, relacionados con el estado de animo
+	Fisico, estado fisico
+	Contextual, la situación
+	
+Metodologia
+Se conoce que hay algoritmos que funcionan para todas estas tareas, lo que quereos es juntarlas todas para detectar el estres.
+		Recolección de datos
+			Se trata de un proyecto de dos años, en el que se utilizaran diferentesrutas en diferentes horas y en condiciones meteorologicas distintas. 
+				Se generaran 4 bases de datos.
+				Se recoge: Habilidad de conducción, Horas diarias de conducción, Numero de accidentes en general, Enfermedades, Sintomas cuando se estresan, Si sentian fatiga antes del experimento, Si sentian estres antes del experimento, Distracciones durante el experimento y Tiempo de experimentación.
+				Metodo de recolección:
+					Pedir el consentimiento de los usuarios (ya qu ese grabara su cara y se comprometera a seguir las leyes de trafico)
+					Encuesta, con preguntas demograficas, personales y de las circunstancias del experimento.
+					Instalación del dispositivo (en sus coches particulares)
+					Conducción, en sus vehiculos propios por una ruta seleccionada y un maximo de 45 minutos.
+					Anotacion de datos, tenemos las variables de las conducción y la clase la deice el usuario, indicando en que momento se habia sentido estres.
+				Recogieron en total 1084 instancias de las cuales 417 eran de estres, como se puede ver estan muy desbalanceados.
+		Selección de atributos, se utilizaron distintos enfoques
+				Metodos integrados
+				Metodos de filtro
+				Metodos de envoltura, con un subconjunto de atributos hace clasificación y se queda los mas relevantes.
+					Se quedaron con 14 variables relacionadas con el estres.
+		Oversampling, ahora se balancearan los datos, para ello se podria hallar centroides que representasen a los individuos y reducir su numero.
+			Se opto por el Algoritmo SMOTE (Synthetic Minority Over-sampling TEchnique), teniendo en cuenta que no haya overfitting.
+				Crea ejemplos sinteticos en las regiones de clase minoritaria.
+		Randomise, aleatoriza los datos para evitar sesgo.
+		Stresss prediction.
+			Se usaron 5 algoritmos distintos para predecir el estres:
+					KNN, los k vecinos mas cercanos.
+					J48, implemntación en Java de C4.5.
+					Random Forest
+					SVM, Support Vector Machine (Vector de soporte)
+					ANN, Redes de Neuronas Artificiales
+
+Experimentos
+Se realizaron 3 experiementos diferentes:
+	Experimento 1: Aplicar directamente sobre todos los datos los algorimtos de clasificación.
+	Experimento 2: Aplicar selección de atributos sobre los datos y los algoritmos de clasificación.
+	Experimento 3 (el propuesto por los autores): Aplicar selección de atributos, aplicar oversampling para balancear y los algoritmos de clasificación.
+
+Se evaluaron los 3 experimentos mediante comparación de sensibilidad y especificidad, tambien con la curva ROC.
+Se pudo ver que el modelo de los autores es mucho mejor detectando el estres, los otros modelos tienden a la clase mayoritaria, no estres.
+Mediante Prueba de Friedman, probar con diferentes parametros en los algoritmos y hacer la media, se pudo sacar la conclusión bien documentada de que su modelo era superior.
+
+El estudio de estres del conductor es muy importante en paises en desarrollo.
+La selcción de atributos y el sobremuestreo son importantes (en este dominio dieron muy buenos resultados)
+Los mejores resultados son obtenidos por Random Forest.
+La mineria de datos es un enfoque adecuado para el dominio.
+Hay 14 variables importantes.
+				
