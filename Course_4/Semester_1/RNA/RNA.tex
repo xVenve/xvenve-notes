@@ -762,7 +762,7 @@ Nosotros emplearemos:
 
 \section{Redes alimentadas hacia delante}
 En cada capa C se calcula la salida de las células que la componen $a^C_j$ con: 
-$$y^C_j=f\left(\sum^{C-1}_(i=1) w^{C-1}_{ij}y^{C-1}_i+\theta_j^C\right)=f(s^{C}_{j})$$
+$$y^C_j=f\left(\sum^{C-1}_{i=1} w^{C-1}_{ij}y^{C-1}_i+\theta_j^C\right)=f(s^{C}_{j})$$
 
 Tal que $w^C_{ij}$ es el peso de la capa C entre la célula origen i y la célula destino j y $y^{C-1}_j$ es la salida de la célula i de la capa anterior. El sumatorio se hace para todas las células de la capa anterior.
 
@@ -780,7 +780,7 @@ En los problemas de \textbf{Clasificación} se utiliza la \textbf{entropía cruz
 	\item No siempre es conveniente ahorrar bits cuando se hace clasificación, ya que el conocimiento depende de las conexiones.
 \end{itemize}
 
-En \textbf{Regresión} se utiliza el \textbf{error cuadrático medio}: $E=\frac 1 N \sum^N_{i=1} (y_i-d_i)^2$
+En \textbf{Regresión} se utiliza el \textbf{error cuadrático medio}: $E=\frac 1 N \sum^N_{i=1} (d_i-y_i)^2$
 
 Se puede hacer una representación gráfica del error según los pesos que nos permite ver como se distribuyen y buscar los valles, pero esto no es posible de dibujar en los problemas por el gran tamaño de los espacios y coste. Lo que se hace es como no conocemos el error en todos los puntos se utiliza la derivada para ver la pendiente y reducirla en busca de un mínimo local (Problema del mínimo local, es difícil salir).
 
@@ -800,18 +800,35 @@ Se va aplicando la regla de la cadena, en las capas intermedias hay que calcular
 \end{enumerate}
 \pagebreak
 
-\section{Con función de activación}
+\section{Retropropagación del gradiente}
 
 $$s^P_k= \sum_j w^{P-1}_{jk}y^{P-1}_j+\theta_k^P \quad y^P_k=f(s^P_k)$$
 
-Necesitamos para cada célula un valor delta (menos para la entrada). Se deriva en función de la entrada, ya que es lo que cambia el error.
+Necesitamos para cada célula un valor delta (menos para la entrada). Se deriva en función de la entrada, ya que es lo que cambia el error. $\delta$ Estimación del error en esa celula.
 
 $$\delta^P_k=-\frac{\partial E}{\partial s^P_k}=-\frac{\partial E}{\partial y^P_k}\frac{\partial y^P_k}{\partial s^P_k}=-\frac{\partial E}{\partial y^P_k}f'(s^P_k)$$
 
-Para la salida (o): Siendo el error $E=\frac 1 2 \sum (y^o_k-d^o_k)^2$
-$$\delta^o_k=-\frac{\partial E}{\partial y^o_k}f'(s^o_k)=-(y^o_k-d^o_k)f'(s^P_k)=(d^o_k-y^o_k)f'(s^o_k)$$
+\textbf{Para la salida (o):} Siendo el error $E=\frac 1 2 \sum (d^o_k-y^o_k)^2$
+$$\delta^o_k=-\frac{\partial E}{\partial y^o_k}f'(s^o_k)=-[-(d^o_k-y^o_k)]f'(s^P_k)=(d^o_k-y^o_k)f'(s^o_k)$$
 
-Para la oculta(h):
-$$\delta^h_k=-\frac{\partial E}{\partial y^h_k}f'(s^h_k)=COMPLETAR$$
+\textbf{Para la oculta (h):} Tras calcular la capa de salida, va hacia atras estimando la salida deseada de las capas ocultas.
+$$\delta^h_k=-f'(s^h_k)\frac{\partial E}{\partial y^h_k}=-f'(s^h_k)\sum^{m}_{l=1}\frac{\partial E}{\partial s^{h+1}_l}\frac{\partial s^{h+1}_l}{\partial y^h_k}=-f'(s^h_k)\sum^{m}_{l=1}[-\delta^{h+1}_l]\frac{\partial (\sum_j^n w_{jl}y^{h-1}_j)}{\partial y^h_k}=$$ $$=f'(s^h_k)\sum^{m}_{l=1}\delta^{h+1}_l w_{kl}$$
 
+\section{Retro-propagación del error}
+Se calcula un valor, llamado $\delta$, para todas las celulas de la red, empezando por las de la ultima capa y retrocediendo una capa en cada iteración.
+
+El valor delta es proporcional a la derivada del error estimado por la celula.
+\begin{itemize}
+	\item En la última capa se conoce el error producido por las células, y el delta se calcula teniendo en cuenta ese error.
+	\item En las capas ocultas, se propaga hacia atrás el valor $\delta$ ponderado por los pesos.
+\end{itemize}
+\pagebreak
+
+Una vez calculados los deltas, todas las conexiones se actualizaran de la misma manera: 
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Retro-propagación del error}}
+	{\includegraphics[scale=.35]{regla-delta.jpg}}
+\end{figure}
+$$w^+_{ij} = w_{ij}-\gamma \delta_j y_i \quad b^+_{i}=b_i - \gamma \delta_j$$
 \end{document}
