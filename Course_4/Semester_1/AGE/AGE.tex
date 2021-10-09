@@ -997,4 +997,81 @@ Cambiar la función de evaluación, de forma que suavice las diferencias entre l
 
 Introducir mecanismo de control de edades, donde los individuos reducen su aptitud con la edad o simplemente desaparecen.
 
+\chapter{Estrategias Evolutivas}
+
+\section{Diferencias con los Algoritmos Genéticos}
+En lugar de tener codificación en binario, se tienen valores reales, no son valores discretos, sino continuos.
+
+Al no ser discretos, no podemos hacer mutación discreta, en su lugar se hace mutación gaussiana N(0, $\sigma$).
+
+En los algoritmos genéticos el elemento heurístico era cruce y en las estrategias evolutivas es la mutación.
+
+\section{Tipos}
+\begin{itemize}
+	\item Dependiendo del tamaño de la población, si está compuesta por uno o más individuos.
+	\item Por la forma en las que las nuevas generaciones son generadas.
+\end{itemize}
+
+\section{(1+1)-EE}
+Las poblaciones se mantienen en tamaño a lo largo de las generaciones.
+\begin{itemize}
+	\item Si es con + se genera 1 individuo y hay 1 individuo en la población, de entre los 2 individuos se coge el más conveniente.
+	\item Si es con , si se genera 1 y hay 1 solo se considera el más nuevo OIR
+\end{itemize}
+Es un método de escalada puro.
+
+La población está compuesta por un solo individuo $(a_1^t)$, que variara entre generaciones según: $P^t=(a^t_1)=((x^t_1, \sigma^t_1))$.
+
+El individuo está formado por dos vectores de número reales: 
+\begin{itemize}
+	\item Vector de la codificación $x^t$, codifica una solución al problema.
+	\item Vector de varianzas $\sigma^t$, nos indica como de alejada se encuentra la solución de la solución óptima.
+\end{itemize}
+
+\subsection{Mutación}
+En cada generación t se produce una población intermedia de 2 individuos, el individuo nuevo es generado  mediante mutación.
+$$P´^t=(a^t_1,a^t_2)\in I \times I$$
+$$a^t_2=m(P^t)=(x^t_2, \sigma^t_2))$$
+
+El operador de mutación actúa de forma diferente con cada parte del individuo:
+\begin{itemize}
+	\item Vector de codificación, se produce mutación mediante distribución gaussiana.
+	
+	A cada elemento del vector se le aplica una variación obtenida de forma aleatoria siguiendo una distribución gaussiana: $x^t_2=x^t_1+N_0(\sigma^t_2)$.
+
+	La distribución normal generará valores cercanos al cero, tanto positivos como negativos, con una probabilidad tanto más grande cuanto menor sea el valor de $\sigma$. De esta manera se irán ajustando poco a poco.
+	\begin{itemize}
+		\item Sigma pequeño, explotación.
+		\item Sigma grande, exploración.
+	\end{itemize}
+
+	Se genera una nube gaussiana de probabilidad de encontrar el individuo en una determinada posición, después de la mutación la probabilidad se concentra en torno a la posición actual del individuo. Su dispersión viene dada por el valor de $\sigma$
+
+	\item Vector de varianzas, se muta según la regla del 1/5.
+	
+	Cuanto más lejos de solución óptima es más probable que se produzca una mejora, y cuanto más cerca menos probable.
+	
+	Por lo que si se mejora de forma constante es que estoy lejos de la solución (fácilmente mejorable) y se hará el sigma más grande, cuando cuesta más hacer mejoras estoy cerca (difícilmente mejorable) y reduzco su valor.
+\end{itemize}
+
+\subsection{Regla del 1/5}
+Se almacena en $\psi^t_s$ la proporción de veces que la población ha cambiado en las últimas generaciones.
+
+Se aplica:
+$$\sigma^{t+n} = \begin{cases} 
+	c \cdot \sigma^t & \textit{si }\psi^t_s < \frac{1}{5} \textit{ reduce}\\
+	\frac{\sigma^t}{c} & \textit{si }\psi^t_s > \frac{1}{5} \textit{ aumenta}\\
+	\sigma^t & \textit{si }\psi^t_s = \frac{1}{5}  \textit{ mantiene}
+ \end{cases}$$
+
+Es necesario que $c<1$. El valor se obtiene experimentalmente, pero se recomienza un valor en torno a 0,82.
+
+Esta regla asegura la convergencia del método:
+\begin{itemize}
+	\item Si las varianzas aumentan, se están obteniendo soluciones cada vez mejores y en algún momento se encontrara el óptimo 
+	\item Si se encuentra el óptimo, las siguientes soluciones serán peores, y la varianza decrecerá hasta cero 
+	\item Si no se encuentra el óptimo, las soluciones no mejorarán, y pasará lo mismo 
+	\item Cuando la varianza es cero, no se generan nuevas soluciones.
+\end{itemize}
+
 \end{document}
