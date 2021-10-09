@@ -1458,4 +1458,137 @@ Una de las aplicaciones más importantes de la minería de datos es el \textbf{a
 
 Hoy en día son numerosas las áreas de aplicaciones de la minería de datos y muchos los ejemplos cualquier organización que posee datos suficientes necesita generar nuevo conocimiento a partir de esos datos ya sea para resolver problemas o explorar nuevas oportunidades tiene en la minería de datos una valiosa herramienta.
 
+\chapter{Tema 6: Text Mining}
+\section{Introducción}
+Actualmente hay una gran cantidad de datos guardados sin ninguna estructura (se estima en un 85 y 90 \% de los datos almacenados), además crecen de forma muy rápida. Consiste en el análisis de todos estos datos \textbf{no estructurados}. 
+
+Es importante no confundir Text mining con la recuperación de información, la recuperación de información se centra en recuperar de forma automática documentos relevantes y el Text mining se centra en la extracción de información pero de forma general. Así de esta forma podemos considerar que la minería de texto comprende varias actividades:
+\begin{itemize}
+	\item \textbf{Recuperar información} de los documentos o textos adecuados.
+	\item \textbf{Extracción de información} que se realiza en los textos, datos claves, relaciones entre ellos, etc. 
+	\item \textbf{Data Mining y Web Mining:} Permite analizar los datos para extraer asociaciones entre dichos datos clave extraídos. 
+\end{itemize} 
+Text Mining es un proceso semiautomático capaz de \textbf{extraer patrones de grandes fuentes de datos no estructuradas}. El que los datos no estén estructurados es \textbf{lo que lo diferencia de la minería de datos}, los elementos de entrada del proceso son documentos creados con un editor de texto, PDF, ficheros XML, etc. 
+
+Puede verse como un proceso cuyo primer paso es dar una determinada estructura a las fuentes de datos basadas en texto para poder posteriormente extraer información relevante y conocimiento utilizando técnicas y herramientas de minería de datos.
+
+Las áreas de aplicación en el Text mining son aquellas en las que se generan grandes cantidades de datos de texto como:
+\begin{itemize}
+	\item La medicina, teniendo en cuenta informes médicos.
+	\item La investigación, analizando artículos de conferencias y revistas científicas.
+	\item La biología, tratando documentos sobre interacciones moleculares.
+	\item El derecho, considerando el proceso de distintas resoluciones jurídicas.
+	\item Las finanzas, analizando informes internos de empresas.
+	\item Áreas relacionadas con el correo electrónico, pudiendo filtrar spam, priorizar correos o generar respuestas de forma automática.
+\end{itemize} 
+Por otra parte la extracción de patrones de fuentes de texto tiene muchas y diversas finalidades:
+\begin{itemize}
+	\item \textbf{Extracción de información:} identificar frases relevantes y sus relaciones en un determinado texto.
+	\item \textbf{Seguimiento de un determinado tema o temática (Topic tracking):} Poder predecir documentos de interés de un usuario.
+	\item \textbf{Realizar resúmenes de los documentos} que pueden ser útiles a los lectores (Summarization).
+	\item \textbf{Categorización (Categorization):} Clasificar documentos en una serie de categorías predefinidas en función de los temas de los documentos.
+	\item \textbf{Agrupamiento de documentos similares (Clustering)}, sin un conjunto previo de categorías.
+	\item \textbf{Vincular conceptos} de diferentes documentos para poder encontrar información en diferentes ámbitos (Concept linking).
+	\item \textbf{Obtener respuesta a determinadas preguntas} utilizando la búsqueda de patrones similares (Question answering).
+\end{itemize}
+
+Glosario de palabras propias del área del Text Mining:
+\begin{itemize}
+	\item \textbf{Corpus:} Conjunto lo más extenso y ordenado posible de datos, textos científicos, literarios, etc., que pueden servir de base a una investigación.
+	\item \textbf{Término:} Palabra o conjunto de palabras extraídas directamente del corpus de un dominio determinado, por medio de métodos relacionados con el procesamiento del lenguaje natural.
+	\item \textbf{Concepto:} Características o aspectos clave generados de una colección de documentos utilizando algún tipo de método, así y comparándose con término podemos decir que el término concepto es un \textbf{mayor nivel de abstracción}.
+	\item \textbf{Stemming:} Derivar las palabras a su raíz.
+	\item \textbf{Stop Words:} Palabras que ya están previamente filtradas tanto antes como después del proceso de datos del lenguaje natural. No hay una lista universal, pero la mayoría están relacionadas con artículos, verbos auxiliares o palabras específicas del contexto que no tienen un valor útil.
+	\item \textbf{Token:} Bloque de texto categorizado en una sentencia, esta categoría está relacionada con la función que dicho token representa. La asignación de significado a estos se conoce como Tokenizing.
+\end{itemize}
+
+\section{Procesamiento del Lenguaje Natural}
+Los \textbf{primeros enfoques} relacionados con la minería de texto consistían en \textbf{simplificar o reducir un documento} a una colección de palabras, lo que se conoce como \textbf{bolsa de palabras (bag of words)}, así \textbf{sin considerar la gramática o el orden en el que aparecen las palabras} se podrían \textbf{clasificar o agrupar documentos}. En determinadas tareas como la detección de spam en el correo esta técnica es muy utilizada. 
+
+Los \textbf{humanos} utilizamos las palabras \textbf{teniendo en cuenta una estructura y un orden} por lo tanto las técnicas de Text mining deben tener esto en cuenta, lo cual está relacionado con el \textbf{procesamiento del lenguaje natural}. 
+
+El \textbf{procesamiento del lenguaje natural (PLN)} se puede considerar como un importante componente del Text Mining y se considera un subcampo de la inteligencia artificial y la computación lingüística.
+
+Su \textbf{finalidad es entender el lenguaje natural de forma que podamos convertir texto en representaciones más formales} que un ordenador puede manejar de forma más sencilla. El problema es, que es exactamente entender o comprender un texto, ya que el lenguaje es muy ambiguo y dependiente del contexto.
+
+Debido a esta complejidad de esta tarea se plantean varios desafíos:
+\begin{itemize}
+	\item \textbf{Etiquetar partes de un discurso} para lo que hay que tener mucha información sobre el contexto en el que se enmarca dicho texto.
+	\item \textbf{Segmentar texto}, lo que debe tener en cuenta por ejemplo las combinaciones de palabras.
+	\item \textbf{Detectar los mejores significados de una palabra}, es decir, eliminar la ambigüedad que pueda existir en determinados conceptos.
+	\item \textbf{Eliminar la ambigüedad sintáctica} ya que el mismo texto puede tener significados diversos en entornos diferentes.
+	\item \textbf{Detectar y solventar entradas imperfectas} teniendo en cuenta que los humanos podemos cometer errores al hablar o escribir y que estos deben considerarse en este procesamiento de texto.
+	\item \textbf{Detectar sentencias que implican acciones}, ya que algo puede requerir como respuesta una acción y no una frase.
+\end{itemize}
+
+Otra de las áreas en las que el lenguaje de procesamiento natural se está aplicando está relacionado con el \textbf{análisis de sentimiento o el también conocido como minería de opinión, opinion mining}. El análisis de sentimiento es una técnica utilizada para captar el tono emocional que expresan un conjunto de palabras y detectar así opiniones o emociones. Esta técnica es muy utilizada para detectar la opinión que tiene una persona sobre un producto a partir de un conjunto de fuentes de datos de texto.
+
+Cabe destacar que el procesamiento de lenguaje natural está siendo utilizado en una gran variedad de aplicaciones: recuperación de información, realizar resúmenes automáticos, respuesta a preguntas, conversión de bases de datos a lenguaje natural, extracción de información automática o asistencia para lectura de un texto extranjero con pronunciación y acento correcto.
+
+\section{Proceso de Minería de Texto}
+Para que un proceso de minería de texto tenga éxito debe \textbf{seguir un proceso estandarizado} (como seria CRISP-DM en minería de datos, si se usase este habría que centrarse en el preprocesado de datos). 
+
+Lo que tienen en común todos los procesos de minería de texto es que las \textbf{entradas} deben ser tanto no estructuradas (texto) como estructurados (bases de datos).
+
+Considerar ciertos \textbf{controles} como las limitaciones de hardware y software, los aspectos de privacidad y las limitaciones lingüísticas. Además, los \textbf{mecanismos}, que incluyen la experiencia del dominio, técnicas y herramientas apropiadas.
+
+La \textbf{salida} será conocimiento específico del contexto, a partir de procesamiento de los datos no estructurados.
+
+Este proceso se puede dividir en 3 tareas consecutivas, pero que pueden requerir revisar las anteriores:
+\begin{enumerate}
+	\item \textbf{Establecer el corpus}
+	\begin{enumerate}
+		\item Obtener todos los documentos relacionados con el dominio de interés que se va a estudiar (ficheros de texto, XML, emails o páginas webs).
+		\item Estandarizar los documentos, se transforman estos documentos para que todos puedan ser representados de la misma manera y poder ser procesados después por un ordenador.
+	\end{enumerate}
+	\item \textbf{Crear la matriz término-documento:} las filas representan los documentos considerados, las columnas los términos que aparecen en dichos documentos y la relación entre estos conceptos se marca en las casillas. Los posibles valores para los índices son:
+	\begin{itemize}
+		\item El número de veces que aparece un término en un documento, donde los índices deben representar valores que están normalizados. $$\textit{TF-IDF}_{t,d} = TF_{t,d}\cdot IDF_t= \textit{TF Normalizado}_{t,d} \cdot \log \left(\frac {N} {d_{ft}} \right) $$. 
+		\begin{itemize}
+			\item TF es frecuencia del término e IDF es frecuencia del término en el corpus.
+			\item $TF_{t,d}$ el número de aparición de un término $t$ en un documento $d$ y \\ $\textit{TF Normalizado}_{t,d}$ las normalizadas.
+			\item $IDF_t = \log \left(\frac N d_{ft} \right)$ siendo $N$ el número de documentos y $df_t$ el número de documentos que contiene el término $t$.
+		\end{itemize}
+	\end{itemize}
+
+	Aunque puede haber términos que aun apareciendo en todos los textos (artículos, verbos, etc.) no sean relevantes, son llamados stop words. 
+	
+	También puede haber sinónimos, pudiéndose juntar en un solo término mediante stemming.
+	
+	\item Reducir su dimensionalidad:
+	\begin{itemize}
+		\item Utilizar conocimiento de expertos para eliminar los términos menos relevantes.
+		\item Eliminar los términos de menor frecuencia en pocos documentos.
+		\item Descomposición en valores singulares (SVD) de la matriz termino-documento, este es el más difícil.
+	\end{itemize}
+	
+	\item \textbf{Extraer conocimiento:} para ello utilizaremos distintos métodos ya conocidos.
+	\begin{itemize}
+		\item Clasificación, llamado Categorización de texto.
+		\item Agrupamiento de documentos similares.
+		\item Asociación, relación entre términos o conceptos de términos.
+		\item Análisis de tendencia nos permite identificar la evolución de conceptos clave en diversos campos.
+	\end{itemize}
+\end{enumerate}
+
+\section{Aplicaciones}
+Remarcar que las empresas tienen grandes cantidades de datos no estructurados de los que aplicando text mining pueden extraer conocimiento, se han empezado a dar cuenta de que es un recurso valioso.
+Algunas de las muchas aplicaciones que utilizan text mining son:
+\begin{itemize}
+	\item Marketing
+	\begin{itemize}
+		\item Ofrecer productos a los clientes, analizando los datos de los call centers.
+		\item Opiniones de usuarios, es importante analizar la información que se puede obtener de diferentes webs de opiniones de usuarios.
+	\end{itemize}
+	\item Biomedicina, dado que la literatura de este campo crece exponencialmente, está muy estandarizada y organizada. La terminología utilizada es relativamente constante, siguiendo una ontología común estandarizada. 
+	
+	Se realizan tareas que generan grandes cantidades de datos relacionadas con los datos y las proteínas en:
+	\begin{itemize}
+		\item Análisis de micro-arrays de ADN
+		\item Análisis de genes
+	\end{itemize}
+	\item Disciplinas científicas, ya que se debe extraer gran cantidad de información de muchas bases de datos, la indexación es fundamental. Distintas instituciones académicas han lanzado iniciativas relacionadas con el text mining que ayudan a los investigadores.
+	\item Aplicaciones de seguridad, se puede mencionar como ejemplo el sistema de vigilancia Echenoz, considerada la mayor campaña de espionaje de la historia para interceptar comunicaciones electrónicas. También aplicado en declaraciones de criminales para saber si ciertas o falsas.
+\end{itemize}
+
 \end{document}
