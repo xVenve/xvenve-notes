@@ -1591,4 +1591,127 @@ Algunas de las muchas aplicaciones que utilizan text mining son:
 	\item Aplicaciones de seguridad, se puede mencionar como ejemplo el sistema de vigilancia Echenoz, considerada la mayor campaña de espionaje de la historia para interceptar comunicaciones electrónicas. También aplicado en declaraciones de criminales para saber si ciertas o falsas.
 \end{itemize}
 
+\chapter{Web Mining}
+\section{Introducción}
+La \textbf{World Wide Web conocida como web (www), es un gigantesco repositorio de datos}, hay información sobre cualquier tema. Podría considerarse como el repositorio de datos y texto más grande del mundo y además crece muchísimo cada día. Al contenido propio de las páginas web, debemos añadir información sobre búsquedas que realizan los internautas, enlaces a los que se accede, transacciones de comercio electrónico que se realizan, etcétera. 
+
+Por lo tanto \textbf{esta información sobre la interacción del usuario con determinadas webs} también nos puede ayudar a \textbf{entender mejor la relación entre una web y los internautas} que la visitan. Teniendo esto en cuenta, son muchos los retos que se plantean para poder extraer información de forma efectiva y eficiente de esta base de datos gigantesca que es la web.
+
+El primero de estos retos está relacionado con la \textbf{extremadamente alta cantidad de datos} que posee la web. Esto hace que recoger datos e integrarlos sea todo un reto. 
+
+La \textbf{complejidad} de una página web es mucho mayor que la de una página de un documento de texto tradicional, y es que \textbf{no hay una estructura unificada} de las distintas páginas web.
+
+También es un reto, el \textbf{enorme dinamismo} que tiene la web, ya que no solo debemos considerar que esta crece de forma extremadamente rápida, sino que también debemos tener en cuenta que está siendo constantemente actualizada. 
+
+Otro reto remarcable es la \textbf{gran diversidad de las distintas comunidades} que utilizan la web y es que los usuarios de la web tenemos distinta formación, intereses o finalidades.
+
+Por último, debemos recordar que la web tiene absolutamente todo tipo de información, por lo que extraer aquella pequeñísima parte que interesa a cada internauta es una tarea realmente compleja.
+
+Así, teniendo en cuenta todos estos retos o problemas que debemos afrontar, podemos considerar que los \textbf{motores de búsqueda basados en término} son actualmente una gran herramienta para poder encontrar lo que buscamos en esta gran base de datos, sin embargo, una búsqueda basada en un conjunto de términos tiene ciertas deficiencias.
+
+La primera de ellas es que ciertos temas o materias, tienen una cantidad enorme de documentos relacionados y puede que algunos documentos tengan muy poca relevancia con dicho tema. Por otra parte hay muchos documentos muy relevantes para una determinada temática, pero podrían no contener los términos por los que se busca.
+
+De esta forma la minería web es un enfoque más relevante que un motor de búsqueda, ya que \textbf{la minería web puede ser utilizada para mejorar el potencial de estos motores de búsqueda}.
+
+Para ello, Web Mining puede \textbf{identificar autores de determinadas páginas web}, \textbf{clasificar documentos} y \textbf{resolver ambigüedades y ciertos matices} que no puedan realizar los motores de búsqueda basados en términos.
+
+\textbf{Minería web:} Proceso de descubrir relaciones intrínsecas de los datos web, los cuales son expresados en forma de texto, enlaces y uso de la información.
+
+Las 3 \textbf{áreas principales} son:
+\begin{itemize}
+	\item Web Mining de \textbf{contenido}
+	\item Web Mining de \textbf{estructura}
+	\item Web Mining de \textbf{utilización}
+\end{itemize}
+
+\section{Web mining de Contenido}
+Proceso de \textbf{extracción de información útil del contenido de páginas web}, tanto texto, imágenes, vídeo, audio, listas o tablas. 
+
+En este campo podemos encontrar técnicas de otros enfoques como son la \textbf{Recuperación de la Información} (IR) o el \textbf{Procesado de Lenguaje Natural} (NLP). Este proceso de extracción de información puede dividirse en dos partes destacadas:
+\begin{enumerate}
+	\item \textbf{Preparación del contenido}
+	\begin{itemize}
+		\item Extracción de texto a partir de HTML.
+		\item Realizar “stemming”.
+		\item Eliminar las palabras frecuentes, conocidas como StopWords.
+		\item Calcular la frecuencia de palabras en una colección (DF).
+		\item Calcular frecuencia de términos por documento (TF).
+	\end{itemize}
+	\item \textbf{Creación del vector} representativo en función de sus términos. 
+	
+	Para ello, normalmente \textbf{se utiliza una técnica de recuperación de información} muy utilizada que consiste en que cada documento sea representado por un vector de pesos asociados a dichos términos. Después, se pueden utilizar técnicas para medir cómo de relevante es un término en un documento de una colección. 
+	
+	Una de las \textbf{técnicas más comunes es la conocida como TF-IDF}, así un peso alto en TF-IDF se alcanza con una elevada frecuencia de un término en el documento dado y una frecuencia de ocurrencia de dicho término en la colección completa de documentos. 
+
+	TF-IDF(t, d, D) = TF(t, d)*IDF(t, D)
+	
+	Además, también se asignan pesos adicionales a los términos que aparecen como palabras claves o en títulos.
+\end{enumerate}
+
+En relación con las aplicaciones relacionadas con la web de contenido, podemos considerar:
+\begin{itemize}
+	\item La identificación de los temas representados por los documentos en una web
+	\item La categorización de documentos web
+	\item Encontrar páginas web similares en distintos servidores
+	\item Detectar la relevancia de contenido, lo que hace que podamos mejorar las consultas estándar como las recomendaciones.
+\end{itemize}
+
+\section{Web mining de Estructura}
+Proceso de \textbf{descubrir información de la estructura de la web}. Este proceso se puede llevar a cabo tanto a \textbf{nivel de documento}, lo que se conoce como \textbf{intra-page}, como a nivel de \textbf{hiperenlaces} lo que se conoce como \textbf{inter-page}. Tal y como se muestra en el dibujo, la estructura de un grafo típico de web consiste en páginas web como nodos y los hiperenlaces como arcos que conectan dos páginas relacionadas.
+
+La motivación de este tipo de web mining se encuentra en que los hiperenlaces son útiles no solo para navegar, sino también para apuntar a páginas con autoridad en el mismo tema que la página que contiene el enlace. Así utilizando los hiperenlaces se puede recuperar información útil de la web.
+
+Algunos de los principales conceptos de la web de estructuras son los siguientes:
+\begin{itemize}
+	\item \textbf{Un grafo web:} es un grafo directo que representa la web.
+	\item \textbf{Nodo:} cada página web es un nodo en este grafo web.
+	\item \textbf{Enlace:} cada hiperenlace en la web es un arco en el grafo web
+	\item \textbf{Grado entrante de un nodo p:} es el número de enlaces distintos que apuntan a p
+	\item \textbf{Grado saliente de un nodo p:} es el número de enlaces distintos que salen de p y señalan a otros nodos.
+\end{itemize}
+\pagebreak
+
+Relaciones de hiperenlaces más comunes, destacamos:
+\begin{itemize}
+	\item la promoción.
+	\item el refuerzo mutuo.
+	\item la cotización.
+	\item la opción socia.
+	\item la promoción transitiva.
+\end{itemize}
+
+\textbf{PageRank} es una marca registrada y patentada por Google el 9 de enero de 1999, fue desarrollado por los fundadores de Google Larry Page y Sergey Brin en la universidad de Stanford. Este algoritmo es una familia de algoritmos utilizados para asignar de forma numérica la relevancia de los documentos o páginas web, indexados por un motor de búsqueda en función de la importancia o relevancia de una determinada página.
+
+\section{Web mining de Utilización}
+Está relacionada con aquellas técnicas que pueden \textbf{predecir el comportamiento de un usuario cuando este interactúa con la web}. Los datos que generan los internautas al visitar páginas web pueden dividirse principalmente en tres tipos:
+\begin{itemize}
+	\item \textbf{Datos generados de forma automática} y que son almacenados en los blogs del acceso del servidor, cookies, etc.
+	\item \textbf{Perfiles de usuario}.
+	\item \textbf{Metadatos} tales como atributos de la propia página y datos de utilización de esta.
+\end{itemize}
+El análisis de información recogida por los servidores web \textbf{puede ayudar mucho a entender mejor el comportamiento del usuario}. El análisis de este tipo de datos se denomina clickstream análisis, es decir el análisis de la secuencia de clics que realiza un determinado usuario en una web. A continuación describiremos cómo es este proceso de extracción de información utilizando web mining de utilización:
+\begin{enumerate}
+	\item A partir de los \textbf{logs} que produce un determinado usuario en un sitio web se realiza un preproceso de datos para poder posteriormente extraer la información relevante. Esta información obtenida no solo mejora los datos del preproceso, sino que también, podrá mejorar el propio sitio web e incrementar el valor del usuario.
+	
+	El preproceso de la información obtenida necesita realizar varias tareas como:
+	\begin{itemize}
+		\item Unir datos relacionados
+		\item Realizar una limpieza de los datos de forma que podamos eliminar reintentos Separar usuarios diferentes
+		\item Unir distintas sesiones
+		\item Filtrar datos por tiempos
+		\item Eliminar páginas irrelevantes
+		\item Etcétera
+	\end{itemize}
+	\item \textbf{Estructurar esta información} para identificar los distintos usuarios, sus sesiones, las visitas a las páginas, etcétera.
+	\item \textbf{Extracción de información} estará relacionada con la extracción de patrones de utilización, es decir, patrones sobre el comportamiento de un usuario en la web a partir de las sesiones o los ficheros log de navegación, la extracción de diferentes tipos de perfiles tanto del usuario como del sitio web o de las visitas a la web y calcular el valor del cliente en función de su comportamiento en el sitio web.
+\end{enumerate}
+La información extraída nos será de gran utilidad para tareas de la minería de datos de la minería web tales como:
+\begin{itemize}
+	\item Determinar el valor de los clientes.
+	\item Designar estrategias de ventas a determinados productos.
+	\item Evaluar las campañas promocionales realizadas.
+	\item Predecir el comportamiento de los usuarios basándose en reglas aprendidas.
+	\item Presentar información dinámica al usuario basándose en sus intereses y perfiles.
+\end{itemize}
+
 \end{document}
