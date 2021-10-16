@@ -1030,7 +1030,7 @@ El individuo está formado por dos vectores de número reales:
 
 \subsection{Mutación}
 En cada generación t se produce una población intermedia de 2 individuos, el individuo nuevo es generado  mediante mutación.
-$$P´^t=(a^t_1,a^t_2)\in I \times I$$
+$$P'^t=(a^t_1,a^t_2)\in I \times I$$
 $$a^t_2=m(P^t)=(x^t_2, \sigma^t_2))$$
 
 El operador de mutación actúa de forma diferente con cada parte del individuo:
@@ -1073,5 +1073,124 @@ Esta regla asegura la convergencia del método:
 	\item Si no se encuentra el óptimo, las soluciones no mejorarán, y pasará lo mismo 
 	\item Cuando la varianza es cero, no se generan nuevas soluciones.
 \end{itemize}
+
+\subsection{Evolución}
+En la generación t+1, se evalúan los dos individuos de la población (1 previo y 1 nuevo) y se selecciona el mejor de los dos.
+
+Por lo que si el nuevo es el mejor, la nueva población es el nuevo individuo, si no se mantienen la misma población.
+
+$$P^{t+1}=s(P'^t)= \begin{cases} 
+	a^t_2 & \textit{si } f(x^t_1)\leq f(x^t_2)\\
+	a^t_1 = P^t & \textit{en caso contrario}
+ \end{cases}$$
+
+\section{EE Múltiples}
+Ahora no solo tendremos poblaciones de 1 solo individuo.
+
+Ahora sí se podrá utilizar el operador de sobrecruzamiento, por lo que habrá que definir uno para vectores de números reales.
+
+Como se tienen más individuos ahora no se podrá utilizar la mutación con reglas 1/5, ya no hay una estadística de mejora para cada individuo.
+
+\subsection{Cruce en EE}
+Actúa de forma separada sobre el vector de codificación y varianza.
+
+Se realiza sobre un conjunto de p individuos, normalmente 2, 3 o 4 individuos, para generar 1 nuevo individuo.
+
+\begin{itemize}
+	\item Vector de codificación, $\vec{x}'= \frac{1}{p}(\sum^p_{i=1}x_1^i,\sum^p_{i=1}x_2^i, ..., \sum^p_{i=1}x_\lambda^i)$, cada nuevo valor es la media de los valores de los progenitores.
+	\item Vector de varianzas, se hace cruce posicional, tiene para cada varianza el valor de otro de los individuos aleatoriamente.
+	
+	$\vec{\sigma}'=(rnd(\sigma^1_1,\sigma^2_1, ..., \sigma^p_1), rnd(\sigma^1_2,\sigma^2_2, ..., \sigma^p_2), ..., rnd(\sigma^1_\lambda,\sigma^2_\lambda, ..., \sigma^p_\lambda))$
+\end{itemize}
+
+\subsection{Mutación en EE}
+Vector de codificación, se hace de la misma manera, mediante distribución gaussiana, a cada elemento del vector se le aplica una variación obtenida de forma aleatoria siguiendo una distribución gaussiana: $x^t_2=x^t_1+N_0(\sigma^t_2)$.
+
+Vector de varianzas, ya no se utiliza la regla de 1/5, sino que se va reduciendo poco a poco según un esquema Gaussiano. Se puede utilizar una de las siguientes: 
+\begin{itemize}
+	\item $\sigma'=\sigma \cdot e^{N(0,\tau)}$
+
+	$\tau$ es la tasa de aprendizaje que toma un valor aproximado de $\tau \approx \frac{b}{\sqrt{2\cdot \sqrt{\lambda}}}$, donde $\lambda$ es la longitud de los individuos.
+	\item $\sigma'=e^{N(0,\tau_0)}\cdot \sigma e^{N(0,\tau)}$
+	
+	Este es otro método donde introduce el parámetro $\tau_0$ cuyo valor es $\tau_0 = \frac{b}{\sqrt{2\cdot \lambda}}$
+\end{itemize}
+
+Se recomienda un valor de b aproximado de 1.
+
+\subsection{Evolución}
+Las poblaciones no tienen por qué tener el mismo tamaño, $\mu$ es el tamaño de la población y $\lambda$ es el tamaño de la población de nuevos individuos.
+
+La selección se puede hacer por muestreo aleatoria simple (ruleta) o cualquier otro método similar.
+
+Solapamiento: No se genera una población completa, los nuevos individuos sustituyen a algunos de los de la generación precedente.
+
+Políticas de inserción y reemplazo: Hay que definir cómo se van a insertar los nuevos individuos y como se van a eliminar los sobrantes.
+
+\subsection{Políticas de inclusión y reemplazo}
+Si se generan $\lambda$ descendientes a partir de $\mu$ progenitores.
+\begin{itemize}
+	\item Reemplazo por inclusión $(\mu + \lambda)-E$: Se unen las poblaciones y se seleccionan los $\mu$ mejores según la función de adaptación.
+	
+	Los padres como los descendientes compiten para ser incluidos.
+	\item Reemplazo por inserción $(\mu, \lambda)-E$: Los descendientes siempre pasan a la siguiente generación y sustituyen a los menos aptos.
+	\begin{itemize}
+		\item Si $\mu \leq \lambda$ se cogen de los $\lambda$ los $\mu$ mejores.
+		\item Si $\mu \geq \lambda$ se eliminan de los $\mu$ $\lambda$ individuos para poder introducir los $\lambda$ nuevos.
+	\end{itemize}
+\end{itemize}
+
+\section{Procedimiento $(1+1)-EE$}
+\begin{enumerate}
+	\item Generar aleatoriamente un vector de números reales y sus varianzas. Las varianzas tomarán valores grandes.
+	\item Evaluar el individuo generado.
+	\item Repetir hasta cumplir criterio de convergencia:
+	\begin{enumerate}
+		\item Generar una nueva solución a partir de la anterior mediante mutación, mutar el vector de codificación.
+		\item Evaluar el individuo generado.
+		\item Eliminar el individuo cuyo valor de adaptación sea menor.
+		\item Si el individuo que queda es el nuevo, aumentar la frecuencia de éxitos, si no disminuirla.
+		\item Mutar el vector de varianzas de acuerdo con la regla 1/5.
+	\end{enumerate}
+	
+	\item Producir como resultado el individuo resultante
+\end{enumerate}
+\section{Procedimiento $(\mu, \lambda)-EE$}
+\begin{enumerate}
+	\item Generar aleatoriamente un conjunto de vectores de números reales y sus varianzas. Las varianzas tomarán valores grandes.
+	\item Repetir hasta cumplir criterio de convergencia:
+	\begin{itemize}
+		\item Evaluar la población generada.
+		\item Ordenar la población de forma decreciente al fitness.
+		\item Repetir $\lambda$ veces:
+		\begin{enumerate}
+			\item Seleccionar 2, 3 o 4 individuos de forma proporcional a su fitness.
+			\item Generar un nuevo individuo aplicando sobrecruzamiento, media para codificación y varianza aleatoria entre los progenitores.
+			\item Mutar este último individuo.
+		\end{enumerate}
+		\item Generar una población intermedia con los $\lambda$ descendientes generados en el paso anterior.
+		\item Eliminar de la población original los últimos $\lambda$ elementos, al estar ordenados.
+		\item Generar una nueva población mediante la unión de la población original y la intermedia.
+	\end{itemize}
+	\item Producir como resultado el mejor individuo de la población.
+	resultante
+\end{enumerate}
+\section{Procedimiento $(\mu + \lambda)-EE$}
+\begin{enumerate}
+	\item Generar aleatoriamente un conjunto de vectores de números reales y sus varianzas. Las varianzas tomarán valores grandes
+	\item Repetir hasta cumplir criterio de convergencia:
+	\item \begin{enumerate}
+		\item Evaluar la población generada.
+		\item Repetir $\lambda$ veces:
+		\begin{enumerate}
+			\item Seleccionar t individuos de forma proporcional al fitness.
+			\item Generar un nuevo individuo aplicando sobrecruzamiento.
+			\item Mutar este último individuo.
+		\end{enumerate}
+		\item Añadir a la población todos los elementos generados en el paso anterior. El tamaño de la población será ahora $\mu + \lambda$.
+		\item Eliminar de la población los peores $\lambda$ elementos.
+	\end{enumerate}
+	\item Producir como resultado el mejor individuo de la población resultante.
+\end{enumerate}
 
 \end{document}
