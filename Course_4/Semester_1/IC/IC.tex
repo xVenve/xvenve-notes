@@ -634,7 +634,7 @@ El primer sistema que se puede llamar SBC es el General Problem Solver (GPS): H.
 
 \textbf{En técnicas de programación:} SBC emplea programación declarativa y los SST programación imperativa.
 
-Lo más importante es que los SBC son capaces de explicar cuál es el proceso de razonamiento que ha empleado para llegar a la solución. Es posible al ser declarativo y la forma en la que se implementan poder ver qué proceso es el que ha seguido.
+Lo más importante es que los SBC son capaces de explicar cuál es el proceso de razonamiento que ha empleado para llegar a la solución. Es posible al ser declarativo y la forma en la que se implementan permite ver qué proceso es el que ha seguido.
 
 \subsection{Ingeniería del Software vs. Ingeniería del Conocimiento}
 \begin{table}[H]
@@ -657,9 +657,9 @@ Lo más importante es que los SBC son capaces de explicar cuál es el proceso de
 \subsection{Elementos de un SBC}
 \textbf{Base de conocimiento:} contiene el conocimiento que hemos recibido de los expertos en un dominio determinado.
 
-\textbf{Base de hechos:} Como está la base de conocimiento, pensando como el estado, es la memoria de trabajo que almacena los datos iniciales del problema y los resultados intermedio durante el proceso.
+\textbf{Base de hechos:} Cómo está la base de conocimiento, pensando como el estado, es la memoria de trabajo que almacena los datos iniciales del problema y los resultados intermedio durante el proceso.
 
-\textbf{Motor de inferencia:} Es el que se encarga de ir pasando de estados aplicando reglas imitando el procedimiento humano de los expertos, poco a poco se va llegando a la solución. Aprenderemos cómo funciona y tendremos que definir las reglas.
+\textbf{Motor de inferencia:} Es el que se encarga de ir pasando de estados aplicando reglas, imitando el procedimiento humano de los expertos, poco a poco se va llegando a la solución. Aprenderemos cómo funciona y tendremos que definir las reglas.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Elementos de un SBC}}
@@ -723,11 +723,11 @@ Es un proceso que no se realiza a la primera, se retrocede continuamente, ademá
 
 \textbf{Planificación Automática y Robótica:} Como por ejemplo es el proyecto Nao Therapist un robot para ayudar a los niños en rehabilitación por parálisis cerebral.
 
-\chapter{Identificación y Adquisición}
+\chapter{Tema 2: Identificación y Adquisición}
 Se tratará la identificación de los problemas y la adquisición del conocimiento para los SBC que se componen de:
 \begin{itemize}
-	\item Conocimiento: Formado por la Base hechos (define el estado del sistema) y la Base de reglas (como razona el sistema experto).
-	\item Motor de inferencia que toma las decisiones como lo haría el experto humano, como si razonase.
+	\item \textbf{Conocimiento:} Formado por la Base hechos (define el estado del sistema) y la Base de reglas (como razona el sistema experto).
+	\item \textbf{Motor de inferencia} que toma las decisiones como lo haría el experto humano, como si razonase.
 \end{itemize}
 
 Una parte muy importante del proceso es limpiar los datos para generar conocimiento.
@@ -749,7 +749,7 @@ Etapas de la identificación
 	      \end{itemize}
 	      \pagebreak
 	      
-	\item \textbf{Evaluar el problema:} ver si de verdad es necesario y posible crear el SBC (tratar tampoco de matar moscas a cañonazos). Para la práctica se nos piden las 2 primeras:
+	\item \textbf{Evaluar el problema:} ver si de verdad es necesario y posible crear el SBC (tampoco matar moscas a cañonazos). Para la práctica se nos piden las 2 primeras:
 	      \begin{itemize}
 		      \item \textbf{Adecuación}, se ajusta al tipo de problema. Nos tenemos que fijar en:
 		            
@@ -907,7 +907,7 @@ Técnicas de educción: ayudan a adquirir y validar el conocimiento de los exper
 	\item No limitarse al diálogo, usar textos.
 	\item No espaciar demasiado las sesiones de educción.
 	\item Elegir el lugar adecuadamente.
-	\item No ser propio experto.
+	\item No ser el propio experto.
 	\item No creer todo lo que dice que hace.
 \end{itemize}
 
@@ -929,16 +929,15 @@ Para completar una sesión el ingeniero del conocimiento debe realizar los sigui
 	\item Evaluación
 \end{itemize}
 
-\chapter{Conceptualización}
-\section{Conceptualización}
-Consisten en estructurar todo el conocimiento adquirido y establece que conocimientos maneja el experto, como los utiliza, donde y cuando. 
+\chapter{Tema 3: Conceptualización. Introducción}
+Consiste en estructurar todo el conocimiento adquirido y establecer que conocimientos maneja el experto, como los utiliza, donde y cuando. 
 
 Es independiente de la implementación y herramienta.
 
 \textbf{Análisis: estructurar...}
 \begin{itemize}
 	\item \textbf{Conocimiento factual}, la información que se conoce (conceptos)
-	\item \textbf{Conocimiento táctico}, como y cunado se añade información (inferencia)
+	\item \textbf{Conocimiento táctico}, como y cuando se añade información (inferencia)
 	\item \textbf{Conocimiento estratégico}, que hacer, donde y por qué (pasos)
 	\item \textbf{Metaconocimiento}, conocimiento sobre el conocimiento.
 \end{itemize}
@@ -1043,9 +1042,9 @@ Hay múltiples posibles representaciones, pero la más habitual es:
 	\item \textbf{SI} condiciones \textbf{ENTONCES} acciones
 \end{itemize}
 
-\textbf{Paso de inferencia:} Indicar que atributo/s usar para inferir nueva información (concluir un atributo específico)
+\textbf{Paso de inferencia:} Hay que indicar que atributo/s usar para inferir nueva información (concluir un atributo específico)
 
-\section{Ontologías}
+\chapter{Tema 4: Conceptualización. Ontologías}
 Una ontología es una especificación formal y explicita de una conceptualización compartida (Thomas Gruber), nosotros las utilizaremos para conceptualizar normal.
 \begin{itemize}
 	\item \textbf{Conceptualización:} desarrollo de un modelo abstracto del dominio basado esencialmente en el empleo de conceptos, atributos, valores, relaciones y funciones.
@@ -1099,7 +1098,7 @@ Una ontología es una especificación formal y explicita de una conceptualizaci�
 		      \item Se pueden modelar mediante atributos de una clase o definiendo clases nuevas
 	      \end{itemize}
 	\item \textbf{Axioma:} reglas que son siempre ciertas. Se usan para Incluir restricciones, Verificar la corrección o Deducir conocimiento no codificado explícitamente.
-	\item \textbf{Herencia:} propiedad de la relación ‘es un’, las clases relacionadas (heredadas) cuenten con los atributos de la clase padre.
+	\item \textbf{Herencia:} propiedad de la relación ‘es un’, las clases relacionadas (heredadas) cuentan con los atributos de la clase padre.
 	\item \textbf{Herencia múltiple:} una clase hereda o cuenta con las propiedades de dos clases padre.
 	\item \textbf{Derivación:} organización de las clases de la ontología en un árbol de jerarquía mediante sucesivas relaciones ‘es un’ (kind of, is a) con la propiedad de herencia.
 \end{itemize}
@@ -1190,5 +1189,10 @@ Son las metodologías para que dado un problema diseñar una ontología que lo r
 	\item Ontolingua (Universidad de Stanford)
 	\item OntoSaurus (Universidad de Southern California). Lenguaje LOOM
 \end{itemize}
+
+\chapter{Tema 5: Formalización e implementación. Representación del conocimiento}
+\chapter{Tema 6: Formalización e implementación. Sistemas de producción}
+\chapter{Tema 7: Formalización e implementación. Marcos}
+\chapter{Tema 8: Planificación Automática (PA)}
 
 \end{document}
