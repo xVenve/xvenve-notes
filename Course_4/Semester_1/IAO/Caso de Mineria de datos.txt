@@ -2,7 +2,7 @@ Data warehouse: Almacenes de datos, todo está ordenado y formateado. Búsqueda 
 
 Pregunta 1
 	Gran aumento de datos
-	Computación más potente y baratas
+	Computación más potente y barata
 	Más memoria y BBDD
 	
 Pregunta 2
