@@ -284,7 +284,7 @@ hmargin=3cm
 			            \item  No lineal (Perceptrón multicapa), presentando una memoria de unas 8 páginas en forma de artículo.
 			                  Para esta parte se nos dará un script en R, no hay que programarlo, pero hay que realizar muchas pruebas para ver los resultados (errores).
 		            \end{itemize}
-		      \item 20 \% Practica 2. Habrá que modificar scripts de Python, también ser usará Google Colab.
+		      \item 20 \% Practica 2. Habrá que modificar scripts de Python, también se usará Google Colab.
 		            \begin{itemize}
 			            \item Parte 1: Problema de clasificación que resolveremos con Perceptrón multicapa.
 			            \item Parte 2: Problema de clasificación con imágenes usando Deep Learning.
@@ -355,7 +355,7 @@ Separar las instancias en 70 15 15.
 En la parte de programar los vectores de pesos y umbrales, si se hace un vector con los pesos y el umbral, tener en cuenta que al hacer el producto cartesiano el de entrada debe tener un 1 para el umbral. $[x_1 \; x_2 \; x_3 \; 1]$ con $[w_1 \; w_2 \; w_3 \; \sigma]$
 
 \chapter{Tema 1: Introducción}
-El objeto de la IA es la construcción de sistemas inteligentes.
+El objetivo de la IA es la construcción de sistemas inteligentes.
 
 \textbf{Sistema Inteligente:} Dispositivo físico o lógico con capacidades propias de los humanos como tomar decisiones, resolución de problemas o el aprendizaje.
 
@@ -681,16 +681,16 @@ Se define el error cometido por un modelo (un conjunto de pesos) mediante la des
 
 $$E=\frac 1 2 \sum_{p=1}^m(d^p-y^p)^2$$
 
-El objetivo es encontrar un conjunto de pesos que haga que ese error sea el menor posible. Se aplica un proceso iterativo en el que después de propagar cada entrada, se modifican los pesos de acuerdo a regla delta:
+El objetivo es encontrar un conjunto de pesos que haga que ese error sea el menor posible. Se aplica un proceso iterativo en el que después de propagar cada entrada, se modifican los pesos de acuerdo con la regla delta:
 $$\Delta_pw_i=\gamma(d^p-y^p)x_i$$
 
 El error es una función de los pesos por lo que tiene que haber un valor de los pesos para los que dicho error sea mínimo y para localizarlo se utiliza el método de descenso de gradiente.
 
 El descenso de gradiente consiste en calcular la derivada de la función error respecto de los pesos en el punto determinado por el valor actual del peso, y utilizar dicho valor para variar los pesos
 \begin{itemize}
-	\item Si el valor es grande, es que la pendiente es grande y podemos desplazarnos mucho
-	\item Si el valor es pequeño, nos acercamos al mínimo, y variamos poco los pesos
-	\item Si el valor es cero, estamos en el mínimo y no se varían los pesos
+	\item Si el valor es grande, es que la pendiente es grande y podemos desplazarnos mucho.
+	\item Si el valor es pequeño, nos acercamos al mínimo, y variamos poco los pesos.
+	\item Si el valor es cero, estamos en el mínimo y no se varían los pesos.
 \end{itemize}
 
 $$\Delta_pw_i=-\gamma\frac{\partial E^p}{\partial w_i}$$
@@ -700,15 +700,15 @@ $$\frac{\partial E^p}{\partial w_i}=\frac{\partial E^p}{\partial y^p}\frac{\part
 De esta manera obtenemos la Regla Delta:
 $$\Delta_pw_i=\gamma(d^p-y^p)x_i$$
 
-Si aplicamos Adaline a problemas en los que las salidas son binarias la Reglas Delta quedaria:
+Si aplicamos Adaline a problemas en los que las salidas son binarias la Reglas Delta quedaría:
 $$\Delta_pw_i=\{ \gamma x_i \quad si \quad d^p > y^p$$
 
-La Regla Delta es una extensión de la regla del Perceptron para valores de salida reales.
+La Regla Delta es una extensión de la regla del Perceptrón para valores de salida reales.
 
 \subsection{Procedimiento}
 \begin{enumerate}
-	\item Inicializar los pesos y umbral de forma aleatoria
-	\item Presentar un patrón de entrada
+	\item Inicializar los pesos y umbral de forma aleatoria.
+	\item Presentar un patrón de entrada.
 	\item Calcular la salida, compararla con la deseada y obtener la diferencia: $(d^p-y^p)$
 	\item Para todos los pesos y para el umbral, calcular:
 	      
@@ -716,11 +716,11 @@ La Regla Delta es una extensión de la regla del Perceptron para valores de sali
 	\item Modificar los pesos y el umbral del siguiente modo:
 	      
 	      $w_j(t+1)=w_j(t)+\Delta_pw_j,, \theta(t+1)=\theta(t)+\Delta_p\theta$
-	\item Repetir los pasos 2, 3, 4 y 5 para todos los patrones de entrenamiento (1 ciclo)
-	\item Repetir los pasos 2,3,4,5 y 6 tantos ciclos hasta cumplir el criterio de parada
+	\item Repetir los pasos 2, 3, 4 y 5 para todos los patrones de entrenamiento (1 ciclo).
+	\item Repetir los pasos 2,3,4,5 y 6 tantos ciclos hasta cumplir el criterio de parada.
 \end{enumerate}
 
-\chapter{Perceptrón multicapa}
+\chapter{Tema 2: Perceptrón multicapa}
 \section{Problema XOR}
 Mediante ADALINE o un Perceptrón que son aproximadores de un solo plano no es posible crear una red que represente la lógica de la puerta XOR.
 \begin{table}[H]
@@ -755,7 +755,7 @@ Es importante que sean no lineales, derivables y acotadas.
 Nosotros emplearemos:
 \begin{itemize}
 	\item Función Sigmoide (0 - 1)
-	      $$g(x)=\frac{1}{1-e^{-x}}\quad g'(x)=g(x)(1-g(x))$$
+	      $$g(x)=\frac{1}{1-e^{-x}}\quad g'(x)=g(x)(1+g(x))$$
 	\item Tangente Hiperbólica (-1 - 1) $$g(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}} \quad g'(x)=1-g(x)^2$$
 	\item Unidad de Rectificado Lineal - ReLU $$g(x)=\max(0,x) \quad g'(x)= \begin{cases}1 & x > 0\\0 & \textit{en otro caso}\end{cases}$$
 \end{itemize}
@@ -772,7 +772,7 @@ En este caso no podemos hacer como en ADALINE, ya que solo se conoce la salida e
 Es por esto por lo que en 1986 Rumelhart et al. presentaron una generalización de la Regla Delta que solucionaba este problema: \textbf{Regla Delta Generalizada}.
 
 \section{Función de error}
-El objetivo es que la red produzca resultados lo más parecidos a los deseados, depende del tipo de problema.
+El objetivo es que la red produzca resultados los más parecidos a los deseados, depende del tipo de problema.
 \pagebreak
 
 En los problemas de \textbf{Clasificación} se utiliza la \textbf{entropía cruzada}: $E=-\sum^C_{i=1}d_i \log (y_i)$ La base del logaritmo depende del número de posibles valores.
@@ -790,15 +790,29 @@ Como el objetivo es minimizar la función de error se calcula el gradiente de la
 Hay que calcular la derivada del error respecto a cada uno de los pesos, dicha derivada se utilizará para modificar el peso correspondiente.
 
 Se va aplicando la regla de la cadena, en las capas intermedias hay que calcular los valores hacia atrás.
+
+La idea es desplazar el vector de pesos siguiendo la dirección negativa del gradiente del error en dicho punto, de esta manera nos aproximamos al mínimo error.
 \section{Procedimiento BackPropagation}
 \begin{enumerate}
-	\item Inicializar los pesos aleatoriamente $W \leftarrow N(0, \sigma)$.
-	\item Iterar hasta convergencia.
-	\item Calcular el gradiente de cada peso $\frac{\partial E(W)}{\partial W}$.
-	\item Actualizar los pesos en dirección opuesta al gradiente $ W \leftarrow W - \frac{\partial E(W)}{\partial W}$.
-	\item Generar como salida los pesos definitivos.
+	\item Se inicializan los pesos y umbrales de la red (valores aleatorios próximos a 0)
+	\item Se presenta un patrón n de entrenamiento, $(x(n),s(n))$, y se propaga hacia la salida, obteniéndose la respuesta de la red $y(n)$
+	\item Se evalúa el error, $e(n)$, cometido por la red para el patrón n
+	\item Se aplica la regla delta generalizada para modificar los pesos y umbrales de la red:
+	\begin{enumerate}
+		\item Se calculan los valores $\delta$ para todas las neuronas de la capa de salida
+		\item Se calculan los valores $\delta$ para el resto de las neuronas de la red, empezando desde la última capa oculta y retropropagando dichos valores hacia la capa de entrada
+		\item Se modifican pesos y umbrales
+	\end{enumerate}
+	\item Se repiten los pasos 2, 3 y 4 para todos los patrones de entrenamiento, completando así un ciclo de aprendizaje
+	\item Se evalúa el error total cometido por la red (error de entrenamiento)
+	\item Se presentan los patrones de validación, calculando únicamente la salida de la red (no se modifican los pesos) y se evalúa el error total en el conjunto de validación
+	\item Se repiten los pasos 2, 3, 4, 5, 6 y 7 hasta que:
+	\begin{enumerate}
+		\item El error de entrenamiento permanece estable
+		\item El error de validación permanece estable
+		\item El error de validación empieza a aumentar
+	\end{enumerate}
 \end{enumerate}
-\pagebreak
 
 \section{Retropropagación del gradiente}
 
@@ -813,6 +827,7 @@ $$\delta^o_k=-\frac{\partial E}{\partial y^o_k}f'(s^o_k)=-[-(d^o_k-y^o_k)]f'(s^P
 
 \textbf{Para la oculta (h):} Tras calcular la capa de salida, va hacia atrás estimando la salida deseada de las capas ocultas.
 $$\delta^h_k=-f'(s^h_k)\frac{\partial E}{\partial y^h_k}=-f'(s^h_k)\sum^{m}_{l=1}\frac{\partial E}{\partial s^{h+1}_l}\frac{\partial s^{h+1}_l}{\partial y^h_k}=-f'(s^h_k)\sum^{m}_{l=1}[-\delta^{h+1}_l]\frac{\partial (\sum_j^n w_{jl}y^{h-1}_j)}{\partial y^h_k}=$$ $$=f'(s^h_k)\sum^{m}_{l=1}\delta^{h+1}_l w_{kl}$$
+\pagebreak
 
 \section{Retropropagación del error}
 Se calcula un valor, llamado $\delta$, para todas las células de la red, empezando por las de la última capa y retrocediendo una capa en cada iteración.
@@ -822,7 +837,6 @@ El valor delta es proporcional a la derivada del error estimado por la célula.
 	\item En la última capa se conoce el error producido por las células, y el delta se calcula teniendo en cuenta ese error.
 	\item En las capas ocultas, se propaga hacia atrás el valor $\delta$ ponderado por los pesos.
 \end{itemize}
-\pagebreak
 
 Una vez calculados los deltas, todas las conexiones se actualizarán de la misma manera: 
 \begin{figure}[H]
@@ -831,4 +845,411 @@ Una vez calculados los deltas, todas las conexiones se actualizarán de la misma
 	{\includegraphics[scale=.35]{regla-delta.jpg}}
 \end{figure}
 $$w^+_{ij} = w_{ij}-\gamma \delta_j y_i \quad b^+_{i}=b_i - \gamma \delta_j$$
+
+\section{Tasa de aprendizaje $\gamma$}
+Valor empleado en la regla delta por el que se multiplica la $\Delta w_i$. 
+
+Cuanto más grande más rápido nos aceptamos a la solución, pero cuidado porque si es muy alto oscilaremos y no nos acercaremos. 
+
+Si es muy pequeño la convergencia será muy lenta y puede ser inviable al ralentizar el proceso, estancándose en mínimos locales.
+
+Encontrar la tasa de aprendizaje óptima no es trivial, se trata de asignar el mayor valor posible  sí que se produzca oscilación.
+
+Una manera de evitar la oscilación es hacer que el cambio de los pesos dependa de  la intensidad del cambio anterior, velocidad con la que varía, una especie de inercia llamada momento. Evita que puedan diferir en exceso.
+\pagebreak
+
+\section{Momento}
+Término que recoge el cambio producido por los pesos en la iteración precedente:
+$$m(t) = w(t) - w(t - 1) = \Delta w(t)$$
+$$w_{jk}(t + 1) = w_{jk}(t) + \gamma \delta^p_k y^p_j + \alpha\Delta w_{jk}(t)$$
+$\alpha$ es la intensidad que le queremos dar a la inercia.
+
+Contrarresta las oscilaciones restando cuando cambia de sentido, se pueden utilizar tasas de aprendizaje relativamente altas, lo que permite una convergencia rápida. Permite navegar más eficazmente por la función de error.
+
+\section{Generalización}
+La red adapta sus pesos a partir de los ejemplos de entrenamiento hasta formar un modelo final, esta capacidad permite comportarse correctamente más allá de estos. Aunque existe un riesgo de que solo conociendo los de entrenamiento no sepa generalizar.
+
+El conjunto de ejemplos sea suficientemente grande y característico.
+
+El modelo resultante debe ser válido para cualquier situación, no solo para los datos de entrenamiento.
+
+\section{Sobre-aprendizaje}
+El módulo se ajusta a los datos de entrenamiento de una manera demasiado precisa. Dejando de generalizar, cosa no deseable.
+
+Si se entrena poco, la aproximación que genera el modelo es muy burda.
+
+Si se entrena mucho, puede adaptarse solo a los ejemplos de entrenamiento, como si lo memorizara.
+
+Cuando el error de validación deja de disminuir, la red empieza a sobreentrenar, y debe pararse el entrenamiento
+
+No solo depende de los ciclos de aprendizaje, también de:
+\begin{itemize}
+	\item Excesivo número de pesos o neuronas ocultas, se ajusta con mucha exactitud.
+	\item Excesiva complejidad del modelo en relación con el número de patrones de entrenamiento. Hacer las redes más sencillas.
+	\item Escasez de patrones de entrenamiento, por lo que se adapta rápido a estos patrones y pierde la capacidad de generalización.
+\end{itemize}
+
+\section{Conjunto de validación}
+Conjunto de datos diferentes a los de entrenamiento para comprobar la capacidad de generalización del modelo, no se utiliza para entrenar, solo para verificar la generalización y decidir cuándo parar. El conjunto de entrenamiento se divide en dos, uno para entrenar y otro para validar.
+
+Se utiliza para saber cuándo empieza a sobreentrenar.
+
+Los datos de validación deben tener una estructura similar a los de entrenamiento, para esto se aleatorizan los datos y hacer que sean menos sesgados posibles.
+
+Si hay correlaciones entre entrenamiento y validación, las dos curvas se comportaran parecido y nos servirá para ver la generalización.
+
+\section{Regularización}
+A veces se necesitan muchas neuronas para determinados problemas y para evitar sobreajuste lo que se hace es eliminar de manera aleatoria un porcentaje de las neuronas (10-25 \%) en cada iteración, así no puede sobreaprenderlo.
+
+Esto reduce la capacidad de memorizar, haciendo que tenga que aprender patrones y no casos concretos.
+
+Se ha probado experimentalmente la eficacia de redes en las que las señales solo recorren parte de la red.
+
+\section{Actualización por lotes}
+La actualización de los pesos se puede realizar:
+\begin{itemize}
+	\item Después de introducir un dato. $E= \frac{1}{2} (y-x)^2$
+	\item Después de introducir todos o una serie de datos. $E= \frac{1}{N} \sum_{i=1}^N(y_i-x_i)^2$
+\end{itemize}
+Lo recomendado es tras una serie de datos, ya que tras cada patrón es muy costoso computacionalmente o si lo hacemos tras todo el conjunto de entrenamiento dificulta que la red pueda generalizar bien.
+
+Hacer estas series de datos muy grandes hace que sea muy rápido computacionalmente y si son muy pequeños mejora la generalización.
+
+Hacerlo por lotes permite una mejor estimación del gradiente, produce una convergencia más suave y utilizar tasas de aprendizaje más grandes, por lo que aprende más rápido.
+
+Es paralelizable, lo que permite incrementar más aún la velocidad del aprendizaje.
+
+\section{Validación cruzada}
+Es un método para la evaluación de modelo que lo que permite es entrenar la red con diferentes valores de parámetros para quedarnos con el mejor. 
+
+Aunque que se obtenga mejor evaluación no implica que se comporte mejor ante ejemplos desconocidos, por esto que para generar modelos es necesario un conjunto de ejemplos que no hayan sido utilizados en el entrenamiento, ni para modificar los pesos y tampoco para establecer el criterio de parada. 
+
+Los modelos deben ejecutarse el suficiente número de veces con diferentes inicializaciones y asignar la media de los resultados.
+
+Un modelo es mejor que otro si la media de los errores de test es estadísticamente significativa menor en una que en otro.
+
+Se divide el conjunto de entrenamiento en x particiones, para hacer x modelos (x+1 en total) que se entrenaran con todas las particiones menos 1 y se hará test con la otra restante.
+
+Para cada modelo se hace una serie de veces para evitar el sesgo del inicio aleatorio. Cuando se ha completado se hace la media del error y ese será el error del modelo que se genera si se entrena con el conjunto completo de datos y esos parámetros.
+
+En todos los modelos una parte será para validación.
+
+\section{Debilidades}
+\subsection{Mínimos locales}
+Si existen valores de la función de error con valores bajos rodeados extensamente por valores más altos, la red puede quedarse estancada y no acceder a valores mejores del error.
+
+Soluciones:
+\begin{itemize}
+	\item Añadir ruido al método de descenso del gradiente
+	\item Partir de diferentes inicializaciones aleatorias
+	\item Aumentar el número de neuronas ocultas
+\end{itemize}
+
+\subsection{Saturación}
+Cuando la entrada total de una célula toma valores muy altos, la salida permanece constante por saturación, debido a la naturaleza de la función de activación.
+
+El problema está en la función de activación.
+
+Si la entrada sigue aumentando, esto no produce variaciones en la salida
+
+La modificación de los pesos en una célula depende de la salida: $y_k(1 - y_k)$
+
+Si la salida está cercana a 1, lo cual ocurre en la zona de saturación, los pesos dejan de modificarse y se produce estancamiento.
+
+Soluciones:
+\begin{itemize}
+	\item Normalizar datos de entrada
+	\item Comenzar con valores de pesos cercanos a cero
+	\item Utilizar otras funciones de activación: ReLU
+	
+	Impide la saturación de las salidas a un valor de 1 que detiene el aprendizaje
+	
+	Permite generar muchos valores cero como salida de neuronas, lo cual las desactiva y asemeja más a modelos biológicos.
+\end{itemize}
+El objetivo es encontrar un conjunto de pesos que haga que ese error sea el menor posible. Se aplica un proceso iterativo en el que después de propagar cada entrada, se modifican los pesos de acuerdo con la regla delta:
+$$\Delta_pw_i=\gamma(d^p-y^p)x_i$$
+
+El error es una función de los pesos por lo que tiene que haber un valor de los pesos para los que dicho error sea mínimo y para localizarlo se utiliza el método de descenso de gradiente.
+
+El descenso de gradiente consiste en calcular la derivada de la función error respecto de los pesos en el punto determinado por el valor actual del peso, y utilizar dicho valor para variar los pesos
+\begin{itemize}
+	\item Si el valor es grande, es que la pendiente es grande y podemos desplazarnos mucho.
+	\item Si el valor es pequeño, nos acercamos al mínimo, y variamos poco los pesos.
+	\item Si el valor es cero, estamos en el mínimo y no se varían los pesos.
+\end{itemize}
+
+$$\Delta_pw_i=-\gamma\frac{\partial E^p}{\partial w_i}$$
+
+Utilizando la regla de la cadena:
+$$\frac{\partial E^p}{\partial w_i}=\frac{\partial E^p}{\partial y^p}\frac{\partial y^p}{\partial w_i}=\frac{\partial (\frac 1 2 (d^p-y^p)^2)}{\partial y^p}\frac{\partial(w_ix_i)}{\partial w_i}=-(d^p-y^p)x_i$$
+De esta manera obtenemos la Regla Delta:
+$$\Delta_pw_i=\gamma(d^p-y^p)x_i$$
+
+Si aplicamos Adaline a problemas en los que las salidas son binarias la Reglas Delta quedaría:
+$$\Delta_pw_i=\{ \gamma x_i \quad si \quad d^p > y^p$$
+
+La Regla Delta es una extensión de la regla del Perceptrón para valores de salida reales.
+
+\subsection{Procedimiento}
+\begin{enumerate}
+	\item Inicializar los pesos y umbral de forma aleatoria.
+	\item Presentar un patrón de entrada.
+	\item Calcular la salida, compararla con la deseada y obtener la diferencia: $(d^p-y^p)$
+	\item Para todos los pesos y para el umbral, calcular:
+	      
+	      $\Delta_pw_i=\gamma(d^p-y^p)x_i,, \Delta_p\theta=\gamma(d^p-y^p)$
+	\item Modificar los pesos y el umbral del siguiente modo:
+	      
+	      $w_j(t+1)=w_j(t)+\Delta_pw_j,, \theta(t+1)=\theta(t)+\Delta_p\theta$
+	\item Repetir los pasos 2, 3, 4 y 5 para todos los patrones de entrenamiento (1 ciclo).
+	\item Repetir los pasos 2,3,4,5 y 6 tantos ciclos hasta cumplir el criterio de parada.
+\end{enumerate}
+
+\chapter{Tema 2: Perceptrón multicapa}
+\section{Problema XOR}
+Mediante ADALINE o un Perceptrón que son aproximadores de un solo plano no es posible crear una red que represente la lógica de la puerta XOR.
+\begin{table}[H]
+	\centering
+	\caption{Puerta XOR}
+	\begin{tabular}{cc|c}
+		\multicolumn{2}{l}{XOR} & \multicolumn{1}{l}{} \\ \hline
+		-1 & -1 & 1  \\
+		-1 & 1  & -1 \\
+		1  & -1 & -1 \\
+		1  & 1  & 1
+	\end{tabular}
+\end{table}
+
+Se llega a un punto al aplicar estos métodos que no sabe mejorar más la solución, se estabilizan los pesos, pero es una solución muy alejada de la óptima.
+
+Como se ha dicho solo se pueden resolver problemas en los que las salidas dependen linealmente de las entradas.
+
+La manera de resolver este problema fácilmente es introducir una capa adicional, que es como emplear dos rectas para discriminar.
+
+En el caso de más de 1 capa para ajustar los pesos no podemos hacerlo como anteriormente, ya que en las capas ocultas no conocemos la salida, solo nos serviría para la capa de salida.
+
+\section{No linealidad}
+En la mayoría de los casos los datos se distribuyen de manera no lineal, por lo que en general las rectas no son útiles para solucionar los problemas reales. Se necesitan curvas complejas.
+
+\section{Función de activación}
+Es necesario incluir una función de activación no lineal en la salida de las células. 
+
+Es importante que sean no lineales, derivables y acotadas.
+\pagebreak
+
+Nosotros emplearemos:
+\begin{itemize}
+	\item Función Sigmoide (0 - 1)
+	      $$g(x)=\frac{1}{1-e^{-x}}\quad g'(x)=g(x)(1+g(x))$$
+	\item Tangente Hiperbólica (-1 - 1) $$g(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}} \quad g'(x)=1-g(x)^2$$
+	\item Unidad de Rectificado Lineal - ReLU $$g(x)=\max(0,x) \quad g'(x)= \begin{cases}1 & x > 0\\0 & \textit{en otro caso}\end{cases}$$
+\end{itemize}
+
+\section{Redes alimentadas hacia delante}
+En cada capa C se calcula la salida de las células que la componen $a^C_j$ con: 
+$$y^C_j=f\left(\sum^{C-1}_{i=1} w^{C-1}_{ij}y^{C-1}_i+\theta_j^C\right)=f(s^{C}_{j})$$
+
+Tal que $w^C_{ij}$ es el peso de la capa C entre la célula origen i y la célula destino j y $y^{C-1}_j$ es la salida de la célula i de la capa anterior. El sumatorio se hace para todas las células de la capa anterior.
+
+\section{Aprendizaje de pesos}
+En este caso no podemos hacer como en ADALINE, ya que solo se conoce la salida esperada para la última capa, pero para las intermedias no podemos. Solo podríamos ajustar los pesos de esta. 
+
+Es por esto por lo que en 1986 Rumelhart et al. presentaron una generalización de la Regla Delta que solucionaba este problema: \textbf{Regla Delta Generalizada}.
+
+\section{Función de error}
+El objetivo es que la red produzca resultados los más parecidos a los deseados, depende del tipo de problema.
+\pagebreak
+
+En los problemas de \textbf{Clasificación} se utiliza la \textbf{entropía cruzada}: $E=-\sum^C_{i=1}d_i \log (y_i)$ La base del logaritmo depende del número de posibles valores.
+\begin{itemize}
+	\item No siempre es conveniente ahorrar bits cuando se hace clasificación, ya que el conocimiento depende de las conexiones.
+\end{itemize}
+
+En \textbf{Regresión} se utiliza el \textbf{error cuadrático medio}: $E=\frac 1 N \sum^N_{i=1} (d_i-y_i)^2$
+
+Se puede hacer una representación gráfica del error según los pesos que nos permite ver como se distribuyen y buscar los valles, pero esto no es posible de dibujar en los problemas por el gran tamaño de los espacios y coste. Lo que se hace es como no conocemos el error en todos los puntos se utiliza la derivada para ver la pendiente y reducirla en busca de un mínimo local (Problema del mínimo local, es difícil salir).
+
+Como el objetivo es minimizar la función de error se calcula el gradiente de la función en un punto W para ver la pendiente y como queremos minimizar iremos en dirección opuesta al gradiente hasta alcanzar convergencia.
+
+\section{Retropropagación del gradiente}
+Hay que calcular la derivada del error respecto a cada uno de los pesos, dicha derivada se utilizará para modificar el peso correspondiente.
+
+Se va aplicando la regla de la cadena, en las capas intermedias hay que calcular los valores hacia atrás.
+
+La idea es desplazar el vector de pesos siguiendo la dirección negativa del gradiente del error en dicho punto, de esta manera nos aproximamos al mínimo error.
+\section{Procedimiento BackPropagation}
+\begin{enumerate}
+	\item Se inicializan los pesos y umbrales de la red (valores aleatorios próximos a 0)
+	\item Se presenta un patrón n de entrenamiento, $(x(n),s(n))$, y se propaga hacia la salida, obteniéndose la respuesta de la red $y(n)$
+	\item Se evalúa el error, $e(n)$, cometido por la red para el patrón n
+	\item Se aplica la regla delta generalizada para modificar los pesos y umbrales de la red:
+	\begin{enumerate}
+		\item Se calculan los valores $\delta$ para todas las neuronas de la capa de salida
+		\item Se calculan los valores $\delta$ para el resto de las neuronas de la red, empezando desde la última capa oculta y retropropagando dichos valores hacia la capa de entrada
+		\item Se modifican pesos y umbrales
+	\end{enumerate}
+	\item Se repiten los pasos 2, 3 y 4 para todos los patrones de entrenamiento, completando así un ciclo de aprendizaje
+	\item Se evalúa el error total cometido por la red (error de entrenamiento)
+	\item Se presentan los patrones de validación, calculando únicamente la salida de la red (no se modifican los pesos) y se evalúa el error total en el conjunto de validación
+	\item Se repiten los pasos 2, 3, 4, 5, 6 y 7 hasta que:
+	\begin{enumerate}
+		\item El error de entrenamiento permanece estable
+		\item El error de validación permanece estable
+		\item El error de validación empieza a aumentar
+	\end{enumerate}
+\end{enumerate}
+
+\section{Retropropagación del gradiente}
+
+$$s^P_k= \sum_j w^{P-1}_{jk}y^{P-1}_j+\theta_k^P \quad y^P_k=f(s^P_k)$$
+
+Necesitamos para cada célula un valor delta (menos para la entrada). Se deriva en función de la entrada, ya que es lo que cambia el error. $\delta$ Estimación del error en esa célula.
+
+$$\delta^P_k=-\frac{\partial E}{\partial s^P_k}=-\frac{\partial E}{\partial y^P_k}\frac{\partial y^P_k}{\partial s^P_k}=-\frac{\partial E}{\partial y^P_k}f'(s^P_k)$$
+
+\textbf{Para la salida (o):} Siendo el error $E=\frac 1 2 \sum (d^o_k-y^o_k)^2$
+$$\delta^o_k=-\frac{\partial E}{\partial y^o_k}f'(s^o_k)=-[-(d^o_k-y^o_k)]f'(s^P_k)=(d^o_k-y^o_k)f'(s^o_k)$$
+
+\textbf{Para la oculta (h):} Tras calcular la capa de salida, va hacia atrás estimando la salida deseada de las capas ocultas.
+$$\delta^h_k=-f'(s^h_k)\frac{\partial E}{\partial y^h_k}=-f'(s^h_k)\sum^{m}_{l=1}\frac{\partial E}{\partial s^{h+1}_l}\frac{\partial s^{h+1}_l}{\partial y^h_k}=-f'(s^h_k)\sum^{m}_{l=1}[-\delta^{h+1}_l]\frac{\partial (\sum_j^n w_{jl}y^{h-1}_j)}{\partial y^h_k}=$$ $$=f'(s^h_k)\sum^{m}_{l=1}\delta^{h+1}_l w_{kl}$$
+\pagebreak
+
+\section{Retropropagación del error}
+Se calcula un valor, llamado $\delta$, para todas las células de la red, empezando por las de la última capa y retrocediendo una capa en cada iteración.
+
+El valor delta es proporcional a la derivada del error estimado por la célula.
+\begin{itemize}
+	\item En la última capa se conoce el error producido por las células, y el delta se calcula teniendo en cuenta ese error.
+	\item En las capas ocultas, se propaga hacia atrás el valor $\delta$ ponderado por los pesos.
+\end{itemize}
+
+Una vez calculados los deltas, todas las conexiones se actualizarán de la misma manera: 
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Retropropagación del error}}
+	{\includegraphics[scale=.35]{regla-delta.jpg}}
+\end{figure}
+$$w^+_{ij} = w_{ij}-\gamma \delta_j y_i \quad b^+_{i}=b_i - \gamma \delta_j$$
+
+\section{Tasa de aprendizaje $\gamma$}
+Valor empleado en la regla delta por el que se multiplica la $\Delta w_i$. 
+
+Cuanto más grande más rápido nos aceptamos a la solución, pero cuidado porque si es muy alto oscilaremos y no nos acercaremos. 
+
+Si es muy pequeño la convergencia será muy lenta y puede ser inviable al ralentizar el proceso, estancándose en mínimos locales.
+
+Encontrar la tasa de aprendizaje óptima no es trivial, se trata de asignar el mayor valor posible  sí que se produzca oscilación.
+
+Una manera de evitar la oscilación es hacer que el cambio de los pesos dependa de  la intensidad del cambio anterior, velocidad con la que varía, una especie de inercia llamada momento. Evita que puedan diferir en exceso.
+\pagebreak
+
+\section{Momento}
+Término que recoge el cambio producido por los pesos en la iteración precedente:
+$$m(t) = w(t) - w(t - 1) = \Delta w(t)$$
+$$w_{jk}(t + 1) = w_{jk}(t) + \gamma \delta^p_k y^p_j + \alpha\Delta w_{jk}(t)$$
+$\alpha$ es la intensidad que le queremos dar a la inercia.
+
+Contrarresta las oscilaciones restando cuando cambia de sentido, se pueden utilizar tasas de aprendizaje relativamente altas, lo que permite una convergencia rápida. Permite navegar más eficazmente por la función de error.
+
+\section{Generalización}
+La red adapta sus pesos a partir de los ejemplos de entrenamiento hasta formar un modelo final, esta capacidad permite comportarse correctamente más allá de estos. Aunque existe un riesgo de que solo conociendo los de entrenamiento no sepa generalizar.
+
+El conjunto de ejemplos sea suficientemente grande y característico.
+
+El modelo resultante debe ser válido para cualquier situación, no solo para los datos de entrenamiento.
+
+\section{Sobre-aprendizaje}
+El módulo se ajusta a los datos de entrenamiento de una manera demasiado precisa. Dejando de generalizar, cosa no deseable.
+
+Si se entrena poco, la aproximación que genera el modelo es muy burda.
+
+Si se entrena mucho, puede adaptarse solo a los ejemplos de entrenamiento, como si lo memorizara.
+
+Cuando el error de validación deja de disminuir, la red empieza a sobreentrenar, y debe pararse el entrenamiento
+
+No solo depende de los ciclos de aprendizaje, también de:
+\begin{itemize}
+	\item Excesivo número de pesos o neuronas ocultas, se ajusta con mucha exactitud.
+	\item Excesiva complejidad del modelo en relación con el número de patrones de entrenamiento. Hacer las redes más sencillas.
+	\item Escasez de patrones de entrenamiento, por lo que se adapta rápido a estos patrones y pierde la capacidad de generalización.
+\end{itemize}
+
+\section{Conjunto de validación}
+Conjunto de datos diferentes a los de entrenamiento para comprobar la capacidad de generalización del modelo, no se utiliza para entrenar, solo para verificar la generalización y decidir cuándo parar. El conjunto de entrenamiento se divide en dos, uno para entrenar y otro para validar.
+
+Se utiliza para saber cuándo empieza a sobreentrenar.
+
+Los datos de validación deben tener una estructura similar a los de entrenamiento, para esto se aleatorizan los datos y hacer que sean menos sesgados posibles.
+
+Si hay correlaciones entre entrenamiento y validación, las dos curvas se comportaran parecido y nos servirá para ver la generalización.
+
+\section{Regularización}
+A veces se necesitan muchas neuronas para determinados problemas y para evitar sobreajuste lo que se hace es eliminar de manera aleatoria un porcentaje de las neuronas (10-25 \%) en cada iteración, así no puede sobreaprenderlo.
+
+Esto reduce la capacidad de memorizar, haciendo que tenga que aprender patrones y no casos concretos.
+
+Se ha probado experimentalmente la eficacia de redes en las que las señales solo recorren parte de la red.
+
+\section{Actualización por lotes}
+La actualización de los pesos se puede realizar:
+\begin{itemize}
+	\item Después de introducir un dato. $E= \frac{1}{2} (y-x)^2$
+	\item Después de introducir todos o una serie de datos. $E= \frac{1}{N} \sum_{i=1}^N(y_i-x_i)^2$
+\end{itemize}
+Lo recomendado es tras una serie de datos, ya que tras cada patrón es muy costoso computacionalmente o si lo hacemos tras todo el conjunto de entrenamiento dificulta que la red pueda generalizar bien.
+
+Hacer estas series de datos muy grandes hace que sea muy rápido computacionalmente y si son muy pequeños mejora la generalización.
+
+Hacerlo por lotes permite una mejor estimación del gradiente, produce una convergencia más suave y utilizar tasas de aprendizaje más grandes, por lo que aprende más rápido.
+
+Es paralelizable, lo que permite incrementar más aún la velocidad del aprendizaje.
+
+\section{Validación cruzada}
+Es un método para la evaluación de modelo que lo que permite es entrenar la red con diferentes valores de parámetros para quedarnos con el mejor. 
+
+Aunque que se obtenga mejor evaluación no implica que se comporte mejor ante ejemplos desconocidos, por esto que para generar modelos es necesario un conjunto de ejemplos que no hayan sido utilizados en el entrenamiento, ni para modificar los pesos y tampoco para establecer el criterio de parada. 
+
+Los modelos deben ejecutarse el suficiente número de veces con diferentes inicializaciones y asignar la media de los resultados.
+
+Un modelo es mejor que otro si la media de los errores de test es estadísticamente significativa menor en una que en otro.
+
+Se divide el conjunto de entrenamiento en x particiones, para hacer x modelos (x+1 en total) que se entrenaran con todas las particiones menos 1 y se hará test con la otra restante.
+
+Para cada modelo se hace una serie de veces para evitar el sesgo del inicio aleatorio. Cuando se ha completado se hace la media del error y ese será el error del modelo que se genera si se entrena con el conjunto completo de datos y esos parámetros.
+
+En todos los modelos una parte será para validación.
+
+\section{Debilidades}
+\subsection{Mínimos locales}
+Si existen valores de la función de error con valores bajos rodeados extensamente por valores más altos, la red puede quedarse estancada y no acceder a valores mejores del error.
+
+Soluciones:
+\begin{itemize}
+	\item Añadir ruido al método de descenso del gradiente
+	\item Partir de diferentes inicializaciones aleatorias
+	\item Aumentar el número de neuronas ocultas
+\end{itemize}
+
+\subsection{Saturación}
+Cuando la entrada total de una célula toma valores muy altos, la salida permanece constante por saturación, debido a la naturaleza de la función de activación.
+
+El problema está en la función de activación.
+
+Si la entrada sigue aumentando, esto no produce variaciones en la salida
+
+La modificación de los pesos en una célula depende de la salida: $y_k(1 - y_k)$
+
+Si la salida está cercana a 1, lo cual ocurre en la zona de saturación, los pesos dejan de modificarse y se produce estancamiento.
+
+Soluciones:
+\begin{itemize}
+	\item Normalizar datos de entrada
+	\item Comenzar con valores de pesos cercanos a cero
+	\item Utilizar otras funciones de activación: ReLU
+	
+	Impide la saturación de las salidas a un valor de 1 que detiene el aprendizaje
+	
+	Permite generar muchos valores cero como salida de neuronas, lo cual las desactiva y asemeja más a modelos biológicos.
+\end{itemize}
+
 \end{document}
