@@ -1714,4 +1714,185 @@ La información extraída nos será de gran utilidad para tareas de la minería 
 	\item Presentar información dinámica al usuario basándose en sus intereses y perfiles.
 \end{itemize}
 
+\chapter{Tema 8: Lógica difusa}
+\section{El concepto de borroso}
+El concepto de borroso está relacionado con el \textbf{problema de representar la incertidumbre en los sistemas de reglas}. Esta incertidumbre se genera por varias causas, se pierden datos, los datos de los que se dispone sean ambiguos o contradictorios o que la representación de esos datos sea imprecisa y por último hay que considerar que las reglas de inferencia \textbf{se basan en impresiones de expertos que no son capaces de definir con certeza} la veracidad o falsedad de tal afirmación.
+
+Los sistemas de razonamiento \textbf{se componen de un conjunto de hechos y de inferencias}. 
+
+Los hechos abarcan \textbf{proposiciones de dos tipos}: con un solo objeto o proposiciones que relacionan varios objetos. 
+
+Se debe introducir en el esquema de razonamiento una manera de representar incertidumbre, probabilidad, certeza. Debemos \textbf{definir como se representa la incertidumbre, como se calcula y como se propaga por las reglas}.
+
+Un concepto borroso representa dos ideas:
+\begin{itemize}
+	\item \textbf{Vaguedad de los términos}. Dificultad para realizar una precisa distinción en la definición. Por ejemplo definir el término joven sobre el dominio edad.
+	\item \textbf{Ambigüedad}, definida en las relaciones que se establecen de un término a varios, es decir, cuando se debe elegir entre varias alternativas, por ejemplo en un sistema de transmisión binario donde se recibe 0 o 1, cuando se recibe 0.6 se debe decidir si es un 0 o un 1.
+\end{itemize}
+
+Este modelo está inspirado en el modo de pensar de una persona, los términos requieren una función que represente la incertidumbre y tiene que quedar abiertos. Una persona no necesita un conocimiento muy exacto para realizar inferencias, se maneja con símbolos vagos sobre la realidad.
+
+La propuesta de \textbf{Zadeh en 1964 sobre conjuntos borrosos} establece el \textbf{marco para operar} con términos vagos. 
+
+Tradicionalmente dado un concepto A: hombres altos y dado un concepto X: José, la afirmación X es A en el ejemplo José es alto tiene un grado de verdad 1 o 0. A través de los conjuntos borrosos el concepto A se representa mediante una función de pertenencia que se representa como $M_{AX}$ que establece el grado de como utilidad (conmutabilidad?) del predicado asociado con A y el objeto X, es decir, establece el grado de verdad de la afirmación X es A.
+
+En \textbf{1977, Sugeno aplicó el concepto “difuso” al contexto de la ambigüedad}. Dado un objeto x del Universo X y dividido dicho universo en conjuntos no borrosos A, a cada conjunto se le asigna un valor de pertenencia del objeto x al conjunto A, $G_{xA}$, que está entre 0 y 1 y representa el grado de borrosidad de la expresión x de A.
+
+En \textbf{1978, Zadeh relacionó los conceptos de conjunto borroso y posibilidad} a través de la distribución de posibilidad inducida por un conjunto borroso.
+
+De forma matemática un \textbf{conjunto clásico} se define de la siguiente manera: “Sea A un conjunto no borroso definido sobre x, sea v una variable sobre x, si se dice que v toma su valor en A se dice que cualquier elemento de A puede ser posiblemente un valor de v y que cualquier elemento fuera de A no puede ser valor de v.” La frase v toma su valor en A, se puede ver la inducción de una distribución de posibilidad p sobre x, que asocia a cada elemento x la posibilidad de que x sea un valor de v.
+
+\textbf{Conjunto clásico:} $\prod(v=x)=\pi(x)=\begin{cases} 1 \textit{ si } x \in A\\  0 \textit{ en otro caso} \end{cases}$
+
+Si A es un \textbf{conjunto borroso}, que actúa como una restricción sobre el posible valor de v, una extensión inmediata de lo dicho anteriormente es que A induce una distribución de posibilidad igual a $\mu_A$ sobre los valores de V. Como la expresión de la distribución de posibilidad es equivalente a un conjunto borroso, se puede aplicar los conceptos de lógica borrosa sobre las distribuciones de posibilidad.
+ 
+\textbf{Conjunto borroso:} $\prod(v=x)=\pi(x)=\mu_A(x)$
+
+\section{Conjuntos borrosos}
+Se propone un robot redondo que se mueve en un espacio con obstáculos y supongamos que tiene un sensor de distancia en la parte frontal, este sensor medirá la distancia entre la parte frontal del robot y el obstáculo. La distancia medida en metros debe ser categorizada para aplicar un conjunto de reglas que permitan al robot moverse. Para establecer la categoría normal existen dos maneras:
+\begin{itemize}
+	\item El conjunto normal que indica que si el robot está entre 6 y 8 metros la distancia será considerada como normal.
+	\item El conjunto borroso que indica que a partir de 6 metros y a medida que la distancia aumenta \textbf{se aumenta el grado de verdad} de que la distancia sea normal. Al llegar a 7 metros se considera normal con grado 1 y sigue siendo así hasta llegar a 8 metros, momento en el que el grado de verdad \textbf{desciende linealmente hasta llegar a 0} (cuando la distancia es 9 metros).
+\end{itemize}
+En el ejemplo anterior se observa la definición intuitiva del conjunto borroso según una variable continua, pero para empezar es mejor hacer una definición sobre un espacio discreto.
+\begin{itemize}
+	\item El conjunto se define sobre un \textbf{universo del discurso U que son todos los posibles valores} que pude tomar la variable.
+	\item El \textbf{conjunto borroso X se define por la función de pertenencia $\mu_x$ que toma valores entre 0 y 1}. Al ser un espacio discreto la función se representa por pares que relaciona un valor del universo del discurso con la relación de pertenencia $X=\{u, \mu_X(u)\}$. Su notación como conjunto borroso discreto se lleva a cabo utilizando el operador unión + y la barra de pertenencia /.
+\end{itemize}
+
+Un caso concreto de conjunto borroso es aquel que tiene valor en un punto, ese \textbf{punto tiene pertenencia 1 y el resto pertenencia 0}, se denomina \textbf{singleton}.
+
+\subsection{Operadores borrosos}
+\begin{itemize}
+	\item \textbf{Soporte}. Todos los elementos de U con pertenencia mayor que 0.
+	\item \textbf{Corte} $\alpha$. $x \in A \;\;| \;\; \mu_{xA}:(X)>\alpha$. Todos los valores que tienen un valor de pertenencia superior a alpha.
+	\item \textbf{Igualdad}. $A=B$ si $\mu_a(x)$ para $x\in X$. Se dice que dos conjuntos borrosos son iguales si el valor de pertenencia es el mismo para todos los puntos del universo del discurso.
+	\item \textbf{Subconjunto}. $A \subseteq B$ sii $\mu_A(x)\leq \mu_B(x)$ para algún $x\in X$. Se dice que A es subconjunto de B si y solo si todos los valores de pertenencia de A son inferiores o iguales a los de B para todos los puntos del universo del discurso.
+	\item \textbf{Subconjunto propio}. $A \subseteq B$ sii $\mu_A(x)\leq \mu_B(x)$ y $\mu_A\leq \mu_B$ para algún $x\in X$. Se dice que A es subconjunto propio de B si y solo si todos los valores de pertenencia de A son inferiores o iguales a los de B para todos los puntos del universo del discurso y en algún punto el valor de pertenencia A es menor que B.
+	\item \textbf{Producto cartesiano}. AB $\mu_{AB}(x)=\mu_A(x)\mu_B(x)$. Se define como el producto de las funciones de pertenencia.
+	\item \textbf{Complemento A'}. El conjunto complementario A’ de uno dado A es 1 menos la función de pertenencia de A. $\mu_{A'}(x)=1-\mu_A(x)$ para $x \in X$.
+	\item \textbf{Unión} $A \cup B$. La unión de dos conjuntos borrosos se define como una operación para cada valor en función de las dos funciones de pertenencias que se denomina operador disyunción $\vee$. $\mu_A(x)=\vee(\mu_A(x),\mu_B(x))$ para $x\in X$.
+	\item \textbf{Intersección} $A \cap B$. La intersección de dos conjuntos borrosos se define como una operación para cada valor en función de las dos funciones de pertenencias que se denomina operador conjunción $\wedge$. $\mu_{A \cap B}(x)=\wedge(\mu_A(x),\mu_B(x))$ para $x\in X$.
+\end{itemize}
+
+\section{Lógica borrosa}
+En \textbf{lógica clásica} es equivalente el grado de verdad v de una proposición Q(x), al valor que toma la función característica (función de pertenencia) de todos los elementos que verifican esa proposición $P_Q(x)$.
+\begin{itemize}
+	\item $v(Q(x)) = P_Q(x)$
+\end{itemize}
+
+En \textbf{lógica borrosa} el grado de verdad de una proposición es el valor de pertenencia al conjunto borroso asociado a dicha proposición. De esta manera dada una proposición B sobre el universo discurso x definida mediante el conjunto borroso B, el grado de verdad de la proposición viene dado por el valor de pertenencia al conjunto borroso B.
+\begin{itemize}
+	\item $v(B(x)) = \mu_B(x)$
+\end{itemize}
+
+Los grados de verdad de las operaciones borrosas se establece entre los valores de pertenencia y serán funciones matemáticas.
+\begin{itemize}
+	\item \textbf{Función de Negación:}
+	
+	Propiedades: Limite clásico, Involución y Monotonía.
+	\begin{itemize}
+		\item Lukasiewicz: $f \neg (a)=1-a$
+		\item Sugeno: $f \neg(a)=\frac{1-a}{1-\beta a}$
+		\item Yager: $f \neg(a)=(1-a^\beta)^{\frac{1}{\beta}}$
+	\end{itemize}
+	\item \textbf{Función de Conjunción:}
+	
+	Propiedades: Conmutativa, Asociativa, Elemento neutro y Monotonía.
+	\begin{itemize}
+		\item Mínimo: $f\wedge(a, b)=\min(a, b)$
+		\item Producto: $f\wedge(a, b)=a\cdot b$
+		\item Diferencia acotada: $f\wedge(a, b)=\max(0, a+b-1)$
+	\end{itemize}
+	\item \textbf{Función de Disyunción:}
+	
+	Propiedades: Conmutativa, Asociativa, Elemento neutro y Monotonía.
+	\begin{itemize}
+		\item Máximo: $f\vee(a, b)=\max(a, b)$
+		\item Suma algebraica: $f\vee(a, b)=a+b-a\cdot b$
+		\item Suma acotada: $f\vee(a, b)=\min(1, a+b)$
+	\end{itemize}
+\end{itemize}
+
+Las operaciones AND y OR están conjugadas, a cada función OR le corresponde otra AND. Cuando se usa la de min se debe usar la de max, cuando se usa la de producto se debe usar suma algebraica y diferencia acotada con suma acotada.
+\pagebreak
+
+Con las de implicación pasa algo parecido, depende de cómo se definan el resto de los operadores se usarán unas u otras.
+\begin{itemize}
+	\item Basados en $A \rightarrow B \equiv \neg A \vee B$
+	\begin{itemize}
+		\item Kleene-Dienes: $\mu_{A\rightarrow B}(x, y)=\max(1-\mu_Q(x),\mu_B(y))$
+		\item Lukasiewicz: $\mu_{A\rightarrow B}(x, y)=\min(1, 1-\mu_Q(x)+\mu_B(y))$
+	\end{itemize}
+	\item Basados en $A \rightarrow B \equiv A \wedge B$
+	\begin{itemize}
+		\item Mamdani: $\mu_{A\rightarrow B}(x, y)=\min(\mu_A(x),\mu_B(y))$
+		\item Producto: $\mu_{A\rightarrow B}(x, y)=\mu_A(x)\cdot \mu_B(y))$
+	\end{itemize}
+\end{itemize}
+
+\section{Inferencia borrosa}
+En \textbf{lógica tradicional} la inferencia basada en el Modus Ponens se describe por el grado de verdad de la expresión A AND (A=>B).
+\begin{itemize}
+	\item Si x es A es verdad y A=>B entonces se obtiene que B es verdad. 
+	\item S x es A* (algo parecido a A) es verdad el resultado es B falso.
+\end{itemize}
+
+En \textbf{lógica borrosa} se utiliza el patrón de inferencia borrosa conocido como \textbf{Regla Composicional de Inferencia de Zadeh o Modus Ponens borroso}.
+\begin{itemize}
+	\item Sean los conceptos A y B definidos mediante los conjuntos $\mu_A(x)$ y $\mu_B(y)$, respectivamente y la regla “SI x es A ENTONCES y es B”, si se sabe que x es A* definido como $\mu_{A*}(x)$ se puede concluir, usando MAX-MIN (OR-AND) y la implicación de Mamdani,  y haciendo el supremo de la expresión para x que $\mu_{B*}=Sup\{\min \{\mu_{A*}(x),\min \{\mu_{A}(x), \mu_{B}(x)\}\}\}$. Sale de:
+	\begin{itemize}
+		\item A AND (A=>B) $\min\{\mu_A(x), \mu_B(y)\}$
+		\item A* AND (A=>B) $\min\{\mu_{A*}(x), \mu_B(y)\}$
+	\end{itemize}
+\end{itemize}
+
+Se puede explicar esta función de forma gráfica, la función lógica implicaba definir una función f(x)=y donde el A* es el valor de entrada en el eje x y para calcular la salida se siguen tres pasos:
+\begin{itemize}
+	\item Se proyecta la entrada sobre la función
+	\item Se calcula la intersección
+	\item Se proyecta el resultado sobre el eje de salida
+\end{itemize}
+
+$$\mu_{B*}=Sup\{\min \{\mu_{A*}(x),\min \{\mu_{A}(x), \mu_{B}(x)\}\}\}=Sup\{\min \{\min \{\mu_{A*}(x), \mu_{A}(x)\},\mu_B(y)\}$$
+
+\section{Sistema de razonamiento borroso}
+Este tipo de sistemas se construyen mediante \textbf{reglas que indican la relación entre un conjunto de hechos de entrada y un conjunto de hechos de salida}. De forma más general, un sistema borroso es un sistema de reglas que relaciona un conjunto de variables de entrada con variables de salida. 
+
+Las \textbf{variables de entrada y salida se denominan variables lingüísticas} y se definen mediante un conjunto de etiquetas. 
+\begin{itemize}
+	\item Una variable lingüística de entrada puede ser distancia a un obstáculo y las etiquetas pueden ser muy cerca, cerca, normal, lejos y muy lejos. 
+	\item Una variable lingüística de salida puede ser velocidad y las etiquetas pueden ser muy despacio, despacio, normal, rápido y muy rápido.
+\end{itemize}  
+
+Las reglas que las relacionadas serán del estilo, SI distancia es lejos ENTONCES velocidad es alta.
+
+Un \textbf{sistema real recibe variables con valores numéricos y da como resultado valores numéricos}, para introducir los números y proposiciones se utilizan \textbf{dos procedimientos}: 
+\begin{itemize}
+	\item \textbf{Fuzzyfication o Emborronado} que consiste en introducir el valor numérico y calcular el grado de pertenencia a cada etiqueta.
+	\item \textbf{Defuzzification o Desembocado} que consiste en dado un conjunto de etiquetas que están activadas por diversas alturas para la misma variable, se llevan los valores de pertenencia de las etiquetas de entrada a las etiquetas de salida, mediante las reglas  se obtiene un valor numérico.
+\end{itemize}
+
+En resumen, la \textbf{realidad se mide con valores numéricos} que se \textbf{emborronan para pasarlo a los niveles lingüísticos} obteniendo el parecido \textbf{Adecuación} de cada valor con las etiquetas de la variable correspondiente, \textbf{se aplica la inferencia borrosa} y se \textbf{Agregan todos los valores} de activación de las variables de salida, mediante \textbf{desborrosificar} se obtiene nuevamente los valores numéricos.
+\begin{itemize}
+	\item \textbf{Fuzzificación o Grado de compatibilidad}, sobre cada etiqueta de cada variable se calcula el Grado de pertenencia o el Grado de verdad o el Grado de activación del valor medido sobre el conjunto borroso que define la etiqueta. 
+	
+	Si se tienen varios sensores, se calcula el grado de pertenencia para cada etiqueta (cerca, media y lejos).
+	\item \textbf{Medir la adecuación de las reglas}, aplicando un operador de conjunción o disyunción, según sea la naturaleza del antecedente (and/or), sobre los hechos de la parte izquierda de la regla, de esta manera sabremos el grado de pertenencia de la regla.
+	\item \textbf{Inferencia borrosa}, produce un conjunto borroso, que resulta de aplicar un operador de inferencia entre la adecuación de la regla y el conjunto borroso de la conclusión C (con función de pertenencia $\mu_C(z)$). Los operadores más típicos son el mínimo $\mu_{C}(z)=\min(a, \mu_{C}(z))$ y el producto $\mu_{C}(z)=a\cdot \mu_{C}(z)$. 
+	
+	Cuando se aplican varias reglas se reciben varios valores de pertenencia para la misma etiqueta, por lo que aplicamos Agregación.
+	\item \textbf{Agregación}, para cada variable conclusión se agregan los resultados de todas las reglas aplicando un operador, normalmente el máximo. $$\mu_{C}(z)=\max(\mu_{C1}(z), \mu_{C2}(z), ..., \mu_{Cm}(z))$$
+	
+	Normalmente se combina con un operador min o prod en el paso anterior y se habla de sistemas con el Método Max-Min o Método Max-Prod.
+	\item \textbf{Desfuzzificación}, es el método para transformar las etiquetas de salida de una variable en un solo valor numérico y se puede hacer mediante:
+	\begin{itemize}
+		\item Centro de gravedad.
+		\item Centroides.
+		\item Singletons.
+		\item Métodos de Máxima Pertenencia: El Primero, el Último o la Media de Máxima Pertenencia (MoM).
+		\item Sugeno-Tagaki: El método emplea reglas de inferencia con la siguiente estructura: IF x is A and y is B THEN z=ax+by+c donde A, B son conjuntos difusos. Se ponderan las entradas con el grado de activación.
+	\end{itemize}
+\end{itemize}
+
 \end{document}
