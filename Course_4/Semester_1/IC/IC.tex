@@ -1191,8 +1191,269 @@ Son las metodologías para que dado un problema diseñar una ontología que lo r
 \end{itemize}
 
 \chapter{Tema 5: Formalización e implementación. Representación del conocimiento}
+Modelización del problema desde el punto de vista del sistema.
+
+Un modelo formal es una representación computable (entendible por la máquina) de los conocimientos y conducta del experto.
+
+Formalizar consiste en: Representar simbólicamente los conceptos mediante alguno de los formalismos existentes, organizarlos de acuerdo con algún modelo de diseño y determinar los métodos de inferencia.
+
+El modelo formal debe contener los conocimientos del modelo conceptual y se expresa mediante el uso de un formalismo de representación del conocimiento.
+
+Se puede suponer la existencia de un motor de inferencias (programación propia o herramienta) independiente del dominio de aplicación
+
+Normalmente la técnica de resolución del problema viene dada por el formalismo de representación elegido. En sistemas grandes se pueden combinar varios formalismos. 
+
+Algunos formalismos son:
+\begin{itemize}
+	\item \textbf{Basados en acciones:} Sistemas de producción y guiones.
+	\item \textbf{Basados en conceptos:} Marcos.
+	\item \textbf{Basados en relaciones:} Lógica y Redes semánticas.
+\end{itemize}
+
+Cuando se formaliza hay que pensar en el problema para poder representar las preguntas correctamente (que la representación facilita las reglas).
+
+La representación en el ordenador no siempre refleja la realidad. 
+
+Todas las representaciones son imperfectas.
+
+Una misma información se puede representar de múltiples formas.
+
+La representación que se utilice puede facilitar las inferencias, no es lo mismo representar (Red car12), que (car12, Red) o (Propiedad color car12 Red).
+
 \chapter{Tema 6: Formalización e implementación. Sistemas de producción}
+\subsection{Componentes de un Sistema de Producción}
+\textbf{Base de hechos o memoria de trabajo (BH o WM):} conocimiento sobre el dominio en un determinado momento
+
+\textbf{Base de reglas (BR):} conjunto de reglas (producciones) SI Condiciones ENTONCES Acciones
+
+Estrategia de control, interprete de reglas, o \textbf{motor de inferencias (EC o MI):} responsable de encadenar los ciclos de funcionamiento.
+\subsubsection{Base de Hechos}
+Almacena el estado actual de la tarea o problema
+
+Los datos almacenados pueden ser permanentes, temporales, generales y específicos
+
+Inicialmente se representa todo el problema con los hechos iniciales, se va desarrollando hasta llegar al finalmente a un estado meta.
+
+La BH presenta tres estados:
+\begin{itemize}
+	\item \textbf{Estado inicial:} situación origen del problema.
+	\item \textbf{Estados metas:} situación objetivo.
+	\item \textbf{Estados intermedios:} representan en cada instante, el estado del problema en curso de solución.
+\end{itemize}
+\subsubsection{Base de Reglas}
+Está el conocimiento de cómo cambiar entre estados.
+
+La mayor parte de los conocimientos sobre la resolución del problema se representan en un conjunto de reglas o producciones.
+
+Cada regla presenta la forma: \textbf{SI} Condiciones \textbf{ENTONCES Acciones}
+\begin{itemize}
+	\item \textbf{Condición o antecedente:} lista de cosas a verificar en la BH
+	\item \textbf{Consecuente o acción:} conjunto de acciones a realizar sobre la BH
+\end{itemize}
+
+Las reglas van cambiando el estado muy poco a poco, no tratar de hacer una regla que lo haga todo.
+\subsubsection{Motor de Inferencia}
+Examina en cada ciclo de funcionamiento la BH y decide que regla ejecutar, encadenando las reglas en los ciclos de resolución.
+
+Funcionamiento:
+\begin{enumerate}
+	\item \textbf{Fase de decisión:} selección de la regla.
+	\begin{itemize}
+		\item (Etapa de restricción (opcional))
+		\item \textbf{Etapa de equiparación o filtrado.} Coge todas las reglas y comprueba las precondiciones con los hechos y ver cuál se puede ejecutar.
+		\item \textbf{Etapa de resolución del conjunto conflicto.} Según la estrategia selecciona una regla.
+	\end{itemize}
+	
+	Una regla se activa cuando sus precondiciones son ciertas en el estado
+	actual de la BH
+	\item \textbf{Fase de acción:} ejecución de la regla.
+\end{enumerate}
+
+Las reglas se pueden hacer en dos sentidos:
+\begin{itemize}
+	\item \textbf{Encadenamiento hacia Adelante:} Partiendo de los hechos se va viendo que reglas se pueden ejecutar y utilizando las salidas y los hechos generados se van encadenando las reglas hasta llegar a una meta.
+	\item \textbf{Encadenamiento hacia Atrás:} Pensar desde el estado final (meta) que necesito para que retrocediendo se llegue a los hechos iniciales que se tienen.
+\end{itemize}
+\subsubsection{Estrategias de Resolución del Conjunto Conflicto}
+\begin{itemize}
+	\item Primera regla.
+	\item Más prioridad.
+	\item Más específica.
+	\item Más general.
+	\item Aleatoriamente.
+	\item …
+\end{itemize}
+
+\section{Ejercicios}
+\begin{enumerate}
+	\item \textbf{Se tienen 5 monedas dispuestas como se muestra a continuación: ARARA}
+	
+	\textbf{El anverso de la moneda está representado por A y el reverso por R. En cada movimiento se puede dar la vuelta a cualquier par de monedas contiguas. La situación final que se quiere obtener es la siguiente: RRRAR.} 
+	
+	\textbf{Se pide:}
+	\begin{itemize}
+		\item \textbf{Descripción de la Base de Hechos}
+		\item \textbf{Descripción de las reglas que forman la Base de Reglas}
+		\item \textbf{Determinar las reglas que se ejecutan para pasar a la situación final}
+	\end{itemize}
+	\textbf{Base de Hechos}
+	\begin{itemize}
+		\item (moneda A 1)
+		\item (moneda R 2)
+		\item (moneda A 3)
+		\item (moneda R 4)
+		\item (moneda A 5)
+		\item (inverso A R)
+		\item (inverso R A)
+	\end{itemize}
+	\textbf{Base de Reglas}
+\begin{lstlisting}
+(defrule volcar
+	?mn1 <- (moneda ?v1 ?p1)
+	?mn2 <- (moneda ?v2 ?p2)
+	(inverso ?v1 ?nv1)
+	(inverso ?v2 ?nv2)
+	(test (= ?p1 (+ 1 ?p2)))
+=>
+	(retract ?mn1)
+	(retract ?mn2)
+	(assert (moneda ?nv1 ?p1))
+	(assert(moneda ?nv2 ?p2))
+)	
+\end{lstlisting}
+
+	Regla final con los valores esperados para cada moneda.
+
+	\item \textbf{Imprimir por pantalla los n.º del 1 al 100.}
+	
+	Crear un contador con valor 1 y una regla, que lo que haga es ir sumando 1 al número mientras este sea menor que 100 (cuando sea 99 sumara por última vez y dará el 100)
+	\item \textbf{Contar el n.º de instancias de un ti p o particular.}
+	
+	Crear un contador que parte de 0 e ira subiendo el valor según las va contando, cuando cuenta una instancia crea un hecho de que esa instancia se ha contado, esto es necesario dado que al actualizar el contador tratara de aplicar de nuevo la regla sobre los mismos hechos.
+\end{enumerate}
+
 \chapter{Tema 7: Formalización e implementación. Marcos}
+Tenemos que representar todo el conocimiento en tablas del tipo objeto-atributo-valor.
+
+Cada marco representa un prototipo de algo, debe representar un concepto, en el que cada slot es un atributo. Se diferencia entre:
+\begin{itemize}
+	\item \textbf{Marco clase}: concepto (prototipo)
+	\item \textbf{Marco instancia}: objeto (individuos de la clase)
+\end{itemize}
+
+Unificación de todas las propiedades de un objeto en la misma estructura y se establece una estructura de jerarquía con herencia.
+
+Los desarrolló Minsky en 1975
+\begin{itemize}
+	\item \textbf{Conceptos}: Marcos = Clases = Frames
+	\item \textbf{Subconceptos}: subclases.
+	\item \textbf{Herencia}: simple o múltiple.
+	\item \textbf{Instancias}: objetos.
+	\item \textbf{Atributos}: slots, campos, características\dots
+	\item \textbf{Facetas}: atributos de atributos (valor, tipo, cardinalidad, …)
+	\item \textbf{Relaciones}: subclase-de (herencia), parte-de (entre atributos), instancia-de.
+	\item \textbf{Demonios}: Funciones que vigilan las operaciones sobre los atributos. Esta al acecho de que ocurra un evento para realizar una serie de operaciones.
+	\item \textbf{Métodos}: Funciones asociadas a los marcos, que facilita mucho la inferencia.
+\end{itemize}
+\pagebreak
+
+\section{Descripción de un Marco}
+\begin{lstlisting}
+(CLASE o MARCO equivale a Concepto (es-un CLASE-PADRE)
+	(Atributo1 equivale a SLOT O CAMPO
+		(FACETAS) 
+		tipo de dato
+		cardinalidad mínima/máxima
+		valor por defecto
+		valores permitidos
+		DEMONIO1 DEMONIO2 ...)
+	(Atributo2 ...)
+	...
+	(AtributoN ...)
+	METODO1 METODO2 ...
+)	
+\end{lstlisting}
+
+\section{Relaciones entre Marcos}
+Relaciones estándar:
+\begin{itemize}
+	\item Son independientes del dominio 
+	\item Son dos: Subclase-de e Instancia-de
+\end{itemize}
+Relaciones no estándar:
+\begin{itemize}
+	\item Representan dependencias entre conceptos de un dominio.
+	\item Hay que buscar formas de implementarlas: atributos cuyo valor es una referencia a otro marco.
+\end{itemize}
+
+\subsection{Relación Subclase-de}
+Se utiliza para la herencia, una clase hija hereda todos los atributos de la clase padre. Tener cuidado que no es una relación parte-de (elefante y trompa).
+\begin{itemize}
+	\item Ej. Un elefante es un animal, pero una trompa NO es un elefante.
+\end{itemize}
+
+Especialización de conceptos generales en conceptos más específicos
+
+Semántica: el concepto representado por $M_h$ es una especialización o subconjunto del concepto representado por $M_p$. 
+
+Permite la herencia de propiedades: la clase hija tiene todas las propiedades (atributos) de la clase padre y de las clases anteriores en la jerarquía.
+
+Definir los atributos comunes en la clase más abstracta y en las subclases los atributos particulares.
+
+\subsection{Relación Instancia-de}
+Representa un ejemplar o individuo de una clase.
+
+Siempre están relacionados con un marco clase.
+
+Tienen todos los atributos rellenos: Bien con valores específicos dado por el usuario o  valores por defecto asignados por el sistema.
+
+Los mecanismos de inferencias trabajan sobre instancias de marcos.
+
+\section{Facetas}
+\begin{itemize}
+    \item Tipo.
+    \item Cardinalidad Mínima.
+    \item Cardinalidad Máxima. 
+    \item Multivaluada. 
+    \item Propiedades que se rellenan en las instancias.
+\begin{itemize}
+    \item Valor por omisión (defecto).
+    \item Valores permitidos.
+    \item Demonios: procedimientos o reglas que se ejecutan automáticamente.
+\end{itemize}
+\item Propiedades de clase/relación.
+\begin{itemize}
+    \item Propiedad general: valor o puntero a marco.
+\end{itemize}
+\end{itemize}
+
+\section{Inferencia en un Sistema de Marcos}
+\begin{enumerate}
+	\item Con reglas.
+	\item Usando métodos y demonios.
+	\item Combinación de ambas.
+\end{enumerate}
+
+\section{Relaciones}
+El uso de clases/marcos nos permite no solo crear una jerarquía entre conceptos, sino además generalizar a la hora de definir las reglas de inferencias pudiéndonos referir a la clase padre para operar con los hijos.
+
+A la hora de relacionar conceptos, no se crea un slot con un puntero hacia la otra instancia, sino que utilizaremos identificadores en las instancias para que a la hora de referirnos lo hagamos de esta manera. Cuando se hace en una regla nos permite obligar a que la instancia relacionada tenga ese identificador.
+
+Cuando la relación es 1 a 1 se puede hacer como se ha descrito antes, pero cuando se trata de una relación 1 a n o n a n, lo que se hace es crear una clase cuyas instancias estarán compuestas por los identificadores relacionados de manera que se recojan todas. (produce bodega vino1) (produce bodega vino2) aunque en este caso se podría haber puesto en vino, pero si fuese necesario en bodega se haría de esta manera.
+\section{Métodos}
+Funciones definidas sobre una CLASE para manipular los atributos.
+
+Los métodos se definen de forma genérica en la definición del marco, pero se invocan  (ejecutan) a través de una INSTANCIA de la clase.
+
+Posible pseudocódigo:
+\begin{itemize}
+	\item \textbf{send} o enviar: llama a algún método de una INSTANCIA:
+	\item \textbf{get}: coge el valor de un atributo de una instancia.
+	\item \textbf{set}: da valor al atributo de una instancia.
+	\item \textbf{add} o añadir: añadir: añade un valor a un multislot.
+	\item \textbf{self}: referencia a la propia instancia.
+\end{itemize}
+
 \chapter{Tema 8: Planificación Automática (PA)}
 
 \end{document}
