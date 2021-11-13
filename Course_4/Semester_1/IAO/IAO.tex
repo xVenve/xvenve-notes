@@ -1895,4 +1895,230 @@ En resumen, la \textbf{realidad se mide con valores numéricos} que se \textbf{e
 	\end{itemize}
 \end{itemize}
 
+\chapter{Tema 9: Agentes}
+\section{Introducción a los sistemas multiagentes}
+El concepto de sistemas multiagentes apareció en los años 90 de la fusión de diversas disciplinas científicas como son inteligencia artificial, psicología, ingeniería de software, bases de datos, sistemas distribuidos y de la sociología.
+
+\subsection{¿Por qué surgen?}
+Se necesita construir \textbf{aplicaciones complejas} compuestas de multitud de subsistemas que interaccionan entre sí.
+
+La división de agentes y técnicas multiagente permite la \textbf{gestión inteligente de un sistema complejo} coordinando los distintos subsistemas que lo componen e integrando objetivos particulares de cada subsistema en un objetivo común.
+
+\subsection{¿Para qué?}
+\begin{itemize}
+	\item Porque algunos problemas son físicamente \textbf{distribuidos}.
+	\item Cuando la complejidad de la solución requiere de \textbf{experiencia muy heterogénea}.
+	\item Cuando el problema a resolver está definido sobre una \textbf{red de ordenadores}.
+	\item Cuando la complejidad del problema es tal que se requiere plantear la solución de \textbf{distintos puntos de vista}.
+	\item Cuando el sistema de \textbf{adaptarse} a cambios en la estructura o en el entorno.
+	\item La propia \textbf{metodología} de construcción de aplicaciones está evolucionando hacia la consideración de unidades autónomas
+\end{itemize}
+
+\subsection{Características de los Sistemas Multiagentes (MAS)}
+\textbf{Existe una colección de agentes} definidos a cada uno de ellos por sus propias habilidades: Adquisición de datos, Comunicación, Planificación y Actuación.
+
+El conjunto de \textbf{todos los agentes tienen asignada una misión} que puede descomponerse en diferentes tareas independientes de forma que se puedan ejecutar en paralelo. Debe ser capaz de asignarse las tareas apropiadas a cada uno en función de la adecuación del agente a esa tarea y a la realización de la misión en común.
+
+Cada \textbf{agente tiene un conocimiento limitado} esta limitación, puede ser tanto del conocimiento del entorno, como de la misión del grupo o de las intenciones de los demás agentes a la hora de realizar sus propias tareas.
+
+Cada \textbf{agente tiene una mayor facilidad para hacer determinadas tareas} en función de lo que conoce la capacidad de proceso la habilidad requerida.
+
+\subsection{Ventajas de los MAS}
+\textbf{Mantener la autonomía de cada nodo de la red}, porque los nodos no dependen de la conexión con otros nodos para realizar una priorización de sus tareas cada uno de los nodos decide en función de su propio entorno las tareas más relevantes.
+
+\textbf{Las decisiones internas se toman individualmente} con los datos internos propios del nodo, no es necesario que toda la información del sistema se encuentre en un único nodo.
+
+\textbf{Se descarga a un hipotético sistema central de la gestión de todo el sistema}, existen agentes en los que se pueden tomar decisiones que involucran a todos los agentes. El proceso de comunicación deberá atender a estas necesidades dotando de especial importancia a algunas de las decisiones, la mayoría de las decisiones deberán ser consensuadas entre los agentes.
+
+La \textbf{cooperación entre los distintos nodos se realiza de manera explícita}, mediante la comunicación de las necesidades de cada nodo.
+
+La \textbf{organización entre los nodos es dinámica} lo que permite una rápida adecuación de los nodos a la situación real de todo el sistema.
+
+La información no estará centralizada en un único punto lo que hace que el sistema sea más \textbf{robusto frente a situaciones de fallos}.
+
+\section{¿Qué es un agente?}
+Un agente es un sistema informático situado en algún entorno dentro del cual actúa de forma autónoma y flexible, para así cumplir sus objetivos.
+
+\subsection{Propiedades básicas}
+\begin{itemize}
+	\item \textbf{Autonomía}: el agente es capaz de actuar por sí mismo su interacción permanente con el usuario.
+	\item \textbf{Sociabilidad}: el agente es capaz de interactuar con otros agentes mediante la comunicación de información.
+	\item \textbf{Reactividad}: el agente es capaz de reaccionar ante cambios imprevistos en el entorno
+	\item \textbf{Iniciativa}: el agente es capaz de actuar en función de sus propios objetivos.
+\end{itemize}
+
+\subsection{Arquitectura de un agente}
+Los mecanismos que permiten interconectar los componentes tanto software como hardware que hacen que un agente se comporte como tal. Se especifica cómo se descomponen los agentes en un conjunto de módulos que interactúan entre sí para lograr la funcionalidad requerida. 
+
+Se habla de los distintos métodos de descomposición del trabajo en tareas particulares. Cómo descomponer tareas en acciones. 
+
+Planificación y agencia estudio de mecanismos que permitan organizar la ejecución de acciones.
+
+\subsubsection{Tipos de Arquitecturas}
+\begin{itemize}
+	\item \textbf{Arquitectura deliberativa}: Se caracteriza por la representación simbólica del conocimiento. Está basada en la teoría clásica de planificación, se parte de un estado inicial de partida donde existen un conjunto de planes y un estado objetivo a satisfacer. El sistema de planificación determina qué pasos se deben de llevar a cabo para conseguir sus objetivos.
+	\item \textbf{Arquitectura reactiva}: Se caracteriza por no tener como elemento central de razonamiento un modelo simbólico, por lo tanto no utiliza razonamiento simbólico complejo. Manejan jerarquías de tareas que definen un comportamiento.
+	\item \textbf{Arquitectura híbrida}: Se caracteriza por su estructuración por capas, generalmente en tres niveles o capas. 
+	\begin{itemize}
+		\item \textbf{Reactivo (bajo nivel)}: Decisiones basándose en los estímulos recibidos del entorno en tiempo real.
+		\item \textbf{Conocimiento (nivel intermedio)}: Se centra en el conocimiento que se posee del medio representación simbólica.
+		\item \textbf{Social (alto nivel)}: Maneja aspectos sociales del entorno incluyendo tanto información de otros agentes como deseos, intenciones, etcétera.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Arquitecturas de agentes}
+Un agente puede verse como un sistema capaz de definirse mediante posturas intencionales donde interviene el concepto de actitud. 
+\pagebreak
+
+Las actitudes que proporcionan información (actitudes de información) están relacionadas con el conocimiento que un agente tiene sobre su entorno.
+\begin{itemize}
+	\item Creencias
+	\item Conocimiento
+\end{itemize}
+Las pro-actitudes son aquellas que guían de algún modo las acciones del agente.
+\begin{itemize}
+	\item Deseo
+	\item Intención
+	\item Obligación
+	\item Compromiso
+	\item Elección
+	\item …
+\end{itemize} 
+
+Cuál es la combinación de actitudes más adecuadas para caracterizar los agentes ha sido discutido por diferentes autores que han propuesto diferentes modelos para representar las actitudes.
+\begin{itemize}
+	\item Conocimiento y acción: Moore (1990)
+	\item Intención: Cohen y Levesque (1990) utilizan dos actitudes básicas, creencias y objetivos
+	\item Creencias, Deseos, Intenciones: Rao y Georgeff (1991)
+	\item Intenciones, Creencias, Conocimiento, Saber-Como: Singh (1994)
+\end{itemize}
+
+El modelo más conocido es el Modelo BDI (Creencias, Deseos e Intenciones)
+
+\subsection{Modelo BDI}
+\textbf{Las creencias} representan el conocimiento que se tiene del entorno. Representar el estado del entorno, recordar eventos pasados, recordar el ámbito de percepción, almacenar información importante para evitar el tener que recalcularla a partir de la información previa, representar información imperfecta. 
+
+\textbf{Los deseos} son los objetivos del agente, es el valor de una variable un registro o una expresión simbólica en alguna lógica. Representa algún estado final deseado, ya que el software convencional está orientado a la tarea en lugar de al objetivo de forma que cada tarea o su rutina se ejecuta sin ningún recuerdo de por qué ha comenzado su ejecución.
+
+Son suficientes las creencias y los objetivos si se ha decidido llevar a cabo una acción un plan y el entorno cambia de alguna forma que se haría, continuar con las decisiones tomadas o replanificar.
+
+\textbf{Las intenciones} son un conjunto de caminos de ejecución que pueden ser interrumpidos al recibir información acerca de cambios en el entorno. Tienen planes y sus objetivos comprometidos. Planes para su uso en situaciones futuras y el sistema es capaz de reconsiderar los momentos clave. Estos planes, la semántica, se podrían considerar como un tipo de creencias.
+
+\textbf{En resumen:} Las creencias representan la parte de información del sistema, los deseos, la parte de motivación, las intenciones, la parte premeditada o deliberada del sistema.
+
+\section{Sistemas multiagentes}
+Las soluciones humanas a los problemas del mundo real habitualmente implican colaboración entre personas. 
+
+Los sistemas multiagentes son una expansión de la inteligencia artificial en una nueva y más poderosa estrategia extensible para sobrepasar los límites inherentes a la inteligencia presente en cualquier sistema individual de inteligencia artificial o en cualquier sistema natural. 
+
+\subsection{Características de un MAS}
+\textbf{El modelo computacional} se refiere al nivel de distribución que se alcanza a la hora de llevar a cabo los cómputos, es decir hasta qué punto se puede construir un modelo que permite distribuir el conocimiento. 
+
+\textbf{El nivel de descomposición del problema} se refiere hasta qué punto es posible descomponer un problema en diversas tareas que se puedan ejecutar de forma distribuida.
+
+\textbf{El nivel de paralelismo} de la solución se refiere hasta qué punto es posible descomponer un problema en diversas tareas que se puedan ejecutar al mismo tiempo.
+
+\textbf{El nivel de organización del sistema} se refiere a si la estructura de un sistema está programada o no, por lo que se puede cambiar dinámicamente creando o eliminando agentes en tiempo de ejecución. 
+
+\textbf{El nivel de autonomía de los agentes} se refiere al nivel de autonomía que pueden tener cada uno de los agentes en el sistema. hasta qué punto pueden decidir por sí mismos si ejecutan una u otra acción. 
+
+\textbf{La construcción del resultado} puede obtenerse a través de síntesis o descomposición o cualquier mezcla de ambas.
+\pagebreak
+
+\textbf{Los recursos de los agentes disponibles} en el sistema se refiere a si los recursos de los que disponen los agentes son limitados y compartidos o si por el contrario cada gente tiene sus propios recursos y estos son ilimitados. 
+
+\textbf{El nivel de interacción entre los agentes} que puede ser más o menos complejo permitiendo el intercambio de información a alto nivel y soportando estructuras de conocimiento sofisticadas en la interacción y la comunicación.
+
+\subsubsection{Propiedades de un MAS}
+La descripción de competencias define el problema en términos de tareas, subtareas y sus relaciones, de este modo se determina cómo resolver el problema, cómo distribuirlo entre los otros agentes y las interacciones entre los mismos. El proceso de descomposición de un problema se realiza en dos pasos:
+\begin{itemize}
+	\item \textbf{Durante la definición del problema a nivel de aplicación} durante la fase de resolución del problema para asignar la actividad de los agentes hay organización no adaptativa completamente determinísticos fijada a priori y organización adaptativa dinámica en función de la evolución de la solución el modelo de agentes conocidos adaptativa dinámica en función de la evolución de la solución.
+	\item \textbf{El modelo de agentes conocidos}, sirve para representar de forma local a cada agente la información relativa a los otros agentes. 
+	
+	Esta información se organiza como conocimiento estructurado en modelos de agentes conocidos o agentes familiares al que está creando el modelo. 
+	
+	Los modelos de agentes conocidos contienen las características de los agentes externos sus capacidades conocimientos y creencias el modelo de agentes contiene información para razonar sobre otros agentes y para satisfacer sus necesidades de comunicación con otros agentes el modelo de agentes conocidos se utiliza para predecir o al menos para esperar el comportamiento de otros agentes para planear y coordinar actividades locales de acuerdo con una meta global para permitir una estructura flexible de la arquitectura de un agente mejorando las posibilidades de agrupar agentes actualizando los modelos de agentes conocidos se puede permitir la inclusión o exclusión de un agente en un grupo la actualización permite que un sistema distribuido sea dinámicamente auto configurable.
+	\item \textbf{La comunicación}, los canales de comunicación entre los agentes, punto de interacción en el grupo, estos canales permiten que una gente tenga conocimiento sobre los otros agentes y la coordinación entre ellos e intercambio de información se realiza por medio de un protocolo o lenguaje que puede tener diversos niveles de complejidad, patrones predefinidos con una sintaxis estructurada y un tipo limitado de mensajes conversaciones flexibles no estructuradas que implican semánticas elaboradas las valoraciones expresadas por humanos durante la comunicación no siempre se ven en un hecho, sino que en realidad tratan de transmitir una creencia o conocimiento una intención o un deseo es lo que se denomina actos de comunicación, el contenido de la comunicación y el vocabulario.
+	\item \textbf{El comportamiento}, el comportamiento global coherente de los agentes es un sistema en el ser objetivo primario del sistema la coherencia la propiedad de sistema medida por la eficiencia calidad y claridad de una solución global y el nivel de fallos no críticos del sistema un fallo no crítico es aquel que produce uno de los agentes y no influye de forma drástica sobre la solución global del grupo.
+	
+	El comportamiento de un sistema sería influido fundamentalmente por el tipo de organización de los agentes la organización centralizada la organización tipo mercado la comunidad plural la comunicación con reglas de comportamiento y hay otros factores que influyen en la coherencia como son la sincronización de acciones a través de una planificación global la reducción de los puntos de interacción y por tanto de la comunicación en sí misma simplemente estudiando cuidadosamente qué cómo cuándo y si es necesario intercambiar información la mejora de los modelos de agentes conocidos y de los meta niveles de conocimiento en general lo cual puede aprovecharse también para el control y por último la iteración oportunista.
+\end{itemize}
+
+Los puntos de interacción de un agente sirven para comunicar hacer llamadas a funciones de petición o de envío de información a todos los puntos presentes en la aplicación donde se produce una interacción con otros agentes se les denomina puntos de interacción.
+
+\section{Aplicaciones de los sistemas multiagente} 
+Se ha producido en ámbitos muy diversos, el entorno donde más han sido de utilidad ha sido en el sistema de información, en internet, en la empresa, en el comercio electrónico y también los sistemas robóticos.
+
+Los agentes de información agentes software son productos comerciales basados en la tecnología de agentes, fundamente son:
+\begin{itemize}
+	\item \textbf{Agentes de internet}: los agentes de interfaz  los agentes de internet trabajan con información que se caracteriza por ser una enorme cantidad de información por ser hipertextual por no estar estructurada y donde el tiempo de acceso es variable
+	\item \textbf{Agentes de interfaz}: son los asistentes que actualmente tienen todas las aplicaciones y que interpretan los deseos del usuario a partir de reglas más o menos básicas que marcan sus intenciones.
+\end{itemize}
+\pagebreak
+
+En este entorno pueden desarrollarse \textbf{herramientas} basadas en agentes para \textbf{analizar datos} y \textbf{extraer información relevante para buscar clasificar}, buscando fundamentalmente delegar el problema de la navegación en un programa, sé lo que yo quiero, pero es muy tedioso.
+
+\subsection{Agentes de Información en la Empresa}
+Se ve beneficiado porque actualmente existen multitud de metodologías de desarrollo de sistemas basados en agentes y sistemas multiagente.
+
+El  \textbf{beneficio de los agentes} en el desarrollo de aplicaciones reside en varios aspectos:
+\begin{itemize}
+	\item Automatización
+	\item Personalización
+	\item Notificación
+	\item Aprendizaje 
+	\item Tutorización. 
+\end{itemize} 
+
+Se cuentan una serie de obstáculos que son la existencia de una imagen de esta zona de los agentes el usuario generalmente introduce nuevas interacciones, que van más allá de la capacidad del estado de la tecnología, falta un lenguaje común interagentes. Tampoco hay unos medios de seguridad de muy alto nivel. El problema de la privacidad, puesto que los agentes tienen los datos personales de los usuarios.
+
+\subsection{Agentes de comercio electrónico}
+Se define como un intercambio comercial de valor productos servicios e información en el que algunas o todas las fases se desarrollan a través de internet. 
+
+Comercio electrónico se constituye mediante diversos niveles funcionales, equivalentes a los de un comercio tradicional, los niveles funcionales son:
+\begin{itemize}
+	\item Presentación de un catálogo con los productos del comercio.
+	\item La posibilidad de realizar un pedido.
+	\item Entregar ese pedido es el producto.
+	\item Pagar el producto.
+	\item Servicio de postventa.
+	\item Interacciones entre los proveedores y los clientes.
+\end{itemize}
+
+Estos niveles se pueden clasificar en:
+\begin{itemize}
+	\item \textbf{Precompraventa} donde se incluye todo lo relacionado con la publicidad, los catálogos, los escaparates electrónicos, etcétera.
+	\begin{itemize}
+		\item \textbf{Localización}, donde para eso utilizan la tecnología de buscadores y de catálogos online que utiliza como información el comportamiento de búsqueda y navegación.
+		\item \textbf{Selección}, la tecnología es el agente de recomendación y el agente configurador y la información que utiliza son las preferencias de clientes y la efectividad de las promociones.
+		\item \textbf{Negociación}, la tecnología es el agente de compra y el agregador y la información que utilizan son las estrategias de regateo y sensibilidad.
+	\end{itemize}
+	
+	\item \textbf{Compraventa}, donde se incluye la recepción de la orden de compra el pago y la entrega.
+	\begin{itemize}
+		\item \textbf{Venta}, la tecnología que se utiliza es el procesador de transacciones el intercambio de datos y la información que se maneja son los datos personales de los intervinientes.
+		\item \textbf{Pago}, la tecnología que se utiliza en la parte de criptografía y sistemas de pago y la información que se utiliza es la información directamente relacionada con el pago
+		\item \textbf{Entrega del producto}, utiliza como tecnología el agente de seguimiento y la información que utiliza son los requisitos de entrega
+	\end{itemize}
+	\item \textbf{Postcompraventa}, donde se incluye el servicio de posventa los concedentes y la fidelización de los clientes
+	\begin{itemize}
+		\item \textbf{Servicio de postventa}: que tiene como tecnología la ayuda online la compartición de navegador y la telefonía en internet.
+	\end{itemize}
+\end{itemize}
+En la parte de información utiliza los informes online de problemas la satisfacción del cliente y las oportunidades para ventas futuras
+
+\subsection{Objetivos}
+Se pretende con el uso de sistemas de agentes en el campo de la robótica fundamentalmente desarrollar un software: completo, efectivo, y escalable para equipos autónomos de robots que consiga \textbf{equipos de robots} con \textbf{percepciones integradas}, razonamiento, aprendizaje, \textbf{comunicación} y estrategias de cooperación con capacidad de \textbf{resolver complejas tareas} multiagentes.
+\begin{itemize}
+	\item Tareas como desarrollar vehículos que puedan defenderse en remotas regiones del mundo con poco conocimiento de sus misiones o del entorno.
+\end{itemize}
+
+Por otra parte se busca la \textbf{cooperación} qué tipo de estrategia de movimientos deberían adoptar los robots para hacer una tarea deberían tener un comportamiento idéntico homogéneo todos ellos o estar especializados cada uno en un aspecto como debían comunicar la información.
+
+Un usuario puede \textbf{controlar sistemas autónomos cooperativos} como una única entidad lógica, para este objetivo se están utilizando técnicas de planificación basadas en agentes para la colaboración de diferentes máquinas.
+
+Se utilizan entornos variados tanto hardware como software para llevar a cabo pruebas de cómo resolver estos problemas, así tenemos por ejemplo, el famoso entorno de fútbol (robot soccer), que existe en versión física y en versión simulada.
+
+Tenemos una multitud de juegos de ordenador en red que permiten el desarrollo de agentes que puedan probar sus capacidades frente a usuarios humanos.
+
 \end{document}
