@@ -1246,15 +1246,35 @@ Si es así, el individuo resuelve la ecuación-ejemplo, si no es así, la difere
 La evaluación final podría ser la suma de los valores obtenidos para cada ecuación ejemplo, la media o el máximo.
 
 \subsection{Procedimiento}
-El procedimiento es análogo a cualquier sistema evolutivo:
+Mientras no se cumpla el criterio de convergencia:
 \begin{enumerate}
-	\item Generar un \textbf{conjunto de individuos} aleatoriamente (población inicial) 
-	\item \textbf{Seleccionar} un conjunto de individuos a reproducir (mating pool) 
-	\item Aplicar \textbf{operadores genéticos} al “mating pool” para obtener una nueva población (t + 1) 
-	\item \textbf{Repetir} el proceso hasta alcanzar algún criterio de convergencia (parada)
+	\item Ejecutar cada programa y calcular fitness.
+	\item Crear una población intermedia vacía
+	\item Copiar en ella los mejores individuos
+	\item Mientras la población intermedia no esté completa:
+	\begin{enumerate}
+		\item Seleccionar un operador entre mutación y sobrecruzamiento
+		\item Si se ha elegido mutación:
+		\item \begin{enumerate}
+			\item Seleccionar un individuo aleatoriamente de la población
+			original
+			\item Crear un nuevo individuo por mutación del anterior
+			\item Incluir el nuevo individuo en la población intermedia
+		\end{enumerate}
+		\item Si se ha elegido sobrecruzamiento:
+		\begin{enumerate}
+			\item Seleccionar dos individuos aleatoriamente de la población original
+			\item Crear dos nuevos individuos por sobrecruzamiento de los
+			anteriores
+			\item Incluir los nuevos individuos en la población intermedia
+		\end{enumerate}
+	\end{enumerate}
+	
+	\item Sustituir a los individuos de la población por los individuos de
+	la población intermedia
 \end{enumerate}
-Los operadores genéticos son un operador de \textbf{cruce y tres de mutación}
-\vspace{-.5cm}
+
+
 \subsection{Inicialización}
 Como se trata de generar estructuras en forma de árbol se debe determinar p, hasta que profundidad deberán llegar los individuos como máximo.
 \begin{itemize}
@@ -1312,5 +1332,176 @@ Lo determina la naturaleza del problema:
 	\item Iterativo: For, Repeat
 	\item …
 \end{itemize}
+
+\subsection{Clausura}
+Se debe cumplir esta propiedad para que pueda funcionar la Programación Genética:
+\begin{itemize}
+	\item Las funciones deben ser consistentes.
+	\item Los programas deben ser seguros.
+	\item Las primitivas deben ser suficientes.
+\end{itemize}
+
+\subsection{Tipado}
+\subsection{Sintaxis}
+\subsection{Fitness}
+\subsection{Parámetros}
+\subsection{Estructuras modulares}
+\subsection{Regresión numérica}
+
+\chapter{Tema 4: Resolución de problemas mediante técnicas evolutivas}
+\section{Resolución de problemas con múltiples soluciones}
+\textbf{Problema multimodal:} Problemas con muchos picos de buenas soluciones y en los que queremos una serie de buenas soluciones (estarán en picos distintos).
+
+\subsection{Compartición de fitness}
+Los AG tienden a converger hacia una única solución. Es importante mantener al máximo posible la diversidad genética.
+
+Se debe intentar mantener “nichos” de individuos parecidos, pero diferentes de un nicho a otro.
+
+Existen diferentes técnicas para mantener la diversidad genética y obtener más de una solución:
+\begin{itemize}
+	\item Métodos de nichos.
+	\item Métodos de sobrepoblación.
+	\item Sobrepoblación determinista.
+	\item Selección restrictiva de torneos.
+\end{itemize}
+
+\subsection{Nichos ecológicos}
+La compartición modifica el espacio de búsqueda reduciendo el beneficio en regiones más densamente pobladas.
+
+Reduce el fitness de un individuo en una cantidad proporcional al número de individuos similares a él en la población: $f'_i=\frac{f_i}{m_i}$.
+
+$m_i$ es una medida de la similitud entre el individuo i y el resto de los individuos de la población y se calcula mediante: $m_i= \sum^N_{j=1}sh(d_{ij})$, donde $sh$ es el share.
+
+N es el tamaño de la población, $d_{ij}$ es la distancia entre i y j y sh($d_{ij}$) mide la similitud entre i y j.
+\pagebreak
+
+Devolverá uno si los dos individuos son iguales y cero si su diferencia es mayor que un cierto umbral $\sigma_s$:
+
+$sh(d_{ij}) = 1- \left( \frac{d_{ij}}{\sigma_s} \right)^\alpha$ si $d<\sigma_s$ y es 0 en el caso contrario. 
+\begin{itemize}
+	\item $\alpha$ es el factor.
+	\item $\sigma_s$ es el umbral, un valor entre 0 y 1, dependerá del dominio, pero es el mismo para todos los individuos (presupone picos equidistantes). No es posible asignarlo en todos los problemas.
+\end{itemize}
+
+\subsubsection{Nichos}
+Un buen individuo se convierte en menos buenos, si en la población existen un gran número de individuos parecidos a él. Un mal individuo, si está aislado, verá incrementado su valor de fitness.
+
+De esta forma se mantienen zonas independientes de buenos individuos, pero poco abundantes. Esto permite mantener la variabilidad genética y converger a más de una solución, siempre que todas ellas sean lo suficientemente buenas.
+
+\subsubsection{Distancia}
+La distancia puede ser:
+\begin{itemize}
+	\item Genotípica. Se mide la distancia de la codificación de dos individuos. Si la codificación es binaria se suele utilizar hamming.
+	\item Fenotípica. Se mide lo que se parecen las soluciones generadas por cada uno de los individuos a comparar. Depende del dominio del problema suele ser la euclídea.
+	
+	Suele dar mejores rendimientos en los métodos de nichos
+\end{itemize}
+
+Favorece la búsqueda en regiones inexploradas del espacio y favorece la formación de subpoblaciones estables
+
+\subsubsection{Escalado del fitness}
+Para mejorar la eficacia de los nichos se puede escalar el valor el fitness $f'_i=\frac{f^\beta_i}{m_i}$.
+
+El escalado incrementa la diferenciación entre óptimos y reduce el problema de la decepción (dos individuos buenos producen un individuo malo).
+
+Si el valor de $\beta$ es demasiado alto, se pueden producir superindividuos que hagan converger prematuramente al método y si el valor de $\beta$ es demasiado bajo la diferenciación entre los óptimos puede ser insuficiente y no ser posible de detectar.
+
+Se puede hacer un buen balance entre explotación y exploración variando el valor de $\beta$ a lo largo del tiempo. Por ejemplo mediante “simulating annealing.
+
+\subsection{Sobrepoblación}
+Se mantiene la diversidad haciendo que los nuevos individuos sustituyan a individuos similares.
+
+Se utiliza un esquema de estado estacionario en el que se sustituye solo parte de la población en cada generación.
+
+Se generan n individuos nuevos ($n < N$). Se seleccionan m individuos de la población de forma aleatoria $n < m < N$ o puede ser de toda la población.
+
+De entre los m individuos se eliminan los n más parecidos a los n nuevos generados.
+
+\subsection{Sobrepoblación determinista}
+Se introduce competición entre progenitores y descendientes por los mismos nichos.
+
+Cada descendiente reemplaza al progenitor más cercano (se utiliza la distancia fenotípica), pero solo si tiene mejor fitness que él.
+
+Después del cruce se generan dos conjuntos:
+\begin{itemize}
+	\item El padre 1 compite con el hijo 1, el padre 2 compite con el hijo 2.
+	\item El padre 1 compite con el hijo 2, el padre 2 compite con el hijo	1.
+\end{itemize}
+
+Se escoge el conjunto con menor distancia entre elementos, padreX-hijoY+padreZ-hijoW. De entre los individuos de las 2 parejas padre-hijo, pasarán a la siguiente generación el de mayor fitness de cada pareja.
+
+\subsection{Selección de torneos restringida}
+Es una mezcla entre sobrepoblación y torneos.
+
+Se seleccionan dos individuos mediante el operador de selección, se generan dos nuevos individuos mediante cruce y mutación, y se seleccionan aleatoriamente m individuos de la población. Cada descendiente compite con el individuo de la subpoblación anterior que más se le parece. Los ganadores pasan a la siguiente generación
+
+Igual que Superpoblación, pero los descendientes no siempre pasan a la nueva generación, solo si son mejores que los individuos a los que van a sustituir.
+
+Se generan n nuevos y todos ellos se comparan con el más parecido de una subpoblación de la población y entre esos 2 pasa el de mejor evaluación/fitness.
+
+En todos estos métodos buscamos soluciones distribuidas.
+
+\section{Resolución de problemas con restricciones}
+En algunos problemas las soluciones deben cumplir una serie de criterios para ser válidas, en estos casos no todos los individuos codificados son aceptables. Un ejemplo es asignar tareas a empleados, cunado no todos los empleados son capaces de hacer todas las tareas.
+
+\subsection{Problemática}
+Los AG canónicos no pueden tratar restricciones.
+
+Se puede modificar codificando un superconjunto X del conjunto de soluciones factibles $\mathcal{X}$ ($X \supseteq \mathcal{X}$)
+
+El superconjunto debe: Ser fácil de codificar y no ser mucho más grande que el conjunto de soluciones factibles (para no perder excesivo tiempo).
+
+\subsection{Penalización}
+Las restricciones se suelen expresar como un conjunto de inecuaciones: $g_i(x) \geq 0$.
+
+Para tratarlas se puede incluir un término de penalización en la función de evaluación que penalice más o menos en función del grado de incumplimiento de la restricción.
+
+Matemáticamente podría definirse un grado de incumplimiento por parte del individuo x de la restricción i-ésima como:
+$$Ir_i(x) = \left\{ \begin{array}{clll}
+	-g_i(x) &  Sii & g_i(x)<0 & \textit{incumple} \\
+	0 &  Sii & g_i(x)\geq 0 & \textit{no incumple}
+\end{array} \right.$$
+
+Este incumplimiento se introduce como penalización en la función de evaluación de cada individuo: 
+$$F(x)=F(x)-k\cdot \mathcal{P}(Ir_1(x), ..., Ir_p(x))$$
+\begin{itemize}
+	\item p es el número de restricciones.
+	\item k coeficiente de penalización.
+	\item $\mathcal{P}$ es una función de penalización creciente.
+	positiva dependiente del dominio.
+\end{itemize}
+\pagebreak
+
+\subsection{Penalización variable}
+Se empieza con valores bajos, ya que al principio se incumplirán más restricciones, pero a medida que se progresa es menos permisivo.
+
+Se pueden proponer funciones de penalización variables con el tiempo, cuanto más avanza más rígida: 
+
+$$P = \left(\frac {k \cdot t} {m} \right)^2 \frac {\sum^p_{i=1} Ir_i(x(t))} {F(P(t))}$$
+
+\subsubsection{Problemática de la Penalización}
+Las funciones de penalización muy severas no son recomendables en problemas fuertemente restringidos.
+\begin{itemize}
+	\item El AG gasta mucho tiempo en procesar individuos no factibles.
+	\item Cuando se encuentra un individuo factible este puede destacar demasiado sobre los demás (convergencia prematura).
+\end{itemize}
+
+Las funciones de penalización muy flexibles tienen el riesgo de dejar prosperar a individuos que, aun siendo no factibles, tengan una aptitud neta mayor que otros factibles.
+
+A veces se habla de técnicas de gratificación: premian a los individuos factibles.
+
+\subsection{Reparación o Corrección}
+Consisten en habilitar un procedimiento con el que corregir cualquier solución no factible que se genere.
+
+El inconveniente es que suele ser difícil encontrar un procedimiento de corrección lo suficientemente general y, si se encuentra, normalmente consume muchos recursos de computación.
+
+Este procedimiento es necesariamente específico para cada problema.
+
+\subsection{Decodificación}
+Consisten en realizar la codificación de tal modo que sea imposible generar soluciones no factibles. Se modifica X a través de la codificación para que se aproxime lo máximo posible a $\mathcal{X}$.
+
+Suelen requerir modificar los operadores genéticos para que conserven la factibilidad de los individuos.
+
+Tiene inconvenientes similares a las técnicas de reparación. De modo indirecto todas estas técnicas están añadiendo conocimiento específico.
 
 \end{document}
