@@ -1440,6 +1440,7 @@ El uso de clases/marcos nos permite no solo crear una jerarquía entre conceptos
 A la hora de relacionar conceptos, no se crea un slot con un puntero hacia la otra instancia, sino que utilizaremos identificadores en las instancias para que a la hora de referirnos lo hagamos de esta manera. Cuando se hace en una regla nos permite obligar a que la instancia relacionada tenga ese identificador.
 
 Cuando la relación es 1 a 1 se puede hacer como se ha descrito antes, pero cuando se trata de una relación 1 a n o n a n, lo que se hace es crear una clase cuyas instancias estarán compuestas por los identificadores relacionados de manera que se recojan todas. (produce bodega vino1) (produce bodega vino2) aunque en este caso se podría haber puesto en vino, pero si fuese necesario en bodega se haría de esta manera.
+
 \section{Métodos}
 Funciones definidas sobre una CLASE para manipular los atributos.
 
@@ -1447,12 +1448,70 @@ Los métodos se definen de forma genérica en la definición del marco, pero se 
 
 Posible pseudocódigo:
 \begin{itemize}
-	\item \textbf{send} o enviar: llama a algún método de una INSTANCIA:
+	\item \textbf{send} o enviar: llama a algún método de una INSTANCIA.
+	
+	send ?alumno matricular ?self Se manda así mismo, instancia como argumento de la función matricular de la clase alumno
 	\item \textbf{get}: coge el valor de un atributo de una instancia.
 	\item \textbf{set}: da valor al atributo de una instancia.
 	\item \textbf{add} o añadir: añadir: añade un valor a un multislot.
+	
+	añadir ?self.alumnos ?alumno
 	\item \textbf{self}: referencia a la propia instancia.
+	
+	?self.numero\_alumnos = ?self.numero\_alumnos + 1
 \end{itemize}
+\pagebreak
+
+No nos aprenderemos la sintaxis de CLIPS, usaremos pseudocódigo, incluso en el examen. Con los métodos anteriores es suficiente para realizar las tareas.
+\begin{itemize}
+	\item Primero se define como se invoca el método, nombre y argumentos.
+	\item Después los pasos que sigue el método, lo que devuelve o modifica sobre la base de hechos.
+\end{itemize}
+
+Ejemplo:
+\begin{lstlisting}
+Metodo ASIGNATURA.matricular (?alumno in ALUMNO)
+	anadir ?self.alumnos ?alumno
+	?self.numero-alumnos= (?self.numero-alumnos) + 1
+	enviar ?self.titulacion matricular ?alumno
+	enviar ?alumno matricular ?self
+
+Metodo TITULACION.matricular (?alumno 2 ALUMNO)
+	if not(member(?alumno, ?self.alumnos)))
+	then anadir ?self.alumnos ?alumno
+		?self.numero-alumnos=(?self.numero-alumnos) + 1
+\end{lstlisting}
+
+\section{Demonios}
+Son funciones que se ejecutan automáticamente, cuando le ocurre algo a un determinado atributo de una clase se disparan.
+
+Se definen sobre ATRIBUTOS de las clases.
+
+Además de definir qué es lo que hacer hay que definir que evento es el que lo dispara, pueden ser:
+\begin{itemize}
+	\item \textbf{if-need}: antes de leer el valor del atributo.
+	\item \textbf{if-set}: después de cambiar el valor.
+	\item \textbf{if-added}: antes de añadir un valor a un multislot.
+\end{itemize}
+
+Se utilizan para:
+\begin{itemize}
+	\item Requerir el valor de un atributo.
+	\item Mantener la integridad de la base de conocimiento.
+	\item Gestión dinámica de valores (actualizar valores a partir de otros)
+\end{itemize}
+
+Aquí no nos queda otra manera de referirnos a las instancias que apuntando a ellas, no podemos emplear los identificadores. El tipo instancia o lista de instancias se utilizará.
+\pagebreak
+
+Ejemplo:
+\begin{lstlisting}
+Demonio UNIVERSIDAD.numero-alumnos:if-needed ()
+	numero=0
+	For ?titulacion in ?self.titulaciones
+		numero=numero+(enviar ?titulacion dame-numero-alumnos)
+	self.numero-alumnos=numero
+\end{lstlisting}
 
 \chapter{Tema 8: Planificación Automática (PA)}
 
