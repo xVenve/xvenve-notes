@@ -968,11 +968,11 @@ Soluciones:
 \end{itemize}
 
 \chapter{Tema 3: Modelos de Redes de neuronas no supervisados}
-Tenemos un conjunto de datos y ya, sin clases o etiquetas, queremos sabe que se puede decir de ellos.
+Tenemos un conjunto de datos y ya, sin clases o etiquetas, queremos saber que se puede decir de ellos.
 
 La tarea más habitual es el agrupamiento o clustering en función de características comunes de los datos.
 \section{No supervisado}
-La red descubre por sí sola características, regularidades, correlaciones, categorías, …, de los datos de entrada a esto se le llama auto-organización. 
+La red descubre por sí sola características, regularidades, correlaciones, categorías, …, de los datos de entrada, a esto se le llama auto-organización. 
 
 Solo es relevante si los datos muestran algún tipo de redundancia $\nRightarrow$ aleatoriedad. Si tienen algún tipo de estructura.
 
@@ -997,13 +997,13 @@ Cuando el axón de una célula A está lo suficientemente cerca como para excita
 
 En la regla de Hebb la modificación de los pesos no obedece a ningún factor externo.
 
-La conexión entre dos células ser verá aumentada si ocurre que las dos se encuentran activas a la vez de manera persistente. Aquellas que no se repiten con frecuencias, ser irán debilitando y se acabarán olvidando.
+La conexión entre dos células se verá aumentada si ocurre que las dos se encuentran activas a la vez de manera persistente. Aquellas que no se repiten con frecuencias, se irán debilitando y se acabarán olvidando.
 
 $$\Delta w_{ij}=a_i\cdot a_j \quad\quad\quad\quad \Delta w_{ij}=\mu(a_i - \overline{a_i})\cdot(a_J- \overline{a_j})$$
 $$\Delta w_{ij}=\Delta a_i\cdot \delta a_j \quad\quad\quad\quad \Delta w_{ij}= \mu a_i w_{ij} \Delta a_j$$
 $$\frac{dw_{ij}}{t}=-w_{ij}+a_i\cdot a_j \quad\quad\quad\quad \frac{dw_{ij}}{t}=-w_{ij} + \sigma(a_i) \cdot \sigma(a_j)$$
 
-Este tipo de aprendizaje se utiliza de forma generalizada en casi todos los modelos no supervisados, es la regla que se utiliza de manera normal este tipo de procesos.
+Este tipo de aprendizaje se utiliza de forma generalizada en casi todos los modelos no supervisados, es la regla que se utiliza de manera normal en este tipo de procesos.
 
 \section{Modelo de Interacción lateral}
 Una de las características del cerebro es que está estructurado, este modelo trata de emular este tipo de conexiones estructuradas, de manera que hay partes que están más especializadas en una determinada tarea.
@@ -1012,9 +1012,12 @@ Estudios sobre el neocórtex muestran una estructura bidimensional por capas con
 
 Cada célula se conecta a las más cercanas mediante conexiones excitatorias y a las más lejanas con inhibitorias. Las conexiones (-) (+) pierden intensidad con la distancia entre células. Al propagarse las señales mediante este esquema, se producen zonas más activadas y menos.
 
-Un modelo artificial de célula (c) podría ser: $y_c^{t+1}=\sum^n_{i=1} x_i w_{ic} - \sum^n_{k=1} y_k w_{kc}+y^T_C w_{cc}$. $w_{kc}$ células colindantes y $w_{cc}$ conexiones recurrentes excitatorias.
+Un modelo artificial de célula (c) podría ser: $y_c^{t+1}=\sum^n_{i=1} x_i w_{ic} - \sum^n_{k=1} y_k w_{kc}+y^T_C w_{cc}$.
 
-Donde los pesos w$_{ij}$ tendrían valores siguiendo la función $f(x) = (1 - x^2)e^{- \frac{x^2}{2}}$:
+
+Primer parte las entradas normales, $w_{kc}$ células colindantes, $w_{cc}$ conexiones recurrentes excitatorias con si mismo. La y será $y_i = f \left(\sum^l_{j=-l} w_{ij}y_j\right)$
+
+Donde los pesos w$_{ij}$ tendrían valores siguiendo la función $f(x) = (1 - x^2)e^{- \frac{x^2}{2}}$, la función sombrero mejicano.
 
 El eje horizontal (x) representa la distancia entre las células, el vertical (y) el valor del peso.
 
@@ -1065,7 +1068,7 @@ En F2 (salida) no hay aprendizaje, los pesos entre sus células son fijos: $\for
 
 Los valores que van de una célula a otra en F2 tienen el mismo que la conexión contraria. Además los pesos se normalizan, de manera que todas en un sentido sumen 1.
 
-Entre F1 y F2 aprende “el que gana se lleva todo”: Para las células no ganadoras será 0, para las ganadoras será $\frac{dw_{ij}}{dt}=\sigma(a_i)[-w_{ij}+\sigma(b_j)]$.
+Entre F1 y F2 aprende “el que gana se lleva todo”: Para las células no ganadoras será 0, para las ganadoras será $\frac{dw_{ij}}{dt}=[-w_{ij}+\theta_i]$. $\theta_i=\frac{I_i}{\sum_{j=1}^M I_j}$
 
 \subsection{Características y limitaciones}
 Se trata de un aprendizaje Hebbiano. El aprendizaje es proporcional a las salidas producidas por las células que une.
