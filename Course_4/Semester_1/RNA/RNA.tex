@@ -1140,7 +1140,7 @@ En SOM esto se puede hacer introduciendo el concepto de vecindario, cada célula
 
 La distancia entre dos células es el número de células por las que hay que pasar para llegar de una a otra y la distancia de una célula consigo misma es 1.
 
-Este añadido se utiliza en el aprendizaje, cuando una célula gana, también se modificarán las vecinas según la distancia. La regla de aprendizaje pasa a ser:
+Este añadido se utiliza en el aprendizaje, cuando una célula gana, también se modificarán las vecinas según la distancia. La regla de aprendizaje pasa aento ser:
 
 $$\frac{dw_{ij}}{dt}=\frac{\alpha(t)}{d(c_i, c_j)} (e_i(t)-w_{ij}(t))$$
 
@@ -1151,5 +1151,116 @@ En este caso el aprendizaje se produce en la célula ganadora y en sus vecinas, 
 Para cada patrón de entrenamiento se elige una célula que se desplazará en dirección a dicho patrón y en su movimiento arrastra a las que están conectadas con ella, hasta un determinado rango. Esto hace que células próximas en la topología de la red representen agrupamientos similares.
 
 Al final, células cercanas en el vecindario ocuparán posiciones cercanas en el espacio y esto permite no solo dividir las entradas en grupos, sino relacionar los grupos entre sí.
+\subsection{Procedimiento}
+\begin{enumerate}
+	\item Inicialización pesos a valores aleatorios pequenos.
+	\item Presentar una nueva entrada. Actualizar ALPHA
+	\item Progpagar la entrada hsta la capa de competición donde se seleccina una celula ganadora.
+	\tem Actualizar los peso de la celula ganadora y sus vecinas.
+	\item Si aun quedan entradas, ir a 2.
+	\item Actualizar ALPHA
+	\item Ordenar el conjunto de aprendizaje.
+	\item Si ALPHA esta por encima de un cierto umbral, ir al 2.
+\end{enumerate}
+\subsection{Ejemplo de problema del viajante}
+
+El metodo que se utiliza es el de Kohonnen de la goma elastica, dado que se va estirando y adaptando al dibujo de las ciudades, segun se estira se aumentan las celulas.
+
+El veciandario aporta informaicón adicionla sobre la estructura de los agrupamientos, en este caso el vecindario es fundamental, es lo que realmente nos interasa no la ubicación de las celulas.
+
+Se realizan las siguientes modificaciones:
+	\begin{itemize}
+	
+	\item Se cran un vencidario unidmensional cirula en forma de anillo, como si fuera una goma elastica, tendar solo dos conexiones con otras celulas, una en el ado dereco y otra en el lado izquierdo.
+	\item Se comenzara con pocas celulas, como son 3, buscando que se vayan moldenado y acercando los puntos. Tras realizar un ciclo/iteración completa, haber pasado por las entradas las ciudades que componen el problema, en este momento se dividen las celulas en otras dos.
+	\item En este caso cada celula tiene varias ciudades asignadas, por esto es por lo que se particiona, dado el caso de que no tenga asignada ninguna ciudad esta celula se elimina.
+\end{itemize}
+
+El punto final es que tengamos tantas celulas como ciudades, de manera que cada una corresponda con una ciudad y las conexiones con las otras dos el camino que se debe recorrer, es decir el vecindario es la solución.
+
+\section{K-medias}
+Fue propuesto por J. MacQueen en 1967.
+
+Algoritmo de agrupamiento no supervisado, el espacio de patrones de entrada se divide en K clusters o regiones.
+
+Es necesario establecer el numero de clusters (K)
+
+Dado un conjunto de patrones: $X(n)=(x_1(n), x_2(n), ...x_p(n)) n=1, ... N$ se pretende encontrar K centros $C_i =....$ con el objetivo de minizar la distancias euclideas entre los patrons de entrada y el centro mas cercano.
+$$D=\sum^k_{i=1}\sum^N_{n=1} Min ||X(n) - C_i||$$
+
+	N esl numero de patrones, || || representa la distancia euclidea, X(n) el patron de entrada n y Min es la función de pertenencia.
+	
+	$$Min = 1 si ||X(n) - C_i|| < || X(n) - C_s || \forall \neq i   0 en caso contrario$$
+
+Se trata de encontrar los K puntos de la región que se genera con todas las entradas, que mejor representa a todos los datos, cada uno de los punto generará un cluster que estara compuesto por aquello puntos que se encuntrar mas cerca de ese cluster que de ningun otro.
+
+Los punto C se generaran incialmente aleatoriamente, y segun que instancias esten mas cerca de este que de otro, se calculara la media de sus entradas de manera que se centre para todas estas, esto repetido para todos los puntos y multiples veces hace que se vayan centrando poco a poco y distribuyendo.
+
+\subsection{Procedimiento}
+\begin{enumerate}
+	\item Se inicializan aleatoriamente los centros de los K clusters.
+	\item Se asignan $N_i$ pattrones de entrada a cada cluster $C_i$. El patron X(n) pertenede al cluster $C_i$ si: FORMULA
+	\item Se calcula la neuva posición de los centroiddes como la media de todo slo patrones que perteencen al cluster, es decir: FORMULA
+	\item Se repiten los pasos 2 y 3 hasta que las nuevas posiciones de los centroides no se midifican respecto a su posició anterior.
+		FORMULA
+	\end{enumerate}
+	
+\subsection{Resumen}
+...
+
+\section{Learning Vector Quantization}
+Cuando Kohonen creo su modelo vio que podia se aplicable en casos de aprendizae supervisado, como clasificación, no solo para clustering (no supervisado). Emplearlo conociendo las salidas nos permite dividir las regiones de manera mas facil.
+
+Se combina el aprendizaje competitivo con el supervisado.
+
+Se mantiene la tarea de dividir el espacio en regiones, pero estas regiones representaran las etiquetas de la clase de manera que dependiendo de la región en la que caiga una nueva instancia pertenecerá a la clase correspondiente.
+
+Lo que se busca es reducir el numero de errores de clasificación cuando se introducen los patrones de entrada.
+
+Segun las regiones de Voronoi que se generen.
+
+Las celulas estaran etiquetadas e inicialmente se elige el numero de celualas que tendra el modelo y cuales son sus etiquetas (no solo hay una neurona por etiqueta), debe haber al menos mas del doble que el numero de etiquetas.
+
+La unica variación el es el proceso de aprendizaje.
+
+Las entradas son del tipo: $E_i = [(e_1^i, C),(e_2^i, C), ..., (e_n^i, C)],, i = 1...m$
+
+\subsection{Reglas de aprendizaje}
+\begin{enumerate}
+	\item Se inicializan los pesos a valores pequenos aleatorios.
+	\item Para cada uno de los patrones de entrada, se propada por l ared y se obtiene la celula ganadora.
+	\item Si la celula ganadora pertenece a la misma categoria que la entrada.
+	\item Se modifican los pesos de la celula ganadora siguiendo las ecuaciones de KSOM: $\Delta w_{ij} = \alpha (e_i - w_{ij}$
+	\item Si la celula ganadora no pertenece a la misma categoria que la entrada.
+	\item Se modifican los pesos de forma inversa a los de KSOM: $\Delta w_{ij} = - \alpha (e_i - w_{ij}$
+	\item Repetir los pasos 2-7 hasta que se cumpla el criterio de parada.
+\end{enumerate}
+
+Si la red produce una respueta correcta, acercamos el prototipo al dato de entrada.
+
+Si la red produce una respuesta incorrecta, alejamos el prototipo al dato de entrada.
+
+Al final del proceso los prototipos se colocaran en el centro de masas de puntos etiquetados con su misma categoria.
+
+\section{LVQ2}
+METER DIAPOS AL IPAD
+
+Se calculan dos celulas gandoras, las dos mas proximas.
+
+Si las dos pertenecen a la misma clase, solo se aprende la mas cercana, siguiendo la reglas del LVQ:
+	FORMULA
+	FORMULA
+	
+Si cada una pertenece aun clase, la de la misma clase de la entrada se acerca, la otra se aleja.
+
+Variante LVQ2.1: Solo se aprenden los dos prototipos mas cercanos si:
+\begin{itemize}
+	\item Pertenecen a clases diferentes.
+	\item Estan dentro de una ventana ($\theta$) del plano medio de los dos vectores.
+	$\min \left(\frac{d_i}{d_j}, \frac{d_j}{d_i} \right) > \frac{1-\theta}{1+\theta}$
+	
+	Se divide el mas grande sobre el mas pequeno.
+\end{itemize}
+
 
 \end{document}
