@@ -1504,4 +1504,204 @@ Suelen requerir modificar los operadores genéticos para que conserven la factib
 
 Tiene inconvenientes similares a las técnicas de reparación. De modo indirecto todas estas técnicas están añadiendo conocimiento específico.
 
+\section{Algoritmos Coevolución}
+\subsection{Diploidad}
+Se basa en que en los organismos los cromosomas se encuentran duplicados, por lo que posee el fenotipo repetido.
+
+Existen dos genes, llamados homólogos, para el mismo carácter
+
+Si genes homólogos contienen el mismo valor se llaman homocigóticos
+
+Si genes homólogos contienen distintos valores se llaman heterocigóticos
+
+El carácter viene determinado por esquema de dominancias:
+\begin{itemize}
+	\item Si homocigóticos codifican el mismo carácter y no hay problema. 
+	
+	Color de ojos(azul, azul) = azul
+	\item Si heterocigóticos, el que domina sobre el otro es el que produce el carácter. 
+	
+	Color de ojos(azul, marrón) = marrón
+\end{itemize}
+
+\subsubsection{Modelos computacionales diploides}
+Esquema triádico de Hollstien-Holland: Alelos={0, 1$_0$, 1}
+\begin{itemize}
+	\item El 1$_0$ es un 1 recesivo, y el 1 es dominante
+	\item El 1 domina sobre los otros dos
+	\item El 0 domina sobre el 1$_0$
+\end{itemize} 
+\begin{table}[H]
+	\centering
+	\caption{Esquema triádico de Hollstien-Holland}
+	\begin{tabular}{l|l|l|l|}
+	\cline{2-4}
+	& \textbf{0} & \textbf{1$_0$} & \textbf{1} \\ \hline
+	\multicolumn{1}{|l|}{\textbf{0}} & 0 & 0 & 1 \\ \hline
+	\multicolumn{1}{|l|}{\textbf{1$_0$}} & 0 & 1 & 1 \\ \hline
+	\multicolumn{1}{|l|}{\textbf{1}} & 1 & 1 & 1 \\ \hline
+	\end{tabular}
+\end{table}
+\pagebreak
+
+\subsubsection{Esquemas de dominancia}
+División de Brindle:
+\begin{itemize}
+	\item \textbf{Dominancia global, fija y aleatoria}
+	\begin{itemize}
+		\item La dominancia de alelos binaria es determinada para cada locus
+		\item Al principio se crea un mapa de dominancia aleatoriamente por locus
+		\item La dominancia se mantiene durante todo el proceso
+	\end{itemize}
+	\item \textbf{Dominancia global variable:} Asigna una probabilidad de dominar según su frecuencia, una vez se asigna toda la generación se sigue ese esquema, se asigna cada generación cuál será la dominancia.
+	\begin{itemize}
+		\item La probabilidad de dominancia de un alelo en un locus es igual a la tasa de alelos en ese locus en la población
+		\item Se calcula cada generación mediante ensayos de Bernoulli
+	\end{itemize}
+	\item \textbf{Dominancia global, determinista y variable:} Domina en cada alelo el valor más frecuente en la población.
+	\begin{itemize}
+		\item Se calcula para cada locus la proporción de sus alelos
+		\item El alelo dominante es el más frecuente
+		\item Se reasignan dominancias tras cada generación
+	\end{itemize}
+	\item \textbf{Se elige un cromosoma al azar}
+	\begin{itemize}
+		\item Se elige un cromosoma aleatoriamente
+		\item Todos sus alelos se convierten en dominantes en sus respectivos locus
+	\end{itemize}
+	\item \textbf{Dominancia del mejor cromosoma}
+	\begin{itemize}
+		\item Se elige siempre el mejor cromosoma como dominante
+	\end{itemize}
+	\item \textbf{Dominancia adaptativa}
+	\begin{itemize}
+		\item Se incluye un nuevo cromosoma que no codifica una solución a un problema, sino el esquema de dominancias a utilizar.
+		\item De esta forma el esquema de dominancias puede evolucionar al igual que las soluciones.
+		\item Dar lugar a esquemas más eficaces.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Reproducción de individuos diploides}
+Se generan dos cigotos de cada individuo mediante sobrecruzamiento, se parten los dos cromosomas de los dos individuos y se cruzan dentro del mismo individuo.
+
+Entonces se intercambian los cigotos de los dos individuos y tenemos 2 individuos haploides nuevos.
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Reproducción de individuos diploides}}
+	{\includegraphics[scale=.4]{reproduccion_diploide.jpg}}
+\end{figure}
+
+\subsection{Coevolución}
+En lugar de haber un sistema en el entorno hay varios que compiten por los recursos, por lo que los sistemas compiten y tratan de ser superior a otro para sobrevivir.
+
+La coevolución es una fuerza importante hacia la generación de adaptaciones muy complejas.
+
+Relaciones depredador-presa
+
+Existe una gran presión para que las presas se defiendan mejor y en respuesta los depredadores desarrollan mejores estrategias de ataque.
+
+El éxito de una parte es el fracaso de la opuesta que debe desarrollar respuestas para mantener sus posibilidades de supervivencia, el dilema de la Reina roja. Para seguir siendo igual de bueno hay que seguir evolucionando, si no el resto lo harán y nosotros empeoraremos.
+
+Normalmente se habla de 2 sistemas.
+\pagebreak
+
+\subsubsection{Coevolución computacional}
+\textbf{Tipos:}
+\begin{itemize}
+	\item \textbf{Cooperativa:} Dos sistemas independientes cooperan para aumentar sus posibilidades de supervivencia
+	
+	Simbiosis, “vive y deja vivir” en la Primera Guerra Mundial
+	\item \textbf{Competitiva:} Dos sistemas independientes compiten por recursos compartidos
+	
+	Depredador-presa
+	
+	f1 inversamente proporcional a f2, si S1 mejora S2 tendrá mayor presión para evolucionar.
+\end{itemize}
+
+\subsubsection{Evaluación de los individuos}
+En algunas ocasiones los individuos de una población tienen que ser evaluados utilizando ejemplos. Hay que generar un conjunto de ejemplos, p. ej. de forma aleatoria, y utilizarlos para evaluar un individuo.
+
+Aparece el problema denominado \textbf{“Ideal trainer”, entrenador ideal}:
+\begin{itemize}
+	\item Existe un número enorme de posibles ejemplos, pero solo un ínfimo número de ellos se pueden utilizar para evaluar al individuo para que el proceso sea eficiente. El problema está en cómo determinar qué conjunto de n ejemplos (n pequeño) es el “ideal” para que sirva de evaluación. 
+	\item Si el conjunto de ejemplos es “fácil” se puede producir especialización. Lo que puede ser un buen conjunto de evaluación para un individuo, puede ser malo para otro y viceversa
+\end{itemize}
+
+\subsubsection{Problema del entrenador ideal}
+Una primera solución sería generar un \textbf{nuevo conjunto de entrenamiento en cada generación}
+\begin{itemize}
+	\item Los individuos no podrían especializarse, ya que se evalúan cada vez con ejemplos diferentes.
+	\item Un individuo muy bueno en una generación, y que por tanto ha engendrado muchos descendientes, puede ser muy malo en la siguiente, y todos los individuos que ha engendrado ser inoperativos.
+	\item Al cambiar bruscamente la evaluación de los individuos el “fitness landscape” se hace muy abrupto, y el método se desorienta.
+\end{itemize}
+
+Se podría \textbf{cambiar de conjunto de aprendizaje cada “n” generaciones}. Esto reduciría los problemas anteriores, pero no los eliminaría.
+
+Se podría \textbf{cambiar “ligeramente” el conjunto de aprendizaje cada “n” generaciones}
+\begin{itemize}
+	\item Habría que ver cuánto y cómo se cambia el conjunto de aprendizaje, y en función de qué.
+	\item Al utilizar el mismo conjunto de aprendizaje para todos los individuos, cambios positivos para unos podrían ser negativos para otros.
+\end{itemize}
+
+Se podría generar un \textbf{conjunto de aprendizaje diferente para cada individuo, y cambiarlo “ligeramente” cada “n” generaciones}
+\begin{itemize}
+	\item Se tendría el problema de cuánto y cómo cambiar el conjunto de aprendizaje.
+	\item Si el conjunto de aprendizaje es complejo, el problema anterior no es trivial.
+\end{itemize}
+
+\subsubsection{Conjuntos de entrenamiento como sistemas genéticos}
+La solución es generar una \textbf{población de conjuntos de entrenamiento, cada individuo es un conjunto de entrenamiento}, compuesto por n valores reales.
+
+Cada individuo-conjunto-de-entrenamiento es evaluado con un conjunto de individuos solución.
+
+El resultado de la evaluación se utiliza para evaluar a los individuos-ejemplo y a los individuos-solución, una buena evaluación para un individuo-solución será mala para un individuo-ejemplo y viceversa.
+
+Esta evaluación se utiliza dentro de un Algoritmo Genético, de forma que se evolucionan los conjuntos de entrenamiento más complicados para un individuo-solución o para un conjunto de individuos-solución.
+
+\subsubsection{Life-time fitness}
+Dos poblaciones, una de soluciones P$_s$(t) de tamaño $|| P_s ||$ y otra de ejemplos P$_e$ de tamaño $|| P_e ||$.
+
+\textbf{P$_s$(t) evoluciona con el tiempo, P$_e$ se mantiene fija.} Cada individuo de P$_s$ se evalúa sobre los últimos $\tau$ ejemplos, y lo mismo cada individuo de P$_e$.
+
+La evaluación de P$_s$ sirve para seleccionar y generar nuevos individuos, mientras que la de P$_e$ solo para seleccionar individuos. La evaluación es la suma, u otra medida estadística, de encuentros entre soluciones y ejemplos.
+
+\subsubsection{Ciclo coevolutivo}
+\begin{enumerate}
+	\item Realizar n veces
+	\begin{enumerate}
+		\item s = seleccionar(P$_s$)
+		\item e = seleccionar(P$_e$)
+		\item f = encuentro(s, e)
+		\item actualizar-fit(s, f) se puede hacer con la media de los fitness
+		\item act-fitness(e,1/f) se puede hacer con la media de los fitness
+	\end{enumerate}
+	\item s$_1$ = seleccionar(P$_s$)
+	\item s$_2$ = seleccionar(P$_s$)
+	\item s$_{hijo}$ = cruce-mut(s$_1$, s$_2$)
+	\item Realizar m veces
+	\begin{enumerate}
+		\item e = seleccionar(P$_e$)
+		\item f = encuentro(s$_{hijo}$, e)
+		\item f(s$_{hijo}$) = actualizar-fit(s$_{hijo}$, f)
+		\item f(e) = actualizar-fit(e,1/f)
+	\end{enumerate}
+	\item insertar(s$_{hijo}$, f(s$_{hijo}$), P$_s$)
+\end{enumerate}
+
+\textbf{Funciones}
+\begin{itemize}
+	\item \textbf{Seleccionar(P)}. selecciona un elemento de la población (P), de manera proporcional a su fitness.
+	\item \textbf{Actualizar fitness(i, f)}. Cada individuo (i) lleva una memoria del resultado de los últimos m encuentros, al actualizar, se elimina de la memoria el resultado del encuentro más antiguo, se añade el actual (f), y se recalcula su fitness.
+	\item \textbf{Encuentro(s, e)}. La solución s se evalúa con el ejemplo e y obtenemos un valor de fitness para este encuentro.
+	\item \textbf{Insertar(s, f(s), P)}. Si f(s) es mejor que el fitness del peor individuo de la población.
+\end{itemize}
+
+\textbf{Características}
+\begin{itemize}
+	\item Las soluciones solo se evalúan con un conjunto pequeño (m) de ejemplos, en vez de con todos los posibles.
+	\item Al principio todos los ejemplos tienen la misma probabilidad de ser seleccionados, pero a medida que son evaluados unos tienen más probabilidad que otros.
+	\item Los \textbf{ejemplos más difíciles tendrán mejor fitness y mayor probabilidad de ser elegidos}.
+	\item Al utilizar una ventana temporal de m para el cálculo del fitness, tanto soluciones como ejemplos se adaptarán unos a otros.
+\end{itemize}
+
 \end{document}
