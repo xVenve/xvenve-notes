@@ -1515,4 +1515,167 @@ Demonio UNIVERSIDAD.numero-alumnos:if-needed ()
 
 \chapter{Tema 8: Planificación Automática (PA)}
 
+\section{Introducción}
+La idea es resolver problemas de manera automática. Tenemos un problema de planificación con determinadas características, si somos capaces de representar el problema con una determinada sintaxis podremos aplicar un planificar que lo resuelva, es fundamental poderlo representar en estos lenguajes.
+
+Son problemas en los que estamos en un estado inicial, poseemos unos recursos y podemos realizar una serie de acciones para llegar al estado final deseado. La solución al problema será la secuencia de acciones que permiten llegar hasta este estado meta.
+
+\textbf{Entradas:} Estado inicial $s_0$ (donde estamos), Metas $G$ (que queremos conseguir) y Acciones $A: s \rightarrow s', \gamma(s, a) = s'$ (nos permite pasar de un estado a otro)
+
+\textbf{Solución:} Un plan $\pi$, secuencia de acciones que nos lleva desde el estado inicial $s_0$ hasta una meta $s_n \subseteq G$.
+
+\subsection{Representación en Planificación}
+Es necesario para que un ordenador pueda resolver los problemas que estén descritos estos problemas en un lenguaje  que este pueda entender. Hay muchas formas de expresar esta información.
+
+Lógica de predicados es la más usada. Hay que representar estado y operadores. Los predicados en lógica permiten representar la verdad o falsedad de los hechos del mundo.
+\begin{itemize}
+	\item Emplea: términos, predicados, conectivas y cuantificadores.
+\end{itemize}
+
+No existe una única representación válida, pero habrá diferentes niveles de abstracción del problema a los que se debe adaptar.
+
+\subsubsection{Lógica de Predicados}
+Elementos:
+\begin{itemize}
+	\item \textbf{Términos:} constantes, variables y funciones.
+	\item \textbf{Predicados}, los cuales representan: Relaciones, propiedades o igualdad.
+	\item \textbf{Cuantificadores:} $\forall$ y $\exists$.
+	\item \textbf{Conectiva:} $\vee$, $\wedge$, $\neg$, $\rightarrow$.
+\end{itemize}
+	
+\textbf{Inferencia:} Modus Ponens
+\begin{itemize}
+	\item SI P, P $\rightarrow$ Q ENTONCES Q
+\end{itemize}	
+
+\textbf{Unificación:} encontrar los valores de las variables que hacen que la parte izquierda de la implicación sea igual a P(a).
+\begin{itemize}
+	\item $\forall X (P(X) \rightarrow Q(X))$ tenemos P(a)
+	\item $X=a$
+	\item $P(a) \rightarrow Q(a)$ como tenemos P(a) entonces Q(a)
+\end{itemize}
+
+El proceso de planificación ira mirando los estados y en función de las acciones que pueda aplicar ira avanzando, este proceso es una búsqueda del estado meta y una vez se encuentra el camino ya tenemos la solución.
+
+Esta clase de problema son PSPACE-Complete, requieren tanta memoria que no somos capaces de resolverlos, se verán algunos problemas de los que es posible encontrar la solución.
+
+\section{Representación}
+\textbf{Simplificaciones:} planificación clásica
+\begin{itemize}
+	\item Se supone que los \textbf{estados son finitos}
+	\item \textbf{Mundo aislado}, no hay factores externos que puedan variar nuestro estado, todo está controlado por nuestras acciones.
+	\item \textbf{Determinista y acciones instantáneas}, siempre ocurren las acciones que se lanzan y se hacen al momento.
+\end{itemize}
+
+\textbf{Necesitamos representar}
+\begin{itemize}
+	\item \textbf{Estados:} inicial, final y estados intermedios
+	\item \textbf{Acciones:} cambian el estado
+\end{itemize}
+
+\textbf{Formalización:} lenguajes de representación que el ordenador entienda. La mayoría están basados en lógica de predicados
+
+\subsubsection{Estados y Acciones}
+Los estados se describen:
+\begin{itemize}
+	\item Conjunto de \textbf{tipos de objetos}: persona, transporte, sitio, monumento.
+	\item Conjunto de \textbf{objetos}: yo, bus1, castellana, Cibeles…
+	\item Conjunto de \textbf{predicados genéricos}: at(?persona, ?lugar).
+	\item Un \textbf{estado se representa por un conjunto de predicados instanciados}: at(yo, mi-casa), at(Bernabé, castellana).
+\end{itemize}
+
+
+Para representar una \textbf{acción} tenemos que saber \textbf{en qué estado} se puede ejecutar y \textbf{como cambia el estado y sus parámetros}.
+\begin{itemize}
+	\item viajar-en-metro(?persona, ?linea, ?estacion1, ?estacion2)
+	\item \textbf{Estado:} at(?persona, ?estacion1), link(?linea, ?estacion1, ?estacion2)
+	\item \textbf{Cambio estado:} at(?persona, ?estacion2), at(?persona, ?estacion1)
+\end{itemize}
+
+Hipótesis del mundo cerrado
+
+\subsection{Representación en STRIPS}
+Los estados $s \in S$ se representan mediante variables proposicionales.
+
+El \textbf{estado inicial} $s_0$ es I.
+
+Los \textbf{estados metas} $s_G \in S$ son aquellos tales que $G \subseteq s_G$.
+
+Las \textbf{acciones} A(s) son los $a \in A$ que cumplen $Pre(a) \subseteq s$.
+
+El estado resultante al aplicar a en s es $s’ = s – Del(a) + Add(a)$ (función de \textbf{transición de estados}).
+
+El \textbf{coste} c(a, s) es siempre 1, por ahora siempre será mejor el plan más corto, pero se pueden asociar costes.
+
+$P = (P, A, I, G)$
+\begin{itemize}
+	\item \textbf{P:} conjunto proposiciones (variables lógicas).
+	\item \textbf{A:} conjunto de acciones.
+	\item \textbf{I:} estado inicial.
+	\item \textbf{G:} metas.
+\end{itemize}
+
+Cada operador se representa por:
+\begin{itemize}
+	\item Lista con los tipos de los objetos involucrados.
+	\item \textbf{Pre(a) $\subseteq$ P}: precondiciones.
+	\item \textbf{Add(a) $\subseteq$ P}: literales que pasan a ser verdaderos tras ejecutar a.
+	\item \textbf{Del(a) $\subseteq$ P}: literales que pasan a ser falsos tras ejecutar a.
+\end{itemize}
+
+\subsection{Definición Problemas Planificación}
+$\sqcap$ = (F, O, I, G)
+\begin{itemize}
+	\item \textbf{F:} conjunto de fluents (cosa que es verdadera o falsa) (describen los estados, s $\subseteq$ F)
+	\item \textbf{O:} conjunto de operadores
+	\item \textbf{I $\subseteq$ F:} estado inicial
+	\item \textbf{G $\subseteq$ F:} metas del problema
+\end{itemize}
+
+Un \textbf{plan} es una secuencia de acciones que convierte el estado inicial en un estado donde se alcanzan todas las metas
+
+\textbf{Heurísticas:} conocimiento utilizado para elegir las acciones. 
+
+A partir del fichero \textbf{dominio D} y el de \textbf{problema P} se genera $\sqcap$.
+
+\section{Implementación}
+\textbf{Fichero de dominio D} (genérico), define el problema, como serán los estados y las acciones que se pueden aplicar.
+\begin{itemize}
+	\item \textbf{Predicados genéricos} para definir los estados. (at ?person ?place) (link ?s1 ?s2)
+	\item \textbf{Operadores genéricos}: Move
+	\begin{itemize}
+		\item Parámetros: (?p ?from ?to)
+		\item Precondiciones: (at ?p ?from)
+		\item Efectos:
+		\begin{itemize}
+			\item Añadir: (at ?p ?to)
+			\item Borrado: not(at ?p ?from)
+		\end{itemize}
+	\end{itemize}	
+\end{itemize}
+\pagebreak	
+
+\textbf{Fichero de problema P} (instanciado), fichero con todo los objetos, estado inicial y meta.
+\begin{itemize}
+	\item \textbf{Objetos:} John, castellana, Cibeles…
+	\item \textbf{Estados iniciales:} (at John castellana)…
+	\item \textbf{Metas:} (at John Cibeles)…
+\end{itemize}	
+
+Tendremos un Parser para instanciar estados a partir de D y P, se definirán los elementos de P con la forma que define en D. 
+
+Algoritmo de búsqueda.
+
+\section{Lenguaje PDDL}
+
+\subsection{PDDL 1.0}
+
+\subsection{PDDL 2.1}
+
+\subsection{PDDL 2.2}
+
+\subsection{PDDL 3.0}
+
+\section{Algoritmos de Planificación}
+
 \end{document}
