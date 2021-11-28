@@ -1224,7 +1224,7 @@ La representación que se utilice puede facilitar las inferencias, no es lo mism
 \subsection{Componentes de un Sistema de Producción}
 \textbf{Base de hechos o memoria de trabajo (BH o WM):} conocimiento sobre el dominio en un determinado momento
 
-\textbf{Base de reglas (BR):} conjunto de reglas (producciones) SI Condiciones ENTONCES Acciones
+\textbf{Base de reglas (BR):} conjunto de reglas (producciones). SI Condiciones ENTONCES Acciones
 
 Estrategia de control, interprete de reglas, o \textbf{motor de inferencias (EC o MI):} responsable de encadenar los ciclos de funcionamiento.
 \subsubsection{Base de Hechos}
@@ -1245,7 +1245,7 @@ Está el conocimiento de cómo cambiar entre estados.
 
 La mayor parte de los conocimientos sobre la resolución del problema se representan en un conjunto de reglas o producciones.
 
-Cada regla presenta la forma: \textbf{SI} Condiciones \textbf{ENTONCES Acciones}
+Cada regla presenta la forma: \textbf{SI} Condiciones \textbf{ENTONCES} Acciones
 \begin{itemize}
 	\item \textbf{Condición o antecedente:} lista de cosas a verificar en la BH
 	\item \textbf{Consecuente o acción:} conjunto de acciones a realizar sobre la BH
@@ -1603,7 +1603,7 @@ Los \textbf{estados metas} $s_G \in S$ son aquellos tales que $G \subseteq s_G$.
 
 Las \textbf{acciones} A(s) son los $a \in A$ que cumplen $Pre(a) \subseteq s$.
 
-El estado resultante al aplicar a en s es $s’ = s – Del(a) + Add(a)$ (función de \textbf{transición de estados}).
+El estado resultante al aplicar a en s es $s’ = s - Del(a) + Add(a)$ (función de \textbf{transición de estados}).
 
 El \textbf{coste} c(a, s) es siempre 1, por ahora siempre será mejor el plan más corto, pero se pueden asociar costes.
 
@@ -1666,12 +1666,149 @@ Tendremos un Parser para instanciar estados a partir de D y P, se definirán los
 
 Algoritmo de búsqueda.
 
+\subsection{Problemas y Dominios}
+El conjunto de posibles predicados (no instanciados) y objetos genéricos (types) será el mismo en ambos problemas.
+
+El conjunto de posibles operadores (no instanciadas) será el mismo.
+
+Pero las metas, el estado inicial y los objetos son distintos.
+
+Podemos separar la información (lo que no depende del problema): lista de predicados, tipos de objetos y operadores: domain.
+
+de la información específica del problema: objetos, estado inicial y metas: problem.
+
 \section{Lenguaje PDDL}
+Planning Domain Description Language
+
+Creado en 1998 por Drew McDermott et al. para la primera International Planning Competition (IPC) http://ipc.icaps-conference.org/
+
+Versiones:
+\begin{itemize}
+	\item 1.0: 2000, IPC2 (:strips :typing :adl)
+	\item 2.1: 2002, IPC3 (:fluents y :duration)
+	\item 2.2: 2004, IPC4 (:derived-predicates y :timed-initial-literals, PPDDL)
+	\item 3.0: 2006, IPC5 (:constraints y :preferences)
+	\item 3.1: 2008, IPC6
+\end{itemize}
+Cada versión introduce alguna característica nueva.
+
+Aplicación http://editor.planning.domains/
+
+\subsection{Características Generales}
+Sintaxis basada en Lisp.
+
+Ficheros diferentes para definir el dominio y los problemas.
+
+Diferentes niveles de expresividad, desde :strips hasta :preferences.
+
+En los dominios se definen los  requirements que un planificador tiene  que  tener para poder resolver problemas de ese dominio: :requirements flags
+
+\subsection{Estructura del Fichero de Dominio y Problema}
+\begin{lstlisting}
+(define (domain <nombreD>)
+	(:requirements <:req1> . . . <:reqn>)
+	(:types <subt1> . . . <subtn> - <tipo1>
+		. . .
+	(:constants <cons1> . . . <consn>)
+	(:predicates <p1> <p2> . . . <pn>)
+	(:action 1
+		:parameters (...)
+		:precondition (and ...)
+		:effect (and ...)
+	)
+	. . .
+	(:action n)
+)
+
+(define (problem <problem>)
+	(:domain <nombreD>)
+	(:objects
+		<o11> . . . <o1m> - <subt1>
+		. . .
+		<o1n> . . . <onm> - <tipon>
+	) 
+	(:init <l1> <l2> . . . <ln>)
+	(:goal (and (<g1> <g2> . . . <gn>))
+	(:metric minimize (. . . ))
+)
+\end{lstlisting}
+
+\subsection{Calidad Solución}
+\begin{enumerate}
+	\item Pro defecto: longitud del plan.
+	\item Métrica especifica definida en el fichero de problema.
+\end{enumerate}
 
 \subsection{PDDL 1.0}
+Requirements:
+\begin{itemize}
+	\item :strips. Básico
+	\item :typing. Permite definir tipos de variables
+	\item :negative-preconditions
+	\item :disjunctive-preconditions
+	\item :equality. Permite la igualdad en los predicados
+	\item :existential-preconditions. Permite usar exists
+	\item :universal-preconditions. Permite usar forall
+	\item :quantified-preconditions. Permite usar exists y forall.
+	\item :conditional-effects. Permite usar when
+	\item :adl. Engloba :strips, :typing, :negative-preconditions, :disjunctive-preconditions, :equality, :quantified-preconditions y :conditional-effects
+\end{itemize}
+
+Operadores:
+\begin{itemize}
+	\item Operadores en las precondiciones:
+	\begin{itemize}
+		\item and / or / not
+		\item imply <cond> <effect>
+		\item exists <variable> <literal>
+		\item forall <variable> <literal>
+	\end{itemize}
+	\item Operadores en los efectos:
+	\begin{itemize}
+		\item and / not
+		\item forall <variable> <effect>
+		\item when <expression> <effect>
+	\end{itemize}
+\end{itemize}
+Por defecto tratará de minimizar el número de acciones.
 
 \subsection{PDDL 2.1}
+Creado en 2002 por Maria Fox y  Derek Long para la IPC3.
 
+Características:
+\begin{itemize}
+	\item Variables numéricas.
+	\item Métricas de calidad de los planes (metrics)
+	\item Acciones durativas (durative actions)
+\end{itemize}
+
+\subsubsection{Variables numéricas}	
+Hay  que añadir :fluents en los :requirements.
+
+Se añaden con un nuevo campo :functions en la definición del dominio. 
+\begin{itemize}
+	\item (:functions (fuel-level ?r - rover)(fuel-used ?r - rover))(fuel-needed ?w1 ?w2 - waypoint)(total-fuel-used))
+\end{itemize}
+
+Significado: es cierto que el valor de la función en el estado es x.
+
+Se pueden usar en las precondiciones y efectos de las acciones.
+\begin{itemize}
+	\item Precondiciones, con operaciones relacionales: =, >, <, >=, <=.
+	\item Efectos, para cambiar su valor: increse, decrease, assign, scale-up, scale-down.
+\end{itemize}
+El valor inicial se tiene que dar en el fichero de problema.
+\begin{itemize}
+	\item (:init (= (fuel-level ?truck) 100))
+\end{itemize}
+
+Métricas de Calidad
+\begin{itemize}
+	\item Se añade un nuevo campo en el fichero de problema, :metric.
+	\item Se puede maximizar o minimizar.
+	\item (:metric minimize (total-fuel))
+	\item (:metric minimize (+ (* 2 (fuel-used car))(fuel-used truck)))
+\end{itemize}
 \subsection{PDDL 2.2}
 
 \subsection{PDDL 3.0}
