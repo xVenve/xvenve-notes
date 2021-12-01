@@ -1809,10 +1809,280 @@ Métricas de Calidad
 	\item (:metric minimize (total-fuel))
 	\item (:metric minimize (+ (* 2 (fuel-used car))(fuel-used truck)))
 \end{itemize}
+
+\subsubsection{Acciones durativas}
+Cada acción puede tener una duración diferente: requirement :duration
+
+Cambia la definición de las acciones:
+\begin{lstlisting}
+(:durative-action <nombre>
+	:parameters (?a - <tipo>)
+	:duration (<duration>)
+	:condition (and ...)
+	:effect (and ...)
+)
+\end{lstlisting}
+
+Formas de definir la duración:
+\begin{itemize}
+	\item \textbf{valor numérico:} :duration (= ?duration 5)
+	\item \textbf{valor calculado:} :duration (= ?duration (+ ?x ?y))
+	\item \textbf{intervalo:} :duration (and (> ?duration 0) (< ?duration 10))
+	
+	(necesita requirement :duration-inequalities)
+	\item \textbf{sin valor} (dura hasta que una precondición se haga falsa)
+\end{itemize}
+
+Tienen que  estar temporalmente cualificados:
+\begin{itemize}
+	\item at start
+	\item at end
+	\item over all
+\end{itemize}
+
 \subsection{PDDL 2.2}
+Creado por Stefan Edelkamp, Jorg Hoffman y Michael Littman en 2004 para la IPC4.
+
+3 niveles de PDDL 2.1 mas
+\begin{itemize}
+	\item \textbf{Derived predicates} (axiomas de PDDL 1)
+	
+	Requirement: :derived-predicates
+
+	\item \textbf{Timed initial literals}
+	
+	Requierement: :timed-initial-literals
+	
+	Literales que se hacen ciertas o falsas en un determinado instante.
+
+	Se definen en el fichero de problema, en el init.
+\end{itemize}
 
 \subsection{PDDL 3.0}
+Desarrollado por Alfonso Gerevini y Derek Long para la IPC5
+
+Introduce: 
+\begin{itemize}
+	\item \textbf{State trajectory constraints:}
+	
+	Necesita requirement: :constraints 
+	
+	Metas intermedias 
+	\item \textbf{Goal preferences:}
+	
+	Necesita requirement: :preferences 
+	
+	Metas que no son obligatorias (pero si deseables)
+\end{itemize}
+ 
+\subsubsection{State Trajectory Constraints}
+Se definen en la sección :constraints del problema o del dominio (válido para todos los problemas)
+
+Se representan utilizando logia temporal con los siguientes operadores modales:
+\begin{itemize}
+	\item always $\phi$: $\phi$ tiene que ser cierto en todos los estados
+	\item sometime $\phi$: $\phi$ tiene que ser cierto en algún momento
+	\item at-most-once $\phi$: $\phi$ tiene que ser cierto una sola vez
+	\item at end $\phi$: $\phi$ tiene que ser cierto al final
+	\item within t $\phi$: $\phi$ tiene que ser cierto durante t instantes de tiempo
+	\item sometime-before $\phi$ $\phi_2$: $\phi$ tiene que ser cierto antes que $\phi_2$
+	\item sometime-after $\phi$ $\phi_2$: $\phi$ tiene que ser cierto después que $\phi_2$
+	\item always-within t $\phi$ $\phi_2$: cuando $\phi$ sea cierto, $\phi_2$ debe ser cierto antes de t instantes de tiempo
+	\item hold-during $t_1$ $t_2$ $\phi$: $\phi$ tiene que ser cierto en el intervalo de tiempo entre $t_1$ y $t_2$
+	\item hold-after t $\phi$: $\phi$ tiene que ser cierto después de t
+\end{itemize}
+
+\subsubsection{Preferencias}
+Se pueden definir en:
+\begin{itemize}
+	\item Fichero de dominio: (aplicable a todos los problemas)
+	
+	En la parte de :constraints
+	
+	En las precondiciones de los operadores
+	\item Fichero de problema
+	
+	En la parte de :constraints
+	
+	En la parte de :goals
+\end{itemize}
+Sintaxis: (preference <nombre> $\phi$)
+\begin{itemize}
+	\item <nombre> es opcional
+	\item Varias preferencias pueden tener el mismo nombre
+\end{itemize}
+Las preferencias pueden tener un peso para establecer prioridades
+
+Solo aplicables a las que tienen nombre
+
+Por defecto se les asigna peso=1
+
+Se definen en la parte de métricas del problema
 
 \section{Algoritmos de Planificación}
+
+\subsection{Estrategias de Búsqueda}
+Dirección: 
+\begin{itemize}
+	\item Encadenamiento hacia delante (forward chaining) 
+	
+	Desde el estado inicial 
+	
+	Aplicar operadores cuyas precondiciones son ciertas en el estado 
+	
+	Obtener un nuevo estado 
+	\item Encadenamiento hacia detrás (backward-chaining) 
+	
+	Desde las metas del problema 
+	
+	Encontrar un operador cuyos efectos añadan la meta 
+	
+	Añadir las precondiciones de dicho operador al conjunto de metas 
+\end{itemize}
+Características deseables: Sound, completo, optimalidad y escalabilidad
+\subsection{Modelo de Planificación STRIPS}
+Suposiciones:
+\begin{itemize}
+	\item Acciones
+	\begin{itemize}
+		\item Deterministas
+		\item Instantáneas
+		\item Recursos discretos
+		\item Coste unitario
+	\end{itemize}
+	\item Entorno
+	\begin{itemize}
+		\item Observabilidad total
+		\item Estático
+	\end{itemize}
+	\item Objetivo
+	\begin{itemize}
+		\item Satisfacción total
+		\item Métrica longitud del plan 
+	\end{itemize}
+\end{itemize}
+
+Los costes son 1, unitarios.
+
+Conocemos todo, observabilidad total, todo lo que ocurre es conocido y podremos actuar.
+
+Buscamos el plan más corto.
+\subsection{Modelo de Planificación con Costes}
+Suposiciones:
+\begin{itemize}
+	\item Acciones
+	\begin{itemize}
+		\item Deterministas
+		\item Instantáneas
+		\item Recursos discretos
+		\item \textbf{Coste no unitario}
+	\end{itemize}
+	\item Entorno
+	\begin{itemize}
+		\item Observabilidad total
+		\item Estático
+	\end{itemize}
+	\pagebreak
+	\item Objetivo
+	\begin{itemize}
+		\item Satisfacción total
+		\item Métrica \textbf{coste del plan}
+	\end{itemize}
+\end{itemize}
+
+Se dejan de tener costes unitarios, de manera que cada acción tendrá un coste diferente.
+
+Buscaremos el plan de menor costes, no el más corto
+\subsection{Modelo de Planificación Temporal}
+Suposiciones:
+\begin{itemize}
+	\item Acciones
+	\begin{itemize}
+		\item Deterministas
+		\item \textbf{Durativas y concurrentes}
+		\item Recursos discretos
+		\item Coste unitario
+	\end{itemize}
+	\item Entorno
+	\begin{itemize}
+		\item Observabilidad total
+		\item Estático
+	\end{itemize}
+	\item Objetivo
+	\begin{itemize}
+		\item Satisfacción total
+		\item Métrica \textbf{duración del plan}
+	\end{itemize}
+\end{itemize}
+
+Las instancias ya no son ciertas siempre, sino que serán durativas y concurrentes dependerán del tiempo.
+
+Buscaremos el pan de menor duración.
+\subsection{Modelo de Planificación Con Recursos}
+Suposiciones:
+\begin{itemize}
+	\item Acciones
+	\begin{itemize}
+		\item Deterministas
+		\item Instantáneas
+		\item \textbf{Recursos continuos}
+		\item Coste unitario
+	\end{itemize}
+	\item Entorno
+	\begin{itemize}
+		\item Observabilidad total
+		\item Estático
+	\end{itemize}
+	\item Objetivo
+	\begin{itemize}
+		\item Satisfacción total
+		\item Métrica longitud del plan
+	\end{itemize}
+\end{itemize}
+
+Los recursos son continuos, no continuos.
+\subsection{Modelo de Planificación con Incertidumbre}
+Suposiciones:
+\begin{itemize}
+	\item Acciones
+	\begin{itemize}
+		\item Deterministas / \textbf{No deterministas}
+		\item instantáneas
+		\item Recursos discretos
+		\item Coste unitario
+	\end{itemize}
+	\item Entorno
+	\begin{itemize}
+		\item Observabilidad total / \textbf{Observabilidad parcial / Observabilidad nula} (P. probabilidad / P. contingente / P. conformante)
+		\item Estático
+	\end{itemize}
+	\item Objetivo
+	\begin{itemize}
+		\item Satisfacción total
+		\item Métrica longitud del plan
+	\end{itemize}
+\end{itemize}
+
+Las acciones ya no tienen lugar siempre, sin que tiene una probabilidad de fallar o no tener lugar.
+
+El entorno ya no es conocido con totalidad, sino que será parcial o nulo el conocimiento. Tendremos que hacer suposiciones y tratar las posibilidades.
+
+\subsection{Clasificación}
+Planificación determinista 
+\begin{itemize}
+	\item Conocimiento completo del dominio (estado y acciones) 
+	\item No hay retroalimentación (feedback) al ejecutar planes 
+\end{itemize}
+
+Planificación probabilística: 
+\begin{itemize}
+	\item Estado completamente observable 
+	\item Acciones no deterministas: su ejecución puede producir distintos estados siguiendo una distribución de probabilidad 
+	\item Necesaria retroalimentación 
+\end{itemize}
+
+Planificación contingente (contingent planning): planes condicionales con ramas de actuación alternativas para contingencias 
+
+Planificación conformante (conformant planning): planes condicionales tanto para acciones como para estados
 
 \end{document}
