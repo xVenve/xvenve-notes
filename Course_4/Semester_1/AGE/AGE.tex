@@ -1255,7 +1255,7 @@ Mientras no se cumpla el criterio de convergencia:
 	\begin{enumerate}
 		\item Seleccionar un operador entre mutación y sobrecruzamiento
 		\item Si se ha elegido mutación:
-		\item \begin{enumerate}
+		\begin{enumerate}
 			\item Seleccionar un individuo aleatoriamente de la población
 			original
 			\item Crear un nuevo individuo por mutación del anterior
@@ -1442,7 +1442,7 @@ Se generan n nuevos y todos ellos se comparan con el más parecido de una subpob
 En todos estos métodos buscamos soluciones distribuidas.
 
 \section{Resolución de problemas con restricciones}
-En algunos problemas las soluciones deben cumplir una serie de criterios para ser válidas, en estos casos no todos los individuos codificados son aceptables. Un ejemplo es asignar tareas a empleados, cunado no todos los empleados son capaces de hacer todas las tareas.
+En algunos problemas las soluciones deben cumplir una serie de criterios para ser válidas, en estos casos no todos los individuos codificados son aceptables. Un ejemplo es asignar tareas a empleados, cuando no todos los empleados son capaces de hacer todas las tareas.
 
 \subsection{Problemática}
 Los AG canónicos no pueden tratar restricciones.
@@ -1504,9 +1504,327 @@ Suelen requerir modificar los operadores genéticos para que conserven la factib
 
 Tiene inconvenientes similares a las técnicas de reparación. De modo indirecto todas estas técnicas están añadiendo conocimiento específico.
 
+\section{Resolución de problemas con varios objetivos contrapuestos}
+Los problemas de optimización multi-objetivo son aquellos que suelen tener dos o más funciones objetivo que deben satisfacerse simultáneamente y que posiblemente están en conflicto entre sí. (como seria calidad y precio en la compra)
+
+No existe una solución mejor, sino un conjunto de alternativas, que suelen representar los mejores compromisos entre los diferentes objetivos, elimina los no óptimos.
+
+Es tarea del usuario decidir qué solución es la más adecuada
+
+En muchos casos es necesario disponer de todo el conjunto de soluciones.
+
+Se introduce el término dominancia, que es cuando una solución es mejor en todos los objetivos que otra, la domina.
+
+El Frente de Pareto está formado por las soluciones no dominadas, estas formarán las mejores soluciones.
+
+\subsection{Ejemplos}
+\subsubsection{Manets - Mobile Ad-hoc Networks} 
+Red de conexión inalámbrica, cada terminal se puede comunicar directamente con otras estaciones. El objetivo es optimizar la transmisión de mensajes por la red. Problema con tres objetivos: maximizar el número de estaciones alcanzadas minimizando el tráfico de la red y el tiempo de establecimiento de la comunicación.
+
+\subsubsection{RND - Radio Network Design} 
+Determinar la localización de las antenas, con el objetivo de colocar el mínimo número de antenas posibles con la máxima cobertura.
+
+\subsubsection{Optimización de carteras de inversión} 
+Encontrar una composición óptima de inversión en activos que nos produzcan el máximo rendimiento al menor riesgo.
+
+\subsubsection{Diseño óptimo de estructuras reticulares} 
+En este caso los objetivos son: minimizar el peso de la estructura, minimizar los desplazamientos en cada nodo y minimizar la vibración de la estructura.
+
+\subsection{Solución mono-objetivo}
+Tradicionalmente, estos problemas se abordan:
+\begin{itemize}
+	\item Modelando los problemas como monoobjetivo (ponderando los diferentes objetivos)
+	\item Considerando algunos de los objetivos como restricciones al problema:
+	\begin{itemize}
+		\item Penalización de individuos (fitness), es muy importante que esté balanceado.
+		\item Corrección de individuos
+	\end{itemize}
+	\item Métodos de ejecución secuencial, se puede introducir nichos y sobrepoblación.
+	\item Este solo obtiene una solución, la que maximice o minimice la función de fitness, los resultados no son muy buenos.
+\end{itemize}
+
+\subsection{Definiciones}
+Un problema de optimización multiobjetivo general puede formularse como: Encontrar el vector $x = (x_1, x_2, ..., x_n)$ que satisfaga las m restricciones de desigualdad $e(x) = (e_1(x), e_2(x), ..., e_m(x)) \geq 0$ y que optimice $y = f (x) = (f_1(x), f_2(x), ..., f_k(x))$
+
+La noción más aceptada de "óptimo" en el entorno de problemas multiobjetivo es la propuesta por Pareto en 1896
+
+Se dice que un punto $x^*$ es un óptimo de Pareto (minimización) si para todo x del espacio de entrada se cumple: $f_i(x^*) \leq f_i(x) \forall i = 1, ..., k$
+
+Conjunto de óptimos de Pareto. P* está formado por los puntos x*, tales que no existe otro vector x tal que f(x) domine a f(x*) Frente de Pareto. es el conjunto de vectores objetivos Y= f(P*)
+
+\subsection{Frente de Pareto}
+Cada punto del frente se corresponde con un individuo
+
+No hay una única solución. El método debe converger a un conjunto de soluciones (método de nichos)
+
+Para elegir una solución, hay que establecer un compromiso entre los diferentes objetivos
+
+\subsection{Primeros pasos}
+Dentro de la disciplina “Investigación operativa” se han estudiado técnicas para la resolución de problemas de optimización multiobjetivo.
+
+La mayoría de ellas están limitadas a frentes de Pareto con ciertas características (p. ej. convexos) y suelen requerir un punto inicial de búsqueda.
+
+Algoritmos evolutivos mono-objetivos, con restricciones o ponderando los diferentes objetivos. Solo se consigue una solución y no un frente de soluciones
+
+Ejecutar los algoritmos mono-objetivo varias veces cambiando las restricciones o la ponderación: se obtiene un conjunto de soluciones
+
+Rosenberg en 1967 ya habló del potencial de la AG para abordar problemas MO (MOEA).
+
+\subsection{MOEA’s}
+Históricamente se considera que ha habido dos generaciones de algoritmos evolutivos para optimización multiobjetivo (MOEA):
+\begin{itemize}
+	\item Primera generación: Caracterizada por el uso de jerarquización de Pareto y nichos. Algoritmos relativamente simples. Gozaron de éxito, pero comenzaron a decaer (NSGA, NPGA, MOGA y VEGA).
+	\item Segunda generación: Transcurre desde 1999 a la actualidad. Hoy día son vistos como el estado del arte: SPEA, SPEA2, NSGA II, MOMGA, MOMGA II, PAES, PESA, PESA II.
+\end{itemize} 
+La tendencia actual es extender otras heurísticas a problemas multiobjetivo: búsqueda dispersa, optimización mediante enjambres partículas, sistemas inmunes artificiales.
+
+\subsubsection{MOEA’s segunda generación}
+Fundamentalmente, consiste en la incorporación de elitismo.
+
+Se propusieron dos mecanismos para el elitismo:
+\begin{itemize}
+	\item Mediante una selección ($\mu + \lambda$):
+	\begin{itemize}
+		\item Dados µ padres, se generan $\lambda$ hijos.
+		\item Se crea una población y padres e hijos ($\mu + \lambda$).
+		\item Compiten padre e hijos pasando a la siguiente población los $\mu$ mejores.
+	\end{itemize}
+	\pagebreak
+	\item Mediante la utilización de una población externa (que almacena soluciones no dominadas). Algunos aspectos a considerar en este enfoque son:
+	\begin{itemize}
+		\item La interacción entre la población y la población externa.
+		\item Los criterios para realizar las inserciones de elementos en la población externa.
+		\item Las acciones a tomar cuando se completa la población externa.
+	\end{itemize}
+\end{itemize}
+
+\subsection{VEGA}
+El primer algoritmo evolutivo MO fue “Vector Evaluated Genetic Algorithm (VEGA)” desarrollado por Schaffer en 1984.
+
+Para M objetivos, se divide aleatoriamente la población, en cada iteración, en M subpoblaciones del mismo tamaño.
+
+A cada subpoblación se le aplica como función de evaluación un objetivo diferente.
+
+Se aplica el operador de cruce a individuos que pueden pertenecer a subpoblaciones diferentes, generando soluciones que lo hacen bien con diferentes objetivos.
+
+Es un AG canónico, en el que la evaluación de los individuos se realiza de forma aleatoria utilizando un objetivo u otro.
+
+Es simple y fácil de implementar
+
+Al generarse soluciones de compromiso entre objetivos, se pierde eficacia, ya que no derivan hacia el frente Pareto, sino a soluciones medias.
+
+\subsection{NSGA II}
+El algoritmo NSGA II (Elitist Non-Dominated Sorting Genetic Algorithm) fue propuesto por Deb et al. en 2000.
+
+Es el más conocido y ampliamente utilizado
+
+Se genera una población de descendientes $Q_t$ (tamaño N) a partir de la población de padres $P_t$ (tamaño N)
+
+Se unen en una población intermedia de tamaño 2N ($R_t$)
+
+Se ordena la población $R_t$ con el criterio de dominancia, obteniendo diferentes frentes
+
+F1 son las soluciones no dominadas,
+
+F2 son las no dominadas cuando hemos eliminado F1, etc.
+
+La nueva población se construye a partir del primer frente (F1), si no está completa se añade el segundo(F2) y así sucesivamente.
+
+Se buscan los mejores frentes, prefiriendo aquellos con los puntos más alejados cubriendo más soluciones.
+
+La población descendiente $Q_i$ se crea a partir de la original $P_i$, usando selección por torneo, reproducción y mutación
+
+Como la población $R_t$ es de tamaño 2N, y solamente N configuraciones pasarán a la siguiente generación. Se introducen hasta completar el tamaño N.
+
+Si en un frente hay más individuos que los que quedan para llenar la población, se eligen a los más dispersos.
+
+Se aplica un estimador de densidad conocido como “Crowding Distance”, promoviendo la diversidad.
+
+Elitismo, las dos mejores soluciones de la población actual se copian en la nueva.
+
+“Crowding distance” de una solución del frente es la suma de las longitudes del lado del cubo formado por sus vecinos del frente Pareto.
+
+Es un buen medidor de la diversidad cuando el número de objetivos es menor o igual que tres.
+
+Para problemas con más de tres objetivos, no proporciona buenos resultados.
+
+\subsubsection{Procedimiento NSGA II}
+Combinar las poblaciones de padres e hijos ($R_t$ = $R_t$ $\cup$ $Q_t$)
+
+Calcular los frentes no dominados de manera jerárquica (F = NoD($R_t$))
+
+Mientras la población no esté llena (|$R_{t+1}$| + |$F_i$| < N)
+\begin{itemize}
+	\item Calcular la distancia “crowding” en $F_i$
+	\item Incluir el i-ésimo frente no dominado en la población ($R_{t+1}$ = $R_{t+1}$ [ $F_i$)
+	\item Aumentar el contador de frentes (i = i + 1)
+\end{itemize}
+
+Ordenar los elementos del frente i-ésimo de manera descendiente
+
+Elegir los elementos que quedan para completar la población entre los primeros de la ordenación anterior
+
+Crear una población nueva mediante selección, cruce y mutación
+
+Aumentar el contador de generaciones
+\pagebreak
+\subsection{SPEA}
+Strength Pareto Evolutionary Algorithm (SPEA) fue propuesto por Zitzler y Thiele en 1998.
+
+Utiliza una población externa de soluciones no dominadas obtenidas previamente.
+
+Se basa en el concepto de fuerza (strength), similar al rango de dominancia en otros MOEA. La fuerza de un individuo es proporcional al número de individuos que son dominados por él.
+
+La asignación de fitness se basa en la medida de “fuerza”.
+
+Se utiliza clustering para mantener la diversidad.
+
+En cada generación, los individuos no-dominados tanto de la población original como del archivo se utilizan para actualizar el archivo.
+
+\subsubsection{Procedimiento SPEA}
+\begin{enumerate}
+	\item Se inicializa la población y el salón de la fama (individuos no dominados)
+	\item Se calcula el fitness
+	\item Los individuos no dominados de la población y el salón de la fama pasan al nuevo salón de la fama (t+1)
+	\begin{itemize}
+		\item Si hay de más se eliminan los excedentes mediante el operador de truncado
+		\item Si hay de menos se completa mediante la selección del entorno
+	\end{itemize}
+	\item Se seleccionan para el mating pool individuos del salón de la fama mediante torneos binarios, se selecciona un individuo del salón de la fama y otro que no para que compitan.
+	\item Se genera una nueva población mediante recombinación y mutación
+	\item Si no se cumple el criterio de parada vamos al paso 2
+\end{enumerate}
+\pagebreak
+\subsection{SPEA 2}
+SPEA-2 es una mejora al algoritmo original propuesta por Zitzler y Thiele en 2001.
+
+Presenta tres diferencias sustanciales con SPEA:
+\begin{itemize}
+	\item La asignación de fitness considera la cantidad de individuos dominados por cada solución (como SPEA), pero además toma en cuenta la cantidad de individuos que la dominan.
+	\item Para mantener diversidad utiliza una técnica de estimación de densidad de individuos vecinos.
+	\item Utiliza un esquema de truncamiento de la población externa que le garantiza la preservación de soluciones de frontera (bordes).
+	\item Si el número de individuos no dominados es mayor que el tamaño de la población, se aplica un operador de truncamiento basado en el cálculo de las distancias a los k-vecinos más cercanos.
+\end{itemize}
+
+\subsubsection{SPEA 2 Evaluación}
+A cada individuo se le asigna un valor de fuerza que es el número de individuos, entre población y fama, que domina $S(i) = |\{j, , j \in P_t + \overline{P}_t \wedge i \succ j\}|$
+
+El fitness se calcula como la suma de las fuerzas de los individuos a los que domina $R(i) = X \sum_{j\in P_t+\overline{P}_t,j\succ i} S(j)$
+
+Se calcula para cada individuo un valor de densidad que determina lo aislado que está dicho individuo, mediante su distancia a su k-ésimo vecino más próximo ($\sigma_i^k$): $D(i)= \frac{1}{\sigma^k_i + 2}$
+
+k se calcula a partir del tamaño de la población N y el tamaño del salón de la fama $\overline{N}$: $k = \sqrt{N+\overline{N}}$
+
+El fitness definitivo es la suma del anterior y la densidad, $F(i) = R(i) + D(i)$
+
+\subsubsection{SPEA 2 Selección del entorno}
+Si el salón de la fama es demasiado pequeño, se añaden de entre los dominados aquellos con mayor fitness hasta que sea necesario.
+
+Si el salón de la fama es demasiado grande se eliminan, de entre los no dominados, aquellos que estén más poblados, es decir con menor distancia a su k vecino más cercano.
+\pagebreak
+\subsection{Métricas}
+Cuando se resuelve un problema Multiobjetivo:
+\begin{itemize}
+	\item El objetivo es obtener el frente de Pareto
+	\item Hacerlo con rapidez: eficiencia
+	\item Frente de calidad: convergencia y diversidad
+\end{itemize}
+En mono-objetivo, el mejor algoritmo será el que calcule la solución con mejor (óptimo) valor de la función objetivo.
+
+En multi-objetivo, el mejor algoritmo será el que calcule el mejor frente de Pareto ¿Cómo medir si un frente es mejor que otro?
+
+Las métricas deben evaluar:
+\begin{itemize}
+	\item La calidad de los resultados (cercanía al frente de Pareto).
+	\item La diversidad de las soluciones
+	\item La cantidad de elementos del conjunto de óptimos de Pareto.
+	\item La eficiencia computacional del algoritmo
+\end{itemize}
+
+Medidas de cardinalidad:
+\begin{itemize}
+	\item La cardinalidad de un frente es el número de soluciones que existen en dicho frente
+	\item Se prefieren frentes con más soluciones
+\end{itemize}
+Medidas de precisión:
+\begin{itemize}
+	\item Miden la convergencia del frente obtenido respecto de un teórico frente óptimo
+	\item Se calcula la distancia de nuestro frente al frente ideal
+	\item Si el frente ideal es desconocido, se utiliza un frente de referencia R en su lugar
+\end{itemize}
+Medidas de diversidad
+\begin{itemize}
+	\item Miden la distribución de los puntos del frente Pareto
+	\item Distribución. Distancia relativa entre los puntos del frente. Mide los dispersos que están los puntos
+	\item Difusión. Rango de valores cubiertos por la solución del frente. Mide lo amplio que es el frente
+\end{itemize}
+
+\subsubsection{Número de soluciones}
+Número de soluciones del frente
+\begin{itemize}
+	\item Fácil de calcular.
+	\item No refleja la calidad del frente .
+\end{itemize}
+Número de soluciones óptimas del frente
+\begin{itemize}
+	\item Fácil de calcular.
+	\item Requiere conocer el frente óptimo.
+	\item No refleja la distribución de las soluciones.
+\end{itemize}
+
+\subsubsection{Hipervolumen}
+Mide el volumen de la región dominada por el frente $HV(A) = \cup_{i=1...|A|}v_i$ donde $V_i$ es el hipercubo con esquinas $a_i$ y W.
+
+Sirve para medir la convergencia y la diversidad
+
+No requiere conocer el frente óptimo
+
+Sí se necesita un punto de referencia
+
+Una de las métricas más utilizadas
+
+A mayor HV, más diverso es el frente
+
+\subsubsection{Spread}
+Es una medida de la distribución de los puntos contenidos en un frente
+$$SP(A) = \frac{(d_L + d_U + \sum_{i=1}^{N-1}|d_i - d|)}{d_L + d_U + (N - 1)d}$$
+
+$$d = \frac{(d_1 + d_2 + ... + d_{N-1})}{N - 1}$$
+
+Válida solo para 2 objetivos
+\pagebreak
+\subsubsection{Set coverage}
+Es una medida de la cobertura (en términos del operador de dominancia) de un frente sobre otro
+
+$$SC(x, y) =\frac{|y \in Y, \exists x \in X, y \leq x|}{|Y|}$$
+
+\begin{itemize}
+	\item Es una medida de comparación de dos frentes.
+	\item No requiere conocer el frente Pareto óptimo.
+	\item Siempre es conveniente evaluar SC(X, Y) y SC(Y, X).
+	\item No se da información sobre la diversidad.
+	\item No índica cómo de alejado están los frentes.
+\end{itemize}
+
+\subsubsection{Distancia generacional}
+Distancia media de cada solución en un frente hacia el frente de Pareto óptimo.
+\begin{itemize}
+	\item Se puede usar con distintos tipos de distancia.
+	\item Requiere conocer el frente óptimo.
+	\item Un frente con un solo punto, sería una buena solución con esta métrica.
+\end{itemize}
+$$GD(A)=\frac{\sum_{i...n}d}{n}$$
+
+En muchas ocasiones el frente óptimo se desconoce. Cuando se pretende comparar diferentes algoritmos, se obtiene un “frente óptimo” mezclando todas las soluciones y obteniendo las soluciones no dominadas. Este conjunto podría ser el frente de referencia
+
+\subsubsection{Punto rodilla}
+Es un subconjunto de soluciones de un frente Pareto, en las cuales una mejora en un objetivo produce una severa degradación de al menos otro de los objetivos.
+
+Soluciones del punto rodilla de un frente Pareto son preferibles si no se especifica ninguna otra preferencia
+
 \section{Algoritmos Coevolución}
 \subsection{Diploidad}
-Se basa en que en los organismos los cromosomas se encuentran duplicados, por lo que posee el fenotipo repetido.
+Se basa en que en algunos organismos, los cromosomas se encuentran duplicados, por lo que posee el fenotipo repetido.
 
 Existen dos genes, llamados homólogos, para el mismo carácter
 
