@@ -558,7 +558,7 @@ Hay que obtener una \textbf{medida cuantitativa de la calidad del individuo (sol
 Es un proceso iterativo que finaliza cuando se ha obtenido un individuo lo suficientemente bueno.
 
 \subsubsection{Procedimiento}
-Se parte de una población inicial de soluciones aleatoria.
+Se parte de una población inicial de soluciones aleatorias.
 \begin{enumerate}
 	\item Selección de progenitores, mediante la función de fitness evaluamos los individuos y aplicando reglas de selección escogemos una población de progenitores.
 	\item Reproducción, las operaciones son estocásticas y aleatorias.
@@ -588,8 +588,8 @@ Se trata de generar una población de n individuos (soluciones) de dimensión k 
 
 Si se tiene algún conocimiento previo para generar una buena población inicial usarlo, pero si no se emplea:
 \begin{itemize}
-	\item \textbf{Aleatoria uniforme:} Hay que tener en cuenta que habrá huevos en el espacio de soluciones no cubiertos, ya que es aleatorio. Genera valores aleatorios entre los rangos marcados para los valores del individuo.
-	\item \textbf{Muestreo uniforme hipercúbico:} Para evitar que haya regiones más pobladas que otras se divide el espacio en n regiones iguales y se generan dentro de estos individuos aleatoriamente. De esta manera están más distribuidos uniformemente en el espacio.
+	\item \textbf{Aleatoria uniforme:} Hay que tener en cuenta que habrá huecos en el espacio de soluciones no cubiertos, ya que es aleatorio. Genera valores aleatorios entre los rangos marcados para los valores del individuo.
+	\item \textbf{Muestreo uniforme hipercúbico:} Para evitar que haya regiones más pobladas que otras se divide el espacio en n regiones iguales y se generan dentro de estas individuos aleatoriamente. De esta manera están más distribuidos uniformemente en el espacio.
 	\item \textbf{Secuenciado simple inhibido:} Otra manera de buscar que este todo poblado es generar individuos que se encuentren al menos a una distancia mínima $\Delta$, se parte de un individuo aleatorio y se van generando más mientras están al menos a esa distancia del resto de individuos.
 	\item \textbf{Heurística:} Emplea una heurística como podría ser la greedy.
 \end{itemize}
@@ -610,12 +610,12 @@ Hay que estar seguro de que lo que queremos maximizar u obtener, está descrito 
 \subsubsection{Paisaje de calidad}
 El poder tener una \textbf{representación gráfica de la calidad de los individuos} permite estimar la complejidad del problema
 
-Muestra el valor de calidad de todos los puntos del espacio de estados, que tiene que ser \textbf{estimación}.
+Muestra el valor de calidad de todos los puntos del espacio de estados, aunque dado el gran tamaño del espacio seran una \textbf{estimación}.
 
 Se puede calcular la calidad de los individuos que rodean a uno determinado, e intentar extrapolar en el resto del espacio.
 
 \subsection{Selección}
-La selección tiene como objetivo que los mejores individuos generen más descendentes que los peores
+La selección tiene como objetivo que los mejores individuos generen más descendentes que los peores.
 
 Se utiliza el término \textbf{presión selectiva} (cuando un individuo tiene mucho estrés encima para evolucionar, tiene competencia) como la cantidad de individuos diferentes que generarán descendencia.
 
@@ -757,7 +757,7 @@ Criterios de parada
 	      \end{itemize}
 	\item \textbf{Dinámica:} En cada momento se evalúa si merece la pena detenerse o continuar.
 	      \begin{itemize}
-		      \item Ya no se generen mejores soluciones.
+		      \item Cuando ya no se generen mejores soluciones.
 		      \item La diversidad genética caiga por debajo de cierto umbral.
 
 		            Se calcula la semejanza genotípica entre todos los posibles pares de individuos de la población $D(P)=\sum_{i,j\in P} d(P_i, P_j)$.
@@ -835,7 +835,7 @@ Lo primero es plantearse si se puede resolver mediante esta técnica o no, si se
 \textbf{Cruce/Reproducción}: Simula la reproducción sexual.
 \begin{itemize}
 	\item Se genera una población intermedia del mismo tamaño que la original, en la que tendrá más probabilidad de estar representados los mejores individuos.
-	\item Puede ser: Simple (parte en 2), De dos puntos y Uniforme(cada gen tiene una probabilidad de cambiar por el del otro progenitor).
+	\item Puede ser: Simple (parte en 2), De dos puntos y  (cada gen tiene una probabilidad de cambiar por el del otro progenitor).
 	\item El problema del incesto, si solo se hace cruce puede ocurrir que se pierdan alelos (todos los individuos tengan el mimo valor para un gen). En este caso se pierde rápidamente la variedad genética y se produce convergencia prematura. Por esto se introduce mutación.
 \end{itemize}
 
@@ -1023,7 +1023,7 @@ Es un método de escalada puro.
 
 La población está compuesta por un solo individuo $(a_1^t)$, que variara entre generaciones según: $P^t=(a^t_1)=((x^t_1, \sigma^t_1))$.
 
-El individuo está formado por dos vectores de número reales: 
+El individuo está formado por dos vectores de números reales: 
 \begin{itemize}
 	\item Vector de la codificación $x^t$, codifica una solución al problema.
 	\item Vector de varianzas $\sigma^t$, nos indica como de alejada se encuentra la solución de la solución óptima.
@@ -1201,12 +1201,12 @@ Si se generan $\lambda$ descendientes a partir de $\mu$ progenitores.
 Los métodos se diferencian por la codificación, el resto es igual con pequeñas variaciones. En este caso se utilizará una codificación más cercana al problema real, más representativa.
 
 \subsection{Orígenes}
-Técnica derivada de los AG ideada en 1989 para representar en LISP, en el que hay una estructura fija y se pueden poner operadores o términos.
+Técnica derivada de los AG ideada en 1989 para representar en LISP, en el que hay una estructura fija y se pueden poner operadores o terminales.
 
 El sistema de representación es mucho más expresivo (mayor nivel de abstracción), pero permitiendo los operadores genéticos. Aunque es importante que mantenga su carácter de simbología discreta, es decir que haya un conjunto de elementos finitos entre los que elegir.
 
 \subsection{Representación de las soluciones}
-Los individuos se representan mediante expresiones-s, en sintaxis de Lisp.
+Los individuos se representan mediante expresiones, en sintaxis de Lisp.
 
 Árboles cuyos nodos son funciones y las hojas operandos.
 \begin{itemize}
@@ -1274,6 +1274,14 @@ Mientras no se cumpla el criterio de convergencia:
 	la población intermedia
 \end{enumerate}
 
+\subsubsection{Procedimiento Población Inicial}
+Generar una población inicial de programas aleatoriamente:
+\begin{enumerate}
+	\item Se asignan probabilidades a la elección de terminal y función respectivamente
+	\item Se selecciona entre terminal y función mediante las probabilidades anteriores
+	\item Si se ha seleccionado función se elige entre las del conjunto de funciones, y se crea un nodo del árbol
+	\item Si se ha seleccionado terminal se elige entre los símbolos del conjunto de terminales, y se crea una hoja del árbol. Si el símbolo es una constante, se genera un valor para esa constante de forma aleatoria en el rango especificado
+\end{enumerate}
 
 \subsection{Inicialización}
 Como se trata de generar estructuras en forma de árbol se debe determinar p, hasta que profundidad deberán llegar los individuos como máximo.
@@ -1292,6 +1300,7 @@ Los tipos son: Proporcional (ruleta), Jerárquico, Torneos.
 Consiste en la selección de un nodo aleatorio de cada individuo, que no sean la raíz o los terminales, solo operadores. Una vez seleccionado se intercambian los subárboles de los progenitores, dando lugar a dos nuevos individuos.
 
 Es capaz de generar soluciones nuevas a partir de idénticas, esta es una capacidad muy buena para generar variedad. Aunque sufre de epístasis, una pequeña variación cambia mucho la solución.
+\pagebreak
 
 \subsection{Mutación}
 Consiste en generar un nuevo programa a partir de un único progenitor, en este caso hay 3 tipos:
@@ -1342,11 +1351,55 @@ Se debe cumplir esta propiedad para que pueda funcionar la Programación Genéti
 \end{itemize}
 
 \subsection{Tipado}
+\subsubsection{Consistencia}
+Es necesaria para que las funciones anidadas se ejecuten correctamente.
+\begin{itemize}
+    \item Las funciones deben devolver el mismo tipo de dato.
+    \item Las funciones deben recibir el mismo tipo de dato que devuelven.
+    \item Se puede hacer conversión de tipos. Si el tipo que manejamos es booleano, y una función devuelve un entero, podemos considerar la parte negativa como F y la positiva como V.
+\end{itemize}
+\pagebreak
+\subsubsection{Seguridad}
+Es necesaria para que las funciones se ejecuten correctamente sin generar errores.
+\begin{itemize}
+    \item Utilizar versiones protegidas de las funciones. Verificar posibles problemas (división por cero) y devolver valor por defecto para cada problema detectado.
+    \item Penalizar el fitness cada vez que se genere un problema.
+    \item Acciones por defecto para movimientos prohibidos. Ej. Mover cuando hay un muro enfrente.
+\end{itemize}
+\subsubsection{Suficiencia}
+El conjunto de primitivas debe ser capaz de expresar las soluciones del problema.
+\begin{itemize}
+    \item Un conjunto de primitivas suficiente para problemas booleanos sería: {And, Not, Or, x1, x2 …}.
+    \item Uno insuficiente: {+, -, *, /, x, cte…}, ya que no permite generar funciones trascendentes (Exp, sin, …).
+    \item Puede no ser un problema, ya que se pueden generar soluciones suficientemente válidas, sin aumentar excesivamente el espacio de búsqueda.
+\end{itemize}
+
 \subsection{Sintaxis}
+Se pueden evolucionar todo tipo de estructuras: puentes, circuitos, antenas, lentes, …
+
 \subsection{Fitness}
+El fitness se puede medir de maneras diversas:
+\begin{itemize}
+    \item Error entre salida obtenida y deseada.
+    \item Tiempo (combustible, dinero) para llevar el sistema a un determinado objetivo.
+    \item La eficacia con la que un sistema es capaz de detectar patrones o clasificarlos.
+    \item La puntuación obtenida en un determinado juego.
+    \item El ajuste de una estructura a los requerimientos del usuario.
+\end{itemize}
+
 \subsection{Parámetros}
+\begin{itemize}
+    \item \textbf{Objetivo}: Función que interpole conj. de puntos
+    \item \textbf{Conjunto funciones}: {+, -, /, *}
+    \item \textbf{Conjunto terminales}: {x, Cte.}
+    \item \textbf{Fitness}: Error de interpolación
+    \item \textbf{Selección}: Ruleta no elitista
+    \item \textbf{Población inicial}: Mitad y mitad; prof. 2; 50 \% terminales Ctes.
+    \item \textbf{Otros parámetros}: Tamaño 4; 50 \% cruce en árbol 25 \% mutación en árbol; 25 \% reproducción.
+\end{itemize}
+
 \subsection{Estructuras modulares}
-\subsection{Regresión numérica}
+Se pueden determinar automáticamente ciertas estructuras para convertirlas en funciones, y añadirlas al conjunto de funciones.
 
 \chapter{Tema 4: Resolución de problemas mediante técnicas evolutivas}
 \section{Resolución de problemas con múltiples soluciones}
@@ -1400,7 +1453,7 @@ La distancia puede ser:
 Favorece la búsqueda en regiones inexploradas del espacio y favorece la formación de subpoblaciones estables
 
 \subsubsection{Escalado del fitness}
-Para mejorar la eficacia de los nichos se puede escalar el valor el fitness $f'_i=\frac{f^\beta_i}{m_i}$.
+Para mejorar la eficacia de los nichos se puede escalar el valor de fitness $f'_i=\frac{f^\beta_i}{m_i}$.
 
 El escalado incrementa la diferenciación entre óptimos y reduce el problema de la decepción (dos individuos buenos producen un individuo malo).
 
@@ -1544,20 +1597,25 @@ Tradicionalmente, estos problemas se abordan:
 \end{itemize}
 
 \subsection{Definiciones}
-Un problema de optimización multiobjetivo general puede formularse como: Encontrar el vector $x = (x_1, x_2, ..., x_n)$ que satisfaga las m restricciones de desigualdad $e(x) = (e_1(x), e_2(x), ..., e_m(x)) \geq 0$ y que optimice $y = f (x) = (f_1(x), f_2(x), ..., f_k(x))$
+Un problema de optimización multiobjetivo general puede formularse como: 
+\begin{itemize}
+	\item Encontrar el vector $x = (x_1, x_2, ..., x_n)$ que satisfaga las m restricciones de desigualdad $e(x) = (e_1(x), e_2(x), ..., e_m(x)) \geq 0$ y que optimice $y = f (x) = (f_1(x), f_2(x), ..., f_k(x))$.
+\end{itemize}
 
-La noción más aceptada de "óptimo" en el entorno de problemas multiobjetivo es la propuesta por Pareto en 1896
+La noción más aceptada de ''óptimo'' en el entorno de problemas multiobjetivo es la propuesta por Pareto en 1896.
 
-Se dice que un punto $x^*$ es un óptimo de Pareto (minimización) si para todo x del espacio de entrada se cumple: $f_i(x^*) \leq f_i(x) \forall i = 1, ..., k$
+Se dice que un punto $x^*$ es un óptimo de Pareto (minimización) si para todo x del espacio de entrada se cumple: $f_i(x^*) \leq f_i(x) \forall i = 1, ..., k$.
 
-Conjunto de óptimos de Pareto. P* está formado por los puntos x*, tales que no existe otro vector x tal que f(x) domine a f(x*) Frente de Pareto. es el conjunto de vectores objetivos Y= f(P*)
+\textbf{Conjunto de óptimos de Pareto.} P* está formado por los puntos x*, tales que no existe otro vector x tal que f(x) domine a f(x*).
+
+\textbf{Frente de Pareto.} es el conjunto de vectores objetivos Y= f(P*).
 
 \subsection{Frente de Pareto}
-Cada punto del frente se corresponde con un individuo
+Cada punto del frente se corresponde con un individuo.
 
-No hay una única solución. El método debe converger a un conjunto de soluciones (método de nichos)
+No hay una única solución. El método debe converger a un conjunto de soluciones (método de nichos).
 
-Para elegir una solución, hay que establecer un compromiso entre los diferentes objetivos
+Para elegir una solución, hay que establecer un compromiso entre los diferentes objetivos.
 
 \subsection{Primeros pasos}
 Dentro de la disciplina “Investigación operativa” se han estudiado técnicas para la resolución de problemas de optimización multiobjetivo.
@@ -1573,8 +1631,8 @@ Rosenberg en 1967 ya habló del potencial de la AG para abordar problemas MO (MO
 \subsection{MOEA’s}
 Históricamente se considera que ha habido dos generaciones de algoritmos evolutivos para optimización multiobjetivo (MOEA):
 \begin{itemize}
-	\item Primera generación: Caracterizada por el uso de jerarquización de Pareto y nichos. Algoritmos relativamente simples. Gozaron de éxito, pero comenzaron a decaer (NSGA, NPGA, MOGA y VEGA).
-	\item Segunda generación: Transcurre desde 1999 a la actualidad. Hoy día son vistos como el estado del arte: SPEA, SPEA2, NSGA II, MOMGA, MOMGA II, PAES, PESA, PESA II.
+	\item \textbf{Primera generación:} Caracterizada por el uso de jerarquización de Pareto y nichos. Algoritmos relativamente simples. Gozaron de éxito, pero comenzaron a decaer (NSGA, NPGA, MOGA y VEGA).
+	\item \textbf{Segunda generación:} Transcurre desde 1999 a la actualidad. Hoy día son vistos como el estado del arte: SPEA, SPEA2, NSGA II, MOMGA, MOMGA II, PAES, PESA, PESA II.
 \end{itemize} 
 La tendencia actual es extender otras heurísticas a problemas multiobjetivo: búsqueda dispersa, optimización mediante enjambres partículas, sistemas inmunes artificiales.
 
@@ -1586,7 +1644,7 @@ Se propusieron dos mecanismos para el elitismo:
 	\item Mediante una selección ($\mu + \lambda$):
 	\begin{itemize}
 		\item Dados µ padres, se generan $\lambda$ hijos.
-		\item Se crea una población y padres e hijos ($\mu + \lambda$).
+		\item Se crea una población de padres e hijos ($\mu + \lambda$).
 		\item Compiten padre e hijos pasando a la siguiente población los $\mu$ mejores.
 	\end{itemize}
 	\pagebreak
@@ -1653,10 +1711,10 @@ Combinar las poblaciones de padres e hijos ($R_t$ = $R_t$ $\cup$ $Q_t$)
 
 Calcular los frentes no dominados de manera jerárquica (F = NoD($R_t$))
 
-Mientras la población no esté llena (|$R_{t+1}$| + |$F_i$| < N)
+Mientras la población no esté llena (|$P_{t+1}$| + |$F_i$| < N)
 \begin{itemize}
 	\item Calcular la distancia “crowding” en $F_i$
-	\item Incluir el i-ésimo frente no dominado en la población ($R_{t+1}$ = $R_{t+1}$ [ $F_i$)
+	\item Incluir el i-ésimo frente no dominado en la población ($P_{t+1}$ = $P_{t+1} \cup F_i$)
 	\item Aumentar el contador de frentes (i = i + 1)
 \end{itemize}
 
@@ -1709,7 +1767,7 @@ Presenta tres diferencias sustanciales con SPEA:
 \subsubsection{SPEA 2 Evaluación}
 A cada individuo se le asigna un valor de fuerza que es el número de individuos, entre población y fama, que domina $S(i) = |\{j, , j \in P_t + \overline{P}_t \wedge i \succ j\}|$
 
-El fitness se calcula como la suma de las fuerzas de los individuos a los que domina $R(i) = X \sum_{j\in P_t+\overline{P}_t,j\succ i} S(j)$
+El fitness se calcula como la suma de las fuerzas de los individuos a los que domina $R(i) = \sum_{j\in P_t+\overline{P}_t,j\succ i} S(j)$
 
 Se calcula para cada individuo un valor de densidad que determina lo aislado que está dicho individuo, mediante su distancia a su k-ésimo vecino más próximo ($\sigma_i^k$): $D(i)= \frac{1}{\sigma^k_i + 2}$
 
