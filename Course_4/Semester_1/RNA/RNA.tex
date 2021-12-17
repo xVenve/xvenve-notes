@@ -1284,4 +1284,311 @@ Si cada una pertenece a una clase, la de la misma clase de la entrada se acerca,
 	Se divide el más grande sobre el más pequeño.
 \end{itemize}
 
+\chapter{Redes neuronales convolucionales - Deep Learning}
+Surgieron con el aumento de la capacidad de cómputo.
+
+Se emplea en problemas con muchas entradas (como son las imágenes o señales), se llama profundo porque tiene muchas neuronas.
+
+Con el tiempo se han ido mejorando y actualmente los resultados son impresionantes.
+
+\section{Autoencoders}
+\subsection{Redundancias}
+Los autoencoders se basan en la redundancia para poder comprimir y reducir la entrada a un menor número de células, dado que si fueran completamente aleatorio no se podrían sacar patrones.
+
+\textbf{Compresión}: Para todo vector $\vec{x}=\{x_1, x_2,\cdot, x_m\}$, obtener otro $\vec{z}=\{z_1, z_2,\cdot, z_n\}$ con $n<<m$, de forma que $\vec{x}$ pueda ser construido a partir de $\vec{z}$.
+
+\subsection{Formulación}
+La función de compresión y descompresión tendrá la forma: $\vec{z}=W_1\vec{x}+b_1$, $\vec{x}=W_2\vec{z}+b_2$.
+
+Esto se puede representar mediante una red de neuronas en la que la entrada es $\vec{x}$, los pesos de compresión $W_1$, las células ocultas $\vec{z}$ capaces de recomponer la información tras pasar su salida por los $W_2$.
+
+Se puede reconstruir la entrada, $\vec{z}$, con la salida, $\overline{x}$ al ser una aproximación.
+
+\subsection{Arquitectura}
+Se trata de una arquitectura de red neuronal con dos capas ocultas.
+\begin{itemize}
+	\item Los pesos de la primera capa oculta se utilizan para la compresión.
+	\item Los pesos de la segunda capa oculta se utilizan para la descompresión.
+\end{itemize}
+
+Se trata de una red no supervisada, no se necesita información adicional sobre los datos que guíe el aprendizaje (no hay etiquetas asociadas para clasificar, predecir o ajustar). Sin embargo se utiliza un proceso supervisado.
+
+Para ello se asigna como salida de cada dato $\vec{x}^{(i)}$ el propio dato, se aprende a obtener como salida la propia entrada $f(\vec{x}^{(i)}) = \vec{x}^{(i)}$.
+
+El vector $\vec{z}^{(i)}$ es la entrada comprimida, porque a partir de dicho vector, y de los pesos $W_2$ que son siempre los mismos, se puede recomponer la entrada original $\vec{x}^{(i)}$.
+
+\subsection{Propiedades}
+Función identidad: La función identidad parece trivial, pero introduciendo restricciones en la red se pueden descubrir propiedades interesantes de los datos.
+
+Si las neuronas ocultas son muchas menos que las de entrada $\rightarrow$ Compresión.
+
+Si las entradas son aleatorias, no se pueden comprimir.
+
+Si las entradas tienen estructura la red es capaz de descubrir determinadas correlaciones entre las entradas.
+
+Incluso si las células ocultas son más numerosas se pueden descubrir estructuras en los datos imponiendo otras restricciones (sparsity).
+
+\subsection{Sparsity}
+Restricción de carencia: Consiste en forzar a la red a que, para cada patrón de entrada, solo se activen un número reducido de células, el resto deben producir salida cero.
+
+Si calculamos la media de las activaciones (salida con pesos y todo) de las células de la capa oculta (según las entradas):$\overline{\rho}_j = \frac{1}{m}\sum_{i=1}^{m} a_j(x^{(i)})$
+\begin{itemize}
+	\item m entradas.
+	\item $a_j(x^{(i)})$ activación célula j con entrada $x^{(i)}$.
+\end{itemize}
+
+Dicha media debe mantenerse en un valor bajo $\overline{\rho}_j \leq \rho$, donde $\rho$ es el valor de carencia (sparsity) habitualmente cercano a 0.
+
+Para conseguirlo es necesario que la mayoría de los valores de activación de las células que no se activan para un patrón determinado, estén cercanos a 0.
+
+\subsection{Divergencia KL}
+Para conseguirlo se introduce un término de penalización en la función de error, dicho término será proporcional a cuanto se desvíe $\overline{\rho}$ de $\rho$:
+$KL= \sum_{j=1}^s \rho \log \frac{\rho}{\overline{\rho}_j}+(1-\rho) \log \frac{1-\rho}{1-\overline{\rho}_j}$
+\begin{itemize}
+	\item s es el número de neuronas de la capa oculta.
+\end{itemize}
+\pagebreak
+Se trata del término de divergencia de Kullback-Leibler que mide la divergencia entre una variable aleatoria de Bernoulli de media $\rho$ con otra de media $\overline{\rho}$.
+\begin{itemize}
+	\item $\overline{\rho}$: media de las células.
+	\item $\rho$: carencia o sparcity.
+\end{itemize}
+
+Dicha función de penalización tiene la propiedad: $KL(\rho||\overline{\rho}_j) = 0 \textit{ si } \overline{\rho}_j = \rho$. De manera que el mínimo está en $\rho$ y aumenta hasta el infinito a medida que se aleja de dicho valor, tanto por exceso como por defecto.
+
+\subsection{Error sparse}
+Al incorporar la divergencia KL en la función de error, quedaría:
+$$E_{sparse}(W, b)=E(W,b)+\beta \sum^s_{j=1}KL(\rho||\overline{\rho}_j)$$
+
+Al calcular los deltas sin sparse:
+$$\delta_i^{(2)} = \left(\sum^s_{j=1}w_{ji}^{(2)}\delta^{(2)}_j\right)f'(z_i^{(2)})$$
+
+Si incorporamos el término KL:
+$$\delta_i^{(2)} = \left(\left(\sum^s_{j=1}w_{ji}^{(2)}\delta^{(2)}_j\right)+\beta \sum^s_{j=1}KL(\rho||\overline{\rho}_j)\right)f'(z_i^{(2)})$$
+
+Hace que las células no se saturen tanto.
+
+Se propagan todos los ejemplos de entrenamiento para unos valores fijos de los pesos, y se calculan los $\overline{\rho}_i$ para cada célula de la capa oculta.
+
+Calcular el término de divergencia KL para cada célula de la capa oculta.
+
+Incluir dicho término en el cálculo de los deltas para cada célula de la capa oculta.
+
+Al incorporar el término de convergencia KL en el error, en cada iteración no solo se tratará de minimizar el error cometido por la red, sino que se minimiza también la diferencia entre el valor medio de activación de las células y el prefijado ($\rho$), de forma que cuando una célula se activa fuertemente, las demás conservan su activación en valores muy bajos, y esa misma célula se mantendrá también en valores bajos para patrones que activen otras células.
+
+\subsection{Visualización}
+En las redes sparse, las células se activan principalmente para ciertos patrones de entrada, y se mantienen inactivas para el resto.
+
+Se puede, por lo tanto, visualizar qué patrones de entrada producen la activación de cada una de las células, esta visualización proporciona información acerca de qué está
+ocurriendo en la red, para ello hay que preguntarse qué patrón de entrada produce que el valor de activación de una célula $a_i$ sea máximo.
+
+\subsection{Estancamiento}
+En redes neuronales con muchas capas (profundas):
+\begin{itemize}
+	\item Cuando las RN tienen muchas capas, las magnitudes de los gradientes en las últimas capas y en las primeras son muy diferentes.
+	\item La forma de la función objetivo hace difícil, para el método del descenso del gradiente, recorrerla en dirección a buenos mínimos (aunque sean locales).
+	\item Las redes grandes tienen muchos parámetros que pueden ser memorizados y que dificultan la capacidad de generalización.
+\end{itemize}
+A partir de 2006 se observó que los autoencoders podían ser utilizados para pre-entrenar una RN y dicho proceso era capaz de atenuar los problemas anteriores, para ello se inicializan los pesos de forma sucesiva en cada capa utilizando autoencoders.
+
+\subsection{Inicialización}
+Entrenar cada capa oculta por separado y en orden, utilizando datos no supervisados. Para esto se va cogiendo la red por capas, cada vez 2, de manera que la primera capa representa la entrada y la siguiente la de compresión.
+
+Entrenar la última capa mediante datos supervisados.
+
+Se utiliza Backpropagation para ajustar toda la red mediante datos supervisados.
+\pagebreak
+
+\subsubsection{Procedimiento de inicialización}
+\begin{enumerate}
+	\item Se entrena un primer autoencoder con las entradas ($\vec{x}^{(i)}$, $\vec{x}^{(i)}$), obteniéndose $W_1$, $W_1'$.
+	\item Se utilizan los pesos $W_1$ para obtener valores de entrada de la primera capa oculta ($\vec{z}^{(i)}$), para todos los datos de entrada.
+	\item Estos datos se utilizan para entrenar un segundo autoencoder formado únicamente con la segunda capa oculta, y las entradas de la capa oculta, obteniéndose los pesos $W_2$, $W_2'$.
+	\item El proceso se repite tantas veces como capas ocultas hay en la red.
+	\item La última capa puede pre-entrenarse utilizando datos supervisados, en vez de un autoencoder.
+\end{enumerate}
+
+\section{Redes profundas}
+\subsection{Conectividad}
+En general, cada neurona de la capa oculta está conectada a todas las entradas.
+
+Si la entrada es altamente multidimensional, es inabordable, como sería una imagen con todos sus pixeles.
+
+Para evitarlo se puede conectar cada neurona oculta solo con un subconjunto de las entradas. Es importante que la conectividad siga un patrón, como conectar pixeles adyacentes.
+
+\subsection{Compartición de pesos}
+Se puede extender este esquema a todas las capas ocultas, no solo la primera, y obtener una red profunda con conexiones locales.
+
+El procedimiento de aprendizaje es equivalente, suponiendo que las conexiones inexistentes tienen un valor de cero, esto produce una significante reducción de la cantidad de conexiones.
+
+Se puede reducir aún más mediante el mecanismo de compartición de pesos, los pesos serán los mismos cuando se va repitiendo el patrón sobre las entradas. 
+
+El modelo es muy compacto y sigue esquemas que se dan en el cerebro.
+
+La idea de compartición de parámetros viene del procesado de imágenes, y se conoce como convolución. Es como pasar un filtro, los pesos compartidos, a subconjuntos de datos de las señales.
+
+\subsection{Pooling}
+Cada capa convolucional sigue este esquema, con lo que capas convolucionales sucesivas también comparten pesos.
+
+Es habitual añadir, para cada capa convolucional, una capa adicional llamada “max-pooling”. En esta nueva capa, las neuronas calculan simplemente el valor máximo (o cualquier otro estadístico) de las células a las que están conectadas, y producen dicho valor como salida.
+
+Una propiedad interesante de esta aproximación es que la salida de las células del “max-pooling” son invariantes a los desplazamientos en las entradas.
+
+\subsection{Convolución}
+A este tipo de redes se les llama redes convolucionales.
+
+A la capa de pooling se la denomina “subsampling layer”, ya que reduce significativamente el tamaño de la entrada.
+
+En la capa de pooling, el máximo puede ser sustituido por algún otro estadístico.
+
+Se puede hacer Local Contrast Normalization ($\frac{\textit{maximo}-\textit{media}}{\textit{varianza}}$), lo cual mantiene invarianza al brillo, muy útil en tratamiento de imágenes.
+
+La salida de una capa convolucional puede ser la entrada de una nueva capa convolucional, y así sucesivamente, construir una sucesión de capas convolucionales en cascada que dota a la red de mayor profundidad.
+
+Cada capa convolucional se puede asemejar a un filtro o a un preprocesado, indispensable para tratamiento de señales.
+
+Esto permite tratar con la señal “en crudo”, ya que las capas convolucionales realizan las transformaciones de los datos que antes había que hacer a mano, mediante prueba y error.
+
+Para que el proceso se realice automáticamente hay que modificar el procedimiento de BackPropagation para que pueda incorporar las capas convolucionales:
+\begin{itemize}
+	\item Calcular el gradiente, $\frac{\partial J}{\partial w_1},\cdot, \frac{\partial J}{\partial w_n}$ para todos los pesos.
+	\item Utilizar la media del gradiente para los pesos compartidos.
+	
+	$$w_1 = w_1 - \alpha (\frac{\partial J}{\partial w_1} + \frac{\partial J}{\partial w_4}+\frac{\partial J}{\partial w_7})$$
+	$$w_4 = w_4 - \alpha (\frac{\partial J}{\partial w_1} + \frac{\partial J}{\partial w_4}+\frac{\partial J}{\partial w_7})$$
+	$$w_7 = w_7 - \alpha (\frac{\partial J}{\partial w_1} + \frac{\partial J}{\partial w_4}+\frac{\partial J}{\partial w_7})$$
+
+	\item La capa de maxpooling calcula el valor máximo, por lo que hay que calcular solo el gradiente del máximo.
+\end{itemize}
+
+\subsection{Múltiples canales}
+Las señales pueden tener varios canales independientes, p. ej. imágenes 3 canales.
+
+Se puede replicar el modelo anterior para que cada copia trabaje con un canal de entrada.
+
+Los pesos entre canales no se comparten.
+
+\subsection{Múltiples mapas}
+A cada entrada se le aplica un solo filtro.
+
+Se puede extender el esquema para aplicar más de un filtro a cada entrada.
+
+A cada conjunto de salidas producidas por cada filtro se le denomina “mapa”.
+
+En la figura tenemos dos filtros $\rightarrow$ dos mapas.
+
+Para propagar la salida, se puede tratar a cada mapa como si fuera un canal diferente, como en el caso anterior.
+
+\section{Procesado de imágenes}
+El ordenador trata a las \textbf{imágenes como una colección de valores numéricos}.
+
+Se utiliza para \textbf{tareas muy variadas y complejas}, como conducción automática, imágenes médicas, segmentación. Hay que hacer clasificación.
+
+Una de las principales tareas es la \textbf{clasificación de imágenes}, por lo que hay que ser capaces de \textbf{detectar características} relevantes.
+
+La tarea \textbf{se complica debido al número de factores} que intervienen: Variación del punto de vista, condiciones de iluminación, variación de escala, deformación, camuflaje con el entorno, variación intraclase (misma clase pero muy distintas), ...
+
+Jerarquía de características, habría que \textbf{detectar características a distintos niveles}, y combinarlas entre sí.
+
+Para \textbf{detectar características se utilizan filtros}, que recorren la estructura espacial de la imagen. Diferentes filtros detectan diferentes características.
+\pagebreak
+
+\section{Redes convolucionales}
+Cada \textbf{filtro, conjunto de pesos}, se aplica sobre una parte de la imagen, y se va desplazando. Esto se denomina convolución.
+
+El \textbf{filtro se va desplazando por la imagen hasta cubrirla} completamente. Los pesos del filtro no varían al desplazarse a través de la imagen $\rightarrow$ pesos compartidos.
+
+El filtro \textbf{se puede desplazar una unidad, o varias “stride”}. En cuyo caso se reduce el tamaño de la salida.
+
+Cada filtro puede ser capaz de realizar una operación sobre las imágenes, detectar bordes, suavizar la imagen, etc. En conjunto serán un preprocesado de la imagen.
+
+Si se quiere \textbf{mantener el tamaño de la imagen después de la convolución}, habría que realizar una operación llamada \textbf{“padding”}. Se rellena con 0's la imagen, puede ser otro valor.
+
+Después de la convolución se realiza algún tipo de \textbf{“pooling”. Esto reduce el tamaño de la entrada}
+
+Si hay \textbf{múltiples canales, se aplica el filtro a cada uno} de ellos y \textbf{se combinan} todos para crear una salida única.
+
+Si hay \textbf{múltiples canales y múltiples filtros}, se obtiene \textbf{una salida para cada filtro en la que se combinan todos sus canales.}
+
+Una \textbf{capa convolutiva} está compuesta por los \textbf{filtros} (con o sin padding y combinando los canales si hay más de uno), una \textbf{capa de pooling} y una \textbf{función ReLu}. La salida suele ser de una menor dimensión
+
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Capa convolutiva}}
+	{\includegraphics[scale=.35]{capaConvo.jpg}}
+\end{figure}
+
+Las células utilizan la \textbf{función de activación ReLu}, aplicada a la entrada para conseguir la \textbf{no linealidad} del modelo.
+\pagebreak
+
+Una \textbf{red convolutiva} está compuesta por \textbf{varias capas convolutivas} de manera que la \textbf{salida de cada una es la entrada de la siguiente}. Al \textbf{final} se incluye una \textbf{capa “full conected”} que puede ser un Perceptrón Multicapa, una red recurrente, etc.
+
+\subsection{Resumen}
+Una red convolucional está formada por una sucesión de capas de parejas de filtros y “pooling”.
+
+Para cada capa hay que especificar el número de filtros, su tamaño (f) y desplazamiento (s) (todos iguales) y el tamaño del pooling (p).
+
+Si N es la dimensión de entrada a un filtro, la dimensión de la salida de cada filtro será: 
+$$M=\frac{\frac{N-f+s}{s}}{p}$$
+
+Funciona la fórmula si el pooling tiene stride de 1, si no hacer la fórmula para los filtros y después para el pooling.
+
+\section{Aprendizaje en CNN}
+La capa convolucional aplica filtros específicos a la imagen (kernel o pesos) para identificar diferentes partes y propiedades de la imagen
+La función no lineal (ReLU) permite el procesado no lineal de los filtros.
+
+El pooling reduce el tamaño de la imagen y ayuda a identificar qué características, de las obtenidas mediante los filtros, son importantes.
+
+La tarea de clasificación se realiza en la parte final de la red que es una arquitectura “full-conected” clásica.
+
+Se trata de una BackPropagation en el que se ha sustituido la parte de tratamiento de la señal por un procedimiento automática capaz de descubrir los filtros apropiados en cada caso (especificado por las etiquetas de los datos).
+
+El proceso de entrenamiento está compuesto por cuatro pasos básicos:
+\begin{enumerate}
+	\item Propagación hacia delante de las imágenes. Se introduce una entrada, se pasa por las capas de convolución  usando la función ReLu y pooling, finalmente se pasa por la capa full conected.
+	\item Cálculo del error.
+	\item Retropropagación del error.
+	\item Optimización mediante la modificación de los pesos, tanto de la parte de clasificación, como de las capas convolucionales (aprendizaje de los filtros).
+\end{enumerate}
+Cada capa aprende un filtro cada vez más complejo (por capas).
+\begin{itemize}
+	\item Primeras capas. filtros de detección de características básicas: esquinas, bordes, verticalidades, etc.
+	\item Capas intermedias. filtros para detectar partes de objetos: ojos, nariz, etc.
+	\item Capas superiores. reconocen objetos completos de diferentes tamaños y en diferentes posiciones.
+\end{itemize}
+
+\subsection{Cálculo y retropropagación del error}
+Se calcula el error cometido por la red para un patrón.
+
+En la capa “full-conected” se modifican los pesos de la forma habitual.
+
+Si la parte de clasificación tiene más de una capa, se retro-propaga el error siguiendo el esquema de un MLP.
+
+En las capas convolucionales, se calcula un delta para todas las células siguiendo el MLP, con ciertas consideraciones:
+\begin{itemize}
+	\item En la capa “maxpool” solo se calcula el delta solo para la célula de mayor activación (la que ha producido una salida). Para el resto su delta es cero, y sus pesos asociados no varían.
+	\item Los pesos que varían no son los del “maxpool”, que no existen, sino los de su célula asociada en la capa convolucional.
+	\item Si se utiliza “averagepool”, se ignora la capa de pooling en el proceso de aprendizaje.
+\end{itemize}
+Hay que tener en cuenta que cuando se modifican los pesos, debido al carácter de las capas convolucionales como filtros, las células comparten pesos (los filtros son los mismos para diferentes zonas de la capa convolucional.
+
+\subsection{Dropout}
+Dropout se refiere al resultado de ignorar ciertas células durante la fase de aprendizaje.
+
+Cuando se calcula el delta de una célula, para un conjunto de ellas, elegido aleatoriamente, su valor se anula, de forma que los pesos asociados a dicha célula no se varían.
+
+En cada ciclo, un nuevo conjunto de células es seleccionado para realizar dropout, con una probabilidad p, que será un parámetro del método.
+
+Durante el entrenamiento, solo una cantidad pequeña (1-p) de las células son seleccionadas para el aprendizaje. Las células eliminadas son diferentes en cada ciclo, hay $2^n$ combinaciones (modelos) diferentes de dropout.
+
+La red resultante debería ser la media de los distintos modelos, pero no se tienen “físicamente” los $2^n$ modelos.
+
+Una buena aproximación consistiría en utilizar una versión reducida del modelo resultante en periodo de test, de manera que se utiliza la totalidad de los pesos, pero reducidos en exactamente una cantidad “p” ($p\cdot w$).
+
+En redes complejas existe un gran número de parámetros (pesos) necesarios para poder identificar problemas complejos.
+
+La existencia de tantos pesos permite que la red se adapte muy eficazmente a los datos de ejemplo. Si se reduce el tamaño de la red, se evita este problema, pero con una parecida reducción en la eficacia de la red.
+
+La solución de eliminar parámetros en el aprendizaje evita el sobreentrenamiento. Al utilizar todos los parámetros en test conseguimos redes complejas capaces de adaptarse mejor a datos complejos.
+
 \end{document}
