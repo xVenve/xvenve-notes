@@ -74,11 +74,11 @@ hmargin=3cm
 {}
 \titlespacing{\chapter}{0pt}{0pt}{*3}
 \titlecontents{chapter}
-[0pt]                                               
+[0pt]
 {}
 {\contentsmargin{0pt}\thecontentslabel.\enspace\uppercase}
-{\contentsmargin{0pt}\uppercase}                        
-{\titlerule*[.7pc]{.}\contentspage}                 
+{\contentsmargin{0pt}\uppercase}
+{\titlerule*[.7pc]{.}\contentspage}
 
 \titleformat{\section}
 {\bfseries}
@@ -86,7 +86,7 @@ hmargin=3cm
 {5pt}
 {}
 \titlecontents{section}
-[5pt]                                               
+[5pt]
 {}
 {\contentsmargin{0pt}\thecontentslabel.\enspace}
 {\contentsmargin{0pt}}
@@ -98,11 +98,11 @@ hmargin=3cm
 {5pt}
 {}
 \titlecontents{subsection}
-[10pt]                                               
+[10pt]
 {}
-{\contentsmargin{0pt}                          
+{\contentsmargin{0pt}
   \thecontentslabel.\enspace}
-{\contentsmargin{0pt}}                        
+{\contentsmargin{0pt}}
 {\titlerule*[.7pc]{.}\contentspage}  
 
 % DISEÑO DE TABLAS.
@@ -135,7 +135,7 @@ hmargin=3cm
   singlelinecheck=off,
   labelsep=colon,
   labelfont=small,
-  font=small    
+  font=small
 }
 
 % NOTAS A PIE DE PÁGINA
@@ -162,7 +162,7 @@ hmargin=3cm
   keywordstyle=\bfseries,
   stringstyle=\ttfamily,
   showstringspaces = false,
-  commentstyle=\color{gray45},     
+  commentstyle=\color{gray45},
   %
   numbers=left,
   numbersep=15pt,
@@ -207,7 +207,7 @@ hmargin=3cm
 			\vspace*{0.5cm}
 			\rule{10.5cm}{0.1mm}\\
 			\vspace*{0.9cm}
-			{\LARGE Jorge Rodríguez Fraile\footnote{\href{mailto:100405951@alumnos.uc3m.es}{Universidad: 100405951@alumnos.uc3m.es}  |  \href{mailto:jrf1616@gmail.com}{Personal: jrf1616@gmail.com}}}\\
+			{\LARGE Jorge Rodríguez Fraile\footnote{\href{mailto:100405951@alumnos.uc3m.es}{Universidad: 100405951@alumnos.uc3m.es} | \href{mailto:jrf1616@gmail.com}{Personal: jrf1616@gmail.com}}}\\
 			\vspace*{1cm}
 		\end{center}
 		\vfill
@@ -243,7 +243,7 @@ hmargin=3cm
 % TRABAJO
 %---------- 
 
-\pagenumbering{arabic} % numeración con múmeros arábigos para el resto de la publicación  
+\pagenumbering{arabic} % numeración con múmeros arábigos para el resto de la publicación 
 
 
 %----------
@@ -279,9 +279,9 @@ hmargin=3cm
 	      \begin{itemize}
 		      \item 20 \% Practica 1. Trata de resolver un problema de regresión, estimar un número real, y se divide en dos partes:
 		            \begin{itemize}
-			            \item  Modelo lineal (ADALINE) determinando los coeficientes, este caso tenemos programarlo nosotros en nuestro lenguaje de preferencia.
+			            \item Modelo lineal (ADALINE) determinando los coeficientes, este caso tenemos programarlo nosotros en nuestro lenguaje de preferencia.
 			                  Se nos proporcionan unos datos de prueba para cuando lo estemos programando salga un error muy pequeño, de esta manera sabemos si lo hacemos bien. Las de prueba son 3 atributos, pero los reales son de 8.
-			            \item  No lineal (Perceptrón multicapa), presentando una memoria de unas 8 páginas en forma de artículo.
+			            \item No lineal (Perceptrón multicapa), presentando una memoria de unas 8 páginas en forma de artículo.
 			                  Para esta parte se nos dará un script en R, no hay que programarlo, pero hay que realizar muchas pruebas para ver los resultados (errores).
 		            \end{itemize}
 		      \item 20 \% Practica 2. Habrá que modificar scripts de Python, también se usará Google Colab.
@@ -316,7 +316,7 @@ $$ValorNormalizado_i=\frac {Valor_i-ValorMinimo_i} {ValorMaximo_i-ValorMinimo_i}
 
 \textbf{Aleatorización de los datos:} Se altera el orden las instancias de manera que se evita cualquier sesgo a la hora de entrenar el modelo.
 
-\textbf{Eliminación de  atributos irrelevantes:} Nosotros no lo haremos, pero este nos permite eliminar la información que no aporta nada y entorpece el entrenamiento.
+\textbf{Eliminación de atributos irrelevantes:} Nosotros no lo haremos, pero este nos permite eliminar la información que no aporta nada y entorpece el entrenamiento.
 
 \textbf{Reducción dimensionalidad:} Se realizan las técnicas de reducción de dimensionalidad, que bien seleccionan un subconjunto de atributos, bien transforman los datos de entrada en otro conjunto de mayor dimensión.
 
@@ -332,7 +332,7 @@ Lo que se hace es separar las instancias por la clase, de estos conjuntos genera
 \textbf{Medida de evaluación}
 \begin{itemize}
 	\item \textbf{En regresión:} Error absoluto medio (Mean Absolute Error) es la media del valor absoluto de la diferencia de la salida y el deseado. Error cuadrático medio (Mean Square Error) es igual al anterior, pero en vez de valor absoluto la diferencia se pone al cuadrado.
-	      $$MAE=\frac 1 N \sum^N_{i=1} |s_i-d_i| \quad MSE=\frac 1 N \sum^N_{i=1} (d_i-s_i)^2$$
+	      $$MAE=\frac 1 N \sum^N_{i=1} |d_i-s_i| \quad MSE=\frac 1 N \sum^N_{i=1} (d_i-s_i)^2$$
 	      Acaba cuando el error medio o el cuadrático es aceptable. También por una visualización gráfica de las salidas deseadas y las salidas de la red.
 	\item \textbf{En clasificación:} Lo más habitual es evaluar la calidad de la red basándonos en su precisión predictiva (\% de aciertos), la proporción de aciertos sobre el total de instancias.
 	      
@@ -402,7 +402,7 @@ Las redes de neuronas no permiten abordar problemas de: Aproximación, Predicci�
 	\item Diversidad de las áreas de aplicación, teniendo datos se puede aplicar en problemas de cualquier área aunque no seamos expertos en la misma.
 \end{itemize}
 
-Desde la aparición de las redes sociales y móviles las compañías han recogido muchísimos datos que han posibilitado el entrenamiento de  redes en muchas áreas.
+Desde la aparición de las redes sociales y móviles las compañías han recogido muchísimos datos que han posibilitado el entrenamiento de redes en muchas áreas.
 
 \textbf{Problemas específicos de las RNA}
 \begin{itemize}
@@ -431,9 +431,9 @@ En el año \textbf{2006} ya había capacidad de cómputo, se podía dar más pro
 \section{Fundamentos biológicos}
 El \textbf{Sistema nervioso} es un conjunto de células especializadas en la conducción de señales eléctricas. Capta estímulos del entorno o internos, procesa la información y genera respuestas diferentes según la situación. No todos son igual de complejos, la estructura es lo que varía, pero todos están compuestos por los mismos componentes.
 
-El \textbf{Cerebro} es el órgano principal del Sistema Nervioso. Se encarga de regular y mantener cada función vital del cuerpo, y es el órgano donde reside la mente y la conciencia del individuo. Existen distintas áreas, cada una más sofisticada para una serie de tareas (como puede ser la motora, sensoria, etc.), pero todas son importantes para el individuo.
+El \textbf{Cerebro} es el órgano principal del Sistema Nervioso. Se encarga de regular y mantener cada función vital del cuerpo, y es el órgano donde reside la mente y la conciencia del individuo. Existen distintas áreas, cada una más sofisticada para una serie de tareas (como puede ser la motora, sensora, etc.), pero todas son importantes para el individuo.
 \begin{itemize}
-	\item Está formado por $10^{11}$ células, llamadas neuronas, interconectadas entre sí (cada una a otras 1000-10000 $10^{15}$) y forman una densa red.
+	\item Está formado por $10^{11}$ células, llamadas neuronas, interconectadas entre sí (cada una a otras 1000-10000) y forman una densa red con $10^{15}$ conexiones.
 \end{itemize}
 
 Las neuronas se comunican a través de \textbf{impulsos eléctricos de corta duración, que se transmiten a través de las sinapsis}.
@@ -581,8 +581,8 @@ Las RNA para aprender usan el descenso de gradiente, pero del cerebro no se cono
 	{\caption{Estructura de Célula de McCulloch-Pitts}}
 	{\includegraphics[scale=.25]{McCulloch-Pitts.jpg}}
 \end{figure}
-Consiste en unas entradas que tienen asignado manualmente un peso cada una de las que se hace el sumatorio de la entrada por el peso, este resultado se pasa por una función de activación no lineal y se obtiene la salida.
-$$y=f\left(\sum_{i=1}^n I_i w_i\right) \quad f (x) = \begin{cases}1 & \textit{si}\quad  x> 0\\0 & \textit{en caso contrario}\end{cases}$$
+Consiste en unas entradas que tienen asignado manualmente un peso, para cada una de las cuales se hace la suma de las entradas por su peso, este resultado se pasa por la función de activación no lineal y se obtiene la salida.
+$$y=f\left(\sum_{i=1}^n I_i w_i\right) \quad f (x) = \begin{cases}1 & \textit{si}\quad x> 0\\0 & \textit{en caso contrario}\end{cases}$$
 En este momento hablamos de células individuales, no de redes.
 
 \subsubsection{Limitaciones}
@@ -602,13 +602,13 @@ Tiene una estructura similar a las células de McCulloch-Pitts, pero además de 
 \end{figure}
 
 La salida de cada célula se calcula mediante:
-$$y=\mathcal{F}\left(\sum_{i=1}^n x_i w_i+\theta\right) \quad \mathcal{F}(s) = \begin{cases}1 & \textit{si}\quad  x> 0\\-1 & \textit{en caso contrario}\end{cases}$$
+$$y=\mathcal{F}\left(\sum_{i=1}^n x_i w_i+\theta\right) \quad \mathcal{F}(s) = \begin{cases}1 & \textit{si}\quad x> 0\\-1 & \textit{en caso contrario}\end{cases}$$
 
 La función escalón lo hace discriminante, si solo hay una célula y da 1 pertenece a la categoría A y si es -1 a la categoría B.
 
 El número de células de un Perceptrón se corresponde con la dimensión de la entrada, y el número de células de salida, con el número de clases a discriminar.
 
-En el caso binario, dos entradas una salida, el perceptrón representa una recta que divide el plano en dos partes cada una categoría.
+En el caso binario, dos entradas una salida, el perceptrón representa una recta que divide el plano en dos partes, cada una categoría.
 
 \subsubsection{Aprendizaje}
 El proceso de aprendizaje del perceptrón consiste en descubrir los parámetros de una recta que deje a todos los ejemplos de la clase A en un lado, y a los de la clase B en el otro.
@@ -755,7 +755,7 @@ Es importante que sean no lineales, derivables y acotadas.
 Nosotros emplearemos:
 \begin{itemize}
 	\item Función Sigmoide (0 - 1)
-	      $$g(x)=\frac{1}{1-e^{-x}}\quad g'(x)=g(x)(1+g(x))$$
+	      $$g(x)=\frac{1}{1+e^{-x}}\quad g'(x)=g(x)(1-g(x))$$
 	\item Tangente Hiperbólica (-1 - 1) $$g(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}} \quad g'(x)=1-g(x)^2$$
 	\item Unidad de Rectificado Lineal - ReLU $$g(x)=\max(0,x) \quad g'(x)= \begin{cases}1 & x > 0\\0 & \textit{en otro caso}\end{cases}$$
 \end{itemize}
@@ -818,7 +818,7 @@ La idea es desplazar el vector de pesos siguiendo la dirección negativa del gra
 
 $$s^P_k= \sum_j w^{P-1}_{jk}y^{P-1}_j+\theta_k^P \quad y^P_k=f(s^P_k)$$
 
-Necesitamos para cada célula un valor delta (menos para la entrada). Se deriva en función de la entrada, ya que es lo que cambia el error. $\delta$ Estimación del error en esa célula.
+Necesitamos para cada célula un valor delta (menos para la entrada). Se deriva en función de la entrada, ya que es lo que cambia el error. \textbf{$\delta$ Estimación del error en esa célula}.
 
 $$\delta^P_k=-\frac{\partial E}{\partial s^P_k}=-\frac{\partial E}{\partial y^P_k}\frac{\partial y^P_k}{\partial s^P_k}=-\frac{\partial E}{\partial y^P_k}f'(s^P_k)$$
 
@@ -853,9 +853,9 @@ Cuanto más grande más rápido nos aceptamos a la solución, pero cuidado porqu
 
 Si es muy pequeño la convergencia será muy lenta y puede ser inviable al ralentizar el proceso, estancándose en mínimos locales.
 
-Encontrar la tasa de aprendizaje óptima no es trivial, se trata de asignar el mayor valor posible  sí que se produzca oscilación.
+Encontrar la tasa de aprendizaje óptima no es trivial, se trata de asignar el mayor valor posible sin que se produzca oscilación.
 
-Una manera de evitar la oscilación es hacer que el cambio de los pesos dependa de  la intensidad del cambio anterior, velocidad con la que varía, una especie de inercia llamada momento. Evita que puedan diferir en exceso.
+Una manera de evitar la oscilación es hacer que el cambio de los pesos dependa de la intensidad del cambio anterior, velocidad con la que varía, una especie de inercia llamada momento. Evita que puedan diferir en exceso.
 \pagebreak
 
 \section{Momento}
@@ -894,9 +894,9 @@ Conjunto de datos diferentes a los de entrenamiento para comprobar la capacidad 
 
 Se utiliza para saber cuándo empieza a sobreentrenar.
 
-Los datos de validación deben tener una estructura similar a los de entrenamiento, para esto se aleatorizan los datos y hacer que sean menos sesgados posibles.
+Los datos de validación deben tener una estructura similar a los de entrenamiento, para esto se aleatorizan los datos y de esta manera estarán lo menos sesgados posibles.
 
-Si hay correlaciones entre entrenamiento y validación, las dos curvas se comportaran parecido y nos servirá para ver la generalización.
+Si hay correlacion entre entrenamiento y validación, las dos curvas se comportaran demasiado parecido y tampoco nos servirá para ver la generalización.
 
 \section{Regularización}
 A veces se necesitan muchas neuronas para determinados problemas y para evitar sobreajuste lo que se hace es eliminar de manera aleatoria un porcentaje de las neuronas (10-25 \%) en cada iteración, así no puede sobreaprenderlo.
@@ -908,8 +908,8 @@ Se ha probado experimentalmente la eficacia de redes en las que las señales sol
 \section{Actualización por lotes}
 La actualización de los pesos se puede realizar:
 \begin{itemize}
-	\item Después de introducir un dato. $E= \frac{1}{2} (y-x)^2$
-	\item Después de introducir todos o una serie de datos. $E= \frac{1}{N} \sum_{i=1}^N(y_i-x_i)^2$
+	\item Después de introducir un dato. $E= \frac{1}{2} (x-y)^2$
+	\item Después de introducir todos o una serie de datos. $E= \frac{1}{N} \sum_{i=1}^N(x_i-y_i)^2$
 \end{itemize}
 Lo recomendado es tras una serie de datos, ya que tras cada patrón es muy costoso computacionalmente o si lo hacemos tras todo el conjunto de entrenamiento dificulta que la red pueda generalizar bien.
 
@@ -922,7 +922,7 @@ Es paralelizable, lo que permite incrementar más aún la velocidad del aprendiz
 \section{Validación cruzada}
 Es un método para la evaluación de modelo que lo que permite es entrenar la red con diferentes valores de parámetros para quedarnos con el mejor. 
 
-Aunque que se obtenga mejor evaluación no implica que se comporte mejor ante ejemplos desconocidos, por esto que para generar modelos es necesario un conjunto de ejemplos que no hayan sido utilizados en el entrenamiento, ni para modificar los pesos y tampoco para establecer el criterio de parada. 
+Aunque, que se obtenga mejor evaluación, no implica que se comporte mejor ante ejemplos desconocidos, por esto que para generar modelos es necesario un conjunto de ejemplos que no hayan sido utilizados en el entrenamiento, ni para modificar los pesos y tampoco para establecer el criterio de parada. 
 
 Los modelos deben ejecutarse el suficiente número de veces con diferentes inicializaciones y asignar la media de los resultados.
 
@@ -997,7 +997,7 @@ Cuando el axón de una célula A está lo suficientemente cerca como para excita
 
 En la regla de Hebb la modificación de los pesos no obedece a ningún factor externo.
 
-La conexión entre dos células se verá aumentada si ocurre que las dos se encuentran activas a la vez de manera persistente. Aquellas que no se repiten con frecuencias, se irán debilitando y se acabarán olvidando.
+La conexión entre dos células se verá aumentada si ocurre que las dos se encuentran activas a la vez de manera persistente. Aquellas que no se repiten con frecuencia, se irán debilitando y se acabarán olvidando.
 
 $$\Delta w_{ij}=a_i\cdot a_j \quad\quad\quad\quad \Delta w_{ij}=\mu(a_i - \overline{a_i})\cdot(a_J- \overline{a_j})$$
 $$\Delta w_{ij}=\Delta a_i\cdot \delta a_j \quad\quad\quad\quad \Delta w_{ij}= \mu a_i w_{ij} \Delta a_j$$
@@ -1123,14 +1123,14 @@ Emplea la regla “el que gana se lleva todo”: 0 para las no ganadoras y para 
 
 La tasa de aprendizaje varía en función del tiempo, va decrementando con el tiempo una cantidad constante. Se utiliza para que los valores más antiguos tengan mayor intensidad de aprendizaje. $\alpha(t+1)=\alpha (t) - \beta$.
 
-Mediante el valor de $\beta$ se determina el número de ciclos tota les de aprendizaje, $\textit{Iteraciones}=\frac{\alpha(0)}{\beta}$, que serán las veces que se puede decrementar el valor hasta llegar a 0.
+Mediante el valor de $\beta$ se determina el número de ciclos totales de aprendizaje, $\textit{Iteraciones}=\frac{\alpha(0)}{\beta}$, que serán las veces que se puede decrementar el valor hasta llegar a 0.
 
 Los pasos son:
 \begin{enumerate}
 	\item Se introduce un patrón de entrenamiento.
 	\item Se calcula su distancia a todos los prototipos de la CC.
 	\item Se selecciona el de menor distancia C$_j$ (célula ganadora).
-	\item Las conexiones de las células ganadoras se modifican, acercando sus coordenadas a las de la entrada: $w_{ij}=\alpha(e_i - w_ij)$.
+	\item Las conexiones de las células ganadoras se modifican, acercando sus coordenadas a las de la entrada: $w_{ij}=\alpha(e_i - w_{ij})$.
 	
 \end{enumerate}
 
@@ -1224,7 +1224,7 @@ Se calcula para cada prototipo el ejemplo más próximo y se les relaciona.
 Para cada prototipo $A_k$ se crea un conjunto con los ejemplos que contiene y se desplaza el prototipo hacia el centro de masas de su conjunto de ejemplos, se repite el procedimiento hasta que ya no se desplazan los prototipos.
 
 \section{Learning Vector Quantization - LVQ}
-Cuando Kohonen creo su modelo vio que podía sé aplicable en casos de aprendizaje supervisado, como clasificación, no solo para clustering (no supervisado). Emplearlo conociendo las salidas nos permite dividir las regiones de manera más fácil.
+Cuando Kohonen creo su modelo vio que podía ser aplicable en casos de aprendizaje supervisado, como clasificación, no solo para clustering (no supervisado). Emplearlo conociendo las salidas nos permite dividir las regiones de manera más fácil.
 
 Se combina el aprendizaje competitivo con el supervisado. El modelo de red neuronal es idéntico, cambia la regla de aprendizaje.
 
@@ -1284,7 +1284,7 @@ Si cada una pertenece a una clase, la de la misma clase de la entrada se acerca,
 	Se divide el más grande sobre el más pequeño.
 \end{itemize}
 
-\chapter{Redes neuronales convolucionales - Deep Learning}
+\chapter{Tema 4: Redes neuronales convolucionales - Deep Learning}
 Surgieron con el aumento de la capacidad de cómputo.
 
 Se emplea en problemas con muchas entradas (como son las imágenes o señales), se llama profundo porque tiene muchas neuronas.
@@ -1295,10 +1295,10 @@ Con el tiempo se han ido mejorando y actualmente los resultados son impresionant
 \subsection{Redundancias}
 Los autoencoders se basan en la redundancia para poder comprimir y reducir la entrada a un menor número de células, dado que si fueran completamente aleatorio no se podrían sacar patrones.
 
-\textbf{Compresión}: Para todo vector $\vec{x}=\{x_1, x_2,\cdot, x_m\}$, obtener otro $\vec{z}=\{z_1, z_2,\cdot, z_n\}$ con $n<<m$, de forma que $\vec{x}$ pueda ser construido a partir de $\vec{z}$.
+\textbf{Compresión}: Para todo vector $\vec{x}=\{x_1, x_2,\cdot, x_m\}$, obtener otro $\vec{z}=\{z_1, z_2,\cdot, z_n\}$ con $n \ll m$, de forma que $\vec{x}$ pueda ser construido a partir de $\vec{z}$.
 
 \subsection{Formulación}
-La función de compresión y descompresión tendrá la forma: $\vec{z}=W_1\vec{x}+b_1$, $\vec{x}=W_2\vec{z}+b_2$.
+La función de compresión y descompresión tendrá la forma: $\vec{z}=W_1\vec{x}+b_1$, $\overline{x}=W_2\vec{z}+b_2$.
 
 Esto se puede representar mediante una red de neuronas en la que la entrada es $\vec{x}$, los pesos de compresión $W_1$, las células ocultas $\vec{z}$ capaces de recomponer la información tras pasar su salida por los $W_2$.
 
@@ -1311,14 +1311,14 @@ Se trata de una arquitectura de red neuronal con dos capas ocultas.
 	\item Los pesos de la segunda capa oculta se utilizan para la descompresión.
 \end{itemize}
 
-Se trata de una red no supervisada, no se necesita información adicional sobre los datos que guíe el aprendizaje (no hay etiquetas asociadas para clasificar, predecir o ajustar). Sin embargo se utiliza un proceso supervisado.
+Se trata de una red no supervisada, no se necesita información adicional sobre los datos que guíe el aprendizaje (no hay etiquetas asociadas para clasificar, predecir o ajustar). Sin embargo, se utiliza un proceso supervisado.
 
 Para ello se asigna como salida de cada dato $\vec{x}^{(i)}$ el propio dato, se aprende a obtener como salida la propia entrada $f(\vec{x}^{(i)}) = \vec{x}^{(i)}$.
 
 El vector $\vec{z}^{(i)}$ es la entrada comprimida, porque a partir de dicho vector, y de los pesos $W_2$ que son siempre los mismos, se puede recomponer la entrada original $\vec{x}^{(i)}$.
 
 \subsection{Propiedades}
-Función identidad: La función identidad parece trivial, pero introduciendo restricciones en la red se pueden descubrir propiedades interesantes de los datos.
+\textbf{Función identidad:} La función identidad parece trivial, pero introduciendo restricciones en la red se pueden descubrir propiedades interesantes de los datos.
 
 Si las neuronas ocultas son muchas menos que las de entrada $\rightarrow$ Compresión.
 
@@ -1329,9 +1329,9 @@ Si las entradas tienen estructura la red es capaz de descubrir determinadas corr
 Incluso si las células ocultas son más numerosas se pueden descubrir estructuras en los datos imponiendo otras restricciones (sparsity).
 
 \subsection{Sparsity}
-Restricción de carencia: Consiste en forzar a la red a que, para cada patrón de entrada, solo se activen un número reducido de células, el resto deben producir salida cero.
+\textbf{Restricción de carencia:} Consiste en forzar a la red a que, para cada patrón de entrada, solo se activen un número reducido de células, el resto deben producir salida cero.
 
-Si calculamos la media de las activaciones (salida con pesos y todo) de las células de la capa oculta (según las entradas):$\overline{\rho}_j = \frac{1}{m}\sum_{i=1}^{m} a_j(x^{(i)})$
+Si calculamos la media de las activaciones (salida con pesos y todo) de las células de la capa oculta (según las entradas): $\overline{\rho}_j = \frac{1}{m}\sum_{i=1}^{m} a_j(x^{(i)})$
 \begin{itemize}
 	\item m entradas.
 	\item $a_j(x^{(i)})$ activación célula j con entrada $x^{(i)}$.
@@ -1545,7 +1545,7 @@ Se trata de una BackPropagation en el que se ha sustituido la parte de tratamien
 
 El proceso de entrenamiento está compuesto por cuatro pasos básicos:
 \begin{enumerate}
-	\item Propagación hacia delante de las imágenes. Se introduce una entrada, se pasa por las capas de convolución  usando la función ReLu y pooling, finalmente se pasa por la capa full conected.
+	\item Propagación hacia delante de las imágenes. Se introduce una entrada, se pasa por las capas de convolución usando la función ReLu y pooling, finalmente se pasa por la capa full conected.
 	\item Cálculo del error.
 	\item Retropropagación del error.
 	\item Optimización mediante la modificación de los pesos, tanto de la parte de clasificación, como de las capas convolucionales (aprendizaje de los filtros).
@@ -1583,7 +1583,7 @@ Durante el entrenamiento, solo una cantidad pequeña (1-p) de las células son s
 
 La red resultante debería ser la media de los distintos modelos, pero no se tienen “físicamente” los $2^n$ modelos.
 
-Una buena aproximación consistiría en utilizar una versión reducida del modelo resultante en periodo de test, de manera que se utiliza la totalidad de los pesos, pero reducidos en exactamente una cantidad “p” ($p\cdot w$).
+Una buena aproximación consistiría en utilizar una versión reducida del modelo resultante en periodo de test, de manera que se \textbf{utiliza la totalidad de los pesos, pero reducidos en exactamente una cantidad “p”} ($p\cdot w$).
 
 En redes complejas existe un gran número de parámetros (pesos) necesarios para poder identificar problemas complejos.
 
