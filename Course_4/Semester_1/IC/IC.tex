@@ -1052,7 +1052,6 @@ Una ontología es una especificación formal y explicita de una conceptualizaci�
 	\item \textbf{Formal:} expresado mediante un formalismo (siempre idéntico) de manera que pueda ser reutilizada y leída por cualquier máquina.
 	\item \textbf{Compartida:} favorablemente acogida por todos los usuarios de esta. Se supone que se comparten entre usuarios para usarla con diferentes propósitos.
 \end{itemize}
-\pagebreak
 
 \subsection{Características de las Ontologías}
 \begin{itemize}
@@ -1067,9 +1066,10 @@ Una ontología es una especificación formal y explicita de una conceptualizaci�
 
 \subsection{Algunos problemas}
 \begin{itemize}
-	\item Imposibilidad de utilización directa de las ontologías previamente desarrolladas, almacenen el conocimiento junto, pero para hacer razonamientos hay que extraerlo (con un parser) y adaptarlo.
+	\item Imposibilidad de utilización directa de las ontologías previamente desarrolladas, almacenan el conocimiento junto, pero para hacer razonamientos hay que extraerlo (con un parser) y adaptarlo.
 	\item \textbf{Web semántica:} se necesita desarrollar buscadores semánticos.
 \end{itemize}
+\pagebreak
 
 \subsection{Terminología Básica}
 \begin{itemize}
@@ -1083,9 +1083,7 @@ Una ontología es una especificación formal y explicita de una conceptualizaci�
 	      Una nueva subclase puede tener nuevas propiedades, diferentes valores de las propiedades y participar en nuevas relaciones. Aunque no tienen por qué introducir nuevas propiedades.
 	\item \textbf{Clase abstracta:} clase que no permite que existan instancias de ella. Se usa para agrupar conceptos e introducir cierto orden en la jerarquía.
 	\item \textbf{Propiedad o atributo (slot):} característica de la clase que se concretara mediante un valor, pueden ser tipos básicos o incluso otra clase o instancia.
-	\item \textbf{Faceta:} propiedad de los atributos. Tipo de dato, la cardinalidad, valor por defecto…
-	      \pagebreak
-	      
+	\item \textbf{Faceta:} propiedad de los atributos. Tipo de dato, la cardinalidad, valor por defecto…	      
 	\item \textbf{Instancia:} representan objetos concretos del dominio.
 	      \begin{itemize}
 		      \item Pertenecen a una clase.
@@ -1111,7 +1109,6 @@ Son las metodologías para que dado un problema diseñar una ontología que lo r
 	\item \textbf{Methontology:} propone un ciclo de vida de construcción de la ontología basado en prototipos evolutivos
 	\item \textbf{On-To-Knowledge:} hace hincapié en las aplicaciones futuras de la ontología a la hora de diseñarla.
 \end{itemize}
-\pagebreak
 
 \subsection{Desarrollo de una Ontología}
 \textbf{Algunas reglas:}
@@ -1232,7 +1229,7 @@ Almacena el estado actual de la tarea o problema
 
 Los datos almacenados pueden ser permanentes, temporales, generales y específicos
 
-Inicialmente se representa todo el problema con los hechos iniciales, se va desarrollando hasta llegar al finalmente a un estado meta.
+Inicialmente se representa todo el problema con los hechos iniciales, se va desarrollando hasta llegar finalmente a un estado meta.
 
 La BH presenta tres estados:
 \begin{itemize}
@@ -1261,7 +1258,7 @@ Funcionamiento:
 	\begin{itemize}
 		\item (Etapa de restricción (opcional))
 		\item \textbf{Etapa de equiparación o filtrado.} Coge todas las reglas y comprueba las precondiciones con los hechos y ver cuál se puede ejecutar.
-		\item \textbf{Etapa de resolución del conjunto conflicto.} Según la estrategia selecciona una regla.
+		\item \textbf{Etapa de resolución del conjunto conflicto.} Según la estrategia, selecciona una regla.
 	\end{itemize}
 	
 	Una regla se activa cuando sus precondiciones son ciertas en el estado
@@ -1318,7 +1315,7 @@ Las reglas se pueden hacer en dos sentidos:
 	(retract ?mn1)
 	(retract ?mn2)
 	(assert (moneda ?nv1 ?p1))
-	(assert(moneda ?nv2 ?p2))
+	(assert (moneda ?nv2 ?p2))
 )	
 \end{lstlisting}
 
@@ -1327,7 +1324,7 @@ Las reglas se pueden hacer en dos sentidos:
 	\item \textbf{Imprimir por pantalla los n.º del 1 al 100.}
 	
 	Crear un contador con valor 1 y una regla, que lo que haga es ir sumando 1 al número mientras este sea menor que 100 (cuando sea 99 sumara por última vez y dará el 100)
-	\item \textbf{Contar el n.º de instancias de un ti p o particular.}
+	\item \textbf{Contar el n.º de instancias de un tipo particular.}
 	
 	Crear un contador que parte de 0 e ira subiendo el valor según las va contando, cuando cuenta una instancia crea un hecho de que esa instancia se ha contado, esto es necesario dado que al actualizar el contador tratara de aplicar de nuevo la regla sobre los mismos hechos.
 \end{enumerate}
@@ -1487,7 +1484,7 @@ Son funciones que se ejecutan automáticamente, cuando le ocurre algo a un deter
 
 Se definen sobre ATRIBUTOS de las clases.
 
-Además de definir qué es lo que hacer hay que definir que evento es el que lo dispara, pueden ser:
+Además de definir qué es lo que hace, hay que definir que evento es el que lo dispara, pueden ser:
 \begin{itemize}
 	\item \textbf{if-need}: antes de leer el valor del atributo.
 	\item \textbf{if-set}: después de cambiar el valor.
@@ -1735,7 +1732,7 @@ En los dominios se definen los  requirements que un planificador tiene  que  ten
 
 \subsection{Calidad Solución}
 \begin{enumerate}
-	\item Pro defecto: longitud del plan.
+	\item Por defecto: longitud del plan.
 	\item Métrica especifica definida en el fichero de problema.
 \end{enumerate}
 
@@ -1878,7 +1875,7 @@ Introduce:
 \subsubsection{State Trajectory Constraints}
 Se definen en la sección :constraints del problema o del dominio (válido para todos los problemas)
 
-Se representan utilizando logia temporal con los siguientes operadores modales:
+Se representan utilizando logica temporal con los siguientes operadores modales:
 \begin{itemize}
 	\item always $\phi$: $\phi$ tiene que ser cierto en todos los estados
 	\item sometime $\phi$: $\phi$ tiene que ser cierto en algún momento
