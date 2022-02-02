@@ -49,6 +49,7 @@ hmargin=3cm
 
 % Insertar gráficas y fotos
 \usepackage{tikz}
+\usetikzlibrary{cd}
 \usepackage{pgfplots}
 
 \usepackage[spanish, es-tabla]{babel} 
@@ -104,6 +105,8 @@ hmargin=3cm
   \thecontentslabel.\enspace}
 {\contentsmargin{0pt}}                        
 {\titlerule*[.7pc]{.}\contentspage}  
+
+\usepackage{adjustbox}
 
 % DISEÑO DE TABLAS.
 \usepackage{multirow} % permite combinar celdas 
@@ -270,12 +273,7 @@ hmargin=3cm
     \end{itemize}
 \end{itemize}
 
-\chapter{Análisis de la complejidad de los Algoritmos}\label{ch:análisis-de-la-complejidad-de-los-algoritmos}
-Coste de los procesos computacionales
-
-Complejidad de los algoritmos: Recursivos y No recursivos.
-
-Veremos como cuantificar el coste con órdenes de complejidad.
+\input{analisis-de-la-complejidad-de-los-algoritmos.tex}
 
 \chapter{Teoría de la Computabilidad}\label{ch:teoría-de-la-computabilidad}
 Clasificar los distintos problemas y formalizar el concepto de computar.

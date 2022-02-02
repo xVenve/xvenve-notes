@@ -1,0 +1,155 @@
+\chapter{Análisis de la complejidad de los Algoritmos}\label{ch:análisis-de-la-complejidad-de-los-algoritmos}
+\adjustbox{\textwidth,center}{%
+    \begin{tikzcd}
+                                   &                                                             & \text{Complejidad Computacional} \arrow[d] &                                       \\
+                                   &                                                             & \text{tipos} \arrow[rd] \arrow[ld]         &                                       \\
+                                   & \text{Complejidad temporal} \arrow[d]                       &                                            & \text{Complejidad espacial} \arrow[d] \\
+                                   & S(n) \arrow[d]                                              &                                            & T(n)                                  \\
+                                   & \text{Número de pasos base} \arrow[ld] \arrow[d] \arrow[rd] &                                            &                                       \\
+\text{Máquina de Turing} \arrow[d] & \text{Ensamblador} \arrow[d]                                & \text{Lenguaje alto nivel*} \arrow[d]      &                                       \\
+\text{transición}                  & \text{instrucción}                                          & \text{operación elemental} \arrow[d]       &                                       \\
+                                   &                                                             & \text{OE}                                  &
+\end{tikzcd}
+}
+* Estructuras de los algoritmos siempre se pueden considerar como estructuras de tipo Secuencial, Iterativo y Condicional, esto determina la operación elemental.
+
+\section{Introducción}\label{sec:introduccion}
+\textbf{Complejidad Computacional:} Recursos requeridos durante la ejecución de un algoritmo que da respuesta a un problema. Hay 2 tipos:
+\begin{itemize}
+  \item Tiempo: Número de pasos base de ejecución de un algoritmo para resolver un problema.
+  \item Espacio: Memoria utilizada para resolver un problema. Registros, Memoria caché y Memoria RAM, etc.
+\end{itemize}
+Espacial y Temporal.
+
+\textbf{Problema:} Una función entre el espacio de instancias y el espacio de respuestas, $X \rightarrow P(X)$.
+\begin{itemize}
+  \item Ejem. La ecuación de grado 2 tiene raíces cuadradas? $P(x^2+1=0)=\text{No}$
+\end{itemize}
+
+\textbf{Problema de decisión:} Tiene 2 respuestas: Si o No.
+
+\textbf{Instancia de un problema:} Es la especificación exacta de los datos de un problema para un caso particular.
+\begin{itemize}
+  \item \textbf{Tamaño de instancia:} Número de datos de la instancia.
+  \item Ejem. Independiente, $x^2$ y $x$ son los 3 parámetros de una instancia de un problema de ecuación de segundo grado.
+\end{itemize}
+
+\textbf{Algoritmo:} Conjunto de instrucciones que garantiza encontrar una solución correcta para cualquier instancia en un número finito de pasos.
+
+La complejidad puede hacer referencia a un algoritmo o un problema.
+\begin{itemize}
+  \item \textbf{Algoritmo:} Resolver las instancias de un problema. \\ Medida de número de pasos base requeridos para la PEOR instancia de tamaño n. \\ Relación entre n y el número de pasos.
+  \item \textbf{Problema:} Es el objeto de estudio de la Teoría de la Complejidad Computacional.
+\end{itemize}
+
+\section{Paso Base}\label{sec:paso-base}
+Se pueden modelar los algoritmos mediante:
+\begin{enumerate}
+    \item Construcción matemática denominada Máquina de Turing $\rightarrow$ Transición / Tabla de transiciones.
+  \item Código Ensamblador $\rightarrow$ Instrucción \ Conjunto estructurado de instrucciones.
+  \item Lenguaje de alto nivel $\rightarrow$ Operación Elemental / Conjunto estructurado de instrucciones.
+    \begin{itemize}
+      \item Suma, Restar División, Multiplicación, etc.
+    \end{itemize}
+\end{enumerate}
+
+\section{Complejidad de los Algoritmos}\label{sec:complejidad-de-los-algoritmos}
+Se expresa como: $T(n)$, número de pasos peor caso con entrada n.
+
+La complejidad computacional puede referirse también a los recursos de espacio necesarios según el tamaño de la entrada. Así tenemos que:
+\begin{itemize}
+  \item Tiempo de ejecución (complejidad temporal) $T(n)$
+  \item Espacio necesario para los datos (complejidad espacial) $S(n)$
+\end{itemize}
+
+Todo algoritmo puede ser implementado con 3 estructuras: Secuencial, Condicional e Iterativa.
+
+\textbf{Operación Elemental (OE)}
+\begin{itemize}
+  \item Comparación
+  \item Asignación variable
+  \item Acceso a estructura básica
+  \item Llamada función
+  \item Retorno función
+\end{itemize}
+
+\textbf{Estructura Secuencial:} Cada I es una instancia o bloque, se calcula:
+\begin{itemize}
+  \item El de todos: $T(I_1; I_2; \dots; I_n) = T(I_1) + T(I_2) + \dots + T(I_n)$
+  \item General: $T= \max \{T(I_1), T(I_2), \dots, T(I_n)\}$ El T es el más alto, el del peor caso/bloque.
+  \item Para los programas es la suma de todas las estructuras: $T = T_1 + T_2 + \dots + T_k = \max \{ T_1, T_2, \dots, T_k \}$
+\end{itemize}
+
+\textbf{Estructura Condicional:}
+\begin{itemize}
+  \item if (Condición) then BloqueThen else BloqueElse
+  \item $T = T(Condicion) + \max \{T(BloqueThen), T(BloqueElse)\}$
+\end{itemize}
+
+\textbf{Estructura Iterativa:}
+\begin{itemize}
+  \item while(C) S - $T = C + n_{iter} (C+S)$
+  \item for(A C B) S - $T = A + C + n_{iter} (C+B+S)$
+  \begin{itemize}
+    \item A: Inicialización
+    \item C: Condición
+    \item B: Incremento
+    \item S: Bloque
+  \end{itemize}
+\end{itemize}
+\pagebreak
+
+\textbf{Llamada a Procedimiento, Función o Método:}
+\begin{itemize}
+  \item $funcion(p_1, p_2, \dots, p_k) f$
+  \item 1 (por la llamada) + tiempo de evaluación parámetros + tiempo que tarde en ejecutarse el ''cuerpo'' de la función.
+  \item $T = 1 + T(p_1) + T(p_2) + \dots + T(p_n) + T(f)$
+\end{itemize}
+
+No se contabiliza la copia de los argumentos a la pila de ejecución salvo estructuras complejas (vector, registros) que se pasen por valor.
+
+El paso por referencia y paso de punteros, no se contabiliza.
+
+\subsection{Ejemplo}\label{subsec:ejemplo}
+\begin{lstlisting}[language=Java,label={lst:lstlisting}]
+for (int i = 0, acum = 0; i < n; i++)
+  acum += i;
+\end{lstlisting}
+
+$T(n) = A + C + n ( C + B + S ) = 2 + 1 + n ( 1 + 2 + 2 ) = 3 + 5 n$
+
+\begin{lstlisting}[language=Java,label={lst:lstlisting2}]
+if (x < 5)
+  for (int i = 0; i < n; i++)
+    acum += i;
+else
+  acum = 3;
+\end{lstlisting}
+
+$T(n) = 1 + \max \{ 1 + 1 + n(1+2+2) ; 1 \} = 1 + \max \{ 2 + 5 n ; 1 \} = 3 + 5n$
+
+\begin{lstlisting}[language=Java,label={lst:lstlisting3}]
+for (int i = 0, acum = 0; i < n; i++)
+  for (int j = 0; j < i/2; j++)
+    acum += i;
+\end{lstlisting}
+
+$T(n) = 2 + 1 + n ( 1 + 2 + \[ 1 + 2 + \frac{n}{2} ( 2 + 2 + 2) \]) = 3 + n (3 + 3 + 3 n) = 3 + 6 n + 3 n^2$
+
+\begin{lstlisting}[language=Java,label={lst:lstlisting4}]
+x = 5;
+while (x < N)
+  x = 3 * x;
+\end{lstlisting}
+
+$T(n) = 1 + 1 + p ( 1 + 2 ) = 2 + 3 p$
+
+$5 \cdot 3^p < n; p \log 3 < \log \frac{n}{7}; p = \frac{\log \frac{n}{5}}{\log 3}$
+
+\section{Algoritmos Recursivos}\label{sec:algoritmos-recursivos}
+
+
+\section{Tratabilidad}\label{sec:tratabilidad}
+
+
+\section{Análisis Asintótico}\label{sec:análisis-asintótico}
