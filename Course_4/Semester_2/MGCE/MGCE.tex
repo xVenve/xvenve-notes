@@ -1,0 +1,328 @@
+\documentclass[12pt, twoside, openright]{report} % Fuente a 12pt, formato doble página y chapter a la derecha
+\raggedbottom % No ajustar el contenido con un salto de página
+
+% MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
+\usepackage[
+a4paper,
+vmargin=2.5cm,
+hmargin=3cm
+]{geometry}
+
+% INTERLINEADO: Estrecho (6 ptos./interlineado 1,15) o Moderado (6 ptos./interlineado 1,5)
+\renewcommand{\baselinestretch}{1.15}
+\parskip=6pt
+
+% DEFINICIÓN DE COLORES para portada y listados de código
+\usepackage[table]{xcolor}
+\definecolor{azulUC3M}{RGB}{0,0,102}
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+
+% Soporte para GENERAR PDF/A
+\usepackage{etoolbox}
+\makeatletter
+\@ifl@t@r\fmtversion{2021-06-01}%
+ {\AddToHook{package/after/xmpincl}
+   {\patchcmd\mcs@xmpincl@patchFile{\if\par}{\ifx\par}{}{\fail}}}{}
+\makeatother
+\usepackage[a-1b]{pdfx}
+
+% ENLACES
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,
+  linkcolor=black, % enlaces a partes del documento (p.e. índice) en color negro
+  urlcolor=blue} % enlaces a recursos fuera del documento en azul
+
+% Añadir pdfs como partes del documento
+\usepackage{pdfpages}
+
+% Quitar la indentación de principio de los párrafos
+\setlength{\parindent}{0em}
+
+% EXPRESIONES MATEMÁTICAS
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+
+\usepackage{txfonts} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Insertar gráficas y fotos
+\usepackage{tikz}
+\usetikzlibrary{cd}
+\usepackage{pgfplots}
+
+\usepackage[spanish, es-tabla]{babel} 
+\usepackage[babel, spanish=spanish]{csquotes}
+\AtBeginEnvironment{quote}{\small}
+
+% diseño de PIE DE PÁGINA
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[LE,RO]{\thepage}
+\fancypagestyle{plain}{\pagestyle{fancy}}
+
+% DISEÑO DE LOS TÍTULOS de las partes del trabajo (capítulos y epígrafes o subcapítulos)
+\usepackage{titlesec}
+\usepackage{titletoc}
+\titleformat{\chapter}[block]
+{\large\bfseries\filcenter}
+{\thechapter.}
+{5pt}
+{\MakeUppercase}
+{}
+\titlespacing{\chapter}{0pt}{0pt}{*3}
+\titlecontents{chapter}
+[0pt]                                               
+{}
+{\contentsmargin{0pt}\thecontentslabel.\enspace\uppercase}
+{\contentsmargin{0pt}\uppercase}                        
+{\titlerule*[.7pc]{.}\contentspage}                 
+
+\titleformat{\section}
+{\bfseries}
+{\thesection.}
+{5pt}
+{}
+\titlecontents{section}
+[5pt]                                               
+{}
+{\contentsmargin{0pt}\thecontentslabel.\enspace}
+{\contentsmargin{0pt}}
+{\titlerule*[.7pc]{.}\contentspage}
+
+\titleformat{\subsection}
+{\normalsize\bfseries}
+{\thesubsection.}
+{5pt}
+{}
+\titlecontents{subsection}
+[10pt]                                               
+{}
+{\contentsmargin{0pt}                          
+  \thecontentslabel.\enspace}
+{\contentsmargin{0pt}}                        
+{\titlerule*[.7pc]{.}\contentspage}  
+
+\usepackage{adjustbox}
+
+% DISEÑO DE TABLAS.
+\usepackage{multirow} % permite combinar celdas 
+\usepackage{caption} % para personalizar el título de tablas y figuras
+\usepackage{floatrow} % utilizamos este paquete y sus macros \ttabbox y \ffigbox para alinear los nombres de tablas y figuras de acuerdo con el estilo definido. Para su uso ver archivo de ejemplo 
+\usepackage{array} % con este paquete podemos definir en la siguiente línea un nuevo tipo de columna para tablas: ancho personalizado y contenido centrado
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\DeclareCaptionFormat{upper}{#1#2\uppercase{#3}\par}
+
+% Diseño de tabla para ingeniería
+\captionsetup[table]{
+  format=hang,
+  name=Tabla,
+  justification=centering,
+  labelsep=colon,
+  width=.75\linewidth,
+  labelfont=small,
+  font=small,
+}
+
+% DISEÑO DE FIGURAS.
+\usepackage{graphicx}
+\graphicspath{{img/}} %ruta a la carpeta de imágenes
+
+% Diseño de figuras para ingeniería
+\captionsetup[figure]{
+  format=hang,
+  name=Fig.,
+  singlelinecheck=off,
+  labelsep=colon,
+  labelfont=small,
+  font=small    
+}
+
+% NOTAS A PIE DE PÁGINA
+\usepackage{chngcntr} % Para numeración continua de las notas al pie
+\counterwithout{footnote}{chapter}
+
+% LISTADOS DE CÓDIGO
+% soporte y estilo para listados de código. Más información en https://es.wikibooks.org/wiki/Manual_de_LaTeX/Listados_de_código/Listados_con_listings
+\usepackage{listings}
+
+% definimos un estilo de listings
+\lstdefinestyle{estilo}{ frame=Ltb,
+  framerule=0pt,
+  aboveskip=0.5cm,
+  framextopmargin=3pt,
+  framexbottommargin=3pt,
+  framexleftmargin=0.4cm,
+  framesep=0pt,
+  rulesep=.4pt,
+  backgroundcolor=\color{gray97},
+  rulesepcolor=\color{black},
+  %
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\bfseries,
+  stringstyle=\ttfamily,
+  showstringspaces = false,
+  commentstyle=\color{gray45},     
+  %
+  numbers=left,
+  numbersep=15pt,
+  numberstyle=\tiny,
+  numberfirstline = false,
+  breaklines=true,
+  xleftmargin=\parindent
+}
+
+\captionsetup[lstlisting]{font=small, labelsep=period}
+% fijamos el estilo a utilizar 
+\lstset{style=estilo}
+\renewcommand{\lstlistingname}{\uppercase{Código}}
+
+\pgfplotsset{compat=1.17} 
+%-------------
+% DOCUMENTO
+%-------------
+
+\begin{document}
+\pagenumbering{roman} % Se utilizan cifras romanas en la numeración de las páginas previas al cuerpo del trabajo
+
+%----------
+% PORTADA
+%---------- 
+\begin{titlepage}
+  \begin{sffamily}
+    \color{azulUC3M}
+    \begin{center}
+      \begin{figure}[H] % Incluimos el logotipo de la Universidad
+        \makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
+      \end{figure}
+      \vspace{2.5cm}
+      \begin{Large}
+        Grado en Ingeniería Informática\\
+        2021-2022\\
+        \vspace{2cm}
+        \textsl{Apuntes}\\
+        \bigskip
+      \end{Large}
+      {\Huge Mitos Griegos y Cultura Europea}\\
+      \vspace*{0.5cm}
+      \rule{10.5cm}{0.1mm}\\
+      \vspace*{0.9cm}
+      {\LARGE Jorge Rodríguez Fraile\footnote{\href{mailto:100405951@alumnos.uc3m.es}{Universidad: 100405951@alumnos.uc3m.es}  |  \href{mailto:jrf1616@gmail.com}{Personal: jrf1616@gmail.com}}}\\
+      \vspace*{1cm}
+    \end{center}
+    \vfill
+    \color{black}
+    \includegraphics[width=4.2cm]{img/creativecommons.png}\\
+    Esta obra se encuentra sujeta a la licencia Creative Commons\\ \textbf{Reconocimiento - No Comercial - Sin Obra Derivada}
+  \end{sffamily}
+\end{titlepage}
+
+%----------
+% ÍNDICES
+%---------- 
+
+%--
+% Índice general
+%-
+\tableofcontents
+\thispagestyle{fancy}
+
+%--
+% Índice de figuras. Si no se incluyen, comenta las líneas siguientes
+%-
+\listoffigures
+\thispagestyle{fancy}
+
+%--
+% Índice de tablas. Si no se incluyen, comenta las líneas siguientes
+%-
+\listoftables
+\thispagestyle{fancy}
+
+%----------
+% TRABAJO
+%---------- 
+
+\pagenumbering{arabic} % numeración con números arábigos para el resto de la publicación  
+
+%----------
+% COMENZAR A ESCRIBIR AQUÍ
+%---------- 
+
+\chapter{Información}\label{ch:informacion}
+\section{Profesores}\label{sec:profesores}
+\begin{quote}
+	Magistral: Lorena Pérez Yarza, loperezy@inst.uc3m.es
+\end{quote}
+
+\section{Sistema de evaluación}\label{sec:sistema-de-evaluación}
+Hay evaluación continua, que si se sigue no hace falta ir a un examen final.
+
+\section{Calendario y Evalución Continua}
+\begin{enumerate}
+    \item Visita del Prado y Práctica
+    \begin{itemize}
+      \item Visita corta con la Uni (jueves por la manana/sabado por la manana)
+      \item Hacer un trabajo de 2-3 paginas, con imagenes, hablando de 3 obras del museo relacionadas con mitos.
+    \end{itemize}
+  \item Seminario online: 17 de febrero o 3 de marzo. Es una alternativa al museo.
+  \item 1 lectura obligatoria (max. 3 páginas): Selección de obras en aula global.
+    \begin{itemize}
+      \item Extensión de 3 paginas, pero no solo copiar y pegar.
+      \item Decir en que consiste la obra, recensión, OIR
+      \item Hacer una reflexion de la lectura personal
+    \end{itemize}
+  \item (Examen final) Presentaciones finales: oral en grupo y trabajo individual (18 de mayo, límite)
+    \begin{itemize}
+      \item Grupos de 2 maximo
+      \item Presentación oral de 5 minutos, online.
+      \item Entre 5-8 páginas de extensión del documento, incluye referencias/bibliografia.
+      \item Hablar de una obra, haciendo una reflexion y relacionarla con el mundo real
+      \item Ambas personas la deben entregar en aula global
+    \end{itemize}
+\end{enumerate}
+
+\chapter{Tema 1}
+Lord Byron, poeta romantico britanico, combatió en la Guerra de inependencia Griega.
+  Muere en la guerra de independencia de \ldots
+
+La mitologia se usaba para explicar el mundo que les rodea, de manera oral y eran populares, servian para ensenar.
+
+Los historiadores y filosofos consideraban que eran lo contrario a la verdad, ya que no tiene verosimilitud y son muy fantasticos.
+
+Se pensaba que la ciencia tenia que explicar todo, pero no es así las personas somos iracionales que actuan por impulsos y no todo tiene que ser factico.
+
+Heinrich Schliemann (1822-1890) se inspiro en los relatos miticos y participo en los relatos miticos y paritcipo activamente en le descubrimiento arqueologico de Troya y Micenas, lugares de la Ilíada.
+
+En muchos casos se dan hechos que no son probados, pero que se han mitificado hasta el punto que todo el mundo piense que es cierto. El caso del Cid o la Guerra de Troya.
+
+Los mitos clasicos representan ya el triunfo de la obra literia sobre la creencia religiosa (M. Eliade, 1994: 166)
+
+  Por ejemplo el Dios Sol fue eliminado al pensar que era un dios oriental y era un error sustituyendose por Jupiter.
+
+  Los mitos viven en el país de la memoria (Marcel Detienne)
+
+  Se transmite de manera oral normalmente de generación en generación, aunque tambien se hace de manera literaria. Cuando los griegos aprendian a escribir/leer lo primero que aprendian era la Ilíada, era conocido por todos.
+
+  Estan ligados a las creencias y tienen el mismo objetivo, van de la mano, explican ciertos acontecimientos. Sirven para explicar ciertos ritos.
+
+  La cultura europea no es pagana, bebe de la romana y griega, cultura clasica, pero en muchas zonas se ha expandido y adaptado a las diferentes culturas. Por ejemplo los campos eliseos, como lugar bonito tras la muerte bebe de la cultura egipcia.
+
+  Mitema (topico literario): La parte mas pequena que conforma un mito (equivale al fonema de la lengua), como puede ser el viaje de regreso de un heroe, un nacimiento/hecho milagroso (ejem. echado a un rio, sumerios con Sargon de Akkad o critianismo con Moises, el amor, un diluvio (ejem. sumerios y critianismo) \ldots. Son buenas ideas, que sirven para articular la obra.
+
+
+  El mito se transmite a partir de ideas buenas, que se usan para crear nuevas palabras como quimera que significaba cabra y se interpreta como una bestia. Por ejemplo capricornio parte del calendario. Pasa con las sirenas, grifos, etc.
+
+  Los mitos eran parte de la cultura viva e iban evolucionando constantemente, hay que tener muy presente que tienen una larga historia y variaciones. Tienen muchas raices y es dificil llegar hasta el original, diferenciando obras literias, teatrales o religiosas.
+
+Hay muchos animales a los que se les dota de significado, como el Pegaso, Minotauro, Hidra, Paloma, Leon, Toro, Esfinge, etc.
+
+  El mito es fundamentalmente la historia oral, más que la escrita y literaria.
+
+
+
+
+\end{document}
