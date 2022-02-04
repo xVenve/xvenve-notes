@@ -1,0 +1,287 @@
+\documentclass[12pt, twoside, openright]{report} % Fuente a 12pt, formato doble página y chapter a la derecha
+\raggedbottom % No ajustar el contenido con un salto de página
+
+% MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
+\usepackage[
+a4paper,
+vmargin=2.5cm,
+hmargin=3cm
+]{geometry}
+
+% INTERLINEADO: Estrecho (6 ptos./interlineado 1,15) o Moderado (6 ptos./interlineado 1,5)
+\renewcommand{\baselinestretch}{1.15}
+\parskip=6pt
+
+% DEFINICIÓN DE COLORES para portada y listados de código
+\usepackage[table]{xcolor}
+\definecolor{azulUC3M}{RGB}{0,0,102}
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+
+% Soporte para GENERAR PDF/A
+\usepackage{etoolbox}
+\makeatletter
+\@ifl@t@r\fmtversion{2021-06-01}%
+ {\AddToHook{package/after/xmpincl}
+   {\patchcmd\mcs@xmpincl@patchFile{\if\par}{\ifx\par}{}{\fail}}}{}
+\makeatother
+\usepackage[a-1b]{pdfx}
+
+% ENLACES
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,
+  linkcolor=black, % enlaces a partes del documento (p.e. índice) en color negro
+  urlcolor=blue} % enlaces a recursos fuera del documento en azul
+
+% Añadir pdfs como partes del documento
+\usepackage{pdfpages}
+
+% Quitar la indentación de principio de los párrafos
+\setlength{\parindent}{0em}
+
+% EXPRESIONES MATEMÁTICAS
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+
+\usepackage{txfonts} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Insertar gráficas y fotos
+\usepackage{tikz}
+\usetikzlibrary{cd}
+\usepackage{pgfplots}
+
+\usepackage[spanish, es-tabla]{babel} 
+\usepackage[babel, spanish=spanish]{csquotes}
+\AtBeginEnvironment{quote}{\small}
+
+% diseño de PIE DE PÁGINA
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[LE,RO]{\thepage}
+\fancypagestyle{plain}{\pagestyle{fancy}}
+
+% DISEÑO DE LOS TÍTULOS de las partes del trabajo (capítulos y epígrafes o subcapítulos)
+\usepackage{titlesec}
+\usepackage{titletoc}
+\titleformat{\chapter}[block]
+{\large\bfseries\filcenter}
+{\thechapter.}
+{5pt}
+{\MakeUppercase}
+{}
+\titlespacing{\chapter}{0pt}{0pt}{*3}
+\titlecontents{chapter}
+[0pt]                                               
+{}
+{\contentsmargin{0pt}\thecontentslabel.\enspace\uppercase}
+{\contentsmargin{0pt}\uppercase}                        
+{\titlerule*[.7pc]{.}\contentspage}                 
+
+\titleformat{\section}
+{\bfseries}
+{\thesection.}
+{5pt}
+{}
+\titlecontents{section}
+[5pt]                                               
+{}
+{\contentsmargin{0pt}\thecontentslabel.\enspace}
+{\contentsmargin{0pt}}
+{\titlerule*[.7pc]{.}\contentspage}
+
+\titleformat{\subsection}
+{\normalsize\bfseries}
+{\thesubsection.}
+{5pt}
+{}
+\titlecontents{subsection}
+[10pt]                                               
+{}
+{\contentsmargin{0pt}                          
+  \thecontentslabel.\enspace}
+{\contentsmargin{0pt}}                        
+{\titlerule*[.7pc]{.}\contentspage}  
+
+\usepackage{adjustbox}
+
+% DISEÑO DE TABLAS.
+\usepackage{multirow} % permite combinar celdas 
+\usepackage{caption} % para personalizar el título de tablas y figuras
+\usepackage{floatrow} % utilizamos este paquete y sus macros \ttabbox y \ffigbox para alinear los nombres de tablas y figuras de acuerdo con el estilo definido. Para su uso ver archivo de ejemplo 
+\usepackage{array} % con este paquete podemos definir en la siguiente línea un nuevo tipo de columna para tablas: ancho personalizado y contenido centrado
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\DeclareCaptionFormat{upper}{#1#2\uppercase{#3}\par}
+
+% Diseño de tabla para ingeniería
+\captionsetup[table]{
+  format=hang,
+  name=Tabla,
+  justification=centering,
+  labelsep=colon,
+  width=.75\linewidth,
+  labelfont=small,
+  font=small,
+}
+
+% DISEÑO DE FIGURAS.
+\usepackage{graphicx}
+\graphicspath{{img/}} %ruta a la carpeta de imágenes
+
+% Diseño de figuras para ingeniería
+\captionsetup[figure]{
+  format=hang,
+  name=Fig.,
+  singlelinecheck=off,
+  labelsep=colon,
+  labelfont=small,
+  font=small    
+}
+
+% NOTAS A PIE DE PÁGINA
+\usepackage{chngcntr} % Para numeración continua de las notas al pie
+\counterwithout{footnote}{chapter}
+
+% LISTADOS DE CÓDIGO
+% soporte y estilo para listados de código. Más información en https://es.wikibooks.org/wiki/Manual_de_LaTeX/Listados_de_código/Listados_con_listings
+\usepackage{listings}
+
+% definimos un estilo de listings
+\lstdefinestyle{estilo}{ frame=Ltb,
+  framerule=0pt,
+  aboveskip=0.5cm,
+  framextopmargin=3pt,
+  framexbottommargin=3pt,
+  framexleftmargin=0.4cm,
+  framesep=0pt,
+  rulesep=.4pt,
+  backgroundcolor=\color{gray97},
+  rulesepcolor=\color{black},
+  %
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\bfseries,
+  stringstyle=\ttfamily,
+  showstringspaces = false,
+  commentstyle=\color{gray45},     
+  %
+  numbers=left,
+  numbersep=15pt,
+  numberstyle=\tiny,
+  numberfirstline = false,
+  breaklines=true,
+  xleftmargin=\parindent
+}
+
+\captionsetup[lstlisting]{font=small, labelsep=period}
+% fijamos el estilo a utilizar 
+\lstset{style=estilo}
+\renewcommand{\lstlistingname}{\uppercase{Código}}
+
+\pgfplotsset{compat=1.17} 
+%-------------
+% DOCUMENTO
+%-------------
+
+\begin{document}
+\pagenumbering{roman} % Se utilizan cifras romanas en la numeración de las páginas previas al cuerpo del trabajo
+
+%----------
+% PORTADA
+%---------- 
+\begin{titlepage}
+  \begin{sffamily}
+    \color{azulUC3M}
+    \begin{center}
+      \begin{figure}[H] % Incluimos el logotipo de la Universidad
+        \makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
+      \end{figure}
+      \vspace{2.5cm}
+      \begin{Large}
+        Grado en Ingeniería Informática\\
+        2021-2022\\
+        \vspace{2cm}
+        \textsl{Apuntes}\\
+        \bigskip
+      \end{Large}
+      {\Huge Informática Gráfica}\\
+      \vspace*{0.5cm}
+      \rule{10.5cm}{0.1mm}\\
+      \vspace*{0.9cm}
+      {\LARGE Jorge Rodríguez Fraile\footnote{\href{mailto:100405951@alumnos.uc3m.es}{Universidad: 100405951@alumnos.uc3m.es}  |  \href{mailto:jrf1616@gmail.com}{Personal: jrf1616@gmail.com}}}\\
+      \vspace*{1cm}
+    \end{center}
+    \vfill
+    \color{black}
+    \includegraphics[width=4.2cm]{img/creativecommons.png}\\
+    Esta obra se encuentra sujeta a la licencia Creative Commons\\ \textbf{Reconocimiento - No Comercial - Sin Obra Derivada}
+  \end{sffamily}
+\end{titlepage}
+
+%----------
+% ÍNDICES
+%----------
+
+%--
+% Índice general
+%-
+\tableofcontents
+\thispagestyle{fancy}
+
+%--
+% Índice de figuras. Si no se incluyen, comenta las líneas siguientes
+%-
+\listoffigures
+\thispagestyle{fancy}
+
+%--
+% Índice de tablas. Si no se incluyen, comenta las líneas siguientes
+%-
+\listoftables
+\thispagestyle{fancy}
+
+%----------
+% TRABAJO
+%----------
+
+\pagenumbering{arabic} % numeración con números arábigos para el resto de la publicación
+
+%----------
+% COMENZAR A ESCRIBIR AQUÍ
+%----------
+
+\chapter{Información}\label{ch:informacion}
+\section{Profesores}\label{sec:profesores}
+\begin{quote}
+    Coordinador: Antonio Berlanga
+
+	Magistral: Yago Sáez, yago.saez@uc3m.es, 2.1.C.13
+
+    Magistral: José María Valls
+
+    Prácticas: David Quintana
+\end{quote}
+
+\section{Sistema de evaluación}\label{sec:sistema-de-evaluación}
+\begin{itemize}
+  \item 50 \% Teoría
+  \begin{itemize}
+    \item 10 \% Test 1. 4 temas
+    \item 10 \% Test 2. 4 temas
+    \item 30 \% Examen Final. Todos los contenidos teóricos de la asignatura \\ Nota mínima: 3
+  \end{itemize}
+  \item 50 \% Práctica. La 1, 2 y 3 son por parejas y la última en grupo de 3
+  \begin{itemize}
+    \item 12,5 \% Práctica 1. Modelado 3D
+    \item 10 \% Práctica 2. Fractales
+    \item 12,5 \% Práctica 3. Paisajes y terreno
+    \item 15 \% Práctica Final. Modelado 3D, Iluminación y sombreado y Animación
+  \end{itemize}
+\end{itemize}
+
+\chapter{Introducción a la Informática Gráfica}\label{ch:introduccion-a-la-informática-gráfica}
+
+
+\end{document}
