@@ -1,0 +1,130 @@
+\chapter{Proyecciones, Objetos 3D y GSD}
+\section{Proyecciones}
+\textbf{Proyección:} Transformación matemática que convierte un conjunto de puntos n-dimensional en un conjunto de puntos k-dimensional, siendo $k \leq n$. Reduce la dimensionalidad, normalmente 3D a 2D.
+
+La proyección se define por unas \textbf{líneas de proyección} (proyectores) que, dirigidos hacia el \textbf{centro de proyección}, pasan a través del objeto e intersecan el \textbf{plano de proyección/superficie de proyección} para formar la proyección del objeto en el mismo.
+
+Proyecciones Geométricas Planas
+\begin{itemize}
+    \item Paralela
+    \begin{itemize}
+        \item Ortográfica
+        \begin{itemize}
+            \item Elevaciones, las proyecciones ortográficas en tres planos.
+            \item Axonométrica, el objeto es rotado respecto a uno o más ejes del plano de proyección.
+            \begin{itemize}
+                \item Isométrica
+            \end{itemize}
+        \end{itemize}
+        \item Oblicua
+        \begin{itemize}
+            \item Cabinet, eje de profundidad (z) forma 45 grados con el eje x. Profundidad escalada (1/2, 2/3, etc.).
+            \item Caballera, eje de profundidad (z) forma 45 grados con el eje x. Profundidad real.
+        \end{itemize}
+    \end{itemize}
+    \item perspectiva
+    \begin{itemize}
+        \item 1 punto
+        \item 2 puntos
+        \item 3 puntos
+    \end{itemize}
+\end{itemize}
+
+Métodos de generar vistas de objetos:
+\begin{itemize}
+    \item \textbf{Proyección paralela:} El centro de proyección en el infinito, los proyectores son paralelos hacia el centro.
+    \begin{itemize}
+        \item Mantiene la forma y dimensión de los objetos.
+        \item Representación no realista de los objetos, se usan para el diseño.
+        \item Conservan las propiedades relativas.
+    \end{itemize}
+    \begin{figure}[H]
+        \ffigbox[\FBwidth]
+        {\caption{Proyección perspectiva}}
+        {\def\svgwidth{.5\textwidth}
+            \input{./img/perspectiva.eps_tex}}
+    \end{figure}
+    \item \textbf{Proyección perspectiva:} Hay un centro de proyección cercano.
+    \begin{itemize}
+        \item Altera la forma y dimensión de los objetos.
+        \item Representación realista de los objetos, simula la visión humana.
+        \item No conserva las proporciones
+    \end{itemize}
+    \vspace{-5cm}
+    \begin{figure}[H]
+        \ffigbox[\FBwidth]
+        {\caption{Proyección paralela}}
+        {\def\svgwidth{.5\textwidth}
+            \input{./img/paralela.eps_tex}}
+    \end{figure}
+\end{itemize}
+
+\subsection{Visión Estereográfica}
+Se obtiene realizando dos proyecciones en perspectiva, ambas imágenes se combinan para dar una tridimensional. Es el caso de los ojos.
+
+\subsection{Proyecciones no planas}
+\begin{itemize}
+    \item Proyección esférica: Imagen proyectada sobre una esfera.
+    \item Proyección fisheye (ojo de pez, media esfera): Proyección esférica con un ángulo de 180 grados (estándar) o 360 grados (ultra). La proyección sobre un círculo.
+    \item Proyección ultra wide angle: Fisheye en el que la proyección es un rectángulo.
+    \item Proyección Omnimax: Fisheye con un ángulo de visión reducido en el eje vertical.
+    \item Proyección cilíndrica: Imagen proyectada sobre un cilindro.
+    \item Proyección panorámica: Tipo de proyección cilíndrica capaz de ver ángulos superiores a 180 grados.
+\end{itemize}
+
+\section{Representación de Objetos 3D}
+Definir estructuras de datos 3D capaces de representar las propiedades geométricas y físicas.
+
+Debemos ser capaces de representar el interior, el exterior y el comportamiento de la superficie.
+
+Aproximaciones al problema:
+\begin{itemize}
+    \item Definición de la superficie exterior: Modelos de superficie, solo interesa el contorno (exterior).
+    \item Definición del espacio ocupado por el objeto: Modelado Sólido, para saber exterior, interior y propiedad de los objetos.
+\end{itemize}
+
+Requisitos:
+\begin{itemize}
+    \item Facilidad en la generación de objetos.
+    \item Calidad en el aspecto final de la representación, según las restricciones.
+    \item Recursos computacionales de la aplicación.
+\end{itemize}
+
+Representación de Objetos 3D
+\begin{itemize}
+    \item Modelos de Superficie
+    \begin{itemize}
+        \item Poligonales
+        \item Matemáticos
+        \begin{itemize}
+            \item Superficies Implícitas
+            \item Superficies Paramétricas
+        \end{itemize}
+    \end{itemize}
+    \item Modelo Sólido
+    \begin{itemize}
+        \item Modelos de Barrido
+        \item Geometría Sólida Constructiva (GSC)
+    \end{itemize}
+    \item Modelos de Partición Espacial
+\end{itemize}
+
+\subsection{Modelos de Superficie}
+Se emplea cuándo
+\begin{itemize}
+    \item El objeto a representar es muy similar a una superficie.
+    \item Solo interesa el aspecto externo del objeto.
+    \item El tipo de biblioteca gráfica solo soporta este modelo (no hay más remedio).
+\end{itemize}
+
+Para modelar superficies debemos asegurarnos de que las superficies no se intersecan consigo mismas.
+
+Cuando la superficie es cerrada se denominan a los objetos modelos de frontera $\rightarrow$ posibilidad de cambio con modelos sólidos.
+
+Aproximaciones al modelado de superficies:
+\begin{itemize}
+    \item Discreta y aproximada $\rightarrow$ modelo poliédrico
+    \item Continua y exacta $\rightarrow$ modelo matemático
+\end{itemize}
+
+\subsubsection{Modelos de Superficie: Poligonales}
