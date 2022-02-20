@@ -233,11 +233,11 @@ A una ecuación de recurrencia de orden k, mediante un cambio de variable, se le
 
 Lo que hacemos tras la sustitución es obtener las raíces, que pueden ser distintas $x=2$ y $x=3$ o iguales $x=1$, $(x-1) \cdot (x-1)$.
 \begin{itemize}
-  \item Para las raíces distintas se aplica: \\ 
-  $T(n) = \sum _1 ^k b_i r_i^n, \; b_i, r_i \in \mathbb{R}$ \\
+  \item Para las raíces distintas se aplica:
+  $$T(n) = \sum _1 ^k b_i r_i^n, \; b_i, r_i \in \mathbb{R}$$
   $r_1$ y $r_2$ son raíces diferentes, $T(n)=b_1r_1^n+b_2r_2^n$ es solución.
-  \item Una raíz con multiplicidad mayor que 1: \\ 
-  $T(n) = \sum _{i=1} ^m b_i n^{i-1}r_1^n+\sum _{i=m+1} ^k b_i r_{i-m+1}^n, \; b_i, r_i \in \mathbb{R}$ \\ 
+  \item Una raíz con multiplicidad mayor que 1:
+  $$T(n) = \sum _{i=1} ^m b_i n^{i-1}r_1^n+\sum _{i=m+1} ^k b_i r_{i-m+1}^n, \; b_i, r_i \in \mathbb{R}$$
   $r_1$ son las raíces de la ecuación característica y $m$ la multiplicidad cuando es mayor que 1.\\
   $r$  raíz doble, $T(n)=b_1nr^n+b_2r^n$ es solución.
 \end{itemize}
@@ -257,6 +257,102 @@ Ejem. $T(n)=T(n-1)+T(n-1) \rightarrow x^2= x + 1$
   \end{itemize}
   \item Despejamos con ambas ecuaciones: $b_1 = -b_2 = \frac{1}{5}$.
 \end{itemize}
+
+\subsection{Fractales}
+Fractal, división de figuras geométricas.
+
+Entrada: Figura geométrica y como parámetro un número natural.
+
+Se trata de obtener la figura geométrica resultante de dividir la anterior en 4 partes, hasta el número dado por la resolución.
+
+Ecuaciones temporales, expresadas en función de la resolución.
+\begin{itemize}
+  \item Ejem. Triángulo $T(0)=c$ y $T(n)=3\cdot T(n-1)+d$
+  \item Sol. $T(n)= c3^n+ \frac{3^n-1}{2}d=O(3^n)$
+\end{itemize}
+
+\section{Cotas asintóticas}
+Peores instancias de tamaño de entrada n: $O(g(n))$ Cota superior.
+
+Mejores instancias de tamaño de entrada n: $\Omega(g(n))$ Cota inferior.
+
+Instancias medias: $\Theta(g(n))$ Cota ajustada.
+
+\begin{table}[H]
+  \begin{tabular}{|c|c|}
+  \hline
+  \rowcolor[HTML]{BFBFBF} 
+  Notación                            & Orden - nombre                               \\ \hline
+  $O(1)$                                & Constante                                    \\ \hline
+  $O(\log n)$                            & Logarítmico                                  \\ \hline
+  $O([\log n]^c)$                        & Polilogarítmico                              \\ \hline
+  $O(n)$         & Lineal                \\ \hline
+  $O(n \cdot \log n)$ & Lineal logarítmico    \\ \hline
+  $O(n^2)$       & Cuadrático            \\ \hline
+  $O(n^c)$       & Polinómico            \\ \hline
+  $O(c^n)$       & Exponencial           \\ \hline
+  $O(n!)$        & Factorial             \\ \hline
+  $O(n^n)$       & Potencial-exponencial \\ \hline
+  \end{tabular}
+  \caption{Nombres de los órdenes de complejidad}
+\end{table}
+
+\subsection{Cota Superior Asintótica}
+Es una función, g(n), que sirve de cota superior de otra función, f(n), cuando $n\rightarrow \infty$. f(n) no puede pasar de g(n).
+
+Se utilizan la notación de Landau Big O $O(g(n))$ para referirse al Conjunto de las funciones $f(n)$ acotadas superiormente por la función $g(n)$.
+\begin{itemize}
+  \item $f(n)$ $\in$ $O(g(n))$
+  \item $f(n)$ es $O(g(n))$
+  \item $f(n)$ es $o$ de $g(n)$
+\end{itemize}
+
+$$O(g(n))=\left\{\begin{matrix}
+  f(n)\;/\;\exists c, n_0 \textit{ constantes positivas tales que}  \\
+  \forall n \geq n_0, f(n) \leq c \cdot g(n)
+  \end{matrix}\right\}$$
+
+$$f(n)=O(g(n)) \Leftrightarrow \lim_{n \rightarrow \infty} \frac{f(n)}{g(n)}= k \in \mathbb{R}, k \geq 0$$
+
+Se hacen intervalos de signos de la función $h(n) = f(n)-g(n)$ para ver en que momentos nuestra $g(n)$ sobrepasa $f(n)$ y no vuelve a superarla.
+
+Hay que fijarse a partir del último corte que no ocurra que $f(n) > g(n)$. Puede ocurrir a la izquierda, pero nunca más a la derecha.
+
+Algunas propiedades:
+\begin{itemize}
+  \item $O(a \cdot f(n))= O(f(n))$ con $a \in \mathbb{R}$
+  \item $O(\log_a n) = O(\log_b n)$ con $a,b > 1$
+  \item Si $f \in O(g)$ y $g \in O(h)$ entonces $f \in O(h)$
+  \item Regla de la suma: $O(f+g)=O(\max(f, g))$
+  \item Regla del producto: Si $g_1 \in O(f_1)$ y $g_2 \in O(f_2)$ entonces $g_1 \cdot g_2 \in O(f_1 \cdot f_2)$
+\end{itemize}
+
+\subsection{o (o pequeña / ómicron minúscula)}
+$f(n)=o(g(n))$ $\exists c, n_0\;/\; f(n)<c\cdot g(n), \; \forall n \geq n_0$ con $n_0$ positivo. $\lim_{n \rightarrow \infty} \frac{f(n)}{g(n)}=0$
+
+Nunca la va a poder alcanzar.
+
+\subsection{Cota Inferior Asintótica}
+Función que sirve de cota inferior de otra función cuando el argumento tiende a infinito.
+
+Se usa para calcular la complejidad del mejor caso para los algoritmos.
+
+$$\Omega(g(n))=\left\{\begin{matrix}
+  f(n)\;/\;\exists c, n_0 \textit{ constantes positivas tales que}  \\
+  \forall n \geq n_0, f(n) \geq c \cdot g(n)
+  \end{matrix}\right\}$$
+
+$$f(n)=\Omega(g(n)) \Leftrightarrow \lim_{n \rightarrow \infty} \frac{f(n)}{g(n)}= k > 0 (\textit{puede ser }\infty)$$
+
+\subsection{Cota Ajustada Asintótica}
+$$\Theta(g(n))=\left\{\begin{matrix}
+  f(n)\;/\;\exists C_1 \;y\; C_2 >0, \exists n_0>0, \textit{ tal que } \forall n \geq n_0  \\
+  C_1 \cdot g(n) \leq f(n) \leq C_2 \cdot g(n)
+  \end{matrix}\right\}$$
+
+$$f(n)=\Theta(g(n)) \Leftrightarrow \lim_{n \rightarrow \infty} \frac{f(n)}{g(n)}= k \in \mathbb{R}, k > 0$$
+
+$$f = \Theta(g) \Leftrightarrow f = O(g) \wedge f = \Omega(g) $$
 
 \section{Trazabilidad}\label{sec:tratabilidad}
 
