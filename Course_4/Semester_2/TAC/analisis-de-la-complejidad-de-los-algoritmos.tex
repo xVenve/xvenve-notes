@@ -258,6 +258,21 @@ Ejem. $T(n)=T(n-1)+T(n-1) \rightarrow x^2= x + 1$
   \item Despejamos con ambas ecuaciones: $b_1 = -b_2 = \frac{1}{5}$.
 \end{itemize}
 
+\subsubsection{Recurrencias utiles}
+Master Theorem:
+
+$T(n) = a \cdot T(\frac{n}{b}) + c \cdot n^k$; $a \geq 1,\; b > 1,\; k \geq 0$
+
+$T(1)=c$
+
+Solución
+
+$a = b^k \Rightarrow T(n) = O(n^{\log_b a} \cdot \log n)$
+
+$b^k < a \Rightarrow T(n) = O(n^{\log_b a})$
+
+$b^k > a \Rightarrow T(n) = O(n^{k})$
+
 \subsection{Fractales}
 Fractal, división de figuras geométricas.
 
@@ -321,7 +336,7 @@ Hay que fijarse a partir del último corte que no ocurra que $f(n) > g(n)$. Pued
 Algunas propiedades:
 \begin{itemize}
   \item $O(a \cdot f(n))= O(f(n))$ con $a \in \mathbb{R}$
-  \item $O(\log_a n) = O(\log_b n)$ con $a,b > 1$
+  \item $O(\log_a n) = O(\log_b n)$ con $a,b > 1$. $\log_b n = \frac{\log_a n}{\log_a b}$
   \item Si $f \in O(g)$ y $g \in O(h)$ entonces $f \in O(h)$
   \item Regla de la suma: $O(f+g)=O(\max(f, g))$
   \item Regla del producto: Si $g_1 \in O(f_1)$ y $g_2 \in O(f_2)$ entonces $g_1 \cdot g_2 \in O(f_1 \cdot f_2)$
@@ -355,6 +370,21 @@ $$f(n)=\Theta(g(n)) \Leftrightarrow \lim_{n \rightarrow \infty} \frac{f(n)}{g(n)
 $$f = \Theta(g) \Leftrightarrow f = O(g) \wedge f = \Omega(g) $$
 
 \section{Trazabilidad}\label{sec:tratabilidad}
+\textbf{Decidible:} que se puede resolver.
 
+\textbf{Tratable:} Son aquellos problemas decidibles para los que se ha encontrado un algoritmo eficiente que lo resuelva.
+
+Si el problema es decidible, entonces nos preocuparemos de su trazabilidad.
+
+Problemas tratables: $T(n) \leq \textit{Polinomio en } n^3$
+
+Problemas Intratables:
+\begin{itemize}
+  \item $n^4, n^5, ...$
+  \item Exponencial: $2^{n^{O(1)}}$
+  \item Factorial: $n!$
+\end{itemize} 
+
+Existen problemas que son intratables en el peor caso, pero que se usan frecuentemente en otros entornos.
 
 \section{Análisis Asintótico}\label{sec:análisis-asintótico}
