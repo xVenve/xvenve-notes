@@ -29,16 +29,48 @@ $\left\{\begin{matrix}
 \textbf{Analogía geométrica:} Hallar el lado de un cuadrado inscrito en un círculo, se puede dibujar fácilmente, pero en cuanto a matemáticas nunca se halla exactamente al tener raíces cuadradas. $r^2 = \frac{l^2}{2}+\frac{l^2}{2}; \; l= \sqrt{2}r$. Un caso en el que no es posible de ambas manera es dibujar un cuadrado con la misma área que un círculo, dado que entra en juego $\sqrt{\pi}$. $l^2 = \pi r^2; \; l = \sqrt{\pi}r$
 
 \section{Problema de Satisfabilidad Booleana: SAT}
-Un problema SAT2 puede ser...
+Un problema SAT 2 puede describirse usando una expresión booleana con una forma restringida especial. Es una conjunción de cláusulas, donde cada \textbf{cláusula} es una disyunción de \textbf{dos variables}. Las variables o las negaciones de variables que aparecen en la fórmula se denominan literales.
+\begin{itemize}
+    \item $(x \vee z) \wedge (y \vee w) \wedge (\overline{y} \wedge z)$
+\end{itemize}
 
 if x then y else z
 
 $(x \wedge y) \vee (\overline{x} \wedge z)$
 
+\subsection{Algoritmo sencillo}
+Generar un conjunto de posibles asignaciones (permutaciones) para todas las entradas.
+\begin{itemize}
+    \item Evaluar el resultado de la expresión entera usando esta asignación
+    \item Repetir hasta encontrar una solución
+\end{itemize}
+Es eficaz y eficiente para instancias pequeñas.
+
+En cuanto a coste no hay un algoritmo conocido que garantice la solución de este problema en un tiempo polinómico en el número de variables.
+
+\subsection{Aplicaciones}
+Muchos Problemas de decisión se pueden reformular en términos del problema de Satisfacibilidad.
+\begin{itemize}
+    \item Verificación de HW / SW.
+    \item Planning
+    \item Constraint Programming
+    \item Linear Programming
+\end{itemize}
+
 \section{Clique}
+Un clique es un conjunto $C$ de vértices donde todo par de vértices de $C$ esta conectado con una arista en $G$, es decir un Clique $C$ es un subgrafo completo.
+
 Subgrafo completo, en el que todos los vértices están conectados con todos.
 
 Tiene mucha potencia social, todos conocen o comparten gustos.
+
+\subsection{Aplicaciones}
+\begin{itemize}
+    \item Link farms
+    \item Segmentación de imágenes y reconocimiento de patrones, reconocimiento de regiones
+    \item Redes Bayesianas, cálculo de probabilidades condicionales.
+    \item Biología, analizar proteínas similares
+\end{itemize}
 
 \section{Decidibilidad}
 Un problema de computación puede considerarse como un lenguaje.
@@ -89,6 +121,129 @@ Solo los T-D se llaman Computables o Decidibles.
 
 CUIDADO. Indecidible no especifica si es T-R o T-N-R, a veces al T-R se le llama parcialmente decidible.
 
-\textbf{MT Reconocedora:} Que no genera salida lee la cinta, pero no lo modifica/manipula.
+\textbf{MT Reconocedora:} Que no genera salida, reconocer o no reconoce, pero no lo modifica/manipula.
 
-\textbf{MT Transductora:} Que genera salida. Modifica la cinta, además de reconocer la cinta.
+\textbf{MT Transductora:} Que genera salida. Modifica la cinta, además de reconocer o no reconocer la cinta.
+
+\section{Problemas, lenguajes y máquinas de computo}
+\subsection{Notación}
+$<A,w>$ El automata A con cadena w.
+
+$<M,w>$ La máquina de Turing M con la cadena w.
+
+$L(A)$ El lenguaje que acepta/reconoce el automata A (que puede ser una MT). 
+
+$<A, w>$ \textbf{acepta} w, si $w \in L(A)$ 
+
+$<A, w>$ \textbf{decide} w, si acepta w si $w \in L(A)$ y rechaza w si $w \notin L(A)$
+
+\subsection{Lenguajes como modelos de problemas}
+$L(A)$ es el conjunto de soluciones del problema que A se encarga de solucionar.
+
+$A$ es una máquina o algoritmo que resuelve el problema.
+
+\begin{itemize}
+    \item Ejem. Está ordenado un vector de 4 dígitos distintos mayores que 0?
+    \item Instancia $(2, 3, 1, 5)$
+    \item Formulación como lenguaje: $\Sigma = \{1,2,3,...,8,9\}$ y $L=\{1234,1245,...\}$
+    \item $3145 \in L$? No
+\end{itemize}
+
+\subsection{Función recursiva}
+No confundir con la recursividad de programación.
+
+f: $X \rightarrow \{1,0\}$ de manera que $f(x) = 1$ si $x \in S$ y $f(x) = 0$ si $x \notin S$.
+
+Es un decisor, de todo el espacio X sabe decir cuáles pertenecen a S.
+
+S es un subconjunto de X, que contiene todas las soluciones.
+
+Se llama \textbf{función recursiva} porque es capaz de diferenciar S del conjunto total X.
+
+S es un \textbf{conjunto recursivo} si existe una función recursiva aplicable a él. Puede decir siempre si es de S.
+
+S es un \textbf{conjunto recursivo-enumerable} si hay una función que puede enumerar sus elementos. Si solo podemos decir si está. f: $\{1,0\}\rightarrow X$
+
+\subsection{Equivalencia de lenguaje y tipos de problemas}
+\begin{table}[H]
+    \begin{tabular}{|l|l|}
+    \hline
+    \rowcolor[HTML]{BFBFBF} 
+    \multicolumn{1}{|c|}{\cellcolor[HTML]{BFBFBF}Problema} & \multicolumn{1}{c|}{\cellcolor[HTML]{BFBFBF}Lenguaje} \\ \hline
+    Decidible                                              & Recursivo                                             \\ \hline
+    T-R                                                    & Recursivo-enumerable                                  \\ \hline
+    T-NR                                                   & No Recursivo-enumerable                               \\ \hline
+    \end{tabular}
+    \caption{Equivalencia de lenguajes y problemas}
+\end{table}
+
+Ejem.
+\begin{itemize}
+    \item El problema de la parada es Turing-No-Reconocible.
+    \item Problema de determinar el estado de otro problema es Turing Reconocible.
+    \item Matrices mortales es Turing Reconocible, tratará de probar todas la matrices, por lo que las que lo son las reconocerá, pero las que no se pondrá en bucle a probar valores hasta el infinito.
+    \item AKS es Decible, por mucho que tarde siempre acaba y determina su primalidad.
+\end{itemize}
+
+\section{Máquina de Turing como modelo computacional}
+Formaliza el concepto de algoritmo.
+
+Es un modelo formal de computador. O lo que es lo mismo: ''El reconocimiento de cadenas que forman parte de un lenguaje es un modo formal de expresar cualquier problema''
+
+Se puede probar matemáticamente que para cualquier programa de computadora es posible crear una máquina de Turing equivalente.
+
+\subsection{Máquina de Turing binaria}
+Máquina de Turing, $M_{2)}$, en la que el alfabeto de cinta es $\{0,1\}=\Gamma$.
+
+Para toda MT existe una equivalente binaria.
+
+n. símbolos $\leq 2^k \rightarrow$ k número de dígitos binarios para codificar $\Gamma$.
+\begin{itemize}
+    \item Ejem. $\Gamma = \{a, b, c, blank \}\;\;\; a=00, b=01, c=10, \textit{blank}=11$ 
+\end{itemize}
+
+Para simular cada paso de MT, mediante $M_{2)}$ 
+\begin{itemize}
+    \item Leer de la cinta el símbolo de M, i.e. varias (k) casillas de $M_{2)}$
+    \item Escribir el símbolo de M que lo reemplaza, varias (k) casillas de $M_{2)}$
+    \item Moverse (k casillas) y cambiar de estado
+\end{itemize}
+
+\subsection{Generalizaciones de las Máquinas de Turing}
+Incrementar el alfabeto de la cinta $\Gamma$
+
+Añadir más cintas (MT con 2, 3, etc. cintas)
+
+Añadir más cabeceras lectoras y escritoras (o puntos de acceso) en la cinta
+\begin{itemize}
+    \item Entramados de dos o más dimensiones en sustitución de la cinta. La cabeza lectora se puede mover a cualquier celda contigua (en cualquier dimensión)
+    \item NO DETERMINISMO
+\end{itemize}
+
+Toda posible generalización de la Máquina de Turing se puede simular con una máquina de Turing: Determinista, con cinta infinita en ambos sentidos, y donde el alfabeto de la cinta es {1,0, b} (b es celda vacía, en blanco)
+
+\subsection{Máquina de Turing No Determinista (MTND)}
+$\delta: Q \times \Gamma \rightarrow P(Q\times \Gamma \times \{L, R, H\})$
+
+$P(A)$ es el conjunto definido como partes de A.
+
+La computación en una MTND:
+\begin{itemize}
+    \item Es un árbol donde sus ramas se corresponden con las diferentes posibilidades de la máquina.
+    \item Si alguna de las ramas del árbol alcanza un estado de aceptación, la MTND acepta la entrada
+\end{itemize}
+
+Una MT M es No Determinista si existen al menos dos transiciones que tienen la misma parte izquierda (estado y símbolo leído), pero distinta parte derecha. 
+\begin{itemize}
+    \item $\delta(\textit{estado},\textit{simbolo leido})\rightarrow (\textit{nuevo estado},\textit{simbolo escrito},\textit{accion})$
+\end{itemize}
+
+Una MTD es por definición No Determinista.
+
+Toda MTND tiene un MTD equivalente
+
+\begin{figure}[H]
+    \ffigbox[\FBwidth]
+    {\caption{Codificación de las transiciones}}
+    {\includegraphics[scale=.2]{cod-mtnd.png}}
+\end{figure}
