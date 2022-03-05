@@ -154,6 +154,14 @@ No se cumple la propiedad conmutativa, pero si la asociativa.
     \item $A2 = (S \cdot R) \cdot A$
 \end{itemize}
 
+Aunque existen casos especiales donde al aplicar transformaciones de traslación, escalado y rotación, el producto de matrices es conmutativo, como:
+\begin{itemize}
+    \item Traslación seguida de traslación.
+    \item Escalado seguido de escalado
+    \item Rotación seguida de rotación
+    \item Rotación y escalado uniforme
+\end{itemize}
+
 Se busca ejecutar la secuencia de transformaciones más eficientemente, para esto necesitamos un sistema de referencia que sea homogéneo y entre la traslación.
 
 \section{Sistema de Coordenadas Homogéneas 2D}
@@ -248,11 +256,11 @@ $$\left[\begin{matrix}
 \end{matrix}\right]$$
 
 \subsection{Transformaciones inversas}
-Traslación $T( d_x, d_y)$ es: $T^{-1} ( d_x , d_y ) = T( -d_x , -d_y )$
+\textbf{Traslación} $T( d_x, d_y)$ es: $T^{-1} ( d_x , d_y ) = T( -d_x , -d_y )$
 
-Escalado $S( s_x , s_y )$ es: $S^{-1} ( s_x , s_y ) = S(1/s_x ,1/s_y )$
+\textbf{Escalado} $S( s_x , s_y )$ es: $S^{-1} ( s_x , s_y ) = S(1/s_x ,1/s_y )$
 
-Rotación $R(T)$ es: $R^{-1}(\theta) = R(-\theta)$ que equivale a cambiar los signos de los senos de la transformación normal.
+\textbf{Rotación} $R(T)$ es: $R^{-1}(\theta) = R(-\theta)$ que equivale a cambiar los signos de los senos de la transformación normal.
 
 \subsection{Transformaciones generales afines}
 Producto de una secuencia arbitraria de matrices de rotación, traslación y escalamiento.
@@ -268,3 +276,119 @@ $$SH_x = \left[\begin{matrix}
 SH_y = \left[\begin{matrix}
 1 & 0 & 0 \\ b & 1 & 0 \\ 0 & 0 & 1
 \end{matrix}\right]$$
+
+\subsection{Composición de transformaciones}
+El objetivo es ganar eficiencia aplicando una sola transformación compuesta a un punto, como es la aplicación de una rotación a un objeto sobre un punto P, que no es el origen.
+\begin{enumerate}
+    \item Traslación al origen $T(-x_1, -y_1)$
+    \item Rotación $R(\theta)$
+    \item Traslación al punto P $T(x_1, y_1)$
+\end{enumerate}
+
+\subsection{Operaciones respecto a un punto $P_1(x_1,y_1)$}
+Recordar que se hace las operaciones de derecha a izquierda.
+
+\subsubsection{Rotación}
+$$T(x_1, y_1)\cdot R(\theta) \cdot T(x_1, y_1) = 
+\left[\begin{matrix}
+\cos \theta & - \sin \theta & x_1(1-\cos \theta)+y_1 \sin \theta \\ \sin \theta & \cos \theta & y_1(1-\cos \theta)-x_1 \sin \theta \\ 0 & 0 & 1
+\end{matrix}\right]$$
+
+\subsubsection{Escalado}
+$$T(x_1, y_1)\cdot S(s_x, s_y) \cdot T(x_1, y_1) = 
+\left[\begin{matrix}
+s_x & 0 & x_1(1-s_x) \\ 0 & s_y & y_1(1-s_y) \\ 0 & 0 & 1
+\end{matrix}\right]$$
+
+\subsubsection{Escalado y Rotación}
+$M=T(x_1, y_1) \cdot R(\theta) \cdot S(s_x, x_y) \cdot T(-x_1, -y_1)$
+
+\section{Sistema de Coordenadas Homogéneas 3D}
+Un punto $(x, y, z)$ en el sistema cartesiano se representa por $( xW , yW , zW, W )$ en el sistema homogéneo, donde $W\neq 0$ puede ser cualquier número real.
+
+Cuando $W\neq 1$, para simplificar cálculos, dividimos todas las coordenadas por W, obteniendo $( x , y , z, 1 )$
+
+\subsection{Traslación}
+$$T(d_x, d_y, d_z) \cdot
+\left[\begin{matrix}
+x \\ y \\ z \\ 1
+\end{matrix}\right] = 
+\left[\begin{matrix}
+1 & 0 & 0 & d_x \\ 0 & 1 & 0 & d_y \\ 0 & 0 & 1 & d_z \\ 0 & 0 & 0 & 1
+\end{matrix}\right] \cdot
+\left[\begin{matrix}
+x \\ y \\ z \\ 1
+\end{matrix}\right] = 
+\left[\begin{matrix}
+x+ d_x \\ y+d_y \\ z+d_z \\ 1
+\end{matrix}\right]$$
+
+\subsection{Escalado}
+$$S(s_x, s_y, s_z) \cdot
+\left[\begin{matrix}
+x \\ y \\ z \\ 1
+\end{matrix}\right] = 
+\left[\begin{matrix}
+s_x & 0 & 0 & 0 \\ 0 & s_y & 0 & 0 \\ 0 & 0 & s_z & 0 \\ 0 & 0 & 0 & 1
+\end{matrix}\right] \cdot
+\left[\begin{matrix}
+x \\ y \\ z \\ 1
+\end{matrix}\right] = 
+\left[\begin{matrix}
+x\cdot s_x \\ y\cdot s_y \\ z\cdot s_z \\ 1
+\end{matrix}\right]$$
+
+\subsection{Rotación}
+$$R_x(\theta)=\left[\begin{matrix}
+1 & 0 & 0 & 0 \\ 
+0 & \cos \theta & - \sin \theta & 0 \\ 
+0 & \sin \theta & \cos \theta & 0 \\ 
+0 & 0 & 0 & 1
+\end{matrix}\right]
+R_y(\theta)=\left[\begin{matrix}
+\cos \theta & 0 & \sin \theta & 0 \\ 
+0 & 1 & 0 & 0 \\ 
+- \sin \theta & 0 & \cos \theta & 0 \\ 
+0 & 0 & 0 & 1
+\end{matrix}\right]
+R_z(\theta)=\left[\begin{matrix}
+\cos \theta & -\sin \theta & 0 & 0 \\ 
+\sin \theta & \cos \theta & 0 & 0 \\ 
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{matrix}\right]$$
+
+\subsection{Rotación en coordenadas homogéneas}
+La composición de una secuencia arbitraria de rotaciones con respecto a los ejes x, y, z como submatriz 3x3 ortogonal. La inversa de una matriz ortogonal es su transpuesta.
+$$R_z(\theta)=\left[\begin{matrix}
+r11 & r12 & r13 & 0 \\ 
+r21 & r22 & r23 & 0 \\ 
+r31 & r32 & r33 & 0 \\
+0 & 0 & 0 & 1
+\end{matrix}\right]$$
+
+\section{Rotación alrededor de cualquier eje}
+\begin{itemize}
+    \item Primero movemos el eje hasta el eje z.
+    \begin{enumerate}
+        \item Rotamos alrededor de x $R_x$
+        \item Rotamos alrededor de y $R_y$
+    \end{enumerate}
+    \item Después, aplicamos la rotación deseada seguida de las inversas usadas para colocarlo sobre el eje z.
+    \begin{enumerate}
+        \item Rotamos lo deseado $R_z$
+        \item Deshacemos la rotación $R_x^{-1}R_y^{-1}$
+    \end{enumerate}
+\end{itemize}
+$$R_{final}=R_x^{-1}R_y^{-1}R_zR_yR_x$$
+
+\section{Rotación alrededor de cualquier eje y punto de origen}
+\begin{enumerate}
+    \item Traslación al origen deseado $T_{xyz}$
+    \item Rotamos $R_x^{-1}R_y^{-1}R_zR_yR_x$
+    \item Invertir traslación $T_{xyz}^{-1}$
+\end{enumerate}
+$$R_{final}=T_{xyz}^{-1}R_x^{-1}R_y^{-1}R_zR_yR_xT_{xyz}$$
+
+\section{Matrices en PovRay}
+Las matrices se definen con matrix <v00, v01, v02, v10, ...>, en el que la última columna se asume que es 0, 0, 0, 1. De manera que la matriz está traspuesta, siendo la última fila la de traslación 0, 0, dy, dx (está rotada).

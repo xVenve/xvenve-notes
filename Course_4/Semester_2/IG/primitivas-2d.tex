@@ -1,0 +1,82 @@
+\chapter{Primitivas 2D}
+\section{Definiciones}
+\textbf{Pixel:} Mínima unidad homogénea de color (intensidad) de una imagen digital. Área de la pantalla que tiene asociada una posición de memoria (pixel de 8 bits tiene 256 variaciones de color).
+
+\textbf{Primitivas de salida:} Estructuras geométricas básicas continuas (puntos, rectas, curvas, áreas, ...) empleadas para generar imágenes
+
+\textbf{Conversión al ''raster'':} Aproximar primitivas mediante un conjunto de puntos discreto (mapa de píxeles)
+\begin{itemize}
+    \item Localizar posiciones de pixel más próximas al objeto.
+    \item Almacenados valores intensidad/color en búfer (PIXMAP)
+    \item Trazado de imagen en pantallas (intensidad a píxeles)
+\end{itemize}
+
+\textbf{Búfer de imagen:} Área de memoria que almacena el conjunto de valores de intensidad para todos los puntos de la pantalla.
+\begin{itemize}
+    \item B/N 1 bit por pixel, 2 intensidades. BITMAP.
+    \item Color n bits por pixel, $2^n$ intensidades. PIXMAP.
+    \item Sistemas alta calidad hasta 24 bits por pixel. Sistema color RGB de 24 bits.
+\end{itemize}
+
+\textbf{Procesador graficó/ Controlador de gráficas:}  libera CPU de trabajos gráficos.
+
+\section{Conversión de puntos}
+Problema - convertir al raster un punto definido mediante una coordenada almacenando el color con el que se va a visualizar.
+
+Algoritmo sencillo de conversión, sea $(x, y)$ el punto real la posición en el raster es $(x', y')=(round(x), round(y))$. $round()$ entero más próximo.
+
+\section{Conversión de rectas}
+Problema - calcular las coordenadas de los píxeles que representan una recta infinitamente delgada sobre una malla de un raster 2D.
+
+Un buen rasterizador debe cumplir lo siguiente:
+\begin{itemize}
+    \item Secuencia de píxeles lo más recta posible
+    \item Líneas con el mismo grosor independientemente de la pendiente
+    \item El algoritmo debe ser muy rápido
+\end{itemize}
+ 
+\subsection{Fuerza bruta}
+Ecuación de la recta entre puntos extremos $(x_1 ,y_1)$ y $(x_2 ,y_2 )$, $y=mx+b$.
+\begin{itemize}
+    \item $m= \frac {(y_2-y_1)}{(x_2-x_1)}$
+    \item $b$ se halla usando la pendiente, $m$, y los puntos conocidos. $b=y_1-m*x_1$
+\end{itemize}
+Para cada punto $x$ entre $x_1$ y $x_2$ se calcula el pixel más cercano a la curva definida por la recta. Se va aumentando progresivamente la $x$.
+
+\textbf{Restricción:} m tiene que estar entre -1 y 1, si el grado que forma es mayor que 45 se forma de manera discontinua.
+
+\textbf{Solución:} Intercambiar la x por la y en los extremos de la regla, hacer el proceso e intercambiarlas de nuevo.
+
+\textbf{Desventajas:} Ineficiente, requiere multiplicaciones en coma flotante y función round().
+
+\subsection{Algoritmo Analizador Diferencial Digital (DDA, Digital Diferenctial Analizer)}
+
+Algoritmo que traza valores sucesivos de $(x, y)$ incrementando simultáneamente $x$ e $y$ con pequeños pasos.
+
+\begin{enumerate}
+    \item Calculamos $\Delta x = x_2 -x_1$ y $\Delta y = y_2 -y_1$.
+    \item Calculamos los incrementos que usaremos para dibujar, $x_{inc}$ y $y_{inc}$. $x_{inc} = \frac{\Delta x}{\max(|\Delta x|, |\Delta y|)}$ y $y_{inc} = \frac{\Delta y}{\max(|\Delta x|, |\Delta y|)}$.
+    \item Para el eje vamos iterando: $x=x+x_{inc}$ y $y=y+y_{inc}$. Redondeando aquellos que sean decimales.
+\end{enumerate}
+
+\textbf{Ventaja:} elimina el producto de coma flotante.
+
+\textbf{Desventaja:} invoca la función round.
+
+Seleccionamos un eje con pasos unitarios (según el valor de $|m|$)
+
+Representamos la línea de izquierda a derecha si es positivo y derecha a izquierda  si es negativos.
+
+\subsection{Algoritmo del punto medio de Bresenham (Bresenham midpoint algorithm)}
+Consiste en determinar si cuando se calcula el punto debe ir a superior o inferior según la distancia del punto real con estos. El factor de decisión, p, nos indicará cuál coger.
+
+\begin{enumerate}
+    \item Calculamos $\Delta x = x_2 -x_1$ y $\Delta y = y_2 -y_1$. Además, para facilitar los cálculos podemos también calcular $2\Delta y - 2 \Delta x$ y $2 \Delta x$.
+    \item Calculamos el $p_0=2\Delta y - \Delta x$
+    \item Comenzando en $k=0$, repetimos $\Delta x$ veces:
+    \begin{enumerate}
+        \item Si $p_k < 0$ entonces $x_{k+1}=x_k+1$, $y_{k+1}=y_k$ y $p_{k+1}=p_k-2\Delta y$
+        \item Si $p_k > 0$ entonces $x_{k+1}=x_k+1$, $y_{k+1}=y_k+1$ y $p_{k+1}=p_k+2\Delta y - 2 \Delta x$
+    \end{enumerate}
+    \item Dibujamos los puntos calculados
+\end{enumerate}
