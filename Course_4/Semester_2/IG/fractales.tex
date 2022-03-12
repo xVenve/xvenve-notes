@@ -1,0 +1,94 @@
+\chapter{Fractales}
+Figuras que se autorrepiten, es decir, la figura está formada de sí misma.
+
+Esta estructura se da en la naturaleza, en los vasos sanguíneos, cuenca del Amazonas o las vías romanas. Se pueden dar en forma de ramificación, en espiral o en conos.
+\begin{itemize}
+    \item Ejem. Cálculo de la longitud de la costa de Gran Bretaña, que se trata de estimar con un segmento de x metros, cuanto más pequeño lo vayamos haciendo más grande sale la longitud. Por lo que siempre hay un segmento más pequeño. 
+
+\end{itemize}
+
+\section{Definición}
+El concepto de fractal aparece en 1975 con el libro Benoit Mandelbrot - ''Los objetos Fractales: forma, azar y dimensión''.
+
+Aunque se habían descubierto antes y se llamaron ''monstruos matemáticos''
+
+Un objeto fractal tiene dos características básicas:
+\begin{itemize}
+    \item \textbf{Infinito detalle} en cada punto 
+    \item \textbf{Auto similitud entre las partes} del objeto y su totalidad
+\end{itemize}
+Veremos \textbf{siempre la misma figura}, independientemente de lo que nos acerquemos al mismo (fractal auténtico).
+
+Su geometría requiere \textbf{gráficos por ordenador} para visualizarse e investigarlos.
+
+\section{Caracterización}
+\begin{table}[H]
+    \begin{tabular}{|c|c|}
+    \hline
+    \rowcolor[HTML]{BFBFBF} 
+    \begin{tabular}[c]{@{}c@{}}Geometría\\ Euclídea\end{tabular}                                   & \begin{tabular}[c]{@{}c@{}}Geometría\\ Fractal\end{tabular}                         \\ \hline
+    Ecuaciones                                                                                     & \begin{tabular}[c]{@{}c@{}}Procedimientos\\ (sin ecuaciones)\end{tabular}           \\ \hline
+    Objetos fabricados                                                                             & Objetos naturales                                                                   \\ \hline
+    \begin{tabular}[c]{@{}c@{}}Diferenciable,\\ localmente suave\end{tabular}                      & \begin{tabular}[c]{@{}c@{}}No diferenciable,\\ localmente rugoso\end{tabular}       \\ \hline
+    \begin{tabular}[c]{@{}c@{}}Aumenta el detalle\\ y definición a \\ distancia corta\end{tabular} & \begin{tabular}[c]{@{}c@{}}Mismo detalle desde\\  todas las distancias\end{tabular} \\ \hline
+    \end{tabular}
+    \caption{Comparación Geometría Fractal y Euclídea}
+\end{table}
+
+\section{Aplicaciones}
+\begin{itemize}
+    \item Antenas fractales (ancho de banda)
+    \item Compresión de imágenes
+    \item Sistemas dinámicos (cotización de valores bursátiles)
+    \item Modelado de formas naturales (helechos, montañas o relieve)
+    \item Arte fractal.
+\end{itemize}
+
+\section{Procedimiento de Generación}
+Aplicar recursivamente una función de transformación a los puntos de una región del espacio:
+\begin{itemize}
+    \item Tenemos una función de transformación $F(X)$ y partimos de punto inicial seleccionado $P_0 =(x_0 , y_0 , z_0 )$
+    \item Cada vez que aplicamos F, generamos niveles sucesivos de detalle, como $P_1 =F(P_0 ), P_2 =F(P_1 ), ... P_{k+1} =F(P_k ), ...$
+    \item Sistema dinámico realimentado
+\end{itemize} 
+
+$F(X)$ puede aplicarse a: Conjunto específico de puntos, o a un Conjunto inicial de primitivas (líneas rectas, áreas de color, superficies o sólidos). 
+
+$F(X)$ puede definirse en términos de transformaciones: Geométricas (escalado, traslación, rotación) o Coordenadas no lineales y parámetros de decisión.
+
+No podemos desplegar variaciones de detalle inferiores a un pixel $\rightarrow$ $F(X)$ se aplica un número finito de veces. Para ver más detalle acercamos la imagen y aplicamos $F(X)$ de nuevo.
+
+Los procedimientos a utilizar pueden ser Deterministas o Aleatorios / estocásticos.
+
+\section{Clasificación de Fractales}
+\begin{itemize}
+    \item \textbf{Autosimilares:} Sus partes son versiones a escala de su totalidad. Se aplica un parámetro de escala (S) toda la forma inicial.
+    
+    \textbf{Autosimilar estadísticamente} si aplicamos variaciones aleatorias.
+    \item \textbf{Autoafines:} Un factor de escala en cada eje, $S_x, S_y, S_z$.
+    
+    \textbf{Autoafines estadísticamente} si aplicamos variaciones aleatorias.
+    \item \textbf{Invariantes:} Transformaciones no lineales. Fractales autocuadráticos (Mandelbrot), autoinversos...
+\end{itemize}
+
+\section{Dimensión Fractal}
+Medida de la variación de detalle de un objeto fractal.
+
+En la geometría euclídea los objetos tienen dimensión entera. Los objetos en la geometría fractal tiene dimensión fraccionaria (o dimensión fractal).
+
+La dimensión fractal de un objeto siempre es mayor que su dimensión euclídea (o topológica).
+
+Dada una dimensión, podemos generar objetos fractales mediante procedimientos recursivos.
+
+Podríamos calcular la dimensión fractal de un objeto a partir de las propiedades del mismo, mediante otros procedimientos (tarea difícil de realizar).
+
+Cálculo de la dimensión de un fractal autosimilar determinista (un solo factor de escala) por analogía a las subpartes de un objeto euclidiano.
+
+$NS^{DE}=1 \rightarrow NS^{D}=1$
+\begin{itemize}
+    \item DE = Dimensión euclídea
+    \item D = Dimensión fractal
+    \item N = n. piezas semejantes
+    \item S = factor de escala
+\end{itemize}
+$$N=\frac{1}{S^D}=\left(\frac{1}{S}\right)^D; \ln N = D \ln \frac{1}{S}; D = \frac{\ln N}{\ln \frac{1}{S}}$$
