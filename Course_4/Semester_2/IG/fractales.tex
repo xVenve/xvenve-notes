@@ -92,3 +92,220 @@ $NS^{DE}=1 \rightarrow NS^{D}=1$
     \item S = factor de escala
 \end{itemize}
 $$N=\frac{1}{S^D}=\left(\frac{1}{S}\right)^D; \ln N = D \ln \frac{1}{S}; D = \frac{\ln N}{\ln \frac{1}{S}}$$
+
+Dimensión de una \textbf{curva fractal en un plano 2-dim} (litorales)
+\begin{itemize}
+    \item Habitualmente $1<D \leq 2$ (más suave cuanto más cerca de 1). 
+    
+    $D = 2$ cuando llena una región finita del plano
+    \item $2<D<3$ cuando la curva se autointersecta y el área puede cubrirse infinitas veces
+\end{itemize}
+
+Dimensión de una \textbf{curva fractal espacial}
+\begin{itemize}
+    \item En general $1 < D$ y puede ser $2 < D \leq 3$ sin autointersectarse
+    
+    $D = 3$ cuando llena un volumen de espacio
+    \item $3 < D < 4$ cuando la curva se autointersecta y el volumen de espacio puede cubrirse
+    infinitas veces
+\end{itemize}
+
+Dimensión de una \textbf{superficie fractal} (tierra, nubes, agua)
+\begin{itemize}
+    \item Habitualmente $2 < D \leq 3$ (más suave cuanto más cerca de 1)
+    
+    $D = 3$ cuando llena un volumen de espacio
+    \item $3 < D < 4$ cuando la superficie se autointersecta y el volumen de espacio puede y cubrirse infinitas veces
+\end{itemize}
+
+Dimensión de un \textbf{solido fractal} (densidad de vapor de agua, temperatura en
+una región del espacio)
+\begin{itemize}
+    \item En general $3 < D \leq 4$
+    \item $4 < D$ cuando el sólido se autointersecta
+\end{itemize}
+
+\section{Fractales autosimilares}
+Construir un fractal autosimilar:
+\begin{itemize}
+    \item Iniciador. Forma geométrica determina.
+    \item Generador. Patrón que siguen las subpartes del iniciador.
+    \item Reglas básicas de construcción.
+    \begin{itemize}
+        \item Infinito detalle en cada punto.
+        \item Auto similitud entre las partes del objeto y su totalidad.
+    \end{itemize}
+\end{itemize}
+
+Patrones muy diversos. Añadir/sustraer partes o características del generador.
+
+Se puede añadir carácter aleatorio en la construcción de un fractal autosimilar.
+\begin{itemize}
+    \item Seleccionando generador al azar.
+    \begin{itemize}
+        \item Rotado aleatorio del generador o alguna de sus partes.
+        \item Escalado aleatorio del generador o alguna de sus partes.
+        \item Selección aleatoria del color.
+        \item Selección aleatoria de bultos.
+    \end{itemize}
+    \item Desplazamiento de coordenadas al azar. Traslación aleatoria del generador
+\end{itemize}
+
+\section{Fractales autosimilares deterministas}
+\textbf{Conjunto de Cantor} (1883) - subconjunto fractal de [0,1] que elimina, en cada paso, el segmento correspondiente al tercio central en cada intervalo. Línea que se parte en 3 y se elimina la del medio. $D=\frac{\ln 2}{\ln 3}= 6,85=\frac{\ln (partes)}{\ln (escala)}$.
+\begin{itemize}
+    \item Autosimilar
+    \item Invariante respecto de la escala
+    \item No puede ser descrito analíticamente
+\end{itemize}
+
+\textbf{Curva de Koch} (1904) - Línea que se divide en 4 partes, formando un pico, que ocupa el tercio central. $D=\frac{\ln 4}{\ln 3}=1,26$.
+\begin{itemize}
+    \item Continua en todos los puntos
+    \item No derivable en ningún punto
+\end{itemize}
+
+\textbf{Copo de Koch} (1904) - Triángulo que se divide cada lado en 4 partes cada cara, formando un pico, que ocupa el tercio central. $D=\frac{\ln 4}{\ln 3}=1,26$.
+
+\textbf{Triángulo de Sierpinski} - Triángulo que se divide su área en 4 trozos desechando el central, cada uno de estos triángulos tiene de lado la mitad. $D=\frac{\ln 3}{\ln 2}=1,58$.
+
+\textbf{Alfombra de Sierpinski} - Cuadrado que se divide su área en 9 trozos desechando el central, cada uno de estos cuadrados tiene un tercio de lado. $D=\frac{\ln 8}{\ln 3}=1,89$.
+
+\textbf{Curva de Peano} - S en la que cada lado se divide en 3, pero el espacio total se divide, por tanto, en 9 partes. $D=\frac{\ln 9}{\ln 3}=2$.
+\begin{itemize}
+    \item En el límite, recubre todo el plano
+    \item Similar a la curva de Hilbert
+\end{itemize}
+
+\section{Fractales autoafines}
+Construcción de fractales autoafines es igual que la de los fractales autosimilares pero con distintos factores de escala aplicados a cada una de las dimensiones del generador
+
+Podemos añadir aleatoriedad mediante el movimiento browniano
+\begin{itemize}
+    \item Modelamos una curva fractal - desde posición inicial $(x, y)$
+    \begin{itemize}
+        \item Generamos \textbf{dirección} aleatoria
+        \item Generamos \textbf{longitud} aleatoria
+    \end{itemize}
+    \item Matriz bidimensional de saltos del browniano
+    \begin{itemize}
+        \item Sobre una \textbf{cuadrícula de plano} (terreno)
+        \item Sobre una \textbf{esfera} (planeta)
+    \end{itemize}
+\end{itemize}
+
+Una trayectoria browniana se define como la sucesión de puntos (variables aleatorias) $s_0, s_1, \ldots, s_n$ definidas por $s_n = s_{n-1} + \textbf{salto} X_n$ en sus respectivos periodos de tiempo $0, \Delta t, 2\Delta t, \ldots, n\Delta t$ donde $\textit{salto}=\sqrt{\Delta t}$ permite controlar la varianza de la trayectoria y las $X_1, \ldots, X_n$ con variables aleatorias con una distribución determinada. $X_j \sim U(0,1), N(0,1), \ldots$.
+
+Ajustar dimensión fractal en cálculos del browniano para dar más realismo modelado.
+
+Escalar elevaciones $\rightarrow$ incrementar/diminuir ''saltos'' browniano.
+
+\section{Modelos Gramaticales}
+Smith presenta un método para describir la estructura de ciertas plantas.
+
+Se utiliza lenguajes gramaticales (gramáticas-L) de grafos paralelos. Lenguajes descritos con una gramática que consiste en una colección de \textbf{producciones que se aplican todas a la vez}.
+
+El lenguaje generado por la gramática, interpretado de forma apropiada, nos da la sucesión de operaciones que debemos realizar para generar el objeto.
+
+En general, más de una regla para un mismo símbolo no terminal. Podemos seleccionar la regla a aplicar de forma aleatoria
+
+Lindenmayer extendió los lenguajes para que incluyeran corchetes (L-Systems). Podemos añadir a las gramáticas un operador de pila, de manera que lo que hay en los corchetes se meta en la pila. También podemos añadir paréntesis para enriquecer construcción
+
+Especificación:
+\begin{itemize}
+    \item Palabra en el lenguaje $\rightarrow$ secuencia de segmentos en una estructura gráfica
+    \item Porciones entre corchetes representan porciones que se ramifican desde el símbolo anterior
+\end{itemize}
+
+Obtención de gramáticas que representen con precisión la biología de plantas durante el desarrollo
+
+Variaciones
+\begin{itemize}
+    \item Las gramáticas se han enriquecido para permitir llevar un registro de la “edad” de la letra en una palabra. Las letras “viejas” y “jóvenes” se transforman de distinta manera
+    \item Se puede ajustar la longitud correspondiente al movimiento hacia delante de tal forma que en cada iteración las ramas se vayan haciendo cada vez más pequeñas
+    \item Aplicar de forma aleatoria el número de llamadas recursivas de la expansión, lo que hace que se generen árboles de diferente tipo
+\end{itemize}
+
+\section{Fractales autocuadráticos}
+Aplicación recursiva de función de transformación F(z) a puntos en el
+espacio complejo (función compleja).
+
+Representamos un punto y su módulo en el plano complejo como: $z=x+iy$ $|Z|=(x^2+y^2)^{\frac{1}{2}}$.
+
+Definimos dicha función $F:Z \rightarrow Z$ como: $z_{k+1}=F(z_k)=z^2_k + c$.
+
+Otra familia de transformación rica en fractales ($\lambda$ complejo) es: $F(z_k)=\lambda z^2_k(1-z_k)$.
+
+Al aplicar recursivamente cuadrados a un número complejo $F(x)=x^2+c$, este:
+\begin{itemize}
+    \item Tiende a infinito si $|z|>1$
+    \item Tiende a cero si $|z|<1$
+    \item Permanece en $|z|=1$ si $|z|=1$
+\end{itemize}
+
+Dependiendo del punto inicial, $z_0 = c$, la sucesión de transformaciones:
+\begin{itemize}
+    \item Divergen a infinito si $|z|>1$
+    \item Convergen a un punto de atracción (atractor) si $|z|<1$
+    \item Son periódicas si $|z|=1$
+\end{itemize}
+
+\subsection{Conjunto de Julia}
+Para cada valor de $c = a + bi$, hay un conjunto de Julia diferente
+
+$$F(z)=z^2+c$$
+
+Frontera fractal que separa
+\begin{itemize}
+    \item Los puntos que divergen a infinito
+    \item Los que convergen a un punto de atracción
+\end{itemize}
+
+\subsection{Conjunto de Mandelbrot}
+\begin{itemize}
+    \item El rey de los monstruos matemáticos
+    \item Es conexo
+    \item Contiene infinitas copias de sí mismo. Las copias están conectadas al cuerpo principal por “cadenas”
+    \item Tiene dimensión fractal 2
+\end{itemize}
+
+Calculamos el conjunto de Julia para cada valor de c y coloreamos:
+\begin{itemize}
+    \item El punto de negro cuando el conjunto de Julia está conectado (continuo)
+    \item El punto de blanco cuando el conjunto de Julia no está conectado (discontinuo)
+\end{itemize}
+
+Tenemos la función de transformación: $z_{k+1}=F(z_k)=z^2_k + c$
+
+Elegimos el punto inicial $z_0 = 0 + 0i$ y le aplicamos la función de transformación, para
+cada valor de c (de la forma $a + bi$.) Un punto c está en el conjunto de Mandelbrot si y solo si todos los puntos generados por esta función tienen como módulo un valor finito
+
+Fijamos un radio máximo n como límite de para las posiciones sucesivas
+
+En la práctica si $|z_k| > n$, valores sucesivos de $|z_k|$ serán más y más grandes. Por tanto,
+podemos detener el cálculo para valores siguientes a $z_k$
+
+§ Fijamos un número máximo de iteraciones k
+\begin{itemize}
+    \item Si $|z_k| > n$ antes de alcanzar k (la función diverge) $\rightarrow$ colorear el punto c de blanco
+    \item Si $|z_k| < n$ antes de alcanzar k (la función converge) $\rightarrow$ colorear el punto c de negro (c pertenece al conjunto)
+\end{itemize}
+
+Consideramos cuanto tarda la función en diverger para un cierto c  representar con diferentes colores
+
+\section{Fractales y caos}
+El juego del caos
+\begin{itemize}
+    \item Dado tres puntos, A, B, C y un punto inicial arbitrario $z_0$
+    \item Seleccionar aleatoriamente A, B o C y calcular $z_1 = \frac{P+ z_0}{2}, z_n = \frac{P+ z_{n-1}}{2}$
+    \item Seleccionar
+\end{itemize}
+
+Algoritmo de Midpoint Displacement
+\begin{enumerate}
+    \item Dividir la escena en regiones
+    \item Cambiar la altura de las esquinas de cada región aleatoriamente
+    \item Dividir cada región en regiones más pequeñas
+    \item Cambiar la altura de las esquinas de cada región aleatoriamente, pero en menor cantidad
+    \item Volver a 3
+\end{enumerate}
