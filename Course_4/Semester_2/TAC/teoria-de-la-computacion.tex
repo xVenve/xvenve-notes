@@ -247,3 +247,191 @@ Toda MTND tiene un MTD equivalente
     {\caption{Codificación de las transiciones}}
     {\includegraphics[scale=.2]{cod-mtnd.png}}
 \end{figure}
+
+\subsection{Salidas de la Máquina de Turing}
+Dada una MT y una entrada, se pueden dar tres tipos de salidas:
+\begin{itemize}
+    \item La MT se detiene, y acepta la entrada (la palabra)
+    \item La MT se detiene, y rechaza la entrada (la palabra)
+    \item No se detiene
+\end{itemize}
+
+Dependiendo cuáles se den:
+\begin{itemize}
+    \item T-D: Se detiene con $a \in L$ en un estado final (acepta) y con $a \notin L$ en un estado no final (rechaza).
+    \item T-R: Se detiene para $a \in L$ en un estado final, acepta todas las que pertenecen. Es menos restrictivo.
+\end{itemize}
+
+\section{Decidibilidad}
+Un conjunto S se dice que es infinito contable si tiene la misma cardinalidad que $\mathbb{N}$ ($|S|=|\mathbb{N}|$) Si puede establecerse una correspondencia biyectiva entre los elementos de $\mathbb{N}$ y los elementos de S. Se puede decir este elemento es el primero, este el segundo, etc.
+
+Un conjunto se dice que es contable si es finito o infinito contable.
+
+Un conjunto no contable se dice que es incontable.
+
+\subsection{Nociones formales}
+$\aleph_0 < \aleph_1 \leq 2^{\aleph_0}$
+\begin{itemize}
+    \item Cardinalidad de los naturales: $\aleph_0$
+    \item Cardinalidad de los enteros: $\aleph_0$
+    \item Cardinalidad de los racionales: $\aleph_0$
+    \item Cardinalidad de los reales: $2^{\aleph_0}$
+\end{itemize}
+
+Teorema: El conjunto de cadenas binarias infinitas es incontable.
+
+\subsubsection{Biyección entre $\mathbb{N}\textit{ y }\mathbb{Q}^+$}
+Poniendo todas las fracciones fijando primero denominador 1, 2, 3, ... para cada una de estas se ponen los numeradores 1, 2, 3, ... 
+
+Se va recorriendo y contando siguiendo las diagonales. En el borde izquierdo se baja y se va subiendo en diagonal, una vez arriba se pasa a la derecha y se baja en diagonal.
+
+Por lo que tienen la misma cardinalidad, se pueden numerar aunque sea paradójica.
+
+\subsubsection{Biyección entre $\mathbb{N}\textit{ y }\mathbb{Z}$}
+George Cantor lo demuestra.
+
+\subsubsection{Biyección entre $\mathbb{N}\textit{ y }\mathbb{R}$}
+Teorema: No se puede. El conjunto de los números reales en [0,1) es incontable, y por ende, el de los números reales.
+
+\subsection{Máquina de Turing Universal}
+Es aquella Máquina de Turing que recibe como cadena una descripción de lenguaje (M) y la cadena de entrada (w).
+
+Es capaz de simular cualquier otra máquina de Turing.
+\begin{itemize}
+    \item Si M acepta w, U se parará en un estado final.
+    \item Si M NO acepta w, U no se parará o bien se parará en un estado no final.
+    \item Si M no se para, U tampoco.
+\end{itemize}
+
+\subsection{Algunos teoremas importantes}
+Lenguaje Universal: $A_{MT}$ o $L_U$.
+
+El complementario de un lenguaje está formado por aquellos elementos de $\Sigma^*$ que no están en L.
+\begin{itemize}
+    \item $L=\{x/|x|=2 \textit{ y x comienza con 1}\}$. $L=\{10,11\}$ y $\overline{L}=\{\lambda, 0, 1, 01, 000, ... \}$
+\end{itemize}
+
+\subsubsection{Teorema Hay lenguajes que no son reconocibles (NTR) por MTs}
+$\exists L / L$ no es reconocible por una MT.
+
+Si M no sabe decir (entra en bucle) si $w \in L$ entonces NTR.
+
+El conjunto de todas las MT es contable, dado que $\Sigma^*$ es contable y se puede codificar una MT. 
+
+Sea L el conjunto de todos los lenguajes del alfabeto de cadenas infinitas, se ha visto que es incontable.
+
+Por lo tanto, algunos lenguajes no pueden ser reconocidos por MTs. Son NTR.
+
+\subsubsection{Teorema $A_{MT}$ es Turing-reconocible}
+Sea $A_{MT}=\{<M,w> | M \textit{ acepta }w\}$
+
+La MT U simula M con entrada w. Es decir: U acepta o rechaza si M lo hace, y entra en bucle infinito si este lo hace.
+
+\subsubsection{Teorema $A_{MT}$ es indecidible}
+Se puede demostrar por reducción al absurdo.
+
+Se construye H que decide $A_{MT}$, entonces construimos D, como H negada. Por último, pasamos como entrada la propia máquina D ($<D, <D>>$). Entonces llegamos al absurdo.
+
+\subsubsection{Teorema $\overline{A_{MT}}$ es no-Turing-reconocible}
+Teorema: Un lenguaje es decidible si y solo si es Turing-Reconocible y su complementario es también Turing-Reconocible.
+
+L es TD $\Rightarrow$ L es TR y $\overline{L}$ es TR.
+
+$\overline{A_{MT}}$ es el conjunto de $<M,w>$ que no reconocen w.
+
+Sea $\overline{A_{MT}}$ Turing-reconocible. Entonces $A_{MT}$ seria Turing-decidible ($A_{MT}$ es TR), pero sabemos que es indecidible y, por tanto, $\overline{A_{MT}}$ es no-Turing-reconocible.
+
+Otro lenguaje no-Turing-Reconocible es $EQ_{MT}=\{<M_1, M_2> | M_1, M_2 \textit{ son MTs y } L(M_1)=L(M_2)\}$, dadas dos MTs decide si son equivalentes (mismo lenguaje).
+
+\subsubsection{Teorema $HALT_{MT}$ es indecidible}
+Dada una MT universal, U, y su entrada $<M,w>$. Decide si M se para o no.
+
+$HALT_{MT}=\{<M,w> / M \textit{ se para con w}\}$. Por absurdo se puede demostrar que no existe.
+\begin{itemize}
+    \item Construimos $H_1$, que niega la salida de H.
+    \item Hacemos que $H_1$ sea la entrada de $H_1$. 
+    \item Si H decide que $H_1$ se para, $H_1$ dice que no se para.
+    \item Si H decide que $H_1$ no se para, $H_1$ dice que se para.
+\end{itemize}
+
+Alan Turing en 1936 demuestra que NO existe un algoritmo que resuelva este problema.
+
+\subsection{Lenguaje Diagonal}
+Se hace una matriz de M x w, Máquina de Turing y entrada.
+
+Esta se completa de manera que: 
+\begin{itemize}
+    \item $(i, j)= 1 \Rightarrow w_i \in L(M_j)$
+    \item $(i, j)= 0 \Rightarrow w_i \notin L(M_j)$
+\end{itemize}  
+
+$L_d = \{ w_i / M_i \textit{ no acepta } w_i\}= \{w_i / w_i \notin L(M_i)\}$
+
+Sea $M_j$ la MT que acepta $L_d$ ($L_d = L(M_j)$):
+\begin{itemize}
+    \item $w_j \in L_d \Leftrightarrow (j,j)=0 \Rightarrow w_j \notin L(M_j)$
+    \item $w_j \notin L_d \Leftrightarrow (j,j)=1 \Rightarrow w_j \in L(M_j)$
+\end{itemize}
+
+Es contradictorio.
+
+\subsection{Resumen}
+\begin{itemize}
+    \item $A_{MT}$ o $L_U$ es Turing-Reconocible.
+    \item $\overline{A_{MT}}$ o $\overline{L_U}$ es No-Turing-Reconocible.
+    \item $HALT_{MT}$ es Turing-Reconocible.
+    \item $L_d$ es No-Turing-Reconocible.
+\end{itemize}
+
+\subsection{Reducción de un problema A a otro problema B}
+Reducir A a B es A en B, de modo que una solución a B pueda usarse para resolver A.
+
+Si A se reduce a B (A es reducible a B), resolver A no será más difícil que resolver B.
+
+$A \leq_m B$ mapping; $A \leq_p B$ polinomial time.
+\begin{itemize}
+    \item Que se a polinomial implica que la reducción se lleva a cabo una función cuyo $T(n)= O(n^k)$
+\end{itemize}
+
+Dados dos lenguajes A y B, y una función $f:\Sigma^* \rightarrow \Sigma^*$, f es una transformación del lenguaje universal del problema A al lenguaje universal del problema B.
+
+$\forall w\in A \Leftrightarrow f(w)\in B$; $ A \leq_f B$
+
+Teoremas:
+\begin{enumerate}
+    \item B decidible $\Rightarrow$ A decidible
+    \item B Turing-reconocible $\Rightarrow$ A Turing-reconocible
+    \item A no-Turing-reconocible $\Rightarrow$ B no-Turing-reconocible
+    \item A indecidible $\Rightarrow$ B indecidible
+    \item B decible $\Rightarrow$ es fácil de resolver A es fácil
+\end{enumerate}
+
+Para probar que un problema B es indecidible bastará mostrar que un problema indecidible A se reduce a B.
+\begin{itemize}
+    \item Si A es difícil $\Rightarrow$ B es difícil
+    \item Si B es difícil no podemos extraer conclusiones de A
+    \item Si $A \leq_p B$ y $B \leq_p A$ entonces son igual de difíciles.
+\end{itemize}
+
+Ejem. 
+\begin{itemize}
+    \item El problema M de multiplicar dos números enteros y el problema C de elevar al cuadrado un número entero. El problema C es más fácil que el problema M. De hecho, si podemos hacer la multiplicación, se puede elevar al cuadrado un número multiplicándolo por sí mismo, por lo que $C \leq M$. $x \rightarrow (x,x)$
+    \item $\textit{camino Hamiltoniano} \leq_p \textit{ciclo Hamiltoniano}$. Dado que para que sea ciclo tiene que ser primero camino. Por lo tanto, las soluciones a ciclo sirven a camino.
+\end{itemize} 
+
+\subsubsection{$HALT_{MT} es indecidible$}
+$A_{MT} \leq_m HALT_{MT}$
+\begin{itemize}
+    \item Construimos S para decidir $A_{MT}$
+    \item Dentro R decide $HALT_{MT}$ y tenemos también M que es la MT de entrada. 
+    \begin{itemize}
+        \item Si M se para, S simula M con w hasta que pare.
+        \begin{itemize}
+            \item Si M acepta, S acepta.
+            \item Si M rechaza, S rechaza.
+        \end{itemize}
+        \item Si M no se para, R rechaza, por lo que S rechaza.
+    \end{itemize}  
+\end{itemize}
+
+Si R decide $HALT_{MT}$, S decide $A_{MT}$. Es decir, $A_{MT}$ se reduce a $HALT_{MT}$, pero $A_{MT}$ es indecidible (TR), luego $HALT_{MT}$ es indecidible (al menos no TD).

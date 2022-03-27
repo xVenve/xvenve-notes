@@ -1,0 +1,168 @@
+\chapter{Modelos de Computación}\label{ch:modelos-de-computación}
+Modelos que se utilizan para resolver problemas.
+\section{Máquinas de Turing}
+\subsection{Origen}
+Formulada por Turing como un medio para formalizar el proceso sistemático de resolver problemas de un matemático.
+
+En sentido más amplio: Para representar cualquier Algoritmo, por precaución hablamos de Procedimientos Efectivos para resolver un problema.
+
+Actualmente, es una máquina evolucionada en base a contribuciones de Post, Turing y otros.
+
+\subsection{Utilidad}
+Turing se sirvió de ella para desarrollar diversas cuestiones: 
+\begin{itemize}
+    \item Máquina de Turing Universal.
+    \item Problema de la parada (demostración computacional) en equivalencia con el Entscheidungsproblem de Gödel.
+    \item Modelo Universal de Computación.
+\end{itemize}
+
+\subsection{Modelo de Computación Universal}
+Las Máquinas de Turing definen un Modelo de Computación que es la base de los Lenguajes Imperativos y Procedimentales.
+
+Suposiciones previas:
+\begin{itemize}
+    \item MT de cinta infinita
+    \item Alfabeto$=\{b,1\}$ siendo b o $\#$ representan celda en blanco
+    \item Alfabeto auxiliar con símbolos de marcado $\{\$, X, etc\}$
+    \item Se representan Números Naturales en base 1
+\end{itemize}
+
+\subsubsection{Aritmética de Peano} 
+Conjunto axiomático que sirve para definir los Números naturales
+\begin{itemize}
+    \item R0 - Objeto inicial. 0 es un objeto especial y es un Número Natural.
+    \item R1 - Sucesor. Para cada n NN existe otro NN $succ(n)$.
+    \item R2 - Predecesor. Si a es $succ(b)$ entonces b es $pred(a)$.
+    
+    Ojo con $pred(k=1)$, no está definido si no incluimos 0
+    \item R3 - Única. No hay dos NN diferentes con el mismo sucesor.
+    \item R4 - Igualdad. Comparar a y b NN en cuanto a igualdad.
+    \begin{itemize}
+        \item Reflexiva $Eq(a,a)$
+        \item Simétrica $Eq(a,b) \Leftrightarrow Eq(b,a)$
+        \item Transitiva $Eq(a,b), Eq(b,c) \Leftrightarrow Eq(a,c)$
+    \end{itemize}
+    \item R5 - Inducción. Predicado $P(n)$ es cierto $\forall n$ si cumple: 
+    
+    $P(0)$ cierta.
+    
+    $P(n)$ cierta para algún n y se puede demostrar que $P(succ(n))$ es cierta.
+\end{itemize}
+
+\subsection{Eficiencia}
+No, no busca la eficiencia.
+
+La MT es un modelo de computación abstracta.
+
+Igual sabe hacer cosas que podríamos calcular de otra manera. No obstante, vamos a estudiar la eficiencia $\Rightarrow$ Coste Computacional.
+
+\subsection{Coste Computacional con MT}
+Uso para el Análisis del Coste Computacional de Algoritmos.
+
+\subsubsection{Ventajas}
+\begin{itemize}
+    \item Propone un modelo único, al contrario que con el uso de un Lenguaje X y una CPU Y
+    \item No hay dudas sobre el coste del Paso Base
+\end{itemize}
+
+\subsubsection{Desventaja}
+\begin{itemize}
+    \item Es muy pesado para algoritmos complejos $\Rightarrow$ Limitaremos el tamaño de las MT
+\end{itemize}
+
+\subsubsection{Propósito}
+\begin{itemize}
+    \item Relacionar conceptos vistos en la asignatura.
+    \item En base a un modelo muy sencillo
+    \item Abstraer de construcciones de muy alto nivel
+\end{itemize}
+
+\subsubsection{Marco necesario para el Análisis}
+\begin{itemize}
+    \item MT de cinta infinita hacia ambos lados
+    \item Alfabeto determinado, en principio con pocos símbolos, pero pueden ser más
+    \item Una instancia de un Problema se describirá con una cinta de Entrada
+    \item El número de símbolos de la Entrada define el Tamaño de la Instancia
+    \item Coste de Paso Base: Una Transición con su Lectura/Escritura y Desplazamiento
+\end{itemize}
+
+\subsubsection{Coste computacional empírico: Aplicando diferencias finitas}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|l|l|l|}
+    \hline
+    Tamaño n                  & \textbf{1} & \textbf{3} & \textbf{5} & \textbf{7} & \textbf{9} & \textbf{11} \\ \hline
+    \textbf{Pasos}            & 2          & 9          & 20         & 35         & 54         & 77          \\ \hline
+    \textbf{A: T(n) - T(n-2)} &            & 7          & 11         & 15         & 19         & 23          \\ \hline
+    \textbf{B: A(n) - A(n-2)} &            &            & 4          & 4          & 4          & 4           \\ \hline
+    \textbf{C: B(n) - B(n-2)} &            &            &            & 0          & 0          & 0           \\ \hline
+    \end{tabular}
+    \caption{Diferencias finitas}
+\end{table}
+
+Si $T(n)$ \textbf{exponencial}, las diferencias finitas no se anulan, pero aparecen comportamientos particulares.
+
+Si $T(n)$ \textbf{polinómico} de orden k, las diferencias finitas de orden $k=cte$. En este caso orden 2.
+
+Sabiendo el orden se plantea un polinomio genérico de ese orden: $T(n)=xn^2+bn+c$.
+
+Se resuelve la ecuación y ya tenemos la complejidad.
+
+$$a+b+c=2;\; 9a+3b+c=9;\; 25a+5b+c=20 \Rightarrow a=\frac{1}{2},\; b=\frac{3}{2},\; c=0$$
+
+$$T(n)=\frac{1}{2}n^2+\frac{3}{2}n$$
+
+\subsubsection{Coste computacional empírico: Recursivamente}
+Se plantean las observaciones y observan los patrones de los datos.
+
+\begin{itemize}
+    \item $n=1 \Rightarrow 2$ pasos
+    \item $n=3 \Rightarrow 4$ pasos a derecha $+ 3$ a izquierda $+ T(1)$
+    \item $n=5 \Rightarrow 6$ pasos a derecha $+ 6$ a izquierda $+ T(3)$
+    \item $n \Rightarrow n+1$ pasos a derecha $+ n+1$ a izquierda $+ T(n-2) = \Sigma i \Rightarrow T(n)=\frac{(n+1)(n+2)}{2}-1=\frac{1}{2}n^2+\frac{3}{2}n$ 
+\end{itemize}
+
+\subsection{Variantes del Modelo de Máquina de Turing}
+Abordamos:
+\begin{itemize}
+    \item Máquinas de Turing de dos o más cintas (multicinta)
+    \item Máquinas de Turing No Deterministas
+    \item Automata de Dos Pilas
+    \item Máquinas de Turing 2D
+    \item Aplicaciones
+    \item Costes Computacionales
+\end{itemize}
+
+\subsubsection{Máquinas de Turing de Dos Cintas}
+La misma estructura que una MT convencional, pero:
+\begin{itemize}
+    \item Tiene dos cintas y sus respectivos cabezales
+    \item Pueden operar de forma independiente
+\end{itemize}
+
+Implica cambios en el funcionamiento, las transiciones se definen:
+\begin{itemize}
+    \item Cambio de estado
+    \item Para cabezales
+    \begin{itemize}
+        \item Una Lectura
+        \item Una Escritura
+        \item Un Desplazamiento
+    \end{itemize}
+\end{itemize}
+
+Las operaciones de cada cabezal son independientes entre sí, pero están vinculados en cada transición.
+
+\subsubsection{Máquinas de Turing No Deterministas}
+La misma estructura que una MT convencional, pero
+\begin{itemize}
+    \item Admiten transiciones No Deterministas, es decir, para un mismo símbolo leído define al menos dos transiciones que:
+    \begin{itemize}
+        \item Escriben símbolos diferentes
+        \item Desplazan el cabezal de distinta forma
+        \item Transitan a estados diferentes
+    \end{itemize}
+\end{itemize}
+
+Cuando se encuentra una transición ND, entendemos que la MT bifurca en dos o más instancias de la misma que adoptaran estados diferentes.
+
+Si alguna de las instancias alcanza un Estado Final $\Rightarrow$ MT acepta
