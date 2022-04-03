@@ -1,0 +1,155 @@
+\chapter{Teoría de la Complejidad Computacional}\label{ch:teoría-de-la-complejidad-computacional}
+Consideremos 2 tipos de recursos:
+\begin{itemize}
+  \item Tiempo: tiempo de ejecución.
+  \item Espacio: recursos de memoria utilización.
+\end{itemize}
+
+\section{La Máquina de Turing y medida de la Complejidad}
+El tiempo de ejecución de Máquina de Turing es la función $T(n): N \rightarrow N$, donde T(n) es el número máximo de pasos que una MT utiliza para realizar el cómputo para entrada de tamaño n.
+
+Complejidad Computacional: se refiere a la complejidad de los problemas
+\begin{itemize}
+  \item Se toma la peor instancia
+  \item Se utiliza la cota Superior  Asintótica: O(g)
+\end{itemize}
+
+La principal herramienta para comparar problemas y clasificarlos:
+\begin{itemize}
+  \item Desde el punto de vista de la computabilidad
+  \item Desde el punto de vista de la complejidad computacional
+\end{itemize} 
+
+\section{Reducción entre problemas}
+Dado dos Lenguajes A y B, y una función $f: \Sigma^* \rightarrow \Sigma^*$.
+
+f es una transformación del lenguaje universal del problema A al lenguaje universal del problema B. Se dice que \textbf{A es reducible a B}, bajo f si:
+
+$$\begin{matrix}
+  \forall w \in A \Leftrightarrow f(w)\in B \\ 
+  A \leq_f B
+\end{matrix}$$
+
+\textbf{Reducción:} transformar un problema en otro. Transformar toda instancia de un problema en instancias de otro problema.
+
+Intuitivamente
+\begin{itemize}
+  \item es una manera de convertir un problema a otro problema, de tal manera que la solución al segundo problema se puede utilizar para resolver el primer problema.
+  \item ''Si el problema A es reducible al problema B, entonces la solución al problema B se
+  puede utilizar para resolver el problema A''
+\end{itemize}
+
+Formalmente
+\begin{itemize}
+  \item Si el coste de Reducir A en B, es decir, el proceso de transformar una instancia de A en una instancia de B, es de orden polinómico (o menor) se puede afirmar que:
+  \begin{itemize}
+    \item Resolver A no puede ser más complejo (''harder'') que resolver B. Es decir, resolver A a lo sumo es tan complejo de resolver como B.
+    \item Resolver B al menos es tan complejo como resolver A
+    \item Estas dos afirmaciones se expresan así: $A \leq B$
+  \end{itemize}
+  \item Reducir el problema A al problema B en tiempo polinómico implica que la reducción se lleva a cabo con una función cuyo $T(n)=O(n^k)$, $A \leq_p B$
+  \item Si $A \leq_p B$ y $B \leq_p A$ son igual de difíciles
+\end{itemize}
+
+\section{Clases de Problemas}
+Tiempo
+\begin{itemize}
+  \item Clase P
+  \item Clase NP
+  \item Clase NP-Completo 
+  \item Clase NP-Hard
+\end{itemize}
+
+Espacio
+\begin{itemize}
+  \item Clase P-Space
+  \item Clase NP-Space
+\end{itemize}
+
+\textbf{TIME(f(n)):} Conjunto de problemas de decisión que se pueden resolver mediante una Máquina de Turing Determinista con coste $O(f(n))$.
+
+\textbf{NTIME(f(n)):} Problemas de decisión que se pueden resolver mediante una Máquina de Turing NO Determinista con coste $O(f(n))$.
+
+Lo que una MTD puede resolver en Time($2^n$), una MTND  lo puede resolver en menor tiempo NTIME(n). Pero no al revés, porque no sabemos cuánto más tardara. 
+
+\subsection{Clase P}
+Problemas (Lenguajes) decidibles por una MT Determinista (de una sola cinta) en TIEMPO POLINÓMICO. $P= \bigcup_k TIME(n^k)$
+\begin{itemize}
+  \item Time($n$), Time($n^2$), ..., Time($n^k$)
+\end{itemize}
+
+La clase P contiene todos los problemas decibles por un algoritmo que cuyo coste computacional (tiempo) es de orden polinómico con respecto al tamaño de la entrada (n).
+
+''P se corresponde con la clase de problemas que se pueden resolver desde un punto de vista realista/práctico en un computador''
+
+La mayoría de los problemas corrientes pertenecen a la clase P: Ordenación, Búsqueda, Operaciones con vectores.
+
+“La clase P es robusta”
+\begin{itemize}
+  \item La clase P es invariante (i.e. robusta) para todos los modelos de computación que son polinómicamente equivalentes a la MT Determinista de una sola cinta.
+  \item Los problemas en P permanecen en P aunque se cambie el modelo de computación.
+\end{itemize}
+
+Ejemplos de problemas en P:
+\begin{itemize}
+  \item Si existe un camino entre dos puntos en un grafo
+  \item Si x e y son coprimos
+  \item Si x es primo (AKS lo demuestra)
+\end{itemize}
+
+\subsection{Clase NP}
+Problemas (Lenguajes) decidibles por una MT NO Determinista (de una sola cinta) en TIEMPO POLINÓMICO. $P= \bigcup_k NTIME(n^k)$
+\begin{itemize}
+  \item Time($n$), Time($n^2$), ..., Time($n^k$)
+  \item NTime($n$), NTime($n^2$), ..., NTime($n^k$)
+\end{itemize}
+
+Todo P es NP, $P \leq NP$, pero no se ha podido demostrar que sean el mismo conjunto, por ahora $P \subset NP$.
+
+Podemos evitar la fuerza bruta para conseguir soluciones de muchos problemas en tiempo polinómico.
+
+No se conoce (no que no exista) ... en tiempo polinómico.
+
+Lo primero y más fácil que podemos utilizar para saber si pertenece a NP es hace un verificador, y si este lo hace en tiempo polinómico.
+
+El segundo paso es ver si ese puede resolver con una MT ND.
+
+\subsubsection{Verificabilidad}
+Verificador V para un lenguaje L: $L=\{w / V \textit{ acepta } <w,c> \textit{ para alguna palabra }c\}$
+\begin{itemize}
+  \item Verificador: un algo que permite ver si cumple el problema o no, pero no lo resuelve.
+  \item Certificador: la cadena verificada.
+\end{itemize}
+
+NP es la clase de lenguajes que tienen verificadores en tiempo polinómico.
+
+Encontrar un verificador es más sencillo que resolver el problema, este solo dice si es una buena solución o no resuelve el problema.
+
+\subsection{P vs. NP}
+P es la clase de lenguajes en los que ... (reconocer/aceptar) \dots
+
+NP ... (verificar) ...
+
+\subsection{Clase EXPTIME}
+$EXPTIME= \bigcup_k TIME(2^{n^k})$
+
+$NP \leq EXPTIME$
+
+?... MT D o MT ND...?
+
+\subsection{Clase NP-Completo}
+Un problema de decisión $p\in NP-Completo$ si y solo si:
+\begin{itemize}
+  \item $p \in NP$
+  \item $\forall q \in NP$ existe una reducción de q en p. Es decir, existe una transformación f de coste polinómico de q en p, tal que $q \leq_p p$
+\end{itemize}
+
+Los problemas NPC se pueden reducir entre ellos.
+
+Todos los problemas de NP se pueden reducir en tiempo polinómico en NP-Completo. De esta manera se puede demostrar que un problema pertenece a NP-Completo, si se puede reducir en tiempo polinómico un problema NP-Completo a este.
+\begin{itemize}
+  \item Tenemos los problemas $p$ y $ q\in NP-Completo$, por lo que si $q \leq_p p$ entonces $p \in NP-Completo$.
+  \item Ejem. Como el Buscaminas (Minesweeper) es más difícil que SAT y sabemos que SAT es NP-Completo entonces Buscaminas es NP-Completo.
+\end{itemize}
+
+\section{Reducción entre problemas}
