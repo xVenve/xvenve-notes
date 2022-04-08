@@ -61,5 +61,12 @@
 
 * [Artificial intelligence in business](https://drive.google.com/file/d/14F2TsizefSL_1-e7ryq7e-sIr7dpvjP8/view?usp=sharing)
 * [Artificial neural networks](https://drive.google.com/file/d/1UsCozOskUDjA6ONo3eNOIsXYKx7GA6iu/view?usp=sharing)
-* [Knowledge Engineering](https://drive.google.com/file/d/1dhzdNcaJcJF7hwimyJPiMdVt0F6mCw1i/view?usp=sharing)
 * [Genetic and evolutionary algorithms](https://drive.google.com/file/d/1Ss7q_LiH47Ns4DSieZLJnWXOhL0rMQnw/view?usp=sharing)
+* [Knowledge Engineering](https://drive.google.com/file/d/1dhzdNcaJcJF7hwimyJPiMdVt0F6mCw1i/view?usp=sharing)
+
+### Second semester
+
+* [Advanced theory of computation](https://drive.google.com/file/d/1KoQC6K303ojssfGUZUT_h1v5CqTKuXrj/view?usp=sharing)
+* [Computer Graphics](https://drive.google.com/file/d/1LHltbPTyrMFT7Dc4cWzp0E1Q71A68dpq/view?usp=sharing)
+* [Greek myths and the roots os European culture](https://drive.google.com/file/d/1KwGrwfVa1x6m6lzNAfxW8hjkc79rT5Ap/view?usp=sharing)
+* [Science and Fiction](https://drive.google.com/file/d/1L3QCMz6WprJs5V6eqI5FbPvLTmKwu9fJ/view?usp=sharing)
