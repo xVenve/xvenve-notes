@@ -48,7 +48,7 @@ Formalmente
     \item Estas dos afirmaciones se expresan así: $A \leq B$
   \end{itemize}
   \item Reducir el problema A al problema B en tiempo polinómico implica que la reducción se lleva a cabo con una función cuyo $T(n)=O(n^k)$, $A \leq_p B$
-  \item Si $A \leq_p B$ y $B \leq_p A$ son igual de difíciles
+  \item Si $A \leq_p B$ y $B \leq_p A$ son igual de difíciles.
 \end{itemize}
 
 \section{Clases de Problemas}
@@ -72,7 +72,8 @@ Espacio
 
 Lo que una MTD puede resolver en Time($2^n$), una MTND  lo puede resolver en menor tiempo NTIME(n). Pero no al revés, porque no sabemos cuánto más tardara. 
 
-\subsection{Clase P}
+\subsection{Complejidad Temporal}
+\subsubsection{Clase P}
 Problemas (Lenguajes) decidibles por una MT Determinista (de una sola cinta) en TIEMPO POLINÓMICO. $P= \bigcup_k TIME(n^k)$
 \begin{itemize}
   \item Time($n$), Time($n^2$), ..., Time($n^k$)
@@ -97,7 +98,7 @@ Ejemplos de problemas en P:
   \item Si x es primo (AKS lo demuestra)
 \end{itemize}
 
-\subsection{Clase NP}
+\subsubsection{Clase NP}
 Problemas (Lenguajes) decidibles por una MT NO Determinista (de una sola cinta) en TIEMPO POLINÓMICO. $P= \bigcup_k NTIME(n^k)$
 \begin{itemize}
   \item Time($n$), Time($n^2$), ..., Time($n^k$)
@@ -108,6 +109,8 @@ Todo P es NP, $P \leq NP$, pero no se ha podido demostrar que sean el mismo conj
 
 Podemos evitar la fuerza bruta para conseguir soluciones de muchos problemas en tiempo polinómico.
 
+Si un problema no es NP, no es TD.
+
 No se conoce (no que no exista) ... en tiempo polinómico.
 
 Lo primero y más fácil que podemos utilizar para saber si pertenece a NP es hace un verificador, y si este lo hace en tiempo polinómico.
@@ -116,28 +119,29 @@ El segundo paso es ver si ese puede resolver con una MT ND.
 
 \subsubsection{Verificabilidad}
 Verificador V para un lenguaje L: $L=\{w / V \textit{ acepta } <w,c> \textit{ para alguna palabra }c\}$
+$$w \in L \Rightarrow \exists c \in \Sigma^*. V \textit{ acepta } <w, c>$$
 \begin{itemize}
-  \item Verificador: un algo que permite ver si cumple el problema o no, pero no lo resuelve.
-  \item Certificador: la cadena verificada.
+  \item \textbf{Verificador:} Es un algo que permite ver si una instancia/cadena cumple el problema o no, pero no lo resuelve. Dice si la solución es buena o no. 
+  
+  El verificador asociado a un problema debe tener para cada una de las palabras de dicho problema (w) una cadena c llamada certificado que hace que termine el verificador en un estado de aceptación. Para aquella que no sean del lenguaje las rechazara, no habrá un c.
+  \item \textbf{Certificador:} Cadena que se asocia a una salida w que recibe el verificador que ayuda a saber si la solución pertenece al lenguaje.
 \end{itemize}
 
 NP es la clase de lenguajes que tienen verificadores en tiempo polinómico.
 
 Encontrar un verificador es más sencillo que resolver el problema, este solo dice si es una buena solución o no resuelve el problema.
 
-\subsection{P vs. NP}
+\subsubsection{P vs. NP}
 P es la clase de lenguajes en los que ... (reconocer/aceptar) \dots
 
 NP ... (verificar) ...
 
-\subsection{Clase EXPTIME}
+\subsubsection{Clase EXPTIME}
 $EXPTIME= \bigcup_k TIME(2^{n^k})$
 
-$NP \leq EXPTIME$
+Todos los conjuntos exponenciales. $NP \leq EXPTIME$
 
-?... MT D o MT ND...?
-
-\subsection{Clase NP-Completo}
+\subsubsection{Clase NP-Completo}
 Un problema de decisión $p\in NP-Completo$ si y solo si:
 \begin{itemize}
   \item $p \in NP$
@@ -152,4 +156,114 @@ Todos los problemas de NP se pueden reducir en tiempo polinómico en NP-Completo
   \item Ejem. Como el Buscaminas (Minesweeper) es más difícil que SAT y sabemos que SAT es NP-Completo entonces Buscaminas es NP-Completo.
 \end{itemize}
 
-\section{Reducción entre problemas}
+Formas de resolver problemas en tiempo razonable:
+\begin{itemize}
+  \item Casos particulares: Cuando se conocen casos particulares del problema para los cuales existen soluciones rápidas.
+  \item Heurísticas: Un algoritmo que trabaja razonablemente bien en muchos casos. En general son rápidos, pero\dots
+  \item Metaheurísticas:
+\end{itemize}
+
+3SAT es NP-Completo, pero 2SAT no.
+
+\subsubsection{3SAT $\leq$ K-Clique}
+K-Clique sabemos que es NP, vamos a demostrar si es NP-Completo.
+$$\textit{3SAT} \leq \textit{K-Clique}$$
+
+Cada literal es un vértice del clique. Con 3 cláusulas tenemos 9 literales, por tanto 9 vértices. $\phi=(x\vee y \vee z) \wedge (x\vee x \vee \overline{y}) \wedge \dots$
+
+Entonces se hacen todas las conexiones posibles siguiendo:
+\begin{itemize}
+  \item No se conectan literales en la misma cláusula.
+  \item Un literal no se conecta con su opuesto. $y e \overline{y}$
+\end{itemize}
+
+La solución será aquella que haga True todas las cláusulas, que coincide con un clique en el grafo que hemos generado.
+
+\begin{enumerate}
+  \item $w\in \textit{3SAT} \rightarrow f(w)\in \textit{K-Clique}$ y $f(w)$ se puede hacer en tiempo polinómico.
+  
+  Supongamos que $\phi$ tiene una asignación satisfacible de literales.
+  \begin{itemize}
+    \item Entonces un literal por lo menos en una cláusula debe tener valor de verdadero.
+    \item ...
+  \end{itemize}
+  \item $f(w)\in \textit{K-Clique} \rightarrow w \in \textit{3SAT}$
+  \begin{itemize}
+    \item Se hace lo inverso, se construye un 3SAT a partir de un grafo.
+    \item No habrá vértices en el grafo que corresponda a la misma cláusula.
+  \end{itemize}
+\end{enumerate}
+
+\subsubsection{Clase NP-Hard}
+Un problema de decisión $h \in \textit{NP-Hard}$ si y solo si:
+\begin{itemize}
+  \item $\forall q \in NP$, existe una reducción de q en h. Es decir, existe una transformación f de coste polinómico de q en h tal que $q \leq_p h$
+\end{itemize}
+
+Los NP-Hard pueden reducir los NP sin ser NP, siendo NTD.
+
+Todos los NPC son NPH, $\textit{NPC}=\textit{NP} \cap \textit{NP-Hard}$, pero no todos los NPH son NPC porque no están en NP.
+
+Se puede saber que un NPH está en NP, si se puede reducir a un NPC.
+
+\tikzset{every picture/.style={line width=0.75pt}}       
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [line width=1.5]  (140,30) -- (290,30) -- (290,100) -- (140,100) -- cycle ;
+\draw  [line width=0.75]  (140,70) -- (290,70) -- (290,140) -- (140,140) -- cycle ;
+\draw    (210,88.5) -- (227,88.5) ;
+\draw [shift={(230,88.5)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw    (225,88.5) -- (198,88.5) ;
+\draw [shift={(195,88.5)}, rotate = 360] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+
+\draw    (160,110) -- (198.34,52.5) ;
+\draw [shift={(200,50)}, rotate = 123.69] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw    (270,110) -- (231.66,52.5) ;
+\draw [shift={(230,50)}, rotate = 56.31] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw    (190,80) -- (207.88,62.12) ;
+\draw [shift={(210,60)}, rotate = 135] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw    (240,80) -- (222.12,62.12) ;
+\draw [shift={(220,60)}, rotate = 45] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+
+\draw (236,79.4) node [anchor=north west][inner sep=0.75pt]    {$q_{3}$};
+\draw (177,79.4) node [anchor=north west][inner sep=0.75pt]    {$q_{2}$};
+\draw (292,33) node [anchor=north west][inner sep=0.75pt]   [align=left] {NPH};
+\draw (292,73) node [anchor=north west][inner sep=0.75pt]   [align=left] {NPC};
+\draw (297,111) node [anchor=north west][inner sep=0.75pt]   [align=left] {NP};
+\draw (262,112.4) node [anchor=north west][inner sep=0.75pt]    {$q_{4}$};
+\draw (152,112.4) node [anchor=north west][inner sep=0.75pt]    {$q_{1}$};
+\draw (209,36.15) node [anchor=north west][inner sep=0.75pt]    {$h$};
+\end{tikzpicture}
+
+\subsection{Complejidad Espacial}
+Se utiliza como otra forma de clasificar problemas, según su dificultad computacional.
+
+El modelo matemático para esta clasificación es la MT.
+
+La complejidad espacial de una MTD M, que para siempre, es una función $f: N \rightarrow N$, tal que $f(n)$ es el máximo número de celdas que M visita para una entrada de longitud n.
+
+Cantidad de espacio (memoria) que se requiere. El espacio a diferencia del tiempo se puede reutilizar.
+
+Se dice que M se ejecutara en un espacio $f(n)$:
+\begin{itemize}
+  \item Ejem: $<MTD, w>$ MTD se ejecuta en $f(n)=4n$ para $n=2$ $f(2)=8$. Con entrada 2 usará un total de 8 celdas. 
+\end{itemize}
+
+\textbf{SPACE(f(n)):} Problemas (Lenguajes) decidibles por una MT Determinista (de una sola cinta) en ESPACIO POLINÓMICO. $PSPACE=\bigcup_k SPACE(n^k)$
+
+\textbf{NSPACE(f(n)):}Problemas (Lenguajes) decidibles por una MT NO Determinista (de una sola cinta) en ESPACIO POLINÓMICO. $NPSPACE=\bigcup_k NSPACE(n^k)$
+
+SAT por ejemplo es $O(n)$ en cuanto a espacio y en tiempo es exponencial.
+
+\subsubsection{Teorema de Savitch (1970)}
+$\forall f: N \rightarrow R^+$, donde $f(n)\geq n$. $\textit{NSPACE}(f(n)) \subseteq \textit{SPACE}(f^2(n))$
+
+En otras palabras, cualquier problema decidible en una máquina de Turing no determinista en el espacio $f(n)$ también se puede decidir en una máquina de Turing determinista en el espacio $f^2(n)$.
+
+Corolario: $\textit{PSPACE}(n^4)=\textit{NPSPACE}(n^k)$. Como los PSPACE absorben los NPSPACE resultan ser lo mismo.
+\begin{itemize}
+  \item $P \subseteq NP$. P incluido en NPC
+  \item $P \subseteq \textit{PSPACE}$
+  \item $NP \subseteq \textit{NPSPACE}$
+  \item $\textit{PSPACE} = \textit{NPSPACE}$
+  \item $P \subseteq NP \subseteq \textit{PSPACE}=\textit{NPSPACE} \subseteq \textit{EXPTIME}$
+\end{itemize}
