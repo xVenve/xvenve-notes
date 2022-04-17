@@ -27,7 +27,7 @@ Para cada pixel
     \item Lanza un rayo a la escena
     \item Encuentra el punto de intersección p más cercano que interseccione con el rayo.
     \item Calcula lighting/sombra para p, $[A+D+S]$, colp.
-    \item Si la superficie es un espejo, se lanza un rayo de reflexión, $(1-r)colp+ r refCol$, refCol.
+    \item Si la superficie es un espejo, se lanza un rayo de reflexión, $(1-r)colp+ r\cdot refCol$, refCol.
     \item Si además la superficie es refractante, se lanza un rayo de refracción, $(1-(r_1-r_2))\cdot colp + r_1\cdot refCol +r_2\cdot refrCol$, refrCol.
 \end{enumerate}
 \subsection{Ray-casting (primera iteración)}
@@ -147,7 +147,7 @@ Usa 4 vectores para computar el color de cada punto p
         
         La luz parece atenuarse con la distancia d entre la fuente de luz y la superficie. Se usan las constantes a, b y c, que son definidas por el usuario.
         
-        $I_d(n, I, R_d, L_d, a, b, c, d)= \frac {R_d \cdot \max (n\cdot l,0) \cdot L_d}{a+bd+cd^2}$, con $n \cdot l = |n|*|l|*\cos(n,l)$
+        $I_d(n, l, R_d, L_d, a, b, c, d)= \frac {R_d \cdot \max (n\cdot l,0) \cdot L_d}{a+bd+cd^2}$, con $n \cdot l = |n|*|l|*\cos(n,l)$
         \item \textbf{Reflexión especular:} Se usa r y v, porque la reflexiones más fuerte en la dirección del vector de reflexión. Es máximo cuando coinciden ambos vectores.
         
         Se utiliza un factor n de intensidad de reflexión (hardness), cuanto mayor es menos intensidad de reflexión.
@@ -174,7 +174,7 @@ Ahora queremos iluminar el punto. Lo cual incluye \textbf{comprobar si está en 
 Podemos comprobarlo \textbf{emitiendo un rayo desde el punto hasta la fuente de luz}.
 \begin{itemize}
     \item Si se detecta intersección, puede que el punto esté en sombra.
-    \item El punto que está en sombra si el valor t de la intersección es menor que el valor t del punto de luz.
+    \item El punto está en sombra si el valor t de la intersección es menor que el valor t del punto de luz.
     \begin{itemize}
         \item Luces direccionales, al estar en el infinito, cualquier intersección genera una sombra (t positivo).
         \item Focos, hay que asegurarse que el rayo de sombra está dentro del cono de luz del foco, pero como la bombilla (fuente de punto)
@@ -240,7 +240,7 @@ refracción.
     \item SI: calcula el nuevo rayo. Ilumínalo de la manera estándar y añade un término adicional a la ecuación de iluminación
 \end{itemize}
 
-Hay que almacenar índices de refracción para los materiales material
+Hay que almacenar índices de refracción para los materiales
 
 Si el objeto es transparente, lanza un nuevo rayo usando la ley de Snell: $n_1 \sin \alpha_1 = n_2 \sin \alpha_2$
 \begin{itemize}
