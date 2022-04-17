@@ -1,8 +1,8 @@
 \chapter{Teoría de la Complejidad Computacional}\label{ch:teoría-de-la-complejidad-computacional}
 Consideremos 2 tipos de recursos:
 \begin{itemize}
-  \item Tiempo: tiempo de ejecución.
-  \item Espacio: recursos de memoria utilización.
+  \item \textbf{Tiempo:} tiempo de ejecución o número de pasos base.
+  \item \textbf{Espacio:} recursos de memoria utilizados.
 \end{itemize}
 
 \section{La Máquina de Turing y medida de la Complejidad}
@@ -32,14 +32,14 @@ $$\begin{matrix}
 
 \textbf{Reducción:} transformar un problema en otro. Transformar toda instancia de un problema en instancias de otro problema.
 
-Intuitivamente
+Intuitivamente:
 \begin{itemize}
   \item es una manera de convertir un problema a otro problema, de tal manera que la solución al segundo problema se puede utilizar para resolver el primer problema.
   \item ''Si el problema A es reducible al problema B, entonces la solución al problema B se
   puede utilizar para resolver el problema A''
 \end{itemize}
 
-Formalmente
+Formalmente:
 \begin{itemize}
   \item Si el coste de Reducir A en B, es decir, el proceso de transformar una instancia de A en una instancia de B, es de orden polinómico (o menor) se puede afirmar que:
   \begin{itemize}
@@ -99,23 +99,25 @@ Ejemplos de problemas en P:
 \end{itemize}
 
 \subsubsection{Clase NP}
-Problemas (Lenguajes) decidibles por una MT NO Determinista (de una sola cinta) en TIEMPO POLINÓMICO. $P= \bigcup_k NTIME(n^k)$
+Problemas (Lenguajes) decidibles por una MT NO Determinista (de una sola cinta) en TIEMPO POLINÓMICO. $NP= \bigcup_k NTIME(n^k)$
 \begin{itemize}
   \item Time($n$), Time($n^2$), ..., Time($n^k$)
   \item NTime($n$), NTime($n^2$), ..., NTime($n^k$)
 \end{itemize}
 
+Es decir, problemas para los que existe una MT NO DETERMINISTA que da solución parándose (da una respuesta sea cual sea la entrada) en TIEMPO POLINÓMICO.
+
+NP es la clase de \textbf{lenguajes que tienen un verificador en tiempo polinómico}. Que no se conozca, no quiere decir, no exista uno en tiempo polinómico.
+
 Todo P es NP, $P \leq NP$, pero no se ha podido demostrar que sean el mismo conjunto, por ahora $P \subset NP$.
 
-Podemos evitar la fuerza bruta para conseguir soluciones de muchos problemas en tiempo polinómico.
+Podemos \textbf{evitar la fuerza bruta para conseguir soluciones de muchos problemas} en tiempo polinómico. Pero para \textbf{otros problemas no se conocen soluciones en tiempo polinómico}. No se sabe si se podrán conseguir, podría suceder que estos \textbf{problemas fueran intrínsecamente difíciles}.
 
-Si un problema no es NP, no es TD.
-
-No se conoce (no que no exista) ... en tiempo polinómico.
+Si un problema \textbf{no es NP, no es TD}.
 
 Lo primero y más fácil que podemos utilizar para saber si pertenece a NP es hace un verificador, y si este lo hace en tiempo polinómico.
 
-El segundo paso es ver si ese puede resolver con una MT ND.
+El segundo paso es ver si este se puede resolver con una MT ND.
 
 \subsubsection{Verificabilidad}
 Verificador V para un lenguaje L: $L=\{w / V \textit{ acepta } <w,c> \textit{ para alguna palabra }c\}$
@@ -127,14 +129,16 @@ $$w \in L \Rightarrow \exists c \in \Sigma^*. V \textit{ acepta } <w, c>$$
   \item \textbf{Certificador:} Cadena que se asocia a una salida w que recibe el verificador que ayuda a saber si la solución pertenece al lenguaje.
 \end{itemize}
 
+Si V se ejecuta en tiempo polinómico, V es un verificador en tiempo polinómico, y L es polinómicamente verificable
+
 NP es la clase de lenguajes que tienen verificadores en tiempo polinómico.
 
 Encontrar un verificador es más sencillo que resolver el problema, este solo dice si es una buena solución o no resuelve el problema.
 
 \subsubsection{P vs. NP}
-P es la clase de lenguajes en los que ... (reconocer/aceptar) \dots
+\textbf{P} es la clase de lenguajes en los que la pertenencia de una palabra puede ser \textbf{decidida rápidamente}. (reconocer/aceptar)
 
-NP ... (verificar) ...
+\textbf{NP} es la clase de lenguajes en los que la pertenencia puede ser \textbf{verificada rápidamente}. (verificar)
 
 \subsubsection{Clase EXPTIME}
 $EXPTIME= \bigcup_k TIME(2^{n^k})$
@@ -158,9 +162,13 @@ Todos los problemas de NP se pueden reducir en tiempo polinómico en NP-Completo
 
 Formas de resolver problemas en tiempo razonable:
 \begin{itemize}
-  \item Casos particulares: Cuando se conocen casos particulares del problema para los cuales existen soluciones rápidas.
-  \item Heurísticas: Un algoritmo que trabaja razonablemente bien en muchos casos. En general son rápidos, pero\dots
-  \item Metaheurísticas:
+  \item Aproximaciones: Un algoritmo que rápidamente encuentra una solución no necesariamente óptima, pero dentro de un cierto rango de error.
+  
+  En algunos casos, encontrar una buena aproximación es suficiente para resolver el problema, pero no todos los problemas NP-completos tienen buenos algoritmos de aproximación.
+  \item Probabilístico: Un algoritmo probabilístico obtiene en promedio una buena solución al problema planteado, para una distribución de los datos de entrada dada.
+  \item Casos particulares: Cuando se reconocen casos particulares del problema para los cuales existen soluciones rápidas.
+  \item Heurísticas: Un algoritmo que trabaja razonablemente bien en muchos casos. En general son rápidos, pero no existe medida de la calidad de la respuesta.
+  \item Meta heurística (Computación evolutiva, Algoritmo Genético): Algoritmos que mejoran las posibles soluciones hasta encontrar una que posiblemente esté cerca del óptimo. Tampoco existe forma de garantizar la calidad de la respuesta.
 \end{itemize}
 
 3SAT es NP-Completo, pero 2SAT no.
@@ -169,7 +177,7 @@ Formas de resolver problemas en tiempo razonable:
 K-Clique sabemos que es NP, vamos a demostrar si es NP-Completo.
 $$\textit{3SAT} \leq \textit{K-Clique}$$
 
-Cada literal es un vértice del clique. Con 3 cláusulas tenemos 9 literales, por tanto 9 vértices. $\phi=(x\vee y \vee z) \wedge (x\vee x \vee \overline{y}) \wedge \dots$
+Cada literal es un vértice del clique. Con 3 cláusulas tenemos 9 literales, por tanto, 9 vértices. $\phi=(x\vee y \vee z) \wedge (x\vee x \vee \overline{y}) \wedge \dots$
 
 Entonces se hacen todas las conexiones posibles siguiendo:
 \begin{itemize}
@@ -184,13 +192,15 @@ La solución será aquella que haga True todas las cláusulas, que coincide con 
   
   Supongamos que $\phi$ tiene una asignación satisfacible de literales.
   \begin{itemize}
-    \item Entonces un literal por lo menos en una cláusula debe tener valor de verdadero.
-    \item ...
+    \item Entonces un literal por lo menos en una cláusula debe tener valor de verdadero (ya que en cada cláusula hay solo disyunciones)
+    \item En cada cláusula representada en el grafo seleccionamos un solo vértice con valor de verdadero. Habremos seleccionado k vértices que estarán interconectados en CLIQUE.
   \end{itemize}
   \item $f(w)\in \textit{K-Clique} \rightarrow w \in \textit{3SAT}$
+  
+  Supongamos que el grafo tiene un k-clique
   \begin{itemize}
-    \item Se hace lo inverso, se construye un 3SAT a partir de un grafo.
-    \item No habrá vértices en el grafo que corresponda a la misma cláusula.
+    \item No habrá vértices en el grafo que correspondan a la misma cláusula de una forma normal conjuntiva de k cláusulas, ya que hemos seleccionado solo un vértice por cláusula: cada cláusula correspondiente contiene un vértice en el grafo.
+    \item Asignemos valores a los literales de para que cada uno de los que etiquetan un nodo en el CLIQUE sea verdadero.
   \end{itemize}
 \end{enumerate}
 
@@ -204,7 +214,10 @@ Los NP-Hard pueden reducir los NP sin ser NP, siendo NTD.
 
 Todos los NPC son NPH, $\textit{NPC}=\textit{NP} \cap \textit{NP-Hard}$, pero no todos los NPH son NPC porque no están en NP.
 
-Se puede saber que un NPH está en NP, si se puede reducir a un NPC.
+Es el conjunto de los problemas de decisión que contiene los problemas h tales que todo problema q en NP puede ser transformado polinómicamente en h ($q \leq_p h$).
+\begin{itemize}
+  \item Se puede saber que un NPH está en NP, si se puede reducir este a un NPC.
+\end{itemize}
 
 \tikzset{every picture/.style={line width=0.75pt}}       
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
@@ -259,7 +272,7 @@ $\forall f: N \rightarrow R^+$, donde $f(n)\geq n$. $\textit{NSPACE}(f(n)) \subs
 
 En otras palabras, cualquier problema decidible en una máquina de Turing no determinista en el espacio $f(n)$ también se puede decidir en una máquina de Turing determinista en el espacio $f^2(n)$.
 
-Corolario: $\textit{PSPACE}(n^4)=\textit{NPSPACE}(n^k)$. Como los PSPACE absorben los NPSPACE resultan ser lo mismo.
+Corolario: $\textit{PSPACE}(n^k)=\textit{NPSPACE}(n^k)$. Como los PSPACE absorben los NPSPACE resultan ser lo mismo.
 \begin{itemize}
   \item $P \subseteq NP$. P incluido en NPC
   \item $P \subseteq \textit{PSPACE}$
