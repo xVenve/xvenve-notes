@@ -27,6 +27,8 @@ Para cada pixel
     \item Lanza un rayo a la escena
     \item Encuentra el punto de intersección p más cercano que interseccione con el rayo.
     \item Calcula lighting/sombra para p, $[A+D+S]$, colp.
+        
+    $$I= R_a \cdot L_a + \Sigma_i s_i \left( \frac {R_d \cdot \max (n\cdot l,0) \cdot L_d}{a+bd+cd^2} + \frac {R_s \cdot \max (cos(r,v)^n,0) \cdot L_s}{a+bd+cd^2} \right)$$
     \item Si la superficie es un espejo, se lanza un rayo de reflexión, $(1-r)colp+ r\cdot refCol$, refCol.
     \item Si además la superficie es refractante, se lanza un rayo de refracción, $(1-(r_1-r_2))\cdot colp + r_1\cdot refCol +r_2\cdot refrCol$, refrCol.
 \end{enumerate}
@@ -48,9 +50,9 @@ Se definirá a un rayo como un punto del que parte un vector
     \item La forma paramétrica de un rayo lo expresa como una función escalar t. Para cada t se proporciona un punto por el que el rayo pasa: $P(t)=S+tV, 0 \leq t \leq \infty$
 \end{itemize}
 
-\textbf{Rayos primarios:} Aquellos que parten del observador.
+\textbf{Rayos primarios:} Aquellos que parten del observador (V).
 
-\textbf{Rayos secundarios:} Aquellos rayos generadores para simular sombra, reflexión y refracción en el punto de intersección del rayo con la superficie.
+\textbf{Rayos secundarios:} Aquellos rayos generadores para simular sombra, reflexión (E: espejos) y refracción (T: transmisión) en el punto de intersección del rayo con la superficie.
 
 \subsubsection{Fuentes de luz} 
 Cada tipo emite fotos de manera diferente.
@@ -95,7 +97,7 @@ Solo consideraremos un tipo de superficie, la esfera (hay otras: planos, conos, 
 \subsubsection{Intersección rayo-esfera} 
 Utilizando las ecuaciones de esfera ($r^2=x^2+y^2+z^2$) y rayo ($P(t)=S+tV$) tenemos $r^2=(S_x+tV_x)^2+(S_y+tV_y)^2+(S_z+tV_z)^2$, lo que queremos es encontrar el t que haga toda la expresión 0.
 \begin{itemize}
-    \item $0=t^2(V_x^2+V_y^2+V_z^2)+t(S_xV_x+S_yV_y+S_zV_z)+(S_x+S_y+S_z)$ y resolvemos con $t=\frac{-b \pm \sqrt{b^2-4ac}}{2a}$.
+    \item $0=t^2(V_x^2+V_y^2+V_z^2)+t(S_xV_x+S_yV_y+S_zV_z)+(S_x^2+S_y^2+S_z^2-r^2)$ y resolvemos con $t=\frac{-b \pm \sqrt{b^2-4ac}}{2a}$.
     \item Tres casos: Sin intersección ($b^2-4ac <0$), 1 intersección en t ($b^2-4ac =0$) o 2 intersecciones t más cercanas ($b^2-4ac >0$).
 \end{itemize}
 
@@ -127,7 +129,7 @@ Interacción luz-superficie.
 \end{itemize}
 
 \subsubsection{Modelo de reflexión de Phong} 
-$I=I_a(R_a,L_a)+I_d(n, l, R_d, L_d, a, b, c, d)+I_S(r,v, R_S, L_S, n, a, b, c, d)$
+$I=I_a(R_a,L_a)+I_d(n, l, R_d, L_d, a, b, c, d)+I_s(r,v, R_s, L_s, n, a, b, c, d)$
 
 $R_x=(R_R, R_G, R_B)$ es la reflectividad de la superficie y $L_x=(L_R, L_G, L_B)$ la intensidad de la luz.
 
@@ -147,21 +149,21 @@ Usa 4 vectores para computar el color de cada punto p
         
         La luz parece atenuarse con la distancia d entre la fuente de luz y la superficie. Se usan las constantes a, b y c, que son definidas por el usuario.
         
-        $I_d(n, l, R_d, L_d, a, b, c, d)= \frac {R_d \cdot \max (n\cdot l,0) \cdot L_d}{a+bd+cd^2}$, con $n \cdot l = |n|*|l|*\cos(n,l)$
+        $I_d(n, l, R_d, L_d, a, b, c, d)= \frac {R_d \cdot \max (n\cdot l,0) \cdot L_d}{a+bd+cd^2}$, con $n \cdot l = |n|*|l|*\cos(n,l)$, \textbf{producto escalar} en ambas reflexiones.
         \item \textbf{Reflexión especular:} Se usa r y v, porque la reflexiones más fuerte en la dirección del vector de reflexión. Es máximo cuando coinciden ambos vectores.
         
-        Se utiliza un factor n de intensidad de reflexión (hardness), cuanto mayor es menos intensidad de reflexión.
+        Se utiliza un factor $n$ de intensidad de reflexión (hardness), cuanto mayor es menos intensidad de reflexión, puesto que el coseno es un valor entre 0 y 1.
         
-        $I_S(r,v, R_S, L_S, n, a, b, c, d)= \frac {R_S \cdot \max (cos(r,v)^n,0) \cdot L_S}{a+bd+cd^2}$
+        $I_s(r,v, R_s, L_s, n, a, b, c, d)= \frac {R_s \cdot \max (cos(r,v)^n,0) \cdot L_s}{a+bd+cd^2}$
     \end{itemize}
 
-$L_d$ suele ver igual a $L_S$. Y la atenuación suele ser la misma (a, b, c)
+$L_d$ suele ver igual a $L_s$. Y la atenuación suele ser la misma (a, b, c)
 
 La suma de esos tres componentes define el color e intensidad en un punto de la superficie.
 
 Múltiples fuentes de luz: 
 
-$$I=I_a(R_a,L_a)+\Sigma_i I_d(n, l_i, R_d, L_{di}, a, b, c, d_i)+I_S(r_i,v, R_S, L_{Si}, n, a, b, c, d_i)$$
+$$I=I_a(R_a,L_a)+\Sigma_i (I_d(n, l_i, R_d, L_{di}, a, b, c, d_i)+I_s(r_i,v, R_s, L_{Si}, n, a, b, c, d_i))$$
 \pagebreak
 
 \subsubsection{Sombras} 
@@ -183,7 +185,7 @@ Podemos comprobarlo \textbf{emitiendo un rayo desde el punto hasta la fuente de 
 \end{itemize}
 
 \subsubsection{Modelo de Phong con sombra} 
-$I=I_a(R_a,L_a)+\Sigma_i s_i \cdot I_d(n, l_i, R_d, L_{di}, a, b, c, d_i)+I_S(r_i,v, R_S, L_{Si}, n, a, b, c, d_i)$
+$I=I_a(R_a,L_a)+\Sigma_i s_i \cdot (I_d(n, l_i, R_d, L_{di}, a, b, c, d_i)+I_s(r_i,v, R_s, L_{Si}, n, a, b, c, d_i))$
 \begin{itemize}
     \item $s_i$ es 0 si luz bloqueada en ese punto y 1 si luz no bloqueada en ese punto. Si el objeto interpuesto es semitransparente y deja pasar algo de luz $0 \leq s_i \leq 1$.
 \end{itemize}
@@ -246,3 +248,158 @@ Si el objeto es transparente, lanza un nuevo rayo usando la ley de Snell: $n_1 \
 \begin{itemize}
     \item Las n son los coeficientes del medio y $\alpha$ los ángulos de intersección con la normal.
 \end{itemize}
+
+\subsection{Trazado de rayos recursivo (Whitted)}
+Ventajas:
+\begin{itemize}
+    \item Gran realismo
+    \item Lighting por iluminación directa (iluminación local)
+    \item Cálculo de Sombras
+    \item Incluye cierta iluminación indirecta (espejos y refracción), no en objetos difusos (paredes, techas)
+    \item Incluso eliminación de superficies ocultas
+\end{itemize}
+
+Limitaciones:
+\begin{itemize}
+    \item Lento (1 rayo por pixel)
+    \item Es susceptibles a problemas de precisión numérica, provocando diferencia entre píxeles contiguos
+    \item Rayos de luz L no se refractan en su trayectoria hacia la luz (pasan a través de los objetos sin modificar el rayo, solo se modifica al volverse al lanzar desde la superficie)
+    \item No incluye iluminación indirecta (o iluminación global) aparte de espejos y refracción. No incluye la luz que rebota en objetos de reflexión difusa.
+\end{itemize}
+
+No tiene iluminación indirecta (luz reflejada por superficies), utiliza el componente de ambiente.
+
+\subsection{Modelos de rénder para iluminación global}
+\subsubsection{Path tracing}
+Similar a Ray Tracing, pero trazando todos los caminos, no solo los de espejos y refracción, sino también cuando la luz choca y rebota en superficies difusas o especulares.
+
+\subsubsection{Radiosidad (Radiosity)}
+\textbf{Radiosidad:} Tasa con la que la energía (emitida + reflejada) parte de una superficie. $\textit{tasa}= \frac{\textit{energía por unidad de tiempo}}{\textit{unidad de area}}$
+
+Discretiza la \textbf{escena en patches (trozos)} y supone que \textbf{cada patch puede ser fuente de luz y/o reflejar luz de cualquier otro patch} en la escena. \textbf{Calcula la contribución de cada porción} a la iluminación de las restantes.
+
+Tiene en cuenta \textbf{solo la reflexión difusa} (superficies mates). La cantidad de luz reflejada por un reflector difuso no depende de la dirección desde la que la observemos. Por tanto, el procesamiento que hace \textbf{radiosity es independiente del punto de vista} (a diferencia de Ray Tracing).
+
+Shading por \textbf{interpolación para que no haya cambios demasiado bruscos} en patches adyacentes
+
+Después habrá que generar la escena desde algún punto de vista y determinar cuáles son las superficies visibles
+
+\textbf{Ecuación de Radiosidad:} $B_i = E_i + \rho_i \Sigma_{i \leq j \leq n} F_{i-j} B_j $
+\begin{itemize}
+    \item $B_i$ radiosidad del path $B_i$
+    \item $E_i$ tasa con que $B_i$ emite luz (si $B_i$ es una fuente de luz directa)
+    \item $\rho_i$ reflectividad del path $B_i$
+    \item $F_{i-j} B_j$ radiosidad que alcanza $B_j$ desde $B_i$. Fracción de energía que parte de j y alcanza i por completo.
+    \item $F_{i-j}$ factor de forma que conecta los patches i y j. Se calcula para cada pareja de patches, que depende de la orientación relativa entre ellos. Será 0 si no llega la luz.
+\end{itemize}
+
+Equivalente: $B_i - \rho_i \Sigma_{i \leq j \leq n} F_{i-j} B_j=E_i$.
+
+Matricialmente: $(I - \rho F)B=E$, luego $B=(I-\rho F)^{-1} E$
+
+Habiendo computado los factores de forma, se puede resolver el sistema. Es \textbf{muy lento cuando hay muchos patches}.
+
+Para agilizar el proceso se puede usar otra estrategia, mediante soluciones parciales y aplicando un refinamiento progresivo. 
+\begin{enumerate}
+    \item Se colecta la energía del ambiente sobre el path i. 
+    
+    $B_i^{k+1} = E_i + \rho_i \Sigma_{i \leq j \leq n} F_{i-j} B_j^{k}$
+    \item Se irradia la energía del patch i a todo el ambiente. 
+    
+    $For (j= i:n)\;\; B_j^{k+1} = B_j^{k} + \rho_j F_{j-i} \Delta B_i$
+\end{enumerate}
+\pagebreak
+
+\section{Graphics pipeline}
+Se ejecuta en hardware GPU (Graphics Processing Unit), hace una ejecución paralela masiva de cada una de las etapas. Cada triángulo o vértices, se proyecta sobre los píxeles.
+
+Se llama tubería porque, por un lado, \textbf{entra el modelo} como geométrica, y por el otro, \textbf{salen los píxeles} de la imagen.
+
+El proceso que ocurre entre medias es:
+\begin{enumerate}
+    \item \textbf{Procesamiento de vértices (Vertex shader)}
+    \begin{itemize}
+        \item Transformaciones (translación, rotación, escalado, ...) de sus coordenadas originales a las que tenga que ocupar.
+        \item Lighting solo en vértices.
+        \item Cambio al sistema de coordenadas de la cámara (x, y), para que se pueda ver lo que queremos antes de proyectar.
+        \item Proyección a 2D (pantalla).
+    \end{itemize}
+
+    Es un programa escrito por el usuario que toma un vértice y devuelve un vértice transformado (proyectado sobre la pantalla). Se ejecuta en paralelo para cada vértice en la geometría.
+
+    \textbf{Vector normal en el vértice, la malla de polígonos} aproxima una superficie, se calcula el vector normal unitario promedio en cada vértice del polígono como el \textbf{promedio de las normales de polígonos con ese vértice}. $n= \frac{\Sigma_i n_i}{|\Sigma_i n_i|}$
+    \item \textbf{Rasterización}
+    
+    Convierte los vértices en la figura completa, en la pantalla, en forma de píxeles.
+
+    Hay que \textbf{calcular que píxeles cubre un polígono}. Aunque en lugar de llamarlos \textbf{píxeles, les llamamos fragmento}, porque un pixel es un fragmento que se puede ver y pueden estar ocultos los fragmentos.
+
+    Por fuerza bruta:
+    \begin{itemize}
+        \item Para cada pixel:
+        \begin{itemize}
+            \item Calcula las ecuaciones de la línea para el centro del pixel.
+            \item Si todas dan > 0, el pixel está dentro (en sentido de estar dentro).
+        \end{itemize}
+        \item Si el triángulo es pequeño, se pierde tiempo.
+        \item Mejora: 
+        \begin{itemize}
+            \item Hacer los cálculos solo para los puntos dentro de la caja que contiene el triángulo. Aunque todavía pierde tiempo en píxeles externos.
+            \item Rasterizar los lados y rellenar.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Procesado de fragmentos (Fragment shader)}
+    
+    Shading/Interpolado. Colorea/ilumina cada uno de los fragmentos de un polígono.
+
+    \textbf{Método de shading:} Constante (rápido), Gouraud (medio) y Phong (lento).
+    \begin{itemize}
+        \item \textbf{Constante (flat/facet shading):} Usa el lighting de un vértice (o centroide) para todos los fragmentos del triángulo. 
+        
+        Es muy rápido, pero para conseguir escenas realistas, las caras de los objetos deben estar formadas por polígonos muy pequeños.
+
+        Funciona razonablemente bien cuando: Fuente luminosa muy lejos, Observador muy lejos o Polígono representa la superficie real modelada (no aproximación a una superficie curva).
+        \item \textbf{Gouraud shading:} Interpolación de intensidades. El color de cada punto p se puede calcular como la interpolación de los colores de los vértices (I1, I2, I3). Cada vértice tiene una componente RGB.
+        \begin{itemize}
+            \item \textbf{Interpolar bi-linealmente} las intensidades de los vértices para hallar intensidades sobre cada pixel. Hace la media ponderada según la cercanía a los vértices.
+
+            $I_a = (1-\alpha) \cdot I_1 + \alpha \cdot I_2 = I_1 - (I_1 - I_2) \cdot \alpha$. $\alpha$ es la proporción de distancia entre nuestro punto a un vértice y la distancia entre los dos vértices sobre uno de los ejes.
+    
+            Si queremos un punto interior calculamos los $I$ de los extremos en un eje y los usamos para el otro eje. Línea horizontal con $I_a$ e $I_b$ hallados con la y, y mediante estos dos en la x calculamos el punto entre $I_a$ e $I_b$, $I_p$.
+            
+            $$I_a =  I_1 - (I_1 - I_2) \cdot \frac{y_1-y_s}{y_1 - y_2};
+            I_b =  I_1 - (I_1 - I_3) \cdot \frac{y_1-y_s}{y_1 - y_3};
+            I_p =  I_b - (I_b - I_a) \cdot \frac{x_b - x_p}{x_b-x_a}$$
+    
+            \item\textbf{Interpolación baricéntrica}, computa las coordenadas ($\alpha, \beta, \gamma$) del punto p, y las usa para interpolar $I_1$, $I_2$ y $I_3$. 
+            
+            Los valores indican la influencia de cada vértice para calcular nuestro punto. 
+            
+            $0\leq \alpha, \beta, \gamma \leq 1$
+    
+            $$I_p=\alpha I_1 + \beta I_2 + \gamma I_3$$
+        \end{itemize}
+        \item \textbf{Phong shading:} Para que los objetos con superficies curvas aproximadas por triángulos se visualicen bien, se pueden interpolar las normales de los vértices.
+        
+        De esta manera, las normales de las caras tienen influencia por su proximidad a los vértices, que son el resultado de interpolarse con las de las caras previamente.
+
+        Computacionalmente, más costoso, ya que tiene que recalcular las normales y posteriormente normalizarlas.
+
+        \textbf{Interpolar bi-linealmente las normales} de los vértices en la superficie del polígono (también \textbf{interpolación baricéntrica}).
+
+        $$n_a =  n_1 - (n_1 - n_2) \cdot \frac{y_1-y_s}{y_1 - y_2};
+        n_b =  n_1 - (n_1 - n_3) \cdot \frac{y_1-y_s}{y_1 - y_3};
+        n_p =  n_b - (n_b - n_a) \cdot \frac{x_b - x_p}{x_b-x_a}$$
+
+        $$n_p=\alpha n_1 + \beta n_2 + \gamma n_3$$
+    \end{itemize}
+
+
+    \item \textbf{Testing and blending}
+    
+    Eliminación de superficies ocultas.
+\end{enumerate}
+
+Los shaders son las partes programables, las escritas por el usuario en lenguajes como OpenGL y ejecutados en la GPU. Son el Procesamiento de vértices y de fragmentos.
+
+Las otras 2 partes, Rasterización y Test and blending, son fijas.
