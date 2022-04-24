@@ -1,6 +1,148 @@
 \chapter{Modelos de Computación}\label{ch:modelos-de-computación}
-Modelos que se utilizan para resolver problemas.
+Es un modelo que describe la estructura que hace posible computar una salida a partir de una entrada, conocido como modelo, se puede medir la complejidad de un algoritmo que resuelve un problema.
+
+Un modelo recibe como entrada una instancia, aplica un algoritmo y se obtiene una salida, analizando este proceso se determina la complejidad.
+
+Algunos modelos de computación:
+\begin{itemize}
+    \item Automatas Finitos (AFD)
+    \item Automatas de Pila (AP)
+    \item Máquinas de Turing (MT)
+    \item Random Access Machine (RAM)
+    \item Automatas Celulares (AC)
+\end{itemize}
+
+\textbf{Turing Completo:} Un modelo es Turing-completo si puede computar (resolver) las mismas funciones (problemas) que una Máquina de Turing.
+\begin{itemize}
+    \item AFD y AP NO son Turing Completos.
+    \item RAM, $\lambda$-calculus y Automatas Celulares son Turing Completos.
+\end{itemize}
+
+Un problema No-Turing-Decidible aunque se cambie el modelo de computación no lo va a dejar de ser.
+
+La MT es el modelo de modelos. La MT es muy potente en capacidad de resolver problemas, pero muy ineficiente en cómputo, por lo que utilizar otras puede resultar más eficiente, pero no son más capaces.
+
+\section{Automatas Finitos (AFD)}
+Se definen mediante: ($\Sigma$, Q, f, $q_0$, F)
+\begin{itemize}
+    \item $\Sigma$: alfabeto de entrada.
+    \item Q: conjunto de estados.
+    \item f: función de transición.
+    \item $q_0$: estado inicial, $q_0 \in Q$.
+    \item F: conjunto de estados finales, F $\subset$ Q.
+\end{itemize}
+
+Pueden ser Deterministas (AFD) y No Deterministas (AFN). Se puede pasar un AFN a un AFD.
+
+Es No Determinista si:
+\begin{itemize}
+    \item Para un mismo signo en un estado haya más de una transición.
+    \item Transitar con $\lambda$.
+    \item ?No hay estado final?
+\end{itemize}
+
+El problema de estas máquinas es que no tiene memoria, por lo que no pueden recordar.
+
+\section{Automata de Pila (AP)}
+Se definen mediante: ($\Sigma$, $\Gamma$, Q, $A_0$, $q_0$, f, F)
+\begin{itemize}
+    \item $\Sigma$: alfabeto de entrada.
+    \item $\Gamma$: alfabeto de pila (normalmente son mayúsculas).
+    \item Q: conjunto de estados.
+    \item $A_0$: conjunto de estados de la pila inicial, $A_0 \subset Q$.
+    \item $q_0$: estado inicial, $q_0 \in Q$.
+    \item f: función de transición.
+    \item F: conjunto de estados finales, F $\subset$ Q.
+\end{itemize}
+
+Un APN NO se puede pasar a APD.
+
+\section{Generalizaciones de las Máquinas de Turing}
+Toda posible generalización de la Máquina de Turing se puede simular con una máquina de Turing: 
+\begin{itemize}
+    \item Determinista, 
+    \item con cinta infinita en ambos sentidos, y \item donde el alfabeto de la cinta es {1,0, b} (b es celda vacía, en blanco)
+\end{itemize}
+
+\section{Random Access Machine Model (RAM)}
+También conocido como Máquina de Registros.
+
+Modelo abstracto de los computadores digitales. Reflejan más los aspectos de la computación real que las MT.
+
+MT debe recorrer las celdas anteriores a una concreta para leerla, esta, sin embargo, puede acceder directamente a los registros al estar numerados.
+
+Estructura:
+\begin{itemize}
+    \item $R_0$, $R_1$, ...; Un número ilimitado de registros (celdas). Capaz de almacenar un entero cualquiera.
+    \item $I_0$, $I_1$, ...; La entrada es un conjunto finito de datos, no almacenados en los registros.
+    \item \textbf{Programa:} Es un conjunto finito de instrucciones, que no están almacenados en los registros. Almacenado en un número finito de registros, y uno adicional, denominado Program Counter (PC).
+\end{itemize}
+
+Conjunto de posibles instrucciones (cada operación aumenta el PC, excepto el salto condicional que llega a un determinado valor):
+\begin{itemize}
+    \item $R_i \leftarrow R_j$ Asignación
+    \item $<R_i> \leftarrow R_j$ y $R_i \leftarrow <R_j>$ Direccionamiento indirecto ($<R_i>$ valor almacenado en la celda con dirección almacenada en $R_i$)
+    \item $R_i \leftarrow R_j + R_k$ Suma
+    \item $R_i \leftarrow R_j - R_k$ Resta
+    \item $R_i \leftarrow R_j \textit{ bool } R_k$ Operación booleana
+    \item If $R_i$ comp $R_j$ label 1 else label 2 Salto condicional, para comp=comparación
+\end{itemize}
+
+Hay diferentes tipos de arquitecturas (como pasa con los tipos de MT) con las que se puede implementar: Counter Machine, Pointer Machine, Random Access Machine, Random Access Stored Program Machine.
+
+\subsection{Random Access Stored Program (RASP)}
+Es una máquina abstracta empleada para implementar algoritmos.
+
+Se diferencia de la RAM, en que el programa está almacenado en los propios registros de la máquina. Los datos y las instrucciones están en la misma memoria (memoria de acceso aleatorio)
+\begin{itemize}
+    \item RAM $\rightarrow$ Arquitectura Von Harvard $\rightarrow$ Máquina de Turing.
+    \item RASP $\rightarrow$ Arquitectura Von Neumann $\rightarrow$ Máquina de Turing Universal.
+\end{itemize}
+
+\section{Automatas Celulares}
+Sucesión de sitios que contienen un valor numérico, que está determinado a seguir unas reglas que hacen evolucionar estos valores a lo largo del tiempo.
+
+Es un modelo de un ''mundo'' con una física muy sencilla. El mundo está dividió en celdas (entramado de celdas).
+
+El Automata Celular está gobernado por reglas que rigen la evolución del sistema en el tiempo.
+\begin{itemize}
+    \item El tiempo se considera Discreto (steps).
+    \item Las reglas para el siguiente paso en el tiempo (t+1) se basan en el estado del autómata en el instante actual (t).
+    \item El comportamiento de una celda se puede representar (computar) mediante un Automata Finito.
+\end{itemize}
+
+\textbf{AC Deterministas:} Las reglas no tienen componentes de aleatoriedad, dado el mismo estado inicial, siempre se obtendrán el mismo estado final.
+
+\textbf{AC No Deterministas:} Sigue una aleatoriedad controlada, pero aleatoria.
+
+Aplicaciones: Generadores de contenido multimedia, Generadores de números aleatorios, Desarrollo de Computadores paralelos y Supercomputación.
+
+\subsection{AC Unidimensional}
+Dimensión del AC: Dimensiones del entramado que forman el conjunto de celdas.
+
+En una dimensión, hay 3 configuraciones:
+\begin{itemize}
+    \item Secuencia finita: Hay posibles estados finitos.
+    \item Anillo: Siempre vuelve al mismo estado.
+    \item Secuencia infinita: El cambio siempre es diferente.
+\end{itemize}
+
+Las Reglas dependen del estado que tenga la celda $x_i$ en el instante anterior y del estado del vecindario (izq. y dch.) en el instante anterior.
+
+Rule 50 y 30, ejemplo de reglas que con vecindario de las celdas adyacentes (3 valores) define que valor tomara la siguiente, la distribución será el valor en binario 50 o 30 escritos de menos a más significativo de arriba a abajo.
+
 \section{Máquinas de Turing}
+Se definen mediante: (Q, $\Gamma$, b, $\Sigma$, $\delta$, $q_0$, F)
+\begin{itemize}
+    \item Q: conjunto de estados.
+    \item $\Gamma$: alfabeto de cinta.
+    \item b: símbolo en blanco, b $\in$ $\Gamma$.
+    \item $\Sigma$: alfabeto de entrada.
+    \item $\delta$: función de transición.
+    \item $q_0$: estado inicial, $q_0 \in Q$.
+    \item F: conjunto de estados finales, F $\subset$ Q.
+\end{itemize}
+
 \subsection{Origen}
 Formulada por Turing como un medio para formalizar el proceso sistemático de resolver problemas de un matemático.
 
@@ -18,6 +160,7 @@ Turing se sirvió de ella para desarrollar diversas cuestiones:
 
 \subsection{Modelo de Computación Universal}
 Las Máquinas de Turing definen un Modelo de Computación que es la base de los Lenguajes Imperativos y Procedimentales.
+\pagebreak
 
 Suposiciones previas:
 \begin{itemize}
@@ -55,6 +198,7 @@ No, no busca la eficiencia.
 La MT es un modelo de computación abstracta.
 
 Igual sabe hacer cosas que podríamos calcular de otra manera. No obstante, vamos a estudiar la eficiencia $\Rightarrow$ Coste Computacional.
+\pagebreak
 
 \subsection{Coste Computacional con MT}
 Uso para el Análisis del Coste Computacional de Algoritmos.
