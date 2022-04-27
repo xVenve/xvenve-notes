@@ -117,19 +117,90 @@ El Automata Celular está gobernado por reglas que rigen la evolución del siste
 
 Aplicaciones: Generadores de contenido multimedia, Generadores de números aleatorios, Desarrollo de Computadores paralelos y Supercomputación.
 
+\subsection{Variedades}
+Pueden diferir en:
+\begin{itemize}
+    \item Dimensión del entorno d=1,2,3...
+    \item Formación de celdas: triangular, cuadrado, rectangular, pentagonal, hexagonal, etc.
+    \item Forma y tamaño del entorno: triangular, cuadrado, rectangular; finita, infinita.
+    \item Tipo se automata finito asociado a cada celda: determinista, probabilístico.
+    \item Definición de los vecinos de cada automata
+    \begin{itemize}
+        \item Puede indicarse con un número r (distancia), en función del cual obtenemos el número de vecinos que rodean a una celda concreta.
+        \item En AC bidimensionales podemos considerar: 
+        \begin{itemize}
+            \item Vecindad de Von Neumann (arriba, abajo, izquierda y derecha)
+            \item Vecindad de Moore (todas las direcciones, incluyendo las diagonales).
+        \end{itemize} 
+        \item Número de celdas que rodean a una celda concreta central: $(2r+1)^2-1$
+    \end{itemize}
+\end{itemize}
+
+\subsection{Clasificación}
+\begin{itemize}
+    \item Clase I: Desde casi cualquier estado inicial convergen siempre a una misma configuración final.
+    \item Clase II: Genera un patrón simple, donde hay una estructura que se repite.
+    \item Clase III: Generan patrones aleatorios.
+    \item Clase IV: Generan estructuras locales que son capaces de sobrevivir durante mucho tiempo (mantenerse iguales).
+\end{itemize}
+
+Un ejemplo de este tipo de autómata, es el Juego de la Vida de John H. Conway, en el que la configuración va evolucionando de manera que parece una población.
+\begin{itemize}
+    \item Cada célula está vida o está muerta (estados binarios).
+    \item Tiene una vecindad de r=1, de tipo Moore (todas las adyacentes).
+    \item Se van formando diferentes patrones.
+    \item Regla: 
+    \begin{itemize}
+        \item Muere si hay menos de 2 o más de 3 células vivas alrededor.
+        \item Vivos si hay exactamente 2 o 3 células vivas alrededor.
+        \item Nace si es un 0 y hay exactamente 3 células vivas alrededor.
+    \end{itemize}   
+\end{itemize}
+
 \subsection{AC Unidimensional}
 Dimensión del AC: Dimensiones del entramado que forman el conjunto de celdas.
 
 En una dimensión, hay 3 configuraciones:
 \begin{itemize}
-    \item Secuencia finita: Hay posibles estados finitos.
-    \item Anillo: Siempre vuelve al mismo estado.
-    \item Secuencia infinita: El cambio siempre es diferente.
+    \item \textbf{Secuencia finita:} Hay posibles estados finitos.
+    \item \textbf{Anillo:} Siempre vuelve al mismo estado.
+    \item \textbf{Secuencia infinita:} El cambio siempre es diferente.
 \end{itemize}
 
 Las Reglas dependen del estado que tenga la celda $x_i$ en el instante anterior y del estado del vecindario (izq. y dch.) en el instante anterior.
 
 Rule 50 y 30, ejemplo de reglas que con vecindario de las celdas adyacentes (3 valores) define que valor tomara la siguiente, la distribución será el valor en binario 50 o 30 escritos de menos a más significativo de arriba a abajo.
+
+\section{L-Systems}
+Propuesto por Aristid Lindemayer en 1968.
+
+Es un tipo de lenguaje formal generado por una gramática. Es Turing-Completo.
+
+Aplicación: Simulación de procesos biológicos (plantas, hojas, etc.), Turtle interpretation, Patrones bidimensionales, Formalización de curvas fractales.
+
+\textbf{Definición formal:} ($\Sigma$, w, P)
+\begin{itemize}
+    \item $\Sigma$: Alfabeto de símbolos.
+    \item w: Axioma, $w \in \Sigma^*$.
+    \item P: Conjunto finito de reglas del tipo u::=v donde $u \in \Sigma^*$ y $v \in \Sigma^*$.
+\end{itemize}
+
+\textbf{Lenguaje generado por un L-system:} $\{x | u \in \Sigma^+, w \rightarrow^* x\}$. Las reglas se aplican en Paralelo.
+
+\textbf{Tipos de Gramáticas:}
+\begin{itemize}
+    \item \textbf{Sensibles al contexto (1L):} La parte derecha de la producción sea igual o más larga que la izquierda, y esta puede tener más de un símbolo. $xay::=xvy$
+    \item \textbf{Independientes del contexto (0L):} $V \rightarrow w$. Donde V es un símbolo no terminal y w es una cadena de terminales y/o no terminales
+    \item \textbf{Deterministas (DL):} solo existe una regla posible que ser posible que ser aplicada.
+    \item \textbf{Propagativos (PL):} la parte derecha no puede ser más corta que la izquierda.
+    \item \textbf{Con Tablas (TL):} en cada paso de la derivación se aplican distintos conjuntos de reglas.
+    \item \textbf{Con Extensiones (EL):} solo pertenecen al lenguaje las palabras formadas por un subconjunto del alfabeto.
+\end{itemize}
+
+\subsection{L-Systems vs. Gramáticas de Chomsky}
+\textbf{Gramáticas de Chomsky:} Las reglas se aplican de una en una, Derivación Secuencial.
+
+\textbf{L-Systems:} Todas las derivaciones se realizan Simultáneamente, Derivación en paralelo. Se aplican las reglas para todos los símbolos (distintos o no) de la palabra.
 
 \section{Máquinas de Turing}
 Se definen mediante: (Q, $\Gamma$, b, $\Sigma$, $\delta$, $q_0$, F)
@@ -160,7 +231,6 @@ Turing se sirvió de ella para desarrollar diversas cuestiones:
 
 \subsection{Modelo de Computación Universal}
 Las Máquinas de Turing definen un Modelo de Computación que es la base de los Lenguajes Imperativos y Procedimentales.
-\pagebreak
 
 Suposiciones previas:
 \begin{itemize}
