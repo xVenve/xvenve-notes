@@ -30,7 +30,7 @@ Para cada pixel
         
     $$I= R_a \cdot L_a + \Sigma_i s_i \left( \frac {R_d \cdot \max (n\cdot l,0) \cdot L_d}{a+bd+cd^2} + \frac {R_s \cdot \max (cos(r,v)^n,0) \cdot L_s}{a+bd+cd^2} \right)$$
     \item Si la superficie es un espejo, se lanza un rayo de reflexión, $(1-r)colp+ r\cdot refCol$, refCol.
-    \item Si además la superficie es refractante, se lanza un rayo de refracción, $(1-(r_1-r_2))\cdot colp + r_1\cdot refCol +r_2\cdot refrCol$, refrCol.
+    \item Si además la superficie es refractante, se lanza un rayo de refracción, $(1-(r_1+r_2))\cdot colp + r_1\cdot refCol +r_2\cdot refrCol$, refrCol.
 \end{enumerate}
 \subsection{Ray-casting (primera iteración)}
 En el mundo real:
@@ -55,7 +55,7 @@ Se definirá a un rayo como un punto del que parte un vector
 \textbf{Rayos secundarios:} Aquellos rayos generadores para simular sombra, reflexión (E: espejos) y refracción (T: transmisión) en el punto de intersección del rayo con la superficie.
 
 \subsubsection{Fuentes de luz} 
-Cada tipo emite fotos de manera diferente.
+Cada tipo emite fotones de manera diferente.
 \begin{itemize}
     \item \textbf{Fuentes de punto (Bombillas):} Emiten luz en todas las direcciones.
     \item \textbf{Fuentes direccionales (el Sol):} Están muy lejos y se puede suponer que los rayos llegan en paralelo.
@@ -97,7 +97,7 @@ Solo consideraremos un tipo de superficie, la esfera (hay otras: planos, conos, 
 \subsubsection{Intersección rayo-esfera} 
 Utilizando las ecuaciones de esfera ($r^2=x^2+y^2+z^2$) y rayo ($P(t)=S+tV$) tenemos $r^2=(S_x+tV_x)^2+(S_y+tV_y)^2+(S_z+tV_z)^2$, lo que queremos es encontrar el t que haga toda la expresión 0.
 \begin{itemize}
-    \item $0=t^2(V_x^2+V_y^2+V_z^2)+t(S_xV_x+S_yV_y+S_zV_z)+(S_x^2+S_y^2+S_z^2-r^2)$ y resolvemos con $t=\frac{-b \pm \sqrt{b^2-4ac}}{2a}$.
+    \item $0=t^2(V_x^2+V_y^2+V_z^2)+t(2S_xV_x+2S_yV_y+2S_zV_z)+(S_x^2+S_y^2+S_z^2-r^2)$ y resolvemos con $t=\frac{-b \pm \sqrt{b^2-4ac}}{2a}$.
     \item Tres casos: Sin intersección ($b^2-4ac <0$), 1 intersección en t ($b^2-4ac =0$) o 2 intersecciones t más cercanas ($b^2-4ac >0$).
 \end{itemize}
 
