@@ -37,6 +37,7 @@ Un problema SAT 2 puede describirse usando una expresión booleana con una forma
 if x then y else z
 
 $(x \wedge y) \vee (\overline{x} \wedge z)$
+\pagebreak
 
 \subsection{Algoritmo sencillo}
 Generar un conjunto de posibles asignaciones (permutaciones) para todas las entradas.
@@ -148,6 +149,7 @@ $A$ es una máquina o algoritmo que resuelve el problema.
     \item Formulación como lenguaje: $\Sigma = \{1,2,3,...,8,9\}$ y $L=\{1234,1245,...\}$
     \item $3145 \in L$? No
 \end{itemize}
+\pagebreak
 
 \subsection{Función recursiva}
 No confundir con la recursividad de programación.
@@ -390,7 +392,7 @@ Si A se reduce a B (A es reducible a B), resolver A no será más difícil que r
 
 $A \leq_m B$ mapping; $A \leq_p B$ polinomial time.
 \begin{itemize}
-    \item Que se a polinomial implica que la reducción se lleva a cabo una función cuyo $T(n)= O(n^k)$
+    \item Que sea polinomial implica que la reducción se lleva a cabo una función cuyo $T(n)= O(n^k)$
 \end{itemize}
 
 Dados dos lenguajes A y B, y una función $f:\Sigma^* \rightarrow \Sigma^*$, f es una transformación del lenguaje universal del problema A al lenguaje universal del problema B.
