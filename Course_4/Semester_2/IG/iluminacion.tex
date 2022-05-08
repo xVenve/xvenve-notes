@@ -398,8 +398,110 @@ El proceso que ocurre entre medias es:
     \item \textbf{Testing and blending}
     
     Eliminación de superficies ocultas.
+
+    \textbf{Blending:} Combinar los diferentes fragmentos que hay para cada pixel. En principio, solo el fragmento más cercano (a la cámara) se va a ver en el pixel, pero se pueden tener en cuenta otros efectos como transparencia.
+    
+    \textbf{Z-buffering:} Se guarda el z para todos los fragmentos. s y t son los x e y proyectados. Además del buffer de color, se guarda un buffer de profundidad depth (del mismo tamaño y resolución)
+
+    Si $fragment.z < depth[s,t]$, el fragmento está delante que el previo. Entonces se actualiza $depth[s,t] = frament.z$ y se pone el color $color[s,t] = fragment.color$.
 \end{enumerate}
 
 Los shaders son las partes programables, las escritas por el usuario en lenguajes como OpenGL y ejecutados en la GPU. Son el Procesamiento de vértices y de fragmentos.
 
 Las otras 2 partes, Rasterización y Test and blending, son fijas.
+
+\section{Aumentar el nivel de detalle de un objeto}
+Solución cara, dar más detalle al modelo.
+
+\textbf{Ventajas:} Se incorpora como una parte de objeto.
+
+\textbf{Desventajas:}
+\begin{itemize}
+    \item Las herramientas de diseño no incorporan facilidades para añadir detalle.
+    \item Los objetos tardan más en generarse en la escena.
+    \item Los objetos ocupan más espacio en memoria.
+    \item Los detalles muy complejos no pueden reusarse en otros objetos.
+\end{itemize}
+
+\section{Texturas}
+
+Mapear una textura en el modelo, pegar una imagen ''bitmap''sobre una superficie para dotarla de detalle. Una imagen no aumenta el número de polígonos.
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Pueden reusarse en otros objetos.
+    \item Ocupan memoria, pero pueden compartirse y comprimirse.
+    \item Los algoritmos de mapeo son rápidos.
+    \item Las texturas no afectan a la geometría de los objetos.
+\end{itemize}
+
+\textbf{Tipos de texturas:}
+\begin{itemize}
+    \item Unidimensionales
+    \item Bidimensionales, las más comunes, suelen ir en formato BMP, GIF o JPG. Llevan información RGB y transparencia opcional.
+    \item Matemáticas, creadas mediante algoritmos.
+\end{itemize}
+
+\textbf{Tenemos 3 espacios:}
+\begin{itemize}
+    \item Espacio de texturas, 2 dimensiones, la imagen.
+    \item Espacio de objetos, 3 dimensiones, los polígonos sobre los que se pone.
+    \item Espacio de imagen, 2 dimensiones, la proyección en pantalla.
+\end{itemize}
+
+Los \textbf{texels} son los píxeles de la textura.
+
+Se definen mapeos que cubren el objeto en 3D con la textura, el cual, después, es proyectado al 2D de la imagen en la pantalla.
+
+\textbf{Mapeo:} Normalmente, se va en sentido contrario, para cada fragmento, determinar que texels le corresponden.
+
+\subsection{Cálculo de texel (texture filtering)}
+Incluso aunque el pixel (fragmento) y el texel tengan tamaño parecido, no tienen por qué estar alineados.
+
+Hay que elegir como calcular el pixel en función de los texels: Vecinos más cercanos o Interpolación (promediado, se pondera) de los texels vecinos. Funciona mejor la interpolación.
+
+Para el cálculo se supone que píxeles y texels están en el centro  del pixel y texel.
+
+\textbf{Magnification}, un texel para varios píxeles, y \textbf{Minification}, un varios píxeles para un texel.
+
+\subsubsection{Mip-mapping} 
+Guardar las texturas en diferentes resoluciones/tamaño. Usar la de tamaño más apropiado, o incluso interpolar entre los dos tamaños más cercanos. 
+\begin{itemize}
+    \item 512x512, 256x256, 128x128, 64x64, 32x32, 16x16, 8x8, 4x4, 2x2, 1x1
+\end{itemize}
+
+\subsubsection{Tipos de mapeos}
+\begin{itemize}
+    \item \textbf{Mapeado plano:} Limitadas aplicaciones. Se ignora z. 
+    
+    $(u, v)=(x, y)$
+    \item \textbf{Mapeado cúbico:} Variación del anterior, pero con 6 texturas, 1 por cara. Mapea cada textura a un lado del objeto como si fueran planos.
+    \item \textbf{Mapeado esférico:} Usado para mapeos de entorno. Se pone la textura como una esfera y en función del ángulo con cada eje tiene unas coordenadas. 
+    
+    $(u,v)=(\phi / 2 \pi, (\pi - \theta)/\pi)$
+    \item \textbf{Mapeado cilíndrico:} Se envuelve la textura alrededor del objeto. El mismo color para todos los puntos en el mismo ángulo. 
+    
+    $(u,v)=(\phi / 2 \pi, y)$
+    \item \textbf{Mapeado U, V:} Más realista. u, v determinan un punto en el espacio, se coloca ahí el centro de la textura y se estira o encoge para adecuarse al polígono
+    
+    Simplifiquemos para un triángulo en 3D. 
+    
+    Cada vértice tiene una coordenada (x, y, z) y cada vértice se asocia unas coordenadas de la imagen/ textura (u, v).
+
+    En los puntos interiores se rellena interpolando, por ejemplo con la baricéntrica. Aunque está la cuestión de asignar vértices  a puntos en textura (unwrapping).
+\end{itemize}
+
+\subsubsection{Texturas de Normales (Bump Mapping)} 
+La textura contiene vectores normales en lugar de colores. Al mapear esta textura, sobre una superficie, el vector normal de esta se modifica según el valor encontrado en la textura. 
+
+Efecto de relieve detallado (aunque el objeto original sea plano), debido a los efectos de iluminación generados por la variación del vector normal. 
+
+A veces se define como textura 3D virtual, pues aporta información en el eje Z.
+
+En cada punto de la superficie: Mira el punto correspondiente en la textura y perturba la normal usando el color del punto de la textura.
+
+\textbf{Desventajas}
+\begin{itemize}
+    \item Muy lento (sin aceleración hardware).
+    \item Permite crear un efecto de iluminación, pero no hace variar la forma real de la superfie. Aunque parece deformarse, la superficie y sus polígonos no cambian, solo es visual.
+\end{itemize}
