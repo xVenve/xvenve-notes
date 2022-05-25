@@ -169,7 +169,7 @@ Un punto $( x , y )$ en el sistema cartesiano se representa por $( xW , yW , W )
 
 Cuando $W\neq 1$, para simplificar cálculos, dividimos todas las coordenadas por W, obteniendo $( x , y , 1 )$ (W suele utilizarse en el eje z profundidad).
 
-Cuando $W = 0$, estamos realizando transformaciones del punto $( x , y )$ sobre el plano $z = 1$.
+Cuando $W = 1$, estamos realizando transformaciones del punto $( x , y )$ sobre el plano $z = 1$.
 
 Las matrices que representan puntos en 2D serán de 3x3.
 
@@ -392,4 +392,4 @@ $$R_{final}=R_x^{-1}R_y^{-1}R_zR_yR_x$$
 $$R_{final}=T_{xyz}^{-1}R_x^{-1}R_y^{-1}R_zR_yR_xT_{xyz}$$
 
 \section{Matrices en PovRay}
-Las matrices se definen con matrix <v00, v01, v02, v10, ...>, en el que la última columna se asume que es 0, 0, 0, 1. De manera que la matriz está traspuesta, siendo la última fila la de traslación 0, 0, dy, dx (está rotada).
+Las matrices se definen con matrix <v00, v01, v02, v10, ...>, en el que la última columna se asume que es 0, 0, 0, 1. De manera que la matriz está traspuesta, siendo la última fila la de traslación dx, dy, 0, 0 (está rotada).
