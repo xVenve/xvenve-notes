@@ -8,10 +8,10 @@ Consideremos 2 tipos de recursos:
 \section{La Máquina de Turing y medida de la Complejidad}
 El tiempo de ejecución de Máquina de Turing es la función $T(n): N \rightarrow N$, donde T(n) es el número máximo de pasos que una MT utiliza para realizar el cómputo para entrada de tamaño n.
 
-Complejidad Computacional: se refiere a la complejidad de los problemas
+Complejidad Computacional: se refiere a la complejidad de los problemas.
 \begin{itemize}
   \item Se toma la peor instancia
-  \item Se utiliza la cota Superior  Asintótica: O(g)
+  \item Se utiliza la Cota Superior  Asintótica: O(g)
 \end{itemize}
 
 La principal herramienta para comparar problemas y clasificarlos:
@@ -162,13 +162,13 @@ Todos los problemas de NP se pueden reducir en tiempo polinómico en NP-Completo
 
 Formas de resolver problemas en tiempo razonable:
 \begin{itemize}
-  \item Aproximaciones: Un algoritmo que rápidamente encuentra una solución no necesariamente óptima, pero dentro de un cierto rango de error.
+  \item \textbf{Aproximaciones:} Un algoritmo que rápidamente encuentra una solución no necesariamente óptima, pero dentro de un cierto rango de error.
   
   En algunos casos, encontrar una buena aproximación es suficiente para resolver el problema, pero no todos los problemas NP-completos tienen buenos algoritmos de aproximación.
-  \item Probabilístico: Un algoritmo probabilístico obtiene en promedio una buena solución al problema planteado, para una distribución de los datos de entrada dada.
-  \item Casos particulares: Cuando se reconocen casos particulares del problema para los cuales existen soluciones rápidas.
-  \item Heurísticas: Un algoritmo que trabaja razonablemente bien en muchos casos. En general son rápidos, pero no existe medida de la calidad de la respuesta.
-  \item Meta heurística (Computación evolutiva, Algoritmo Genético): Algoritmos que mejoran las posibles soluciones hasta encontrar una que posiblemente esté cerca del óptimo. Tampoco existe forma de garantizar la calidad de la respuesta.
+  \item \textbf{Probabilístico:} Un algoritmo probabilístico obtiene en promedio una buena solución al problema planteado, para una distribución de los datos de entrada dada.
+  \item \textbf{Casos particulares:} Cuando se reconocen casos particulares del problema para los cuales existen soluciones rápidas.
+  \item \textbf{Heurísticas:} Un algoritmo que trabaja razonablemente bien en muchos casos. En general son rápidos, pero no existe medida de la calidad de la respuesta.
+  \item \textbf{Meta heurística (Computación evolutiva, Algoritmo Genético):} Algoritmos que mejoran las posibles soluciones hasta encontrar una que posiblemente esté cerca del óptimo. Tampoco existe forma de garantizar la calidad de la respuesta.
 \end{itemize}
 
 3SAT es NP-Completo, pero 2SAT no.
@@ -182,7 +182,7 @@ Cada literal es un vértice del clique. Con 3 cláusulas tenemos 9 literales, po
 Entonces se hacen todas las conexiones posibles siguiendo:
 \begin{itemize}
   \item No se conectan literales en la misma cláusula.
-  \item Un literal no se conecta con su opuesto. $y e \overline{y}$
+  \item Un literal no se conecta con su opuesto. $y \; e\; \overline{y}$
 \end{itemize}
 
 La solución será aquella que haga True todas las cláusulas, que coincide con un clique en el grafo que hemos generado.
@@ -192,7 +192,7 @@ La solución será aquella que haga True todas las cláusulas, que coincide con 
   
   Supongamos que $\phi$ tiene una asignación satisfacible de literales.
   \begin{itemize}
-    \item Entonces un literal por lo menos en una cláusula debe tener valor de verdadero (ya que en cada cláusula hay solo disyunciones)
+    \item Entonces un literal por lo menos en cada cláusula debe tener valor de verdadero (ya que en cada cláusula hay solo disyunciones)
     \item En cada cláusula representada en el grafo seleccionamos un solo vértice con valor de verdadero. Habremos seleccionado k vértices que estarán interconectados en CLIQUE.
   \end{itemize}
   \item $f(w)\in \textit{K-Clique} \rightarrow w \in \textit{3SAT}$
@@ -200,7 +200,7 @@ La solución será aquella que haga True todas las cláusulas, que coincide con 
   Supongamos que el grafo tiene un k-clique
   \begin{itemize}
     \item No habrá vértices en el grafo que correspondan a la misma cláusula de una forma normal conjuntiva de k cláusulas, ya que hemos seleccionado solo un vértice por cláusula: cada cláusula correspondiente contiene un vértice en el grafo.
-    \item Asignemos valores a los literales de para que cada uno de los que etiquetan un nodo en el CLIQUE sea verdadero.
+    \item Asignemos valores a los literales para que cada uno de los que etiquetan un nodo en el CLIQUE sea verdadero.
   \end{itemize}
 \end{enumerate}
 \pagebreak
@@ -264,7 +264,7 @@ Se dice que M se ejecutara en un espacio $f(n)$:
 
 \textbf{SPACE(f(n)):} Problemas (Lenguajes) decidibles por una MT Determinista (de una sola cinta) en ESPACIO POLINÓMICO. $PSPACE=\bigcup_k SPACE(n^k)$
 
-\textbf{NSPACE(f(n)):}Problemas (Lenguajes) decidibles por una MT NO Determinista (de una sola cinta) en ESPACIO POLINÓMICO. $NPSPACE=\bigcup_k NSPACE(n^k)$
+\textbf{NSPACE(f(n)):} Problemas (Lenguajes) decidibles por una MT NO Determinista (de una sola cinta) en ESPACIO POLINÓMICO. $NPSPACE=\bigcup_k NSPACE(n^k)$
 
 SAT por ejemplo es $O(n)$ en cuanto a espacio y en tiempo es exponencial.
 

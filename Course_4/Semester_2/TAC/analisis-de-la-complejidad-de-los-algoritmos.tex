@@ -4,7 +4,7 @@
                                       &                                                             & \text{Complejidad Computacional} \arrow[d] &                                       \\
                                       &                                                             & \text{tipos} \arrow[rd] \arrow[ld]         &                                       \\
                                       & \text{Complejidad temporal} \arrow[d]                       &                                            & \text{Complejidad espacial} \arrow[d] \\
-                                      & S(n) \arrow[d]                                              &                                            & T(n)                                  \\
+                                      & T(n) \arrow[d]                                              &                                            & S(n)                                  \\
                                       & \text{Número de pasos base} \arrow[ld] \arrow[d] \arrow[rd] &                                            &                                       \\
     \text{Máquina de Turing} \arrow[d] & \text{Ensamblador} \arrow[d]                                & \text{Lenguaje alto nivel*} \arrow[d]      &                                       \\
     \text{transición}                  & \text{instrucción}                                          & \text{operación elemental} \arrow[d]       &                                       \\
@@ -17,17 +17,17 @@
 \section{Introducción}\label{sec:introduccion}
 \textbf{Complejidad Computacional:} Recursos requeridos durante la ejecución de un algoritmo que da respuesta a un problema. Hay 2 tipos:
 \begin{itemize}
-  \item Tiempo: Número de pasos base de ejecución de un algoritmo para resolver un problema.
-  \item Espacio: Memoria utilizada para resolver un problema. Registros, Memoria caché y Memoria RAM, etc.
+  \item Temporal: Número de pasos base de ejecución de un algoritmo para resolver un problema.
+  \item Espacial: Memoria utilizada para resolver un problema. Registros, Memoria caché y Memoria RAM, etc.
 \end{itemize}
-Espacial y Temporal.
 
-\textbf{Problema:} Una función entre el espacio de instancias y el espacio de respuestas, $X \rightarrow P(X)$.
+\textbf{Problema:} Una función entre el espacio de instancias y el espacio de respuestas.
 \begin{itemize}
   \item Ejem. La ecuación de grado 2 tiene raíces cuadradas? $P(x^2+1=0)=\text{No}$
 \end{itemize}
+$$I \rightarrow P(I)$$
 
-\textbf{Problema de decisión:} Tiene 2 respuestas: Si o No.
+\textbf{Problema de decisión:} Tiene 2 respuestas, si o no. $$I \rightarrow \{Si,\; No\}$$
 \pagebreak
 
 \textbf{Instancia de un problema:} Es la especificación exacta de los datos de un problema para un caso particular.
@@ -48,7 +48,7 @@ La complejidad puede hacer referencia a un algoritmo o un problema.
 Se pueden modelar los algoritmos mediante:
 \begin{enumerate}
     \item Construcción matemática denominada Máquina de Turing $\rightarrow$ Transición / Tabla de transiciones.
-  \item Código Ensamblador $\rightarrow$ Instrucción \ Conjunto estructurado de instrucciones.
+  \item Código Ensamblador $\rightarrow$ Instrucción / Conjunto estructurado de instrucciones.
   \item Lenguaje de alto nivel $\rightarrow$ Operación Elemental / Conjunto estructurado de instrucciones.
     \begin{itemize}
       \item Suma, Restar División, Multiplicación, etc.
@@ -193,25 +193,25 @@ Pasos:
 
 No debe aplicarse este método si aparecen varios términos recurrentes, como es el caso de la serie de Fibonacci.
 
-Se parte de un caso base y se va sustituyendo dentro de la ecuación el propio término, de manera que cuando vamos sustituyendo y resolviendo la ecuación hasta llegar a un caso en que podamos aplicar el caso base. En ese punto podremos sustituir nuestro caso base en la ecuación y quitarnos completamente la recurrencia, t().
+Se parte de un caso base y se va sustituyendo dentro de la ecuación el propio término, de manera que cuando vamos sustituyendo y resolviendo la ecuación hasta llegar a un caso en que podamos aplicar el caso base. En ese punto podremos sustituir nuestro caso base en la ecuación y quitarnos completamente la recurrencia, T().
 
-Lo que buscamos es que al desdoblar los términos constantemente encontremos una regularidad. En ese momento hacemos que una variable valga un valor que podamos utilizar para usar el caso base, normalmente t(1).
+Lo que buscamos es que al desdoblar los términos constantemente encontremos una regularidad. En ese momento hacemos que una variable valga un valor que podamos utilizar para usar el caso base, normalmente T(1).
 
 Ejem. Factorial
 \begin{itemize}
-  \item $t(1) = 1 \textit{ y } t(n) = t(n-1)+1$
-  \item $t(n) = t(n-2)+1+1=t(n-2)+2=t(n-3)+1+2=t(n-3)+3=t(n-k)+k$
-  \item Sea $k=n-1$ $t(n)=t(n-(n-1))+n-1=t(1)+n-1=n$
+  \item $T(1) = 1 \textit{ y } T(n) = T(n-1)+1$
+  \item $T(n) = T(n-2)+1+1=T(n-2)+2=T(n-3)+1+2=T(n-3)+3=T(n-k)+k$
+  \item Sea $k=n-1$ $T(n)=T(n-(n-1))+n-1=T(1)+n-1=n$
 \end{itemize}
 
 \subsection{Resolución General de la Ecuación de Recurrencia}
-$c_nt(n)+c_{n-1}t(n-1)+...+c_{n-k}t(n-k)=b$, expresión en n.
+$c_nT(n)+c_{n-1}T(n-1)+...+c_{n-k}T(n-k)=b$, expresión en n.
 
 Si $b=0$, se dice que es Ecuación de Recurrencia Lineal (de orden k) HOMOGÉNEA
 
 Los términos de las ecuaciones de recurrencia están afectados por coeficientes. Debemos encontrar una expresión no recursiva de $t$.
 
-No nos ocuparemos de ecuaciones en las que el coeficiente de $t(n-k)$, i.e. $c_{n-k}$ es variable (depende de n), trataremos solo con: ECUACIONES DE RECURRENCIA LINEALES CON COEFICIENTES CONSTANTES.
+No nos ocuparemos de ecuaciones en las que el coeficiente de $T(n-k)$, i.e. $c_{n-k}$ es variable (depende de n), trataremos solo con: ECUACIONES DE RECURRENCIA LINEALES CON COEFICIENTES CONSTANTES.
 
 \subsubsection{Ecuación de Recurrencia Lineal Homogenea}
 Método de la Ecuación Característica.
@@ -242,18 +242,17 @@ Lo que hacemos tras la sustitución es obtener las raíces, que pueden ser disti
   $r$  raíz doble, $T(n)=b_1nr^n+b_2r^n$ es solución.
 \end{itemize}
 
-Se cambia el $t(n)$, $t(n-1)$, \ldots por variables $x$ que dependan del $n$.
+Se cambia el $T(n)$, $T(n-1)$, \ldots por variables $x$ que dependan del $n$.
 
 El grado de la variable siempre es un grado menos que el número de términos recurrentes y cada uno de valor menor reduce el grado.
 
-Ejem. $T(n)=T(n-1)+T(n-1) \rightarrow x^2= x + 1$
+Ejem. $T(n)=T(n-1)+T(n-2) \rightarrow x^2= x + 1$
 \begin{itemize}
-  \item Sus raíces son $r = \frac{1\pm \sqrt{5}}{2}$, estos términos se sustituirían en las ecuaciones de arriba quedando:
-  \item Sabiendo $T(0) = 0$ y $T(1)=1$
+  \item Sus raíces son $r = \frac{1\pm \sqrt{5}}{2}$, estos términos se sustituirían en las ecuaciones de arriba quedando: $T\left(n\right)= b_1\left(\frac{1+ \sqrt{5}}{2}\right)^n + b_2\left(\frac{1- \sqrt{5}}{2}\right)^n$
+  \item Sabiendo $T\left(0\right) = 0$ y $T\left(1\right)=1$
   \begin{itemize}
-    \item $T(n)= b_1(\frac{1+ \sqrt{5}}{2})^n + b_2(\frac{1- \sqrt{5}}{2})^n$
-    \item $T(0)= b_1(\frac{1+ \sqrt{5}}{2})^0 + b_2(\frac{1- \sqrt{5}}{2})^0 = b_1 + b_2$
-    \item $T(1)= b_1(\frac{1+ \sqrt{5}}{2})^1 + b_2(\frac{1- \sqrt{5}}{2})^1 = 1$
+    \item $T\left(0\right)= b_1\left(\frac{1+ \sqrt{5}}{2}\right)^0 + b_2\left(\frac{1- \sqrt{5}}{2}\right)^0 = b_1 + b_2 = 0$
+    \item $T\left(1\right)= b_1\left(\frac{1+ \sqrt{5}}{2}\right)^1 + b_2\left(\frac{1- \sqrt{5}}{2}\right)^1 = 1$
   \end{itemize}
   \item Despejamos con ambas ecuaciones: $b_1 = -b_2 = \frac{1}{5}$.
 \end{itemize}
@@ -261,17 +260,17 @@ Ejem. $T(n)=T(n-1)+T(n-1) \rightarrow x^2= x + 1$
 \subsubsection{Recurrencias utiles}
 Master Theorem:
 
-$T(n) = a \cdot T(\frac{n}{b}) + c \cdot n^k$; $a \geq 1,\; b > 1,\; k \geq 0$
+$T\left(n\right) = a \cdot T\left(\frac{n}{b}\right) + c \cdot n^k$; $a \geq 1,\; b > 1,\; k \geq 0$
 
-$T(1)=c$
+$T\left(1\right)=c$
 
 Solución
 
-$a = b^k \Rightarrow T(n) = O(n^{\log_b a} \cdot \log n)$
+$a = b^k \Rightarrow T\left(n\right) = O\left(n^{k} \cdot \log n\right)$
 
-$b^k < a \Rightarrow T(n) = O(n^{\log_b a})$
+$b^k < a \Rightarrow T\left(n\right) = O\left(n^{\log_b a}\right)$
 
-$b^k > a \Rightarrow T(n) = O(n^{k})$
+$b^k > a \Rightarrow T\left(n\right) = O\left(n^{k}\right)$
 
 \subsection{Fractales}
 Fractal, división de figuras geométricas.
@@ -282,35 +281,35 @@ Se trata de obtener la figura geométrica resultante de dividir la anterior en 4
 
 Ecuaciones temporales, expresadas en función de la resolución.
 \begin{itemize}
-  \item Ejem. Triángulo $T(0)=c$ y $T(n)=3\cdot T(n-1)+d$
-  \item Sol. $T(n)= c3^n+ \frac{3^n-1}{2}d=O(3^n)$
+  \item Ejem. Triángulo $T\left(0\right)=c$ y $T\left(n\right)=3\cdot T\left(n-1\right)+d$
+  \item Sol. $T\left(n\right)= c3^n+ \frac{3^n-1}{2}d=O\left(3^n\right)$
 \end{itemize}
 
 \section{Cotas asintóticas}
-Peores instancias de tamaño de entrada n: $O(g(n))$ Cota superior.
-
-Mejores instancias de tamaño de entrada n: $\Omega(g(n))$ Cota inferior.
-
-Instancias medias: $\Theta(g(n))$ Cota ajustada.
-
 \begin{table}[H]
   \begin{tabular}{|c|c|}
   \hline
   \rowcolor[HTML]{BFBFBF} 
   Notación                            & Orden - nombre                               \\ \hline
-  $O(1)$                                & Constante                                    \\ \hline
-  $O(\log n)$                            & Logarítmico                                  \\ \hline
-  $O([\log n]^c)$                        & Polilogarítmico                              \\ \hline
-  $O(n)$         & Lineal                \\ \hline
-  $O(n \cdot \log n)$ & Lineal logarítmico    \\ \hline
+  $O\left(1\right)$                                & Constante                                    \\ \hline
+  $O\left(\log n\right)$                            & Logarítmico                                  \\ \hline
+  $O\left([\log n]^c\right)$                        & Polilogarítmico                              \\ \hline
+  $O\left(n\right)$         & Lineal                \\ \hline
+  $O\left(n \cdot \log n\right)$ & Lineal logarítmico    \\ \hline
   $O(n^2)$       & Cuadrático            \\ \hline
-  $O(n^c)$       & Polinómico            \\ \hline
-  $O(c^n)$       & Exponencial           \\ \hline
-  $O(n!)$        & Factorial             \\ \hline
-  $O(n^n)$       & Potencial-exponencial \\ \hline
+  $O\left(n^c\right)$       & Polinómico            \\ \hline
+  $O\left(c^n\right)$       & Exponencial           \\ \hline
+  $O\left(n!\right)$        & Factorial             \\ \hline
+  $O\left(n^n\right)$       & Potencial-exponencial \\ \hline
   \end{tabular}
   \caption{Nombres de los órdenes de complejidad}
 \end{table}
+
+Peores instancias de tamaño de entrada n: $O\left(g\left(n\right)\right)$ Cota superior.
+
+Mejores instancias de tamaño de entrada n: $\Omega\left(g\left(n\right)\right)$ Cota inferior.
+
+Instancias medias: $\Theta\left(g\left(n\right)\right)$ Cota ajustada.
 
 \subsection{Cota Superior Asintótica}
 Es una función, g(n), que sirve de cota superior de otra función, f(n), cuando $n\rightarrow \infty$. f(n) no puede pasar de g(n).
@@ -357,7 +356,7 @@ $$\Omega(g(n))=\left\{\begin{matrix}
   \forall n \geq n_0, f(n) \geq c \cdot g(n)
   \end{matrix}\right\}$$
 
-$$f(n)=\Omega(g(n)) \Leftrightarrow \lim_{n \rightarrow \infty} \frac{f(n)}{g(n)}= k > 0 (\textit{puede ser }\infty)$$
+$$f(n)=\Omega(g(n)) \Leftrightarrow \lim_{n \rightarrow \infty} \frac{f(n)}{g(n)}= k > 0 \;(\textit{puede ser }\infty)$$
 
 \subsection{Cota Ajustada Asintótica}
 $$\Theta(g(n))=\left\{\begin{matrix}
@@ -369,12 +368,12 @@ $$f(n)=\Theta(g(n)) \Leftrightarrow \lim_{n \rightarrow \infty} \frac{f(n)}{g(n)
 
 $$f = \Theta(g) \Leftrightarrow f = O(g) \wedge f = \Omega(g) $$
 
-\section{Trazabilidad}\label{sec:tratabilidad}
+\section{Tratabilidad}\label{sec:tratabilidad}
 \textbf{Decidible:} que se puede resolver.
 
 \textbf{Tratable:} Son aquellos problemas decidibles para los que se ha encontrado un algoritmo eficiente que lo resuelva.
 
-Si el problema es decidible, entonces nos preocuparemos de su trazabilidad.
+Si el problema es decidible, entonces nos preocuparemos de su tratabilidad.
 
 Problemas tratables: $T(n) \leq \textit{Polinomio en } n^3$
 
@@ -386,5 +385,3 @@ Problemas Intratables:
 \end{itemize} 
 
 Existen problemas que son intratables en el peor caso, pero que se usan frecuentemente en otros entornos.
-
-\section{Análisis Asintótico}\label{sec:análisis-asintótico}

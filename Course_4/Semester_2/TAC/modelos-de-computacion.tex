@@ -14,7 +14,7 @@ Algunos modelos de computación:
 
 \textbf{Turing Completo:} Un modelo es Turing-completo si puede computar (resolver) las mismas funciones (problemas) que una Máquina de Turing.
 \begin{itemize}
-    \item AFD y AP NO son Turing Completos.
+    \item AF y AP NO son Turing Completos.
     \item RAM, $\lambda$-calculus y Automatas Celulares son Turing Completos.
 \end{itemize}
 
@@ -22,7 +22,7 @@ Un problema No-Turing-Decidible aunque se cambie el modelo de computación no lo
 
 La MT es el modelo de modelos. La MT es muy potente en capacidad de resolver problemas, pero muy ineficiente en cómputo, por lo que utilizar otras puede resultar más eficiente, pero no son más capaces.
 
-\section{Automatas Finitos (AFD)}
+\section{Automatas Finitos (AF)}
 Se definen mediante: ($\Sigma$, Q, f, $q_0$, F)
 \begin{itemize}
     \item $\Sigma$: alfabeto de entrada.
@@ -36,7 +36,7 @@ Pueden ser Deterministas (AFD) y No Deterministas (AFN). Se puede pasar un AFN a
 
 Es No Determinista si:
 \begin{itemize}
-    \item Para un mismo signo en un estado haya más de una transición.
+    \item Para un mismo signo en un estado hay más de una transición.
     \item Transitar con $\lambda$.
     \item ?No hay estado final?
 \end{itemize}
@@ -102,7 +102,7 @@ Se diferencia de la RAM, en que el programa está almacenado en los propios regi
 \section{Automatas Celulares}
 Sucesión de sitios que contienen un valor numérico, que está determinado a seguir unas reglas que hacen evolucionar estos valores a lo largo del tiempo.
 
-Es un modelo de un ''mundo'' con una física muy sencilla. El mundo está dividió en celdas (entramado de celdas).
+Es un modelo de un ''mundo'' con una física muy sencilla. El mundo está dividido en celdas (entramado de celdas).
 
 El Automata Celular está gobernado por reglas que rigen la evolución del sistema en el tiempo.
 \begin{itemize}
@@ -191,7 +191,7 @@ Aplicación: Simulación de procesos biológicos (plantas, hojas, etc.), Turtle 
 \begin{itemize}
     \item \textbf{Sensibles al contexto (1L):} La parte derecha de la producción sea igual o más larga que la izquierda, y esta puede tener más de un símbolo. $xay::=xvy$
     \item \textbf{Independientes del contexto (0L):} $V \rightarrow w$. Donde V es un símbolo no terminal y w es una cadena de terminales y/o no terminales
-    \item \textbf{Deterministas (DL):} solo existe una regla posible que ser posible que ser aplicada.
+    \item \textbf{Deterministas (DL):} solo existe una regla posible que ser aplicada.
     \item \textbf{Propagativos (PL):} la parte derecha no puede ser más corta que la izquierda.
     \item \textbf{Con Tablas (TL):} en cada paso de la derivación se aplican distintos conjuntos de reglas.
     \item \textbf{Con Extensiones (EL):} solo pertenecen al lenguaje las palabras formadas por un subconjunto del alfabeto.
@@ -326,13 +326,13 @@ $$a+b+c=2;\; 9a+3b+c=9;\; 25a+5b+c=20 \Rightarrow a=\frac{1}{2},\; b=\frac{3}{2}
 $$T(n)=\frac{1}{2}n^2+\frac{3}{2}n$$
 
 \subsubsection{Coste computacional empírico: Recursivamente}
-Se plantean las observaciones y observan los patrones de los datos.
+Se plantean las observaciones y analizan los patrones de los datos.
 
 \begin{itemize}
     \item $n=1 \Rightarrow 2$ pasos
     \item $n=3 \Rightarrow 4$ pasos a derecha $+ 3$ a izquierda $+ T(1)$
-    \item $n=5 \Rightarrow 6$ pasos a derecha $+ 6$ a izquierda $+ T(3)$
-    \item $n \Rightarrow n+1$ pasos a derecha $+ n+1$ a izquierda $+ T(n-2) = \Sigma i \Rightarrow T(n)=\frac{(n+1)(n+2)}{2}-1=\frac{1}{2}n^2+\frac{3}{2}n$ 
+    \item $n=5 \Rightarrow 6$ pasos a derecha $+ 5$ a izquierda $+ T(3)$
+    \item $n \Rightarrow n+1$ pasos a derecha $+ n$ a izquierda $+ T(n-2) = \Sigma i \Rightarrow T(n)=\frac{(n+1)(n+2)}{2}-1=\frac{1}{2}n^2+\frac{3}{2}n$ 
 \end{itemize}
 
 \subsection{Variantes del Modelo de Máquina de Turing}
@@ -356,7 +356,7 @@ La misma estructura que una MT convencional, pero:
 Implica cambios en el funcionamiento, las transiciones se definen:
 \begin{itemize}
     \item Cambio de estado
-    \item Para cabezales
+    \item Para cada cabezal:
     \begin{itemize}
         \item Una Lectura
         \item Una Escritura
