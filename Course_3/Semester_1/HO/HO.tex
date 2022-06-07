@@ -1487,7 +1487,7 @@ Buscamos en cada paso ir dando valor a las variables para que cumpla las cláusu
 
 Los valores no son únicos
 
-Si hay una variable que su valor no importa hay que indicar que puede ser $\top$ o $\bot$, ''Se le da cualquier valor''
+Si hay una variable que su valor no importa hay que indicar que puede ser $\top$ o $\bot$, \enquote{Se le da cualquier valor}
 
 
 \subsection{Davis-Putnam-Logemann-Loveland (DPLL)}
@@ -1772,8 +1772,8 @@ sustanciación global, que cumpla todas las restricciones.
 \end{enumerate}
 \subsection{Primero en Amplitud}
 
-``Nunca expande un nodo a profundidad d si no ha expandido todos los
-nodos a profundidad (d-1)''
+\enquote{Nunca expande un nodo a profundidad d si no ha expandido todos los
+nodos a profundidad (d-1)}
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
@@ -1888,8 +1888,8 @@ desafortunado.
 
 \subsection{Primero en Profundidad}
 
-``Se expande el primero de los nodos recién generados hasta que se
-encuentra una solución o se ha alcanzado un \(d_{max}\)''
+\enquote{Se expande el primero de los nodos recién generados hasta que se
+encuentra una solución o se ha alcanzado un \(d_{max}\)}
 
 
 Se usa una profundidad máxima para evitar caer en una rama infinita
@@ -2005,8 +2005,8 @@ esperamos encontrar la solución.
 
 \subsection{Profundidad Iterativa - Iterative Deepening}
 
-``Consiste en una serie de exploraciones en profundidad donde
-\(d_{max}\) se incrementa en k en cada iteración''
+\enquote{Consiste en una serie de exploraciones en profundidad donde
+\(d_{max}\) se incrementa en k en cada iteración}
 
 En cada iteración anterior a la solución ha expandido todos los
 nodos.
@@ -2207,8 +2207,8 @@ necesitamos emplear 1 heurística.
 
 \subsection{Hill-climbing (De escalada)}
 
-``Se escoge para su expansión el sucesor heurísticamente más
-prometedor descartando el resto de sucesores''
+\enquote{Se escoge para su expansión el sucesor heurísticamente más
+prometedor descartando el resto de sucesores}
 
 \begin{itemize}
 	\item Desestima nodos por tener menor coste heurístico.
@@ -2221,8 +2221,8 @@ prometedor descartando el resto de sucesores''
 
 \subsection{Algoritmo de búsqueda en Haz (Beam search)}
 
-``Se expanden simultáneamente los k sucesores más prometedores
-heurísticamente''
+\enquote{Se expanden simultáneamente los k sucesores más prometedores
+heurísticamente}
 
 k: ventana o amplitud del haz
 
@@ -2247,7 +2247,7 @@ Tiempo: Exponencial.
 Memoria: O(k) lineal, solo almacena los k más prometedores.
 \pagebreak
 
-\subsection{Algoritmo de ``El mejor primero'' (Raphael, Hart, Nilsson, 1968)}
+\subsection{Algoritmo de \enquote{El mejor primero} (Raphael, Hart, Nilsson, 1968)}
 
 
 \begin{enumerate}
@@ -2278,9 +2278,9 @@ Memoria: O(k) lineal, solo almacena los k más prometedores.
 
 \subsection{Iterative-deepening A* - IDA* (Korf, 1985)}
 
-``Consiste en una serie de recorridos del \textbf{primero en
+\enquote{Consiste en una serie de recorridos del \textbf{primero en
 	profundidad hasta que \(f(n) > \eta\) o hemos encontrado la solución},
-incrementando f(n) en cada iteración al menor exceso cometido''
+incrementando f(n) en cada iteración al menor exceso cometido}
 
 
 \end{document}
