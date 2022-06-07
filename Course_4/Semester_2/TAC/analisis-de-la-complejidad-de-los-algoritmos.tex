@@ -1,15 +1,15 @@
 \chapter{Análisis de la complejidad de los Algoritmos}\label{ch:análisis-de-la-complejidad-de-los-algoritmos}
 \adjustbox{width=\textwidth,center}{%
-  \begin{tikzcd}
-                                      &                                                             & \text{Complejidad Computacional} \arrow[d] &                                       \\
-                                      &                                                             & \text{tipos} \arrow[rd] \arrow[ld]         &                                       \\
-                                      & \text{Complejidad temporal} \arrow[d]                       &                                            & \text{Complejidad espacial} \arrow[d] \\
-                                      & T(n) \arrow[d]                                              &                                            & S(n)                                  \\
-                                      & \text{Número de pasos base} \arrow[ld] \arrow[d] \arrow[rd] &                                            &                                       \\
-    \text{Máquina de Turing} \arrow[d] & \text{Ensamblador} \arrow[d]                                & \text{Lenguaje alto nivel*} \arrow[d]      &                                       \\
-    \text{transición}                  & \text{instrucción}                                          & \text{operación elemental} \arrow[d]       &                                       \\
-                                      &                                                             & \text{OE}                                  &
-  \end{tikzcd}
+	\begin{tikzcd}
+		&                                                             & \text{Complejidad Computacional} \arrow[d] &                                       \\
+		&                                                             & \text{tipos} \arrow[rd] \arrow[ld]         &                                       \\
+		& \text{Complejidad temporal} \arrow[d]                       &                                            & \text{Complejidad espacial} \arrow[d] \\
+		& T(n) \arrow[d]                                              &                                            & S(n)                                  \\
+		& \text{Número de pasos base} \arrow[ld] \arrow[d] \arrow[rd] &                                            &                                       \\
+		\text{Máquina de Turing} \arrow[d] & \text{Ensamblador} \arrow[d]                                & \text{Lenguaje alto nivel*} \arrow[d]      &                                       \\
+		\text{transición}                  & \text{instrucción}                                          & \text{operación elemental} \arrow[d]       &                                       \\
+		&                                                             & \text{OE}                                  &
+	\end{tikzcd}
 }
 
 * Estructuras de los algoritmos siempre se pueden considerar como estructuras de tipo Secuencial, Iterativo y Condicional, esto determina la operación elemental.
@@ -17,13 +17,13 @@
 \section{Introducción}\label{sec:introduccion}
 \textbf{Complejidad Computacional:} Recursos requeridos durante la ejecución de un algoritmo que da respuesta a un problema. Hay 2 tipos:
 \begin{itemize}
-  \item Temporal: Número de pasos base de ejecución de un algoritmo para resolver un problema.
-  \item Espacial: Memoria utilizada para resolver un problema. Registros, Memoria caché y Memoria RAM, etc.
+	\item Temporal: Número de pasos base de ejecución de un algoritmo para resolver un problema.
+	\item Espacial: Memoria utilizada para resolver un problema. Registros, Memoria caché y Memoria RAM, etc.
 \end{itemize}
 
 \textbf{Problema:} Una función entre el espacio de instancias y el espacio de respuestas.
 \begin{itemize}
-  \item Ejem. La ecuación de grado 2 tiene raíces cuadradas? $P(x^2+1=0)=\text{No}$
+	\item Ejem. La ecuación de grado 2 tiene raíces cuadradas? $P(x^2+1=0)=\text{No}$
 \end{itemize}
 $$I \rightarrow P(I)$$
 
@@ -32,27 +32,27 @@ $$I \rightarrow P(I)$$
 
 \textbf{Instancia de un problema:} Es la especificación exacta de los datos de un problema para un caso particular.
 \begin{itemize}
-  \item \textbf{Tamaño de instancia:} Número de datos de la instancia.
-  \item Ejem. Independiente, $x^2$ y $x$ son los 3 parámetros de una instancia de un problema de ecuación de segundo grado.
+	\item \textbf{Tamaño de instancia:} Número de datos de la instancia.
+	\item Ejem. Independiente, $x^2$ y $x$ son los 3 parámetros de una instancia de un problema de ecuación de segundo grado.
 \end{itemize}
 
 \textbf{Algoritmo:} Conjunto de instrucciones que garantiza encontrar una solución correcta para cualquier instancia en un número finito de pasos.
 
 La complejidad puede hacer referencia a un algoritmo o un problema.
 \begin{itemize}
-  \item \textbf{Algoritmo:} Resolver las instancias de un problema. \\ Medida de número de pasos base requeridos para la PEOR instancia de tamaño n. \\ Relación entre n y el número de pasos.
-  \item \textbf{Problema:} Es el objeto de estudio de la Teoría de la Complejidad Computacional.
+	\item \textbf{Algoritmo:} Resolver las instancias de un problema. \\ Medida de número de pasos base requeridos para la PEOR instancia de tamaño n. \\ Relación entre n y el número de pasos.
+	\item \textbf{Problema:} Es el objeto de estudio de la Teoría de la Complejidad Computacional.
 \end{itemize}
 
 \section{Paso Base}\label{sec:paso-base}
 Se pueden modelar los algoritmos mediante:
 \begin{enumerate}
-    \item Construcción matemática denominada Máquina de Turing $\rightarrow$ Transición / Tabla de transiciones.
-  \item Código Ensamblador $\rightarrow$ Instrucción / Conjunto estructurado de instrucciones.
-  \item Lenguaje de alto nivel $\rightarrow$ Operación Elemental / Conjunto estructurado de instrucciones.
-    \begin{itemize}
-      \item Suma, Restar División, Multiplicación, etc.
-    \end{itemize}
+	\item Construcción matemática denominada Máquina de Turing $\rightarrow$ Transición / Tabla de transiciones.
+	\item Código Ensamblador $\rightarrow$ Instrucción / Conjunto estructurado de instrucciones.
+	\item Lenguaje de alto nivel $\rightarrow$ Operación Elemental / Conjunto estructurado de instrucciones.
+	      \begin{itemize}
+		      \item Suma, Restar División, Multiplicación, etc.
+	      \end{itemize}
 \end{enumerate}
 
 \section{Complejidad de los Algoritmos}\label{sec:complejidad-de-los-algoritmos}
@@ -60,55 +60,55 @@ Se expresa como: $T(n)$, número de pasos peor caso con entrada n.
 
 La complejidad computacional puede referirse también a los recursos de espacio necesarios según el tamaño de la entrada. Así tenemos que:
 \begin{itemize}
-  \item Tiempo de ejecución (complejidad temporal) $T(n)$
-  \item Espacio necesario para los datos (complejidad espacial) $S(n)$
+	\item Tiempo de ejecución (complejidad temporal) $T(n)$
+	\item Espacio necesario para los datos (complejidad espacial) $S(n)$
 \end{itemize}
 
 Todo algoritmo puede ser implementado con 3 estructuras: Secuencial, Condicional e Iterativa.
 
 \textbf{Operación Elemental (OE)}
 \begin{itemize}
-  \item Comparación
-  \item Asignación variable
-  \item Acceso a estructura básica
-  \item Llamada función
-  \item Retorno función
+	\item Comparación
+	\item Asignación variable
+	\item Acceso a estructura básica
+	\item Llamada función
+	\item Retorno función
 \end{itemize}
 
 \textbf{Estructura Secuencial:} Cada I es una instancia o bloque, se calcula:
 \begin{itemize}
-  \item El de todos: $T(I_1; I_2; \dots; I_n) = T(I_1) + T(I_2) + \dots + T(I_n)$
-  \item General: $T= \max \{T(I_1), T(I_2), \dots, T(I_n)\}$ El T es el más alto, el del peor caso/bloque.
-  \item Para los programas es la suma de todas las estructuras: $T = T_1 + T_2 + \dots + T_k = \max \{ T_1, T_2, \dots, T_k \}$
+	\item El de todos: $T(I_1; I_2; \dots; I_n) = T(I_1) + T(I_2) + \dots + T(I_n)$
+	\item General: $T= \max \{T(I_1), T(I_2), \dots, T(I_n)\}$ El T es el más alto, el del peor caso/bloque.
+	\item Para los programas es la suma de todas las estructuras: $T = T_1 + T_2 + \dots + T_k = \max \{ T_1, T_2, \dots, T_k \}$
 \end{itemize}
 
 \textbf{Estructura Condicional:}
 \begin{itemize}
-  \item if (Condición) then BloqueThen else BloqueElse
-  \item $T = T(Condicion) + \max \{T(BloqueThen), T(BloqueElse)\}$
+	\item if (Condición) then BloqueThen else BloqueElse
+	\item $T = T(Condicion) + \max \{T(BloqueThen), T(BloqueElse)\}$
 \end{itemize}
 
 \textbf{Estructura Iterativa:}
 \begin{itemize}
-  \item while(C) S - $T = C + n_{iter} (C+S)$
-  \item for(A C B) S - $T = A + C + n_{iter} (C+B+S)$
-  \begin{itemize}
-    \item A: Inicialización
-    \item C: Condición
-    \item B: Incremento
-    \item S: Bloque
-  \end{itemize}
+	\item while(C) S - $T = C + n_{iter} (C+S)$
+	\item for(A C B) S - $T = A + C + n_{iter} (C+B+S)$
+	      \begin{itemize}
+		      \item A: Inicialización
+		      \item C: Condición
+		      \item B: Incremento
+		      \item S: Bloque
+	      \end{itemize}
 \end{itemize}
 \pagebreak
 
 \textbf{Llamada a Procedimiento, Función o Método:}
 \begin{itemize}
-  \item $funcion(p_1, p_2, \dots, p_k) f$
-  \item 1 (por la llamada) + tiempo de evaluación parámetros + tiempo que tarde en ejecutarse el ''cuerpo'' de la función.
-  \item $T = 1 + T(p_1) + T(p_2) + \dots + T(p_n) + T(f)$
+	\item $funcion(p_1, p_2, \dots, p_k) f$
+	\item 1 (por la llamada) + tiempo de evaluación de los parámetros + tiempo que tarde en ejecutarse el \enquote{cuerpo} de la función.
+	\item $T = 1 + T(p_1) + T(p_2) + \dots + T(p_n) + T(f)$
 \end{itemize}
 
-No se contabiliza la copia de los argumentos a la pila de ejecución salvo estructuras complejas (vector, registros) que se pasen por valor.
+No se contabiliza la copia de los argumentos a la pila de ejecución, salvo estructuras complejas (vector, registros) que se pasen por valor.
 
 El paso por referencia y paso de punteros, no se contabiliza.
 
@@ -151,44 +151,44 @@ $5 \cdot 3^p < n; p \log 3 < \log \frac{n}{7}; p = \frac{\log \frac{n}{5}}{\log 
 
 \section{Algoritmos Recursivos}\label{sec:algoritmos-recursivos}
 \adjustbox{width=\textwidth,center}{%
-\begin{tikzcd}
-  & \text{Algoritmo recursivo } \text{(Tiene coste } T(n) \text{)} \arrow[d] &                           \\
-  & \text{Ecuaciones de recurrencia } E(n) \arrow[ld] \arrow[rd]     &                           \\
-\text{Ecuacion caracteristica (Polinomica } P(n)=0 \text{)} \arrow[d] &                                                                  & \text{Cambio de variable} \\
-{\text{Obtenemos } x_1, x_2, x_3, ..., x_n} \arrow[d]                 &                                                                  &                           \\
-\text{Obtenemos de } T(n) \text{ no recursiva}                        &                                                                  &                          
-\end{tikzcd}
+	\begin{tikzcd}
+		& \text{Algoritmo recursivo } \text{(Tiene coste } T(n) \text{)} \arrow[d] &                           \\
+		& \text{Ecuaciones de recurrencia } E(n) \arrow[ld] \arrow[rd]     &                           \\
+		\text{Ecuacion caracteristica (Polinomica } P(n)=0 \text{)} \arrow[d] &                                                                  & \text{Cambio de variable} \\
+		{\text{Obtenemos } x_1, x_2, x_3, ..., x_n} \arrow[d]                 &                                                                  &                           \\
+		\text{Obtenemos de } T(n) \text{ no recursiva}                        &                                                                  &
+	\end{tikzcd}
 }
 
 El coste ($T(n)$) de un algoritmo recursivo será también recursivo.
 
-$T(n)= E(n)$ En la expresión 
+$T(n)= E(n)$ En la expresión
 \begin{itemize}
-  \item $E$ aparece la propia función $T$.
-  \item El objetivo es encontrar $T(n)= f(n)$, sin funciones $T$.
+	\item $E$ aparece la propia función $T$.
+	\item El objetivo es encontrar $T(n)= f(n)$, sin funciones $T$.
 \end{itemize}
 
 Resolver la ecuación de recurrencia. Dos métodos:
 \begin{enumerate}
-  \item Despliegue de la recurrencia
-  \item Resolución general de recurrencias
-  \begin{enumerate}
-    \item Recurrencia homogénea (ecuación característica)
-    \item Recurrencia útiles (fórmulas maestras)
-    \item Recurrencias no homogéneas y no lineales (no se tratan en este curso)
-  \end{enumerate}
-  
+	\item Despliegue de la recurrencia
+	\item Resolución general de recurrencias
+	      \begin{enumerate}
+		      \item Recurrencia homogénea (ecuación característica)
+		      \item Recurrencia útiles (fórmulas maestras)
+		      \item Recurrencias no homogéneas y no lineales (no se tratan en este curso)
+	      \end{enumerate}
+
 \end{enumerate}
-  
+
 \subsection{Despliegue de Recurrencias}
 Aplicar varias veces la fórmula recurrente hasta obtener una fórmula general que relaciona la función para el tamaño original con otros tamaños menores. A partir de esta fórmula se obtiene otra que la relaciona con el caso base.
 
 Pasos:
 \begin{enumerate}
-  \item Ecuación ($T(n)=...$)
-  \item Despliegue, ($T(n-1), T(n-2), etc$)
-  \item Aplicaciones del caso base para $n=0, ..., k\;\; T(0)=a, T(1)=b, ...$
-  \item Resolución
+	\item Ecuación ($T(n)=...$)
+	\item Despliegue, ($T(n-1), T(n-2), etc$)
+	\item Aplicaciones del caso base para $n=0, ..., k\;\; T(0)=a, T(1)=b, ...$
+	\item Resolución
 \end{enumerate}
 
 No debe aplicarse este método si aparecen varios términos recurrentes, como es el caso de la serie de Fibonacci.
@@ -199,9 +199,9 @@ Lo que buscamos es que al desdoblar los términos constantemente encontremos una
 
 Ejem. Factorial
 \begin{itemize}
-  \item $T(1) = 1 \textit{ y } T(n) = T(n-1)+1$
-  \item $T(n) = T(n-2)+1+1=T(n-2)+2=T(n-3)+1+2=T(n-3)+3=T(n-k)+k$
-  \item Sea $k=n-1$ $T(n)=T(n-(n-1))+n-1=T(1)+n-1=n$
+	\item $T(1) = 1 \textit{ y } T(n) = T(n-1)+1$
+	\item $T(n) = T(n-2)+1+1=T(n-2)+2=T(n-3)+1+2=T(n-3)+3=T(n-k)+k$
+	\item Sea $k=n-1$ $T(n)=T(n-(n-1))+n-1=T(1)+n-1=n$
 \end{itemize}
 
 \subsection{Resolución General de la Ecuación de Recurrencia}
@@ -216,14 +216,14 @@ No nos ocuparemos de ecuaciones en las que el coeficiente de $T(n-k)$, i.e. $c_{
 \subsubsection{Ecuación de Recurrencia Lineal Homogenea}
 Método de la Ecuación Característica.
 \begin{itemize}
-  \item A una ecuación de recurrencia de orden k, mediante un cambio de variable, se le asocia una ecuación polinómica de grado k (la ecuación característica).
-  \item Las soluciones de la ecuación polinómica proporcionan las soluciones de la ecuación de recurrencia.
-  \item Solución general de la ecuación de recurrencia:
-  \begin{itemize}
-    \item Es combinación lineal de las soluciones básicas.
-    \item Las constantes de la combinación lineal se calculan imponiendo los casos base.
-    \item Con ello obtenemos la solución (no recursiva) de la recurrencia $T(n)$
-  \end{itemize}
+	\item A una ecuación de recurrencia de orden k, mediante un cambio de variable, se le asocia una ecuación polinómica de grado k (la ecuación característica).
+	\item Las soluciones de la ecuación polinómica proporcionan las soluciones de la ecuación de recurrencia.
+	\item Solución general de la ecuación de recurrencia:
+	      \begin{itemize}
+		      \item Es combinación lineal de las soluciones básicas.
+		      \item Las constantes de la combinación lineal se calculan imponiendo los casos base.
+		      \item Con ello obtenemos la solución (no recursiva) de la recurrencia $T(n)$
+	      \end{itemize}
 
 \end{itemize}
 
@@ -233,13 +233,13 @@ A una ecuación de recurrencia de orden k, mediante un cambio de variable, se le
 
 Lo que hacemos tras la sustitución es obtener las raíces, que pueden ser distintas $x=2$ y $x=3$ o iguales $x=1$, $(x-1) \cdot (x-1)$.
 \begin{itemize}
-  \item Para las raíces distintas se aplica:
-  $$T(n) = \sum _1 ^k b_i r_i^n, \; b_i, r_i \in \mathbb{R}$$
-  $r_1$ y $r_2$ son raíces diferentes, $T(n)=b_1r_1^n+b_2r_2^n$ es solución.
-  \item Una raíz con multiplicidad mayor que 1:
-  $$T(n) = \sum _{i=1} ^m b_i n^{i-1}r_1^n+\sum _{i=m+1} ^k b_i r_{i-m+1}^n, \; b_i, r_i \in \mathbb{R}$$
-  $r_1$ son las raíces de la ecuación característica y $m$ la multiplicidad cuando es mayor que 1.\\
-  $r$  raíz doble, $T(n)=b_1nr^n+b_2r^n$ es solución.
+	\item Para las raíces distintas se aplica:
+	      $$T(n) = \sum _1 ^k b_i r_i^n, \; b_i, r_i \in \mathbb{R}$$
+	      $r_1$ y $r_2$ son raíces diferentes, $T(n)=b_1r_1^n+b_2r_2^n$ es solución.
+	\item Una raíz con multiplicidad mayor que 1:
+	      $$T(n) = \sum _{i=1} ^m b_i n^{i-1}r_1^n+\sum _{i=m+1} ^k b_i r_{i-m+1}^n, \; b_i, r_i \in \mathbb{R}$$
+	      $r_1$ son las raíces de la ecuación característica y $m$ la multiplicidad cuando es mayor que 1.\\
+	      $r$  raíz doble, $T(n)=b_1nr^n+b_2r^n$ es solución.
 \end{itemize}
 
 Se cambia el $T(n)$, $T(n-1)$, \ldots por variables $x$ que dependan del $n$.
@@ -248,16 +248,16 @@ El grado de la variable siempre es un grado menos que el número de términos re
 
 Ejem. $T(n)=T(n-1)+T(n-2) \rightarrow x^2= x + 1$
 \begin{itemize}
-  \item Sus raíces son $r = \frac{1\pm \sqrt{5}}{2}$, estos términos se sustituirían en las ecuaciones de arriba quedando: $T\left(n\right)= b_1\left(\frac{1+ \sqrt{5}}{2}\right)^n + b_2\left(\frac{1- \sqrt{5}}{2}\right)^n$
-  \item Sabiendo $T\left(0\right) = 0$ y $T\left(1\right)=1$
-  \begin{itemize}
-    \item $T\left(0\right)= b_1\left(\frac{1+ \sqrt{5}}{2}\right)^0 + b_2\left(\frac{1- \sqrt{5}}{2}\right)^0 = b_1 + b_2 = 0$
-    \item $T\left(1\right)= b_1\left(\frac{1+ \sqrt{5}}{2}\right)^1 + b_2\left(\frac{1- \sqrt{5}}{2}\right)^1 = 1$
-  \end{itemize}
-  \item Despejamos con ambas ecuaciones: $b_1 = -b_2 = \frac{1}{5}$.
+	\item Sus raíces son $r = \frac{1\pm \sqrt{5}}{2}$, estos términos se sustituirían en las ecuaciones de arriba quedando: $T\left(n\right)= b_1\left(\frac{1+ \sqrt{5}}{2}\right)^n + b_2\left(\frac{1- \sqrt{5}}{2}\right)^n$
+	\item Sabiendo $T\left(0\right) = 0$ y $T\left(1\right)=1$
+	      \begin{itemize}
+		      \item $T\left(0\right)= b_1\left(\frac{1+ \sqrt{5}}{2}\right)^0 + b_2\left(\frac{1- \sqrt{5}}{2}\right)^0 = b_1 + b_2 = 0$
+		      \item $T\left(1\right)= b_1\left(\frac{1+ \sqrt{5}}{2}\right)^1 + b_2\left(\frac{1- \sqrt{5}}{2}\right)^1 = 1$
+	      \end{itemize}
+	\item Despejamos con ambas ecuaciones: $b_1 = -b_2 = \frac{1}{5}$.
 \end{itemize}
 
-\subsubsection{Recurrencias utiles}
+\subsubsection{Recurrencias útiles}
 Master Theorem:
 
 $T\left(n\right) = a \cdot T\left(\frac{n}{b}\right) + c \cdot n^k$; $a \geq 1,\; b > 1,\; k \geq 0$
@@ -281,28 +281,28 @@ Se trata de obtener la figura geométrica resultante de dividir la anterior en 4
 
 Ecuaciones temporales, expresadas en función de la resolución.
 \begin{itemize}
-  \item Ejem. Triángulo $T\left(0\right)=c$ y $T\left(n\right)=3\cdot T\left(n-1\right)+d$
-  \item Sol. $T\left(n\right)= c3^n+ \frac{3^n-1}{2}d=O\left(3^n\right)$
+	\item Ejem. Triángulo $T\left(0\right)=c$ y $T\left(n\right)=3\cdot T\left(n-1\right)+d$
+	\item Sol. $T\left(n\right)= c3^n+ \frac{3^n-1}{2}d=O\left(3^n\right)$
 \end{itemize}
 
 \section{Cotas asintóticas}
 \begin{table}[H]
-  \begin{tabular}{|c|c|}
-  \hline
-  \rowcolor[HTML]{BFBFBF} 
-  Notación                            & Orden - nombre                               \\ \hline
-  $O\left(1\right)$                                & Constante                                    \\ \hline
-  $O\left(\log n\right)$                            & Logarítmico                                  \\ \hline
-  $O\left([\log n]^c\right)$                        & Polilogarítmico                              \\ \hline
-  $O\left(n\right)$         & Lineal                \\ \hline
-  $O\left(n \cdot \log n\right)$ & Lineal logarítmico    \\ \hline
-  $O(n^2)$       & Cuadrático            \\ \hline
-  $O\left(n^c\right)$       & Polinómico            \\ \hline
-  $O\left(c^n\right)$       & Exponencial           \\ \hline
-  $O\left(n!\right)$        & Factorial             \\ \hline
-  $O\left(n^n\right)$       & Potencial-exponencial \\ \hline
-  \end{tabular}
-  \caption{Nombres de los órdenes de complejidad}
+	\begin{tabular}{|c|c|}
+		\hline
+		\rowcolor[HTML]{BFBFBF}
+		Notación                       & Orden - nombre        \\ \hline
+		$O\left(1\right)$              & Constante             \\ \hline
+		$O\left(\log n\right)$         & Logarítmico           \\ \hline
+		$O\left([\log n]^c\right)$     & Polilogarítmico       \\ \hline
+		$O\left(n\right)$              & Lineal                \\ \hline
+		$O\left(n \cdot \log n\right)$ & Lineal logarítmico    \\ \hline
+		$O(n^2)$                       & Cuadrático            \\ \hline
+		$O\left(n^c\right)$            & Polinómico            \\ \hline
+		$O\left(c^n\right)$            & Exponencial           \\ \hline
+		$O\left(n!\right)$             & Factorial             \\ \hline
+		$O\left(n^n\right)$            & Potencial-exponencial \\ \hline
+	\end{tabular}
+	\caption{Nombres de los órdenes de complejidad}
 \end{table}
 
 Peores instancias de tamaño de entrada n: $O\left(g\left(n\right)\right)$ Cota superior.
@@ -316,15 +316,15 @@ Es una función, g(n), que sirve de cota superior de otra función, f(n), cuando
 
 Se utilizan la notación de Landau Big O $O(g(n))$ para referirse al Conjunto de las funciones $f(n)$ acotadas superiormente por la función $g(n)$.
 \begin{itemize}
-  \item $f(n)$ $\in$ $O(g(n))$
-  \item $f(n)$ es $O(g(n))$
-  \item $f(n)$ es $o$ de $g(n)$
+	\item $f(n)$ $\in$ $O(g(n))$
+	\item $f(n)$ es $O(g(n))$
+	\item $f(n)$ es $o$ de $g(n)$
 \end{itemize}
 
 $$O(g(n))=\left\{\begin{matrix}
-  f(n)\;/\;\exists c, n_0 \textit{ constantes positivas tales que}  \\
-  \forall n \geq n_0, f(n) \leq c \cdot g(n)
-  \end{matrix}\right\}$$
+		f(n)\;/\;\exists c, n_0 \textit{ constantes positivas tales que} \\
+		\forall n \geq n_0, f(n) \leq c \cdot g(n)
+	\end{matrix}\right\}$$
 
 $$f(n)=O(g(n)) \Leftrightarrow \lim_{n \rightarrow \infty} \frac{f(n)}{g(n)}= k \in \mathbb{R}, k \geq 0$$
 
@@ -334,11 +334,11 @@ Hay que fijarse a partir del último corte que no ocurra que $f(n) > g(n)$. Pued
 
 Algunas propiedades:
 \begin{itemize}
-  \item $O(a \cdot f(n))= O(f(n))$ con $a \in \mathbb{R}$
-  \item $O(\log_a n) = O(\log_b n)$ con $a,b > 1$. $\log_b n = \frac{\log_a n}{\log_a b}$
-  \item Si $f \in O(g)$ y $g \in O(h)$ entonces $f \in O(h)$
-  \item Regla de la suma: $O(f+g)=O(\max(f, g))$
-  \item Regla del producto: Si $g_1 \in O(f_1)$ y $g_2 \in O(f_2)$ entonces $g_1 \cdot g_2 \in O(f_1 \cdot f_2)$
+	\item $O(a \cdot f(n))= O(f(n))$ con $a \in \mathbb{R}$
+	\item $O(\log_a n) = O(\log_b n)$ con $a,b > 1$. $\log_b n = \frac{\log_a n}{\log_a b}$
+	\item Si $f \in O(g)$ y $g \in O(h)$ entonces $f \in O(h)$
+	\item Regla de la suma: $O(f+g)=O(\max(f, g))$
+	\item Regla del producto: Si $g_1 \in O(f_1)$ y $g_2 \in O(f_2)$ entonces $g_1 \cdot g_2 \in O(f_1 \cdot f_2)$
 \end{itemize}
 
 \subsection{o (o pequeña / ómicron minúscula)}
@@ -352,17 +352,17 @@ Función que sirve de cota inferior de otra función cuando el argumento tiende 
 Se usa para calcular la complejidad del mejor caso para los algoritmos.
 
 $$\Omega(g(n))=\left\{\begin{matrix}
-  f(n)\;/\;\exists c, n_0 \textit{ constantes positivas tales que}  \\
-  \forall n \geq n_0, f(n) \geq c \cdot g(n)
-  \end{matrix}\right\}$$
+		f(n)\;/\;\exists c, n_0 \textit{ constantes positivas tales que} \\
+		\forall n \geq n_0, f(n) \geq c \cdot g(n)
+	\end{matrix}\right\}$$
 
 $$f(n)=\Omega(g(n)) \Leftrightarrow \lim_{n \rightarrow \infty} \frac{f(n)}{g(n)}= k > 0 \;(\textit{puede ser }\infty)$$
 
 \subsection{Cota Ajustada Asintótica}
 $$\Theta(g(n))=\left\{\begin{matrix}
-  f(n)\;/\;\exists C_1 \;y\; C_2 >0, \exists n_0>0, \textit{ tal que } \forall n \geq n_0  \\
-  C_1 \cdot g(n) \leq f(n) \leq C_2 \cdot g(n)
-  \end{matrix}\right\}$$
+		f(n)\;/\;\exists C_1 \;y\; C_2 >0, \exists n_0>0, \textit{ tal que } \forall n \geq n_0 \\
+		C_1 \cdot g(n) \leq f(n) \leq C_2 \cdot g(n)
+	\end{matrix}\right\}$$
 
 $$f(n)=\Theta(g(n)) \Leftrightarrow \lim_{n \rightarrow \infty} \frac{f(n)}{g(n)}= k \in \mathbb{R}, k > 0$$
 
@@ -379,9 +379,9 @@ Problemas tratables: $T(n) \leq \textit{Polinomio en } n^3$
 
 Problemas Intratables:
 \begin{itemize}
-  \item $n^4, n^5, ...$
-  \item Exponencial: $2^{n^{O(1)}}$
-  \item Factorial: $n!$
-\end{itemize} 
+	\item $n^4, n^5, ...$
+	\item Exponencial: $2^{n^{O(1)}}$
+	\item Factorial: $n!$
+\end{itemize}
 
 Existen problemas que son intratables en el peor caso, pero que se usan frecuentemente en otros entornos.
