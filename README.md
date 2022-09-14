@@ -1,5 +1,7 @@
 # Notes ![GitHub top language](https://img.shields.io/github/languages/top/xVenve/xvenve-notes) ![GitHub repo size](https://img.shields.io/github/repo-size/xVenve/xvenve-notes)
 
+![Alt](https://repobeats.axiom.co/api/embed/38d8fee2ce18ab78bba3d19caf35cfd40dd3a7fe.svg "Repobeats analytics image")
+
 ## First course
 
 ### First semester
