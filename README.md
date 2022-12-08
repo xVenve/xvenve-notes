@@ -25,7 +25,7 @@
 
 ### First semester
 
-* [Applied Differential Calculus](https://drive.google.com/open?id=1yEiZDJqzhpGEsUR0f2PolrV3hYaYPOhQ)
+* [Applied Differential Calculus](https://drive.google.com/open?id=1RlNuQFWI4yk6dsE6VkQFRqXegUlC3cfV)
 * [Automata and Formal Language Theory](https://drive.google.com/open?id=1KYea11qf7MYggpRvnY3I-wYBOug5cq9b)
 * [Computer Structure](https://drive.google.com/open?id=1mAQU_lhNbVO7m6QsqlxitXxnWvy_48Dc)
 * [Introduction to Business Management](https://drive.google.com/open?id=1eHyeq7ysfzMJI3tzZa2ZOQO4V8_26R-B)
