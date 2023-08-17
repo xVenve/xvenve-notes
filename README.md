@@ -6,69 +6,69 @@
 
 ### First semester
 
-* [Calculus](https://drive.google.com/open?id=1TQKFL2ATf0EJ06FmWNSa5IZdWFZl9ozp)
-* [Information Skills](https://drive.google.com/open?id=1I51-WAALzgssUFq-iTlHtIyJOwCcWS2_)
-* [Linear Algebra](https://drive.google.com/open?id=1LkjzqheO80HzOPtw6D9tGk0Qj2nIFtj9)
-* [Physics](https://drive.google.com/open?id=13j_iSdgINqRevhWc-dGdcdrY9vZSQC8I)
-* [Programming](https://drive.google.com/open?id=1D1COQhArmPs-S7fRMP7hoNgNKFGUyu4X)
-* [Writing and Communication Skills](https://drive.google.com/open?id=1spUgqwDLk3Qv5iU_6Qy9luAr5knnIjN2)
+* [Calculus](https://drive.google.com/file/d/1nB6TBoOvMWk8uDrKIElC46XT-sGmZYAz)
+* [Information Skills](https://drive.google.com/file/d/1EILDVKs17Mhov0s2_eV2dqFbAQCo5OHp)
+* [Linear Algebra](https://drive.google.com/file/d/17Jk7y_TDr0IR6RKstjNOwEHah7iLABM_)
+* [Physics](https://drive.google.com/file/d/1nj1UjsKgJsCK6uYWZJ6WLxg4yuYqwe_7)
+* [Programming](https://drive.google.com/file/d/1n3V9AxcNanlLSmE6QVr3ZjMkWSpYAlCn)
+* [Writing and Communication Skills](https://drive.google.com/file/d/17M-YmpOwHCV8Fv9LKt0y0ENXsKgtOSgS)
 
 ### Second semester
 
-* [Algorithms and Data Structures](https://drive.google.com/open?id=1RPOO49HhOmGtSlWOi5idMgkrHh-YcbbD)
-* [Computer Technology](https://drive.google.com/open?id=1sbEPzvDjBJQMh5648WEQXTo9vwKmbHYm)
-* [Discrete Mathematics](https://drive.google.com/open?id=1s0ZsXRj35yJr9GuwLUthzEJZzUwkU9wz)
-* [Logic](https://drive.google.com/open?id=1rII-OBUpSD30DarAyaJA5dv2aspADAlv)
-* [Principles of Computer Engineering](https://drive.google.com/open?id=1LH8rix6VRvBquPQMyTwLco06qRH0GIyp)
+* [Algorithms and Data Structures](https://drive.google.com/file/d/1nVXZpv460Efp8-Sc8P2ugIzR2atAVJ1z)
+* [Computer Technology](https://drive.google.com/file/d/1EDyEUDFZqdo05iCIOBshHRrc9Z8EXX4s)
+* [Discrete Mathematics](https://drive.google.com/file/d/1EEAvQMH-mX_3EUD3NYMpPjZgEOeRECir)
+* [Logic](https://drive.google.com/file/d/1nO0XlX_3XFHiZPaOvGJFBTqgkiHBVtXf)
+* [Principles of Computer Engineering](https://drive.google.com/file/d/17e5JF5tf_RRrKV3u__1puQsfmdspWu-j)
 
 ## Second course
 
 ### First semester
 
-* [Applied Differential Calculus](https://drive.google.com/open?id=1RlNuQFWI4yk6dsE6VkQFRqXegUlC3cfV)
-* [Automata and Formal Language Theory](https://drive.google.com/open?id=1KYea11qf7MYggpRvnY3I-wYBOug5cq9b)
-* [Computer Structure](https://drive.google.com/open?id=1mAQU_lhNbVO7m6QsqlxitXxnWvy_48Dc)
-* [Introduction to Business Management](https://drive.google.com/open?id=1eHyeq7ysfzMJI3tzZa2ZOQO4V8_26R-B)
-* [Statistics](https://drive.google.com/open?id=1yLsNkVYTf-7-Jb53MuKddauTBFirnecv)
+* [Applied Differential Calculus](https://drive.google.com/file/d/17n7cpi2xSW6sfci85AqRdN-V1JTWeVZN)
+* [Automata and Formal Language Theory](https://drive.google.com/file/d/1nP6BxkxnHLFx1TG0Gwaay7bDo667YJnJ)
+* [Computer Structure](https://drive.google.com/file/d/1n7y9kKQlyvB_xFAfrHrcBP6DxyZzZwov)
+* [Introduction to Business Management](https://drive.google.com/file/d/1EHUpGQOvoWmZQD5qquF6a9yIkdGj0Oia)
+* [Statistics](https://drive.google.com/file/d/17H54NREyqec89F3qGxByMb9B8wMdkrcH)
 
 ### Second semester
 
-* [Artificial Intelligence](https://drive.google.com/open?id=18NV-IicQL8qcUdA1bp9LTBLK_5_4ZjUz)
-* [Cryptography and Computer Security](https://drive.google.com/open?id=1V38aXnJk_CEuRToEvne4Axu3GlfZmmEM)
-* [Files and Databases](https://drive.google.com/open?id=1ZQV3z_a-cxr4ZxhuoFO2BNqEfgmisVZi)
-* [Operating Systems](https://drive.google.com/open?id=1hZt3DlhU8gPQ69jz9cdN6YHxB9Wea6o8)
-* [Principles of Software Development](https://drive.google.com/open?id=13g6yBNDkaJTY_p6RfWGHEZi2dNmhNqgg)
+* [Artificial Intelligence](https://drive.google.com/file/d/1n3kmRJX5pYseSUnOEWr7X7tPPv1FBmVU)
+* [Cryptography and Computer Security](https://drive.google.com/file/d/1nqzzcrHOiyIhtCxUtCKBBw15fzSqaBsy)
+* [Files and Databases](https://drive.google.com/file/d/17OAfN6S5vKmy6fPVXNIfEWilTQfyVl2p)
+* [Operating Systems](https://drive.google.com/file/d/1nNtvFmsUWfTdPBo5AIMQ6yYPKUOYZXAb)
+* [Principles of Software Development](https://drive.google.com/file/d/17WO4W9xj9lPoxWdXYC0vhEYXU6qOgpEs)
 
 ## Third course
 
 ### First semester
 
-* [Computer Architecture](https://drive.google.com/open?id=1yEiZDJqzhpGEsUR0f2PolrV3hYaYPOhQ)
-* [Computer Networks](https://drive.google.com/open?id=1WyumzCKn78smXsLlP_W59teOSs4IsUUv)
-* [Heuristics and Optimization](https://drive.google.com/open?id=1WrgpRJmlNh2QCw7Y-iKGiVJ0lOGxz3GY)
-* [Software Engineering](https://drive.google.com/open?id=1-twSWTL8mQz514XIEhZ7Sa-cwy_BB3rE)
-* [User Interfaces](https://drive.google.com/open?id=1F4n4yI0TsI_PNJTLSfL30hdwbnxqOg5_)
+* [Computer Architecture](https://drive.google.com/file/d/1nSOykMqdjpoU7jqFyPNFPjBd5HwUAioQ)
+* [Computer Networks](https://drive.google.com/file/d/1n7VGSVQP0zQF9aTUs0t1gD19p4QmzYgZ)
+* [Heuristics and Optimization](https://drive.google.com/file/d/17LLfa6IIn8CdAo_o7-ya7m8QmsyezXMt)
+* [Software Engineering](https://drive.google.com/file/d/1EVKdmK4w_RCosMeZMx7HeHiNhVB7MqLj)
+* [User Interfaces](https://drive.google.com/file/d/17lCvylxxWmnQMOnfRG8Wu4vk5dCVLKLw)
 
 ### Second semester
 
-* [Compilers](https://drive.google.com/open?id=1lDcaELxqpAbj-0HN_VRMR_ms-rdFPazf)
-* [Design of Interactive Systems](https://drive.google.com/open?id=1k7B4S_Dka2UMwMuVsKRoVONfBRL_aPHF)
-* [Machine Learning](https://drive.google.com/file/d/1vWaFu8clxDaJEyYwbN5Gyz_urlBAfZek)
-* [Operating Systems Design](https://drive.google.com/open?id=1UQKRY6aBhSCIEq5xgZvI9r4SUT6L09NO)
-* [Software Development Projects Management](https://drive.google.com/open?id=1vkLZzg83SIzFWm_TpkVxiceRaSguKe61)
+* [Compilers](https://drive.google.com/file/d/1s8UgMCFGyGBS_3mOhHRzQ82TfTEaBRE7)
+* [Design of Interactive Systems](https://drive.google.com/file/d/1WKZ-Xfp89ashrmDOKHJiwRXzf1VcNNlp)
+* [Machine Learning](https://drive.google.com/file/d/11kw_aKFCo3UJs4tliTZcVePWXjcKjTrD)
+* [Operating Systems Design](https://drive.google.com/file/d/1Shct35vuPAn3ldXIwIPhezco0kKASHFb)
+* [Software Development Projects Management](https://drive.google.com/file/d/1j5UGLzEz6tsTyWt4RU1a_BnCscBPRG4-)
 
 ## Fourth course
 
 ### First semester
 
-* [Artificial intelligence in business](https://drive.google.com/file/d/14F2TsizefSL_1-e7ryq7e-sIr7dpvjP8/view?usp=sharing)
-* [Artificial neural networks](https://drive.google.com/file/d/1UsCozOskUDjA6ONo3eNOIsXYKx7GA6iu/view?usp=sharing)
-* [Genetic and evolutionary algorithms](https://drive.google.com/file/d/1Ss7q_LiH47Ns4DSieZLJnWXOhL0rMQnw/view?usp=sharing)
-* [Knowledge Engineering](https://drive.google.com/file/d/1dhzdNcaJcJF7hwimyJPiMdVt0F6mCw1i/view?usp=sharing)
+* [Artificial intelligence in business](https://drive.google.com/file/d/1nLLj2SYCCk1kQ4ciLhaDs6Bw6X5ZGKnH)
+* [Artificial neural networks](https://drive.google.com/file/d/1n2U7NEaPGJL4HHkOjSZs_TUkKZPxFTgr)
+* [Genetic and evolutionary algorithms](https://drive.google.com/file/d/1ncWR0OTnBDNNDlcxEY1RXiwkVjPPhJJV)
+* [Knowledge Engineering](https://drive.google.com/file/d/17WJauTquZSzDAGyKujMf2g7x7_Riiisu)
 
 ### Second semester
 
-* [Advanced theory of computation](https://drive.google.com/file/d/1KoQC6K303ojssfGUZUT_h1v5CqTKuXrj/view?usp=sharing)
-* [Computer Graphics](https://drive.google.com/file/d/1LHltbPTyrMFT7Dc4cWzp0E1Q71A68dpq/view?usp=sharing)
-* [Greek myths and the roots os European culture](https://drive.google.com/file/d/1KwGrwfVa1x6m6lzNAfxW8hjkc79rT5Ap/view?usp=sharing)
-* [Science and Fiction](https://drive.google.com/file/d/1L3QCMz6WprJs5V6eqI5FbPvLTmKwu9fJ/view?usp=sharing)
+* [Advanced theory of computation](https://drive.google.com/file/d/1KoQC6K303ojssfGUZUT_h1v5CqTKuXrj)
+* [Computer Graphics](https://drive.google.com/file/d/1LHltbPTyrMFT7Dc4cWzp0E1Q71A68dpq)
+* [Greek myths and the roots os European culture](https://drive.google.com/file/d/1KwGrwfVa1x6m6lzNAfxW8hjkc79rT5Ap)
+* [Science and Fiction](https://drive.google.com/file/d/1L3QCMz6WprJs5V6eqI5FbPvLTmKwu9fJ)
